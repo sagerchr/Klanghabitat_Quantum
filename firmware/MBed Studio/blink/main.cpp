@@ -15,7 +15,7 @@ DigitalOut led1(LED1);
 int main()
 {
     SystemReport sys_state( SLEEP_TIME * PRINT_AFTER_N_LOOPS /* Loop delay time in ms */);
-
+        //just added a comment
     int count = 0;
     while (true) {
         // Blink LED and wait 0.5 seconds
