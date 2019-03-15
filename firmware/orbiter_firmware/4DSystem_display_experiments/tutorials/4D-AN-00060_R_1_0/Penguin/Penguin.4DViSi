@@ -1,0 +1,73 @@
+﻿Version     0.0
+Platform    Gen4-uLCD-70DCT-CLB-L
+PlatRes     480x800
+Depends
+end
+Options
+    Visualizer
+    Speed                        9600
+    Checksum                     No
+    ResponseSize                 2
+    Multidrop                    No
+    Destination                  0
+    DestBank                     0
+    MainForm                     0
+    SndBuf                       0
+    ButtonDisable                No
+    SignedDigits                 No
+end
+Form
+    Name                         Form1
+    Alias                        Form1
+    Bgtype                       Color
+    Color                        BLACK
+    Image                        (None)
+    Source.Height                0
+    Source.Left                  0
+    Source.Top                   0
+    Source.Width                 0
+    OnActivate                   ''
+    OnCreate                     ''
+    OnRepeat                     ''
+    OnTouchMoving                ''
+    OnTouchPressed               ''
+    OnTouchReleased              ''
+end
+Image
+    Name                         Image1
+    Alias                        Image1
+    Height                       280
+    Image                        penguin3.png
+    Left                         48
+    Source.Height                320
+    Source.Left                  0
+    Source.Top                   0
+    Source.Width                 240
+    Top                          108
+    Width                        221
+    OnTouchMoving                ''
+    OnTouchPressed               ''
+    OnTouchReleased              ''
+end
+UserImages
+    Name                         Userimages1
+    Alias                        Userimages1
+    Height                       128
+    Images                       eye_left_angry.png\neye_left_close.png\neye_left_open.png\neye_left_sad.png\neye_left_surprised.png
+    Left                         60
+    Stretch                      No
+    Top                          148
+    Width                        95
+    OnChanged                    ''
+end
+UserImages
+    Name                         Userimages2
+    Alias                        Userimages2
+    Height                       128
+    Images                       eye_left_angry.png\neye_left_close.png\neye_left_open.png\neye_left_sad.png\neye_left_surprised.png
+    Left                         168
+    Stretch                      No
+    Top                          152
+    Width                        95
+    OnChanged                    ''
+end

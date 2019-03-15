@@ -1,0 +1,240 @@
+#platform "Gen4-uLCD-70DCT-CLB"
+
+#inherit "4DGL_16bitColours.fnc"
+
+func main()
+
+    /*
+    gfx_ScreenMode(PORTRAIT) ;
+    print("Hello World") ;
+          */
+
+    //Uncomment the block you wish to compile by removing the block comment symbols - /* and */
+    //To compile Example 1 for example, remove the comment symbols in lines 16 and 19
+    //Choose one block only.
+
+        /*
+    //Example 1 - Drawing Triangles
+
+    gfx_Triangle(10, 10, 100, 10, 60, 60, GREEN);
+    gfx_TriangleFilled(200, 200, 150, 100, 10, 100, RED);
+
+            */
+
+    //Example 2 - Clearing the screen and adding a delay
+     /*
+    repeat
+        gfx_TriangleFilled(120, 150, 85, 235, 155, 235, YELLOW);
+        pause(100);     //add a 500-millisecond delay
+        gfx_Cls();      //clear the screen
+
+        gfx_TriangleFilled(120, 150, 85, 235, 155, 235, RED);
+        pause(100);
+        gfx_Cls();
+    forever
+       */
+
+
+    //Example 3 - Using the For Loop to draw multiple triangles
+    /*
+    var y;
+
+    for( y := 0; y <= 220; y := y + 50)
+      gfx_Triangle(120, y, 85, y + 100, 155, y + 100, ORANGE);
+      pause(500);
+      //gfx_Cls();
+    next
+    */
+
+              com_SetBaud(COM0, 11520);
+    //Example 4 - Using an array to Draw a Polygon
+
+
+
+
+
+    var delay := 0;
+   // var leftINx1[4], leftINy1[4];   //array declaration
+    var bx[4], by[4];
+    var char;
+var leftINx0[4],  leftINy0[4];
+var leftINx1[4],  leftINy1[4];
+var leftINx2[4],  leftINy2[4];
+var leftINx3[4],  leftINy3[4];
+var leftINx4[4],  leftINy4[4];
+var leftINx5[4],  leftINy5[4];
+var leftINx6[4],  leftINy6[4];
+var leftINx7[4],  leftINy7[4];
+var leftINx8[4],  leftINy8[4];
+var leftINx9[4],  leftINy9[4];
+var leftINx10[4],  leftINy10[4];
+var leftINx11[4],  leftINy11[4];
+var leftINx12[4],  leftINy12[4];
+var leftINx13[4],  leftINy13[4];
+var leftINx14[4],  leftINy14[4];
+var leftINx15[4],  leftINy15[4];
+var leftINx16[4],  leftINy16[4];
+var leftINx17[4],  leftINy17[4];
+leftINx0[0] :=332;  leftINy0[0] :=408;
+leftINx0[1] :=314;  leftINy0[1] :=455;
+leftINx0[2] :=357;  leftINy0[2] :=466;
+leftINx0[3] :=365;  leftINy0[3] :=417;
+
+leftINx1[0] :=300;  leftINy1[0] :=393;
+leftINx1[1] :=275;  leftINy1[1] :=437;
+leftINx1[2] :=314;  leftINy1[2] :=455;
+leftINx1[3] :=332;  leftINy1[3] :=408;
+
+leftINx2[0] :=271;  leftINy2[0] :=373;
+leftINx2[1] :=239;  leftINy2[1] :=412;
+leftINx2[2] :=275;  leftINy2[2] :=437;
+leftINx2[3] :=300;  leftINy2[3] :=393;
+
+leftINx3[0] :=247;  leftINy3[0] :=349;
+leftINx3[1] :=208;  leftINy3[1] :=381;
+leftINx3[2] :=239;  leftINy3[2] :=412;
+leftINx3[3] :=271;  leftINy3[3] :=373;
+
+leftINx4[0] :=227;  leftINy4[0] :=320;
+leftINx4[1] :=183;  leftINy4[1] :=345;
+leftINx4[2] :=208;  leftINy4[2] :=381;
+leftINx4[3] :=247;  leftINy4[3] :=349;
+
+leftINx5[0] :=212;  leftINy5[0] :=288;
+leftINx5[1] :=165;  leftINy5[1] :=306;
+leftINx5[2] :=183;  leftINy5[2] :=345;
+leftINx5[3] :=227;  leftINy5[3] :=320;
+
+leftINx6[0] :=203;  leftINy6[0] :=255;
+leftINx6[1] :=154;  leftINy6[1] :=263;
+leftINx6[2] :=165;  leftINy6[2] :=306;
+leftINx6[3] :=212;  leftINy6[3] :=288;
+
+leftINx7[0] :=200;  leftINy7[0] :=220;
+leftINx7[1] :=150;  leftINy7[1] :=220;
+leftINx7[2] :=154;  leftINy7[2] :=263;
+leftINx7[3] :=203;  leftINy7[3] :=255;
+
+leftINx8[0] :=203;  leftINy8[0] :=185;
+leftINx8[1] :=154;  leftINy8[1] :=177;
+leftINx8[2] :=150;  leftINy8[2] :=220;
+leftINx8[3] :=200;  leftINy8[3] :=220;
+
+leftINx9[0] :=212;  leftINy9[0] :=152;
+leftINx9[1] :=165;  leftINy9[1] :=134;
+leftINx9[2] :=154;  leftINy9[2] :=177;
+leftINx9[3] :=203;  leftINy9[3] :=185;
+
+leftINx10[0] :=227;  leftINy10[0] :=120;
+leftINx10[1] :=183;  leftINy10[1] :=95;
+leftINx10[2] :=165;  leftINy10[2] :=134;
+leftINx10[3] :=212;  leftINy10[3] :=152;
+
+leftINx11[0] :=247;  leftINy11[0] :=91;
+leftINx11[1] :=208;  leftINy11[1] :=59;
+leftINx11[2] :=183;  leftINy11[2] :=95;
+leftINx11[3] :=227;  leftINy11[3] :=120;
+
+leftINx12[0] :=271;  leftINy12[0] :=67;
+leftINx12[1] :=239;  leftINy12[1] :=28;
+leftINx12[2] :=208;  leftINy12[2] :=59;
+leftINx12[3] :=247;  leftINy12[3] :=91;
+
+leftINx13[0] :=300;  leftINy13[0] :=47;
+leftINx13[1] :=275;  leftINy13[1] :=3;
+leftINx13[2] :=239;  leftINy13[2] :=28;
+leftINx13[3] :=271;  leftINy13[3] :=67;
+
+leftINx14[0] :=332;  leftINy14[0] :=32;
+leftINx14[1] :=314;  leftINy14[1] :=-15;
+leftINx14[2] :=275;  leftINy14[2] :=3;
+leftINx14[3] :=300;  leftINy14[3] :=47;
+
+leftINx15[0] :=365;  leftINy15[0] :=23;
+leftINx15[1] :=357;  leftINy15[1] :=-26;
+leftINx15[2] :=314;  leftINy15[2] :=-15;
+leftINx15[3] :=332;  leftINy15[3] :=32;
+
+leftINx16[0] :=400;  leftINy16[0] :=20;
+leftINx16[1] :=400;  leftINy16[1] :=-30;
+leftINx16[2] :=357;  leftINy16[2] :=-26;
+leftINx16[3] :=365;  leftINy16[3] :=23;
+
+leftINx17[0] :=435;  leftINy17[0] :=23;
+leftINx17[1] :=443;  leftINy17[1] :=-26;
+leftINx17[2] :=400;  leftINy17[2] :=-30;
+leftINx17[3] :=400;  leftINy17[3] :=20;
+
+
+
+
+
+
+   repeat
+            char := serin(); // test the com0 port
+
+        if (char >= 0) // if a valid character is received
+            delay := char;
+        endif
+
+if (delay == 0)
+gfx_PolygonFilled(4, leftINx0,leftINy0, BLACK);
+gfx_PolygonFilled(4, leftINx1,leftINy1, BLACK);
+gfx_PolygonFilled(4, leftINx2,leftINy2, BLACK);
+gfx_PolygonFilled(4, leftINx3,leftINy3, BLACK);
+gfx_PolygonFilled(4, leftINx4,leftINy4, BLACK);
+gfx_PolygonFilled(4, leftINx5,leftINy5, BLACK);
+gfx_PolygonFilled(4, leftINx6,leftINy6, BLACK);
+gfx_PolygonFilled(4, leftINx7,leftINy7, BLACK);
+gfx_PolygonFilled(4, leftINx8,leftINy8, BLACK);
+gfx_PolygonFilled(4, leftINx9,leftINy9, BLACK);
+gfx_PolygonFilled(4, leftINx10,leftINy10, BLACK);
+gfx_PolygonFilled(4, leftINx11,leftINy11, BLACK);
+gfx_PolygonFilled(4, leftINx12,leftINy12, BLACK);
+gfx_PolygonFilled(4, leftINx13,leftINy13, BLACK);
+gfx_PolygonFilled(4, leftINx14,leftINy14, BLACK);
+gfx_PolygonFilled(4, leftINx15,leftINy15, BLACK);
+gfx_PolygonFilled(4, leftINx16,leftINy16, BLACK);
+gfx_PolygonFilled(4, leftINx17,leftINy17, BLACK);
+else if (delay == 1)
+gfx_PolygonFilled(4, leftINx0,leftINy0, GRAY);
+else if (delay == 2)
+gfx_PolygonFilled(4, leftINx1,leftINy1, GRAY);
+else if (delay == 3)
+gfx_PolygonFilled(4, leftINx2,leftINy2, GRAY);
+else if (delay == 4)
+gfx_PolygonFilled(4, leftINx3,leftINy3, GRAY);
+else if (delay == 5)
+gfx_PolygonFilled(4, leftINx4,leftINy4, GRAY);
+else if (delay == 6)
+gfx_PolygonFilled(4, leftINx5,leftINy5, GRAY);
+else if (delay == 7)
+gfx_PolygonFilled(4, leftINx6,leftINy6, GRAY);
+else if (delay == 8)
+gfx_PolygonFilled(4, leftINx7,leftINy7, GRAY);
+else if (delay == 9)
+gfx_PolygonFilled(4, leftINx8,leftINy8, GRAY);
+else if (delay == 10)
+gfx_PolygonFilled(4, leftINx9,leftINy9, GRAY);
+else if (delay == 11)
+gfx_PolygonFilled(4, leftINx10,leftINy10, GRAY);
+else if (delay == 12)
+gfx_PolygonFilled(4, leftINx11,leftINy11, GRAY);
+else if (delay == 13)
+gfx_PolygonFilled(4, leftINx12,leftINy12, GRAY);
+else if (delay == 14)
+gfx_PolygonFilled(4, leftINx13,leftINy13, GRAY);
+else if (delay == 15)
+gfx_PolygonFilled(4, leftINx14,leftINy14, GRAY);
+else if (delay == 16)
+gfx_PolygonFilled(4, leftINx15,leftINy15, GRAY);
+else if (delay == 17)
+gfx_PolygonFilled(4, leftINx16,leftINy16, GRAY);
+else if (delay == 18)
+gfx_PolygonFilled(4, leftINx17,leftINy17, GRAY);
+endif
+
+forever
+
+endfunc
+

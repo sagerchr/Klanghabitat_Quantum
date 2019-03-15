@@ -1,0 +1,43 @@
+#platform "Gen4-uLCD-70DCT-CLB"
+
+
+// Program Skeleton 1.3 generated 2019-03-09 20:38:38
+
+#inherit "4DGL_16bitColours.fnc"
+
+#inherit "VisualConst.inc"
+
+#inherit "digitTestConst.inc"
+
+func main()
+//  var hstrings ; // Handle to access uSD strings, uncomment if required
+//  var hFontx ;   // Handle to access uSD fonts, uncomment if required and change n to font number
+//  Uncomment the following if uSD images, fonts or strings used.
+         var ledDigitsDisplay;
+    putstr("Mounting...\n");
+    if (!(file_Mount()))
+        while(!(file_Mount()))
+            putstr("Drive not mounted...");
+            pause(200);
+            gfx_Cls();
+            pause(200);
+        wend
+    endif
+//    gfx_TransparentColour(0x0020);    // uncomment if transparency required
+//    gfx_Transparency(ON);             // uncomment if transparency required
+
+//  hFontn := file_LoadImageControl("DIGITT~1.dan", "DIGITT~1.gcn", 1); // Open handle to access uSD fonts, uncomment if required and change n to font number dropping a and c if > 9
+//  hstrings := file_Open("DIGITT~1.txf", 'r') ; // Open handle to access uSD strings, uncomment if required
+    hndl := file_LoadImageControl("DIGITT~1.dat", "DIGITT~1.gci", 1);
+
+
+    gfx_Set(SCREEN_MODE,LANDSCAPE) ;
+
+    // Customdigits1 1.0 generated 2019-03-09 20:38:53
+    img_Show(hndl, iCustomdigits1);  // show all digits at 0, only do this once
+    ledDigitsDisplay(123, iiCustomdigits1, 270, 4, 1, 9, 0) ;
+
+    repeat
+    forever
+endfunc
+

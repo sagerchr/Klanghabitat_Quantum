@@ -1,0 +1,151 @@
+=====================================================
+SGC (Serial Graphics Controller) PLATFORM OUTPUT FILE
+=====================================================
+
+*******************************************************
+* This build option is not applicable to Goldelox SGC *
+*******************************************************
+
+---------------------------------------------------------------------------------------
+File "0,0_degree_on.png" (0,0_degree_on.png)
+Sector Address 0x000000
+X = 0 Y = 0 Width = 155 Height = 500 Bits = 16
+
+Display Image from Memory Card (Serial Command):
+Syntax:
+@, m, "Filename", terminator, x, y, imagePos(xhi) imagePos(hi), imagePos(mid), imagePos(lo)
+Picaso Data:
+0x40, 0x6D, "ARC2.Gci", 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+4DSL command:
+FATImage("ARC2.Gci", 0, 0, 0x00000000)
+
+---------------------------------------------------------------------------------------
+File "0,5_degree_on.png" (0,5_degree_on.png)
+Sector Address 0x00012F
+X = 0 Y = 0 Width = 155 Height = 500 Bits = 16
+
+Display Image from Memory Card (Serial Command):
+Syntax:
+@, m, "Filename", terminator, x, y, imagePos(xhi) imagePos(hi), imagePos(mid), imagePos(lo)
+Picaso Data:
+0x40, 0x6D, "ARC2.Gci", 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0x5E, 0x00
+4DSL command:
+FATImage("ARC2.Gci", 0, 0, 0x00025E00)
+
+---------------------------------------------------------------------------------------
+File "1,0_degree_on.png" (1,0_degree_on.png)
+Sector Address 0x00025E
+X = 0 Y = 0 Width = 155 Height = 500 Bits = 16
+
+Display Image from Memory Card (Serial Command):
+Syntax:
+@, m, "Filename", terminator, x, y, imagePos(xhi) imagePos(hi), imagePos(mid), imagePos(lo)
+Picaso Data:
+0x40, 0x6D, "ARC2.Gci", 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x04, 0xBC, 0x00
+4DSL command:
+FATImage("ARC2.Gci", 0, 0, 0x0004BC00)
+
+---------------------------------------------------------------------------------------
+File "1,5_degree_on.png" (1,5_degree_on.png)
+Sector Address 0x00038D
+X = 0 Y = 0 Width = 155 Height = 500 Bits = 16
+
+Display Image from Memory Card (Serial Command):
+Syntax:
+@, m, "Filename", terminator, x, y, imagePos(xhi) imagePos(hi), imagePos(mid), imagePos(lo)
+Picaso Data:
+0x40, 0x6D, "ARC2.Gci", 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x07, 0x1A, 0x00
+4DSL command:
+FATImage("ARC2.Gci", 0, 0, 0x00071A00)
+
+---------------------------------------------------------------------------------------
+File "2,0_degree_on.png" (2,0_degree_on.png)
+Sector Address 0x0004BC
+X = 0 Y = 0 Width = 155 Height = 500 Bits = 16
+
+Display Image from Memory Card (Serial Command):
+Syntax:
+@, m, "Filename", terminator, x, y, imagePos(xhi) imagePos(hi), imagePos(mid), imagePos(lo)
+Picaso Data:
+0x40, 0x6D, "ARC2.Gci", 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x09, 0x78, 0x00
+4DSL command:
+FATImage("ARC2.Gci", 0, 0, 0x00097800)
+
+---------------------------------------------------------------------------------------
+File "2,5_degree_on.png" (2,5_degree_on.png)
+Sector Address 0x0005EB
+X = 0 Y = 0 Width = 155 Height = 500 Bits = 16
+
+Display Image from Memory Card (Serial Command):
+Syntax:
+@, m, "Filename", terminator, x, y, imagePos(xhi) imagePos(hi), imagePos(mid), imagePos(lo)
+Picaso Data:
+0x40, 0x6D, "ARC2.Gci", 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0B, 0xD6, 0x00
+4DSL command:
+FATImage("ARC2.Gci", 0, 0, 0x000BD600)
+
+---------------------------------------------------------------------------------------
+File "3,0_degree_on.png" (3,0_degree_on.png)
+Sector Address 0x00071A
+X = 0 Y = 0 Width = 155 Height = 500 Bits = 16
+
+Display Image from Memory Card (Serial Command):
+Syntax:
+@, m, "Filename", terminator, x, y, imagePos(xhi) imagePos(hi), imagePos(mid), imagePos(lo)
+Picaso Data:
+0x40, 0x6D, "ARC2.Gci", 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0E, 0x34, 0x00
+4DSL command:
+FATImage("ARC2.Gci", 0, 0, 0x000E3400)
+
+---------------------------------------------------------------------------------------
+File "3,5_degree_on.png" (3,5_degree_on.png)
+Sector Address 0x000849
+X = 0 Y = 0 Width = 155 Height = 500 Bits = 16
+
+Display Image from Memory Card (Serial Command):
+Syntax:
+@, m, "Filename", terminator, x, y, imagePos(xhi) imagePos(hi), imagePos(mid), imagePos(lo)
+Picaso Data:
+0x40, 0x6D, "ARC2.Gci", 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x10, 0x92, 0x00
+4DSL command:
+FATImage("ARC2.Gci", 0, 0, 0x00109200)
+
+---------------------------------------------------------------------------------------
+File "4,0_degree_on.png" (4,0_degree_on.png)
+Sector Address 0x000978
+X = 0 Y = 0 Width = 155 Height = 500 Bits = 16
+
+Display Image from Memory Card (Serial Command):
+Syntax:
+@, m, "Filename", terminator, x, y, imagePos(xhi) imagePos(hi), imagePos(mid), imagePos(lo)
+Picaso Data:
+0x40, 0x6D, "ARC2.Gci", 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x12, 0xF0, 0x00
+4DSL command:
+FATImage("ARC2.Gci", 0, 0, 0x0012F000)
+
+---------------------------------------------------------------------------------------
+File "4,5_degree_on.png" (4,5_degree_on.png)
+Sector Address 0x000AA7
+X = 0 Y = 0 Width = 155 Height = 500 Bits = 16
+
+Display Image from Memory Card (Serial Command):
+Syntax:
+@, m, "Filename", terminator, x, y, imagePos(xhi) imagePos(hi), imagePos(mid), imagePos(lo)
+Picaso Data:
+0x40, 0x6D, "ARC2.Gci", 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x15, 0x4E, 0x00
+4DSL command:
+FATImage("ARC2.Gci", 0, 0, 0x00154E00)
+
+---------------------------------------------------------------------------------------
+File "5,0_degree_on.png" (5,0_degree_on.png)
+Sector Address 0x000BD6
+X = 0 Y = 0 Width = 155 Height = 500 Bits = 16
+
+Display Image from Memory Card (Serial Command):
+Syntax:
+@, m, "Filename", terminator, x, y, imagePos(xhi) imagePos(hi), imagePos(mid), imagePos(lo)
+Picaso Data:
+0x40, 0x6D, "ARC2.Gci", 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x17, 0xAC, 0x00
+4DSL command:
+FATImage("ARC2.Gci", 0, 0, 0x0017AC00)
+

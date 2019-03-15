@@ -1,0 +1,160 @@
+#platform "Gen4-uLCD-70DCT-CLB"
+
+#inherit "4DGL_16bitColours.fnc"
+
+func main()
+
+    /*
+    gfx_ScreenMode(PORTRAIT) ;
+    print("Hello World") ;
+          */
+
+    //Uncomment the block you wish to compile by removing the block comment symbols - /* and */
+    //To compile Example 1 for example, remove the comment symbols in lines 16 and 19
+    //Choose one block only.
+
+        /*
+    //Example 1 - Drawing Triangles
+
+    gfx_Triangle(10, 10, 100, 10, 60, 60, GREEN);
+    gfx_TriangleFilled(200, 200, 150, 100, 10, 100, RED);
+
+            */
+
+    //Example 2 - Clearing the screen and adding a delay
+     /*
+    repeat
+        gfx_TriangleFilled(120, 150, 85, 235, 155, 235, YELLOW);
+        pause(100);     //add a 500-millisecond delay
+        gfx_Cls();      //clear the screen
+
+        gfx_TriangleFilled(120, 150, 85, 235, 155, 235, RED);
+        pause(100);
+        gfx_Cls();
+    forever
+       */
+
+
+    //Example 3 - Using the For Loop to draw multiple triangles
+    /*
+    var y;
+
+    for( y := 0; y <= 220; y := y + 50)
+      gfx_Triangle(120, y, 85, y + 100, 155, y + 100, ORANGE);
+      pause(500);
+      //gfx_Cls();
+    next
+    */
+
+              com_SetBaud(COM0, 11520);
+    //Example 4 - Using an array to Draw a Polygon
+
+
+
+
+
+    var delay := 0;
+    var delay1 := 0;
+    var delay2 := 0;
+
+    var delayLast := 0;
+    var delayLast1 := 0;
+    var delayLast2 := 0;
+
+    var bx[4], by[4];
+    var char;
+    var i := 0;
+
+         repeat
+    if (i == delay) // if a valid character is received
+    gfx_Line(10,i , 50, i, BLACK);
+    gfx_Line(110,i , 150, i, BLACK);
+    gfx_Line(210,i , 250, i, BLACK);
+    gfx_Line(310,i , 350, i, BLACK);
+
+    else if (i != delay)
+    gfx_Line(10,i , 50, i, WHITE);
+    gfx_Line(110,i , 150, i, WHITE);
+    gfx_Line(210,i , 250, i, WHITE);
+    gfx_Line(310,i , 350, i, WHITE);
+    endif
+  i++;
+until(i == 250);
+       i:=0;
+
+
+
+   repeat
+
+
+        char := serin(); // test the com0 port
+
+        if (char >= 0) // if a valid character is received
+            delay := char;
+        endif
+        /*
+ repeat
+    if (i == delay) // if a valid character is received
+    gfx_Line(10,i , 100, i, BLACK);
+    else if (i != delay)
+    gfx_Line(10,i , 100, i, WHITE);
+    endif
+    i++;
+  until (i==250);
+        i:=0;
+          */
+    delay1 := delay + 1;
+    delay2 := delay + 2;
+    delayLast1 := delayLast + 1;
+    delayLast2 := delayLast + 2;
+
+       if (delay != delayLast)
+
+
+       gfx_Line(10,delayLast1 , 50, delayLast1, WHITE);
+       gfx_Line(10,delayLast , 50, delayLast, WHITE);
+       gfx_Line(10,delayLast2 , 50, delayLast2, WHITE);
+
+
+       gfx_Line(10,delay1 , 50, delay1 , BLACK);
+       gfx_Line(10,delay , 50, delay, BLACK);
+       gfx_Line(10,delay2 , 50, delay2, BLACK);
+
+
+
+       gfx_Line(110,delayLast1 , 150, delayLast1, WHITE);
+       gfx_Line(110,delayLast , 150, delayLast, WHITE);
+       gfx_Line(110,delayLast2 , 150, delayLast2, WHITE);
+
+       gfx_Line(110,delay1 , 150, delay1 , BLACK);
+       gfx_Line(110,delay , 150, delay, BLACK);
+       gfx_Line(110,delay2 , 150, delay2, BLACK);
+
+
+
+       gfx_Line(210,delayLast1 , 250, delayLast1, WHITE);
+       gfx_Line(210,delayLast , 250, delayLast, WHITE);
+       gfx_Line(210,delayLast2 , 250, delayLast2, WHITE);
+
+       gfx_Line(210,delay1 , 250, delay1 , BLACK);
+       gfx_Line(210,delay , 250, delay, BLACK);
+       gfx_Line(210,delay2 , 250, delay2, BLACK);
+
+
+
+       gfx_Line(310,delayLast1 , 350, delayLast1, WHITE);
+       gfx_Line(310,delayLast , 350, delayLast, WHITE);
+       gfx_Line(310,delayLast2 , 350, delayLast2, WHITE);
+
+
+       gfx_Line(310,delay1 , 350, delay1 , BLACK);
+       gfx_Line(310,delay , 350, delay, BLACK);
+       gfx_Line(310,delay2 , 350, delay2, BLACK);
+
+
+
+       delayLast := delay;
+       endif
+forever
+endfunc
+:
