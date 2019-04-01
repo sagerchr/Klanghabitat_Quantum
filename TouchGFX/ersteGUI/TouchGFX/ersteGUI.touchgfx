@@ -1,0 +1,125 @@
+{
+  "Application": {
+    "Screens": [
+      {
+        "Components": [
+          {
+            "RelativeFilename": "__designer\\blue_backgrounds_main_bg_texture_800x480px.png",
+            "Alpha": 255,
+            "Name": "image1",
+            "X": 0,
+            "Y": 0,
+            "Width": 800,
+            "Height": 480,
+            "Type": "Image",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "Alpha": 255,
+            "Selected": false,
+            "Deselectable": false,
+            "FileNameSelected": "__designer\\blue_check_buttons_check_mark_normal.png",
+            "FileNameSelectedPressed": "__designer\\blue_check_buttons_check_mark_normal.png",
+            "FileNameUnselected": "__designer\\blue_check_buttons_check_mark_inactive.png",
+            "FileNameUnselectedPressed": "__designer\\blue_check_buttons_check_mark_pressed.png",
+            "Name": "radioButton1",
+            "X": 93,
+            "Y": 124,
+            "Width": 44,
+            "Height": 44,
+            "Type": "RadioButton",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "Alpha": 255,
+            "Selected": false,
+            "Deselectable": false,
+            "FileNameSelected": "__designer\\blue_check_buttons_check_mark_normal.png",
+            "FileNameSelectedPressed": "__designer\\blue_check_buttons_check_mark_normal.png",
+            "FileNameUnselected": "__designer\\blue_check_buttons_check_mark_inactive.png",
+            "FileNameUnselectedPressed": "__designer\\blue_check_buttons_check_mark_pressed.png",
+            "Name": "radioButton1_1",
+            "X": 93,
+            "Y": 218,
+            "Width": 44,
+            "Height": 44,
+            "Type": "RadioButton",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "Alpha": 255,
+            "Selected": false,
+            "Deselectable": false,
+            "FileNameSelected": "__designer\\blue_check_buttons_check_mark_normal.png",
+            "FileNameSelectedPressed": "__designer\\blue_check_buttons_check_mark_normal.png",
+            "FileNameUnselected": "__designer\\blue_check_buttons_check_mark_inactive.png",
+            "FileNameUnselectedPressed": "__designer\\blue_check_buttons_check_mark_pressed.png",
+            "Name": "radioButton1_2",
+            "X": 93,
+            "Y": 314,
+            "Width": 44,
+            "Height": 44,
+            "Type": "RadioButton",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          }
+        ],
+        "Interactions": [],
+        "Name": "Screen1",
+        "OverrideDefaultBufferSize": false,
+        "CanvasBufferSize": 0
+      }
+    ],
+    "CustomContainerDefinitions": [],
+    "Name": "ersteGUI",
+    "Resolution": {
+      "Width": 800,
+      "Height": 480
+    },
+    "SelectedColorDepth": 24,
+    "StartupScreenName": "Screen1",
+    "SelectedStartupLanguage": "GB",
+    "Skin": "Blue",
+    "TouchGfxPath": "../Middlewares/ST/TouchGFX/touchgfx",
+    "UIPath": ".",
+    "ApplicationTemplate": {
+      "Name": "Simulator",
+      "Version": "2.0.0",
+      "Description": "STM32CubeMX Generated Simulator Application Template",
+      "AvailableColorDepths": [
+        24
+      ],
+      "AvailableImageFormats": {
+        "24": {
+          "Opaque": "RGB888",
+          "NonOpaque": "ARGB8888"
+        }
+      },
+      "AvailableResolutions": [],
+      "PhysicalButtons": [],
+      "GenerateAssetsCommand": "make -f simulator/gcc/Makefile assets -j10",
+      "PostGenerateCommand": "touchgfx update_project --project-file=..\\EWARM\\ersteGUI.ewp --gui-group-name=Application/User/TouchGFX/gui --generated-group-name=Application/User/TouchGFX/generated && touchgfx update_project --project-file=simulator/msvs/Application.vcxproj",
+      "CompileSimulatorCommand": "make -f simulator/gcc/Makefile -j10",
+      "RunSimulatorCommand": "build\\bin\\simulator.exe",
+      "CompileTargetCommand": "make -f ../gcc/Makefile -j8",
+      "FlashTargetCommand": "make -f ../gcc/Makefile -j8 flash"
+    }
+  },
+  "Version": "4.10.0",
+  "CreatedBy": "4.10.0"
+}
