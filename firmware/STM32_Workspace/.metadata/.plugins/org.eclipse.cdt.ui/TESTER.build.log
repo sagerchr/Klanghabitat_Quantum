@@ -1,0 +1,17 @@
+19:48:53 **** Incremental Build of configuration Debug for project TESTER ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\src\main.c -mthumb -mcpu=cortex-m7 -mfloat-abi=hard -mfpu=fpv5-sp-d16 -std=gnu11 -DSTM32F769xx -I../src -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/STM32F7xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src\main.o 
+arm-atollic-eabi-gcc -o TESTER.elf src\main.o src\startup_stm32f769xx.o src\system_stm32f7xx.o src\tiny_printf.o -mthumb -mcpu=cortex-m7 -mfloat-abi=hard -mfpu=fpv5-sp-d16 -T../stm32f7_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=TESTER.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.3.0\Tools\arm-atollic-reports.jar sizeinfo list TESTER.elf 
+Generate build reports...
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+    876	      8	   1052	   1936	    790	TESTER.elf
+Print size information done
+Generate listing file
+Output sent to: TESTER.list
+Generate listing file done
+Generate build reports done
+
+19:48:55 Build Finished (took 1s.844ms)
+
