@@ -1,0 +1,40 @@
+; Linker description file
+#define BASE_ADDRESS_DTCM  0x20000000
+#define BASE_ADDRESS_SRAM  0x20020000
+#define BASE_ADDRESS_ITCM  0x2007C000
+#define BASE_ADDRESS_SDRAM 0xC0000000
+
+#define MEM_SIZE_ITCM      (16 * 1024)
+#define MEM_SIZE_DTCM      (128 * 1024)
+#define MEM_SIZE_SRAM      (368 * 1024)
+#define MEM_SIZE_SDRAM     0x01000000
+
+#define SIZE_STACK         (2 * 1024)
+
+LR_IROM1 0x08000000 0x00100000  
+{    
+    ; load region size_region
+    ER_IROM1 0x08000000 0x00200000
+    {   
+        ; load address = execution address
+        *.o (RESET, +FIRST)
+        *(InRoot$$Sections)
+        .ANY (+RO)
+    }
+    
+    RW_IRAM2 0x20000000 (0x00020000)
+    {
+        .ANY (.data_DTCM)
+    }
+
+    RW_IRAM1 0x20020000 (0x00060000)
+    {
+        ; RW data
+        .ANY (+RW +ZI)
+    }
+
+    RW_RAM1 0xC0000000 UNINIT (0x01000000)
+    {
+        .ANY (.data_SDRAM)
+    }
+}
