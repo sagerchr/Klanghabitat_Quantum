@@ -1,0 +1,16 @@
+12:51:01 **** Rebuild of configuration STM32F769I_DISCOVERY for project GPIO_EXTI_EWARM ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\..\..\..\..\..\..\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_i2c.c -mthumb -mcpu=cortex-m7 -mfloat-abi=hard -mfpu=fpv5-sp-d16 -std=gnu11 -DUSE_HAL_DRIVER -DSTM32F769xx -DUSE_STM32F769I_DISCO -D__ARM8M_MAINLINE__=17 -D__ARM5__=5 -D__ARM8M_BASELINE__=16 -D__ARM7M__=7 -D__ARM7R__=7 -D__ARM4TM__=4 -D__ARM6SM__=12 -D__ARM7EM__=13 -D__ARM7__=7 -D__CORE__=__ARM7EM__ -I..\..\Inc -I..\..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F7xx\Include -I..\..\..\..\..\..\..\Drivers\STM32F7xx_HAL_Driver\Inc -I..\..\..\..\..\..\..\Drivers\BSP\STM32F769I-Discovery -I..\..\..\..\..\..\..\Drivers\BSP\Components\Common -I..\..\..\..\..\..\..\Utilities\Log -I..\..\..\..\..\..\..\Utilities\Fonts -I..\..\..\..\..\..\..\Utilities\CPU -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o Drivers\STM32F7xx_HAL_Driver\stm32f7xx_hal_i2c.o 
+In file included from ..\..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F7xx\Include/stm32f7xx.h:152:0,
+                 from ..\..\..\..\..\..\..\Drivers\STM32F7xx_HAL_Driver\Inc/stm32f7xx_hal_def.h:30,
+                 from ..\..\..\..\..\..\..\Drivers\STM32F7xx_HAL_Driver\Inc/stm32f7xx_hal_rcc.h:29,
+                 from ..\..\Inc/stm32f7xx_hal_conf.h:274,
+                 from ..\..\..\..\..\..\..\Drivers\STM32F7xx_HAL_Driver\Inc/stm32f7xx_hal.h:30,
+                 from ..\..\..\..\..\..\..\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_i2c.c:308:
+..\..\..\..\..\..\..\Drivers\CMSIS\Device\ST\STM32F7xx\Include/stm32f769xx.h:202:96: fatal error: core_cm7.h: No such file or directory
+ #include "core_cm7.h"                     /*!< Cortex-M7 processor and core peripherals      */
+                                                                                                ^
+compilation terminated.
+
+12:51:02 Build Finished (took 550ms)
+

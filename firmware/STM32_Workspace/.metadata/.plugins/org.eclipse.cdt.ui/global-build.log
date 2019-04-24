@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 15:00:57 **** Incremental Build of configuration Release for project Quantum_Config ****
 make all 
 Building file: ../Src/adc.c
@@ -817,3 +818,6 @@ arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__w
    uint32_t USBx_BASE = (uint32_t)USBx;
             ^~~~~~~~~
 make: *** [Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_usb.o] Error 1
+=======
+Info: Nothing to build for STM32F769i_Discovery
+>>>>>>> 0b9f0bcf81e59534b6674b89419cb9ba8256933d

@@ -1,6 +1,25 @@
+<<<<<<< HEAD
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=macosx
 configDescList=org.eclipse.launchbar.core.descriptorType.default\:Quantum_Config Debug
 eclipse.preferences.version=1
 org.eclipse.launchbar.core.descriptorType.default\:Quantum_Config\ Debug/activeLaunchMode=debug
 org.eclipse.launchbar.core.descriptorType.default\:Quantum_Config\ Debug/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+=======
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
+configDescList=org.eclipse.launchbar.core.descriptorType.default\:INTERN.elf,org.eclipse.launchbar.core.descriptorType.default\:SELF_TEST.elf,org.eclipse.launchbar.core.descriptorType.default\:STM32F769I_Discovery.elf,org.eclipse.launchbar.core.descriptorType.default\:TEST.elf,org.eclipse.launchbar.core.descriptorType.default\:TESTER.elf,org.eclipse.launchbar.core.descriptorType.default\:audio_pass-through.elf
+eclipse.preferences.version=1
+org.eclipse.launchbar.core.descriptorType.default\:INTERN.elf/activeLaunchMode=debug
+org.eclipse.launchbar.core.descriptorType.default\:INTERN.elf/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:QUANTI.elf/activeLaunchMode=debug
+org.eclipse.launchbar.core.descriptorType.default\:QUANTI.elf/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:QUANTUM_STUDIO.elf/activeLaunchMode=debug
+org.eclipse.launchbar.core.descriptorType.default\:QUANTUM_STUDIO.elf/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:QUANTUM_TRUE_STUDIO.elf/activeLaunchMode=debug
+org.eclipse.launchbar.core.descriptorType.default\:QUANTUM_TRUE_STUDIO.elf/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:SELF_TEST.elf/activeLaunchMode=debug
+org.eclipse.launchbar.core.descriptorType.default\:SELF_TEST.elf/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:TEST.elf/activeLaunchMode=debug
+org.eclipse.launchbar.core.descriptorType.default\:TEST.elf/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+>>>>>>> 0b9f0bcf81e59534b6674b89419cb9ba8256933d
