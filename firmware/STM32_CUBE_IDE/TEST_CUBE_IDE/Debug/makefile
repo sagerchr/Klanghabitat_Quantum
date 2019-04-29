@@ -41,8 +41,8 @@ TEST_CUBE_IDE.list \
 all: TEST_CUBE_IDE.elf secondary-outputs
 
 # Tool invocations
-TEST_CUBE_IDE.elf: $(OBJS) $(USER_OBJS) C:\klanghabitat_quantum\firmware\STM32_CUBE_IDE\TEST_CUBE_IDE\STM32F769NIHX_FLASH.ld
-	arm-none-eabi-gcc -o "TEST_CUBE_IDE.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\klanghabitat_quantum\firmware\STM32_CUBE_IDE\TEST_CUBE_IDE\STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TEST_CUBE_IDE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+TEST_CUBE_IDE.elf: $(OBJS) $(USER_OBJS) /Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_CUBE_IDE/TEST_CUBE_IDE/STM32F769NIHX_FLASH.ld
+	arm-none-eabi-gcc -o "TEST_CUBE_IDE.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_CUBE_IDE/TEST_CUBE_IDE/STM32F769NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TEST_CUBE_IDE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

@@ -37,13 +37,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  16 .debug_macro  000390a1  00000000  00000000  0005cc88  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_line   00026905  00000000  00000000  00095d29  2**0
+ 17 .debug_line   000271a5  00000000  00000000  00095d29  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    0014f562  00000000  00000000  000bc62e  2**0
+ 18 .debug_str    0014f57f  00000000  00000000  000bcece  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  0020bb90  2**0
+ 19 .comment      0000007b  00000000  00000000  0020c44d  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  0000bbe4  00000000  00000000  0020bc0c  2**2
+ 20 .debug_frame  0000bbe4  00000000  00000000  0020c4c8  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -83,8 +83,8 @@ Disassembly of section .text:
  8000246:	bf08      	it	eq
  8000248:	2800      	cmpeq	r0, #0
  800024a:	bf1c      	itt	ne
- 800024c:	f04f 31ff 	movne.w	r1, #4294967295
- 8000250:	f04f 30ff 	movne.w	r0, #4294967295
+ 800024c:	f04f 31ff 	movne.w	r1, #4294967295	; 0xffffffff
+ 8000250:	f04f 30ff 	movne.w	r0, #4294967295	; 0xffffffff
  8000254:	f000 b972 	b.w	800053c <__aeabi_idiv0>
  8000258:	f1ad 0c08 	sub.w	ip, sp, #8
  800025c:	e96d ce04 	strd	ip, lr, [sp, #-16]!
@@ -122,7 +122,7 @@ Disassembly of section .text:
  80002b8:	4299      	cmp	r1, r3
  80002ba:	d909      	bls.n	80002d0 <__udivmoddi4+0x60>
  80002bc:	18eb      	adds	r3, r5, r3
- 80002be:	f107 30ff 	add.w	r0, r7, #4294967295
+ 80002be:	f107 30ff 	add.w	r0, r7, #4294967295	; 0xffffffff
  80002c2:	f080 811b 	bcs.w	80004fc <__udivmoddi4+0x28c>
  80002c6:	4299      	cmp	r1, r3
  80002c8:	f240 8118 	bls.w	80004fc <__udivmoddi4+0x28c>
@@ -137,7 +137,7 @@ Disassembly of section .text:
  80002e4:	45a4      	cmp	ip, r4
  80002e6:	d909      	bls.n	80002fc <__udivmoddi4+0x8c>
  80002e8:	192c      	adds	r4, r5, r4
- 80002ea:	f100 33ff 	add.w	r3, r0, #4294967295
+ 80002ea:	f100 33ff 	add.w	r3, r0, #4294967295	; 0xffffffff
  80002ee:	f080 8107 	bcs.w	8000500 <__udivmoddi4+0x290>
  80002f2:	45a4      	cmp	ip, r4
  80002f4:	f240 8104 	bls.w	8000500 <__udivmoddi4+0x290>
@@ -193,7 +193,7 @@ Disassembly of section .text:
  8000380:	4299      	cmp	r1, r3
  8000382:	d907      	bls.n	8000394 <__udivmoddi4+0x124>
  8000384:	18eb      	adds	r3, r5, r3
- 8000386:	f10c 30ff 	add.w	r0, ip, #4294967295
+ 8000386:	f10c 30ff 	add.w	r0, ip, #4294967295	; 0xffffffff
  800038a:	d202      	bcs.n	8000392 <__udivmoddi4+0x122>
  800038c:	4299      	cmp	r1, r3
  800038e:	f200 80cd 	bhi.w	800052c <__udivmoddi4+0x2bc>
@@ -207,7 +207,7 @@ Disassembly of section .text:
  80003a8:	45a0      	cmp	r8, r4
  80003aa:	d907      	bls.n	80003bc <__udivmoddi4+0x14c>
  80003ac:	192c      	adds	r4, r5, r4
- 80003ae:	f100 33ff 	add.w	r3, r0, #4294967295
+ 80003ae:	f100 33ff 	add.w	r3, r0, #4294967295	; 0xffffffff
  80003b2:	d202      	bcs.n	80003ba <__udivmoddi4+0x14a>
  80003b4:	45a0      	cmp	r8, r4
  80003b6:	f200 80b6 	bhi.w	8000526 <__udivmoddi4+0x2b6>
@@ -235,7 +235,7 @@ Disassembly of section .text:
  8000402:	fa00 f107 	lsl.w	r1, r0, r7
  8000406:	d90b      	bls.n	8000420 <__udivmoddi4+0x1b0>
  8000408:	eb1e 0303 	adds.w	r3, lr, r3
- 800040c:	f109 30ff 	add.w	r0, r9, #4294967295
+ 800040c:	f109 30ff 	add.w	r0, r9, #4294967295	; 0xffffffff
  8000410:	f080 8087 	bcs.w	8000522 <__udivmoddi4+0x2b2>
  8000414:	429c      	cmp	r4, r3
  8000416:	f240 8084 	bls.w	8000522 <__udivmoddi4+0x2b2>
@@ -250,7 +250,7 @@ Disassembly of section .text:
  8000434:	45a2      	cmp	sl, r4
  8000436:	d908      	bls.n	800044a <__udivmoddi4+0x1da>
  8000438:	eb1e 0404 	adds.w	r4, lr, r4
- 800043c:	f100 33ff 	add.w	r3, r0, #4294967295
+ 800043c:	f100 33ff 	add.w	r3, r0, #4294967295	; 0xffffffff
  8000440:	d26b      	bcs.n	800051a <__udivmoddi4+0x2aa>
  8000442:	45a2      	cmp	sl, r4
  8000444:	d969      	bls.n	800051a <__udivmoddi4+0x2aa>
@@ -292,7 +292,7 @@ Disassembly of section .text:
  80004b0:	fa04 f402 	lsl.w	r4, r4, r2
  80004b4:	d907      	bls.n	80004c6 <__udivmoddi4+0x256>
  80004b6:	1869      	adds	r1, r5, r1
- 80004b8:	f107 3cff 	add.w	ip, r7, #4294967295
+ 80004b8:	f107 3cff 	add.w	ip, r7, #4294967295	; 0xffffffff
  80004bc:	d22f      	bcs.n	800051e <__udivmoddi4+0x2ae>
  80004be:	428b      	cmp	r3, r1
  80004c0:	d92d      	bls.n	800051e <__udivmoddi4+0x2ae>
@@ -307,7 +307,7 @@ Disassembly of section .text:
  80004da:	428b      	cmp	r3, r1
  80004dc:	d907      	bls.n	80004ee <__udivmoddi4+0x27e>
  80004de:	1869      	adds	r1, r5, r1
- 80004e0:	f100 3cff 	add.w	ip, r0, #4294967295
+ 80004e0:	f100 3cff 	add.w	ip, r0, #4294967295	; 0xffffffff
  80004e4:	d217      	bcs.n	8000516 <__udivmoddi4+0x2a6>
  80004e6:	428b      	cmp	r3, r1
  80004e8:	d915      	bls.n	8000516 <__udivmoddi4+0x2a6>
@@ -456,7 +456,7 @@ __weak void HAL_Delay(uint32_t Delay)
   /* Add a freq to guarantee minimum wait */
   if (wait < HAL_MAX_DELAY)
  80005ae:	68fb      	ldr	r3, [r7, #12]
- 80005b0:	f1b3 3fff 	cmp.w	r3, #4294967295
+ 80005b0:	f1b3 3fff 	cmp.w	r3, #4294967295	; 0xffffffff
  80005b4:	d005      	beq.n	80005c2 <HAL_Delay+0x26>
   {
     wait += (uint32_t)(uwTickFreq);
@@ -2068,7 +2068,7 @@ __STATIC_INLINE uint32_t NVIC_EncodePriority (uint32_t PriorityGroup, uint32_t P
 
   return (
            ((PreemptPriority & (uint32_t)((1UL << (PreemptPriorityBits)) - 1UL)) << SubPriorityBits) |
- 8000ebc:	f04f 32ff 	mov.w	r2, #4294967295
+ 8000ebc:	f04f 32ff 	mov.w	r2, #4294967295	; 0xffffffff
  8000ec0:	69bb      	ldr	r3, [r7, #24]
  8000ec2:	fa02 f303 	lsl.w	r3, r2, r3
  8000ec6:	43da      	mvns	r2, r3
@@ -2077,7 +2077,7 @@ __STATIC_INLINE uint32_t NVIC_EncodePriority (uint32_t PriorityGroup, uint32_t P
  8000ecc:	697b      	ldr	r3, [r7, #20]
  8000ece:	409a      	lsls	r2, r3
            ((SubPriority     & (uint32_t)((1UL << (SubPriorityBits    )) - 1UL)))
- 8000ed0:	f04f 31ff 	mov.w	r1, #4294967295
+ 8000ed0:	f04f 31ff 	mov.w	r1, #4294967295	; 0xffffffff
  8000ed4:	697b      	ldr	r3, [r7, #20]
  8000ed6:	fa01 f303 	lsl.w	r3, r1, r3
  8000eda:	43d9      	mvns	r1, r3
@@ -2290,7 +2290,7 @@ HAL_StatusTypeDef HAL_CRC_Init(CRC_HandleTypeDef *hcrc)
     WRITE_REG(hcrc->Instance->INIT, DEFAULT_CRC_INITVALUE);
  8000fca:	687b      	ldr	r3, [r7, #4]
  8000fcc:	681b      	ldr	r3, [r3, #0]
- 8000fce:	f04f 32ff 	mov.w	r2, #4294967295
+ 8000fce:	f04f 32ff 	mov.w	r2, #4294967295	; 0xffffffff
  8000fd2:	611a      	str	r2, [r3, #16]
  8000fd4:	e004      	b.n	8000fe0 <HAL_CRC_Init+0x88>
   }
@@ -10045,7 +10045,7 @@ HAL_StatusTypeDef HAL_MMC_ConfigWideBusOperation(MMC_HandleTypeDef *hmmc, uint32
       
   /* While card is not ready for data and trial number for sending CMD13 is not exceeded */
   count = SDMMC_DATATIMEOUT;
- 8003cb2:	f04f 33ff 	mov.w	r3, #4294967295
+ 8003cb2:	f04f 33ff 	mov.w	r3, #4294967295	; 0xffffffff
  8003cb6:	623b      	str	r3, [r7, #32]
   while((response & 0x00000100) == 0)
  8003cb8:	e02a      	b.n	8003d10 <HAL_MMC_ConfigWideBusOperation+0x1b0>
@@ -13475,7 +13475,7 @@ static HAL_StatusTypeDef QSPI_WaitFlagStateUntilTimeout(QSPI_HandleTypeDef *hqsp
     /* Check for the Timeout */
     if (Timeout != HAL_MAX_DELAY)
  80050ce:	69bb      	ldr	r3, [r7, #24]
- 80050d0:	f1b3 3fff 	cmp.w	r3, #4294967295
+ 80050d0:	f1b3 3fff 	cmp.w	r3, #4294967295	; 0xffffffff
  80050d4:	d016      	beq.n	8005104 <QSPI_WaitFlagStateUntilTimeout+0x48>
     {
       if((Timeout == 0) || ((HAL_GetTick() - tickstart) > Timeout))
@@ -18227,7 +18227,7 @@ HAL_StatusTypeDef RTC_EnterInitMode(RTC_HandleTypeDef* hrtc)
     hrtc->Instance->ISR = (uint32_t)RTC_INIT_MASK;
  8006c36:	687b      	ldr	r3, [r7, #4]
  8006c38:	681b      	ldr	r3, [r3, #0]
- 8006c3a:	f04f 32ff 	mov.w	r2, #4294967295
+ 8006c3a:	f04f 32ff 	mov.w	r2, #4294967295	; 0xffffffff
  8006c3e:	60da      	str	r2, [r3, #12]
 
     /* Get tick */
@@ -23386,7 +23386,7 @@ HAL_StatusTypeDef UART_WaitOnFlagUntilTimeout(UART_HandleTypeDef *huart, uint32_
     /* Check for the Timeout */
     if (Timeout != HAL_MAX_DELAY)
  8008934:	69bb      	ldr	r3, [r7, #24]
- 8008936:	f1b3 3fff 	cmp.w	r3, #4294967295
+ 8008936:	f1b3 3fff 	cmp.w	r3, #4294967295	; 0xffffffff
  800893a:	d026      	beq.n	800898a <UART_WaitOnFlagUntilTimeout+0x68>
     {
       if (((HAL_GetTick() - Tickstart) > Timeout) || (Timeout == 0U))
@@ -27293,7 +27293,7 @@ void vListInitialise( List_t * const pxList )
 	ensure it remains at the end of the list. */
 	pxList->xListEnd.xItemValue = portMAX_DELAY;
  8009e06:	687b      	ldr	r3, [r7, #4]
- 8009e08:	f04f 32ff 	mov.w	r2, #4294967295
+ 8009e08:	f04f 32ff 	mov.w	r2, #4294967295	; 0xffffffff
  8009e0c:	609a      	str	r2, [r3, #8]
 
 	/* The list end next and previous pointers point to itself so we know
@@ -27434,7 +27434,7 @@ const TickType_t xValueOfInsertion = pxNewListItem->xItemValue;
 	first, and the algorithm slightly modified if necessary. */
 	if( xValueOfInsertion == portMAX_DELAY )
  8009ea6:	68bb      	ldr	r3, [r7, #8]
- 8009ea8:	f1b3 3fff 	cmp.w	r3, #4294967295
+ 8009ea8:	f1b3 3fff 	cmp.w	r3, #4294967295	; 0xffffffff
  8009eac:	d103      	bne.n	8009eb6 <vListInsert+0x20>
 	{
 		pxIterator = pxList->xListEnd.pxPrevious;
@@ -27679,7 +27679,7 @@ List_t * const pxList = ( List_t * ) pxItemToRemove->pvContainer;
 		else
 		{
 			xReturn = errCOULD_NOT_ALLOCATE_REQUIRED_MEMORY;
- 8009fce:	f04f 33ff 	mov.w	r3, #4294967295
+ 8009fce:	f04f 33ff 	mov.w	r3, #4294967295	; 0xffffffff
  8009fd2:	61bb      	str	r3, [r7, #24]
 		}
 
@@ -28213,7 +28213,7 @@ void vTaskStartScheduler( void )
 
 		xNextTaskUnblockTime = portMAX_DELAY;
  800a26c:	4b13      	ldr	r3, [pc, #76]	; (800a2bc <vTaskStartScheduler+0x88>)
- 800a26e:	f04f 32ff 	mov.w	r2, #4294967295
+ 800a26e:	f04f 32ff 	mov.w	r2, #4294967295	; 0xffffffff
  800a272:	601a      	str	r2, [r3, #0]
 		xSchedulerRunning = pdTRUE;
  800a274:	4b12      	ldr	r3, [pc, #72]	; (800a2c0 <vTaskStartScheduler+0x8c>)
@@ -28239,7 +28239,7 @@ void vTaskStartScheduler( void )
  800a284:	e00f      	b.n	800a2a6 <vTaskStartScheduler+0x72>
 		configASSERT( xReturn != errCOULD_NOT_ALLOCATE_REQUIRED_MEMORY );
  800a286:	68fb      	ldr	r3, [r7, #12]
- 800a288:	f1b3 3fff 	cmp.w	r3, #4294967295
+ 800a288:	f1b3 3fff 	cmp.w	r3, #4294967295	; 0xffffffff
  800a28c:	d10b      	bne.n	800a2a6 <vTaskStartScheduler+0x72>
  800a28e:	f04f 0350 	mov.w	r3, #80	; 0x50
  800a292:	b672      	cpsid	i
@@ -28630,7 +28630,7 @@ BaseType_t xSwitchRequired = pdFALSE;
 					next time through. */
 					xNextTaskUnblockTime = portMAX_DELAY; /*lint !e961 MISRA exception as the casts are only redundant for some ports. */
  800a4aa:	4b36      	ldr	r3, [pc, #216]	; (800a584 <xTaskIncrementTick+0x164>)
- 800a4ac:	f04f 32ff 	mov.w	r2, #4294967295
+ 800a4ac:	f04f 32ff 	mov.w	r2, #4294967295	; 0xffffffff
  800a4b0:	601a      	str	r2, [r3, #0]
 					break;
  800a4b2:	e03e      	b.n	800a532 <xTaskIncrementTick+0x112>
@@ -29217,7 +29217,7 @@ TCB_t *pxTCB;
 		there is an item in the delayed list. */
 		xNextTaskUnblockTime = portMAX_DELAY;
  800a7e6:	4b0b      	ldr	r3, [pc, #44]	; (800a814 <prvResetNextTaskUnblockTime+0x48>)
- 800a7e8:	f04f 32ff 	mov.w	r2, #4294967295
+ 800a7e8:	f04f 32ff 	mov.w	r2, #4294967295	; 0xffffffff
  800a7ec:	601a      	str	r2, [r3, #0]
 		which the task at the head of the delayed list should be removed
 		from the Blocked state. */
@@ -29300,7 +29300,7 @@ const TickType_t xConstTickCount = xTickCount;
 	{
 		if( ( xTicksToWait == portMAX_DELAY ) && ( xCanBlockIndefinitely != pdFALSE ) )
  800a852:	687b      	ldr	r3, [r7, #4]
- 800a854:	f1b3 3fff 	cmp.w	r3, #4294967295
+ 800a854:	f1b3 3fff 	cmp.w	r3, #4294967295	; 0xffffffff
  800a858:	d10a      	bne.n	800a870 <prvAddCurrentTaskToDelayedList+0x58>
  800a85a:	683b      	ldr	r3, [r7, #0]
  800a85c:	2b00      	cmp	r3, #0
@@ -29482,7 +29482,7 @@ volatile uint32_t ulDummy = 0;
 	configASSERT( uxCriticalNesting == ~0UL );
  800a956:	4b13      	ldr	r3, [pc, #76]	; (800a9a4 <prvTaskExitError+0x58>)
  800a958:	681b      	ldr	r3, [r3, #0]
- 800a95a:	f1b3 3fff 	cmp.w	r3, #4294967295
+ 800a95a:	f1b3 3fff 	cmp.w	r3, #4294967295	; 0xffffffff
  800a95e:	d00b      	beq.n	800a978 <prvTaskExitError+0x2c>
  800a960:	f04f 0350 	mov.w	r3, #80	; 0x50
  800a964:	b672      	cpsid	i
