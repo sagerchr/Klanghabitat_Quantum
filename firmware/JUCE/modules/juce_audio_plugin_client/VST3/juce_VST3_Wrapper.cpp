@@ -52,7 +52,7 @@
 #if JUCE_VST3_CAN_REPLACE_VST2
 namespace Vst2
 {
-
+#include "pluginterfaces/vst2.x/vstfxstore.h"
 }
 #endif
 
@@ -1338,6 +1338,7 @@ public:
         short configs[][2] = { JucePlugin_PreferredChannelConfigurations };
         const int numConfigs = sizeof (configs) / sizeof (short[2]);
 
+        ignoreUnused (numConfigs);
         jassert (numConfigs > 0 && (configs[0][0] > 0 || configs[0][1] > 0));
 
         pluginInstance->setPlayConfigDetails (configs[0][0], configs[0][1], 44100.0, 1024);
@@ -1606,9 +1607,29 @@ public:
 
     //==============================================================================
    #if JUCE_VST3_CAN_REPLACE_VST2
+    bool loadVST2VstWBlock (const char* data, int size)
+    {
+        jassert ('VstW' == htonl (*(juce::int32*) data));
+        jassert (1 == htonl (*(juce::int32*) (data + 8))); // version should be 1 according to Steinberg's docs
 
+        auto headerLen = (int) htonl (*(juce::int32*) (data + 4)) + 8;
+        return loadVST2CcnKBlock (data + headerLen, size - headerLen);
+    }
 
-    
+    bool loadVST2CcnKBlock (const char* data, int size)
+    {
+        auto bank = (const Vst2::fxBank*) data;
+
+        jassert ('CcnK' == htonl (bank->chunkMagic));
+        jassert ('FBCh' == htonl (bank->fxMagic));
+        jassert (htonl (bank->version) == 1 || htonl (bank->version) == 2);
+        jassert (JucePlugin_VSTUniqueID == htonl (bank->fxID));
+
+        setStateInformation (bank->content.data.chunk,
+                             jmin ((int) (size - (bank->content.data.chunk - data)),
+                                   (int) htonl (bank->content.data.size)));
+        return true;
+    }
 
     bool loadVST3PresetFile (const char* data, int size)
     {
