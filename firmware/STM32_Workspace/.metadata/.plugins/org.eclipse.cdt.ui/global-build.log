@@ -1,4 +1,4 @@
-09:43:52 **** Incremental Build of configuration Debug for project Test_Display ****
+09:59:29 **** Incremental Build of configuration Debug for project Test_Display ****
 make all 
 Building file: ../Src/main.c
 Invoking: MCU GCC Compiler
@@ -274,5 +274,5 @@ Generating binary and Printing size information:
 arm-none-eabi-objcopy -O binary "Test_Display.elf" "Test_Display.bin"
 arm-none-eabi-size "Test_Display.elf"
    text	   data	    bss	    dec	    hex	filename
- 103696	    908	 123612	 228216	  37b78	Test_Display.elf
+ 107920	   1044	 123620	 232584	  38c88	Test_Display.elf
  

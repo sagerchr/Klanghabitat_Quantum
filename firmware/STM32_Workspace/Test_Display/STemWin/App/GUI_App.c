@@ -64,6 +64,7 @@ void GRAPHICS_MainTask(void) {
   while(1)
 {
       GUI_Delay(100);
+      HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
 }
 }
 
