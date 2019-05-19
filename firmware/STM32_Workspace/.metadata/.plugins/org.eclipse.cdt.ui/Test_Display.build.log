@@ -1,0 +1,17 @@
+22:51:54 **** Incremental Build of configuration Debug for project Test_Display ****
+make all 
+Building target: Test_Display.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -L"C:\klanghabitat_quantum\firmware\STM32_Workspace\Test_Display\Middlewares\ST\STemWin\Lib"  -specs=nosys.specs -specs=nano.specs -T"../STM32F469NIHx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Test_Display.elf" @"objects.list"  -l:STemWin540_CM4_GCC_ot_ARGB.a -lm
+Finished building target: Test_Display.elf
+ 
+make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "Test_Display.elf" "Test_Display.bin"
+arm-none-eabi-size "Test_Display.elf"
+   text	   data	    bss	    dec	    hex	filename
+  67480	    100	 117476	 185056	  2d2e0	Test_Display.elf
+ 
+
+22:51:56 Build Finished (took 1s.623ms)
+

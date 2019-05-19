@@ -1,0 +1,18 @@
+/*
+ * HW_TASK.c
+ *
+ *  Created on: 17 maj 2019
+ *      Author: es015742
+ */
+#include "HW_Task.h"
+
+void HW_Task(void) {
+	  while(1)
+	{
+	      HAL_Delay(100);
+	}
+}
+
+void test(void){
+	HAL_Delay(100);
+}
