@@ -1,0 +1,10 @@
+22:54:30 **** Incremental Build of configuration Debug for project LCD_DSI_VideoMode_SingleBuffer ****
+make all 
+arm-none-eabi-size   LCD_DSI_VideoMode_SingleBuffer.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 642768	    108	   2380	 645256	  9d888	LCD_DSI_VideoMode_SingleBuffer.elf
+Finished building: default.size.stdout
+ 
+
+22:54:30 Build Finished. 0 errors, 0 warnings. (took 142ms)
+

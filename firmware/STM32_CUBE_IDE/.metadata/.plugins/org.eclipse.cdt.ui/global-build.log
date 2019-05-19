@@ -1,7 +1,24 @@
-13:24:20 **** Incremental Build of configuration Debug for project TEST_CUBE_IDE ****
-make -j3 all 
-arm-none-eabi-size   TEST_CUBE_IDE.elf 
+22:54:24 **** Incremental Build of configuration Debug for project LCD_DSI_VideoMode_SingleBuffer ****
+make all 
+arm-none-eabi-gcc "/Users/christiansager/STM32Cube/Repository/STM32Cube_FW_F4_V1.24.1/Projects/STM32469I-Discovery/Examples/LCD_DSI/LCD_DSI_VideoMode_SingleBuffer/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F469xx -c -I../../../Inc -I../../../../../../../../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../../../../../../../../Drivers/CMSIS/Include -I../../../../../../../../Drivers/STM32F4xx_HAL_Driver/Inc -I../../../../../../../../Drivers/BSP/STM32469I-Discovery -I../../../../../../../../Drivers/BSP/Components/Common -I../../../../../../../../Utilities/Log -I../../../../../../../../Utilities/Fonts -I../../../../../../../../Utilities/CPU -Os -ffunction-sections -Wall -fstack-usage -MMD -MP -MF"Example/User/main.d" -MT"Example/User/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Example/User/main.o"
+arm-none-eabi-gcc -o "LCD_DSI_VideoMode_SingleBuffer.elf" @"objects.list"   -mcpu=cortex-m4 -T"../STM32F469NIHx_FLASH.ld" --specs=nosys.specs -Wl,-Map="LCD_DSI_VideoMode_SingleBuffer.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: LCD_DSI_VideoMode_SingleBuffer.elf
+ 
+arm-none-eabi-objdump -h -S  LCD_DSI_VideoMode_SingleBuffer.elf  > "LCD_DSI_VideoMode_SingleBuffer.list"
+Finished building: LCD_DSI_VideoMode_SingleBuffer.list
+ 
+arm-none-eabi-objcopy  -O binary  LCD_DSI_VideoMode_SingleBuffer.elf  "LCD_DSI_VideoMode_SingleBuffer.bin"
+Finished building: LCD_DSI_VideoMode_SingleBuffer.bin
+ 
+arm-none-eabi-size   LCD_DSI_VideoMode_SingleBuffer.elf 
    text	   data	    bss	    dec	    hex	filename
-  56280	     20	  38148	  94448	  170f0	TEST_CUBE_IDE.elf
+ 642768	    108	   2380	 645256	  9d888	LCD_DSI_VideoMode_SingleBuffer.elf
+Finished building: default.size.stdout
+ 
+22:54:30 **** Incremental Build of configuration Debug for project LCD_DSI_VideoMode_SingleBuffer ****
+make all 
+arm-none-eabi-size   LCD_DSI_VideoMode_SingleBuffer.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 642768	    108	   2380	 645256	  9d888	LCD_DSI_VideoMode_SingleBuffer.elf
 Finished building: default.size.stdout
  

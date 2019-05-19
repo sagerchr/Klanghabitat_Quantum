@@ -1,0 +1,10 @@
+20:21:14 **** Incremental Build of configuration Debug for project NucleoStart ****
+make -j3 all 
+arm-none-eabi-size   NucleoStart.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10948	    120	   1664	  12732	   31bc	NucleoStart.elf
+Finished building: default.size.stdout
+ 
+
+20:21:14 Build Finished. 0 errors, 0 warnings. (took 102ms)
+

@@ -1,0 +1,10 @@
+22:46:31 **** Incremental Build of configuration Debug for project GET_LCD ****
+make -j3 all 
+arm-none-eabi-size   GET_LCD.elf 
+   text	   data	    bss	    dec	    hex	filename
+  78916	    172	  40396	 119484	  1d2bc	GET_LCD.elf
+Finished building: default.size.stdout
+ 
+
+22:46:31 Build Finished. 0 errors, 0 warnings. (took 208ms)
+

@@ -1,0 +1,10 @@
+22:51:19 **** Incremental Build of configuration Debug for project STM32469I_DISCOVERY ****
+make all 
+arm-none-eabi-size   STM32469I_DISCOVERY.elf 
+   text	   data	    bss	    dec	    hex	filename
+  56288	  93368	   6472	 156128	  261e0	STM32469I_DISCOVERY.elf
+Finished building: default.size.stdout
+ 
+
+22:51:19 Build Finished. 0 errors, 0 warnings. (took 153ms)
+
