@@ -1,4 +1,3 @@
-
 /**
   ******************************************************************************
   * @file           : main.c
@@ -10,7 +9,7 @@
   * inserted by the user or by software development tools
   * are owned by their respective copyright owners.
   *
-  * Copyright (c) 2019 STMicroelectronics International N.V. 
+  * Copyright (c) 2017 STMicroelectronics International N.V. 
   * All rights reserved.
   *
   * Redistribution and use in source and binary forms, with or without 
@@ -46,6 +45,7 @@
   *
   ******************************************************************************
   */
+
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "stm32f4xx_hal.h"
@@ -75,6 +75,7 @@ static void MX_CRC_Init(void);
 extern void GRAPHICS_HW_Init(void);
 extern void GRAPHICS_Init(void);
 extern void GRAPHICS_MainTask(void);
+       void TouchTimer_Init(void);
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
@@ -127,6 +128,8 @@ int main(void)
   /* Initialise the graphical stack engine */
   GRAPHICS_Init();
   
+	TouchTimer_Init();
+	
   /* Graphic application */  
   GRAPHICS_MainTask();
     
@@ -208,6 +211,53 @@ void SystemClock_Config(void)
 
   /* SysTick_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
+}
+
+void TouchTimer_Init()
+{
+  BSP_TS_Init(800, 480);
+
+  if (HAL_TIM_Base_Init(&htim3) != HAL_OK){while (1);}
+  if (HAL_TIM_Base_Start_IT(&htim3) != HAL_OK){ while (1); }
+}
+
+void BSP_Pointer_Update(void) {
+  GUI_PID_STATE TS_State;               /* Structure that reports the touch state to STemWin */
+  static TS_StateTypeDef prev_state;    /* Previous touch state from the touch sensor used from BSP package */
+  TS_StateTypeDef ts;                   /* Actual touch state from the touch sensor used from BSP package */
+  uint16_t xDiff, yDiff;                /* Difference in postitions between touch states*/
+  BSP_TS_GetState(&ts);                 /* Read the touch state from touch sensor (BSP API)*/
+  TS_State.Pressed = ts.touchDetected;  /* Store pressed state to STemWin structure*/
+  
+  /* Compute x variation */
+  xDiff = (prev_state.touchX[0] > ts.touchX[0]) ? (prev_state.touchX[0] - ts.touchX[0]) : (ts.touchX[0] - prev_state.touchX[0]);
+  
+  /* Compute y variation */
+  yDiff = (prev_state.touchY[0] > ts.touchY[0]) ? (prev_state.touchY[0] - ts.touchY[0]) : (ts.touchY[0] - prev_state.touchY[0]);
+  
+  /* Check if the touch is pressed */
+  if ((prev_state.touchDetected != ts.touchDetected) || (xDiff > 3)|| (yDiff > 3))
+  {
+    prev_state.touchDetected = ts.touchDetected;
+    /* Check touch variations */
+    if ((ts.touchX[0] != 0) && (ts.touchY[0] != 0))
+    {
+      prev_state.touchX[0] = ts.touchX[0];
+      prev_state.touchY[0] = ts.touchY[0];
+    }
+    TS_State.Layer = 0;
+    TS_State.x = prev_state.touchX[0];
+    TS_State.y = prev_state.touchY[0];
+  
+    /* Send touch state to STemWin */
+    GUI_TOUCH_StoreStateEx(&TS_State);
+  }
+}
+
+/* Timer interrupt callback */
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+   BSP_Pointer_Update();/*handle the touch changes*/
 }
 
 /* CRC init function */
