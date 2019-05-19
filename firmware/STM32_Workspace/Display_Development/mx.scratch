@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project>
+<ProjectName>/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/Display_Development/\F469Disco_demo</ProjectName>
+<ProjectNature>C</ProjectNature> 
+<CMSIS>../Drivers/CMSIS</CMSIS>
+<HAL_Driver>/Users/christiansager/STM32Cube/Repository//STM32Cube_FW_F4_V1.21.0/Drivers/CMSIS</HAL_Driver>
+<Toolchain>SW4STM32</Toolchain>
+<Version>0</Version>
+
+<filestoremove>
+    <file>
+    </file>
+</filestoremove>
+
+<inctoremove>
+	<Aincludes>
+	   <include></include>
+    </Aincludes>
+	<Cincludes>
+    </Cincludes>
+</inctoremove>
+
+<configs>
+  <config>
+    <name>F469Disco_demo</name>				
+    <device>STM32F469NIHx</device>		 
+    <heapSize>0x500</heapSize>
+    <stackSize>0x800</stackSize>
+    
+    	<board>custom</board>
+			
+    <usedDebug>true</usedDebug>
+    	<debugprobe></debugprobe>
+    <optimization>6</optimization>
+    <icfloc>1</icfloc>
+    <Adefines>
+        <define></define>
+    </Adefines>   
+
+    <UsedFreeRTOS></UsedFreeRTOS>
+    <Aincludes>
+
+
+	    	<include></include>
+    </Aincludes>
+    <Cdefines>
+        <define>__weak=&quot;__attribute__((weak))&quot;</define>
+        <define>__packed=&quot;__attribute__((__packed__))&quot;</define>
+    </Cdefines>
+    <definestoremove>
+        <Adefines>
+            <define></define>
+        </Adefines>
+        <Cdefines>
+            <define>USE_FULL_LL_DRIVER</define>
+            <define>MBEDTLS_CONFIG_FILE=&quot;mbedtls_config.h&quot;</define>
+        </Cdefines>         
+    </definestoremove>
+    
+	<Cincludes>
+	   <include>../STemWin/Target</include>
+	   <include>../STemWin/App</include>
+	   <include>../Inc</include>
+	   <include>../Drivers/STM32F4xx_HAL_Driver/Inc</include>
+	   <include>../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy</include>
+	   <include>../Drivers/BSP/Components/otm8009a</include>
+	   <include>../Drivers/CMSIS/Device/ST/STM32F4xx/Include</include>
+	   <include>../Middlewares/ST/STemWin/inc</include>
+	   <include>../Drivers/BSP/Components/Common</include>
+	   <include>../Drivers/CMSIS/Include</include>
+
+    </Cincludes>
+      </config>
+    </configs> 
+
+    <underRoot>true</underRoot>
+    	<copyAsReference>false</copyAsReference>
+ 
+	  		<sourceEntries>
+		    	<sourceEntry>
+		    		<name>Inc</name>
+		    	</sourceEntry>
+                <sourceEntry>
+                        <name>Src</name>
+                </sourceEntry>
+                        <sourceEntry>
+                                <name>STemWin</name>
+                        </sourceEntry>                
+		    	<sourceEntry>
+		    		<name>Drivers</name>
+		    	</sourceEntry>
+		    		<sourceEntry>
+		    			<name>Middlewares</name>
+		    		</sourceEntry>
+		    </sourceEntries>
+          <group>
+          <name>Middlewares</name>
+
+                              <group>
+                                  <name>STemWin</name>
+                                  <file>
+                                          <name>../Middlewares/ST/STemWin/Lib/STemWin540_CM4_GCC_ot_ARGB.a</name>
+                                  </file>
+                              </group>
+
+          </group> 
+
+</Project>
