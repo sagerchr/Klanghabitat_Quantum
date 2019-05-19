@@ -47,24 +47,50 @@
 
 #include "DIALOG.h"
 extern  WM_HWIN CreateFramewin(void); 
-  
+int x;
+int y;
 
 void GRAPHICS_MainTask(void) {
   /* 1- Create a FrameWin using GUIBuilder */
-  CreateFramewin();
+  //CreateFramewin();
 /* USER CODE BEGIN GRAPHICS_MainTask */
  /* User can implement his graphic application here */
   /* Hello Word example */
+
+
+
+	GUI_SetBkColor(GUI_WHITE);
     GUI_Clear();
-    GUI_SetColor(GUI_WHITE);
-    GUI_SetFont(&GUI_Font32_1);
-    GUI_DispStringAt("Hello world!", (LCD_GetXSize()-150)/2, (LCD_GetYSize()-20)/2);
+    GUI_SetColor(GUI_BLACK);
+    GUI_AA_SetFactor(10);
+    GUI_AA_DrawArc(100, 200, 80, 0, 0, 180);
+    GUI_AA_DrawArc(160, 200, 90, 0, 30, 90);
+    GUI_AA_DrawArc(160, 200, 100, 0, 30, 90);
+    GUI_AA_DrawArc(160, 200, 110, 0, 30, 90);
+
+
+
+
+
+
+
+
+
+    while(1)
+  {
+    	HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
+        GUI_Delay(50);
+        GUI_DispStringAt("TEST", x, 100);
+        x=x+1;
+        GUI_AA_DrawArc(x, 200, 80, 10, 0, 180);
+        //GUI_TOUCH_CalibratePoint (x, y);
+  }
+
    
 /* USER CODE END GRAPHICS_MainTask */
   while(1)
 {
       GUI_Delay(100);
-      HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
 }
 }
 
