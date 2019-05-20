@@ -1,3 +1,4 @@
+
 /**
   ******************************************************************************
   * @file           : main.c
@@ -9,7 +10,7 @@
   * inserted by the user or by software development tools
   * are owned by their respective copyright owners.
   *
-  * Copyright (c) 2017 STMicroelectronics International N.V. 
+  * Copyright (c) 2019 STMicroelectronics International N.V. 
   * All rights reserved.
   *
   * Redistribution and use in source and binary forms, with or without 
@@ -45,10 +46,10 @@
   *
   ******************************************************************************
   */
-
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "stm32f4xx_hal.h"
+#include "usb_device.h"
 
 /* USER CODE BEGIN Includes */
 
@@ -74,8 +75,7 @@ static void MX_TIM3_Init(void);
 static void MX_CRC_Init(void);
 extern void GRAPHICS_HW_Init(void);
 extern void GRAPHICS_Init(void);
-extern void GRAPHICS_MainTask(void);
-       void TouchTimer_Init(void);
+extern void MainTask(void);
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
@@ -118,20 +118,19 @@ int main(void)
   MX_I2C1_Init();
   MX_TIM3_Init();
   MX_CRC_Init();
+  MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
 
 /* Initialise the graphical hardware */
-  GRAPHICS_HW_Init();
+ GRAPHICS_HW_Init();
 
   /* Initialise the graphical stack engine */
   GRAPHICS_Init();
   
-	TouchTimer_Init();
-	
   /* Graphic application */  
-  GRAPHICS_MainTask();
+ MainTask();
     
   /* Infinite loop */
   for(;;);
@@ -153,7 +152,7 @@ void SystemClock_Config(void)
     */
   __HAL_RCC_PWR_CLK_ENABLE();
 
-  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE3);
 
     /**Initializes the CPU, AHB and APB busses clocks 
     */
@@ -162,18 +161,11 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
   RCC_OscInitStruct.PLL.PLLM = 4;
-  RCC_OscInitStruct.PLL.PLLN = 180;
+  RCC_OscInitStruct.PLL.PLLN = 72;
   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
-  RCC_OscInitStruct.PLL.PLLQ = 4;
+  RCC_OscInitStruct.PLL.PLLQ = 3;
   RCC_OscInitStruct.PLL.PLLR = 2;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
-  {
-    _Error_Handler(__FILE__, __LINE__);
-  }
-
-    /**Activate the Over-Drive mode 
-    */
-  if (HAL_PWREx_EnableOverDrive() != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
   }
@@ -184,18 +176,19 @@ void SystemClock_Config(void)
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
-  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
   }
 
-  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_LTDC;
+  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_CLK48|RCC_PERIPHCLK_LTDC;
   PeriphClkInitStruct.PLLSAI.PLLSAIN = 50;
   PeriphClkInitStruct.PLLSAI.PLLSAIR = 2;
   PeriphClkInitStruct.PLLSAIDivR = RCC_PLLSAIDIVR_2;
+  PeriphClkInitStruct.Clk48ClockSelection = RCC_CLK48CLKSOURCE_PLLQ;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
@@ -211,53 +204,6 @@ void SystemClock_Config(void)
 
   /* SysTick_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
-}
-
-void TouchTimer_Init()
-{
-  BSP_TS_Init(800, 480);
-
-  if (HAL_TIM_Base_Init(&htim3) != HAL_OK){while (1);}
-  if (HAL_TIM_Base_Start_IT(&htim3) != HAL_OK){ while (1); }
-}
-
-void BSP_Pointer_Update(void) {
-  GUI_PID_STATE TS_State;               /* Structure that reports the touch state to STemWin */
-  static TS_StateTypeDef prev_state;    /* Previous touch state from the touch sensor used from BSP package */
-  TS_StateTypeDef ts;                   /* Actual touch state from the touch sensor used from BSP package */
-  uint16_t xDiff, yDiff;                /* Difference in postitions between touch states*/
-  BSP_TS_GetState(&ts);                 /* Read the touch state from touch sensor (BSP API)*/
-  TS_State.Pressed = ts.touchDetected;  /* Store pressed state to STemWin structure*/
-  
-  /* Compute x variation */
-  xDiff = (prev_state.touchX[0] > ts.touchX[0]) ? (prev_state.touchX[0] - ts.touchX[0]) : (ts.touchX[0] - prev_state.touchX[0]);
-  
-  /* Compute y variation */
-  yDiff = (prev_state.touchY[0] > ts.touchY[0]) ? (prev_state.touchY[0] - ts.touchY[0]) : (ts.touchY[0] - prev_state.touchY[0]);
-  
-  /* Check if the touch is pressed */
-  if ((prev_state.touchDetected != ts.touchDetected) || (xDiff > 3)|| (yDiff > 3))
-  {
-    prev_state.touchDetected = ts.touchDetected;
-    /* Check touch variations */
-    if ((ts.touchX[0] != 0) && (ts.touchY[0] != 0))
-    {
-      prev_state.touchX[0] = ts.touchX[0];
-      prev_state.touchY[0] = ts.touchY[0];
-    }
-    TS_State.Layer = 0;
-    TS_State.x = prev_state.touchX[0];
-    TS_State.y = prev_state.touchY[0];
-  
-    /* Send touch state to STemWin */
-    GUI_TOUCH_StoreStateEx(&TS_State);
-  }
-}
-
-/* Timer interrupt callback */
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
-{
-   BSP_Pointer_Update();/*handle the touch changes*/
 }
 
 /* CRC init function */
@@ -342,6 +288,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
   __HAL_RCC_GPIOG_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
+  __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOI_CLK_ENABLE();
   __HAL_RCC_GPIOF_CLK_ENABLE();
   __HAL_RCC_GPIOH_CLK_ENABLE();

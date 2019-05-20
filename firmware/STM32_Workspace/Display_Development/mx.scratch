@@ -32,7 +32,7 @@
     <usedDebug>true</usedDebug>
     	<debugprobe></debugprobe>
     <optimization>6</optimization>
-    <icfloc>1</icfloc>
+    <icfloc>0</icfloc>
     <Adefines>
         <define></define>
     </Adefines>   
@@ -64,6 +64,8 @@
 	   <include>../Drivers/STM32F4xx_HAL_Driver/Inc</include>
 	   <include>../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy</include>
 	   <include>../Drivers/BSP/Components/otm8009a</include>
+	   <include>../Middlewares/ST/STM32_USB_Device_Library/Core/Inc</include>
+	   <include>../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc</include>
 	   <include>../Drivers/CMSIS/Device/ST/STM32F4xx/Include</include>
 	   <include>../Middlewares/ST/STemWin/inc</include>
 	   <include>../Drivers/BSP/Components/Common</include>
@@ -102,6 +104,8 @@
                                           <name>../Middlewares/ST/STemWin/Lib/STemWin540_CM4_GCC_ot_ARGB.a</name>
                                   </file>
                               </group>
+
+
 
           </group> 
 

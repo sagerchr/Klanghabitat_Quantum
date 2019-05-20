@@ -44,27 +44,89 @@
   */
 #include "GUI_App.h"
 #include "GUI.h"
-
+#include "usb_device.h"
 #include "DIALOG.h"
-extern  WM_HWIN CreateWindow(void);  
+//extern  WM_HWIN CreateWindow(void);
   
 
-void GRAPHICS_MainTask(void) {
+//void GRAPHICS_MainTask(void) {
   /* 2- Create a Window using GUIBuilder */
-  CreateWindow();
+  //CreateWindow();
 /* USER CODE BEGIN GRAPHICS_MainTask */
  /* User can implement his graphic application here */
   /* Hello Word example */
+    //GUI_Clear();
+    //GUI_SetColor(GUI_BLUE);
+    //GUI_SetFont(&GUI_Font32_1);
+    //GUI_DispStringAt("Hello world!", (LCD_GetXSize()-150)/2, (LCD_GetYSize()-20)/2);
+/*
+void MainTask(void) {
+
+   GUI_Clear();
+   GUI_SetColor(GUI_BLUE);
+   GUI_SetFont(&GUI_Font32_1);
+   GUI_DispStringAt("Hello world!", (LCD_GetXSize()-150)/2, (LCD_GetYSize()-20)/2);
+
+   while (1) {
+    GUI_Delay(250);
     GUI_Clear();
-    GUI_SetColor(GUI_WHITE);
+    GUI_SetColor(GUI_BLUE);
     GUI_SetFont(&GUI_Font32_1);
     GUI_DispStringAt("Hello world!", (LCD_GetXSize()-150)/2, (LCD_GetYSize()-20)/2);
-   
+  }
+
+}
+
+*/
+
+uint8_t Value;
+
+
+
+static void _cbWin(WM_MESSAGE * pMsg) {
+  switch (pMsg->MsgId) {
+  case WM_PAINT:
+    GUI_SetBkColor(GUI_WHITE);
+    GUI_Clear();
+    GUI_AA_SetFactor(10);
+    GUI_SetColor(GUI_BLACK);
+    GUI_AA_SetFactor(10);
+    GUI_SetFont(&GUI_Font32_1);
+    GUI_AA_SetFactor(10);
+    GUI_DispDecAt(Value, 400, 240, 3);
+    break;
+  default:
+    WM_DefaultProc(pMsg);
+    break;
+  }
+}
+
+void CDC_ReceiveCallBack(uint8_t *buf, uint32_t len){
+Value = (int) &buf;
+}
+
+
+void MainTask(void) {
+
+
+
+  WM_HWIN hWin;
+  GUI_Init();
+  hWin = WM_CreateWindow(0, 0, 800, 480, WM_CF_SHOW, _cbWin, 0);
+
+  while (1) {
+	  GUI_Delay(50);
+	  WM_Invalidate(hWin);
+    //Value = (Value > 100) ? 0 : Value + 1;
+  }
+
+}
+
+/*************************** End of file ****************************/
+
+
 /* USER CODE END GRAPHICS_MainTask */
-  while(1)
-{
-      GUI_Delay(100);
-}
-}
+
+
 
 /*************************** End of file ****************************/
