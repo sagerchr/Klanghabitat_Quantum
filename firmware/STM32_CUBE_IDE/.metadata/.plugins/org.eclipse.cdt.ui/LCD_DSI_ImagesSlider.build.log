@@ -1,0 +1,10 @@
+22:36:35 **** Incremental Build of configuration Debug for project LCD_DSI_ImagesSlider ****
+make all 
+arm-none-eabi-size   LCD_DSI_ImagesSlider.elf 
+   text	   data	    bss	    dec	    hex	filename
+13860560	    168	   2712	13863440	 d38a10	LCD_DSI_ImagesSlider.elf
+Finished building: default.size.stdout
+ 
+
+22:36:35 Build Finished. 0 errors, 0 warnings. (took 148ms)
+

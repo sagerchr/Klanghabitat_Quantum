@@ -1,0 +1,548 @@
+{
+  "Application": {
+    "Screens": [
+      {
+        "Components": [
+          {
+            "Color": {
+              "Red": 0,
+              "Green": 0,
+              "Blue": 0
+            },
+            "Alpha": 255,
+            "Name": "boxBackground",
+            "X": 0,
+            "Y": 0,
+            "Width": 800,
+            "Height": 480,
+            "Type": "Box",
+            "Visible": false,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "RelativeFilename": "__designer\\blue_backgrounds_main_bg_texture_800x480px.png",
+            "Alpha": 255,
+            "Style": "Image6",
+            "Name": "background",
+            "X": 0,
+            "Y": 0,
+            "Width": 800,
+            "Height": 480,
+            "Type": "Image",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "RelativeFilename": "scrollBg.png",
+            "Alpha": 255,
+            "Name": "scrollBg",
+            "X": 400,
+            "Y": 375,
+            "Width": 400,
+            "Height": 79,
+            "Type": "Image",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "PaddingBefore": 0,
+            "PaddingAfter": 0,
+            "Snapping": false,
+            "IsHorizontal": false,
+            "IsCircular": true,
+            "ItemTemplateName": "imageContainer",
+            "NumberofItems": 14,
+            "InitialElement": 0,
+            "ItemMargin": 0,
+            "Easing": "Cubic",
+            "EasingOption": "Out",
+            "SwipeAcceleration": 1.0,
+            "DragAcceleration": 1.0,
+            "Name": "scrollList",
+            "X": 0,
+            "Y": 0,
+            "Width": 100,
+            "Height": 480,
+            "Type": "ScrollList",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "SelectedItemOffset": 153,
+            "UseSelectedStyle": true,
+            "SelectedItemTemplateName": "textCenterContainer",
+            "ExtraSizeBefore": 0,
+            "ExtraSizeAfter": 0,
+            "MarginBefore": 0,
+            "MarginAfter": 0,
+            "IsHorizontal": true,
+            "IsCircular": false,
+            "ItemTemplateName": "textContainer",
+            "NumberofItems": 61,
+            "InitialElement": 0,
+            "ItemMargin": 0,
+            "Easing": "Cubic",
+            "EasingOption": "Out",
+            "SwipeAcceleration": 4.0000000000000018,
+            "DragAcceleration": 1.0,
+            "Name": "scrollWheel",
+            "X": 42,
+            "Y": 35,
+            "Width": 396,
+            "Height": 75,
+            "Type": "ScrollWheel",
+            "Visible": false,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "RelativeFilename": "icons\\alert.png",
+            "Alpha": 255,
+            "Name": "selectedIcon",
+            "X": 400,
+            "Y": 129,
+            "Width": 48,
+            "Height": 41,
+            "Type": "Image",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "TextId": "SingleUseId1",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 213,
+              "Green": 115,
+              "Blue": 0
+            },
+            "Alpha": 255,
+            "AutoSize": false,
+            "LineSpacing": 0,
+            "Wildcard1": {
+              "TextId": "SingleUseId6",
+              "UseBuffer": true,
+              "BufferSize": 10
+            },
+            "Name": "selectedVal",
+            "X": 208,
+            "Y": 150,
+            "Width": 64,
+            "Height": 60,
+            "Type": "TextArea",
+            "Visible": false,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "TextId": "Headline_ScrollList",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 138,
+              "Blue": 0
+            },
+            "Alpha": 255,
+            "AutoSize": false,
+            "LineSpacing": 0,
+            "Name": "selectText",
+            "X": 40,
+            "Y": 129,
+            "Width": 400,
+            "Height": 25,
+            "Type": "TextArea",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "RelativeFilename": "scroll_wheel_frame.png",
+            "Alpha": 255,
+            "Name": "scrollWheelFrame",
+            "X": 192,
+            "Y": 31,
+            "Width": 96,
+            "Height": 79,
+            "Type": "Image",
+            "Visible": false,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "TextId": "SingleUseId7",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 138,
+              "Blue": 0
+            },
+            "Alpha": 255,
+            "AutoSize": true,
+            "LineSpacing": 0,
+            "Name": "changeScrollListText",
+            "X": 300,
+            "Y": 227,
+            "Width": 70,
+            "Height": 20,
+            "Type": "TextArea",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "RelativeFilename": "mask.png",
+            "Alpha": 255,
+            "Name": "mask",
+            "X": 400,
+            "Y": 276,
+            "Width": 400,
+            "Height": 79,
+            "Type": "Image",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "Alpha": 255,
+            "Selected": false,
+            "Deselectable": false,
+            "FileNameSelected": "radio_button_selected.png",
+            "FileNameSelectedPressed": "radio_button_selected_pressed.png",
+            "FileNameUnselected": "radio_button_unselected.png",
+            "FileNameUnselectedPressed": "radio_button_unselected_pressed.png",
+            "Name": "radioButtonScrollWheel",
+            "X": 189,
+            "Y": 217,
+            "Width": 42,
+            "Height": 42,
+            "Type": "RadioButton",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "Alpha": 255,
+            "Selected": true,
+            "Deselectable": false,
+            "FileNameSelected": "radio_button_selected.png",
+            "FileNameSelectedPressed": "radio_button_selected_pressed.png",
+            "FileNameUnselected": "radio_button_unselected.png",
+            "FileNameUnselectedPressed": "radio_button_unselected_pressed.png",
+            "Name": "radioButtonScrollList",
+            "X": 253,
+            "Y": 217,
+            "Width": 42,
+            "Height": 42,
+            "Type": "RadioButton",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "TextId": "SingleUseId8",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 138,
+              "Blue": 0
+            },
+            "Alpha": 255,
+            "AutoSize": true,
+            "LineSpacing": 0,
+            "Name": "changeScrollWheelText",
+            "X": 86,
+            "Y": 228,
+            "Width": 93,
+            "Height": 20,
+            "Type": "TextArea",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "scrollListSelectedInteraction",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "TriggerComponent": "radioButtonScrollList",
+              "Type": "TriggerRadioButtonSelected"
+            },
+            "Action": {
+              "FunctionName": "scrollListSelected",
+              "Type": "ActionCustom"
+            }
+          },
+          {
+            "InteractionName": "scrollWheelSelectedInteractionInteraction1",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "TriggerComponent": "radioButtonScrollWheel",
+              "Type": "TriggerRadioButtonSelected"
+            },
+            "Action": {
+              "FunctionName": "scrollWheelSelected",
+              "Type": "ActionCustom"
+            }
+          }
+        ],
+        "Name": "Screen1",
+        "OverrideDefaultBufferSize": false,
+        "CanvasBufferSize": 0
+      }
+    ],
+    "CustomContainerDefinitions": [
+      {
+        "Components": [
+          {
+            "RelativeFilename": "icons\\alert.png",
+            "Alpha": 255,
+            "Name": "image",
+            "X": 26,
+            "Y": 14,
+            "Width": 48,
+            "Height": 41,
+            "Type": "Image",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          }
+        ],
+        "Interactions": [],
+        "Name": "imageContainer",
+        "X": 0,
+        "Y": 0,
+        "Width": 100,
+        "Height": 75,
+        "Type": "CustomContainerDefinition",
+        "Visible": true,
+        "Draggable": false,
+        "Clickable": false,
+        "Fadeable": false,
+        "Moveable": false
+      },
+      {
+        "Components": [
+          {
+            "TextId": "SingleUseId2",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 213,
+              "Green": 115,
+              "Blue": 0
+            },
+            "Alpha": 255,
+            "AutoSize": false,
+            "LineSpacing": 0,
+            "Wildcard1": {
+              "TextId": "SingleUseId3",
+              "UseBuffer": true,
+              "BufferSize": 10
+            },
+            "Name": "text",
+            "X": 5,
+            "Y": 5,
+            "Width": 80,
+            "Height": 70,
+            "Type": "TextArea",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          }
+        ],
+        "Interactions": [],
+        "Name": "textContainer",
+        "X": 0,
+        "Y": 0,
+        "Width": 90,
+        "Height": 75,
+        "Type": "CustomContainerDefinition",
+        "Visible": true,
+        "Draggable": false,
+        "Clickable": false,
+        "Fadeable": false,
+        "Moveable": false
+      },
+      {
+        "Components": [
+          {
+            "TextId": "SingleUseId4",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 213,
+              "Green": 115,
+              "Blue": 0
+            },
+            "Alpha": 255,
+            "AutoSize": false,
+            "LineSpacing": 0,
+            "Wildcard1": {
+              "TextId": "SingleUseId5",
+              "UseBuffer": true,
+              "BufferSize": 10
+            },
+            "Name": "text",
+            "X": 8,
+            "Y": -1,
+            "Width": 75,
+            "Height": 70,
+            "Type": "TextArea",
+            "Visible": true,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          }
+        ],
+        "Interactions": [],
+        "Name": "textCenterContainer",
+        "X": 0,
+        "Y": 0,
+        "Width": 90,
+        "Height": 75,
+        "Type": "CustomContainerDefinition",
+        "Visible": true,
+        "Draggable": false,
+        "Clickable": false,
+        "Fadeable": false,
+        "Moveable": false
+      }
+    ],
+    "TextEntries": [
+      {
+        "TextEntryId": "SingleUseId1",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId2",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId3",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId4",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId5",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId6",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId7",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId8",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "Button_ScrollList",
+        "IsResource": true
+      },
+      {
+        "TextEntryId": "Button_ScrollWheel",
+        "IsResource": true
+      },
+      {
+        "TextEntryId": "Headline_ScrollList",
+        "IsResource": true
+      },
+      {
+        "TextEntryId": "Headline_ScrollWheel",
+        "IsResource": true
+      }
+    ],
+    "Name": "MyApplication1",
+    "Resolution": {
+      "Width": 800,
+      "Height": 480
+    },
+    "SelectedColorDepth": 16,
+    "StartupScreenName": "Screen1",
+    "SelectedStartupLanguage": "GB",
+    "Skin": "Blue",
+    "TouchGfxPath": "touchgfx",
+    "UIPath": ".",
+    "ApplicationTemplate": {
+      "Name": "STM32F469I_DISCO",
+      "Version": "1.1.0",
+      "Description": "ST STM32F469I DISCO",
+      "AvailableColorDepths": [
+        16,
+        24
+      ],
+      "AvailableImageFormats": {
+        "16": {
+          "Opaque": "RGB565",
+          "NonOpaque": "ARGB8888"
+        },
+        "24": {
+          "Opaque": "RGB888",
+          "NonOpaque": "ARGB8888"
+        }
+      },
+      "AvailableResolutions": [
+        {
+          "Width": 800,
+          "Height": 480
+        }
+      ],
+      "PhysicalButtons": [
+        {
+          "Key": 1,
+          "Name": "User Key"
+        }
+      ],
+      "GenerateAssetsCommand": "make -f simulator/gcc/Makefile assets -j10",
+      "PostGenerateCommand": "touchgfx update_project --project-file=simulator/msvs/Application.vcxproj && touchgfx update_project --project-file=target/IAR/application.ewp && touchgfx update_project --project-file=target/IAR8.x/application.ewp && touchgfx update_project --project-file=target/Keil/application.uvproj",
+      "CompileSimulatorCommand": "make -f simulator/gcc/Makefile -j10",
+      "RunSimulatorCommand": "build\\bin\\simulator.exe",
+      "CompileTargetCommand": "make -f target/gcc/Makefile -j10",
+      "FlashTargetCommand": "make -f target/gcc/Makefile -j10 flash"
+    }
+  },
+  "Version": "4.10.0",
+  "CreatedBy": "4.10.0"
+}
