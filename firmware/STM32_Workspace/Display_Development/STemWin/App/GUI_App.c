@@ -79,7 +79,7 @@ void MainTask(void) {
 
 */
 
-uint8_t Value;
+char Value;
 
 
 
@@ -93,7 +93,7 @@ static void _cbWin(WM_MESSAGE * pMsg) {
     GUI_AA_SetFactor(10);
     GUI_SetFont(&GUI_Font32_1);
     GUI_AA_SetFactor(10);
-    GUI_DispDecAt(Value, 400, 240, 3);
+    GUI_DispStringAt(Value, 400, 240);
     break;
   default:
     WM_DefaultProc(pMsg);
@@ -102,7 +102,7 @@ static void _cbWin(WM_MESSAGE * pMsg) {
 }
 
 void CDC_ReceiveCallBack(uint8_t *buf, uint32_t len){
-Value = (int) &buf;
+Value = &buf;
 }
 
 
