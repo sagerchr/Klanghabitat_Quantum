@@ -44,7 +44,7 @@
   */
 #include "GUI_App.h"
 #include "GUI.h"
-#include "usb_device.h"
+//#include "usb_device.h"
 #include "DIALOG.h"
 //extern  WM_HWIN CreateWindow(void);
   

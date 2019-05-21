@@ -119,18 +119,19 @@ int main(void)
   MX_TIM3_Init();
   MX_CRC_Init();
   MX_USB_DEVICE_Init();
+  HAL_Delay(1000);
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
 
 /* Initialise the graphical hardware */
- GRAPHICS_HW_Init();
+  GRAPHICS_HW_Init();
 
   /* Initialise the graphical stack engine */
   GRAPHICS_Init();
   
   /* Graphic application */  
- MainTask();
+  MainTask();
     
   /* Infinite loop */
   for(;;);
