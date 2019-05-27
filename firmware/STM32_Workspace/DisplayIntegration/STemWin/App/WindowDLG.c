@@ -22,6 +22,7 @@
 // USER END
 
 #include "DIALOG.h"
+#include "usb_device.h"
 
 /*********************************************************************
 *
@@ -29,15 +30,15 @@
 *
 **********************************************************************
 */
+
+char Value;
 #define ID_WINDOW_0  (GUI_ID_USER + 0x00)
-#define ID_IMAGE_0  (GUI_ID_USER + 0x01)
-#define ID_IMAGE_1  (GUI_ID_USER + 0x02)
-#define ID_IMAGE_2  (GUI_ID_USER + 0x03)
 #define ID_BUTTON_0  (GUI_ID_USER + 0x04)
 #define ID_BUTTON_1  (GUI_ID_USER + 0x05)
 #define ID_BUTTON_2  (GUI_ID_USER + 0x06)
 #define ID_BUTTON_3  (GUI_ID_USER + 0x07)
 #define ID_TEXT_0  (GUI_ID_USER + 0x08)
+#define ID_PROG_0  (GUI_ID_USER + 0x09)
 
 #define ID_IMAGE_0_IMAGE_0  0x00
 #define ID_IMAGE_1_IMAGE_0  0x01
@@ -118,17 +119,19 @@ static const U8 _acImage_2[463] = {
 */
 static const GUI_WIDGET_CREATE_INFO _aDialogCreate[] = {
   { WINDOW_CreateIndirect, "Window", ID_WINDOW_0, 0, 0, 800, 480, 0, 0x0, 0 },
-  { IMAGE_CreateIndirect, "Image", ID_IMAGE_0, 0, 0, 800, 480, 0, 0, 0 },
-  { IMAGE_CreateIndirect, "Image", ID_IMAGE_1, 250, 200, 150, 150, 0, 0, 0 },
-  { IMAGE_CreateIndirect, "Image", ID_IMAGE_2, 20, 20, 60, 32, 0, 0, 0 },
-  { BUTTON_CreateIndirect, "Push", ID_BUTTON_0, 600, 0, 200, 100, 0, 0x0, 0 },
-  { BUTTON_CreateIndirect, "Button", ID_BUTTON_1, 40, 220, 40, 40, 0, 0x0, 0 },
-  { BUTTON_CreateIndirect, "Button", ID_BUTTON_2, 40, 295, 40, 40, 0, 0x0, 0 },
-  { BUTTON_CreateIndirect, "Button", ID_BUTTON_3, 40, 425, 40, 40, 0, 0x0, 0 },
-  { TEXT_CreateIndirect, "Text", ID_TEXT_0, 400, 20, 340, 32, 0, 0x64, 0 },
+  { BUTTON_CreateIndirect, "Push", ID_BUTTON_0, 600, 0, 200, 120, 0, 0x0, 0 },
+  { BUTTON_CreateIndirect, "THE", ID_BUTTON_1, 600, 120, 200, 120, 0, 0x0, 0 },
+  { BUTTON_CreateIndirect, "BUT", ID_BUTTON_2, 600, 240, 200, 120, 0, 0x0, 0 },
+  { BUTTON_CreateIndirect, "TON", ID_BUTTON_3, 600, 360, 200, 120, 0, 0x0, 0 },
+  { TEXT_CreateIndirect, "Text", ID_TEXT_0, 300, 20, 340, 32, 0, 0x64, 0 },
+  { PROGBAR_CreateIndirect, "Text", ID_PROG_0, 0, 200, 340, 50, 0, 0x00, 0},
   // USER START (Optionally insert additional widgets)
   // USER END
 };
+
+uint8_t i=0;
+int add=1;
+int level = 0;
 
 /*********************************************************************
 *
@@ -171,73 +174,96 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
   // USER START (Optionally insert additional variables)
   // USER END
 
+  i++;
+if(i==100 || i == 0){
+	i=0;
+	add = add * (-1);
+}
+
+level = level + add;
+  hItem = WM_GetDialogItem(pMsg->hWin, ID_PROG_0);
+  PROGBAR_SetValue(hItem, level);
+
+
+
   switch (pMsg->MsgId) {
+
   case WM_INIT_DIALOG:
     //
     // Initialization of 'Image'
     //
-    hItem = WM_GetDialogItem(pMsg->hWin, ID_IMAGE_0);
-    pData = _GetImageById(ID_IMAGE_0_IMAGE_0, &FileSize);
-    IMAGE_SetBMP(hItem, pData, FileSize);
-    //
-    // Initialization of 'Image'
-    //
-    hItem = WM_GetDialogItem(pMsg->hWin, ID_IMAGE_1);
-    pData = _GetImageById(ID_IMAGE_1_IMAGE_0, &FileSize);
-    IMAGE_SetBMP(hItem, pData, FileSize);
-    //
-    // Initialization of 'Image'
-    //
-    hItem = WM_GetDialogItem(pMsg->hWin, ID_IMAGE_2);
-    pData = _GetImageById(ID_IMAGE_2_IMAGE_0, &FileSize);
-    IMAGE_SetBMP(hItem, pData, FileSize);
-    //
     // Initialization of 'Text'
     //
-    hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_0);
-    TEXT_SetText(hItem, "Butterfly Demo");
+	hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_0);
+	BUTTON_SetFont(hItem, GUI_FONT_32B_1);
+	hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_1);
+	BUTTON_SetFont(hItem, GUI_FONT_32B_1);
+	hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_2);
+	BUTTON_SetFont(hItem, GUI_FONT_32B_1);
+	hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_3);
+	BUTTON_SetFont(hItem, GUI_FONT_32B_1);
+
+	hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_0);
+    TEXT_SetText(hItem, "DisplayIntegration");
     TEXT_SetFont(hItem, GUI_FONT_32B_1);
-    TEXT_SetTextColor(hItem, GUI_MAKE_COLOR(0x00FF8080));
+    GUI_AA_SetFactor(10);
+    GUI_SetColor(GUI_BLACK);
+
+
     // USER START (Optionally insert additional code for further widget initialization)
     // USER END
     break;
+
   case WM_NOTIFY_PARENT:
     Id    = WM_GetId(pMsg->hWinSrc);
     NCode = pMsg->Data.v;
+
     switch(Id) {
-    case ID_BUTTON_0: // Notifications sent by 'Button'
-      switch(NCode) {
-      case WM_NOTIFICATION_CLICKED:
-        // USER START (Optionally insert code for reacting on notification message)
-    	  CDC_Transmit_FS("button clicked\r\n", 16);
-        // USER END
-        break;
-      case WM_NOTIFICATION_RELEASED:
-        // USER START (Optionally insert code for reacting on notification message)
-        // USER END
-        break;
-      // USER START (Optionally insert additional code for further notification handling)
-      // USER END
-      }
-      break;
-    case ID_BUTTON_1: // Notifications sent by 'Button'
-      switch(NCode) {
-      case WM_NOTIFICATION_CLICKED:
-        // USER START (Optionally insert code for reacting on notification message)
-        // USER END
-        break;
-      case WM_NOTIFICATION_RELEASED:
-        // USER START (Optionally insert code for reacting on notification message)
-        // USER END
-        break;
-      // USER START (Optionally insert additional code for further notification handling)
-      // USER END
-      }
-      break;
+	case ID_BUTTON_0: // Notifications sent by 'Button'
+	  switch(NCode) {
+	  case WM_NOTIFICATION_CLICKED:
+		// USER START (Optionally insert code for reacting on notification message)
+		  CDC_Transmit_FS("button_0 clicked\r\n", 18);
+			hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_0);
+			BUTTON_SetPressed(hItem, 1);
+			hItem = WM_GetDialogItem(pMsg->hWin, ID_PROG_0);
+			i=i+1;
+			PROGBAR_SetValue(hItem, Value);
+		// USER END
+		break;
+	  case WM_NOTIFICATION_RELEASED:
+		// USER START (Optionally insert code for reacting on notification message)
+		// USER END
+		break;
+	  // USER START (Optionally insert additional code for further notification handling)
+	  // USER END
+	  }
+	  break;
+  case ID_BUTTON_1: // Notifications sent by 'Button'
+	switch(NCode) {
+	case WM_NOTIFICATION_CLICKED:
+	  // USER START (Optionally insert code for reacting on notification message)
+	  CDC_Transmit_FS("button_1 clicked\r\n", 18);
+		hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_1);
+		BUTTON_SetPressed(hItem, 1);
+	  // USER END
+	  break;
+	case WM_NOTIFICATION_RELEASED:
+	  // USER START (Optionally insert code for reacting on notification message)
+	  // USER END
+	  break;
+	// USER START (Optionally insert additional code for further notification handling)
+	// USER END
+	}
+	break;
+
     case ID_BUTTON_2: // Notifications sent by 'Button'
       switch(NCode) {
       case WM_NOTIFICATION_CLICKED:
         // USER START (Optionally insert code for reacting on notification message)
+    	  	CDC_Transmit_FS("button_2 clicked\r\n", 18);
+			hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_2);
+			BUTTON_SetPressed(hItem, 1);
         // USER END
         break;
       case WM_NOTIFICATION_RELEASED:
@@ -248,20 +274,24 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
       // USER END
       }
       break;
-    case ID_BUTTON_3: // Notifications sent by 'Button'
-      switch(NCode) {
-      case WM_NOTIFICATION_CLICKED:
-        // USER START (Optionally insert code for reacting on notification message)
+
+      case ID_BUTTON_3: // Notifications sent by 'Button'
+        switch(NCode) {
+        case WM_NOTIFICATION_CLICKED:
+          // USER START (Optionally insert code for reacting on notification message)
+      	  CDC_Transmit_FS("button_3 clicked\r\n", 18);
+			hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_3);
+			BUTTON_SetPressed(hItem, 1);
+          // USER END
+          break;
+        case WM_NOTIFICATION_RELEASED:
+          // USER START (Optionally insert code for reacting on notification message)
+          // USER END
+          break;
+        // USER START (Optionally insert additional code for further notification handling)
         // USER END
+        }
         break;
-      case WM_NOTIFICATION_RELEASED:
-        // USER START (Optionally insert code for reacting on notification message)
-        // USER END
-        break;
-      // USER START (Optionally insert additional code for further notification handling)
-      // USER END
-      }
-      break;
     // USER START (Optionally insert additional code for further Ids)
     // USER END
     }
@@ -272,7 +302,19 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
     WM_DefaultProc(pMsg);
     break;
   }
+
+
+
+
+
 }
+WM_MESSAGE mess;
+
+void CDC_ReceiveCallBack(uint8_t *buf, uint32_t len){
+Value = &buf;
+BSP_LED_Toggle(LED1);
+}
+
 
 /*********************************************************************
 *

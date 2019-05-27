@@ -47,22 +47,27 @@
 #include "usbd_cdc_if.h"
 
 #include "DIALOG.h"
-extern  WM_HWIN CreateWindow(void);  
+
+
+char Value;
+
+
+
+
 
 void GRAPHICS_MainTask(void) {
+  WM_HWIN hWin;
   /* 2- Create a Window using GUIBuilder */
-  CreateWindow();
+  hWin = CreateWindow();
 /* USER CODE BEGIN GRAPHICS_MainTask */
  /* User can implement his graphic application here */
   /* Hello Word example */
-    GUI_Clear();
-    GUI_SetColor(GUI_WHITE);
-    GUI_SetFont(&GUI_Font32_1);
-    GUI_DispStringAt("Hello world!", (LCD_GetXSize()-150)/2, (LCD_GetYSize()-20)/2);
+
+
     while(1)
   {
-        GUI_Delay(100);
-
+        GUI_Delay(1);
+        WM_Invalidate(hWin);
 
   }
 /* USER CODE END GRAPHICS_MainTask */
