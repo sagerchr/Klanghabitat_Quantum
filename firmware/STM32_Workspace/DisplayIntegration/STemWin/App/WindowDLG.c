@@ -39,6 +39,7 @@ char Value;
 #define ID_BUTTON_3  (GUI_ID_USER + 0x07)
 #define ID_TEXT_0  (GUI_ID_USER + 0x08)
 #define ID_PROG_0  (GUI_ID_USER + 0x09)
+#define ID_SLID_0  (GUI_ID_USER + 0x10)
 
 #define ID_IMAGE_0_IMAGE_0  0x00
 #define ID_IMAGE_1_IMAGE_0  0x01
@@ -124,7 +125,8 @@ static const GUI_WIDGET_CREATE_INFO _aDialogCreate[] = {
   { BUTTON_CreateIndirect, "BUT", ID_BUTTON_2, 600, 240, 200, 120, 0, 0x0, 0 },
   { BUTTON_CreateIndirect, "TON", ID_BUTTON_3, 600, 360, 200, 120, 0, 0x0, 0 },
   { TEXT_CreateIndirect, "Text", ID_TEXT_0, 300, 20, 340, 32, 0, 0x64, 0 },
-  { PROGBAR_CreateIndirect, "Text", ID_PROG_0, 0, 200, 340, 50, 0, 0x00, 0},
+  { PROGBAR_CreateIndirect, "Text", ID_PROG_0, 200, 360, 400, 120, 0, 0x00, 0},
+
   // USER START (Optionally insert additional widgets)
   // USER END
 };
@@ -132,7 +134,7 @@ static const GUI_WIDGET_CREATE_INFO _aDialogCreate[] = {
 uint8_t i=0;
 int add=1;
 int level = 0;
-
+TS_StateTypeDef TS_State;
 /*********************************************************************
 *
 *       Static code
@@ -174,6 +176,7 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
   // USER START (Optionally insert additional variables)
   // USER END
 
+/*
   i++;
 if(i==100 || i == 0){
 	i=0;
@@ -181,12 +184,31 @@ if(i==100 || i == 0){
 }
 
 level = level + add;
+
+
+*/
+
   hItem = WM_GetDialogItem(pMsg->hWin, ID_PROG_0);
-  PROGBAR_SetValue(hItem, level);
+  PROGBAR_SetValue(hItem, ((TS_State.touchX[0]-192)/4));
 
 
+
+
+  BSP_TS_GetState(&TS_State);
+     if(TS_State.touchDetected == TOUCH_EVENT_PRESS_DOWN)
+	{
+	  GUI_Clear();
+	  GUI_SetFont(&GUI_FontComic24B_ASCII);
+	  GUI_SetColor(GUI_BLACK);
+	  GUI_DispDecAt(TS_State.touchX[0], 120, 20, 3);
+	  GUI_DispDecAt(TS_State.touchY[0], 120, 60, 3);
+	  //HAL_Delay(10);
+	}
 
   switch (pMsg->MsgId) {
+
+
+
 
   case WM_INIT_DIALOG:
     //
