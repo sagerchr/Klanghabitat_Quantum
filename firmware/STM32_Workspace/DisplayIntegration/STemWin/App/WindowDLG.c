@@ -135,6 +135,10 @@ uint8_t i=0;
 int add=1;
 int level = 0;
 TS_StateTypeDef TS_State;
+ADC_HandleTypeDef hadc2;
+ADC_HandleTypeDef hadc3;
+
+uint32_t adc1, adc2;
 /*********************************************************************
 *
 *       Static code
@@ -187,13 +191,13 @@ level = level + add;
 
 
 */
-
+/*
   hItem = WM_GetDialogItem(pMsg->hWin, ID_PROG_0);
   PROGBAR_SetValue(hItem, ((TS_State.touchX[0]-192)/4));
+*/
 
 
-
-
+/*
   BSP_TS_GetState(&TS_State);
      if(TS_State.touchDetected == TOUCH_EVENT_PRESS_DOWN)
 	{
@@ -204,6 +208,24 @@ level = level + add;
 	  GUI_DispDecAt(TS_State.touchY[0], 120, 60, 3);
 	  //HAL_Delay(10);
 	}
+*/
+
+     HAL_ADC_Start(&hadc2);
+     if(HAL_ADC_PollForConversion(&hadc2,5) == HAL_OK){
+    	 adc1 = HAL_ADC_GetValue(&hadc2);
+     }
+
+     HAL_ADC_Start(&hadc3);
+     if(HAL_ADC_PollForConversion(&hadc3,5) == HAL_OK){
+    	 adc2 = HAL_ADC_GetValue(&hadc3);
+     }
+
+	  GUI_SetFont(&GUI_FontD60x80);
+	  GUI_SetColor(GUI_BLACK);
+	  GUI_DispDecAt(adc1, 300, 120, 4);
+	  GUI_DispDecAt(adc2, 300, 230, 4);
+
+
 
   switch (pMsg->MsgId) {
 
