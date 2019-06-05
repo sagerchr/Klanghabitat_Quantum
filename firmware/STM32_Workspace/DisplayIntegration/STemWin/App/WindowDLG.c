@@ -139,6 +139,7 @@ ADC_HandleTypeDef hadc2;
 ADC_HandleTypeDef hadc3;
 
 uint32_t adc1, adc2;
+
 /*********************************************************************
 *
 *       Static code
@@ -225,6 +226,25 @@ level = level + add;
 	  GUI_DispDecAt(adc1, 300, 120, 4);
 	  GUI_DispDecAt(adc2, 300, 230, 4);
 
+	  char *A[4];
+	  char *B[4];
+
+	  sprintf(A, "%d", adc1);
+	  sprintf(B, "%d", adc2);
+
+	  char str[11];
+
+	  strcpy(str, "*");
+	  if(adc1<100){strcat(str, "0");}
+	  if(adc1<1000){strcat(str, "0");}
+	  strcat(str, A);
+	  strcat(str, "-");
+	  if(adc2<100){strcat(str, "0");}
+	  if(adc2<1000){strcat(str, "0");}
+	  strcat(str, B);
+	  strcat(str, "\r\n");
+
+	  CDC_Transmit_FS(str, 11);
 
 
   switch (pMsg->MsgId) {
