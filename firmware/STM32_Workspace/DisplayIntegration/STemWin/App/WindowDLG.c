@@ -135,10 +135,16 @@ uint8_t i=0;
 int add=1;
 int level = 0;
 TS_StateTypeDef TS_State;
+ADC_HandleTypeDef hadc1;
 ADC_HandleTypeDef hadc2;
-ADC_HandleTypeDef hadc3;
 
+DAC_HandleTypeDef hdac;
 uint32_t adc1, adc2;
+
+uint8_t buffin[200];
+uint8_t buffin2[200];
+TIM_HandleTypeDef htim4;
+
 
 /*********************************************************************
 *
@@ -210,15 +216,18 @@ level = level + add;
 	  //HAL_Delay(10);
 	}
 */
+  HAL_TIM_Base_Start(&htim4);
+  HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_1, (uint32_t*)buffin, 100, DAC_ALIGN_8B_R);
+  HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_2, (uint32_t*)buffin2, 100, DAC_ALIGN_8B_R);
+
+     HAL_ADC_Start(&hadc1);
+     if(HAL_ADC_PollForConversion(&hadc1,5) == HAL_OK){
+    	 adc1 = HAL_ADC_GetValue(&hadc1)*(3400.0/4096);
+     }
 
      HAL_ADC_Start(&hadc2);
      if(HAL_ADC_PollForConversion(&hadc2,5) == HAL_OK){
-    	 adc1 = HAL_ADC_GetValue(&hadc2);
-     }
-
-     HAL_ADC_Start(&hadc3);
-     if(HAL_ADC_PollForConversion(&hadc3,5) == HAL_OK){
-    	 adc2 = HAL_ADC_GetValue(&hadc3);
+    	 adc2 = HAL_ADC_GetValue(&hadc2);
      }
 
 	  GUI_SetFont(&GUI_FontD60x80);
@@ -235,10 +244,12 @@ level = level + add;
 	  char str[11];
 
 	  strcpy(str, "*");
+	  if(adc1<10){strcat(str, "0");}
 	  if(adc1<100){strcat(str, "0");}
 	  if(adc1<1000){strcat(str, "0");}
 	  strcat(str, A);
 	  strcat(str, "-");
+	  if(adc2<10){strcat(str, "0");}
 	  if(adc2<100){strcat(str, "0");}
 	  if(adc2<1000){strcat(str, "0");}
 	  strcat(str, B);
@@ -288,6 +299,8 @@ level = level + add;
 	  case WM_NOTIFICATION_CLICKED:
 		// USER START (Optionally insert code for reacting on notification message)
 		  CDC_Transmit_FS("button_0 clicked\r\n", 18);
+		  for (int i=0; i<100;i++){buffin[i]=i*0;}
+		  for (int i=0; i<100;i++){buffin2[i]=i*0;}
 			hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_0);
 			BUTTON_SetPressed(hItem, 1);
 			hItem = WM_GetDialogItem(pMsg->hWin, ID_PROG_0);
@@ -308,6 +321,8 @@ level = level + add;
 	case WM_NOTIFICATION_CLICKED:
 	  // USER START (Optionally insert code for reacting on notification message)
 	  CDC_Transmit_FS("button_1 clicked\r\n", 18);
+	  for (int i=0; i<100;i++){buffin[i]=i*1;}
+	  for (int i=0; i<100;i++){buffin2[i]=i*1;}
 		hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_1);
 		BUTTON_SetPressed(hItem, 1);
 	  // USER END
@@ -326,6 +341,8 @@ level = level + add;
       case WM_NOTIFICATION_CLICKED:
         // USER START (Optionally insert code for reacting on notification message)
     	  	CDC_Transmit_FS("button_2 clicked\r\n", 18);
+    	  	for (int i=0; i<100;i++){buffin[i]=i*2;}
+    	  	for (int i=0; i<100;i++){buffin2[i]=i*2;}
 			hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_2);
 			BUTTON_SetPressed(hItem, 1);
         // USER END
@@ -344,6 +361,8 @@ level = level + add;
         case WM_NOTIFICATION_CLICKED:
           // USER START (Optionally insert code for reacting on notification message)
       	  CDC_Transmit_FS("button_3 clicked\r\n", 18);
+      	for (int i=0; i<100;i++){buffin[i]=i*3;}
+      	for (int i=0; i<100;i++){buffin2[i]=i*3;}
 			hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_3);
 			BUTTON_SetPressed(hItem, 1);
           // USER END
