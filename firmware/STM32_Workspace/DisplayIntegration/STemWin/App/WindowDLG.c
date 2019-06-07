@@ -159,7 +159,9 @@ int16_t  ay [800];
 int16_t  ax [800];
 TIM_HandleTypeDef htim4;
 int posx=0;
-
+int16_t  sampleBuffer[10];
+int16_t  ringBuffer[810];
+int sample = 0;
 
 /*********************************************************************
 *
@@ -238,8 +240,9 @@ level = level + add;
   //HAL_TIM_Base_Start(&htim4);
   //HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_1, (uint32_t*)buffin, 100, DAC_ALIGN_8B_R);
   //HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_2, (uint32_t*)buffin2, 100, DAC_ALIGN_8B_R);
-
-posx=0;
+/*
+ //FIRST WORKING VERSION OF WAVEFORM
+  	 posx=0;
      for(int i=0; i<80;i++){
     	 HAL_ADC_Start(&hadc1);
 		 if(HAL_ADC_PollForConversion(&hadc1,1) == HAL_OK){
@@ -272,14 +275,73 @@ posx=0;
 		 avAdc1 = avAdc1 + adc1;
      }
      avAdc1 = avAdc1/100;
+     */
+
      /*
      GUI_Clear();
      GUI_SetPenSize( 20 );
      GUI_SetColor( GUI_BLUE );
      GUI_DrawGraph(ay, GUI_COUNTOF(ay), 0, 0);
      */
+/*
+
+  if(sample == 9)
+{
+  for(int i=0; i<10;i++){
+ 	 HAL_ADC_Start(&hadc1);
+		 if(HAL_ADC_PollForConversion(&hadc1,1) == HAL_OK){
+			 adc1 = HAL_ADC_GetValue(&hadc1)*(3400.0/4096);
+			 sampleBuffer [i] = adc1*2;
+			 avAdc1 = avAdc1 + adc1;
+		 }
+  	  }
+  avAdc1 = avAdc1/10;
+     for(int i=0; i<810;i++){
+    	 if (i>799){
+    		 ringBuffer[i] = sampleBuffer[i-799];
+    	 	 }
+    	 else {
+    		 ringBuffer[i] = ringBuffer[i+9];
+    	 	 }
+
+     	 }
+     sample = 0;
+}
 
 
+
+
+	for(int i=0; i<800;i++){
+        	 lineStart = 240 - ringBuffer[i+sample]/2;
+        	 lineEnd = lineStart + ringBuffer[i+sample];
+        	 GUI_DrawVLine(i,lineStart, lineEnd);
+         	 }
+	sample = sample +1;
+
+*/
+
+
+
+ 	 HAL_ADC_Start(&hadc1);
+		 if(HAL_ADC_PollForConversion(&hadc1,1) == HAL_OK){
+			 adc1 = HAL_ADC_GetValue(&hadc1)*(3400.0/4096);
+		 }
+		 adc1=adc1*2;
+		 avAdc1 = adc1;
+
+
+
+     for(int i=0; i<400;i++){
+    		 ringBuffer[i] = ringBuffer[i+1];
+     	 }
+
+ringBuffer[400] = adc1;
+
+	for(int i=0; i<400;i++){
+        	 lineStart = 240 - ringBuffer[i]/2;
+        	 lineEnd = lineStart + ringBuffer[i];
+        	 GUI_DrawVLine(i+200,lineStart, lineEnd);
+         	 }
 
 
 
