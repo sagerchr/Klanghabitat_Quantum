@@ -40,7 +40,7 @@ char Value;
 #define ID_TEXT_0  (GUI_ID_USER + 0x08)
 #define ID_PROG_0  (GUI_ID_USER + 0x09)
 #define ID_SLID_0  (GUI_ID_USER + 0x10)
-
+#define ID_TEXT_1  (GUI_ID_USER + 0x11)
 #define ID_IMAGE_0_IMAGE_0  0x00
 #define ID_IMAGE_1_IMAGE_0  0x01
 #define ID_IMAGE_2_IMAGE_0  0x02
@@ -118,18 +118,30 @@ static const U8 _acImage_2[463] = {
 *
 *       _aDialogCreate
 */
+/*
 static const GUI_WIDGET_CREATE_INFO _aDialogCreate[] = {
   { WINDOW_CreateIndirect, "Window", ID_WINDOW_0, 0, 0, 800, 480, 0, 0x0, 0 },
-  { BUTTON_CreateIndirect, "Push", ID_BUTTON_0, 600, 0, 200, 120, 0, 0x0, 0 },
-  { BUTTON_CreateIndirect, "THE", ID_BUTTON_1, 600, 120, 200, 120, 0, 0x0, 0 },
-  { BUTTON_CreateIndirect, "BUT", ID_BUTTON_2, 600, 240, 200, 120, 0, 0x0, 0 },
-  { BUTTON_CreateIndirect, "TON", ID_BUTTON_3, 600, 360, 200, 120, 0, 0x0, 0 },
-  { TEXT_CreateIndirect, "Text", ID_TEXT_0, 300, 20, 340, 32, 0, 0x64, 0 },
-  { PROGBAR_CreateIndirect, "Text", ID_PROG_0, 200, 360, 400, 120, 0, 0x00, 0},
+  { BUTTON_CreateIndirect, "INPUT", ID_BUTTON_0, 0, 0, 200, 80, 0, 0x0, 0 },
+  { BUTTON_CreateIndirect, "ATTACK", ID_BUTTON_1, 600, 0, 200, 80, 0, 0x0, 0 },
+  { BUTTON_CreateIndirect, "RELEASE", ID_BUTTON_2, 0, 400, 200, 80, 0, 0x0, 0 },
+  { BUTTON_CreateIndirect, "THRESHOLD", ID_BUTTON_3, 600, 400, 200, 80, 0, 0x0, 0 },
+  { TEXT_CreateIndirect, "dB", ID_TEXT_0, 180, 120, 340, 32, 0, 0x64, 0 },
+  { TEXT_CreateIndirect, "dB", ID_TEXT_1, 180, 350, 340, 32, 0, 0x64, 0 },
 
   // USER START (Optionally insert additional widgets)
   // USER END
 };
+
+*/
+static const GUI_WIDGET_CREATE_INFO _aDialogCreate[] = {
+  { WINDOW_CreateIndirect, "Window", ID_WINDOW_0, 0, 0, 800, 480, 0, 0x0, 0 },
+  { TEXT_CreateIndirect, "dB", ID_TEXT_0, 170, 35, 340, 32, 0, 0x64, 0 },
+  { TEXT_CreateIndirect, "dB", ID_TEXT_1, 170, 445, 340, 32, 0, 0x64, 0 },
+
+  // USER START (Optionally insert additional widgets)
+  // USER END
+};
+
 
 uint8_t i=0;
 int add=1;
@@ -139,11 +151,14 @@ ADC_HandleTypeDef hadc1;
 ADC_HandleTypeDef hadc2;
 
 DAC_HandleTypeDef hdac;
-uint32_t adc1, adc2;
+uint32_t adc1, adc2,avAdc1,lineStart,lineEnd;
 
 uint8_t buffin[255];
 uint8_t buffin2[255];
+int16_t  ay [800];
+int16_t  ax [800];
 TIM_HandleTypeDef htim4;
+int posx=0;
 
 
 /*********************************************************************
@@ -186,7 +201,9 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
   int          Id;
   // USER START (Optionally insert additional variables)
   // USER END
-
+  for (int i = 0; i<300; i++){
+  	ax[i] = i;
+  }
 /*
   i++;
 if(i==100 || i == 0){
@@ -216,25 +233,66 @@ level = level + add;
 	  //HAL_Delay(10);
 	}
 */
-  /*
-  HAL_TIM_Base_Start(&htim4);
-  HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_1, (uint32_t*)buffin, 100, DAC_ALIGN_8B_R);
-  HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_2, (uint32_t*)buffin2, 100, DAC_ALIGN_8B_R);
 
-     HAL_ADC_Start(&hadc1);
-     if(HAL_ADC_PollForConversion(&hadc1,5) == HAL_OK){
-    	 adc1 = HAL_ADC_GetValue(&hadc1)*(3400.0/4096);
+  //GUI_Clear();
+  //HAL_TIM_Base_Start(&htim4);
+  //HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_1, (uint32_t*)buffin, 100, DAC_ALIGN_8B_R);
+  //HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_2, (uint32_t*)buffin2, 100, DAC_ALIGN_8B_R);
+
+posx=0;
+     for(int i=0; i<80;i++){
+    	 HAL_ADC_Start(&hadc1);
+		 if(HAL_ADC_PollForConversion(&hadc1,1) == HAL_OK){
+
+			 adc1 = HAL_ADC_GetValue(&hadc1)*(3400.0/4096);
+			 ay [i] = adc1/5;
+
+			 if (adc1 > 0 && adc1 <= 120){GUI_SetColor( 0xFF808080 );}
+			 else if (adc1 > 150 && adc1 <=180){GUI_SetColor( 0xFF707070 );}
+			 else if (adc1 > 180 ){GUI_SetColor( 0xFF606060 );}
+			 adc1 = adc1 *2;
+			lineStart = 240 - adc1/2;
+			lineEnd = lineStart + adc1;
+
+			for(int i = 0; i<10; i++){
+				if(i<4){
+					GUI_DrawVLine(posx+i,lineStart-i, lineEnd+i);
+				}
+				if(i==4){
+					GUI_DrawVLine(posx+i,lineStart, lineEnd);
+				}
+				if(i>4){
+					GUI_DrawVLine(posx+i,lineStart+i, lineEnd-i);
+				}
+			}
+
+
+			 posx=posx+10;
+		 }
+		 avAdc1 = avAdc1 + adc1;
      }
+     avAdc1 = avAdc1/100;
+     /*
+     GUI_Clear();
+     GUI_SetPenSize( 20 );
+     GUI_SetColor( GUI_BLUE );
+     GUI_DrawGraph(ay, GUI_COUNTOF(ay), 0, 0);
+     */
+
+
+
+
+
 
      HAL_ADC_Start(&hadc2);
-     if(HAL_ADC_PollForConversion(&hadc2,5) == HAL_OK){
+     if(HAL_ADC_PollForConversion(&hadc2,1) == HAL_OK){
     	 adc2 = HAL_ADC_GetValue(&hadc2)*(3400.0/4096);
      }
-*/
-	  GUI_SetFont(&GUI_FontD60x80);
-	  GUI_SetColor(GUI_BLACK);
-	  GUI_DispDecAt(adc1, 300, 120, 4);
-	  GUI_DispDecAt(adc2, 300, 230, 4);
+
+	  GUI_SetFont(&GUI_FontD36x48);
+	  GUI_SetColor(GUI_GRAY);
+	  GUI_DispDecAt(avAdc1, 20, 15, 4);
+	  GUI_DispDecAt(adc2, 20, 420, 4);
 
 	  char *A[4];
 	  char *B[4];
@@ -261,6 +319,10 @@ level = level + add;
 
   switch (pMsg->MsgId) {
 
+  case WM_PAINT:
+	  GUI_SetBkColor(GUI_LIGHTGRAY);
+	  GUI_Clear();
+    break;
 
 
 
@@ -270,6 +332,7 @@ level = level + add;
     //
     // Initialization of 'Text'
     //
+/*
 	hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_0);
 	BUTTON_SetFont(hItem, GUI_FONT_32B_1);
 	hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_1);
@@ -278,12 +341,18 @@ level = level + add;
 	BUTTON_SetFont(hItem, GUI_FONT_32B_1);
 	hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_3);
 	BUTTON_SetFont(hItem, GUI_FONT_32B_1);
-
+*/
 	hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_0);
-    TEXT_SetText(hItem, "DisplayIntegration");
+	TEXT_SetTextColor(hItem, GUI_GRAY);
+    TEXT_SetText(hItem, "dB");
     TEXT_SetFont(hItem, GUI_FONT_32B_1);
-    GUI_AA_SetFactor(10);
-    GUI_SetColor(GUI_BLACK);
+
+
+	hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_1);
+	GUI_SetColor(GUI_GRAY);
+	TEXT_SetTextColor(hItem, GUI_GRAY);
+    TEXT_SetText(hItem, "dB");
+    TEXT_SetFont(hItem, GUI_FONT_32B_1);
 
 
     // USER START (Optionally insert additional code for further widget initialization)

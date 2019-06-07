@@ -47,22 +47,12 @@
 
 #include "DIALOG.h"
 extern  WM_HWIN CreateWindow(void);  
-
-ADC_HandleTypeDef hadc1;
-ADC_HandleTypeDef hadc2;
-
-DAC_HandleTypeDef hdac;
-uint32_t adc1, adc2;
-
-uint8_t buffin[100];
-uint8_t buffin2[255];
-uint8_t buffout[100];
-TIM_HandleTypeDef htim4;
+  
 
 void GRAPHICS_MainTask(void) {
   /* 2- Create a Window using GUIBuilder */
-	  WM_HWIN hWin;
-  CreateWindow();
+	WM_HWIN hWin;
+  hWin = CreateWindow();
 /* USER CODE BEGIN GRAPHICS_MainTask */
  /* User can implement his graphic application here */
   /* Hello Word example */
@@ -71,17 +61,14 @@ void GRAPHICS_MainTask(void) {
 
   //for (int i=0; i<100;i++){buffin[i]=i*1;}
 
-  HAL_TIM_Base_Start(&htim4);
-  HAL_ADC_Start_DMA(&hadc1, (uint32_t*)buffin, 100);
-  HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_1, (uint32_t*)&buffout, 10, DAC_ALIGN_8B_R);
-  HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_2, (uint32_t*)buffin2, 255, DAC_ALIGN_8B_R);
+  //HAL_TIM_Base_Start(&htim4);
+  //HAL_ADC_Start_DMA(&hadc1, (uint32_t*)buffin, 100);
+  //HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_1, (uint32_t*)&buffout, 10, DAC_ALIGN_8B_R);
+  //HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_2, (uint32_t*)buffin2, 255, DAC_ALIGN_8B_R);
 
     while(1)
   {
 
-for(int i=0; i<100; i++){
-	buffout[i] = buffin[i];
-}
     	 GUI_Delay(1);
          WM_Invalidate(hWin);
 
@@ -95,4 +82,3 @@ for(int i=0; i<100; i++){
 }
 
 /*************************** End of file ****************************/
-

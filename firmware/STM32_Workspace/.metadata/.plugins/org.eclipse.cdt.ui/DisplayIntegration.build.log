@@ -1,19 +1,82 @@
-16:03:56 **** Incremental Build of configuration Debug for project DisplayIntegration ****
+21:55:14 **** Incremental Build of configuration Debug for project DisplayIntegration ****
 make all 
-Building file: ../STemWin/App/GUI_App.c
+Building file: ../STemWin/App/WindowDLG.c
 Invoking: MCU GCC Compiler
 /Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Debug
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F469xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/STemWin/Target" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/STemWin/App" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Drivers/BSP/Components/otm8009a" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Middlewares/ST/STemWin/inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Drivers/BSP/Components/Common" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Drivers/CMSIS/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"STemWin/App/GUI_App.d" -MT"STemWin/App/GUI_App.o" -o "STemWin/App/GUI_App.o" "../STemWin/App/GUI_App.c"
-In file included from /Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Middlewares/ST/STemWin/inc/DIALOG.h:56:0,
-                 from ../STemWin/App/GUI_App.c:48:
-../STemWin/App/GUI_App.c: In function 'GRAPHICS_MainTask':
-/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Middlewares/ST/STemWin/inc/WM.h:763:29: warning: 'hWin' is used uninitialized in this function [-Wuninitialized]
-   #define WM_Invalidate     WM_InvalidateWindow
-                             ^~~~~~~~~~~~~~~~~~~
-../STemWin/App/GUI_App.c:64:12: note: 'hWin' was declared here
-    WM_HWIN hWin;
-            ^~~~
-Finished building: ../STemWin/App/GUI_App.c
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F469xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/STemWin/Target" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/STemWin/App" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Drivers/BSP/Components/otm8009a" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Middlewares/ST/STemWin/inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Drivers/BSP/Components/Common" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Drivers/CMSIS/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"STemWin/App/WindowDLG.d" -MT"STemWin/App/WindowDLG.o" -o "STemWin/App/WindowDLG.o" "../STemWin/App/WindowDLG.c"
+../STemWin/App/WindowDLG.c: In function '_cbDialog':
+../STemWin/App/WindowDLG.c:300:12: warning: passing argument 1 of 'sprintf' from incompatible pointer type [-Wincompatible-pointer-types]
+    sprintf(A, "%d", adc1);
+            ^
+In file included from /Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:48:0,
+                 from /Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h:45,
+                 from /Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Inc/stm32f4xx_hal_conf.h:244,
+                 from /Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:46,
+                 from /Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h:250,
+                 from /Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Inc/usb_device.h:59,
+                 from ../STemWin/App/WindowDLG.c:25:
+/Applications/Ac6/SystemWorkbench.app/Contents/Eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.macos64_1.17.0.201812190825/tools/compiler/arm-none-eabi/include/stdio.h:244:5: note: expected 'char * restrict' but argument is of type 'char **'
+ int sprintf (char *__restrict, const char *__restrict, ...)
+     ^~~~~~~
+../STemWin/App/WindowDLG.c:300:17: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+    sprintf(A, "%d", adc1);
+                ~^
+                %ld
+../STemWin/App/WindowDLG.c:301:12: warning: passing argument 1 of 'sprintf' from incompatible pointer type [-Wincompatible-pointer-types]
+    sprintf(B, "%d", adc2);
+            ^
+In file included from /Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:48:0,
+                 from /Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h:45,
+                 from /Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Inc/stm32f4xx_hal_conf.h:244,
+                 from /Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:46,
+                 from /Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h:250,
+                 from /Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Inc/usb_device.h:59,
+                 from ../STemWin/App/WindowDLG.c:25:
+/Applications/Ac6/SystemWorkbench.app/Contents/Eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.macos64_1.17.0.201812190825/tools/compiler/arm-none-eabi/include/stdio.h:244:5: note: expected 'char * restrict' but argument is of type 'char **'
+ int sprintf (char *__restrict, const char *__restrict, ...)
+     ^~~~~~~
+../STemWin/App/WindowDLG.c:301:17: warning: format '%d' expects argument of type 'int', but argument 3 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+    sprintf(B, "%d", adc2);
+                ~^
+                %ld
+../STemWin/App/WindowDLG.c:309:16: warning: passing argument 2 of 'strcat' from incompatible pointer type [-Wincompatible-pointer-types]
+    strcat(str, A);
+                ^
+In file included from /Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Inc/usbd_conf.h:61:0,
+                 from /Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:37,
+                 from /Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Inc/usb_device.h:61,
+                 from ../STemWin/App/WindowDLG.c:25:
+/Applications/Ac6/SystemWorkbench.app/Contents/Eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.macos64_1.17.0.201812190825/tools/compiler/arm-none-eabi/include/string.h:34:8: note: expected 'const char * restrict' but argument is of type 'char **'
+ char  *strcat (char *__restrict, const char *__restrict);
+        ^~~~~~
+../STemWin/App/WindowDLG.c:314:16: warning: passing argument 2 of 'strcat' from incompatible pointer type [-Wincompatible-pointer-types]
+    strcat(str, B);
+                ^
+In file included from /Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Inc/usbd_conf.h:61:0,
+                 from /Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:37,
+                 from /Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Inc/usb_device.h:61,
+                 from ../STemWin/App/WindowDLG.c:25:
+/Applications/Ac6/SystemWorkbench.app/Contents/Eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.macos64_1.17.0.201812190825/tools/compiler/arm-none-eabi/include/string.h:34:8: note: expected 'const char * restrict' but argument is of type 'char **'
+ char  *strcat (char *__restrict, const char *__restrict);
+        ^~~~~~
+../STemWin/App/WindowDLG.c:317:4: warning: implicit declaration of function 'CDC_Transmit_FS' [-Wimplicit-function-declaration]
+    CDC_Transmit_FS(str, 11);
+    ^~~~~~~~~~~~~~~
+../STemWin/App/WindowDLG.c:199:16: warning: unused variable 'FileSize' [-Wunused-variable]
+   U32          FileSize;
+                ^~~~~~~~
+../STemWin/App/WindowDLG.c:197:16: warning: unused variable 'pData' [-Wunused-variable]
+   const void * pData;
+                ^~~~~
+../STemWin/App/WindowDLG.c: In function 'CDC_ReceiveCallBack':
+../STemWin/App/WindowDLG.c:467:7: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+ Value = &buf;
+       ^
+At top level:
+../STemWin/App/WindowDLG.c:174:21: warning: '_GetImageById' defined but not used [-Wunused-function]
+ static const void * _GetImageById(U32 Id, U32 * pSize) {
+                     ^~~~~~~~~~~~~
+Finished building: ../STemWin/App/WindowDLG.c
  
 Building target: DisplayIntegration.elf
 Invoking: MCU GCC Linker
@@ -25,8 +88,8 @@ Generating binary and Printing size information:
 arm-none-eabi-objcopy -O binary "DisplayIntegration.elf" "DisplayIntegration.bin"
 arm-none-eabi-size "DisplayIntegration.elf"
    text	   data	    bss	    dec	    hex	filename
- 135600	    952	 125320	 261872	  3fef0	DisplayIntegration.elf
+ 124468	    676	 128228	 253372	  3ddbc	DisplayIntegration.elf
  
 
-16:03:58 Build Finished (took 2s.238ms)
+21:55:17 Build Finished (took 3s.107ms)
 
