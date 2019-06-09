@@ -52,7 +52,7 @@ extern  WM_HWIN CreateWindow(void);
 void GRAPHICS_MainTask(void) {
   /* 2- Create a Window using GUIBuilder */
 	WM_HWIN hWin;
-  hWin = CreateWindow();
+	hWin = CreateWindow();
 /* USER CODE BEGIN GRAPHICS_MainTask */
  /* User can implement his graphic application here */
   /* Hello Word example */
@@ -66,12 +66,18 @@ void GRAPHICS_MainTask(void) {
   //HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_1, (uint32_t*)&buffout, 10, DAC_ALIGN_8B_R);
   //HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_2, (uint32_t*)buffin2, 255, DAC_ALIGN_8B_R);
 
+
+
     while(1)
   {
+    	/*
+         for(int i=0; i<10;i++){
+        	 DMA_TRANSFER [i] = (uint32_t*)DMA_buffin [i];
+         }
+         */
 
     	 GUI_Delay(1);
          WM_Invalidate(hWin);
-
 
   }
 /* USER CODE END GRAPHICS_MainTask */
