@@ -134,10 +134,10 @@ static const GUI_WIDGET_CREATE_INFO _aDialogCreate[] = {
 };
 
 */
+static void drawFloat (int pos_x, int pos_y, float val, const char * s);
 static const GUI_WIDGET_CREATE_INFO _aDialogCreate[] = {
   { WINDOW_CreateIndirect, "Window", ID_WINDOW_0, 0, 0, 800, 480, 0, 0x0, 0 },
-  { TEXT_CreateIndirect, "dB", ID_TEXT_0, 170, 35, 340, 32, 0, 0x64, 0 },
-  { TEXT_CreateIndirect, "dB", ID_TEXT_1, 170, 445, 340, 32, 0, 0x64, 0 },
+
 
   // USER START (Optionally insert additional widgets)
   // USER END
@@ -156,6 +156,8 @@ uint32_t adc1, adc2,avAdc1,lineStart,lineEnd,adc2Last;
 uint32_t DMA_buffin[20];
 uint32_t DMA_buffer[21];
 uint32_t avCH1;
+uint32_t maxCH1;
+
 
 uint8_t buffin[255],x;
 uint32_t y = 240;
@@ -169,9 +171,10 @@ int16_t  ringBuffer[810];
 int sample = 0;
 float logLevel;
 
-uint8_t samples[250];
-
-
+uint16_t samples[250];
+uint16_t samples2[250];
+int Attack_X =0;
+int Attack_Y =0;
 
 /*********************************************************************
 *
@@ -218,10 +221,19 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
   }
 
 
+for (int i = 0, p=0; i<250;i++){
 
-for (int i = 0; i<250;i++){
+	samples2[p] =   (DMA_TRANSFER[i] & 0xff000000UL)>>24;
+	samples2[p+1] = (DMA_TRANSFER[i] & 0x00ff0000UL)>>16;
+	samples2[p+2] = (DMA_TRANSFER[i] & 0x0000ff00UL)>>8;
+	samples2[p+3] = (DMA_TRANSFER[i] & 0x000000ffUL);
+	p=p+3;
+	}
+
+for (int i = 0; i<63;i++){
 	samples[i] = (DMA_TRANSFER[i] & 0x000000ffUL);
 	}
+
 
 
 for (int i = 0; i < 250; i++ ){
@@ -230,38 +242,41 @@ for (int i = 0; i < 250; i++ ){
 avCH1= avCH1 / 63;
 
 
+for (int i = 0; i < 63; i++)
+ {
+   if (samples[i] > maxCH1)
+   {
+	   maxCH1  = samples[i];
+   }
+ }
+
+
  for(int i=0; i<300;i++){
     ringBuffer[i] = ringBuffer[i+1];
     }
 
 
- if (samples[0]<=127){
+ if (maxCH1<=127){
  	//ringBuffer[300] = 127 - samples[0];
-	 ringBuffer[300] = 127-avCH1;
+	 //ringBuffer[300] = 127-avCH1;
+	 ringBuffer[300] = 127-maxCH1;
  }
 
- else if (samples [0] >127){
+ else if (maxCH1 >127){
  	//ringBuffer[300] = samples[0]-127;
-	 ringBuffer[300] = avCH1-127;
+	 //ringBuffer[300] = avCH1-127;
+	 ringBuffer[300] = maxCH1-127;
  }
-
-
-
-
-
-
+maxCH1 = 0;
 
 	for(int i=0; i<300;i++){
         	 lineStart = 240 - (4*ringBuffer[i]/2);
         	 lineEnd = lineStart + (4*ringBuffer[i]);
 			 if (ringBuffer[i] > 0 && ringBuffer[i] <= 40){GUI_SetColor( 0xFF808080 );}
 			 else if (ringBuffer[i] > 40 && ringBuffer[i] <=48){GUI_SetColor( 0xFF707070 );}
-			 else if (ringBuffer[i] > 48 ){GUI_SetColor( 0xFF606060 );}
+			 else if (ringBuffer[i] > 48 ){GUI_SetColor( GUI_WHITE );}
         	 GUI_DrawVLine(i+250,lineStart, lineEnd);
          	 }
-
-
-
 
      HAL_ADC_Start(&hadc2);
      if(HAL_ADC_PollForConversion(&hadc2,1) == HAL_OK){
@@ -269,14 +284,39 @@ avCH1= avCH1 / 63;
      }
 
 
+
+
+     logLevel = adc2/5.0;
+/*
 	  GUI_SetFont(&GUI_FontD36x48);
 	  GUI_SetColor(GUI_GRAY);
+	  GUI_DispDecAt(avCH1, 20, 35, 4);
+*/
+
+	  /*==============Display Numbers================*/
+
+	  GUI_SetColor(GUI_GRAY);
+
+	  GUI_SetFont(&GUI_FontD36x48);
+      drawFloat(20,35,ringBuffer[300]/10.0, "dBU");
+
+      GUI_SetFont(&GUI_FontD36x48);
+      drawFloat(560,35,ringBuffer[100]/10.0, "dBU");
+
+      GUI_SetFont(&GUI_FontD36x48);
+	  drawFloat(20,400,logLevel, "ms");
+
+	  GUI_SetFont(&GUI_FontD36x48);
+	  drawFloat(560,400,logLevel, "dB");
+
+	  GUI_SetFont(&GUI_FontD36x48);
+	  GUI_SetColor(GUI_WHITE);
+	  drawFloat(20,220,adc2/12.0, "dB");
 
 	  GUI_SetFont(&GUI_FontD24x32);
-	  GUI_DispDecAt(avCH1, 20, 15, 4);
 	  GUI_SetColor( GUI_WHITE );
-	  GUI_DispDecAt(adc2, 560, 85+adc2, 3);
-
+	  drawFloat(560,125+adc2,adc2/12.0, "");
+	  /*===============================================*/
 
 
 	  if (avCH1<=127){
@@ -288,10 +328,24 @@ avCH1= avCH1 / 63;
 	  }
 
 
+
 	  GUI_SetColor( GUI_WHITE );
-	  GUI_DrawHLine(100+adc2,250, 550);
-	  GUI_DrawHLine(101+adc2,250, 550);
-	  GUI_DrawHLine(102+adc2,250, 550);
+
+	  GUI_DrawHLine(140+adc2,250, 550);
+	  GUI_DrawHLine(139+adc2,250, 550);
+	  GUI_DrawHLine(138+adc2,250, 550);
+
+	  GUI_DrawHLine(340-adc2,250, 550);
+	  GUI_DrawHLine(341-adc2,250, 550);
+	  GUI_DrawHLine(342-adc2,250, 550);
+
+
+
+
+
+
+
+
 
 	  adc2Last = adc2;
 
@@ -319,12 +373,27 @@ avCH1= avCH1 / 63;
 	  CDC_Transmit_FS(str, 11);
 
 
+
+
+
+
+
+
+
+
+
+
+
+
   switch (pMsg->MsgId) {
 
   case WM_PAINT:
 	  GUI_SetBkColor(GUI_LIGHTGRAY);
 	  GUI_Clear();
     break;
+
+
+
 
 
 
@@ -345,17 +414,7 @@ avCH1= avCH1 / 63;
 	BUTTON_SetFont(hItem, GUI_FONT_32B_1);
 */
 
-	hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_0);
-	TEXT_SetTextColor(hItem, GUI_GRAY);
-    TEXT_SetText(hItem, "dB");
-    TEXT_SetFont(hItem, GUI_FONT_32B_1);
 
-
-	hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_1);
-	GUI_SetColor(GUI_WHITE);
-	TEXT_SetTextColor(hItem, GUI_GRAY);
-    TEXT_SetText(hItem, "dB");
-    TEXT_SetFont(hItem, GUI_FONT_32B_1);
 
 
     // USER START (Optionally insert additional code for further widget initialization)
@@ -471,6 +530,18 @@ Value = &buf;
 BSP_LED_Toggle(LED1);
 }
 
+void drawFloat (int pos_x, int pos_y, float val, const char * s){
+
+			  GUI_GotoXY(pos_x, pos_y);
+	  		  GUI_DispFloatMin(val, 2);
+
+
+	  		  GUI_SetFont(&GUI_Font32B_1);
+	  		  if(val < 10.0 && val >= 0) {GUI_DispStringAt(s, 150+pos_x, 20+pos_y);}
+	  		  else if (val > 10.0 || val<0){GUI_DispStringAt(s, 185+pos_x, 20+pos_y);}
+
+
+	  	  }
 
 /*********************************************************************
 *
@@ -492,6 +563,8 @@ WM_HWIN CreateWindow(void) {
 }
 
 // USER START (Optionally insert additional public code)
+
+
 // USER END
 
 /*************************** End of file ****************************/
