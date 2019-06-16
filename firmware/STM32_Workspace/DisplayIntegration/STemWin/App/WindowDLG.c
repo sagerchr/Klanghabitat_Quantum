@@ -146,15 +146,16 @@ static const GUI_WIDGET_CREATE_INFO _aDialogCreate[] = {
 
 uint8_t i=0;
 int add=1;
-float level = 0;
+int level = 0;
 TS_StateTypeDef TS_State;
 ADC_HandleTypeDef hadc1;
 ADC_HandleTypeDef hadc2;
 
 DAC_HandleTypeDef hdac;
-uint32_t adc1, adc2,avAdc1,lineStart,lineEnd;
+uint32_t adc1, adc2,avAdc1,lineStart,lineEnd,adc2Last;
 uint32_t DMA_buffin[20];
 uint32_t DMA_buffer[21];
+uint32_t avCH1;
 
 uint8_t buffin[255],x;
 uint32_t y = 240;
@@ -215,134 +216,6 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
   for (int i = 0; i<300; i++){
   	ax[i] = i;
   }
-/*
-  i++;
-if(i==100 || i == 0){
-	i=0;
-	add = add * (-1);
-}
-
-level = level + add;
-
-
-*/
-/*
-  hItem = WM_GetDialogItem(pMsg->hWin, ID_PROG_0);
-  PROGBAR_SetValue(hItem, ((TS_State.touchX[0]-192)/4));
-*/
-
-
-/*
-  BSP_TS_GetState(&TS_State);
-     if(TS_State.touchDetected == TOUCH_EVENT_PRESS_DOWN)
-	{
-	  GUI_Clear();
-	  GUI_SetFont(&GUI_FontComic24B_ASCII);
-	  GUI_SetColor(GUI_BLACK);
-
-	  x = TS_State.touchX[0];
-	  y = TS_State.touchY[0];
-
-
-
-	}
-
-*/
-  //GUI_Clear();
-  //HAL_TIM_Base_Start(&htim4);
-  //HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_1, (uint32_t*)buffin, 100, DAC_ALIGN_8B_R);
-  //HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_2, (uint32_t*)buffin2, 100, DAC_ALIGN_8B_R);
-/*
- //FIRST WORKING VERSION OF WAVEFORM
-  	 posx=0;
-     for(int i=0; i<80;i++){
-    	 HAL_ADC_Start(&hadc1);
-		 if(HAL_ADC_PollForConversion(&hadc1,1) == HAL_OK){
-
-			 adc1 = HAL_ADC_GetValue(&hadc1)*(3400.0/4096);
-			 ay [i] = adc1/5;
-
-			 if (adc1 > 0 && adc1 <= 120){GUI_SetColor( 0xFF808080 );}
-			 else if (adc1 > 150 && adc1 <=180){GUI_SetColor( 0xFF707070 );}
-			 else if (adc1 > 180 ){GUI_SetColor( 0xFF606060 );}
-			 adc1 = adc1 *2;
-			lineStart = 240 - adc1/2;
-			lineEnd = lineStart + adc1;
-
-			for(int i = 0; i<10; i++){
-				if(i<4){
-					GUI_DrawVLine(posx+i,lineStart-i, lineEnd+i);
-				}
-				if(i==4){
-					GUI_DrawVLine(posx+i,lineStart, lineEnd);
-				}
-				if(i>4){
-					GUI_DrawVLine(posx+i,lineStart+i, lineEnd-i);
-				}
-			}
-
-
-			 posx=posx+10;
-		 }
-		 avAdc1 = avAdc1 + adc1;
-     }
-     avAdc1 = avAdc1/100;
-     */
-
-     /*
-     GUI_Clear();
-     GUI_SetPenSize( 20 );
-     GUI_SetColor( GUI_BLUE );
-     GUI_DrawGraph(ay, GUI_COUNTOF(ay), 0, 0);
-     */
-/*
-
-  if(sample == 9)
-{
-  for(int i=0; i<10;i++){
- 	 HAL_ADC_Start(&hadc1);
-		 if(HAL_ADC_PollForConversion(&hadc1,1) == HAL_OK){
-			 adc1 = HAL_ADC_GetValue(&hadc1)*(3400.0/4096);
-			 sampleBuffer [i] = adc1*2;
-			 avAdc1 = avAdc1 + adc1;
-		 }
-  	  }
-  avAdc1 = avAdc1/10;
-     for(int i=0; i<810;i++){
-    	 if (i>799){
-    		 ringBuffer[i] = sampleBuffer[i-799];
-    	 	 }
-    	 else {
-    		 ringBuffer[i] = ringBuffer[i+9];
-    	 	 }
-
-     	 }
-     sample = 0;
-}
-
-
-
-
-	for(int i=0; i<800;i++){
-        	 lineStart = 240 - ringBuffer[i+sample]/2;
-        	 lineEnd = lineStart + ringBuffer[i+sample];
-        	 GUI_DrawVLine(i,lineStart, lineEnd);
-         	 }
-	sample = sample +1;
-
-*/
-
-/*********************
-
-  HAL_ADC_Start(&hadc1);
-		 if(HAL_ADC_PollForConversion(&hadc1,1) == HAL_OK){
-			 adc1 = HAL_ADC_GetValue(&hadc1)*(3400.0/4089);
-		 }
-
-		 level = adc1*2;
-		 avAdc1 = adc1;
-*/
-
 
 
 
@@ -351,32 +224,40 @@ for (int i = 0; i<250;i++){
 	}
 
 
- for(int i=0; i<400;i++){
+for (int i = 0; i < 250; i++ ){
+	  avCH1 = samples[i]+avCH1;
+}
+avCH1= avCH1 / 63;
+
+
+ for(int i=0; i<300;i++){
     ringBuffer[i] = ringBuffer[i+1];
     }
 
 
+ if (samples[0]<=127){
+ 	//ringBuffer[300] = 127 - samples[0];
+	 ringBuffer[300] = 127-avCH1;
+ }
 
-if (samples [0] >=145 && samples[0] <=155){
-     	ringBuffer[400] =  ringBuffer[399]/2; //smoothing... ;-)
-     }
-else if (samples[0]<145){
-	ringBuffer[400] = 145 - samples[0];
-}
-
-else if (samples [0] >155){
-	ringBuffer[400] = samples[0]-155;
-}
+ else if (samples [0] >127){
+ 	//ringBuffer[300] = samples[0]-127;
+	 ringBuffer[300] = avCH1-127;
+ }
 
 
 
-	for(int i=0; i<400;i++){
+
+
+
+
+	for(int i=0; i<300;i++){
         	 lineStart = 240 - (4*ringBuffer[i]/2);
         	 lineEnd = lineStart + (4*ringBuffer[i]);
 			 if (ringBuffer[i] > 0 && ringBuffer[i] <= 40){GUI_SetColor( 0xFF808080 );}
 			 else if (ringBuffer[i] > 40 && ringBuffer[i] <=48){GUI_SetColor( 0xFF707070 );}
 			 else if (ringBuffer[i] > 48 ){GUI_SetColor( 0xFF606060 );}
-        	 GUI_DrawVLine(i+200,lineStart, lineEnd);
+        	 GUI_DrawVLine(i+250,lineStart, lineEnd);
          	 }
 
 
@@ -384,13 +265,36 @@ else if (samples [0] >155){
 
      HAL_ADC_Start(&hadc2);
      if(HAL_ADC_PollForConversion(&hadc2,1) == HAL_OK){
-    	 adc2 = HAL_ADC_GetValue(&hadc2)*(3400.0/4096);
+    	 adc2 = HAL_ADC_GetValue(&hadc2)*100/180;
      }
+
 
 	  GUI_SetFont(&GUI_FontD36x48);
 	  GUI_SetColor(GUI_GRAY);
-	  GUI_DispDecAt(avAdc1, 20, 15, 4);
-	  GUI_DispDecAt(adc2, 20, 420, 4);
+
+	  GUI_SetFont(&GUI_FontD24x32);
+	  GUI_DispDecAt(avCH1, 20, 15, 4);
+	  GUI_SetColor( GUI_WHITE );
+	  GUI_DispDecAt(adc2, 560, 85+adc2, 3);
+
+
+
+	  if (avCH1<=127){
+	  	level = 127-avCH1;
+	  }
+
+	  else if (avCH1 >127){
+	  	level = avCH1-127;
+	  }
+
+
+	  GUI_SetColor( GUI_WHITE );
+	  GUI_DrawHLine(100+adc2,250, 550);
+	  GUI_DrawHLine(101+adc2,250, 550);
+	  GUI_DrawHLine(102+adc2,250, 550);
+
+	  adc2Last = adc2;
+
 
 	  char *A[4];
 	  char *B[4];
@@ -440,6 +344,7 @@ else if (samples [0] >155){
 	hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_3);
 	BUTTON_SetFont(hItem, GUI_FONT_32B_1);
 */
+
 	hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_0);
 	TEXT_SetTextColor(hItem, GUI_GRAY);
     TEXT_SetText(hItem, "dB");
@@ -447,7 +352,7 @@ else if (samples [0] >155){
 
 
 	hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_1);
-	GUI_SetColor(GUI_GRAY);
+	GUI_SetColor(GUI_WHITE);
 	TEXT_SetTextColor(hItem, GUI_GRAY);
     TEXT_SetText(hItem, "dB");
     TEXT_SetFont(hItem, GUI_FONT_32B_1);

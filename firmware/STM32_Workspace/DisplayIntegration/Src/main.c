@@ -152,6 +152,7 @@ int main(void)
   TouchTimer_Init();
   HAL_TIM_Base_Start(&htim4);
   HAL_ADC_Start_DMA(&hadc1, (uint32_t*)DMA_TRANSFER, 250);
+  
   /* Graphic application */  
   GRAPHICS_MainTask();
     
@@ -284,7 +285,7 @@ static void MX_ADC2_Init(void)
     */
   hadc2.Instance = ADC2;
   hadc2.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV4;
-  hadc2.Init.Resolution = ADC_RESOLUTION_12B;
+  hadc2.Init.Resolution = ADC_RESOLUTION_8B;
   hadc2.Init.ScanConvMode = DISABLE;
   hadc2.Init.ContinuousConvMode = DISABLE;
   hadc2.Init.DiscontinuousConvMode = DISABLE;
