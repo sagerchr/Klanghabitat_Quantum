@@ -73,7 +73,6 @@ TIM_HandleTypeDef htim4;
 
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -97,7 +96,13 @@ void TouchTimer_Init(void);
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
+
+uint8_t i2c[17];
+uint16_t knopf = 146;
+uint16_t knopf2 = 145;
+
 int Test=12;
+int test;
 uint32_t DMA_TRANSFER[250];
 /* USER CODE END 0 */
 
@@ -107,7 +112,7 @@ uint32_t DMA_TRANSFER[250];
   * @retval None
   */
 int main(void)
-  {
+ {
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -142,6 +147,20 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   BSP_LED_Init(LED1);
+	HAL_Delay(100);
+	i2c[0]= 0x0C;
+	i2c[1]= 0x00;
+	i2c[2]= 0x00;
+	i2c[3]= 0x10;
+	i2c[4]= 0x10;
+	HAL_I2C_Master_Transmit(&hi2c1, knopf, i2c,5,100);
+	HAL_I2C_Master_Transmit(&hi2c1, knopf2, i2c,5,100);
+	HAL_Delay(100);
+	i2c[0]= 0x00;
+	i2c[1]= 0x00;
+	HAL_I2C_Master_Transmit(&hi2c1, knopf, i2c,2,100);
+	HAL_I2C_Master_Transmit(&hi2c1, knopf2, i2c,2,100);
+	HAL_Delay(100);
   /* USER CODE END 2 */
 
 /* Initialise the graphical hardware */
@@ -152,10 +171,17 @@ int main(void)
   TouchTimer_Init();
   HAL_TIM_Base_Start(&htim4);
   HAL_ADC_Start_DMA(&hadc1, (uint32_t*)DMA_TRANSFER, 250);
-  
+
+
+
+
+
+
+
+
   /* Graphic application */  
-  GRAPHICS_MainTask();
-    
+ GRAPHICS_MainTask();
+
   /* Infinite loop */
   for(;;);
 

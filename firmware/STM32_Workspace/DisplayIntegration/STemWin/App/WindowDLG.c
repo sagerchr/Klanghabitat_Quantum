@@ -25,6 +25,7 @@
 #include "usb_device.h"
 #include "math.h"
 #include "main.h"
+//#include "stm32f4xx_hal.h"
 /*********************************************************************
 *
 *       Defines
@@ -146,10 +147,13 @@ static const GUI_WIDGET_CREATE_INFO _aDialogCreate[] = {
 
 uint8_t i=0;
 int add=1;
+int adress[255];
 int level = 0;
 TS_StateTypeDef TS_State;
 ADC_HandleTypeDef hadc1;
 ADC_HandleTypeDef hadc2;
+I2C_HandleTypeDef hi2c1;
+
 
 DAC_HandleTypeDef hdac;
 uint32_t adc1, adc2,avAdc1,lineStart,lineEnd,adc2Last;
@@ -170,12 +174,24 @@ int16_t  sampleBuffer[10];
 int16_t  ringBuffer[810];
 int sample = 0;
 float logLevel;
-
+int startup = 0;
 uint16_t samples[250];
 uint16_t samples2[250];
 int Attack_X =0;
 int Attack_Y =0;
 
+uint8_t i2cWrite[4];
+uint8_t i2cRead[5];
+uint8_t i2cBuf[16];
+//uint16_t knob1 = 146;
+
+int ok = 0;
+uint32_t t = 0;
+uint32_t q = 0;
+uint8_t i2cBuffer[2];
+uint8_t i2cBuffer2[2];
+uint16_t knob1 = 146;
+uint16_t knob2 = 145;
 /*********************************************************************
 *
 *       Static code
@@ -202,6 +218,13 @@ static const void * _GetImageById(U32 Id, U32 * pSize) {
 }
 
 // USER START (Optionally insert additional static code)
+
+
+
+
+
+
+
 // USER END
 
 /*********************************************************************
@@ -285,6 +308,30 @@ maxCH1 = 0;
 
 
 
+     if (t>15){
+    	 i2cBuffer[0]= 0x0B;
+    	 HAL_I2C_Master_Transmit(&hi2c1, knob1,i2cBuffer,1,1);
+    	 HAL_I2C_Master_Receive(&hi2c1, knob1, &i2cBuffer[1],1,1);
+    	 ok = ok+1;
+    	 t=0;
+     }
+
+
+     GUI_SetFont(&GUI_FontD36x48);
+	  drawFloat(20,400,i2cBuffer[1], "ms");
+
+     t++;
+     if (q>15){
+    	 i2cBuffer2[0]= 0x0B;
+    	 HAL_I2C_Master_Transmit(&hi2c1, knob2,i2cBuffer2,1,1);
+    	 HAL_I2C_Master_Receive(&hi2c1, knob2, &i2cBuffer2[1],1,1);
+    	 ok = ok+1;
+    	 q=0;
+     }
+     q++;
+
+	  GUI_SetFont(&GUI_FontD36x48);
+	  drawFloat(560,400,i2cBuffer2[1], "dB");
 
      logLevel = adc2/5.0;
 /*
@@ -303,11 +350,8 @@ maxCH1 = 0;
       GUI_SetFont(&GUI_FontD36x48);
       drawFloat(560,35,ringBuffer[100]/10.0, "dBU");
 
-      GUI_SetFont(&GUI_FontD36x48);
-	  drawFloat(20,400,logLevel, "ms");
 
-	  GUI_SetFont(&GUI_FontD36x48);
-	  drawFloat(560,400,logLevel, "dB");
+
 
 	  GUI_SetFont(&GUI_FontD36x48);
 	  GUI_SetColor(GUI_WHITE);

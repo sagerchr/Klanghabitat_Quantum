@@ -47,7 +47,9 @@
 
 #include "DIALOG.h"
 extern  WM_HWIN CreateWindow(void);  
-  
+
+I2C_HandleTypeDef hi2c1;
+
 
 void GRAPHICS_MainTask(void) {
   /* 2- Create a Window using GUIBuilder */
@@ -56,6 +58,12 @@ void GRAPHICS_MainTask(void) {
 /* USER CODE BEGIN GRAPHICS_MainTask */
  /* User can implement his graphic application here */
   /* Hello Word example */
+
+
+
+
+
+
 
 
 
@@ -76,14 +84,18 @@ void GRAPHICS_MainTask(void) {
          }
          */
 
-    	 GUI_Delay(1);
+
          WM_Invalidate(hWin);
+         GUI_Delay(1);
+
+
+
 
   }
 /* USER CODE END GRAPHICS_MainTask */
   while(1)
 {
-      GUI_Delay(100);
+
 }
 }
 
