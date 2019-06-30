@@ -67,6 +67,7 @@ DMA_HandleTypeDef hdma_dac1;
 DMA_HandleTypeDef hdma_dac2;
 
 I2C_HandleTypeDef hi2c1;
+I2C_HandleTypeDef hi2c2;
 
 TIM_HandleTypeDef htim3;
 TIM_HandleTypeDef htim4;
@@ -89,6 +90,7 @@ static void MX_ADC1_Init(void);
 static void MX_ADC2_Init(void);
 static void MX_DAC_Init(void);
 static void MX_TIM4_Init(void);
+static void MX_I2C2_Init(void);
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
@@ -112,7 +114,7 @@ uint32_t DMA_TRANSFER[250];
   * @retval None
   */
 int main(void)
- {
+{
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -144,23 +146,47 @@ int main(void)
   MX_ADC2_Init();
   MX_DAC_Init();
   MX_TIM4_Init();
+  MX_I2C2_Init();
   /* USER CODE BEGIN 2 */
 
   BSP_LED_Init(LED1);
-	HAL_Delay(100);
+
+
+	i2c[0]= 0x00;
+	i2c[1]= 0x80;
+	HAL_I2C_Master_Transmit(&hi2c2, knopf, i2c,2,100);
+	HAL_I2C_Master_Transmit(&hi2c2, knopf2, i2c,2,100);
+	HAL_Delay(250);
+
 	i2c[0]= 0x0C;
 	i2c[1]= 0x00;
 	i2c[2]= 0x00;
 	i2c[3]= 0x10;
 	i2c[4]= 0x10;
-	HAL_I2C_Master_Transmit(&hi2c1, knopf, i2c,5,100);
-	HAL_I2C_Master_Transmit(&hi2c1, knopf2, i2c,5,100);
-	HAL_Delay(100);
+	HAL_I2C_Master_Transmit(&hi2c2, knopf, i2c,5,100);
+	HAL_I2C_Master_Transmit(&hi2c2, knopf2, i2c,5,100);
+	HAL_Delay(10);
+
 	i2c[0]= 0x00;
+	i2c[1]= 0x10;
+	HAL_I2C_Master_Transmit(&hi2c2, knopf, i2c,2,100);
+	HAL_I2C_Master_Transmit(&hi2c2, knopf2, i2c,2,100);
+	HAL_Delay(10);
+
+	i2c[0]= 0x14;
 	i2c[1]= 0x00;
-	HAL_I2C_Master_Transmit(&hi2c1, knopf, i2c,2,100);
-	HAL_I2C_Master_Transmit(&hi2c1, knopf2, i2c,2,100);
-	HAL_Delay(100);
+	i2c[2]= 0x00;
+	i2c[3]= 0x00;
+	i2c[4]= 0x01;
+	HAL_I2C_Master_Transmit(&hi2c2, knopf, i2c,5,100);
+	HAL_I2C_Master_Transmit(&hi2c2, knopf2, i2c,5,100);
+	HAL_Delay(10);
+
+	i2c[0]= 0x1E;
+	i2c[1]= 0x19;
+	HAL_I2C_Master_Transmit(&hi2c2, knopf, i2c,2,100);
+	HAL_I2C_Master_Transmit(&hi2c2, knopf2, i2c,2,100);
+	HAL_Delay(10);
   /* USER CODE END 2 */
 
 /* Initialise the graphical hardware */
@@ -171,17 +197,9 @@ int main(void)
   TouchTimer_Init();
   HAL_TIM_Base_Start(&htim4);
   HAL_ADC_Start_DMA(&hadc1, (uint32_t*)DMA_TRANSFER, 250);
-
-
-
-
-
-
-
-
   /* Graphic application */  
- GRAPHICS_MainTask();
-
+  GRAPHICS_MainTask();
+    
   /* Infinite loop */
   for(;;);
 
@@ -293,7 +311,7 @@ static void MX_ADC1_Init(void)
     */
   sConfig.Channel = ADC_CHANNEL_9;
   sConfig.Rank = 1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_56CYCLES;
+  sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
@@ -396,6 +414,26 @@ static void MX_I2C1_Init(void)
   hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
   hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
   if (HAL_I2C_Init(&hi2c1) != HAL_OK)
+  {
+    _Error_Handler(__FILE__, __LINE__);
+  }
+
+}
+
+/* I2C2 init function */
+static void MX_I2C2_Init(void)
+{
+
+  hi2c2.Instance = I2C2;
+  hi2c2.Init.ClockSpeed = 400000;
+  hi2c2.Init.DutyCycle = I2C_DUTYCYCLE_2;
+  hi2c2.Init.OwnAddress1 = 0;
+  hi2c2.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
+  hi2c2.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+  hi2c2.Init.OwnAddress2 = 0;
+  hi2c2.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+  hi2c2.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+  if (HAL_I2C_Init(&hi2c2) != HAL_OK)
   {
     _Error_Handler(__FILE__, __LINE__);
   }

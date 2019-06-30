@@ -152,7 +152,7 @@ int level = 0;
 TS_StateTypeDef TS_State;
 ADC_HandleTypeDef hadc1;
 ADC_HandleTypeDef hadc2;
-I2C_HandleTypeDef hi2c1;
+I2C_HandleTypeDef hi2c2;
 
 
 DAC_HandleTypeDef hdac;
@@ -184,6 +184,7 @@ uint8_t i2cWrite[4];
 uint8_t i2cRead[5];
 uint8_t i2cBuf[16];
 //uint16_t knob1 = 146;
+TS_StateTypeDef TS_State;
 
 int ok = 0;
 uint32_t t = 0;
@@ -308,10 +309,10 @@ maxCH1 = 0;
 
 
 
-     if (t>15){
+     if (t>0){
     	 i2cBuffer[0]= 0x0B;
-    	 HAL_I2C_Master_Transmit(&hi2c1, knob1,i2cBuffer,1,1);
-    	 HAL_I2C_Master_Receive(&hi2c1, knob1, &i2cBuffer[1],1,1);
+    	 HAL_I2C_Master_Transmit(&hi2c2, knob1,i2cBuffer,1,1);
+    	 HAL_I2C_Master_Receive(&hi2c2, knob1, &i2cBuffer[1],1,1);
     	 ok = ok+1;
     	 t=0;
      }
@@ -321,10 +322,10 @@ maxCH1 = 0;
 	  drawFloat(20,400,i2cBuffer[1], "ms");
 
      t++;
-     if (q>15){
+     if (q>0){
     	 i2cBuffer2[0]= 0x0B;
-    	 HAL_I2C_Master_Transmit(&hi2c1, knob2,i2cBuffer2,1,1);
-    	 HAL_I2C_Master_Receive(&hi2c1, knob2, &i2cBuffer2[1],1,1);
+    	 HAL_I2C_Master_Transmit(&hi2c2, knob2,i2cBuffer2,1,1);
+    	 HAL_I2C_Master_Receive(&hi2c2, knob2, &i2cBuffer2[1],1,1);
     	 ok = ok+1;
     	 q=0;
      }
@@ -371,6 +372,17 @@ maxCH1 = 0;
 	  	level = avCH1-127;
 	  }
 
+/*
+	  BSP_TS_GetState(&TS_State);
+	     if(TS_State.touchDetected == TOUCH_EVENT_PRESS_DOWN)
+		{
+		  GUI_SetFont(&GUI_FontComic24B_ASCII);
+		  GUI_SetColor(GUI_WHITE);
+		  GUI_DispDecAt(TS_State.touchX[0], 120, 20, 3);
+		  GUI_DispDecAt(TS_State.touchY[0], 120, 60, 3);
+		  //HAL_Delay(10);
+		}
+*/
 
 
 	  GUI_SetColor( GUI_WHITE );
@@ -432,7 +444,7 @@ maxCH1 = 0;
   switch (pMsg->MsgId) {
 
   case WM_PAINT:
-	  GUI_SetBkColor(GUI_LIGHTGRAY);
+	  GUI_SetBkColor(GUI_BLACK);
 	  GUI_Clear();
     break;
 
