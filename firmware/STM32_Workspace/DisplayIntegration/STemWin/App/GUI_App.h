@@ -48,6 +48,9 @@
 #ifndef GUI_APP_H
 #define GUI_APP_H
 
+extern int X;
+extern int Y;
+
 void GRAPHICS_MainTask(void);
 
 #endif /* GUI_APP_H */

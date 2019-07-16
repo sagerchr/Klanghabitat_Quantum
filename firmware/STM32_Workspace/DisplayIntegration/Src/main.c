@@ -100,8 +100,17 @@ void TouchTimer_Init(void);
 /* USER CODE BEGIN 0 */
 
 uint8_t i2c[17];
+/*
 uint16_t knopf = 146;
-uint16_t knopf2 = 145;
+uint16_t knopf2 = 147;
+ */
+uint16_t knopf = 0;
+uint16_t knopf2 = 16;
+uint16_t knopf3= 32;
+
+
+uint8_t adresses[255];
+
 
 int Test=12;
 int test;
@@ -114,7 +123,7 @@ uint32_t DMA_TRANSFER[250];
   * @retval None
   */
 int main(void)
-{
+ {
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -150,6 +159,15 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   BSP_LED_Init(LED1);
+
+  for (int i = 0; i < 255; i++){
+	 if(HAL_I2C_IsDeviceReady(&hi2c2, i,5,10) == HAL_OK) {
+		 adresses [i] = 1;
+	 }
+	 else {
+		 adresses [i] = 0;
+	 }
+  }
 
 
 	i2c[0]= 0x00;
@@ -187,6 +205,34 @@ int main(void)
 	HAL_I2C_Master_Transmit(&hi2c2, knopf, i2c,2,100);
 	HAL_I2C_Master_Transmit(&hi2c2, knopf2, i2c,2,100);
 	HAL_Delay(10);
+
+	i2c[0]= 0x20;
+	i2c[1]= 0x01;
+	HAL_I2C_Master_Transmit(&hi2c2, knopf, i2c,2,100);
+	HAL_I2C_Master_Transmit(&hi2c2, knopf2, i2c,2,100);
+	HAL_Delay(10);
+	i2c[0]= 0x21;
+	i2c[1]= 0x01;
+	HAL_I2C_Master_Transmit(&hi2c2, knopf, i2c,2,100);
+	HAL_I2C_Master_Transmit(&hi2c2, knopf2, i2c,2,100);
+	HAL_Delay(10);
+	i2c[0]= 0x18;
+	i2c[1]= 0xFF;
+	HAL_I2C_Master_Transmit(&hi2c2, knopf, i2c,2,100);
+	HAL_I2C_Master_Transmit(&hi2c2, knopf2, i2c,2,100);
+	HAL_Delay(10);
+	i2c[0]= 0x19;
+	i2c[1]= 0xFF;
+	HAL_I2C_Master_Transmit(&hi2c2, knopf, i2c,2,100);
+	HAL_I2C_Master_Transmit(&hi2c2, knopf2, i2c,2,100);
+	HAL_Delay(10);
+	i2c[0]= 0x1A;
+	i2c[1]= 0xFF;
+	HAL_I2C_Master_Transmit(&hi2c2, knopf, i2c,2,100);
+	HAL_I2C_Master_Transmit(&hi2c2, knopf2, i2c,2,100);
+	HAL_Delay(10);
+
+
   /* USER CODE END 2 */
 
 /* Initialise the graphical hardware */
