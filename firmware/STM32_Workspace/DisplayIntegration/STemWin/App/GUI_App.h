@@ -51,6 +51,10 @@
 extern int X;
 extern int Y;
 
+extern int pots[6];
+
+
+
 void GRAPHICS_MainTask(void);
 
 #endif /* GUI_APP_H */

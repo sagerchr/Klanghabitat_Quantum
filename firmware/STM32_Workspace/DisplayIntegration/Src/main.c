@@ -93,21 +93,16 @@ static void MX_TIM4_Init(void);
 static void MX_I2C2_Init(void);
 
 /* USER CODE BEGIN PFP */
+
 /* Private function prototypes -----------------------------------------------*/
 void TouchTimer_Init(void);
+void Encoder_Init(void);
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
 
 uint8_t i2c[17];
-/*
-uint16_t knopf = 146;
-uint16_t knopf2 = 147;
- */
-uint16_t knopf = 0;
-uint16_t knopf2 = 16;
-uint16_t knopf3= 32;
-
+uint16_t EncoderAdr[6] = {0,8,16,32,64,128};
 
 uint8_t adresses[255];
 
@@ -123,7 +118,7 @@ uint32_t DMA_TRANSFER[250];
   * @retval None
   */
 int main(void)
- {
+{
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -156,6 +151,7 @@ int main(void)
   MX_DAC_Init();
   MX_TIM4_Init();
   MX_I2C2_Init();
+  Encoder_Init();
   /* USER CODE BEGIN 2 */
 
   BSP_LED_Init(LED1);
@@ -169,70 +165,6 @@ int main(void)
 	 }
   }
 
-
-	i2c[0]= 0x00;
-	i2c[1]= 0x80;
-	HAL_I2C_Master_Transmit(&hi2c2, knopf, i2c,2,100);
-	HAL_I2C_Master_Transmit(&hi2c2, knopf2, i2c,2,100);
-	HAL_Delay(250);
-
-	i2c[0]= 0x0C;
-	i2c[1]= 0x00;
-	i2c[2]= 0x00;
-	i2c[3]= 0x10;
-	i2c[4]= 0x10;
-	HAL_I2C_Master_Transmit(&hi2c2, knopf, i2c,5,100);
-	HAL_I2C_Master_Transmit(&hi2c2, knopf2, i2c,5,100);
-	HAL_Delay(10);
-
-	i2c[0]= 0x00;
-	i2c[1]= 0x10;
-	HAL_I2C_Master_Transmit(&hi2c2, knopf, i2c,2,100);
-	HAL_I2C_Master_Transmit(&hi2c2, knopf2, i2c,2,100);
-	HAL_Delay(10);
-
-	i2c[0]= 0x14;
-	i2c[1]= 0x00;
-	i2c[2]= 0x00;
-	i2c[3]= 0x00;
-	i2c[4]= 0x01;
-	HAL_I2C_Master_Transmit(&hi2c2, knopf, i2c,5,100);
-	HAL_I2C_Master_Transmit(&hi2c2, knopf2, i2c,5,100);
-	HAL_Delay(10);
-
-	i2c[0]= 0x1E;
-	i2c[1]= 0x19;
-	HAL_I2C_Master_Transmit(&hi2c2, knopf, i2c,2,100);
-	HAL_I2C_Master_Transmit(&hi2c2, knopf2, i2c,2,100);
-	HAL_Delay(10);
-
-	i2c[0]= 0x20;
-	i2c[1]= 0x01;
-	HAL_I2C_Master_Transmit(&hi2c2, knopf, i2c,2,100);
-	HAL_I2C_Master_Transmit(&hi2c2, knopf2, i2c,2,100);
-	HAL_Delay(10);
-	i2c[0]= 0x21;
-	i2c[1]= 0x01;
-	HAL_I2C_Master_Transmit(&hi2c2, knopf, i2c,2,100);
-	HAL_I2C_Master_Transmit(&hi2c2, knopf2, i2c,2,100);
-	HAL_Delay(10);
-	i2c[0]= 0x18;
-	i2c[1]= 0xFF;
-	HAL_I2C_Master_Transmit(&hi2c2, knopf, i2c,2,100);
-	HAL_I2C_Master_Transmit(&hi2c2, knopf2, i2c,2,100);
-	HAL_Delay(10);
-	i2c[0]= 0x19;
-	i2c[1]= 0xFF;
-	HAL_I2C_Master_Transmit(&hi2c2, knopf, i2c,2,100);
-	HAL_I2C_Master_Transmit(&hi2c2, knopf2, i2c,2,100);
-	HAL_Delay(10);
-	i2c[0]= 0x1A;
-	i2c[1]= 0xFF;
-	HAL_I2C_Master_Transmit(&hi2c2, knopf, i2c,2,100);
-	HAL_I2C_Master_Transmit(&hi2c2, knopf2, i2c,2,100);
-	HAL_Delay(10);
-
-
   /* USER CODE END 2 */
 
 /* Initialise the graphical hardware */
@@ -243,7 +175,8 @@ int main(void)
   TouchTimer_Init();
   HAL_TIM_Base_Start(&htim4);
   HAL_ADC_Start_DMA(&hadc1, (uint32_t*)DMA_TRANSFER, 250);
-  /* Graphic application */  
+  
+    /* Graphic application */
   GRAPHICS_MainTask();
     
   /* Infinite loop */
@@ -599,16 +532,26 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOJ_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOG, LAMP4_Pin|LAMP2_Pin|LED1_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOD, LED3_Pin|LED2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, LAMP3_Pin|LAMP1_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOH, GPIO_PIN_7, GPIO_PIN_RESET);
+
+  /*Configure GPIO pins : LAMP4_Pin LAMP2_Pin LED1_Pin */
+  GPIO_InitStruct.Pin = LAMP4_Pin|LAMP2_Pin|LED1_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);
 
   /*Configure GPIO pins : LED3_Pin LED2_Pin */
   GPIO_InitStruct.Pin = LED3_Pin|LED2_Pin;
@@ -624,12 +567,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LED4_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : LED1_Pin */
-  GPIO_InitStruct.Pin = LED1_Pin;
+  /*Configure GPIO pins : LAMP3_Pin LAMP1_Pin */
+  GPIO_InitStruct.Pin = LAMP3_Pin|LAMP1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(LED1_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PH7 */
   GPIO_InitStruct.Pin = GPIO_PIN_7;
@@ -642,6 +585,37 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
+void Encoder_Init(){
+	for(int i=0; i<6;i++){
+		i2c[0]= 0x00;
+		i2c[1]= 0x80;
+		HAL_I2C_Master_Transmit(&hi2c2,EncoderAdr[i], i2c,2,10);
+	}
+
+	for(int i=0; i<6;i++){
+		i2c[0]= 0x0C;
+		i2c[1]= 0x00;
+		i2c[2]= 0x00;
+		i2c[3]= 0x10;
+		i2c[4]= 0x10;
+		HAL_I2C_Master_Transmit(&hi2c2,EncoderAdr[i], i2c,5,10);
+	}
+
+	for(int i=0; i<6;i++){
+		i2c[0]= 0x00;
+		i2c[1]= 0x10;
+		HAL_I2C_Master_Transmit(&hi2c2,EncoderAdr[i], i2c,2,10);
+	}
+
+	for(int i=0; i<6;i++){
+		i2c[0]= 0x14;
+		i2c[1]= 0x00;
+		i2c[2]= 0x00;
+		i2c[3]= 0x00;
+		i2c[4]= 0x01;
+		HAL_I2C_Master_Transmit(&hi2c2,EncoderAdr[i], i2c,5,10);
+	}
+}
 
 void TouchTimer_Init()
 {

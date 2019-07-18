@@ -3,8 +3,9 @@
 <stringAttribute key="DEBBUGER_BOARD_NAME" value="DisplayIntegration"/>
 <stringAttribute key="DEBBUGER_CORE_NAME" value="cortex-m4"/>
 <stringAttribute key="DEBBUGER_MCU_NAME" value="STM32F469NIHx"/>
+<stringAttribute key="fr.ac6.mcu.debug.launch.debuggerTab.STLINK" value="066FFF575051717867062959"/>
 <stringAttribute key="fr.ac6.mcu.ide.DBG_DEVICE" value="ST-Link"/>
-<stringAttribute key="fr.ac6.mcu.ide.DBG_DEVICE_SHAREABLE_ALLOWED" value="false"/>
+<stringAttribute key="fr.ac6.mcu.ide.DBG_DEVICE_SHAREABLE_ALLOWED" value="true"/>
 <stringAttribute key="fr.ac6.mcu.ide.DBG_INTERFACE" value="SWD"/>
 <stringAttribute key="fr.ac6.mcu.ide.DBG_INTERFACE_FREQUENCY" value="8000000.0"/>
 <stringAttribute key="fr.ac6.mcu.ide.DBG_LOW_POWER_MODE_ALLOWED" value="true"/>
@@ -26,7 +27,7 @@
 <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.loadImage" value="true"/>
 <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.loadSymbols" value="true"/>
 <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.pcRegister" value=""/>
-<intAttribute key="org.eclipse.cdt.debug.gdbjtag.core.portNumber" value="3333"/>
+<intAttribute key="org.eclipse.cdt.debug.gdbjtag.core.portNumber" value="3332"/>
 <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.runCommands" value=""/>
 <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.setPcRegister" value="false"/>
 <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.setResume" value="true"/>

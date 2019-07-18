@@ -1,0 +1,41 @@
+11:00:18 **** Incremental Build of configuration Debug for project Analog Engine ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/Analog Engine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F303xE -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/Analog Engine/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/Analog Engine/Drivers/STM32F3xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/Analog Engine/Drivers/STM32F3xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/Analog Engine/Drivers/CMSIS/Device/ST/STM32F3xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/Analog Engine/Drivers/CMSIS/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/Analog Engine/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/Analog Engine/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'main':
+../Src/main.c:187:4: warning: implicit declaration of function 'debugPrintln' [-Wimplicit-function-declaration]
+    debugPrintln(&huart2, str); // print full line osDelay(1000);
+    ^~~~~~~~~~~~
+../Src/main.c:145:12: warning: unused variable 'adc' [-Wunused-variable]
+   uint32_t adc[2], buffer[2];
+            ^~~
+../Src/main.c: At top level:
+../Src/main.c:651:6: warning: conflicting types for 'debugPrintln'
+ void debugPrintln(UART_HandleTypeDef *huart, char _out[]){
+      ^~~~~~~~~~~~
+../Src/main.c:187:4: note: previous implicit declaration of 'debugPrintln' was here
+    debugPrintln(&huart2, str); // print full line osDelay(1000);
+    ^~~~~~~~~~~~
+../Src/main.c: In function 'main':
+../Src/main.c:186:4: warning: 'valByte' may be used uninitialized in this function [-Wmaybe-uninitialized]
+    sprintf(str, "%d", valByte);
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../Src/main.c
+ 
+Building target: Analog Engine.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F303RETx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Analog Engine.elf" @"objects.list"   -lm
+Finished building target: Analog Engine.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "Analog Engine.elf" "Analog Engine.bin"
+arm-none-eabi-size "Analog Engine.elf"
+   text	   data	    bss	    dec	    hex	filename
+  26772	    460	   6964	  34196	   8594	Analog Engine.elf
+ 
+
+11:00:19 Build Finished (took 1s.523ms)
+

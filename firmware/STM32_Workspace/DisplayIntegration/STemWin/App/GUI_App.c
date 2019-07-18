@@ -47,8 +47,20 @@
 
 #include "DIALOG.h"
 extern  WM_HWIN CreateWindow(void);  
+
+
 TS_StateTypeDef TS_State;
-int time = 0;
+I2C_HandleTypeDef hi2c2;
+
+
+uint8_t i2cBuffer[2];
+uint16_t Adr[6] = {0,8,16,32,64,128};
+
+
+GUI_RECT pRect = {325,80,475,400};
+//GUI_RECT pRect = {0,0,800,480};
+
+
 void GRAPHICS_MainTask(void) {
 
 	WM_HWIN hWin;
@@ -57,15 +69,37 @@ void GRAPHICS_MainTask(void) {
 
     while(1)
   {
-time++;
-         WM_Invalidate(hWin);
+
+         //WM_Invalidate(hWin);
+
+
+        WM_InvalidateArea(&pRect);
+
          GUI_Delay(1);
+
+
+
+
     	  BSP_TS_GetState(&TS_State);
     	     if(TS_State.touchDetected == TOUCH_EVENT_PRESS_DOWN)
     		{
     	      X = TS_State.touchX[0];
     		  Y = TS_State.touchY[0];
+    		  HAL_GPIO_TogglePin(GPIOG, LAMP4_Pin|LAMP2_Pin);
     		}
+
+
+    	     for (int i=0; i<6; i++){
+            	 i2cBuffer[0]= 0x0B;
+            	 HAL_I2C_Master_Transmit(&hi2c2, Adr[i],i2cBuffer,1,100);
+            	 HAL_I2C_Master_Receive(&hi2c2, Adr[i], &i2cBuffer[1],1,100);
+            	 pots[i]=i2cBuffer[1];
+    	     }
+
+    	     HAL_GPIO_TogglePin(GPIOA, LAMP1_Pin);
+
+
+
 
 
   }

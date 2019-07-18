@@ -68,6 +68,10 @@
 
 /* Private define ------------------------------------------------------------*/
 
+#define LAMP4_Pin GPIO_PIN_13
+#define LAMP4_GPIO_Port GPIOG
+#define LAMP2_Pin GPIO_PIN_12
+#define LAMP2_GPIO_Port GPIOG
 #define LED3_Pin GPIO_PIN_5
 #define LED3_GPIO_Port GPIOD
 #define LED4_Pin GPIO_PIN_3
@@ -76,6 +80,10 @@
 #define LED2_GPIO_Port GPIOD
 #define LED1_Pin GPIO_PIN_6
 #define LED1_GPIO_Port GPIOG
+#define LAMP3_Pin GPIO_PIN_1
+#define LAMP3_GPIO_Port GPIOA
+#define LAMP1_Pin GPIO_PIN_2
+#define LAMP1_GPIO_Port GPIOA
 
 /* ########################## Assert Selection ############################## */
 /**
