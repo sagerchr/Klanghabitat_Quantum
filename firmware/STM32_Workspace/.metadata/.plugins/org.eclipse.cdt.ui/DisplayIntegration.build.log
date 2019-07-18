@@ -1,6 +1,19 @@
-19:36:01 **** Incremental Build of configuration Debug for project DisplayIntegration ****
+22:51:44 **** Incremental Build of configuration Debug for project DisplayIntegration ****
 make all 
-make: Nothing to be done for `all'.
+Building target: DisplayIntegration.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -L"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Middlewares/ST/STemWin/Lib"  -specs=nosys.specs -specs=nano.specs -T"../STM32F469NIHx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "DisplayIntegration.elf" @"objects.list"  -l:STemWin540_CM4_GCC_ot_ARGB.a -lm
+Finished building target: DisplayIntegration.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "DisplayIntegration.elf" "DisplayIntegration.bin"
+arm-none-eabi-size "DisplayIntegration.elf" & arm-none-eabi-size --format=berkeley DisplayIntegration.elf
+   text	   data	    bss	    dec	    hex	filename
+ 118040	    760	 128240	 247040	  3c500	DisplayIntegration.elf
+   text	   data	    bss	    dec	    hex	filename
+ 118040	    760	 128240	 247040	  3c500	DisplayIntegration.elf
+ 
 
-19:36:01 Build Finished (took 227ms)
+22:51:46 Build Finished (took 1s.421ms)
 

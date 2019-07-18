@@ -51,10 +51,12 @@ extern  WM_HWIN CreateWindow(void);
 
 TS_StateTypeDef TS_State;
 I2C_HandleTypeDef hi2c2;
+UART_HandleTypeDef huart6;
 
-
+uint8_t level = 0;
 uint8_t i2cBuffer[2];
 uint16_t Adr[6] = {0,8,16,32,64,128};
+uint8_t word;
 
 
 GUI_RECT pRect = {325,80,475,400};
@@ -70,12 +72,13 @@ void GRAPHICS_MainTask(void) {
     while(1)
   {
 
-         //WM_Invalidate(hWin);
+         WM_Invalidate(hWin);
 
 
-        WM_InvalidateArea(&pRect);
+        //WM_InvalidateArea(&pRect);
 
          GUI_Delay(1);
+
 
 
 
@@ -95,10 +98,10 @@ void GRAPHICS_MainTask(void) {
             	 HAL_I2C_Master_Receive(&hi2c2, Adr[i], &i2cBuffer[1],1,100);
             	 pots[i]=i2cBuffer[1];
     	     }
-
+    	     level=pots[0];
     	     HAL_GPIO_TogglePin(GPIOA, LAMP1_Pin);
-
-
+    	     HAL_UART_Transmit(&huart6, (uint8_t*)(&level) , 1, 100);
+    	     HAL_UART_Receive(&huart6, &word, 1,10);
 
 
 

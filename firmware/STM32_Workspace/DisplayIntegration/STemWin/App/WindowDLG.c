@@ -37,7 +37,9 @@
 char Value;
 #define ID_WINDOW_0  (GUI_ID_USER + 0x00)
 
+uint8_t byte;
 
+UART_HandleTypeDef huart6;
 // USER START (Optionally insert additional defines)
 // USER END
 
@@ -69,7 +71,7 @@ int delay[6];
 int pox[6]={10,10,10,550,550,550};
 int poy[6]={220,400,40,400,40,220};
 const char *units[6] = {"ms","sec","dB","dBu","ms","ms"};
-
+char str[12];
 
 begin = 0;
 /*********************************************************************
@@ -143,7 +145,14 @@ for(int i = 0; i<6; i++){
 
 
 
-	  GUI_SetColor(GUI_GRAY);
+
+
+
+
+
+
+
+GUI_SetColor(GUI_GRAY);
 
 
 /*

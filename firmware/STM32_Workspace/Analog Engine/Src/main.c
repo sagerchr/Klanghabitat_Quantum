@@ -140,8 +140,11 @@ int main(void)
   MX_SPI3_Init();
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
+  uint8_t count = 0;
+  uint8_t byte;
   int add = +1;
   char str[12];
+  char test;
   uint32_t adc[2], buffer[2];
   float valVolt = 0.1;
   uint16_t valByte;
@@ -171,7 +174,7 @@ int main(void)
 */
 
 
-
+	  count=123;
 
 	  if (valVolt >= 0.2){
 		  add = -1;
@@ -181,15 +184,29 @@ int main(void)
 	  }
 
 	  HAL_DAC_Start(&hdac1, DAC_CHANNEL_1);
+	  HAL_DAC_Start(&hdac1, DAC_CHANNEL_2);
 	  valVolt = valVolt + (add*0.001);
 
-	  sprintf(str, "%d", valByte);
-	  debugPrintln(&huart2, str); // print full line osDelay(1000);
 
-	  valByte = (uint16_t)((valVolt/3.0)*4095);
-	  HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, valByte);
+
+	  //sprintf(str, "%d", count);
+	  HAL_UART_Transmit(&huart1, (uint8_t*)(&count), 1, 100);
+
+	  //HAL_UART_Transmit(&huart1, "0", 1, 10);
+
+	  HAL_UART_Receive(&huart1, &byte, 1,1);
+
+
+
+	  //debugPrintln(&huart2, byte); // print full line osDelay(1000);
+
+
+	  HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, byte);
+	  HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_2, DAC_ALIGN_12B_R, byte);
+
+
 	  HAL_GPIO_TogglePin(D2_DEBUG_GPIO_Port, D2_DEBUG_Pin);
-	  HAL_Delay(10);
+
 
   }
   /* USER CODE END 3 */
@@ -554,8 +571,8 @@ static void MX_USART1_UART_Init(void)
 {
 
   huart1.Instance = USART1;
-  huart1.Init.BaudRate = 38400;
-  huart1.Init.WordLength = UART_WORDLENGTH_7B;
+  huart1.Init.BaudRate = 115200;
+  huart1.Init.WordLength = UART_WORDLENGTH_8B;
   huart1.Init.StopBits = UART_STOPBITS_1;
   huart1.Init.Parity = UART_PARITY_NONE;
   huart1.Init.Mode = UART_MODE_TX_RX;
