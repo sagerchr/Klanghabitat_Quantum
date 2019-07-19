@@ -44,9 +44,10 @@
   */
 #include "GUI_App.h"
 #include "GUI.h"
-
+#include "main.h"
 #include "DIALOG.h"
 extern  WM_HWIN CreateWindow(void);  
+
 
 
 TS_StateTypeDef TS_State;
@@ -57,13 +58,26 @@ uint8_t level = 0;
 uint8_t i2cBuffer[2];
 uint16_t Adr[6] = {0,8,16,32,64,128};
 uint8_t word;
+char array[20];
 
+int start = 0;
+char newArray[10];
 
 GUI_RECT pRect = {325,80,475,400};
 //GUI_RECT pRect = {0,0,800,480};
 
 
+
+
 void GRAPHICS_MainTask(void) {
+
+
+
+
+
+
+
+
 
 	WM_HWIN hWin;
 	hWin = CreateWindow();
@@ -88,7 +102,7 @@ void GRAPHICS_MainTask(void) {
     		{
     	      X = TS_State.touchX[0];
     		  Y = TS_State.touchY[0];
-    		  HAL_GPIO_TogglePin(GPIOG, LAMP4_Pin|LAMP2_Pin);
+    		  HAL_GPIO_TogglePin(GPIOG, LAMP4_Pin);
     		}
 
 
@@ -101,9 +115,36 @@ void GRAPHICS_MainTask(void) {
     	     level=pots[0];
     	     HAL_GPIO_TogglePin(GPIOA, LAMP1_Pin);
     	     HAL_UART_Transmit(&huart6, (uint8_t*)(&level) , 1, 100);
-    	     HAL_UART_Receive(&huart6, &word, 1,10);
+
+    	     //Das hier funktioniert
+    	     //HAL_UART_Receive(&huart6, &word, 1,10);
+
+    	     UART_TRANSFER;
+	 //HAL_UART_Receive(&huart6, &array, 10,5);
+
+    	     for(int i = 0; i<20;i++){
+    	    	 if (array[i] == 0x00 && i>0){
+    	    		   start = i;
+    	    		   break;
+    	    	 }
+    	     }
+
+    	     for (int i = 0; i< 10;i++){
+    	    	 newArray [i] = array[i+start];
+    	     }
+
+    	     adc1 = newArray[3];
+    	     adc2 = newArray[4];
 
 
+    	     for(int i = 0; i<20;i++){
+    	    	 array[i] = 0;
+    	     }
+
+    	     for (int i = 0; i< 10;i++){
+    	    	 newArray [i] = 0;
+    	     }
+    	     start = 0;
 
   }
 /* USER CODE END GRAPHICS_MainTask */

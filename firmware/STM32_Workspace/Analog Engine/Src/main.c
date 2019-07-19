@@ -144,6 +144,9 @@ int main(void)
   uint8_t byte;
   int add = +1;
   char str[12];
+
+  char transmit[] = {'#', '0', '0','0','0'};
+
   char test;
   uint32_t adc[2], buffer[2];
   float valVolt = 0.1;
@@ -174,7 +177,7 @@ int main(void)
 */
 
 
-	  count=123;
+	  count++;
 
 	  if (valVolt >= 0.2){
 		  add = -1;
@@ -189,10 +192,24 @@ int main(void)
 
 
 
-	  //sprintf(str, "%d", count);
-	  HAL_UART_Transmit(&huart1, (uint8_t*)(&count), 1, 100);
+	 //Das hier funktioniert
+	 //HAL_UART_Transmit(&huart1, (uint8_t*)(&count), 1, 100);
 
-	  //HAL_UART_Transmit(&huart1, "0", 1, 10);
+
+
+	  transmit[0]=0x00;
+	  transmit[1]=0x01;
+	  transmit[2]=0x02;
+	  transmit[3]=buffer[0];
+	  transmit[4]=buffer[1];
+
+
+
+	  HAL_UART_Transmit(&huart1, transmit, 5, 10);
+
+
+
+
 
 	  HAL_UART_Receive(&huart1, &byte, 1,1);
 

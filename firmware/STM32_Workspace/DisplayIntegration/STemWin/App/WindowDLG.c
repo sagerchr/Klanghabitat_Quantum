@@ -39,7 +39,7 @@ char Value;
 
 uint8_t byte;
 
-UART_HandleTypeDef huart6;
+//UART_HandleTypeDef huart6;
 // USER START (Optionally insert additional defines)
 // USER END
 
@@ -64,6 +64,8 @@ uint16_t samples[250];
 //Interface Variablen
 int X = 0; //TOUCH X
 int Y = 0; //TOUCH Y
+int adc1 = 0;
+int adc2 = 0;
 
 int pots[6];
 int poti[6];
@@ -144,8 +146,8 @@ for(int i = 0; i<6; i++){
 /*==================================================*/
 
 
-
-
+drawFloat(40,120, adc1, "");
+drawFloat(40,150, adc2, "");
 
 
 

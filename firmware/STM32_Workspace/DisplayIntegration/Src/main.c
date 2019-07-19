@@ -113,6 +113,9 @@ uint8_t adresses[255];
 int Test=12;
 int test;
 uint32_t DMA_TRANSFER[250];
+uint8_t UART_TRANSFER[5];
+
+
 /* USER CODE END 0 */
 
 /**
@@ -178,6 +181,9 @@ int main(void)
   TouchTimer_Init();
   HAL_TIM_Base_Start(&htim4);
   HAL_ADC_Start_DMA(&hadc1, (uint32_t*)DMA_TRANSFER, 250);
+  HAL_UART_Receive_IT(&huart6, UART_TRANSFER, 5);
+
+
   /* Graphic application */
   GRAPHICS_MainTask();
 
@@ -685,7 +691,11 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
    BSP_Pointer_Update();/*handle the touch changes*/
 }
 
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
+	UNUSED(huart);
 
+	HAL_GPIO_TogglePin(GPIOG, LAMP2_Pin);
+}
 
 /* USER CODE END 4 */
 
