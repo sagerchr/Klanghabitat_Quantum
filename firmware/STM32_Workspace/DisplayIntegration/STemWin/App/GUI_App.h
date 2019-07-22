@@ -53,6 +53,11 @@ extern int Y;
 
 extern int adc1;
 extern int adc2;
+extern int watchdog;
+
+extern int left;
+extern int right;
+
 
 extern int pots[6];
 

@@ -73,6 +73,7 @@ TIM_HandleTypeDef htim3;
 TIM_HandleTypeDef htim4;
 
 UART_HandleTypeDef huart6;
+DMA_HandleTypeDef hdma_usart6_rx;
 
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
@@ -113,7 +114,7 @@ uint8_t adresses[255];
 int Test=12;
 int test;
 uint32_t DMA_TRANSFER[250];
-uint8_t UART_TRANSFER[5];
+char UART_RECIVE[10];
 
 
 /* USER CODE END 0 */
@@ -181,12 +182,10 @@ int main(void)
   TouchTimer_Init();
   HAL_TIM_Base_Start(&htim4);
   HAL_ADC_Start_DMA(&hadc1, (uint32_t*)DMA_TRANSFER, 250);
-  HAL_UART_Receive_IT(&huart6, UART_TRANSFER, 5);
-
-
-  /* Graphic application */
+  HAL_UART_Receive_DMA(&huart6, UART_RECIVE,10);
+  /* Graphic application */  
   GRAPHICS_MainTask();
-
+    
   /* Infinite loop */
   for(;;);
 
@@ -530,6 +529,9 @@ static void MX_DMA_Init(void)
   /* DMA2_Stream0_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA2_Stream0_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA2_Stream0_IRQn);
+  /* DMA2_Stream1_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA2_Stream1_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA2_Stream1_IRQn);
 
 }
 
@@ -691,11 +693,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
    BSP_Pointer_Update();/*handle the touch changes*/
 }
 
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
-	UNUSED(huart);
 
-	HAL_GPIO_TogglePin(GPIOG, LAMP2_Pin);
-}
 
 /* USER CODE END 4 */
 

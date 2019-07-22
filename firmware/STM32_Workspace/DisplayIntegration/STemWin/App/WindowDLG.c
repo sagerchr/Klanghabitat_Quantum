@@ -45,6 +45,7 @@ uint8_t byte;
 
 static void drawFloat (int pos_x, int pos_y, float val, const char * s);
 void drawWaveForm();
+void drawWaveFormUart();
 
 static const GUI_WIDGET_CREATE_INFO _aDialogCreate[] = {
   { WINDOW_CreateIndirect, "Window", ID_WINDOW_0, 0, 0, 800, 480, 0, 0x0, 0 },
@@ -62,11 +63,13 @@ int16_t  ringBuffer[810];
 uint16_t samples[250];
 
 //Interface Variablen
-int X = 0; //TOUCH X
+int X = 400; //TOUCH X
 int Y = 0; //TOUCH Y
 int adc1 = 0;
 int adc2 = 0;
-
+int watchdog= 0;
+int left = 0;
+int right = 0;
 int pots[6];
 int poti[6];
 int delay[6];
@@ -122,10 +125,10 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
   	begin = begin+1;
   }
 
-
+ drawWaveFormUart();
 
 if(X>300 && Y>100){
-	  drawWaveForm();
+//	  drawWaveForm();
 }
 
 
@@ -148,9 +151,10 @@ for(int i = 0; i<6; i++){
 
 drawFloat(40,120, adc1, "");
 drawFloat(40,150, adc2, "");
+drawFloat(350, 420, watchdog, "");
 
-
-
+drawFloat(300, 380, left, "");
+drawFloat(400, 380, right, "");
 
 
 
@@ -195,7 +199,27 @@ Value = &buf;
 BSP_LED_Toggle(LED1);
 }
 */
+void drawWaveFormUart(){
 
+	 for(int i=0; i<250;i++){
+	    ringBuffer[i] = ringBuffer[i+1];
+	    }
+
+
+    ringBuffer[250] = adc1;
+
+
+	GUI_SetColor( GUI_ORANGE );
+
+		for(int i=0; i<250;i++){
+	        	 lineStart = 240 - (1*ringBuffer[i]/2);
+	        	 lineEnd = lineStart + (1*ringBuffer[i]);
+
+	        	 GUI_DrawVLine(i+275,lineStart, lineEnd);
+	     }
+
+	/****************************************************/
+}
 
 void drawWaveForm(){
 	for (int i = 0; i<63;i++){

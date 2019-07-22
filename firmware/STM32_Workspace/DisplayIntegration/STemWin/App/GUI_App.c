@@ -61,22 +61,19 @@ uint8_t word;
 char array[20];
 
 int start = 0;
-char newArray[10];
+int offset = 0;
+int intervall = 0;
 
-GUI_RECT pRect = {325,80,475,400};
+
+
+char transmit[10];
+GUI_RECT pRect = {275,80,525,400};
 //GUI_RECT pRect = {0,0,800,480};
 
 
 
 
 void GRAPHICS_MainTask(void) {
-
-
-
-
-
-
-
 
 
 	WM_HWIN hWin;
@@ -86,10 +83,21 @@ void GRAPHICS_MainTask(void) {
     while(1)
   {
 
-         WM_Invalidate(hWin);
 
 
-        //WM_InvalidateArea(&pRect);
+       if (intervall > 5){
+    	   intervall = 0;
+    	   WM_Invalidate(hWin);
+    	   HAL_GPIO_TogglePin(GPIOA, LAMP1_Pin);
+       }
+       else {
+    	   WM_InvalidateArea(&pRect);
+       }
+
+       intervall++;
+
+
+
 
          GUI_Delay(1);
 
@@ -113,39 +121,79 @@ void GRAPHICS_MainTask(void) {
             	 pots[i]=i2cBuffer[1];
     	     }
     	     level=pots[0];
-    	     HAL_GPIO_TogglePin(GPIOA, LAMP1_Pin);
-    	     HAL_UART_Transmit(&huart6, (uint8_t*)(&level) , 1, 100);
 
-    	     //Das hier funktioniert
-    	     //HAL_UART_Receive(&huart6, &word, 1,10);
+    	     //HAL_UART_Transmit(&huart6, (uint8_t*)(&level) , 1, 100);
 
-    	     UART_TRANSFER;
-	 //HAL_UART_Receive(&huart6, &array, 10,5);
+    	     left = (X/2) - 200;
+    	     if (left <=1){
+    	    	 left = 0;
+    	     }
+    	     if (left >= 254){
+    	    	 left = 254;
+    	     }
 
-    	     for(int i = 0; i<20;i++){
-    	    	 if (array[i] == 0x00 && i>0){
-    	    		   start = i;
+    	     right = 200 - (X/2);
+    	     if (right <=1){
+    	    	 right = 0;
+    	     }
+    	     if (right >= 254){
+    	    	 right = 254;
+    	     }
+
+    		  transmit[0]=0xFF;
+    		  transmit[1]=left;
+    		  transmit[2]=pots[1];
+    		  transmit[3]=pots[2];
+    		  transmit[4]=pots[3];
+    		  transmit[5]=pots[4];
+    		  transmit[6]=right;
+    		  transmit[7]=0x01;
+    		  transmit[8]=0x02;
+    		  transmit[9]=0x03;
+
+
+    	     HAL_UART_Transmit(&huart6, transmit , 10, 10);
+
+
+    	     //Sort Incoming data
+
+    	     int start = 0;
+    	     int offset = 0;
+    	     char incommingData[10];
+    	     for(int i = 0; i<10;i++){
+    	    	 if (UART_RECIVE[i] == 0xFF){
+    	    		   start = i; //start index
     	    		   break;
     	    	 }
     	     }
 
-    	     for (int i = 0; i< 10;i++){
-    	    	 newArray [i] = array[i+start];
+    	     if (start == 0){
+    	    	 for (int i = 0; i< 10;i++){
+    	    	      incommingData[i] = UART_RECIVE[i];
+    	    	 }
+    	     }
+    	     else if (start != 0){
+        	     for (int i = 0; i< 10;i++){
+        	    	 incommingData[i] = UART_RECIVE[i+start];
+        	    	 offset = i+1;
+        	    	 if (i+start == 9){
+        	    		 break;
+        	    	 }
+        	     }
+        	     for (int i = 0; i< 10;i++){
+        	    	 incommingData[i+offset] = UART_RECIVE[i];
+        	    	 if (i+offset == 9){
+        	    		 break;
+        	    	 }
+        	     }
     	     }
 
-    	     adc1 = newArray[3];
-    	     adc2 = newArray[4];
 
 
-    	     for(int i = 0; i<20;i++){
-    	    	 array[i] = 0;
-    	     }
 
-    	     for (int i = 0; i< 10;i++){
-    	    	 newArray [i] = 0;
-    	     }
-    	     start = 0;
-
+    	     watchdog = incommingData[1];
+    	     adc1 = incommingData[3];
+    	     adc2 = incommingData[4];
   }
 /* USER CODE END GRAPHICS_MainTask */
   while(1)

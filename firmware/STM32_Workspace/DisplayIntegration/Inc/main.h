@@ -95,7 +95,7 @@
 /* USER CODE BEGIN Private defines */
 extern int Test;
 extern uint32_t DMA_TRANSFER[250];
-extern uint8_t UART_TRANSFER[5];
+extern char UART_RECIVE[10];
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
