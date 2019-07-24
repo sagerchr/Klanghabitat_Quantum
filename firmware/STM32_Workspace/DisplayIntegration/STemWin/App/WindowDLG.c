@@ -43,7 +43,8 @@ uint8_t byte;
 // USER START (Optionally insert additional defines)
 // USER END
 
-static void drawFloat (int pos_x, int pos_y, float val, const char * s);
+static void drawFloat (int pos_x, int pos_y, float val, const char * s,const char * h);
+void drawBar (int pos_x, int pos_y, float PeakVal,float AvVal, const char * s );
 void drawWaveForm();
 void drawWaveFormUart();
 
@@ -65,7 +66,15 @@ uint16_t samples[250];
 //Interface Variablen
 int X = 400; //TOUCH X
 int Y = 0; //TOUCH Y
+
 int adc1 = 0;
+float adc1_ist = 0;
+float adc1_volt = 0;
+float adc1_db = 0;
+float adc1_db_negative = 0;
+
+
+
 int adc2 = 0;
 int watchdog= 0;
 int left = 0;
@@ -73,12 +82,16 @@ int right = 0;
 int pots[6];
 int poti[6];
 int delay[6];
-int pox[6]={10,10,10,550,550,550};
-int poy[6]={220,400,40,400,40,220};
-const char *units[6] = {"ms","sec","dB","dBu","ms","ms"};
+int pox[6]={15,15,15,650,650,650};
+int poy[6]={220,410,60,410,60,220};
+const char *header[6] = {"Input","Threshold","Attack","Ratio","Release","Output"};
+const char *units[6] = {"dB","dB","ms","","ms","dB"};
 char str[12];
 
 begin = 0;
+
+float smooth= 0;
+float peaksmooth= 0;
 /*********************************************************************
 *
 *       Static code
@@ -125,11 +138,32 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
   	begin = begin+1;
   }
 
- drawWaveFormUart();
+     drawWaveFormUart();
 
-if(X>300 && Y>100){
-//	  drawWaveForm();
-}
+  	 adc1_ist = adc1;
+	 adc1_volt = (adc1/255.00)*3.6;
+	 adc1_db = 10*log(adc1_volt/3.0);
+	 if (adc1_db<=-50.0) {adc1_db = -50;}
+
+	 adc1_db = adc1_db *4;
+
+	 if(adc1_db-smooth<0){
+		 smooth = smooth+(0.1*(adc1_db-smooth));
+	 }
+	 else {
+		 smooth = smooth+(0.8*(adc1_db-smooth));
+	 }
+
+	 if(adc1_db-peaksmooth<0){
+		 peaksmooth = peaksmooth+(0.01*(adc1_db-peaksmooth));
+	 }
+	 else {
+		 peaksmooth = peaksmooth+(0.9*(adc1_db-peaksmooth));
+	 }
+
+	 drawBar (280, 130,200+peaksmooth,200+smooth, "");
+	 drawBar (350, 130,200+peaksmooth,200+smooth, "");
+
 
 
 /*****************DIPLAY ENCODER VALUES**************/
@@ -143,136 +177,87 @@ for(int i = 0; i<6; i++){
 	 }
 	 else {GUI_SetColor(GUI_LIGHTGRAY);}
 	 poti[i] = pots[i];
-	 GUI_SetFont(&GUI_FontD36x48);
-	 drawFloat(pox[i],poy[i],poti[i], units[i]);
+	 GUI_SetFont(&GUI_FontD24x32);
+	 drawFloat(pox[i],poy[i],poti[i], units[i],header[i]);
 }
 /*==================================================*/
 
-
-drawFloat(40,120, adc1, "");
-drawFloat(40,150, adc2, "");
-drawFloat(350, 420, watchdog, "");
-
-drawFloat(300, 380, left, "");
-drawFloat(400, 380, right, "");
-
-
+GUI_SetFont(&GUI_Font24B_1);
 
 GUI_SetColor(GUI_GRAY);
-
-
-/*
-USB COM
-	  char *A[4];
-	  char *B[4];
-
-	  sprintf(A, "%d", adc1);
-	  sprintf(B, "%d", adc2);
-
-	  char str[11];
-
-	  strcpy(str, "*");
-	  if(adc1<10){strcat(str, "0");}
-	  if(adc1<100){strcat(str, "0");}
-	  if(adc1<1000){strcat(str, "0");}
-	  strcat(str, A);
-	  strcat(str, "-");
-	  if(adc2<10){strcat(str, "0");}
-	  if(adc2<100){strcat(str, "0");}
-	  if(adc2<1000){strcat(str, "0");}
-	  strcat(str, B);
-	  strcat(str, "\r\n");
-
-	  CDC_Transmit_FS(str, 11);
-
-*/
-
-
 
 }
 WM_MESSAGE mess;
 
-/*
 
-void CDC_ReceiveCallBack(uint8_t *buf, uint32_t len){
-Value = &buf;
-BSP_LED_Toggle(LED1);
-}
-*/
 void drawWaveFormUart(){
-
-	 for(int i=0; i<250;i++){
-	    ringBuffer[i] = ringBuffer[i+1];
-	    }
-
-
-    ringBuffer[250] = adc1;
-
-
-	GUI_SetColor( GUI_ORANGE );
-
-		for(int i=0; i<250;i++){
-	        	 lineStart = 240 - (1*ringBuffer[i]/2);
-	        	 lineEnd = lineStart + (1*ringBuffer[i]);
-
-	        	 GUI_DrawVLine(i+275,lineStart, lineEnd);
-	     }
-
-	/****************************************************/
-}
-
-void drawWaveForm(){
-	for (int i = 0; i<63;i++){
-		samples[i] = (DMA_TRANSFER[i] & 0x000000ffUL);
-		}
-
-	for (int i = 0; i < 63; i++)
-	 {
-	   if (samples[i] > maxCH1)
-	   {
-		   maxCH1  = samples[i];
-	   }
-	 }
 
 	 for(int i=0; i<150;i++){
 	    ringBuffer[i] = ringBuffer[i+1];
 	    }
 
-	 if (maxCH1<=127){
-		 ringBuffer[150] = 127-maxCH1;
-	 }
-
-	 else if (maxCH1 >127){
-		 ringBuffer[150] = maxCH1-127;
-	 }
-	maxCH1 = 0;
-
 	GUI_SetColor( GUI_ORANGE );
 
 		for(int i=0; i<150;i++){
-	        	 lineStart = 240 - (4*ringBuffer[i]/2);
-	        	 lineEnd = lineStart + (4*ringBuffer[i]);
 
-	        	 GUI_DrawVLine(i+325,lineStart, lineEnd);
+
+		    ringBuffer[150] = adc1;
+	        lineStart = 240 - (1*ringBuffer[i]/2);
+	        lineEnd = lineStart + (1*ringBuffer[i]);
+
+	        GUI_DrawVLine(i+400,lineStart, lineEnd);
 	     }
 
 	/****************************************************/
 }
 
+void drawBar (int pos_x, int pos_y, float PeakVal,float AvVal,  const char * s ){
+	/*DRAW RASTER*/
+	int lastLine = 0;
+	int bottomY = 0;
+
+	GUI_SetColor(GUI_LIGHTGRAY);
+	GUI_SetFont(&GUI_Font20_1);
+	GUI_GotoXY(pos_x-30, pos_y-25);
+
+    GUI_DispFloatMin((AvVal-200)/4, 2);
+
+
+	for (int i=0; i<20; i++){
+		lastLine = pos_y+(i*10);
+		GUI_DrawHLine(lastLine+0,pos_x, pos_x+10);
+		GUI_DrawHLine(lastLine+5,pos_x, pos_x+5);
+	}
+	GUI_DrawHLine(lastLine+10,pos_x, pos_x+10);
+	bottomY = lastLine+10;
 
 
 
 
-void drawFloat (int pos_x, int pos_y, float val, const char * s){
 
+	/*DRAW INDICATOR AV*/
+	GUI_DrawGradientV(pos_x-20, bottomY- AvVal, pos_x-1, bottomY, 0xFFFF8000, 0xFFFFA500);
+
+	/*DRAW INDICATOR PEAK*/
+	GUI_SetColor(0xFFFF6000);
+
+	GUI_DrawHLine(bottomY-PeakVal-4,pos_x-20, pos_x-1);
+	GUI_DrawHLine(bottomY-PeakVal-3,pos_x-20, pos_x-1);
+	GUI_DrawHLine(bottomY-PeakVal-2,pos_x-20, pos_x-1);
+	GUI_DrawHLine(bottomY-PeakVal-1,pos_x-20, pos_x-1);
+	GUI_DrawHLine(bottomY-PeakVal,pos_x-20, pos_x-1);
+
+}
+
+void drawFloat (int pos_x, int pos_y, float val, const char * s, const char * h){
 			  GUI_GotoXY(pos_x, pos_y);
-	  		  GUI_DispFloatMin(val, 2);
+	  		  GUI_DispFloatMin(val, 1);
 
-
+			  GUI_SetFont(&GUI_Font24B_1);
+	  		  if(val < 10.0 && val >= 0) {GUI_DispStringAt(s, 80+pos_x, 10+pos_y);}
+	  		  else if (val >= 10.0 || val<0){GUI_DispStringAt(s, 105+pos_x, 10+pos_y);}
 	  		  GUI_SetFont(&GUI_Font32B_1);
-	  		  if(val < 10.0 && val >= 0) {GUI_DispStringAt(s, 150+pos_x, 20+pos_y);}
-	  		  else if (val >= 10.0 || val<0){GUI_DispStringAt(s, 185+pos_x, 20+pos_y);}
-
+	  		  GUI_DispStringAt(h, pos_x, pos_y-35);
 
 	  	  }
 

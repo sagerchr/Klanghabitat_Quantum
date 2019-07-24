@@ -101,6 +101,7 @@ static void MX_TIM1_Init(void);
   * @retval None
   */
 int main(void)
+
 {
   /* USER CODE BEGIN 1 */
 
@@ -153,7 +154,12 @@ int main(void)
   uint32_t adc[2], buffer[2], sender [2];
   uint32_t avADC[2];
 
-  int cycles = 3000;
+  //int cycles = 3000;
+  int cycles = 2500;
+  int max1 = 0;
+  int max2 = 0;
+  int maxOUT1 = 0;
+  int maxOUT2 = 0;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -181,27 +187,23 @@ int main(void)
   /* USER CODE BEGIN 3 */
 
 
-	  for (int i = 0; i<2; i++){
-	  avADC[i] = avADC[i] + buffer[i];
+	  /************* Check for Maximum in the last X Cycles ************/
+	  if (count >= cycles){count = 0;}
+
+	  if (max1 < buffer[0]){max1 = buffer[0];}
+	  if (max2 < buffer[1]){max2 = buffer[1];}
+
+	  if (count == 0){
+		  maxOUT1 = max1;
+		  maxOUT2 = max2;
+		  max1 = 0;
+		  max2 = 0;
 	  }
-		if (count >= cycles){
-			count = 0;
-			for (int i = 0; i<2; i++){
-				adc[i] = avADC[i]/cycles;
-				avADC[i] = 0;
 
-				for (int i = 0; i<2; i++){
-					  if (adc [i] == 255){
-						  sender [i] = 244;
-					  }
-					  else {
-						  sender [i] = adc[i];
-					  }
-				  }
-			  }
-		}
+	 count++;
+	 /****************************************************************/
 
-	count++;
+
 
 
 
@@ -210,8 +212,8 @@ int main(void)
 	  transmit[0]=0xFF;
 	  transmit[1]=count;
 	  transmit[2]=0x02;
-	  transmit[3]=sender[0];
-	  transmit[4]=sender[1];
+	  transmit[3]=maxOUT1;
+	  transmit[4]=maxOUT2;
 	  transmit[5]=0x10;
 	  transmit[6]=0x10;
 	  transmit[7]=0x10;

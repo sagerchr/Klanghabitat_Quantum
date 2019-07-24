@@ -67,7 +67,7 @@ int intervall = 0;
 
 
 char transmit[10];
-GUI_RECT pRect = {275,80,525,400};
+GUI_RECT pRect = {250,100,600,400};
 //GUI_RECT pRect = {0,0,800,480};
 
 
@@ -84,7 +84,8 @@ void GRAPHICS_MainTask(void) {
   {
 
 
-
+    /******************Redraw *************************/
+    /****When Interval is reached redraw everything****/
        if (intervall > 5){
     	   intervall = 0;
     	   WM_Invalidate(hWin);
@@ -95,15 +96,11 @@ void GRAPHICS_MainTask(void) {
        }
 
        intervall++;
+  /**********************************************************/
 
-
-
+  /******************** READ TOUCH SCREEN *******************/
 
          GUI_Delay(1);
-
-
-
-
 
     	  BSP_TS_GetState(&TS_State);
     	     if(TS_State.touchDetected == TOUCH_EVENT_PRESS_DOWN)
@@ -112,8 +109,9 @@ void GRAPHICS_MainTask(void) {
     		  Y = TS_State.touchY[0];
     		  HAL_GPIO_TogglePin(GPIOG, LAMP4_Pin);
     		}
+   /**********************************************************/
 
-
+   /******************** READ ENCODER ***********************/
     	     for (int i=0; i<6; i++){
             	 i2cBuffer[0]= 0x0B;
             	 HAL_I2C_Master_Transmit(&hi2c2, Adr[i],i2cBuffer,1,100);
@@ -121,48 +119,43 @@ void GRAPHICS_MainTask(void) {
             	 pots[i]=i2cBuffer[1];
     	     }
     	     level=pots[0];
+   /**********************************************************/
 
-    	     //HAL_UART_Transmit(&huart6, (uint8_t*)(&level) , 1, 100);
-
+   /************** Panning Action TouchScreen ****************/
     	     left = (X/2) - 200;
-    	     if (left <=1){
-    	    	 left = 0;
-    	     }
-    	     if (left >= 254){
-    	    	 left = 254;
-    	     }
+    	     if (left <=1){left = 0;}
+    	     if (left >= 254){left = 254;}
 
     	     right = 200 - (X/2);
-    	     if (right <=1){
-    	    	 right = 0;
-    	     }
-    	     if (right >= 254){
-    	    	 right = 254;
-    	     }
+    	     if (right <=1){right = 0;}
+    	     if (right >= 254){right = 254;}
+  /**********************************************************/
 
-    		  transmit[0]=0xFF;
-    		  transmit[1]=left;
-    		  transmit[2]=pots[1];
-    		  transmit[3]=pots[2];
-    		  transmit[4]=pots[3];
-    		  transmit[5]=pots[4];
-    		  transmit[6]=right;
-    		  transmit[7]=0x01;
-    		  transmit[8]=0x02;
-    		  transmit[9]=0x03;
 
+  /************ Transmit data to AnalogEngine****************/
+    		 transmit[0]=0xFF;
+    		 transmit[1]=left;
+    		 transmit[2]=pots[1];
+    		 transmit[3]=pots[2];
+    		 transmit[4]=pots[3];
+    		 transmit[5]=pots[4];
+    		 transmit[6]=right;
+    		 transmit[7]=0x01;
+    		 transmit[8]=0x02;
+    		 transmit[9]=0x03;
 
     	     HAL_UART_Transmit(&huart6, transmit , 10, 10);
 
+  /**********************************************************/
 
-    	     //Sort Incoming data
+  /***************** Sort Incoming data ********************/
 
     	     int start = 0;
     	     int offset = 0;
     	     char incommingData[10];
     	     for(int i = 0; i<10;i++){
     	    	 if (UART_RECIVE[i] == 0xFF){
-    	    		   start = i; //start index
+    	    		   start = i; //found start index @start
     	    		   break;
     	    	 }
     	     }
@@ -187,7 +180,7 @@ void GRAPHICS_MainTask(void) {
         	    	 }
         	     }
     	     }
-
+   /**********************************************************/
 
 
 
