@@ -45,6 +45,7 @@ uint8_t byte;
 
 static void drawFloat (int pos_x, int pos_y, float val, const char * s,const char * h);
 void drawBar (int pos_x, int pos_y, float PeakVal,float AvVal, const char * s );
+void drawVBar (int pos_x, int pos_y, float PeakVal,float AvVal, const char * s );
 void drawWaveForm();
 void drawWaveFormUart();
 
@@ -82,8 +83,8 @@ int right = 0;
 int pots[6];
 int poti[6];
 int delay[6];
-int pox[6]={15,15,15,650,650,650};
-int poy[6]={220,410,60,410,60,220};
+int pox[6]={15,15,15,620,620,620};
+int poy[6]={220,400,70,400,70,220};
 const char *header[6] = {"Input","Threshold","Attack","Ratio","Release","Output"};
 const char *units[6] = {"dB","dB","ms","","ms","dB"};
 char str[12];
@@ -133,8 +134,8 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
     break;
   }
 
-  if (begin < 5){
-  	//GUI_DrawBitmap(&bmsettings, 0, 370);
+  if (begin < 100){
+  	//GUI_DrawBitmap(&bmsettings, 400, 370);
   	begin = begin+1;
   }
 
@@ -179,6 +180,7 @@ for(int i = 0; i<6; i++){
 	 poti[i] = pots[i];
 	 GUI_SetFont(&GUI_FontD24x32);
 	 drawFloat(pox[i],poy[i],poti[i], units[i],header[i]);
+	 drawVBar (pox[i], poy[i]+45,0,poti[i], "");
 }
 /*==================================================*/
 
@@ -209,6 +211,24 @@ void drawWaveFormUart(){
 	     }
 
 	/****************************************************/
+}
+
+void drawVBar (int pos_x, int pos_y, float PeakVal,float AvVal,  const char * s ){
+
+	int lastLine = 0;
+	int bottomX = 0;
+
+	GUI_SetColor(GUI_LIGHTGRAY);
+	for (int i=0; i<15; i++){
+			lastLine = pos_x+(i*10);
+			GUI_DrawVLine(lastLine+0,pos_y, pos_y+10);
+			GUI_DrawVLine(lastLine+5,pos_y, pos_y+5);
+		}
+		GUI_DrawVLine(lastLine+10,pos_y, pos_y+10);
+		bottomX = lastLine+10;
+
+		GUI_DrawGradientV(pos_x, pos_y-10, pos_x+AvVal, pos_y, 0xFFFF8000, 0xFFFFA500);
+
 }
 
 void drawBar (int pos_x, int pos_y, float PeakVal,float AvVal,  const char * s ){

@@ -183,6 +183,7 @@ int main(void)
   HAL_TIM_Base_Start(&htim4);
   HAL_ADC_Start_DMA(&hadc1, (uint32_t*)DMA_TRANSFER, 250);
   HAL_UART_Receive_DMA(&huart6, UART_RECIVE,10);
+  
   /* Graphic application */  
   GRAPHICS_MainTask();
     
