@@ -51,45 +51,10 @@
 #include <string.h>
 
 
-class MyKnobLF : public LookAndFeel_V3
-{
-public:
-    void drawRotarySlider (Graphics& g, int x, int y, int width, int height, float sliderPos,
-                           const float rotaryStartAngle, const float rotaryEndAngle, Slider& slider)
-    {
-        const float radius = jmin (width / 2, height / 2) - 4.0f;
-        const float centreX = x + width * 0.5f;
-        const float centreY = y + height * 0.5f;
-        const float rx = centreX - radius;
-        const float ry = centreY - radius;
-        const float rw = radius * 2.0f;
-
-        // fill
-        g.setColour (Colours::slategrey);
-        g.fillEllipse (rx, ry, rw, rw);
-        
-        // outline
-        g.setColour (Colours::darkgrey);
-        g.drawEllipse (rx, ry, rw, rw, 5.0f);
-        
-        
-
-    }
-};
-
-class Elipse : public LookAndFeel_V3,
-               public Slider
-{
-public:
-    void drawelipse (Graphics& g)
-    {
-    g.drawEllipse (100, 100, 100, 100, 20.0f);
-    }
-};
-
 //==============================================================================
 class GenericEditor : public AudioProcessorEditor,
                       private Timer
+
 {
 public:
     
@@ -106,9 +71,10 @@ bool p = true;
 	//Establish Serial Connection
 
     StringPairArray portlist = SerialPort::getSerialPortPaths();
-    String test1 = portlist.getAllValues()[4];
-
     
+    String test1 = portlist.getAllValues()[1];
+
+
     StringArray ports = {
         "All available COM Ports...",
         portlist.getAllValues()[0],
@@ -119,26 +85,25 @@ bool p = true;
         
     };
     
+    /*
+    SerialPort * pSP;
     
+    SerialPortInputStream * pInputStream;
+    SerialPortOutputStream * pOutputStream;
+    */
 
     
     SerialPort * pSP = new SerialPort(test1, SerialPortConfig(115200, 8, SerialPortConfig::SERIALPORT_PARITY_NONE, SerialPortConfig::STOPBITS_1, SerialPortConfig::FLOWCONTROL_NONE));
     
     SerialPortInputStream * pInputStream = new SerialPortInputStream(pSP);
     SerialPortOutputStream * pOutputStream = new SerialPortOutputStream(pSP);
+ 
     
-    
-    
-
     GenericEditor (AudioProcessor& parent)
     
         : AudioProcessorEditor (parent)
     {
-        
-        
-
-        
-        startTimer(1);
+        startTimer(10);
     
         auto& params = parent.getParameters();
 
@@ -185,7 +150,7 @@ bool p = true;
             /*setSize (paramSliderWidth + paramLabelWidth,
                      jmax (1000, paramControlHeight * paramSliders.size()));
             */
-            setSize (400,250);
+            setSize (500,360);
             //startTimer (100);
 
         }        
@@ -201,33 +166,36 @@ bool p = true;
         getLookAndFeel().setColour (Slider::thumbColourId, Colours::orange);
 
 
-        paramSliders[0]->setBounds (20 , 30,70,70);
-        paramSliders[1]->setBounds (20 ,100,70,70);
-        paramSliders[2]->setBounds (20 ,170,70,70);
-        paramSliders[3]->setBounds (300, 30,70,70);
-        paramSliders[4]->setBounds (300,100,70,70);
-        paramSliders[5]->setBounds (300,170,70,70);
-
+        paramSliders[0]->setBounds (20 , 5,100,100);
+        paramSliders[0]->setTextBoxStyle(Slider::TextBoxBelow, false, 80, 15);
+        paramSliders[1]->setBounds (20 ,105,100,100);
+        paramSliders[1]->setTextBoxStyle(Slider::TextBoxBelow, false, 80, 15);
+        paramSliders[2]->setBounds (20 ,205,100,100);
+        paramSliders[2]->setTextBoxStyle(Slider::TextBoxBelow, false, 80, 15);
+        paramSliders[3]->setBounds (400, 5,100,100);
+        paramSliders[3]->setTextBoxStyle(Slider::TextBoxBelow, false, 80, 15);
+        paramSliders[4]->setBounds (400,105,100,100);
+        paramSliders[4]->setTextBoxStyle(Slider::TextBoxBelow, false, 80, 15);
+        paramSliders[5]->setBounds (400,205,100,100);
+        paramSliders[5]->setTextBoxStyle(Slider::TextBoxBelow, false, 80, 15);
+        
 		//INPUT.setBounds(50,15, 100, 20);
 		//addAndMakeVisible(INPUT);
         
-        lafBox.addItemList(ports, 0);
-        lafBox.setBounds(1, 1, 200, 20);
+        lafBox.addItemList(ports, 1);
+        lafBox.setBounds(0, 320, 200, 20);
         lafBox.setAlwaysOnTop(true);
         addAndMakeVisible (lafBox);
-       
+        
+        Button1.setBounds(200, 100, 100, 30);
+        addAndMakeVisible (Button1);
     }
 
  String stream ="no device connected";
 
  String value1 = "";
  int IntStream = 0;
-
-    int val1 = 0;
-	int val2 = 0;
-	int val3 = 0;
-	int val4 = 0;
-	int val5 = 0;
+    char CharIN[32];
     
     int lastInput = 0;
     int lastOutput = 0;
@@ -251,12 +219,7 @@ bool p = true;
      
         
 
-        char CharIN[32];
-       
-        int i;
-        for (i = 0; i < sizeof(stream); i++) {
-            CharIN[i] = stream[i];
-        }
+
         
         
         
@@ -316,27 +279,71 @@ bool p = true;
         if (auto* param = getParameterForSlider (slider))
             param->endChangeGesture();
     }
+        
+        void connect (String path)
+        {
+
+
+        }
     
     
-private:
+public:
    
 	TextButton INPUT;
     
-    Elipse elipseTest;
+  
     
     ComboBox lafBox;
     
+    TextButton Button1  { "connect" };
+    uint8_t count=10;
     void timerCallback() override
     {
         
+        
+        
+        
         auto& params = getAudioProcessor()->getParameters();
+        
+        std::cout << (int)count;
+        std::cout << " || ";
+        
+        for (int i= 0; i<6;i++){
+            std::cout << (int) paramSliders[i]->getValue();
+            std::cout << " || ";
+        }
+        
+        std::cout << lafBox.getText();
+        std::cout << " || ";
+        std::cout << Button1.getState();
+        std::cout << "\r\n";
+        
+        if(Button1.getState() == 2){
+
+            
+        }
+        
+        count++;
+        if(count>=99){
+            count = 10;
+        }
+
+
+       //
         
         
         while (pInputStream->canReadLine()) {
             stream = pInputStream->readNextLine();
             repaint();
+        
+            for (int i = 0; i < sizeof(stream); i++) {
+                CharIN[i] = stream[i];
+            }
+         
+         
             
         }
+        
         
         for (auto i = 0; i < params.size(); ++i)
         {
@@ -359,14 +366,6 @@ private:
     Label noParameterLabel { "noparam", "No parameters available" };
     OwnedArray<Slider> paramSliders;
     OwnedArray<Label> paramLabels;
-    
-    enum { numRing = 64 };
-
-	OwnedArray<TextButton> Ring1;
-    OwnedArray<TextButton> Ring2;
-	OwnedArray<TextButton> Ring3;
-	OwnedArray<TextButton> Ring4;
-	OwnedArray<TextButton> Ring5;
 };
 
 //==============================================================================
@@ -385,38 +384,38 @@ public:
         
         addParameter (Input = new AudioParameterFloat ("Input", // parameterID
                                                       "Input", // parameter name
-                                                      0.0f,   // minimum value
-                                                      63.0f,   // maximum value
-                                                      0.0f)); // default value
+                                                      0,   // minimum value
+                                                      127,   // maximum value
+                                                      0)); // default value
         
         addParameter (Attack = new AudioParameterFloat ("Attack", // parameterID
                                                       "Attack", // parameter name
                                                       0.0f,   // minimum value
-                                                      63.0f,   // maximum value
+                                                      127.0f,   // maximum value
                                                       0.0f)); // default value
         
         addParameter (Threshold = new AudioParameterFloat ("Threshold", // parameterID
                                                       "Threshold", // parameter name
                                                       0.0f,   // minimum value
-                                                      63.0f,   // maximum value
+                                                      127.0f,   // maximum value
                                                       0.0f)); // default value
         
         addParameter (Release = new AudioParameterFloat ("Release", // parameterID
                                                       "Release", // parameter name
                                                       0.0f,   // minimum value
-                                                      63.0f,   // maximum value
+                                                      127.0f,   // maximum value
                                                       0.0f)); // default value
         
         addParameter (Output = new AudioParameterFloat ("Output", // parameterID
                                                       "Output", // parameter name
-                                                      0.0f,   // minimum value
-                                                      63.0f,   // maximum value
-                                                      0.0f)); // default value
+                                                      0,   // minimum value
+                                                      127,   // maximum value
+                                                      0)); // default value
         
         addParameter (Ratio = new AudioParameterFloat ("Ratio", // parameterID
                                                         "Ratio", // parameter name
                                                         0.0f,   // minimum value
-                                                        63.0f,   // maximum value
+                                                        127.0f,   // maximum value
                                                         0.0f)); // default value
     }
 

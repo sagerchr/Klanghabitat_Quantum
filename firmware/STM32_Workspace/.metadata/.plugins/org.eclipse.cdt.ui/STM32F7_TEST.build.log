@@ -1,0 +1,17 @@
+21:35:53 **** Incremental Build of configuration Debug for project STM32F7_TEST ****
+make all 
+Building target: STM32F7_TEST.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 -L"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F7_TEST/Middlewares/ST/STemWin/Lib"  -specs=nosys.specs -specs=nano.specs -T"../STM32F769NIHx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "STM32F7_TEST.elf" @"objects.list"  -l:STemWin540_CM7_GCC_ot_ARGB.a -lm
+Finished building target: STM32F7_TEST.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "STM32F7_TEST.elf" "STM32F7_TEST.bin"
+arm-none-eabi-size "STM32F7_TEST.elf"
+   text	   data	    bss	    dec	    hex	filename
+ 103076	     96	 118568	 221740	  3622c	STM32F7_TEST.elf
+ 
+
+21:35:54 Build Finished (took 1s.398ms)
+

@@ -32,8 +32,8 @@
   <EXPORTFORMATS>
     <XCODE_MAC targetFolder="Builds/MacOSX">
       <CONFIGURATIONS>
-        <CONFIGURATIONS name="Debug" isDebug="1" optimisation="1" targetName="AudioParameterTutorial"/>
-        <CONFIGURATIONS name="Release" isDebug="0" optimisation="3" targetName="AudioParameterTutorial"/>
+        <CONFIGURATIONS name="Debug" isDebug="1" optimisation="1" targetName="Quantum"/>
+        <CONFIGURATIONS name="Release" isDebug="0" optimisation="3" targetName="Quantum"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_audio_basics" path=""/>
@@ -53,8 +53,8 @@
     </XCODE_MAC>
     <VS2017 targetFolder="Builds/VisualStudio2017">
       <CONFIGURATIONS>
-        <CONFIGURATIONS name="Debug" isDebug="1" optimisation="1" targetName="AudioParameterTutorial"/>
-        <CONFIGURATIONS name="Release" isDebug="0" optimisation="3" targetName="AudioParameterTutorial"/>
+        <CONFIGURATIONS name="Debug" isDebug="1" optimisation="1" targetName="Quantum"/>
+        <CONFIGURATIONS name="Release" isDebug="0" optimisation="3" targetName="Quantum"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_audio_basics" path=""/>
