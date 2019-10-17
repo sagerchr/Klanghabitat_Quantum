@@ -62,7 +62,10 @@ uint32_t lineStart,lineEnd;
 uint32_t avCH1;
 uint32_t maxCH1;
 int16_t  ringBuffer[810];
+int16_t  ringBufferSim[810];
 uint16_t samples[250];
+int p = 0;
+
 
 //Interface Variablen
 int X = 400; //TOUCH X
@@ -139,9 +142,16 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
   	begin = begin+1;
   }
 
+  for (int i = 0; i<810; i++){
+ 	 ringBufferSim[i] = p;
+ 	 p++;
+ 	 if (p>=60){
+ 		 p=0;
+ 	 }
+  }
      drawWaveFormUart();
 
-  	 adc1_ist = adc1;
+     adc1_ist = adc1;
 	 adc1_volt = (adc1/255.00)*3.6;
 	 adc1_db = 10*log(adc1_volt/3.0);
 	 if (adc1_db<=-50.0) {adc1_db = -50;}
@@ -197,6 +207,7 @@ void drawWaveFormUart(){
 	 for(int i=0; i<150;i++){
 	    ringBuffer[i] = ringBuffer[i+1];
 	    }
+
 
 	GUI_SetColor( GUI_ORANGE );
 

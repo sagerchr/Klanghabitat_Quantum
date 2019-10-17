@@ -1,0 +1,124 @@
+/*********************************************************************
+*                SEGGER MICROCONTROLLER SYSTEME GmbH                 *
+*        Solutions for real time microcontroller applications        *
+**********************************************************************
+*                                                                    *
+*        (c) 1996 - 2004  SEGGER Microcontroller Systeme GmbH        *
+*                                                                    *
+*        Internet: www.segger.com    Support:  support@segger.com    *
+*                                                                    *
+**********************************************************************
+
+***** emWin - Graphical user interface for embedded applications *****
+emWin is protected by international copyright laws.   Knowledge of the
+source code may not be used to write a similar product.  This file may
+only be used in accordance with a license and should not be re-
+distributed in any way. We appreciate your understanding and fairness.
+----------------------------------------------------------------------
+File        : BASIC_HelloWorld.c
+Purpose     : Simple demo drawing "Hello world"
+----------------------------------------------------------------------
+*/
+
+#include "GUI.h"
+
+/*********************************************************************
+*
+*       Public code
+*
+**********************************************************************
+*/
+/*********************************************************************
+*
+*       MainTask
+*/
+int ringBuffer[800];
+int lineStart = 0;
+int lineEnd = 0;
+int p = 0;
+int k = 0;
+void drawBar (int pos_x, int pos_y, float PeakVal,float AvVal, const char * s );
+void drawVBar (int pos_x, int pos_y, float PeakVal,float AvVal, const char * s );
+
+void MainTask(void) {
+  GUI_Clear();
+  GUI_SetFont(&GUI_Font20_1);
+  GUI_SetBkColor(GUI_DARKGRAY);
+
+  while(1){
+	  	 k++;
+	  ringBuffer[799] = k;
+	  if(k>50){
+		  k=0;
+		  GUI_Clear();
+	  }
+/*
+			  for(int i=0; i<800;i++){
+		    ringBuffer[i] = ringBuffer[i+1];
+		    }
+
+
+
+		GUI_SetColor( GUI_ORANGE );
+
+			for(int i=0; i<800;i++){
+		        GUI_SetColor( GUI_BLACK );
+		        GUI_DrawVLine(i,100, 400);
+		        lineStart = 240 - (1*ringBuffer[i]/2);
+		        lineEnd = lineStart + (1*ringBuffer[i]);
+		        GUI_SetColor( GUI_ORANGE );
+		        GUI_DrawVLine(i,lineStart, lineEnd);
+
+			}
+*/
+
+
+
+			drawBar (280, 130,k,k, "");
+			HAL_Delay(10);
+
+  }
+
+
+
+}
+
+
+void drawBar (int pos_x, int pos_y, float PeakVal,float AvVal,  const char * s ){
+	/*DRAW RASTER*/
+	int lastLine = 0;
+	int bottomY = 0;
+
+	GUI_SetColor(GUI_LIGHTGRAY);
+	GUI_SetFont(&GUI_Font20_1);
+	GUI_GotoXY(pos_x-30, pos_y-25);
+
+    GUI_DispFloatMin((AvVal-200)/4, 2);
+
+
+	for (int i=0; i<20; i++){
+		lastLine = pos_y+(i*10);
+		GUI_DrawHLine(lastLine+0,pos_x, pos_x+10);
+		GUI_DrawHLine(lastLine+5,pos_x, pos_x+5);
+	}
+	GUI_DrawHLine(lastLine+10,pos_x, pos_x+10);
+	bottomY = lastLine+10;
+
+	/*DRAW INDICATOR AV*/
+	GUI_DrawGradientV(pos_x-20, bottomY- AvVal, pos_x-1, bottomY, 0xFFFF8000, 0xFFFFA500);
+
+	/*DRAW INDICATOR PEAK*/
+	GUI_SetColor(0xFFFF6000);
+
+	GUI_DrawHLine(bottomY-PeakVal-4,pos_x-20, pos_x-1);
+	GUI_DrawHLine(bottomY-PeakVal-3,pos_x-20, pos_x-1);
+	GUI_DrawHLine(bottomY-PeakVal-2,pos_x-20, pos_x-1);
+	GUI_DrawHLine(bottomY-PeakVal-1,pos_x-20, pos_x-1);
+	GUI_DrawHLine(bottomY-PeakVal,pos_x-20, pos_x-1);
+
+}
+
+
+
+
+/*************************** End of file ****************************/

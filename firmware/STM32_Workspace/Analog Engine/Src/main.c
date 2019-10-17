@@ -155,7 +155,8 @@ int main(void)
   uint32_t avADC[2];
 
   //int cycles = 3000;
-  int cycles = 2500;
+  //int cycles = 2500;
+  int cycles = 1000;
   int max1 = 0;
   int max2 = 0;
   int maxOUT1 = 0;
@@ -249,8 +250,8 @@ int main(void)
 		 }
 
 
-	  HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, incommingData[6]);
-	  HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_2, DAC_ALIGN_12B_R, incommingData[1]);
+	  HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, incommingData[1]);
+	  HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_2, DAC_ALIGN_12B_R, incommingData[6]);
 
 	  HAL_GPIO_TogglePin(D2_DEBUG_GPIO_Port, D2_DEBUG_Pin);
 

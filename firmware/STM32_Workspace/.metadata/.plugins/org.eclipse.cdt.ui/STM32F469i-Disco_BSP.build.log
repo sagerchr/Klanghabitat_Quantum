@@ -1,0 +1,36 @@
+19:16:16 **** Incremental Build of configuration Debug for project STM32F469i-Disco_BSP ****
+make -j3 all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F469i-Disco_BSP/Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F469xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F469i-Disco_BSP/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F469i-Disco_BSP/Middlewares/ST/STM32_Audio/Addons/PDM" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F469i-Disco_BSP/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F469i-Disco_BSP/Drivers/STM32469I-Discovery" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F469i-Disco_BSP/Drivers/Components" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F469i-Disco_BSP/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F469i-Disco_BSP/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F469i-Disco_BSP/Drivers/CMSIS/Include"  -O3 -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'main':
+../Src/main.c:138:7: warning: unused variable 'lineEnd' [-Wunused-variable]
+   int lineEnd = 0;
+       ^~~~~~~
+../Src/main.c:137:7: warning: unused variable 'lineStart' [-Wunused-variable]
+   int lineStart = 0;
+       ^~~~~~~~~
+../Src/main.c:156:33: warning: iteration 799 invokes undefined behavior [-Waggressive-loop-optimizations]
+       ringBuffer[i] = ringBuffer[i+1];
+                       ~~~~~~~~~~^~~~~
+../Src/main.c:155:4: note: within this loop
+    for(int i=0; i<800;i++){
+    ^~~
+Finished building: ../Src/main.c
+ 
+Building target: STM32F469i-Disco_BSP.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F469NIHx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "STM32F469i-Disco_BSP.elf" @"objects.list"   -lm
+Finished building target: STM32F469i-Disco_BSP.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "STM32F469i-Disco_BSP.elf" "STM32F469i-Disco_BSP.bin"
+arm-none-eabi-size "STM32F469i-Disco_BSP.elf"
+   text	   data	    bss	    dec	    hex	filename
+  38948	    108	   4652	  43708	   aabc	STM32F469i-Disco_BSP.elf
+ 
+
+19:16:18 Build Finished (took 2s.51ms)
+

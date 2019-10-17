@@ -1,0 +1,32 @@
+17:47:24 **** Incremental Build of configuration Debug for project STM32F769_DISPLAY ****
+make all 
+Building file: ../STemWin/Target/GUIConf.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F769_DISPLAY/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F769xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F769_DISPLAY/STemWin/Target" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F769_DISPLAY/STemWin/App" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F769_DISPLAY/Core/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F769_DISPLAY/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F769_DISPLAY/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F769_DISPLAY/Drivers/BSP/Components/otm8009a" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F769_DISPLAY/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F769_DISPLAY/Middlewares/ST/STemWin/inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F769_DISPLAY/Drivers/BSP/Components/Common" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F769_DISPLAY/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"STemWin/Target/GUIConf.d" -MT"STemWin/Target/GUIConf.o" -o "STemWin/Target/GUIConf.o" "../STemWin/Target/GUIConf.c"
+Finished building: ../STemWin/Target/GUIConf.c
+ 
+Building file: ../STemWin/Target/HW_Init.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F769_DISPLAY/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F769xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F769_DISPLAY/STemWin/Target" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F769_DISPLAY/STemWin/App" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F769_DISPLAY/Core/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F769_DISPLAY/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F769_DISPLAY/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F769_DISPLAY/Drivers/BSP/Components/otm8009a" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F769_DISPLAY/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F769_DISPLAY/Middlewares/ST/STemWin/inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F769_DISPLAY/Drivers/BSP/Components/Common" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F769_DISPLAY/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"STemWin/Target/HW_Init.d" -MT"STemWin/Target/HW_Init.o" -o "STemWin/Target/HW_Init.o" "../STemWin/Target/HW_Init.c"
+Finished building: ../STemWin/Target/HW_Init.c
+ 
+Building file: ../STemWin/Target/STemwin_wrapper.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F769_DISPLAY/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F769xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F769_DISPLAY/STemWin/Target" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F769_DISPLAY/STemWin/App" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F769_DISPLAY/Core/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F769_DISPLAY/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F769_DISPLAY/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F769_DISPLAY/Drivers/BSP/Components/otm8009a" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F769_DISPLAY/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F769_DISPLAY/Middlewares/ST/STemWin/inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F769_DISPLAY/Drivers/BSP/Components/Common" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/STM32F769_DISPLAY/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"STemWin/Target/STemwin_wrapper.d" -MT"STemWin/Target/STemwin_wrapper.o" -o "STemWin/Target/STemwin_wrapper.o" "../STemWin/Target/STemwin_wrapper.c"
+../STemWin/Target/STemwin_wrapper.c: In function 'LCD_LL_Reset':
+../STemWin/Target/STemwin_wrapper.c:177:23: error: 'GPIOo' undeclared (first use in this function); did you mean 'GPIOH'?
+     HAL_GPIO_WritePin(GPIOo, GPIO_PIN_, GPIO_PIN_RESET);
+                       ^~~~~
+                       GPIOH
+../STemWin/Target/STemwin_wrapper.c:177:23: note: each undeclared identifier is reported only once for each function it appears in
+../STemWin/Target/STemwin_wrapper.c:177:30: error: 'GPIO_PIN_' undeclared (first use in this function); did you mean 'GPIO_PIN_4'?
+     HAL_GPIO_WritePin(GPIOo, GPIO_PIN_, GPIO_PIN_RESET);
+                              ^~~~~~~~~
+                              GPIO_PIN_4
+make: *** [STemWin/Target/STemwin_wrapper.o] Error 1
+
+17:47:25 Build Finished (took 1s.44ms)
+

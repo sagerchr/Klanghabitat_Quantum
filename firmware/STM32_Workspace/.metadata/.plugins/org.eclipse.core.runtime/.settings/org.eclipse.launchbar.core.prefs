@@ -3,9 +3,9 @@
 >>>>>>>=0b9f0bcf81e59534b6674b89419cb9ba8256933d
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
-configDescList=org.eclipse.launchbar.core.descriptorType.default\:Quantum_Config Debug,org.eclipse.launchbar.core.descriptorType.default\:Test_Display.elf,org.eclipse.launchbar.core.descriptorType.default\:Test_Display Run,org.eclipse.launchbar.core.descriptorType.default\:Display_Development Debug,org.eclipse.launchbar.core.descriptorType.default\:DisplayIntegration.elf,org.eclipse.launchbar.core.descriptorType.default\:DisplayIntegration Debug (1),org.eclipse.launchbar.core.descriptorType.default\:AudioEngine.elf,org.eclipse.launchbar.core.descriptorType.default\:AnalogEngine Debug,org.eclipse.launchbar.core.descriptorType.default\:TEST_ERROR Debug,org.eclipse.launchbar.core.descriptorType.default\:DisplayIntegration Run,org.eclipse.launchbar.core.descriptorType.default\:Analog Engine Debug,org.eclipse.launchbar.core.descriptorType.default\:STM32F7_TEST Debug,org.eclipse.launchbar.core.descriptorType.default\:DisplayIntegration Debug,org.eclipse.launchbar.core.descriptorType.default\:Encoder_PCB Debug
+configDescList=org.eclipse.launchbar.core.descriptorType.default\:Quantum_Config Debug,org.eclipse.launchbar.core.descriptorType.default\:Test_Display.elf,org.eclipse.launchbar.core.descriptorType.default\:Test_Display Run,org.eclipse.launchbar.core.descriptorType.default\:Display_Development Debug,org.eclipse.launchbar.core.descriptorType.default\:DisplayIntegration.elf,org.eclipse.launchbar.core.descriptorType.default\:DisplayIntegration Debug (1),org.eclipse.launchbar.core.descriptorType.default\:AudioEngine.elf,org.eclipse.launchbar.core.descriptorType.default\:AnalogEngine Debug,org.eclipse.launchbar.core.descriptorType.default\:TEST_ERROR Debug,org.eclipse.launchbar.core.descriptorType.default\:DisplayIntegration Run,org.eclipse.launchbar.core.descriptorType.default\:STM32F7_TEST Debug,org.eclipse.launchbar.core.descriptorType.default\:STM32F769_DISPLAY Debug,org.eclipse.launchbar.core.descriptorType.default\:Encoder_PCB Debug,org.eclipse.launchbar.core.descriptorType.default\:STM32F469i-Disco_BSP Debug,org.eclipse.launchbar.core.descriptorType.default\:Analog Engine Debug,org.eclipse.launchbar.core.descriptorType.default\:STM32469I_DISCOVERY Debug,org.eclipse.launchbar.core.descriptorType.default\:DisplayIntegration Debug
 eclipse.preferences.version=1
-org.eclipse.launchbar.core.descriptorType.default\:Analog\ Engine\ Debug/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:Analog\ Engine\ Debug/activeLaunchMode=debug
 org.eclipse.launchbar.core.descriptorType.default\:AudioEngine\ Run/activeLaunchMode=debug
 org.eclipse.launchbar.core.descriptorType.default\:DisplayIntegration\ Debug\ (1)/activeLaunchMode=run
 org.eclipse.launchbar.core.descriptorType.default\:DisplayIntegration\ Debug\ (1)/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
@@ -14,6 +14,7 @@ org.eclipse.launchbar.core.descriptorType.default\:DisplayIntegration\ Run/activ
 org.eclipse.launchbar.core.descriptorType.default\:DisplayIntegration\ Run/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
 org.eclipse.launchbar.core.descriptorType.default\:DisplayIntegration.elf/activeLaunchMode=debug
 org.eclipse.launchbar.core.descriptorType.default\:Display_Development\ Debug/activeLaunchMode=debug
+org.eclipse.launchbar.core.descriptorType.default\:Encoder_PCB\ Debug/activeLaunchMode=debug
 org.eclipse.launchbar.core.descriptorType.default\:INTERN.elf/activeLaunchMode=debug
 org.eclipse.launchbar.core.descriptorType.default\:INTERN.elf/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
 org.eclipse.launchbar.core.descriptorType.default\:QUANTI.elf/activeLaunchMode=debug
@@ -26,6 +27,7 @@ org.eclipse.launchbar.core.descriptorType.default\:Quantum_Config\ Debug/activeL
 org.eclipse.launchbar.core.descriptorType.default\:Quantum_Config\ Debug/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
 org.eclipse.launchbar.core.descriptorType.default\:SELF_TEST.elf/activeLaunchMode=debug
 org.eclipse.launchbar.core.descriptorType.default\:SELF_TEST.elf/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:STM32F769_DISPLAY\ Debug/activeLaunchMode=debug
 org.eclipse.launchbar.core.descriptorType.default\:STM32F7_TEST\ Debug/activeLaunchMode=debug
 org.eclipse.launchbar.core.descriptorType.default\:STM32F7_TEST\ Run/activeLaunchMode=debug
 org.eclipse.launchbar.core.descriptorType.default\:TEST.elf/activeLaunchMode=debug

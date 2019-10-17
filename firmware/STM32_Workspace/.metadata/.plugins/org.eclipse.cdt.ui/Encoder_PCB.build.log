@@ -1,9 +1,19 @@
-12:15:28 **** Incremental Build of configuration Debug for project Encoder_PCB ****
+21:42:19 **** Incremental Build of configuration Debug for project Encoder_PCB ****
 make all 
 Building file: ../Src/main.c
 Invoking: MCU GCC Compiler
 /Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/Encoder_PCB/Debug
 arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F031x6 -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/Encoder_PCB/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/Encoder_PCB/Drivers/STM32F0xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/Encoder_PCB/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/Encoder_PCB/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/Encoder_PCB/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'main':
+../Src/main.c:147:31: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+    HAL_UART_Transmit(&huart1, transmit, 5, 0xFFFF);
+                               ^~~~~~~~
+In file included from /Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/Encoder_PCB/Inc/stm32f0xx_hal_conf.h:285:0,
+                 from /Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/Encoder_PCB/Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h:46,
+                 from ../Src/main.c:41:
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/Encoder_PCB/Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h:1298:19: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+                   ^~~~~~~~~~~~~~~~~
 Finished building: ../Src/main.c
  
 Building target: Encoder_PCB.elf
@@ -16,8 +26,8 @@ Generating binary and Printing size information:
 arm-none-eabi-objcopy -O binary "Encoder_PCB.elf" "Encoder_PCB.bin"
 arm-none-eabi-size "Encoder_PCB.elf"
    text	   data	    bss	    dec	    hex	filename
-   5736	     12	   1812	   7560	   1d88	Encoder_PCB.elf
+   8052	     12	   2068	  10132	   2794	Encoder_PCB.elf
  
 
-12:15:29 Build Finished (took 692ms)
+21:42:19 Build Finished (took 551ms)
 

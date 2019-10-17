@@ -50,7 +50,7 @@
 
 
 
-extern  WM_HWIN CreateWindow(void);  
+extern  WM_HWIN CreateWindow(void);
 
 
 
@@ -67,6 +67,7 @@ char array[20];
 int start = 0;
 int offset = 0;
 int intervall = 0;
+int counter = 0;
 
 char transmitCDC[4];
 uint8_t ReciveCDC;
@@ -108,8 +109,8 @@ void GRAPHICS_MainTask(void) {
 
   /******************** READ TOUCH SCREEN *******************/
 
-         GUI_Delay(1);
-
+         //GUI_Delay(1);
+         GUI_Exec();
     	  BSP_TS_GetState(&TS_State);
     	     if(TS_State.touchDetected == TOUCH_EVENT_PRESS_DOWN)
     		{
@@ -204,16 +205,14 @@ void GRAPHICS_MainTask(void) {
     	     transmitCDC[3]='\r';
     	     transmitCDC[4]='\n';
 
-
-
-
+    	     /*
+				adc1 = counter;
+				counter ++;
+				if (counter >= 100){
+					counter = 0;
+				}
+    	      */
 	 CDC_Transmit_FS("HALLO DIES IST EIN STRING TEST\r\n", 32);
-
-
-
-
-
-
 
 
     	     pots[5]=ReciveCDC;
@@ -227,3 +226,5 @@ void GRAPHICS_MainTask(void) {
 }
 
 /*************************** End of file ****************************/
+
+
