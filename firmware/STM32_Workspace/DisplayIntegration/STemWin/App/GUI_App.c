@@ -91,26 +91,20 @@ void GRAPHICS_MainTask(void) {
 
     while(1)
   {
-
+    	GUI_Delay(10);
+    	WM_Invalidate(hWin);
+    	HAL_GPIO_TogglePin(GPIOA, LAMP1_Pin);
+    	WM_SendMessageNoPara(hWin, WM_PAINT);
 
     /******************Redraw *************************/
     /****When Interval is reached redraw everything****/
-       if (intervall > 5){
-    	   intervall = 0;
-    	   WM_Invalidate(hWin);
-    	   HAL_GPIO_TogglePin(GPIOA, LAMP1_Pin);
-       }
-       else {
-    	   WM_InvalidateArea(&pRect);
-       }
 
-       intervall++;
   /**********************************************************/
 
   /******************** READ TOUCH SCREEN *******************/
 
          //GUI_Delay(1);
-         GUI_Exec();
+       //GUI_Exec();
     	  BSP_TS_GetState(&TS_State);
     	     if(TS_State.touchDetected == TOUCH_EVENT_PRESS_DOWN)
     		{
@@ -121,10 +115,12 @@ void GRAPHICS_MainTask(void) {
    /**********************************************************/
 
    /******************** READ ENCODER ***********************/
+
+
     	     for (int i=0; i<6; i++){
             	 i2cBuffer[0]= 0x0B;
-            	 HAL_I2C_Master_Transmit(&hi2c2, Adr[i],i2cBuffer,1,100);
-            	 HAL_I2C_Master_Receive(&hi2c2, Adr[i], &i2cBuffer[1],1,100);
+            	 HAL_I2C_Master_Transmit(&hi2c2, Adr[i],i2cBuffer,1,10);
+            	 HAL_I2C_Master_Receive(&hi2c2, Adr[i], &i2cBuffer[1],1,10);
             	 pots[i]=i2cBuffer[1];
     	     }
     	     level=pots[0];
@@ -153,7 +149,7 @@ void GRAPHICS_MainTask(void) {
     		 transmit[8]=0x02;
     		 transmit[9]=0x03;
 
-    	     HAL_UART_Transmit(&huart6, transmit , 10, 10);
+    	      HAL_UART_Transmit(&huart6, transmit , 10, 1);
 
   /**********************************************************/
 
@@ -212,10 +208,10 @@ void GRAPHICS_MainTask(void) {
 					counter = 0;
 				}
     	      */
-	 CDC_Transmit_FS("HALLO DIES IST EIN STRING TEST\r\n", 32);
+	// CDC_Transmit_FS("HALLO DIES IST EIN STRING TEST\r\n", 32);
 
 
-    	     pots[5]=ReciveCDC;
+    	     //pots[5]=ReciveCDC;
 
   }
 /* USER CODE END GRAPHICS_MainTask */

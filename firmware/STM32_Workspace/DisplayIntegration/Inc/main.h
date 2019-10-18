@@ -63,6 +63,7 @@
 /* USER CODE BEGIN Includes */
 #include "stm32469i_discovery.h"
 #include "stm32469i_discovery_ts.h"
+#include "otm8009a.h"
 
 /* USER CODE END Includes */
 

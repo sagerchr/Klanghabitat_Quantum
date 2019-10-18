@@ -1058,7 +1058,8 @@ void GRAPHICS_HW_Init(void)
 void GRAPHICS_Init(void)
 {
   /* Initialize the GUI */
-  GUI_Init();
+
+	GUI_Init();
 
    WM_MULTIBUF_Enable(1);
 /* Enable the multi-buffering functionality */
