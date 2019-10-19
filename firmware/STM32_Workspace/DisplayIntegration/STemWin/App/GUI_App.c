@@ -74,13 +74,16 @@ uint8_t ReciveCDC;
 uint8_t count;
 
 char transmit[10];
-GUI_RECT pRect = {250,100,600,400};
-//GUI_RECT pRect = {0,0,800,480};
+//GUI_RECT pRect = {250,100,600,400};
+GUI_RECT pRect = {200,0,600,480};
 int toggle=0;
 
 void CDC_ReceiveCallBack(uint8_t *buf, uint32_t len){
 	 ReciveCDC = &buf;
 }
+
+int wait = 0;
+int activeKnob = 0;
 
 void GRAPHICS_MainTask(void) {
 
@@ -91,11 +94,19 @@ void GRAPHICS_MainTask(void) {
 
     while(1)
   {
-    	GUI_Delay(10);
-    	WM_Invalidate(hWin);
-    	HAL_GPIO_TogglePin(GPIOA, LAMP1_Pin);
-    	WM_SendMessageNoPara(hWin, WM_PAINT);
 
+
+    	GUI_Delay(10);
+
+    	WM_Invalidate(hWin);
+
+     //WM_InvalidateArea(&pRect);
+
+
+
+    	WM_SendMessageNoPara(hWin, WM_PaintWindowAndDescs);
+    	HAL_GPIO_TogglePin(GPIOA, LAMP1_Pin);
+    	HAL_GPIO_TogglePin(GPIOG, LAMP2_Pin);
     /******************Redraw *************************/
     /****When Interval is reached redraw everything****/
 
@@ -105,13 +116,21 @@ void GRAPHICS_MainTask(void) {
 
          //GUI_Delay(1);
        //GUI_Exec();
-    	  BSP_TS_GetState(&TS_State);
-    	     if(TS_State.touchDetected == TOUCH_EVENT_PRESS_DOWN)
-    		{
-    	      X = TS_State.touchX[0];
-    		  Y = TS_State.touchY[0];
-    		  HAL_GPIO_TogglePin(GPIOG, LAMP4_Pin);
-    		}
+    	/*
+    	if (wait >= 5){
+      	  BSP_TS_GetState(&TS_State);
+      	     if(TS_State.touchDetected == TOUCH_EVENT_PRESS_DOWN)
+      		{
+      	      X = TS_State.touchX[0];
+      		  Y = TS_State.touchY[0];
+      		  HAL_GPIO_TogglePin(GPIOG, LAMP4_Pin);
+      		}
+      	     wait = 0;
+    	}
+    	wait++;
+    	 */
+
+
    /**********************************************************/
 
    /******************** READ ENCODER ***********************/
@@ -119,11 +138,12 @@ void GRAPHICS_MainTask(void) {
 
     	     for (int i=0; i<6; i++){
             	 i2cBuffer[0]= 0x0B;
-            	 HAL_I2C_Master_Transmit(&hi2c2, Adr[i],i2cBuffer,1,10);
-            	 HAL_I2C_Master_Receive(&hi2c2, Adr[i], &i2cBuffer[1],1,10);
+            	 HAL_I2C_Master_Transmit(&hi2c2, Adr[i],i2cBuffer,1,1);
+            	 HAL_I2C_Master_Receive(&hi2c2, Adr[i], &i2cBuffer[1],1,1);
             	 pots[i]=i2cBuffer[1];
     	     }
     	     level=pots[0];
+
    /**********************************************************/
 
    /************** Panning Action TouchScreen ****************/

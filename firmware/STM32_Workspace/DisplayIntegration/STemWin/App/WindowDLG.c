@@ -48,15 +48,9 @@ static void drawFloat (int pos_x, int pos_y, float val, const char * s,const cha
 void drawBar (int pos_x, int pos_y, float PeakVal,float AvVal, const char * s );
 void drawVBar (int pos_x, int pos_y, float PeakVal,float AvVal, const char * s );
 void drawWaveForm();
-void drawWaveFormUart();
+void drawWaveFormUart(int x,int y, int adc);
+void drawWaveFormUart2(int x,int y, int adc);
 
-static const GUI_WIDGET_CREATE_INFO _aDialogCreate[] = {
-  { WINDOW_CreateIndirect, "Window", ID_WINDOW_0, 0, 0, 800, 480, 0, 0x0, 0 },
-
-
-  // USER START (Optionally insert additional widgets)
-  // USER END
-};
 
 
 uint32_t lineStart,lineEnd;
@@ -94,9 +88,10 @@ const char *units[6] = {"dB","dB","ms","","ms","dB"};
 char str[12];
 
 begin = 0;
-
+int refresh =0;
 float smooth= 0;
 float peaksmooth= 0;
+int once = 0;
 /*********************************************************************
 *
 *       Static code
@@ -117,27 +112,42 @@ float peaksmooth= 0;
 /*********************************************************************
 *
 *       _cbDialog
-*/
+*///
+
 static void _cbDialog(WM_MESSAGE * pMsg) {
 
   // USER START (Optionally insert additional variables)
   // USER END
-
+if (once == 0){
+	GUI_SetBkColor(GUI_DARKGRAY);
+	GUI_Clear();
+	once = 1;
+}
 
   switch (pMsg->MsgId) {
   case WM_PAINT:
-	  GUI_SetBkColor(GUI_DARKGRAY);
-	  GUI_Clear();
+	  //GUI_SetBkColor(GUI_DARKGRAY);
+	  //GUI_Clear();
     break;
+
   default:
     WM_DefaultProc(pMsg);
 
   }
 
-  if (begin < 100){
-  	//GUI_DrawBitmap(&bmsettings, 400, 370);
-  	begin = begin+1;
+
+  //GUI_DrawBitmap(&bmsettings, 400, 50);
+  if (refresh >=0){
+	  GUI_SetBkColor(GUI_DARKGRAY);
+	  //GUI_ClearRect(600,0,800,480);
+	  //GUI_ClearRect(0,0,200,480);
+	  //GUI_ClearRect(200,300,600,480);
+	  GUI_DCACHE_Clear(0);
+
+	  GUI_Clear();
+  	refresh = 0;
   }
+refresh++;
 
   for (int i = 0; i<810; i++){
  	 ringBufferSim[i] = p;
@@ -147,35 +157,45 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
  	 }
   }
 
-     drawWaveFormUart();
+     drawWaveFormUart(0,240,adc1);
+     drawWaveFormUart2(450,240,adc1);
+
      adc1_ist = adc1;
 	 adc1_volt = (adc1/255.00)*3.6;
 	 adc1_db = 10*log(adc1_volt/3.0);
 	 if (adc1_db<=-50.0) {adc1_db = -50;}
 
-	 adc1_db = adc1_db *4;
+	 adc1_db = adc1_db *6;
 
 	 if(adc1_db-smooth<0){
-		 smooth = smooth+(0.1*(adc1_db-smooth));
+		 smooth = smooth+(0.01*(adc1_db-smooth));
 	 }
 	 else {
-		 smooth = smooth+(0.4*(adc1_db-smooth));
+		 smooth = smooth+(1*(adc1_db-smooth));
 	 }
 
 	 if(adc1_db-peaksmooth<0){
-		 peaksmooth = peaksmooth+(0.01*(adc1_db-peaksmooth));
+		 peaksmooth = peaksmooth+(0.05*(adc1_db-peaksmooth));
 	 }
 	 else {
-		 peaksmooth = peaksmooth+(2*(adc1_db-peaksmooth));
+		 peaksmooth = peaksmooth+(1*(adc1_db-peaksmooth));
 	 }
 
-	 drawBar (280, 130,200+peaksmooth,200+smooth, "");
-	 drawBar (350, 130,200+peaksmooth,200+smooth, "");
 
+	 drawBar (390, 90,300+peaksmooth,300+smooth, "");
+	 drawBar (440, 90,300+peaksmooth,300+smooth, "");
+
+
+/*
+	 drawBar (400, 100,300+peaksmooth,300+smooth, "");
+
+	 drawBar (450, 100,300+peaksmooth,300+smooth, "");
+	 drawBar (500, 100,300+peaksmooth,300+smooth, "");
+*/
 
 
 /*****************DIPLAY ENCODER VALUES**************/
-for(int i = 0; i<6; i++){
+  for(int i = 1; i<5; i++){
 	 if(poti[i]!=pots[i]){
 		delay[i] = 50;
 	 }
@@ -189,6 +209,7 @@ for(int i = 0; i<6; i++){
 	 drawFloat(pox[i],poy[i],poti[i], units[i],header[i]);
 	 drawVBar (pox[i], poy[i]+45,0,poti[i], "");
 }
+
 /*==================================================*/
 
 GUI_SetFont(&GUI_Font24B_1);
@@ -199,31 +220,50 @@ GUI_SetColor(GUI_GRAY);
 
 
 
+void drawWaveFormUart(int x,int y, int adc){
 
-
-
-
-WM_MESSAGE mess;
-
-
-void drawWaveFormUart(){
-
-	 for(int i=0; i<200;i++){
+	 for(int i=0; i<350;i++){
 	    ringBuffer[i] = ringBuffer[i+1];
 	    }
 
+	GUI_SetColor( GUI_ORANGE );
+
+
+
+		for(int i=0; i<350;i++){
+
+
+		    ringBuffer[350] = adc;
+	        lineStart = y - (ringBuffer[i]/2);
+	        lineEnd = lineStart + (ringBuffer[i]);
+
+	        GUI_DrawVLine(x+i,lineStart, lineEnd);
+	     }
+
+
+	/****************************************************/
+}
+
+void drawWaveFormUart2(int x,int y, int adc){
+
+	 for(int i=0; i<350;i++){
+	    ringBuffer[i] = ringBuffer[i+1];
+	    }
 
 	GUI_SetColor( GUI_ORANGE );
 
-		for(int i=0; i<200;i++){
 
 
-		    ringBuffer[200] = adc1;
-	        lineStart = 240 - (1*ringBuffer[i]/2);
-	        lineEnd = lineStart + (1*ringBuffer[i]);
+		for(int i=0; i<350;i++){
 
-	        GUI_DrawVLine(i+375,lineStart, lineEnd);
+
+		    ringBuffer[350] = adc;
+	        lineStart = y - (ringBuffer[i]/2);
+	        lineEnd = lineStart + (ringBuffer[i]);
+
+	        GUI_DrawVLine(350+x-i,lineStart, lineEnd);
 	     }
+
 
 	/****************************************************/
 }
@@ -236,10 +276,10 @@ void drawVBar (int pos_x, int pos_y, float PeakVal,float AvVal,  const char * s 
 	GUI_SetColor(GUI_LIGHTGRAY);
 	for (int i=0; i<15; i++){
 			lastLine = pos_x+(i*10);
-			GUI_DrawVLine(lastLine+0,pos_y, pos_y+10);
-			GUI_DrawVLine(lastLine+5,pos_y, pos_y+5);
+			//GUI_DrawVLine(lastLine+0,pos_y, pos_y+10);
+			//GUI_DrawVLine(lastLine+5,pos_y, pos_y+5);
 		}
-		GUI_DrawVLine(lastLine+10,pos_y, pos_y+10);
+		//GUI_DrawVLine(lastLine+10,pos_y, pos_y+10);
 		bottomX = lastLine+10;
 
 		GUI_DrawGradientV(pos_x, pos_y-10, pos_x+AvVal, pos_y, 0xFFFF8000, 0xFFFFA500);
@@ -250,37 +290,42 @@ void drawBar (int pos_x, int pos_y, float PeakVal,float AvVal,  const char * s )
 	/*DRAW RASTER*/
 	int lastLine = 0;
 	int bottomY = 0;
+	int rednes = 0;
+
 
 	GUI_SetColor(GUI_LIGHTGRAY);
 	GUI_SetFont(&GUI_Font20_1);
-	GUI_GotoXY(pos_x-30, pos_y-25);
+	GUI_GotoXY(pos_x-40, pos_y-25);
 
-    GUI_DispFloatMin((AvVal-200)/4, 2);
+    //GUI_DispFloatMin((AvVal-200)/4, 2);
 
 
-	for (int i=0; i<20; i++){
+	for (int i=0; i<30; i++){
 		lastLine = pos_y+(i*10);
-		GUI_DrawHLine(lastLine+0,pos_x, pos_x+10);
-		GUI_DrawHLine(lastLine+5,pos_x, pos_x+5);
+		//GUI_DrawHLine(lastLine+0,pos_x, pos_x+10);
+		//GUI_DrawHLine(lastLine+5,pos_x, pos_x+5);
 	}
-	GUI_DrawHLine(lastLine+10,pos_x, pos_x+10);
+	//GUI_DrawHLine(lastLine+10,pos_x, pos_x+10);
 	bottomY = lastLine+10;
 
-
-
-
+	rednes = AvVal *100 /bottomY;
 
 	/*DRAW INDICATOR AV*/
-	GUI_DrawGradientV(pos_x-20, bottomY- AvVal, pos_x-1, bottomY, 0xFFFF8000, 0xFFFFA500);
+
+	GUI_DrawGradientV(pos_x-30, pos_y, pos_x-1, bottomY- AvVal -1, 0xFF505050, 0xFF505050);
+	GUI_DrawGradientV(pos_x-30, bottomY- AvVal, pos_x-1, bottomY, 0xFFFF6E00, 0xFFFFA500);
+
+
+	if (PeakVal >298){PeakVal=298;}
 
 	/*DRAW INDICATOR PEAK*/
-	GUI_SetColor(0xFFFF6000);
+	GUI_SetColor(GUI_GRAY);
 
-	GUI_DrawHLine(bottomY-PeakVal-4,pos_x-20, pos_x-1);
-	GUI_DrawHLine(bottomY-PeakVal-3,pos_x-20, pos_x-1);
-	GUI_DrawHLine(bottomY-PeakVal-2,pos_x-20, pos_x-1);
-	GUI_DrawHLine(bottomY-PeakVal-1,pos_x-20, pos_x-1);
-	GUI_DrawHLine(bottomY-PeakVal,pos_x-20, pos_x-1);
+	GUI_DrawHLine(bottomY-PeakVal-4,pos_x-30, pos_x-1);
+	GUI_DrawHLine(bottomY-PeakVal-3,pos_x-30, pos_x-1);
+	GUI_DrawHLine(bottomY-PeakVal-2,pos_x-30, pos_x-1);
+	GUI_DrawHLine(bottomY-PeakVal-1,pos_x-30, pos_x-1);
+	GUI_DrawHLine(bottomY-PeakVal,pos_x-30, pos_x-1);
 
 }
 
@@ -314,10 +359,12 @@ WM_HWIN CreateWindow(void) {
   WM_HWIN hParent;
 
  // hWin = GUI_CreateDialogBox(_aDialogCreate, GUI_COUNTOF(_aDialogCreate), _cbDialog, WM_HBKWIN, 0, 0);
-  hParent = WM_CreateWindow(0, 0, 200, 100, WM_CF_SHOW, _cbDialog, 0);
+  //hParent = WM_CreateWindow(0, 0, 1, 1, WM_CF_SHOW, _cbDialog, 0); //THIS IS WORKING QUITE OK!!!
+  hParent = WM_CreateWindow(200, 0, 1, 1,WM_CF_SHOW, _cbDialog, 0);
  // WM_Paint(hWin);
 
- WM_MULTIBUF_Enable(1);
+  WM_MULTIBUF_Enable(1);
+
   //return hWin;
   return hParent;
 }
