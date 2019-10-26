@@ -105,8 +105,7 @@ void GRAPHICS_MainTask(void) {
 
 
     	WM_SendMessageNoPara(hWin, WM_PaintWindowAndDescs);
-    	HAL_GPIO_TogglePin(GPIOA, LAMP1_Pin);
-    	HAL_GPIO_TogglePin(GPIOG, LAMP2_Pin);
+
     /******************Redraw *************************/
     /****When Interval is reached redraw everything****/
 
@@ -143,11 +142,12 @@ void GRAPHICS_MainTask(void) {
             	 pots[i]=i2cBuffer[1];
     	     }
     	     level=pots[0];
-
+    	     left=pots[0];
+    	     right=pots[5];
    /**********************************************************/
 
    /************** Panning Action TouchScreen ****************/
-    	     left = (X/2) - 200;
+    	     /*left = (X/2) - 200;
     	     if (left <=1){left = 0;}
     	     if (left >= 254){left = 254;}
 
@@ -174,7 +174,7 @@ void GRAPHICS_MainTask(void) {
   /**********************************************************/
 
   /***************** Sort Incoming data ********************/
-
+/*
     	     int start = 0;
     	     int offset = 0;
     	     char incommingData[10];
@@ -205,13 +205,16 @@ void GRAPHICS_MainTask(void) {
         	    	 }
         	     }
     	     }
-   /**********************************************************/
+
 
 
 
     	     watchdog = incommingData[1];
     	     adc1 = incommingData[3];
-    	     adc2 = incommingData[4];
+*/
+
+
+
 
     	     count++;
 

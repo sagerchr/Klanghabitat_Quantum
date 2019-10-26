@@ -92,6 +92,11 @@ int refresh =0;
 float smooth= 0;
 float peaksmooth= 0;
 int once = 0;
+
+
+
+int levelIN1 = 0;
+int levelIN2 = 0;
 /*********************************************************************
 *
 *       Static code
@@ -117,6 +122,48 @@ int once = 0;
 static void _cbDialog(WM_MESSAGE * pMsg) {
 
   // USER START (Optionally insert additional variables)
+	/***************** Sort Incoming data ********************/
+	 int start = 0;
+	    	     int offset = 0;
+	    	     char incommingData[10];
+	    	     for(int i = 0; i<10;i++){
+	    	    	 if (UART_RECIVE[i] == 0xFF){
+	    	    		   start = i; //found start index @start
+	    	    		   break;
+	    	    	 }
+	    	     }
+
+	    	     if (start == 0){
+	    	    	 for (int i = 0; i< 10;i++){
+	    	    	      incommingData[i] = UART_RECIVE[i];
+	    	    	 }
+	    	     }
+	    	     else if (start != 0){
+	        	     for (int i = 0; i< 10;i++){
+	        	    	 incommingData[i] = UART_RECIVE[i+start];
+	        	    	 offset = i+1;
+	        	    	 if (i+start == 9){
+	        	    		 break;
+	        	    	 }
+	        	     }
+	        	     for (int i = 0; i< 10;i++){
+	        	    	 incommingData[i+offset] = UART_RECIVE[i];
+	        	    	 if (i+offset == 9){
+	        	    		 break;
+	        	    	 }
+	        	     }
+	    	     }
+	   /**********************************************************/
+
+
+
+	    	     watchdog = incommingData[1];
+	    	     adc1 = incommingData[3];
+	    	     levelIN2 = incommingData[4];
+
+
+
+
   // USER END
 if (once == 0){
 	GUI_SetBkColor(GUI_DARKGRAY);
@@ -128,6 +175,9 @@ if (once == 0){
   case WM_PAINT:
 	  //GUI_SetBkColor(GUI_DARKGRAY);
 	  //GUI_Clear();
+
+		HAL_GPIO_TogglePin(GPIOA, LAMP1_Pin);
+	    	HAL_GPIO_TogglePin(GPIOG, LAMP2_Pin);
     break;
 
   default:
@@ -163,19 +213,19 @@ refresh++;
      adc1_ist = adc1;
 	 adc1_volt = (adc1/255.00)*3.6;
 	 adc1_db = 10*log(adc1_volt/3.0);
-	 if (adc1_db<=-50.0) {adc1_db = -50;}
+	 if (adc1_db<=-300.0) {adc1_db = -300;}
 
-	 adc1_db = adc1_db *6;
+	 //adc1_db = adc1_db;
 
 	 if(adc1_db-smooth<0){
-		 smooth = smooth+(0.01*(adc1_db-smooth));
+		 smooth = smooth+(0.1*(adc1_db-smooth));
 	 }
 	 else {
-		 smooth = smooth+(1*(adc1_db-smooth));
+		 smooth = smooth+(0.15*(adc1_db-smooth));
 	 }
 
 	 if(adc1_db-peaksmooth<0){
-		 peaksmooth = peaksmooth+(0.05*(adc1_db-peaksmooth));
+		 peaksmooth = peaksmooth+(0.01*(adc1_db-peaksmooth));
 	 }
 	 else {
 		 peaksmooth = peaksmooth+(1*(adc1_db-peaksmooth));
@@ -238,6 +288,7 @@ void drawWaveFormUart(int x,int y, int adc){
 	        lineEnd = lineStart + (ringBuffer[i]);
 
 	        GUI_DrawVLine(x+i,lineStart, lineEnd);
+
 	     }
 
 
@@ -319,7 +370,7 @@ void drawBar (int pos_x, int pos_y, float PeakVal,float AvVal,  const char * s )
 	if (PeakVal >298){PeakVal=298;}
 
 	/*DRAW INDICATOR PEAK*/
-	GUI_SetColor(GUI_GRAY);
+	GUI_SetColor(GUI_RED);
 
 	GUI_DrawHLine(bottomY-PeakVal-4,pos_x-30, pos_x-1);
 	GUI_DrawHLine(bottomY-PeakVal-3,pos_x-30, pos_x-1);
