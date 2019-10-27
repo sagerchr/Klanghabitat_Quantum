@@ -158,7 +158,7 @@ int main(void)
 
   //int cycles = 3000;
   //int cycles = 2500;
-  int cycles = 200;
+  int cycles = 30;
   int max1 = 0;
   int max2 = 0;
   int maxOUT1 = 0;
