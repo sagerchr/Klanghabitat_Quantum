@@ -99,7 +99,6 @@ static void MX_USART6_UART_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* Private function prototypes -----------------------------------------------*/
-void TouchTimer_Init(void);
 void Encoder_Init(void);
 /* USER CODE END PFP */
 
@@ -150,18 +149,19 @@ int main(void)
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_I2C1_Init();
-  MX_TIM3_Init();
+  //MX_TIM3_Init();
   MX_CRC_Init();
   MX_USB_DEVICE_Init();
   MX_ADC1_Init();
   MX_ADC2_Init();
   MX_DAC_Init();
-  MX_TIM4_Init();
+  //MX_TIM4_Init();
   MX_I2C2_Init();
   MX_USART6_UART_Init();
   /* USER CODE BEGIN 2 */
   Encoder_Init();
   BSP_LED_Init(LED1);
+
 
   for (int i = 0; i < 255; i++){
 	 if(HAL_I2C_IsDeviceReady(&hi2c2, i,5,10) == HAL_OK) {
@@ -179,9 +179,7 @@ int main(void)
 
   /* Initialise the graphical stack engine */
   GRAPHICS_Init();
-  TouchTimer_Init();
-  HAL_TIM_Base_Start(&htim4);
-  HAL_ADC_Start_DMA(&hadc1, (uint32_t*)DMA_TRANSFER, 250);
+  BSP_TS_Init(800, 480);
   HAL_UART_Receive_DMA(&huart6, UART_RECIVE,10);
   
   /* Graphic application */  
@@ -647,52 +645,6 @@ void Encoder_Init(){
 	}
 }
 
-void TouchTimer_Init()
-{
-  BSP_TS_Init(800, 480);
-
-  if (HAL_TIM_Base_Init(&htim3) != HAL_OK){while (1);}
-  if (HAL_TIM_Base_Start_IT(&htim3) != HAL_OK){ while (1); }
-}
-
-void BSP_Pointer_Update(void) {
-  GUI_PID_STATE TS_State;               /* Structure that reports the touch state to STemWin */
-  static TS_StateTypeDef prev_state;    /* Previous touch state from the touch sensor used from BSP package */
-  TS_StateTypeDef ts;                   /* Actual touch state from the touch sensor used from BSP package */
-  uint16_t xDiff, yDiff;                /* Difference in postitions between touch states*/
-  BSP_TS_GetState(&ts);                 /* Read the touch state from touch sensor (BSP API)*/
-  TS_State.Pressed = ts.touchDetected;  /* Store pressed state to STemWin structure*/
-
-  /* Compute x variation */
-  xDiff = (prev_state.touchX[0] > ts.touchX[0]) ? (prev_state.touchX[0] - ts.touchX[0]) : (ts.touchX[0] - prev_state.touchX[0]);
-
-  /* Compute y variation */
-  yDiff = (prev_state.touchY[0] > ts.touchY[0]) ? (prev_state.touchY[0] - ts.touchY[0]) : (ts.touchY[0] - prev_state.touchY[0]);
-
-  /* Check if the touch is pressed */
-  if ((prev_state.touchDetected != ts.touchDetected) || (xDiff > 3)|| (yDiff > 3))
-  {
-    prev_state.touchDetected = ts.touchDetected;
-    /* Check touch variations */
-    if ((ts.touchX[0] != 0) && (ts.touchY[0] != 0))
-    {
-      prev_state.touchX[0] = ts.touchX[0];
-      prev_state.touchY[0] = ts.touchY[0];
-    }
-    TS_State.Layer = 0;
-    TS_State.x = prev_state.touchX[0];
-    TS_State.y = prev_state.touchY[0];
-
-    /* Send touch state to STemWin */
-    GUI_TOUCH_StoreStateEx(&TS_State);
-  }
-}
-
-/* Timer interrupt callback */
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
-{
-   BSP_Pointer_Update();/*handle the touch changes*/
-}
 
 
 

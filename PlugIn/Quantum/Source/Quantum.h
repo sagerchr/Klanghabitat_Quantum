@@ -72,7 +72,7 @@ bool p = true;
 
     StringPairArray portlist = SerialPort::getSerialPortPaths();
     
-    String test1 = portlist.getAllValues()[1];
+    String test1 = portlist.getAllValues()[2];
 
 
     StringArray ports = {

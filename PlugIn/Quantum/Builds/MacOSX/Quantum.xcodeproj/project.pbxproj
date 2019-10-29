@@ -168,11 +168,11 @@
 			path = System/Library/Frameworks/CoreMIDI.framework;
 			sourceTree = SDKROOT;
 		};
-		0A7E69CD7758289E5B3064C2 = {
+		0A713B35C3C1D61EA5BD27E8 = {
 			isa = PBXFileReference;
 			lastKnownFileType = file;
-			name = "juce_gui_extra";
-			path = "/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/JUCE/modules/juce_gui_extra";
+			name = "juce_gui_basics";
+			path = "/Users/christiansager/Documents/JUCE/modules/juce_gui_basics";
 			sourceTree = "<absolute>";
 		};
 		0AE23A3164FD58D1892806FF = {
@@ -266,33 +266,12 @@
 			path = "Info-VST.plist";
 			sourceTree = "SOURCE_ROOT";
 		};
-		3ECAB0D879C26690565F5149 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_core";
-			path = "/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/JUCE/modules/juce_core";
-			sourceTree = "<absolute>";
-		};
 		40E3D003E7DB93192FB86B80 = {
 			isa = PBXFileReference;
 			lastKnownFileType = text.plist.xml;
 			name = "Info-Standalone_Plugin.plist";
 			path = "Info-Standalone_Plugin.plist";
 			sourceTree = "SOURCE_ROOT";
-		};
-		41B3528217305C8908FC6399 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_gui_basics";
-			path = "/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/JUCE/modules/juce_gui_basics";
-			sourceTree = "<absolute>";
-		};
-		48A67481F98DCF1717342577 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_graphics";
-			path = "/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/JUCE/modules/juce_graphics";
-			sourceTree = "<absolute>";
 		};
 		4A4457568B17D694F285FEBB = {
 			isa = PBXFileReference;
@@ -314,13 +293,6 @@
 			name = QuartzCore.framework;
 			path = System/Library/Frameworks/QuartzCore.framework;
 			sourceTree = SDKROOT;
-		};
-		5174A2AEBF56139B8E6BEE43 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_events";
-			path = "/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/JUCE/modules/juce_events";
-			sourceTree = "<absolute>";
 		};
 		53C04B2897CAD2C7F23035B4 = {
 			isa = PBXFileReference;
@@ -350,13 +322,6 @@
 			path = ../../Source/Main.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
-		5E4C9DD742D6D2879D292C57 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_data_structures";
-			path = "/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/JUCE/modules/juce_data_structures";
-			sourceTree = "<absolute>";
-		};
 		64E5507F78777C1F603E3DFD = {
 			isa = PBXFileReference;
 			explicitFileType = wrapper.cfbundle;
@@ -371,11 +336,11 @@
 			path = System/Library/Frameworks/AudioUnit.framework;
 			sourceTree = SDKROOT;
 		};
-		695575848038B50E86DC2B6F = {
+		6DD3A3253877E376F41ECDB3 = {
 			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_serialport";
-			path = "../../../../../JUCE/modules/juce_serialport";
+			lastKnownFileType = sourcecode.cpp.objcpp;
+			name = "include_juce_gui_basics.mm";
+			path = "../../JuceLibraryCode/include_juce_gui_basics.mm";
 			sourceTree = "SOURCE_ROOT";
 		};
 		71585B2CC5AC908A331BE430 = {
@@ -392,12 +357,33 @@
 			path = "../../JuceLibraryCode/include_juce_audio_utils.mm";
 			sourceTree = "SOURCE_ROOT";
 		};
+		79C4C2ED2BBC6A03455F4A99 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			name = "include_juce_audio_plugin_client_VST2.cpp";
+			path = "../../JuceLibraryCode/include_juce_audio_plugin_client_VST2.cpp";
+			sourceTree = "SOURCE_ROOT";
+		};
 		7FA8DBC80A5E71F52D0DF39E = {
 			isa = PBXFileReference;
 			explicitFileType = wrapper.cfbundle;
 			includeInIndex = 0;
 			path = Quantum.vst3;
 			sourceTree = "BUILT_PRODUCTS_DIR";
+		};
+		816BFB15341435870029C157 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_graphics";
+			path = "/Users/christiansager/Documents/JUCE/modules/juce_graphics";
+			sourceTree = "<absolute>";
+		};
+		C1B1F3761B7D294F2A9E0599 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			name = "include_juce_audio_plugin_client_utils.cpp";
+			path = "../../JuceLibraryCode/include_juce_audio_plugin_client_utils.cpp";
+			sourceTree = "SOURCE_ROOT";
 		};
 		C90556CC973434A93E3D8B01 = {
 			isa = PBXFileReference;
@@ -420,12 +406,12 @@
 			path = RecentFilesMenuTemplate.nib;
 			sourceTree = "SOURCE_ROOT";
 		};
-		6DD3A3253877E376F41ECDB3 = {
+		6F3ADCE6CCEBFD209692282E = {
 			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.objcpp;
-			name = "include_juce_gui_basics.mm";
-			path = "../../JuceLibraryCode/include_juce_gui_basics.mm";
-			sourceTree = "SOURCE_ROOT";
+			lastKnownFileType = file;
+			name = "juce_audio_utils";
+			path = "/Users/christiansager/Documents/JUCE/modules/juce_audio_utils";
+			sourceTree = "<absolute>";
 		};
 		700E954EB6B80E060E9271A6 = {
 			isa = PBXFileReference;
@@ -434,25 +420,25 @@
 			path = System/Library/Frameworks/CoreAudioKit.framework;
 			sourceTree = SDKROOT;
 		};
-		70726E2135FC42D32867D90D = {
+		783CC164576A68AE01C8E168 = {
 			isa = PBXFileReference;
 			lastKnownFileType = file;
-			name = "juce_audio_devices";
-			path = "/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/JUCE/modules/juce_audio_devices";
+			name = "juce_audio_formats";
+			path = "/Users/christiansager/Documents/JUCE/modules/juce_audio_formats";
 			sourceTree = "<absolute>";
 		};
-		79C4C2ED2BBC6A03455F4A99 = {
+		8102568096CB25C119DEDD78 = {
 			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.cpp;
-			name = "include_juce_audio_plugin_client_VST2.cpp";
-			path = "../../JuceLibraryCode/include_juce_audio_plugin_client_VST2.cpp";
-			sourceTree = "SOURCE_ROOT";
+			lastKnownFileType = file;
+			name = "juce_data_structures";
+			path = "/Users/christiansager/Documents/JUCE/modules/juce_data_structures";
+			sourceTree = "<absolute>";
 		};
-		87CAAA4EEF3D47B7F0A9C28C = {
+		922EEFFC20E680E768235AC8 = {
 			isa = PBXFileReference;
 			lastKnownFileType = file;
 			name = "juce_audio_plugin_client";
-			path = "/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/JUCE/modules/juce_audio_plugin_client";
+			path = "/Users/christiansager/Documents/JUCE/modules/juce_audio_plugin_client";
 			sourceTree = "<absolute>";
 		};
 		98389493308683A99739DFA8 = {
@@ -469,6 +455,13 @@
 			path = "../../JuceLibraryCode/include_juce_gui_extra.mm";
 			sourceTree = "SOURCE_ROOT";
 		};
+		A37DA9A3C6F61EA2D6C35197 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_events";
+			path = "/Users/christiansager/Documents/JUCE/modules/juce_events";
+			sourceTree = "<absolute>";
+		};
 		A59F1584CC31A1C33754DE0B = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.objcpp;
@@ -483,11 +476,11 @@
 			path = libQuantum.a;
 			sourceTree = "BUILT_PRODUCTS_DIR";
 		};
-		A95CF3380817B1B7C5D3183D = {
+		AF09065C7569631703D69CE8 = {
 			isa = PBXFileReference;
 			lastKnownFileType = file;
-			name = "juce_audio_processors";
-			path = "/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/JUCE/modules/juce_audio_processors";
+			name = "juce_serialport";
+			path = "/Users/christiansager/Documents/Klanghabitat_Quantum/PlugIn/Quantum/Custom Module/juce_serialport";
 			sourceTree = "<absolute>";
 		};
 		AF24B09ACE1ECC8689E00378 = {
@@ -510,20 +503,6 @@
 			name = IOKit.framework;
 			path = System/Library/Frameworks/IOKit.framework;
 			sourceTree = SDKROOT;
-		};
-		BC689FE787AFBEB4AE484D90 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_audio_basics";
-			path = "/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/JUCE/modules/juce_audio_basics";
-			sourceTree = "<absolute>";
-		};
-		C1B1F3761B7D294F2A9E0599 = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.cpp;
-			name = "include_juce_audio_plugin_client_utils.cpp";
-			path = "../../JuceLibraryCode/include_juce_audio_plugin_client_utils.cpp";
-			sourceTree = "SOURCE_ROOT";
 		};
 		C3E92B2E50FE3B49408DD497 = {
 			isa = PBXFileReference;
@@ -553,11 +532,11 @@
 			path = "../../JuceLibraryCode/include_juce_graphics.mm";
 			sourceTree = "SOURCE_ROOT";
 		};
-		D75A234216815CA96564E796 = {
+		D0716493B83DFBCCA19BC91C = {
 			isa = PBXFileReference;
 			lastKnownFileType = file;
-			name = "juce_audio_utils";
-			path = "/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/JUCE/modules/juce_audio_utils";
+			name = "juce_audio_basics";
+			path = "/Users/christiansager/Documents/JUCE/modules/juce_audio_basics";
 			sourceTree = "<absolute>";
 		};
 		DBBE156A2ECAE99E4C1263D3 = {
@@ -567,11 +546,32 @@
 			path = System/Library/Frameworks/CoreAudio.framework;
 			sourceTree = SDKROOT;
 		};
-		DD2A7BAB2F69FE374D4E516C = {
+		DBF6C93D6CCAD47C05D3FB1C = {
 			isa = PBXFileReference;
 			lastKnownFileType = file;
-			name = "juce_audio_formats";
-			path = "/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/JUCE/modules/juce_audio_formats";
+			name = "juce_audio_devices";
+			path = "/Users/christiansager/Documents/JUCE/modules/juce_audio_devices";
+			sourceTree = "<absolute>";
+		};
+		E04D8F0EAA3510145B323264 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_gui_extra";
+			path = "/Users/christiansager/Documents/JUCE/modules/juce_gui_extra";
+			sourceTree = "<absolute>";
+		};
+		EAC32DC7C63340DDFB95F763 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_core";
+			path = "/Users/christiansager/Documents/JUCE/modules/juce_core";
+			sourceTree = "<absolute>";
+		};
+		EFAB933207D61CB495486F72 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_audio_processors";
+			path = "/Users/christiansager/Documents/JUCE/modules/juce_audio_processors";
 			sourceTree = "<absolute>";
 		};
 		F9444A1E3F98AB1347345161 = {
@@ -601,19 +601,19 @@
 		FBE03E3608D18CC557CECD9D = {
 			isa = PBXGroup;
 			children = (
-				BC689FE787AFBEB4AE484D90,
-				70726E2135FC42D32867D90D,
-				DD2A7BAB2F69FE374D4E516C,
-				87CAAA4EEF3D47B7F0A9C28C,
-				A95CF3380817B1B7C5D3183D,
-				D75A234216815CA96564E796,
-				3ECAB0D879C26690565F5149,
-				5E4C9DD742D6D2879D292C57,
-				5174A2AEBF56139B8E6BEE43,
-				48A67481F98DCF1717342577,
-				41B3528217305C8908FC6399,
-				0A7E69CD7758289E5B3064C2,
-				695575848038B50E86DC2B6F,
+				D0716493B83DFBCCA19BC91C,
+				DBF6C93D6CCAD47C05D3FB1C,
+				783CC164576A68AE01C8E168,
+				922EEFFC20E680E768235AC8,
+				EFAB933207D61CB495486F72,
+				6F3ADCE6CCEBFD209692282E,
+				EAC32DC7C63340DDFB95F763,
+				8102568096CB25C119DEDD78,
+				A37DA9A3C6F61EA2D6C35197,
+				816BFB15341435870029C157,
+				0A713B35C3C1D61EA5BD27E8,
+				E04D8F0EAA3510145B323264,
+				AF09065C7569631703D69CE8,
 			);
 			name = "JUCE Modules";
 			sourceTree = "<group>";
@@ -693,7 +693,6 @@
 		146A7A00754F37D85411E10A = {
 			isa = PBXGroup;
 			children = (
-				53C04B2897CAD2C7F23035B4,
 				E38993AA38FE7E608BA3FB39,
 				FBE03E3608D18CC557CECD9D,
 				D0F6F3FB725A00E49310BB18,
@@ -724,6 +723,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
 				COPY_PHASE_STRIP = NO;
@@ -749,12 +749,11 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
-					"/Users/christiansager/SDK/VST_SDK/VST3_SDK",
-					"/Users/christiansager/SDK/VST_SDK/VST2_SDK",
+					"/Users/christiansager/Documents/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"../../JuceLibraryCode",
-					"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/JUCE/modules",
-					"../../../../../JUCE/modules",
-					"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/JUCE/modules/juce_audio_plugin_client",
+					"/Users/christiansager/Documents/JUCE/modules",
+					"\"/Users/christiansager/Documents/Klanghabitat_Quantum/PlugIn/Quantum/Custom Module\"",
+					"/Users/christiansager/Documents/JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info-VST.plist;
@@ -776,6 +775,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
 				DEAD_CODE_STRIPPING = YES;
@@ -802,12 +802,11 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
-					"/Users/christiansager/SDK/VST_SDK/VST3_SDK",
-					"/Users/christiansager/SDK/VST_SDK/VST2_SDK",
+					"/Users/christiansager/Documents/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"../../JuceLibraryCode",
-					"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/JUCE/modules",
-					"../../../../../JUCE/modules",
-					"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/JUCE/modules/juce_audio_plugin_client",
+					"/Users/christiansager/Documents/JUCE/modules",
+					"\"/Users/christiansager/Documents/Klanghabitat_Quantum/PlugIn/Quantum/Custom Module\"",
+					"/Users/christiansager/Documents/JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info-VST.plist;
@@ -830,6 +829,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
 				COPY_PHASE_STRIP = NO;
@@ -855,12 +855,11 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
-					"/Users/christiansager/SDK/VST_SDK/VST3_SDK",
-					"/Users/christiansager/SDK/VST_SDK/VST2_SDK",
+					"/Users/christiansager/Documents/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"../../JuceLibraryCode",
-					"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/JUCE/modules",
-					"../../../../../JUCE/modules",
-					"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/JUCE/modules/juce_audio_plugin_client",
+					"/Users/christiansager/Documents/JUCE/modules",
+					"\"/Users/christiansager/Documents/Klanghabitat_Quantum/PlugIn/Quantum/Custom Module\"",
+					"/Users/christiansager/Documents/JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info-VST3.plist;
@@ -882,6 +881,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
 				DEAD_CODE_STRIPPING = YES;
@@ -908,12 +908,11 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
-					"/Users/christiansager/SDK/VST_SDK/VST3_SDK",
-					"/Users/christiansager/SDK/VST_SDK/VST2_SDK",
+					"/Users/christiansager/Documents/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"../../JuceLibraryCode",
-					"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/JUCE/modules",
-					"../../../../../JUCE/modules",
-					"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/JUCE/modules/juce_audio_plugin_client",
+					"/Users/christiansager/Documents/JUCE/modules",
+					"\"/Users/christiansager/Documents/Klanghabitat_Quantum/PlugIn/Quantum/Custom Module\"",
+					"/Users/christiansager/Documents/JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info-VST3.plist;
@@ -936,6 +935,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
 				COPY_PHASE_STRIP = NO;
@@ -961,12 +961,11 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
-					"/Users/christiansager/SDK/VST_SDK/VST3_SDK",
-					"/Users/christiansager/SDK/VST_SDK/VST2_SDK",
+					"/Users/christiansager/Documents/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"../../JuceLibraryCode",
-					"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/JUCE/modules",
-					"../../../../../JUCE/modules",
-					"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/JUCE/modules/juce_audio_plugin_client",
+					"/Users/christiansager/Documents/JUCE/modules",
+					"\"/Users/christiansager/Documents/Klanghabitat_Quantum/PlugIn/Quantum/Custom Module\"",
+					"/Users/christiansager/Documents/JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info-AU.plist;
@@ -975,7 +974,7 @@
 				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				OTHER_LDFLAGS = "-bundle -lQuantum";
-				OTHER_REZFLAGS = "-d ppc_$ppc -d i386_$i386 -d ppc64_$ppc64 -d x86_64_$x86_64 -I /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers -I \"$(DEVELOPER_DIR)/Extras/CoreAudio/AudioUnits/AUPublic/AUBase\"";
+				OTHER_REZFLAGS = "-d ppc_$ppc -d i386_$i386 -d ppc64_$ppc64 -d x86_64_$x86_64 -I /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers -I \"$(DEVELOPER_DIR)/Extras/CoreAudio/AudioUnits/AUPublic/AUBase\" -I \"$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/AudioUnit.framework/Headers\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.klanghabitat.Quantum;
 				PRODUCT_NAME = "Quantum";
 				USE_HEADERMAP = NO;
@@ -989,6 +988,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
 				DEAD_CODE_STRIPPING = YES;
@@ -1015,12 +1015,11 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
-					"/Users/christiansager/SDK/VST_SDK/VST3_SDK",
-					"/Users/christiansager/SDK/VST_SDK/VST2_SDK",
+					"/Users/christiansager/Documents/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"../../JuceLibraryCode",
-					"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/JUCE/modules",
-					"../../../../../JUCE/modules",
-					"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/JUCE/modules/juce_audio_plugin_client",
+					"/Users/christiansager/Documents/JUCE/modules",
+					"\"/Users/christiansager/Documents/Klanghabitat_Quantum/PlugIn/Quantum/Custom Module\"",
+					"/Users/christiansager/Documents/JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info-AU.plist;
@@ -1030,7 +1029,7 @@
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				OTHER_LDFLAGS = "-bundle -lQuantum";
-				OTHER_REZFLAGS = "-d ppc_$ppc -d i386_$i386 -d ppc64_$ppc64 -d x86_64_$x86_64 -I /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers -I \"$(DEVELOPER_DIR)/Extras/CoreAudio/AudioUnits/AUPublic/AUBase\"";
+				OTHER_REZFLAGS = "-d ppc_$ppc -d i386_$i386 -d ppc64_$ppc64 -d x86_64_$x86_64 -I /System/Library/Frameworks/CoreServices.framework/Frameworks/CarbonCore.framework/Versions/A/Headers -I \"$(DEVELOPER_DIR)/Extras/CoreAudio/AudioUnits/AUPublic/AUBase\" -I \"$(DEVELOPER_DIR)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/AudioUnit.framework/Headers\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.klanghabitat.Quantum;
 				PRODUCT_NAME = "Quantum";
 				USE_HEADERMAP = NO;
@@ -1044,6 +1043,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
 				COPY_PHASE_STRIP = NO;
@@ -1066,12 +1066,11 @@
 				);
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
-					"/Users/christiansager/SDK/VST_SDK/VST3_SDK",
-					"/Users/christiansager/SDK/VST_SDK/VST2_SDK",
+					"/Users/christiansager/Documents/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"../../JuceLibraryCode",
-					"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/JUCE/modules",
-					"../../../../../JUCE/modules",
-					"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/JUCE/modules/juce_audio_plugin_client",
+					"/Users/christiansager/Documents/JUCE/modules",
+					"\"/Users/christiansager/Documents/Klanghabitat_Quantum/PlugIn/Quantum/Custom Module\"",
+					"/Users/christiansager/Documents/JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info-Standalone_Plugin.plist;
@@ -1090,6 +1089,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
 				DEAD_CODE_STRIPPING = YES;
@@ -1113,12 +1113,11 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
-					"/Users/christiansager/SDK/VST_SDK/VST3_SDK",
-					"/Users/christiansager/SDK/VST_SDK/VST2_SDK",
+					"/Users/christiansager/Documents/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"../../JuceLibraryCode",
-					"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/JUCE/modules",
-					"../../../../../JUCE/modules",
-					"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/JUCE/modules/juce_audio_plugin_client",
+					"/Users/christiansager/Documents/JUCE/modules",
+					"\"/Users/christiansager/Documents/Klanghabitat_Quantum/PlugIn/Quantum/Custom Module\"",
+					"/Users/christiansager/Documents/JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info-Standalone_Plugin.plist;
@@ -1138,6 +1137,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
 				COPY_PHASE_STRIP = NO;
@@ -1161,12 +1161,11 @@
 				);
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
-					"/Users/christiansager/SDK/VST_SDK/VST3_SDK",
-					"/Users/christiansager/SDK/VST_SDK/VST2_SDK",
+					"/Users/christiansager/Documents/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"../../JuceLibraryCode",
-					"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/JUCE/modules",
-					"../../../../../JUCE/modules",
-					"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/JUCE/modules/juce_audio_plugin_client",
+					"/Users/christiansager/Documents/JUCE/modules",
+					"\"/Users/christiansager/Documents/Klanghabitat_Quantum/PlugIn/Quantum/Custom Module\"",
+					"/Users/christiansager/Documents/JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
 				INSTALL_PATH = "@executable_path/../Frameworks";
@@ -1184,6 +1183,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_LINK_OBJC_RUNTIME = NO;
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
 				DEAD_CODE_STRIPPING = YES;
@@ -1208,12 +1208,11 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
-					"/Users/christiansager/SDK/VST_SDK/VST3_SDK",
-					"/Users/christiansager/SDK/VST_SDK/VST2_SDK",
+					"/Users/christiansager/Documents/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"../../JuceLibraryCode",
-					"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/JUCE/modules",
-					"../../../../../JUCE/modules",
-					"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/JUCE/modules/juce_audio_plugin_client",
+					"/Users/christiansager/Documents/JUCE/modules",
+					"\"/Users/christiansager/Documents/Klanghabitat_Quantum/PlugIn/Quantum/Custom Module\"",
+					"/Users/christiansager/Documents/JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
 				INSTALL_PATH = "@executable_path/../Frameworks";
@@ -1248,6 +1247,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1294,6 +1294,7 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = c11;
@@ -1403,6 +1404,7 @@
 				FDC30851D9A51A617F7B1FAE,
 				3008DECD4CBCDE7806BF1F2A,
 				3683E875D1E5AA0C0F615453,
+				B5C72AF1A05F6E11FD437192,
 				8A458B1CD1B3CC2F422BE2E5,
 				A8446C527EECEC635A16EEA8,
 				EFFBCE7B7B51B3DF4BB750D7,
@@ -1462,6 +1464,7 @@
 				FDC30851D9A51A617F7B1FAE,
 				3008DECD4CBCDE7806BF1F2A,
 				3683E875D1E5AA0C0F615453,
+				B5C72AF1A05F6E11FD437192,
 				8A458B1CD1B3CC2F422BE2E5,
 				A8446C527EECEC635A16EEA8,
 				EFFBCE7B7B51B3DF4BB750D7,
@@ -1592,6 +1595,7 @@
 				FDC30851D9A51A617F7B1FAE,
 				3008DECD4CBCDE7806BF1F2A,
 				3683E875D1E5AA0C0F615453,
+				B5C72AF1A05F6E11FD437192,
 				8A458B1CD1B3CC2F422BE2E5,
 				A8446C527EECEC635A16EEA8,
 				EFFBCE7B7B51B3DF4BB750D7,
@@ -1664,7 +1668,7 @@
 		0309EFD79E775130E82733A4 = {
 			isa = PBXProject;
 			buildConfigurationList = 93FE846C4BC021F677037032;
-			attributes = { LastUpgradeCheck = 1010; ORGANIZATIONNAME = "klanghabitat"; TargetAttributes = { 3415F3BDF47C9B6FB4A2A49B = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };D9F8C5813AB0AD9165B03FC7 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };E3AD810BBCCC6272B65535E3 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };E3F924A261E006949251605C = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };8CCAA9800D4BDFDDE62CB5FA = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };1743020310E1547F1D6C15E1 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; }; }; };
+			attributes = { LastUpgradeCheck = 1100; ORGANIZATIONNAME = "klanghabitat"; TargetAttributes = { 3415F3BDF47C9B6FB4A2A49B = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };D9F8C5813AB0AD9165B03FC7 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };E3AD810BBCCC6272B65535E3 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };E3F924A261E006949251605C = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };8CCAA9800D4BDFDDE62CB5FA = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; };1743020310E1547F1D6C15E1 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 0; }; }; }; }; };
 			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 0;
 			mainGroup = 146A7A00754F37D85411E10A;

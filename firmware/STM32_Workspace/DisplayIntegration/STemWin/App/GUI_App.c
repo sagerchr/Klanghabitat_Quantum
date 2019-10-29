@@ -115,8 +115,8 @@ void GRAPHICS_MainTask(void) {
 
          //GUI_Delay(1);
        //GUI_Exec();
-    	/*
-    	if (wait >= 5){
+
+    	if (wait >= 0){
       	  BSP_TS_GetState(&TS_State);
       	     if(TS_State.touchDetected == TOUCH_EVENT_PRESS_DOWN)
       		{
@@ -127,7 +127,7 @@ void GRAPHICS_MainTask(void) {
       	     wait = 0;
     	}
     	wait++;
-    	 */
+
 
 
    /**********************************************************/
@@ -231,7 +231,7 @@ void GRAPHICS_MainTask(void) {
 					counter = 0;
 				}
     	      */
-	// CDC_Transmit_FS("HALLO DIES IST EIN STRING TEST\r\n", 32);
+	CDC_Transmit_FS("EINFACH nur ein blöder TEXT\r\n", 32);
 
 
     	     //pots[5]=ReciveCDC;

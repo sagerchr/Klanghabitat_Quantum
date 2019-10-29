@@ -3,7 +3,7 @@
 <JUCERPROJECT name="Quantum" companyName="klanghabitat" version="1.0.0" userNotes="Explores audio plugin parameters."
               companyWebsite="www.klanghabitat.de" defines="" projectType="audioplug"
               pluginManufacturer="klanghabitat" pluginFormats="buildAU,buildStandalone,buildVST,buildVST3"
-              id="RqEsZs" jucerVersion="5.4.3" pluginCharacteristicsValue="pluginIsMidiEffectPlugin,pluginProducesMidiOut,pluginWantsMidiIn"
+              id="RqEsZs" jucerVersion="5.4.5" pluginCharacteristicsValue="pluginIsMidiEffectPlugin,pluginProducesMidiOut,pluginWantsMidiIn"
               pluginAUMainType="'aufx'" pluginCode="Manu" pluginManufacturerCode="Manu"
               cppLanguageStandard="latest">
   <MAINGROUP id="J9XtVR" name="Quantum">
@@ -27,7 +27,7 @@
     <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
-    <MODULE id="juce_serialport" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="juce_serialport" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
   </MODULES>
   <EXPORTFORMATS>
     <XCODE_MAC targetFolder="Builds/MacOSX">
@@ -48,7 +48,7 @@
         <MODULEPATH id="juce_graphics" path=""/>
         <MODULEPATH id="juce_gui_basics" path=""/>
         <MODULEPATH id="juce_gui_extra" path=""/>
-        <MODULEPATH id="juce_serialport" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_serialport" path="Custom Module"/>
       </MODULEPATHS>
     </XCODE_MAC>
     <VS2017 targetFolder="Builds/VisualStudio2017">
@@ -69,7 +69,7 @@
         <MODULEPATH id="juce_graphics" path=""/>
         <MODULEPATH id="juce_gui_basics" path=""/>
         <MODULEPATH id="juce_gui_extra" path=""/>
-        <MODULEPATH id="juce_serialport" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_serialport" path="Custom Module"/>
       </MODULEPATHS>
     </VS2017>
     <LINUX_MAKE targetFolder="Builds/LinuxMakefile">
@@ -90,12 +90,12 @@
         <MODULEPATH id="juce_graphics" path=""/>
         <MODULEPATH id="juce_gui_basics" path=""/>
         <MODULEPATH id="juce_gui_extra" path=""/>
-        <MODULEPATH id="juce_serialport" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_serialport" path="Custom Module"/>
       </MODULEPATHS>
     </LINUX_MAKE>
   </EXPORTFORMATS>
   <LIVE_SETTINGS>
-    <OSX buildEnabled="1"/>
+    <OSX buildEnabled="0"/>
     <WINDOWS buildEnabled="1" continuousRebuildEnabled="1"/>
   </LIVE_SETTINGS>
   <JUCEOPTIONS/>
