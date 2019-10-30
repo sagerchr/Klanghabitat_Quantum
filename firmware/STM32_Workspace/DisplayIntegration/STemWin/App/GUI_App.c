@@ -117,13 +117,7 @@ void GRAPHICS_MainTask(void) {
        //GUI_Exec();
 
     	if (wait >= 0){
-      	  BSP_TS_GetState(&TS_State);
-      	     if(TS_State.touchDetected == TOUCH_EVENT_PRESS_DOWN)
-      		{
-      	      X = TS_State.touchX[0];
-      		  Y = TS_State.touchY[0];
-      		  HAL_GPIO_TogglePin(GPIOG, LAMP4_Pin);
-      		}
+
       	     wait = 0;
     	}
     	wait++;

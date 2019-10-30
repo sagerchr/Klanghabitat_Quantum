@@ -52,7 +52,7 @@ void drawWaveFormUart(int x,int y, int adc);
 void drawWaveFormUart2(int x,int y, int adc);
 
 
-
+TS_StateTypeDef TS_State;
 uint32_t lineStart,lineEnd;
 uint32_t avCH1;
 uint32_t maxCH1;
@@ -63,7 +63,7 @@ int p = 0;
 
 
 //Interface Variablen
-int X = 400; //TOUCH X
+int X = 0; //TOUCH X
 int Y = 0; //TOUCH Y
 
 int adc1 = 0;
@@ -92,8 +92,8 @@ int refresh =0;
 float smooth= 0;
 float peaksmooth= 0;
 int once = 0;
-
-
+int Y_Right = 0;
+int Y_Left = 0;
 
 int levelIN1 = 0;
 int levelIN2 = 0;
@@ -231,9 +231,43 @@ refresh++;
 		 peaksmooth = peaksmooth+(1*(adc1_db-peaksmooth));
 	 }
 
+  	  BSP_TS_GetState(&TS_State);
+  	  	  if(TS_State.touchX[0]>30 && TS_State.touchX[0]<750 && TS_State.touchY[0] > 30 && TS_State.touchY[0] < 450){
+     	      X = TS_State.touchX[0];
+     		  Y = TS_State.touchY[0];
+     		  HAL_GPIO_TogglePin(GPIOG, LAMP4_Pin);
+
+     		 if(X<400){
+     		  Y_Left  = Y;
+     		 }
+     		 if(X>400){
+     		  Y_Right  = Y;
+     		 }
+
+  	  	  }
+
 
 	 drawBar (390, 90,300+peaksmooth,300+smooth, "");
 	 drawBar (440, 90,300+peaksmooth,300+smooth, "");
+
+	 	 GUI_SetLineStyle(GUI_LS_DASH);
+
+		 GUI_SetColor(GUI_RED);
+
+
+		 GUI_DrawLine(10, Y_Left, 350, Y_Left);
+		 GUI_DrawLine(10, Y_Left+1, 350, Y_Left+1);
+		 GUI_DrawLine(10, Y_Left+2,350, Y_Left+2);
+		 GUI_DrawLine(10, Y_Left+3, 350, Y_Left+3);
+		 GUI_DrawLine(10, Y_Left+4,350, Y_Left+4);
+
+
+
+		 GUI_DrawLine(450, Y_Right, 790, Y_Right);
+		 GUI_DrawLine(450, Y_Right+1, 790, Y_Right+1);
+		 GUI_DrawLine(450, Y_Right+2, 790, Y_Right+2);
+		 GUI_DrawLine(450, Y_Right+3, 790, Y_Right+3);
+		 GUI_DrawLine(450, Y_Right+4, 790, Y_Right+4);
 
 
 /*
