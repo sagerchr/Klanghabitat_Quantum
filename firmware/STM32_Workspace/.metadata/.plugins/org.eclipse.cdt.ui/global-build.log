@@ -1918,3 +1918,1359 @@ arm-none-eabi-size "MotherEnigine.elf"
    text	   data	    bss	    dec	    hex	filename
   57440	    164	  45292	 102896	  191f0	MotherEnigine.elf
  
+13:13:26 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F767xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif/ppp" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix/sys" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system/arch" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'udpApp1_sendMagicPacket':
+../Src/main.c:436:5: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+     memcpy(ethTxBuffer_p->payload, clientMagicPacket_c, sizeof(clientMagicPacket_c));
+     ^~~~~~
+../Src/main.c:436:5: warning: incompatible implicit declaration of built-in function 'memcpy'
+../Src/main.c:436:5: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Src/main.c:438:5: warning: implicit declaration of function 'udp_sendto'; did you mean 'fd_set'? [-Wimplicit-function-declaration]
+     udp_sendto(udpPcb1_p, ethTxBuffer_p, &client1IpAddr,9002);
+     ^~~~~~~~~~
+     fd_set
+../Src/main.c: In function 'udpApp1_init':
+../Src/main.c:452:19: warning: implicit declaration of function 'udp_new' [-Wimplicit-function-declaration]
+       udpPcb1_p = udp_new();
+                   ^~~~~~~
+../Src/main.c:452:17: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+       udpPcb1_p = udp_new();
+                 ^
+../Src/main.c:458:18: warning: implicit declaration of function 'udp_bind' [-Wimplicit-function-declaration]
+         udpErr = udp_bind(udpPcb1_p, &ownIPaddr, 65100);
+                  ^~~~~~~~
+../Src/main.c:460:9: warning: implicit declaration of function 'udp_recv'; did you mean 'udp_echo_recv'? [-Wimplicit-function-declaration]
+         udp_recv(udpPcb1_p, udp_echo_recv, NULL);
+         ^~~~~~~~
+         udp_echo_recv
+Finished building: ../Src/main.c
+ 
+Building target: MotherEnigine.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F767ZITx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "MotherEnigine.elf" @"objects.list"   -lm
+Finished building target: MotherEnigine.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "MotherEnigine.elf" "MotherEnigine.hex"
+arm-none-eabi-size "MotherEnigine.elf"
+   text	   data	    bss	    dec	    hex	filename
+  57436	    160	  45296	 102892	  191ec	MotherEnigine.elf
+ 
+13:16:59 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F767xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif/ppp" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix/sys" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system/arch" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'udpApp1_sendMagicPacket':
+../Src/main.c:436:5: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+     memcpy(ethTxBuffer_p->payload, clientMagicPacket_c, sizeof(clientMagicPacket_c));
+     ^~~~~~
+../Src/main.c:436:5: warning: incompatible implicit declaration of built-in function 'memcpy'
+../Src/main.c:436:5: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Src/main.c:438:5: warning: implicit declaration of function 'udp_sendto'; did you mean 'fd_set'? [-Wimplicit-function-declaration]
+     udp_sendto(udpPcb1_p, ethTxBuffer_p, &client1IpAddr,9002);
+     ^~~~~~~~~~
+     fd_set
+../Src/main.c: In function 'udpApp1_init':
+../Src/main.c:452:19: warning: implicit declaration of function 'udp_new' [-Wimplicit-function-declaration]
+       udpPcb1_p = udp_new();
+                   ^~~~~~~
+../Src/main.c:452:17: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+       udpPcb1_p = udp_new();
+                 ^
+../Src/main.c:458:18: warning: implicit declaration of function 'udp_bind' [-Wimplicit-function-declaration]
+         udpErr = udp_bind(udpPcb1_p, &ownIPaddr, 9001);
+                  ^~~~~~~~
+../Src/main.c:460:9: warning: implicit declaration of function 'udp_recv'; did you mean 'udp_echo_recv'? [-Wimplicit-function-declaration]
+         udp_recv(udpPcb1_p, udp_echo_recv, NULL);
+         ^~~~~~~~
+         udp_echo_recv
+Finished building: ../Src/main.c
+ 
+Building target: MotherEnigine.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F767ZITx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "MotherEnigine.elf" @"objects.list"   -lm
+Finished building target: MotherEnigine.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "MotherEnigine.elf" "MotherEnigine.hex"
+arm-none-eabi-size "MotherEnigine.elf"
+   text	   data	    bss	    dec	    hex	filename
+  57436	    160	  45296	 102892	  191ec	MotherEnigine.elf
+ 
+13:32:07 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F767xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif/ppp" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix/sys" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system/arch" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'udpApp1_sendMagicPacket':
+../Src/main.c:436:5: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+     memcpy(ethTxBuffer_p->payload, clientMagicPacket_c, sizeof(clientMagicPacket_c));
+     ^~~~~~
+../Src/main.c:436:5: warning: incompatible implicit declaration of built-in function 'memcpy'
+../Src/main.c:436:5: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Src/main.c:438:5: warning: implicit declaration of function 'udp_sendto'; did you mean 'fd_set'? [-Wimplicit-function-declaration]
+     udp_sendto(udpPcb1_p, ethTxBuffer_p, &client1IpAddr,9002);
+     ^~~~~~~~~~
+     fd_set
+../Src/main.c: In function 'udpApp1_init':
+../Src/main.c:452:19: warning: implicit declaration of function 'udp_new' [-Wimplicit-function-declaration]
+       udpPcb1_p = udp_new();
+                   ^~~~~~~
+../Src/main.c:452:17: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+       udpPcb1_p = udp_new();
+                 ^
+../Src/main.c:458:18: warning: implicit declaration of function 'udp_bind' [-Wimplicit-function-declaration]
+         udpErr = udp_bind(udpPcb1_p, &ownIPaddr, 9001);
+                  ^~~~~~~~
+../Src/main.c:460:9: warning: implicit declaration of function 'udp_recv'; did you mean 'udp_echo_recv'? [-Wimplicit-function-declaration]
+         udp_recv(udpPcb1_p, udp_echo_recv, NULL);
+         ^~~~~~~~
+         udp_echo_recv
+Finished building: ../Src/main.c
+ 
+Building target: MotherEnigine.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F767ZITx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "MotherEnigine.elf" @"objects.list"   -lm
+Finished building target: MotherEnigine.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "MotherEnigine.elf" "MotherEnigine.hex"
+arm-none-eabi-size "MotherEnigine.elf"
+   text	   data	    bss	    dec	    hex	filename
+  57432	    156	  45292	 102880	  191e0	MotherEnigine.elf
+ 
+13:33:06 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F767xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif/ppp" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix/sys" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system/arch" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'udpApp1_sendMagicPacket':
+../Src/main.c:436:5: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+     memcpy(ethTxBuffer_p->payload, clientMagicPacket_c, sizeof(clientMagicPacket_c));
+     ^~~~~~
+../Src/main.c:436:5: warning: incompatible implicit declaration of built-in function 'memcpy'
+../Src/main.c:436:5: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Src/main.c:438:5: warning: implicit declaration of function 'udp_sendto'; did you mean 'fd_set'? [-Wimplicit-function-declaration]
+     udp_sendto(udpPcb1_p, ethTxBuffer_p, &client1IpAddr,9002);
+     ^~~~~~~~~~
+     fd_set
+../Src/main.c: In function 'udpApp1_init':
+../Src/main.c:452:19: warning: implicit declaration of function 'udp_new' [-Wimplicit-function-declaration]
+       udpPcb1_p = udp_new();
+                   ^~~~~~~
+../Src/main.c:452:17: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+       udpPcb1_p = udp_new();
+                 ^
+../Src/main.c:458:18: warning: implicit declaration of function 'udp_bind' [-Wimplicit-function-declaration]
+         udpErr = udp_bind(udpPcb1_p, &ownIPaddr, 9001);
+                  ^~~~~~~~
+../Src/main.c:460:9: warning: implicit declaration of function 'udp_recv'; did you mean 'udp_echo_recv'? [-Wimplicit-function-declaration]
+         udp_recv(udpPcb1_p, udp_echo_recv, NULL);
+         ^~~~~~~~
+         udp_echo_recv
+Finished building: ../Src/main.c
+ 
+Building target: MotherEnigine.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F767ZITx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "MotherEnigine.elf" @"objects.list"   -lm
+Finished building target: MotherEnigine.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "MotherEnigine.elf" "MotherEnigine.hex"
+arm-none-eabi-size "MotherEnigine.elf"
+   text	   data	    bss	    dec	    hex	filename
+  57432	    156	  45292	 102880	  191e0	MotherEnigine.elf
+ 
+13:36:16 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F767xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif/ppp" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix/sys" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system/arch" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'udpApp1_sendMagicPacket':
+../Src/main.c:436:5: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+     memcpy(ethTxBuffer_p->payload, clientMagicPacket_c, sizeof(clientMagicPacket_c));
+     ^~~~~~
+../Src/main.c:436:5: warning: incompatible implicit declaration of built-in function 'memcpy'
+../Src/main.c:436:5: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Src/main.c:438:5: warning: implicit declaration of function 'udp_sendto'; did you mean 'fd_set'? [-Wimplicit-function-declaration]
+     udp_sendto(udpPcb1_p, ethTxBuffer_p, &client1IpAddr,9002);
+     ^~~~~~~~~~
+     fd_set
+../Src/main.c: In function 'udpApp1_init':
+../Src/main.c:452:19: warning: implicit declaration of function 'udp_new' [-Wimplicit-function-declaration]
+       udpPcb1_p = udp_new();
+                   ^~~~~~~
+../Src/main.c:452:17: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+       udpPcb1_p = udp_new();
+                 ^
+../Src/main.c:458:18: warning: implicit declaration of function 'udp_bind' [-Wimplicit-function-declaration]
+         udpErr = udp_bind(udpPcb1_p, &ownIPaddr, 9001);
+                  ^~~~~~~~
+../Src/main.c:460:9: warning: implicit declaration of function 'udp_recv'; did you mean 'udp_echo_recv'? [-Wimplicit-function-declaration]
+         udp_recv(udpPcb1_p, udp_echo_recv, NULL);
+         ^~~~~~~~
+         udp_echo_recv
+Finished building: ../Src/main.c
+ 
+Building target: MotherEnigine.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F767ZITx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "MotherEnigine.elf" @"objects.list"   -lm
+Finished building target: MotherEnigine.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "MotherEnigine.elf" "MotherEnigine.hex"
+arm-none-eabi-size "MotherEnigine.elf"
+   text	   data	    bss	    dec	    hex	filename
+  57436	    164	  45292	 102892	  191ec	MotherEnigine.elf
+ 
+13:37:28 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F767xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif/ppp" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix/sys" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system/arch" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'udpApp1_sendMagicPacket':
+../Src/main.c:436:5: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+     memcpy(ethTxBuffer_p->payload, clientMagicPacket_c, sizeof(clientMagicPacket_c));
+     ^~~~~~
+../Src/main.c:436:5: warning: incompatible implicit declaration of built-in function 'memcpy'
+../Src/main.c:436:5: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Src/main.c:438:5: warning: implicit declaration of function 'udp_sendto'; did you mean 'fd_set'? [-Wimplicit-function-declaration]
+     udp_sendto(udpPcb1_p, ethTxBuffer_p, &client1IpAddr,9002);
+     ^~~~~~~~~~
+     fd_set
+../Src/main.c: In function 'udpApp1_init':
+../Src/main.c:452:19: warning: implicit declaration of function 'udp_new' [-Wimplicit-function-declaration]
+       udpPcb1_p = udp_new();
+                   ^~~~~~~
+../Src/main.c:452:17: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+       udpPcb1_p = udp_new();
+                 ^
+../Src/main.c:458:18: warning: implicit declaration of function 'udp_bind' [-Wimplicit-function-declaration]
+         udpErr = udp_bind(udpPcb1_p, &ownIPaddr, 9001);
+                  ^~~~~~~~
+../Src/main.c:460:9: warning: implicit declaration of function 'udp_recv'; did you mean 'udp_echo_recv'? [-Wimplicit-function-declaration]
+         udp_recv(udpPcb1_p, udp_echo_recv, NULL);
+         ^~~~~~~~
+         udp_echo_recv
+Finished building: ../Src/main.c
+ 
+Building target: MotherEnigine.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F767ZITx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "MotherEnigine.elf" @"objects.list"   -lm
+Finished building target: MotherEnigine.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "MotherEnigine.elf" "MotherEnigine.hex"
+arm-none-eabi-size "MotherEnigine.elf"
+   text	   data	    bss	    dec	    hex	filename
+  57440	    164	  45292	 102896	  191f0	MotherEnigine.elf
+ 
+13:38:32 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F767xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif/ppp" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix/sys" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system/arch" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'udpApp1_sendMagicPacket':
+../Src/main.c:436:5: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+     memcpy(ethTxBuffer_p->payload, clientMagicPacket_c, sizeof(clientMagicPacket_c));
+     ^~~~~~
+../Src/main.c:436:5: warning: incompatible implicit declaration of built-in function 'memcpy'
+../Src/main.c:436:5: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Src/main.c:438:5: warning: implicit declaration of function 'udp_sendto'; did you mean 'fd_set'? [-Wimplicit-function-declaration]
+     udp_sendto(udpPcb1_p, ethTxBuffer_p, &client1IpAddr,9002);
+     ^~~~~~~~~~
+     fd_set
+../Src/main.c: In function 'udpApp1_init':
+../Src/main.c:452:19: warning: implicit declaration of function 'udp_new' [-Wimplicit-function-declaration]
+       udpPcb1_p = udp_new();
+                   ^~~~~~~
+../Src/main.c:452:17: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+       udpPcb1_p = udp_new();
+                 ^
+../Src/main.c:458:18: warning: implicit declaration of function 'udp_bind' [-Wimplicit-function-declaration]
+         udpErr = udp_bind(udpPcb1_p, &ownIPaddr, 9001);
+                  ^~~~~~~~
+../Src/main.c:460:9: warning: implicit declaration of function 'udp_recv'; did you mean 'udp_echo_recv'? [-Wimplicit-function-declaration]
+         udp_recv(udpPcb1_p, udp_echo_recv, NULL);
+         ^~~~~~~~
+         udp_echo_recv
+Finished building: ../Src/main.c
+ 
+Building target: MotherEnigine.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F767ZITx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "MotherEnigine.elf" @"objects.list"   -lm
+Finished building target: MotherEnigine.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "MotherEnigine.elf" "MotherEnigine.hex"
+arm-none-eabi-size "MotherEnigine.elf"
+   text	   data	    bss	    dec	    hex	filename
+  57436	    164	  45292	 102892	  191ec	MotherEnigine.elf
+ 
+13:39:14 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F767xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif/ppp" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix/sys" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system/arch" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'udpApp1_sendMagicPacket':
+../Src/main.c:436:5: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+     memcpy(ethTxBuffer_p->payload, clientMagicPacket_c, sizeof(clientMagicPacket_c));
+     ^~~~~~
+../Src/main.c:436:5: warning: incompatible implicit declaration of built-in function 'memcpy'
+../Src/main.c:436:5: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Src/main.c:438:5: warning: implicit declaration of function 'udp_sendto'; did you mean 'fd_set'? [-Wimplicit-function-declaration]
+     udp_sendto(udpPcb1_p, ethTxBuffer_p, &client1IpAddr,9002);
+     ^~~~~~~~~~
+     fd_set
+../Src/main.c: In function 'udpApp1_init':
+../Src/main.c:452:19: warning: implicit declaration of function 'udp_new' [-Wimplicit-function-declaration]
+       udpPcb1_p = udp_new();
+                   ^~~~~~~
+../Src/main.c:452:17: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+       udpPcb1_p = udp_new();
+                 ^
+../Src/main.c:458:18: warning: implicit declaration of function 'udp_bind' [-Wimplicit-function-declaration]
+         udpErr = udp_bind(udpPcb1_p, &ownIPaddr, 9001);
+                  ^~~~~~~~
+../Src/main.c:460:9: warning: implicit declaration of function 'udp_recv'; did you mean 'udp_echo_recv'? [-Wimplicit-function-declaration]
+         udp_recv(udpPcb1_p, udp_echo_recv, NULL);
+         ^~~~~~~~
+         udp_echo_recv
+Finished building: ../Src/main.c
+ 
+Building target: MotherEnigine.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F767ZITx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "MotherEnigine.elf" @"objects.list"   -lm
+Finished building target: MotherEnigine.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "MotherEnigine.elf" "MotherEnigine.hex"
+arm-none-eabi-size "MotherEnigine.elf"
+   text	   data	    bss	    dec	    hex	filename
+  57440	    164	  45292	 102896	  191f0	MotherEnigine.elf
+ 
+13:39:46 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F767xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif/ppp" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix/sys" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system/arch" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'udpApp1_sendMagicPacket':
+../Src/main.c:436:5: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+     memcpy(ethTxBuffer_p->payload, clientMagicPacket_c, sizeof(clientMagicPacket_c));
+     ^~~~~~
+../Src/main.c:436:5: warning: incompatible implicit declaration of built-in function 'memcpy'
+../Src/main.c:436:5: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Src/main.c:438:5: warning: implicit declaration of function 'udp_sendto'; did you mean 'fd_set'? [-Wimplicit-function-declaration]
+     udp_sendto(udpPcb1_p, ethTxBuffer_p, &client1IpAddr,9002);
+     ^~~~~~~~~~
+     fd_set
+../Src/main.c: In function 'udpApp1_init':
+../Src/main.c:452:19: warning: implicit declaration of function 'udp_new' [-Wimplicit-function-declaration]
+       udpPcb1_p = udp_new();
+                   ^~~~~~~
+../Src/main.c:452:17: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+       udpPcb1_p = udp_new();
+                 ^
+../Src/main.c:458:18: warning: implicit declaration of function 'udp_bind' [-Wimplicit-function-declaration]
+         udpErr = udp_bind(udpPcb1_p, &ownIPaddr, 9001);
+                  ^~~~~~~~
+../Src/main.c:460:9: warning: implicit declaration of function 'udp_recv'; did you mean 'udp_echo_recv'? [-Wimplicit-function-declaration]
+         udp_recv(udpPcb1_p, udp_echo_recv, NULL);
+         ^~~~~~~~
+         udp_echo_recv
+Finished building: ../Src/main.c
+ 
+Building target: MotherEnigine.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F767ZITx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "MotherEnigine.elf" @"objects.list"   -lm
+Finished building target: MotherEnigine.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "MotherEnigine.elf" "MotherEnigine.hex"
+arm-none-eabi-size "MotherEnigine.elf"
+   text	   data	    bss	    dec	    hex	filename
+  57436	    160	  45296	 102892	  191ec	MotherEnigine.elf
+ 
+13:41:28 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F767xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif/ppp" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix/sys" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system/arch" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'udpApp1_sendMagicPacket':
+../Src/main.c:436:5: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+     memcpy(ethTxBuffer_p->payload, clientMagicPacket_c, sizeof(clientMagicPacket_c));
+     ^~~~~~
+../Src/main.c:436:5: warning: incompatible implicit declaration of built-in function 'memcpy'
+../Src/main.c:436:5: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Src/main.c:438:5: warning: implicit declaration of function 'udp_sendto'; did you mean 'fd_set'? [-Wimplicit-function-declaration]
+     udp_sendto(udpPcb1_p, ethTxBuffer_p, &client1IpAddr,9002);
+     ^~~~~~~~~~
+     fd_set
+../Src/main.c: In function 'udpApp1_init':
+../Src/main.c:452:19: warning: implicit declaration of function 'udp_new' [-Wimplicit-function-declaration]
+       udpPcb1_p = udp_new();
+                   ^~~~~~~
+../Src/main.c:452:17: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+       udpPcb1_p = udp_new();
+                 ^
+../Src/main.c:458:18: warning: implicit declaration of function 'udp_bind' [-Wimplicit-function-declaration]
+         udpErr = udp_bind(udpPcb1_p, &ownIPaddr, 9001);
+                  ^~~~~~~~
+../Src/main.c:460:9: warning: implicit declaration of function 'udp_recv'; did you mean 'udp_echo_recv'? [-Wimplicit-function-declaration]
+         udp_recv(udpPcb1_p, udp_echo_recv, NULL);
+         ^~~~~~~~
+         udp_echo_recv
+Finished building: ../Src/main.c
+ 
+Building target: MotherEnigine.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F767ZITx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "MotherEnigine.elf" @"objects.list"   -lm
+Finished building target: MotherEnigine.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "MotherEnigine.elf" "MotherEnigine.hex"
+arm-none-eabi-size "MotherEnigine.elf"
+   text	   data	    bss	    dec	    hex	filename
+  57436	    164	  45292	 102892	  191ec	MotherEnigine.elf
+ 
+16:06:18 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F767xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif/ppp" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix/sys" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system/arch" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c:409:30: error: expected ')' before string constant
+ sprintf(clientMagicPacket_c, "juce/rotaryknobby ,i". p);
+                              ^~~~~~~~~~~~~~~~~~~~~~
+../Src/main.c: In function 'udpApp1_sendMagicPacket':
+../Src/main.c:441:5: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+     memcpy(ethTxBuffer_p->payload, clientMagicPacket_c, sizeof(clientMagicPacket_c));
+     ^~~~~~
+../Src/main.c:441:5: warning: incompatible implicit declaration of built-in function 'memcpy'
+../Src/main.c:441:5: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Src/main.c:443:5: warning: implicit declaration of function 'udp_sendto'; did you mean 'fd_set'? [-Wimplicit-function-declaration]
+     udp_sendto(udpPcb1_p, ethTxBuffer_p, &client1IpAddr,9002);
+     ^~~~~~~~~~
+     fd_set
+../Src/main.c: In function 'udpApp1_init':
+../Src/main.c:457:19: warning: implicit declaration of function 'udp_new' [-Wimplicit-function-declaration]
+       udpPcb1_p = udp_new();
+                   ^~~~~~~
+../Src/main.c:457:17: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+       udpPcb1_p = udp_new();
+                 ^
+../Src/main.c:463:18: warning: implicit declaration of function 'udp_bind' [-Wimplicit-function-declaration]
+         udpErr = udp_bind(udpPcb1_p, &ownIPaddr, 9001);
+                  ^~~~~~~~
+../Src/main.c:465:9: warning: implicit declaration of function 'udp_recv'; did you mean 'udp_echo_recv'? [-Wimplicit-function-declaration]
+         udp_recv(udpPcb1_p, udp_echo_recv, NULL);
+         ^~~~~~~~
+         udp_echo_recv
+make: *** [Src/main.o] Error 1
+16:06:48 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F767xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif/ppp" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix/sys" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system/arch" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c:409:30: error: expected ')' before string constant
+ sprintf(clientMagicPacket_c, "juce/rotaryknobby ,i". p);
+                              ^~~~~~~~~~~~~~~~~~~~~~
+../Src/main.c: In function 'udpApp1_sendMagicPacket':
+../Src/main.c:441:5: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+     memcpy(ethTxBuffer_p->payload, clientMagicPacket_c, sizeof(clientMagicPacket_c));
+     ^~~~~~
+../Src/main.c:441:5: warning: incompatible implicit declaration of built-in function 'memcpy'
+../Src/main.c:441:5: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Src/main.c:443:5: warning: implicit declaration of function 'udp_sendto'; did you mean 'fd_set'? [-Wimplicit-function-declaration]
+     udp_sendto(udpPcb1_p, ethTxBuffer_p, &client1IpAddr,9002);
+     ^~~~~~~~~~
+     fd_set
+../Src/main.c: In function 'udpApp1_init':
+../Src/main.c:457:19: warning: implicit declaration of function 'udp_new' [-Wimplicit-function-declaration]
+       udpPcb1_p = udp_new();
+                   ^~~~~~~
+../Src/main.c:457:17: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+       udpPcb1_p = udp_new();
+                 ^
+../Src/main.c:463:18: warning: implicit declaration of function 'udp_bind' [-Wimplicit-function-declaration]
+         udpErr = udp_bind(udpPcb1_p, &ownIPaddr, 9001);
+                  ^~~~~~~~
+../Src/main.c:465:9: warning: implicit declaration of function 'udp_recv'; did you mean 'udp_echo_recv'? [-Wimplicit-function-declaration]
+         udp_recv(udpPcb1_p, udp_echo_recv, NULL);
+         ^~~~~~~~
+         udp_echo_recv
+make: *** [Src/main.o] Error 1
+16:07:16 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F767xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif/ppp" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix/sys" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system/arch" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c:409:30: error: expected ')' before string constant
+ sprintf(clientMagicPacket_c, "juce/rotaryknobby ,i". p);
+                              ^~~~~~~~~~~~~~~~~~~~~~
+../Src/main.c: In function 'udpApp1_sendMagicPacket':
+../Src/main.c:441:5: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+     memcpy(ethTxBuffer_p->payload, clientMagicPacket_c, sizeof(clientMagicPacket_c));
+     ^~~~~~
+../Src/main.c:441:5: warning: incompatible implicit declaration of built-in function 'memcpy'
+../Src/main.c:441:5: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Src/main.c:443:5: warning: implicit declaration of function 'udp_sendto'; did you mean 'fd_set'? [-Wimplicit-function-declaration]
+     udp_sendto(udpPcb1_p, ethTxBuffer_p, &client1IpAddr,9002);
+     ^~~~~~~~~~
+     fd_set
+../Src/main.c: In function 'udpApp1_init':
+../Src/main.c:457:19: warning: implicit declaration of function 'udp_new' [-Wimplicit-function-declaration]
+       udpPcb1_p = udp_new();
+                   ^~~~~~~
+../Src/main.c:457:17: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+       udpPcb1_p = udp_new();
+                 ^
+../Src/main.c:463:18: warning: implicit declaration of function 'udp_bind' [-Wimplicit-function-declaration]
+         udpErr = udp_bind(udpPcb1_p, &ownIPaddr, 9001);
+                  ^~~~~~~~
+../Src/main.c:465:9: warning: implicit declaration of function 'udp_recv'; did you mean 'udp_echo_recv'? [-Wimplicit-function-declaration]
+         udp_recv(udpPcb1_p, udp_echo_recv, NULL);
+         ^~~~~~~~
+         udp_echo_recv
+make: *** [Src/main.o] Error 1
+16:08:55 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F767xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif/ppp" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix/sys" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system/arch" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c:410:29: error: expected ')' before string constant
+ sprintf(clientMagicPacket_c,"juce/rotaryknobby , %i". p);
+                             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/main.c: In function 'udpApp1_sendMagicPacket':
+../Src/main.c:442:5: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+     memcpy(ethTxBuffer_p->payload, clientMagicPacket_c, sizeof(clientMagicPacket_c));
+     ^~~~~~
+../Src/main.c:442:5: warning: incompatible implicit declaration of built-in function 'memcpy'
+../Src/main.c:442:5: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Src/main.c:444:5: warning: implicit declaration of function 'udp_sendto'; did you mean 'fd_set'? [-Wimplicit-function-declaration]
+     udp_sendto(udpPcb1_p, ethTxBuffer_p, &client1IpAddr,9002);
+     ^~~~~~~~~~
+     fd_set
+../Src/main.c: In function 'udpApp1_init':
+../Src/main.c:458:19: warning: implicit declaration of function 'udp_new' [-Wimplicit-function-declaration]
+       udpPcb1_p = udp_new();
+                   ^~~~~~~
+../Src/main.c:458:17: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+       udpPcb1_p = udp_new();
+                 ^
+../Src/main.c:464:18: warning: implicit declaration of function 'udp_bind' [-Wimplicit-function-declaration]
+         udpErr = udp_bind(udpPcb1_p, &ownIPaddr, 9001);
+                  ^~~~~~~~
+../Src/main.c:466:9: warning: implicit declaration of function 'udp_recv'; did you mean 'udp_echo_recv'? [-Wimplicit-function-declaration]
+         udp_recv(udpPcb1_p, udp_echo_recv, NULL);
+         ^~~~~~~~
+         udp_echo_recv
+make: *** [Src/main.o] Error 1
+16:09:17 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F767xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif/ppp" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix/sys" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system/arch" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c:410:29: error: expected ')' before string constant
+ sprintf(clientMagicPacket_c,"juce/rotaryknobby, %i". p);
+                             ^~~~~~~~~~~~~~~~~~~~~~~
+../Src/main.c: In function 'udpApp1_sendMagicPacket':
+../Src/main.c:442:5: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+     memcpy(ethTxBuffer_p->payload, clientMagicPacket_c, sizeof(clientMagicPacket_c));
+     ^~~~~~
+../Src/main.c:442:5: warning: incompatible implicit declaration of built-in function 'memcpy'
+../Src/main.c:442:5: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Src/main.c:444:5: warning: implicit declaration of function 'udp_sendto'; did you mean 'fd_set'? [-Wimplicit-function-declaration]
+     udp_sendto(udpPcb1_p, ethTxBuffer_p, &client1IpAddr,9002);
+     ^~~~~~~~~~
+     fd_set
+../Src/main.c: In function 'udpApp1_init':
+../Src/main.c:458:19: warning: implicit declaration of function 'udp_new' [-Wimplicit-function-declaration]
+       udpPcb1_p = udp_new();
+                   ^~~~~~~
+../Src/main.c:458:17: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+       udpPcb1_p = udp_new();
+                 ^
+../Src/main.c:464:18: warning: implicit declaration of function 'udp_bind' [-Wimplicit-function-declaration]
+         udpErr = udp_bind(udpPcb1_p, &ownIPaddr, 9001);
+                  ^~~~~~~~
+../Src/main.c:466:9: warning: implicit declaration of function 'udp_recv'; did you mean 'udp_echo_recv'? [-Wimplicit-function-declaration]
+         udp_recv(udpPcb1_p, udp_echo_recv, NULL);
+         ^~~~~~~~
+         udp_echo_recv
+make: *** [Src/main.o] Error 1
+16:10:09 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F767xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif/ppp" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix/sys" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system/arch" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c:410:30: error: expected ')' before string constant
+ sprintf(clientMagicPacket_c ,"juce/rotaryknobby, %i". p);
+                              ^~~~~~~~~~~~~~~~~~~~~~~
+../Src/main.c: In function 'udpApp1_sendMagicPacket':
+../Src/main.c:442:5: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+     memcpy(ethTxBuffer_p->payload, clientMagicPacket_c, sizeof(clientMagicPacket_c));
+     ^~~~~~
+../Src/main.c:442:5: warning: incompatible implicit declaration of built-in function 'memcpy'
+../Src/main.c:442:5: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Src/main.c:444:5: warning: implicit declaration of function 'udp_sendto'; did you mean 'fd_set'? [-Wimplicit-function-declaration]
+     udp_sendto(udpPcb1_p, ethTxBuffer_p, &client1IpAddr,9002);
+     ^~~~~~~~~~
+     fd_set
+../Src/main.c: In function 'udpApp1_init':
+../Src/main.c:458:19: warning: implicit declaration of function 'udp_new' [-Wimplicit-function-declaration]
+       udpPcb1_p = udp_new();
+                   ^~~~~~~
+../Src/main.c:458:17: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+       udpPcb1_p = udp_new();
+                 ^
+../Src/main.c:464:18: warning: implicit declaration of function 'udp_bind' [-Wimplicit-function-declaration]
+         udpErr = udp_bind(udpPcb1_p, &ownIPaddr, 9001);
+                  ^~~~~~~~
+../Src/main.c:466:9: warning: implicit declaration of function 'udp_recv'; did you mean 'udp_echo_recv'? [-Wimplicit-function-declaration]
+         udp_recv(udpPcb1_p, udp_echo_recv, NULL);
+         ^~~~~~~~
+         udp_echo_recv
+make: *** [Src/main.o] Error 1
+16:10:25 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F767xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif/ppp" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix/sys" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system/arch" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c:410:14: error: expected ')' before string constant
+ sprintf(str, "Value of Pi = %f", p);
+              ^~~~~~~~~~~~~~~~~~
+../Src/main.c: In function 'udpApp1_sendMagicPacket':
+../Src/main.c:442:5: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+     memcpy(ethTxBuffer_p->payload, clientMagicPacket_c, sizeof(clientMagicPacket_c));
+     ^~~~~~
+../Src/main.c:442:5: warning: incompatible implicit declaration of built-in function 'memcpy'
+../Src/main.c:442:5: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Src/main.c:444:5: warning: implicit declaration of function 'udp_sendto'; did you mean 'fd_set'? [-Wimplicit-function-declaration]
+     udp_sendto(udpPcb1_p, ethTxBuffer_p, &client1IpAddr,9002);
+     ^~~~~~~~~~
+     fd_set
+../Src/main.c: In function 'udpApp1_init':
+../Src/main.c:458:19: warning: implicit declaration of function 'udp_new' [-Wimplicit-function-declaration]
+       udpPcb1_p = udp_new();
+                   ^~~~~~~
+../Src/main.c:458:17: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+       udpPcb1_p = udp_new();
+                 ^
+../Src/main.c:464:18: warning: implicit declaration of function 'udp_bind' [-Wimplicit-function-declaration]
+         udpErr = udp_bind(udpPcb1_p, &ownIPaddr, 9001);
+                  ^~~~~~~~
+../Src/main.c:466:9: warning: implicit declaration of function 'udp_recv'; did you mean 'udp_echo_recv'? [-Wimplicit-function-declaration]
+         udp_recv(udpPcb1_p, udp_echo_recv, NULL);
+         ^~~~~~~~
+         udp_echo_recv
+make: *** [Src/main.o] Error 1
+16:12:19 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F767xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif/ppp" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix/sys" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system/arch" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c:410:14: error: expected ')' before string constant
+ sprintf(str, "Value of Pi = %f");
+              ^~~~~~~~~~~~~~~~~~
+../Src/main.c: In function 'udpApp1_sendMagicPacket':
+../Src/main.c:442:5: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+     memcpy(ethTxBuffer_p->payload, clientMagicPacket_c, sizeof(clientMagicPacket_c));
+     ^~~~~~
+../Src/main.c:442:5: warning: incompatible implicit declaration of built-in function 'memcpy'
+../Src/main.c:442:5: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Src/main.c:444:5: warning: implicit declaration of function 'udp_sendto'; did you mean 'fd_set'? [-Wimplicit-function-declaration]
+     udp_sendto(udpPcb1_p, ethTxBuffer_p, &client1IpAddr,9002);
+     ^~~~~~~~~~
+     fd_set
+../Src/main.c: In function 'udpApp1_init':
+../Src/main.c:458:19: warning: implicit declaration of function 'udp_new' [-Wimplicit-function-declaration]
+       udpPcb1_p = udp_new();
+                   ^~~~~~~
+../Src/main.c:458:17: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+       udpPcb1_p = udp_new();
+                 ^
+../Src/main.c:464:18: warning: implicit declaration of function 'udp_bind' [-Wimplicit-function-declaration]
+         udpErr = udp_bind(udpPcb1_p, &ownIPaddr, 9001);
+                  ^~~~~~~~
+../Src/main.c:466:9: warning: implicit declaration of function 'udp_recv'; did you mean 'udp_echo_recv'? [-Wimplicit-function-declaration]
+         udp_recv(udpPcb1_p, udp_echo_recv, NULL);
+         ^~~~~~~~
+         udp_echo_recv
+make: *** [Src/main.o] Error 1
+16:12:33 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F767xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif/ppp" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix/sys" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system/arch" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c:410:14: error: expected ')' before string constant
+ sprintf(str, "Value of");
+              ^~~~~~~~~~
+../Src/main.c: In function 'udpApp1_sendMagicPacket':
+../Src/main.c:442:5: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+     memcpy(ethTxBuffer_p->payload, clientMagicPacket_c, sizeof(clientMagicPacket_c));
+     ^~~~~~
+../Src/main.c:442:5: warning: incompatible implicit declaration of built-in function 'memcpy'
+../Src/main.c:442:5: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Src/main.c:444:5: warning: implicit declaration of function 'udp_sendto'; did you mean 'fd_set'? [-Wimplicit-function-declaration]
+     udp_sendto(udpPcb1_p, ethTxBuffer_p, &client1IpAddr,9002);
+     ^~~~~~~~~~
+     fd_set
+../Src/main.c: In function 'udpApp1_init':
+../Src/main.c:458:19: warning: implicit declaration of function 'udp_new' [-Wimplicit-function-declaration]
+       udpPcb1_p = udp_new();
+                   ^~~~~~~
+../Src/main.c:458:17: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+       udpPcb1_p = udp_new();
+                 ^
+../Src/main.c:464:18: warning: implicit declaration of function 'udp_bind' [-Wimplicit-function-declaration]
+         udpErr = udp_bind(udpPcb1_p, &ownIPaddr, 9001);
+                  ^~~~~~~~
+../Src/main.c:466:9: warning: implicit declaration of function 'udp_recv'; did you mean 'udp_echo_recv'? [-Wimplicit-function-declaration]
+         udp_recv(udpPcb1_p, udp_echo_recv, NULL);
+         ^~~~~~~~
+         udp_echo_recv
+make: *** [Src/main.o] Error 1
+16:12:44 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F767xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif/ppp" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix/sys" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system/arch" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c:410:14: error: expected ')' before string constant
+ sprintf(str, "Value of");
+              ^~~~~~~~~~
+../Src/main.c: In function 'udpApp1_sendMagicPacket':
+../Src/main.c:442:5: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+     memcpy(ethTxBuffer_p->payload, clientMagicPacket_c, sizeof(clientMagicPacket_c));
+     ^~~~~~
+../Src/main.c:442:5: warning: incompatible implicit declaration of built-in function 'memcpy'
+../Src/main.c:442:5: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Src/main.c:444:5: warning: implicit declaration of function 'udp_sendto'; did you mean 'fd_set'? [-Wimplicit-function-declaration]
+     udp_sendto(udpPcb1_p, ethTxBuffer_p, &client1IpAddr,9002);
+     ^~~~~~~~~~
+     fd_set
+../Src/main.c: In function 'udpApp1_init':
+../Src/main.c:458:19: warning: implicit declaration of function 'udp_new' [-Wimplicit-function-declaration]
+       udpPcb1_p = udp_new();
+                   ^~~~~~~
+../Src/main.c:458:17: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+       udpPcb1_p = udp_new();
+                 ^
+../Src/main.c:464:18: warning: implicit declaration of function 'udp_bind' [-Wimplicit-function-declaration]
+         udpErr = udp_bind(udpPcb1_p, &ownIPaddr, 9001);
+                  ^~~~~~~~
+../Src/main.c:466:9: warning: implicit declaration of function 'udp_recv'; did you mean 'udp_echo_recv'? [-Wimplicit-function-declaration]
+         udp_recv(udpPcb1_p, udp_echo_recv, NULL);
+         ^~~~~~~~
+         udp_echo_recv
+make: *** [Src/main.o] Error 1
+16:14:39 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F767xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif/ppp" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix/sys" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system/arch" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'udpApp1_sendMagicPacket':
+../Src/main.c:442:5: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+     memcpy(ethTxBuffer_p->payload, clientMagicPacket_c, sizeof(clientMagicPacket_c));
+     ^~~~~~
+../Src/main.c:442:5: warning: incompatible implicit declaration of built-in function 'memcpy'
+../Src/main.c:442:5: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Src/main.c:444:5: warning: implicit declaration of function 'udp_sendto'; did you mean 'fd_set'? [-Wimplicit-function-declaration]
+     udp_sendto(udpPcb1_p, ethTxBuffer_p, &client1IpAddr,9002);
+     ^~~~~~~~~~
+     fd_set
+../Src/main.c: In function 'udpApp1_init':
+../Src/main.c:458:19: warning: implicit declaration of function 'udp_new' [-Wimplicit-function-declaration]
+       udpPcb1_p = udp_new();
+                   ^~~~~~~
+../Src/main.c:458:17: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+       udpPcb1_p = udp_new();
+                 ^
+../Src/main.c:464:18: warning: implicit declaration of function 'udp_bind' [-Wimplicit-function-declaration]
+         udpErr = udp_bind(udpPcb1_p, &ownIPaddr, 9001);
+                  ^~~~~~~~
+../Src/main.c:466:9: warning: implicit declaration of function 'udp_recv'; did you mean 'udp_echo_recv'? [-Wimplicit-function-declaration]
+         udp_recv(udpPcb1_p, udp_echo_recv, NULL);
+         ^~~~~~~~
+         udp_echo_recv
+Finished building: ../Src/main.c
+ 
+Building target: MotherEnigine.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F767ZITx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "MotherEnigine.elf" @"objects.list"   -lm
+Finished building target: MotherEnigine.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "MotherEnigine.elf" "MotherEnigine.hex"
+arm-none-eabi-size "MotherEnigine.elf"
+   text	   data	    bss	    dec	    hex	filename
+  57436	    168	  45296	 102900	  191f4	MotherEnigine.elf
+ 
+16:15:18 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F767xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif/ppp" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix/sys" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system/arch" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'udpApp1_sendMagicPacket':
+../Src/main.c:440:5: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+     memcpy(ethTxBuffer_p->payload, clientMagicPacket_c, sizeof(clientMagicPacket_c));
+     ^~~~~~
+../Src/main.c:440:5: warning: incompatible implicit declaration of built-in function 'memcpy'
+../Src/main.c:440:5: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Src/main.c:442:5: warning: implicit declaration of function 'udp_sendto'; did you mean 'fd_set'? [-Wimplicit-function-declaration]
+     udp_sendto(udpPcb1_p, ethTxBuffer_p, &client1IpAddr,9002);
+     ^~~~~~~~~~
+     fd_set
+../Src/main.c: In function 'udpApp1_init':
+../Src/main.c:456:19: warning: implicit declaration of function 'udp_new' [-Wimplicit-function-declaration]
+       udpPcb1_p = udp_new();
+                   ^~~~~~~
+../Src/main.c:456:17: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+       udpPcb1_p = udp_new();
+                 ^
+../Src/main.c:462:18: warning: implicit declaration of function 'udp_bind' [-Wimplicit-function-declaration]
+         udpErr = udp_bind(udpPcb1_p, &ownIPaddr, 9001);
+                  ^~~~~~~~
+../Src/main.c:464:9: warning: implicit declaration of function 'udp_recv'; did you mean 'udp_echo_recv'? [-Wimplicit-function-declaration]
+         udp_recv(udpPcb1_p, udp_echo_recv, NULL);
+         ^~~~~~~~
+         udp_echo_recv
+Finished building: ../Src/main.c
+ 
+Building target: MotherEnigine.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F767ZITx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "MotherEnigine.elf" @"objects.list"   -lm
+Finished building target: MotherEnigine.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "MotherEnigine.elf" "MotherEnigine.hex"
+arm-none-eabi-size "MotherEnigine.elf"
+   text	   data	    bss	    dec	    hex	filename
+  57464	    168	  45296	 102928	  19210	MotherEnigine.elf
+ 
+16:15:52 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F767xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif/ppp" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix/sys" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system/arch" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'udpApp1_sendMagicPacket':
+../Src/main.c:445:5: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+     memcpy(ethTxBuffer_p->payload, clientMagicPacket_c, sizeof(clientMagicPacket_c));
+     ^~~~~~
+../Src/main.c:445:5: warning: incompatible implicit declaration of built-in function 'memcpy'
+../Src/main.c:445:5: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Src/main.c:447:5: warning: implicit declaration of function 'udp_sendto'; did you mean 'fd_set'? [-Wimplicit-function-declaration]
+     udp_sendto(udpPcb1_p, ethTxBuffer_p, &client1IpAddr,9002);
+     ^~~~~~~~~~
+     fd_set
+../Src/main.c: In function 'udpApp1_init':
+../Src/main.c:461:19: warning: implicit declaration of function 'udp_new' [-Wimplicit-function-declaration]
+       udpPcb1_p = udp_new();
+                   ^~~~~~~
+../Src/main.c:461:17: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+       udpPcb1_p = udp_new();
+                 ^
+../Src/main.c:467:18: warning: implicit declaration of function 'udp_bind' [-Wimplicit-function-declaration]
+         udpErr = udp_bind(udpPcb1_p, &ownIPaddr, 9001);
+                  ^~~~~~~~
+../Src/main.c:469:9: warning: implicit declaration of function 'udp_recv'; did you mean 'udp_echo_recv'? [-Wimplicit-function-declaration]
+         udp_recv(udpPcb1_p, udp_echo_recv, NULL);
+         ^~~~~~~~
+         udp_echo_recv
+Finished building: ../Src/main.c
+ 
+Building target: MotherEnigine.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F767ZITx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "MotherEnigine.elf" @"objects.list"   -lm
+Finished building target: MotherEnigine.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "MotherEnigine.elf" "MotherEnigine.hex"
+arm-none-eabi-size "MotherEnigine.elf"
+   text	   data	    bss	    dec	    hex	filename
+  57460	    168	  45296	 102924	  1920c	MotherEnigine.elf
+ 
+16:16:16 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F767xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif/ppp" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix/sys" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system/arch" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'udpApp1_sendMagicPacket':
+../Src/main.c:445:5: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+     memcpy(ethTxBuffer_p->payload, clientMagicPacket_c, sizeof(clientMagicPacket_c));
+     ^~~~~~
+../Src/main.c:445:5: warning: incompatible implicit declaration of built-in function 'memcpy'
+../Src/main.c:445:5: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Src/main.c:447:5: warning: implicit declaration of function 'udp_sendto'; did you mean 'fd_set'? [-Wimplicit-function-declaration]
+     udp_sendto(udpPcb1_p, ethTxBuffer_p, &client1IpAddr,9002);
+     ^~~~~~~~~~
+     fd_set
+../Src/main.c: In function 'udpApp1_init':
+../Src/main.c:461:19: warning: implicit declaration of function 'udp_new' [-Wimplicit-function-declaration]
+       udpPcb1_p = udp_new();
+                   ^~~~~~~
+../Src/main.c:461:17: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+       udpPcb1_p = udp_new();
+                 ^
+../Src/main.c:467:18: warning: implicit declaration of function 'udp_bind' [-Wimplicit-function-declaration]
+         udpErr = udp_bind(udpPcb1_p, &ownIPaddr, 9001);
+                  ^~~~~~~~
+../Src/main.c:469:9: warning: implicit declaration of function 'udp_recv'; did you mean 'udp_echo_recv'? [-Wimplicit-function-declaration]
+         udp_recv(udpPcb1_p, udp_echo_recv, NULL);
+         ^~~~~~~~
+         udp_echo_recv
+Finished building: ../Src/main.c
+ 
+Building target: MotherEnigine.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F767ZITx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "MotherEnigine.elf" @"objects.list"   -lm
+Finished building target: MotherEnigine.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "MotherEnigine.elf" "MotherEnigine.hex"
+arm-none-eabi-size "MotherEnigine.elf"
+   text	   data	    bss	    dec	    hex	filename
+  57464	    168	  45296	 102928	  19210	MotherEnigine.elf
+ 
+16:17:58 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F767xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif/ppp" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix/sys" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system/arch" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'udpApp1_sendMagicPacket':
+../Src/main.c:447:5: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+     memcpy(ethTxBuffer_p->payload, clientMagicPacket_c, sizeof(clientMagicPacket_c));
+     ^~~~~~
+../Src/main.c:447:5: warning: incompatible implicit declaration of built-in function 'memcpy'
+../Src/main.c:447:5: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Src/main.c:449:5: warning: implicit declaration of function 'udp_sendto'; did you mean 'fd_set'? [-Wimplicit-function-declaration]
+     udp_sendto(udpPcb1_p, ethTxBuffer_p, &client1IpAddr,9002);
+     ^~~~~~~~~~
+     fd_set
+../Src/main.c: In function 'udpApp1_init':
+../Src/main.c:463:19: warning: implicit declaration of function 'udp_new' [-Wimplicit-function-declaration]
+       udpPcb1_p = udp_new();
+                   ^~~~~~~
+../Src/main.c:463:17: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+       udpPcb1_p = udp_new();
+                 ^
+../Src/main.c:469:18: warning: implicit declaration of function 'udp_bind' [-Wimplicit-function-declaration]
+         udpErr = udp_bind(udpPcb1_p, &ownIPaddr, 9001);
+                  ^~~~~~~~
+../Src/main.c:471:9: warning: implicit declaration of function 'udp_recv'; did you mean 'udp_echo_recv'? [-Wimplicit-function-declaration]
+         udp_recv(udpPcb1_p, udp_echo_recv, NULL);
+         ^~~~~~~~
+         udp_echo_recv
+Finished building: ../Src/main.c
+ 
+Building target: MotherEnigine.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F767ZITx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "MotherEnigine.elf" @"objects.list"   -lm
+Finished building target: MotherEnigine.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "MotherEnigine.elf" "MotherEnigine.hex"
+arm-none-eabi-size "MotherEnigine.elf"
+   text	   data	    bss	    dec	    hex	filename
+  58368	    140	  45348	 103856	  195b0	MotherEnigine.elf
+ 
+16:21:13 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F767xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif/ppp" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix/sys" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system/arch" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c:406:6: warning: excess elements in scalar initializer
+ {'/','j','u','c','e','/','r','o','t','a','r','y','b','u','t','t','e','r',0x00,0x00,',','i',0x00,0x00,0x00,0x00,0x00,0x10};
+      ^~~
+../Src/main.c:406:6: note: (near initialization for 'clientMagicPacket_c')
+../Src/main.c:406:10: warning: excess elements in scalar initializer
+ {'/','j','u','c','e','/','r','o','t','a','r','y','b','u','t','t','e','r',0x00,0x00,',','i',0x00,0x00,0x00,0x00,0x00,0x10};
+          ^~~
+../Src/main.c:406:10: note: (near initialization for 'clientMagicPacket_c')
+../Src/main.c:406:14: warning: excess elements in scalar initializer
+ {'/','j','u','c','e','/','r','o','t','a','r','y','b','u','t','t','e','r',0x00,0x00,',','i',0x00,0x00,0x00,0x00,0x00,0x10};
+              ^~~
+../Src/main.c:406:14: note: (near initialization for 'clientMagicPacket_c')
+../Src/main.c:406:18: warning: excess elements in scalar initializer
+ {'/','j','u','c','e','/','r','o','t','a','r','y','b','u','t','t','e','r',0x00,0x00,',','i',0x00,0x00,0x00,0x00,0x00,0x10};
+                  ^~~
+../Src/main.c:406:18: note: (near initialization for 'clientMagicPacket_c')
+../Src/main.c:406:22: warning: excess elements in scalar initializer
+ {'/','j','u','c','e','/','r','o','t','a','r','y','b','u','t','t','e','r',0x00,0x00,',','i',0x00,0x00,0x00,0x00,0x00,0x10};
+                      ^~~
+../Src/main.c:406:22: note: (near initialization for 'clientMagicPacket_c')
+../Src/main.c:406:26: warning: excess elements in scalar initializer
+ {'/','j','u','c','e','/','r','o','t','a','r','y','b','u','t','t','e','r',0x00,0x00,',','i',0x00,0x00,0x00,0x00,0x00,0x10};
+                          ^~~
+../Src/main.c:406:26: note: (near initialization for 'clientMagicPacket_c')
+../Src/main.c:406:30: warning: excess elements in scalar initializer
+ {'/','j','u','c','e','/','r','o','t','a','r','y','b','u','t','t','e','r',0x00,0x00,',','i',0x00,0x00,0x00,0x00,0x00,0x10};
+                              ^~~
+../Src/main.c:406:30: note: (near initialization for 'clientMagicPacket_c')
+../Src/main.c:406:34: warning: excess elements in scalar initializer
+ {'/','j','u','c','e','/','r','o','t','a','r','y','b','u','t','t','e','r',0x00,0x00,',','i',0x00,0x00,0x00,0x00,0x00,0x10};
+                                  ^~~
+../Src/main.c:406:34: note: (near initialization for 'clientMagicPacket_c')
+../Src/main.c:406:38: warning: excess elements in scalar initializer
+ {'/','j','u','c','e','/','r','o','t','a','r','y','b','u','t','t','e','r',0x00,0x00,',','i',0x00,0x00,0x00,0x00,0x00,0x10};
+                                      ^~~
+../Src/main.c:406:38: note: (near initialization for 'clientMagicPacket_c')
+../Src/main.c:406:42: warning: excess elements in scalar initializer
+ {'/','j','u','c','e','/','r','o','t','a','r','y','b','u','t','t','e','r',0x00,0x00,',','i',0x00,0x00,0x00,0x00,0x00,0x10};
+                                          ^~~
+../Src/main.c:406:42: note: (near initialization for 'clientMagicPacket_c')
+../Src/main.c:406:46: warning: excess elements in scalar initializer
+ {'/','j','u','c','e','/','r','o','t','a','r','y','b','u','t','t','e','r',0x00,0x00,',','i',0x00,0x00,0x00,0x00,0x00,0x10};
+                                              ^~~
+../Src/main.c:406:46: note: (near initialization for 'clientMagicPacket_c')
+../Src/main.c:406:50: warning: excess elements in scalar initializer
+ {'/','j','u','c','e','/','r','o','t','a','r','y','b','u','t','t','e','r',0x00,0x00,',','i',0x00,0x00,0x00,0x00,0x00,0x10};
+                                                  ^~~
+../Src/main.c:406:50: note: (near initialization for 'clientMagicPacket_c')
+../Src/main.c:406:54: warning: excess elements in scalar initializer
+ {'/','j','u','c','e','/','r','o','t','a','r','y','b','u','t','t','e','r',0x00,0x00,',','i',0x00,0x00,0x00,0x00,0x00,0x10};
+                                                      ^~~
+../Src/main.c:406:54: note: (near initialization for 'clientMagicPacket_c')
+../Src/main.c:406:58: warning: excess elements in scalar initializer
+ {'/','j','u','c','e','/','r','o','t','a','r','y','b','u','t','t','e','r',0x00,0x00,',','i',0x00,0x00,0x00,0x00,0x00,0x10};
+                                                          ^~~
+../Src/main.c:406:58: note: (near initialization for 'clientMagicPacket_c')
+../Src/main.c:406:62: warning: excess elements in scalar initializer
+ {'/','j','u','c','e','/','r','o','t','a','r','y','b','u','t','t','e','r',0x00,0x00,',','i',0x00,0x00,0x00,0x00,0x00,0x10};
+                                                              ^~~
+../Src/main.c:406:62: note: (near initialization for 'clientMagicPacket_c')
+../Src/main.c:406:66: warning: excess elements in scalar initializer
+ {'/','j','u','c','e','/','r','o','t','a','r','y','b','u','t','t','e','r',0x00,0x00,',','i',0x00,0x00,0x00,0x00,0x00,0x10};
+                                                                  ^~~
+../Src/main.c:406:66: note: (near initialization for 'clientMagicPacket_c')
+../Src/main.c:406:70: warning: excess elements in scalar initializer
+ {'/','j','u','c','e','/','r','o','t','a','r','y','b','u','t','t','e','r',0x00,0x00,',','i',0x00,0x00,0x00,0x00,0x00,0x10};
+                                                                      ^~~
+../Src/main.c:406:70: note: (near initialization for 'clientMagicPacket_c')
+../Src/main.c:406:74: warning: excess elements in scalar initializer
+ {'/','j','u','c','e','/','r','o','t','a','r','y','b','u','t','t','e','r',0x00,0x00,',','i',0x00,0x00,0x00,0x00,0x00,0x10};
+                                                                          ^~~~
+../Src/main.c:406:74: note: (near initialization for 'clientMagicPacket_c')
+../Src/main.c:406:79: warning: excess elements in scalar initializer
+ {'/','j','u','c','e','/','r','o','t','a','r','y','b','u','t','t','e','r',0x00,0x00,',','i',0x00,0x00,0x00,0x00,0x00,0x10};
+                                                                               ^~~~
+../Src/main.c:406:79: note: (near initialization for 'clientMagicPacket_c')
+../Src/main.c:406:84: warning: excess elements in scalar initializer
+ {'/','j','u','c','e','/','r','o','t','a','r','y','b','u','t','t','e','r',0x00,0x00,',','i',0x00,0x00,0x00,0x00,0x00,0x10};
+                                                                                    ^~~
+../Src/main.c:406:84: note: (near initialization for 'clientMagicPacket_c')
+../Src/main.c:406:88: warning: excess elements in scalar initializer
+ {'/','j','u','c','e','/','r','o','t','a','r','y','b','u','t','t','e','r',0x00,0x00,',','i',0x00,0x00,0x00,0x00,0x00,0x10};
+                                                                                        ^~~
+../Src/main.c:406:88: note: (near initialization for 'clientMagicPacket_c')
+../Src/main.c:406:92: warning: excess elements in scalar initializer
+ {'/','j','u','c','e','/','r','o','t','a','r','y','b','u','t','t','e','r',0x00,0x00,',','i',0x00,0x00,0x00,0x00,0x00,0x10};
+                                                                                            ^~~~
+../Src/main.c:406:92: note: (near initialization for 'clientMagicPacket_c')
+../Src/main.c:406:97: warning: excess elements in scalar initializer
+ {'/','j','u','c','e','/','r','o','t','a','r','y','b','u','t','t','e','r',0x00,0x00,',','i',0x00,0x00,0x00,0x00,0x00,0x10};
+                                                                                                 ^~~~
+../Src/main.c:406:97: note: (near initialization for 'clientMagicPacket_c')
+../Src/main.c:406:102: warning: excess elements in scalar initializer
+ {'/','j','u','c','e','/','r','o','t','a','r','y','b','u','t','t','e','r',0x00,0x00,',','i',0x00,0x00,0x00,0x00,0x00,0x10};
+                                                                                                      ^~~~
+../Src/main.c:406:102: note: (near initialization for 'clientMagicPacket_c')
+../Src/main.c:406:107: warning: excess elements in scalar initializer
+ {'/','j','u','c','e','/','r','o','t','a','r','y','b','u','t','t','e','r',0x00,0x00,',','i',0x00,0x00,0x00,0x00,0x00,0x10};
+                                                                                                           ^~~~
+../Src/main.c:406:107: note: (near initialization for 'clientMagicPacket_c')
+../Src/main.c:406:112: warning: excess elements in scalar initializer
+ {'/','j','u','c','e','/','r','o','t','a','r','y','b','u','t','t','e','r',0x00,0x00,',','i',0x00,0x00,0x00,0x00,0x00,0x10};
+                                                                                                                ^~~~
+../Src/main.c:406:112: note: (near initialization for 'clientMagicPacket_c')
+../Src/main.c:406:117: warning: excess elements in scalar initializer
+ {'/','j','u','c','e','/','r','o','t','a','r','y','b','u','t','t','e','r',0x00,0x00,',','i',0x00,0x00,0x00,0x00,0x00,0x10};
+                                                                                                                     ^~~~
+../Src/main.c:406:117: note: (near initialization for 'clientMagicPacket_c')
+../Src/main.c: In function 'udpApp1_sendMagicPacket':
+../Src/main.c:438:54: warning: 'sizeof' on array function parameter 'output' will return size of 'char *' [-Wsizeof-array-argument]
+     ethTxBuffer_p = pbuf_alloc(PBUF_TRANSPORT, sizeof(output), PBUF_RAM);
+                                                      ^
+../Src/main.c:432:37: note: declared here
+   void udpApp1_sendMagicPacket(char output[]){
+                                     ^~~~~~
+../Src/main.c:441:5: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+     memcpy(ethTxBuffer_p->payload, output, sizeof(output));
+     ^~~~~~
+../Src/main.c:441:5: warning: incompatible implicit declaration of built-in function 'memcpy'
+../Src/main.c:441:5: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Src/main.c:441:50: warning: 'sizeof' on array function parameter 'output' will return size of 'char *' [-Wsizeof-array-argument]
+     memcpy(ethTxBuffer_p->payload, output, sizeof(output));
+                                                  ^
+../Src/main.c:432:37: note: declared here
+   void udpApp1_sendMagicPacket(char output[]){
+                                     ^~~~~~
+../Src/main.c:441:50: warning: argument to 'sizeof' in 'memcpy' call is the same expression as the source; did you mean to provide an explicit length? [-Wsizeof-pointer-memaccess]
+     memcpy(ethTxBuffer_p->payload, output, sizeof(output));
+                                                  ^
+../Src/main.c:443:5: warning: implicit declaration of function 'udp_sendto'; did you mean 'fd_set'? [-Wimplicit-function-declaration]
+     udp_sendto(udpPcb1_p, ethTxBuffer_p, &client1IpAddr,9002);
+     ^~~~~~~~~~
+     fd_set
+../Src/main.c: In function 'udpApp1_init':
+../Src/main.c:457:19: warning: implicit declaration of function 'udp_new' [-Wimplicit-function-declaration]
+       udpPcb1_p = udp_new();
+                   ^~~~~~~
+../Src/main.c:457:17: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+       udpPcb1_p = udp_new();
+                 ^
+../Src/main.c:463:18: warning: implicit declaration of function 'udp_bind' [-Wimplicit-function-declaration]
+         udpErr = udp_bind(udpPcb1_p, &ownIPaddr, 9001);
+                  ^~~~~~~~
+../Src/main.c:465:9: warning: implicit declaration of function 'udp_recv'; did you mean 'udp_echo_recv'? [-Wimplicit-function-declaration]
+         udp_recv(udpPcb1_p, udp_echo_recv, NULL);
+         ^~~~~~~~
+         udp_echo_recv
+../Src/main.c: In function 'StartDefaultTask':
+../Src/main.c:487:26: warning: passing argument 1 of 'udpApp1_sendMagicPacket' makes pointer from integer without a cast [-Wint-conversion]
+  udpApp1_sendMagicPacket(clientMagicPacket_c);
+                          ^~~~~~~~~~~~~~~~~~~
+../Src/main.c:432:8: note: expected 'char *' but argument is of type 'char'
+   void udpApp1_sendMagicPacket(char output[]){
+        ^~~~~~~~~~~~~~~~~~~~~~~
+Finished building: ../Src/main.c
+ 
+Building target: MotherEnigine.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F767ZITx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "MotherEnigine.elf" @"objects.list"   -lm
+Finished building target: MotherEnigine.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "MotherEnigine.elf" "MotherEnigine.hex"
+arm-none-eabi-size "MotherEnigine.elf"
+   text	   data	    bss	    dec	    hex	filename
+  57428	    144	  45296	 102868	  191d4	MotherEnigine.elf
+ 
+16:22:58 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F767xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif/ppp" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix/sys" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system/arch" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'udpApp1_sendMagicPacket':
+../Src/main.c:437:5: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+     memcpy(ethTxBuffer_p->payload, clientMagicPacket_c, sizeof(clientMagicPacket_c));
+     ^~~~~~
+../Src/main.c:437:5: warning: incompatible implicit declaration of built-in function 'memcpy'
+../Src/main.c:437:5: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Src/main.c:439:5: warning: implicit declaration of function 'udp_sendto'; did you mean 'fd_set'? [-Wimplicit-function-declaration]
+     udp_sendto(udpPcb1_p, ethTxBuffer_p, &client1IpAddr,9002);
+     ^~~~~~~~~~
+     fd_set
+../Src/main.c: In function 'udpApp1_init':
+../Src/main.c:453:19: warning: implicit declaration of function 'udp_new' [-Wimplicit-function-declaration]
+       udpPcb1_p = udp_new();
+                   ^~~~~~~
+../Src/main.c:453:17: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+       udpPcb1_p = udp_new();
+                 ^
+../Src/main.c:459:18: warning: implicit declaration of function 'udp_bind' [-Wimplicit-function-declaration]
+         udpErr = udp_bind(udpPcb1_p, &ownIPaddr, 9001);
+                  ^~~~~~~~
+../Src/main.c:461:9: warning: implicit declaration of function 'udp_recv'; did you mean 'udp_echo_recv'? [-Wimplicit-function-declaration]
+         udp_recv(udpPcb1_p, udp_echo_recv, NULL);
+         ^~~~~~~~
+         udp_echo_recv
+Finished building: ../Src/main.c
+ 
+Building target: MotherEnigine.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F767ZITx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "MotherEnigine.elf" @"objects.list"   -lm
+Finished building target: MotherEnigine.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "MotherEnigine.elf" "MotherEnigine.hex"
+arm-none-eabi-size "MotherEnigine.elf"
+   text	   data	    bss	    dec	    hex	filename
+  57436	    164	  45292	 102892	  191ec	MotherEnigine.elf
+ 
+16:24:31 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F767xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif/ppp" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix/sys" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system/arch" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'udpApp1_sendMagicPacket':
+../Src/main.c:437:5: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+     memcpy(ethTxBuffer_p->payload, clientMagicPacket_c, sizeof(clientMagicPacket_c));
+     ^~~~~~
+../Src/main.c:437:5: warning: incompatible implicit declaration of built-in function 'memcpy'
+../Src/main.c:437:5: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Src/main.c:439:5: warning: implicit declaration of function 'udp_sendto'; did you mean 'fd_set'? [-Wimplicit-function-declaration]
+     udp_sendto(udpPcb1_p, ethTxBuffer_p, &client1IpAddr,9002);
+     ^~~~~~~~~~
+     fd_set
+../Src/main.c: In function 'udpApp1_init':
+../Src/main.c:453:19: warning: implicit declaration of function 'udp_new' [-Wimplicit-function-declaration]
+       udpPcb1_p = udp_new();
+                   ^~~~~~~
+../Src/main.c:453:17: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+       udpPcb1_p = udp_new();
+                 ^
+../Src/main.c:459:18: warning: implicit declaration of function 'udp_bind' [-Wimplicit-function-declaration]
+         udpErr = udp_bind(udpPcb1_p, &ownIPaddr, 9001);
+                  ^~~~~~~~
+../Src/main.c:461:9: warning: implicit declaration of function 'udp_recv'; did you mean 'udp_echo_recv'? [-Wimplicit-function-declaration]
+         udp_recv(udpPcb1_p, udp_echo_recv, NULL);
+         ^~~~~~~~
+         udp_echo_recv
+Finished building: ../Src/main.c
+ 
+Building target: MotherEnigine.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F767ZITx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "MotherEnigine.elf" @"objects.list"   -lm
+Finished building target: MotherEnigine.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "MotherEnigine.elf" "MotherEnigine.hex"
+arm-none-eabi-size "MotherEnigine.elf"
+   text	   data	    bss	    dec	    hex	filename
+  57448	    164	  45292	 102904	  191f8	MotherEnigine.elf
+ 
+16:29:45 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F767xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif/ppp" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix/sys" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system/arch" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'udpApp1_sendMagicPacket':
+../Src/main.c:437:5: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+     memcpy(ethTxBuffer_p->payload, clientMagicPacket_c, sizeof(clientMagicPacket_c));
+     ^~~~~~
+../Src/main.c:437:5: warning: incompatible implicit declaration of built-in function 'memcpy'
+../Src/main.c:437:5: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Src/main.c:439:5: warning: implicit declaration of function 'udp_sendto'; did you mean 'fd_set'? [-Wimplicit-function-declaration]
+     udp_sendto(udpPcb1_p, ethTxBuffer_p, &client1IpAddr,9002);
+     ^~~~~~~~~~
+     fd_set
+../Src/main.c: In function 'udpApp1_init':
+../Src/main.c:453:19: warning: implicit declaration of function 'udp_new' [-Wimplicit-function-declaration]
+       udpPcb1_p = udp_new();
+                   ^~~~~~~
+../Src/main.c:453:17: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+       udpPcb1_p = udp_new();
+                 ^
+../Src/main.c:459:18: warning: implicit declaration of function 'udp_bind' [-Wimplicit-function-declaration]
+         udpErr = udp_bind(udpPcb1_p, &ownIPaddr, 9001);
+                  ^~~~~~~~
+../Src/main.c:461:9: warning: implicit declaration of function 'udp_recv'; did you mean 'udp_echo_recv'? [-Wimplicit-function-declaration]
+         udp_recv(udpPcb1_p, udp_echo_recv, NULL);
+         ^~~~~~~~
+         udp_echo_recv
+Finished building: ../Src/main.c
+ 
+Building target: MotherEnigine.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F767ZITx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "MotherEnigine.elf" @"objects.list"   -lm
+Finished building target: MotherEnigine.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "MotherEnigine.elf" "MotherEnigine.hex"
+arm-none-eabi-size "MotherEnigine.elf"
+   text	   data	    bss	    dec	    hex	filename
+  57448	    164	  45292	 102904	  191f8	MotherEnigine.elf
+ 
+18:39:07 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+make: Nothing to be done for `all'.
+18:39:20 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+make: Nothing to be done for `all'.
+18:41:56 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F767xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif/ppp" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix/sys" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system/arch" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'udpApp1_sendMagicPacket':
+../Src/main.c:437:5: warning: implicit declaration of function 'memcpy' [-Wimplicit-function-declaration]
+     memcpy(ethTxBuffer_p->payload, clientMagicPacket_c, sizeof(clientMagicPacket_c));
+     ^~~~~~
+../Src/main.c:437:5: warning: incompatible implicit declaration of built-in function 'memcpy'
+../Src/main.c:437:5: note: include '<string.h>' or provide a declaration of 'memcpy'
+../Src/main.c:439:5: warning: implicit declaration of function 'udp_sendto'; did you mean 'fd_set'? [-Wimplicit-function-declaration]
+     udp_sendto(udpPcb1_p, ethTxBuffer_p, &client1IpAddr,9002);
+     ^~~~~~~~~~
+     fd_set
+../Src/main.c: In function 'udpApp1_init':
+../Src/main.c:453:19: warning: implicit declaration of function 'udp_new' [-Wimplicit-function-declaration]
+       udpPcb1_p = udp_new();
+                   ^~~~~~~
+../Src/main.c:453:17: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+       udpPcb1_p = udp_new();
+                 ^
+../Src/main.c:459:18: warning: implicit declaration of function 'udp_bind' [-Wimplicit-function-declaration]
+         udpErr = udp_bind(udpPcb1_p, &ownIPaddr, 9001);
+                  ^~~~~~~~
+../Src/main.c:461:9: warning: implicit declaration of function 'udp_recv'; did you mean 'udp_echo_recv'? [-Wimplicit-function-declaration]
+         udp_recv(udpPcb1_p, udp_echo_recv, NULL);
+         ^~~~~~~~
+         udp_echo_recv
+Finished building: ../Src/main.c
+ 
+Building target: MotherEnigine.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F767ZITx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "MotherEnigine.elf" @"objects.list"   -lm
+Finished building target: MotherEnigine.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "MotherEnigine.elf" "MotherEnigine.hex"
+arm-none-eabi-size "MotherEnigine.elf"
+   text	   data	    bss	    dec	    hex	filename
+  57448	    164	  45292	 102904	  191f8	MotherEnigine.elf
+ 

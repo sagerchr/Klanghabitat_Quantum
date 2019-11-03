@@ -22,7 +22,7 @@
 #include "main.h"
 #include "cmsis_os.h"
 #include "lwip.h"
-
+#include <stdio.h>
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -402,7 +402,8 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 char clientMagicPacket_c[] =
-{'/','j','u','c','e','/','r','o','t','a','r','y','k','n','o','b',0x00,',','f',0x00,0x00,0x43,0xDC,0x00,0x00};
+{'/','j','u','c','e','/','r','o','t','a','r','y','b','u','t','t','e','r',0x00,0x00,',','i',0x00,0x00,0x00,0x00,0x00,0x08};
+
 
 static struct udp_pcb *udpPcb1_p;
 
@@ -455,7 +456,7 @@ void StartDefaultTask(void const * argument)
       {
         IP4_ADDR(&ownIPaddr, 192, 168, 1, 205); //STM32-IP
 
-        udpErr = udp_bind(udpPcb1_p, &ownIPaddr, 65100);
+        udpErr = udp_bind(udpPcb1_p, &ownIPaddr, 9001);
 
         udp_recv(udpPcb1_p, udp_echo_recv, NULL);
 
@@ -474,7 +475,7 @@ void StartDefaultTask(void const * argument)
   {
 	//clientMagicPacket_c[21] = (char)count;
 	count++;
-
+	clientMagicPacket_c[27] = count;
 
 	udpApp1_sendMagicPacket();
 	HAL_GPIO_TogglePin(GPIOB,LD1_Pin);
