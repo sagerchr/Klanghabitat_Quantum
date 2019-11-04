@@ -401,11 +401,10 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-char clientMagicPacket_c[] =
+char UDP_Message[] =
 {'/','j','u','c','e','/','r','o','t','a','r','y','b','u','t','t','e','r',0x00,0x00,',','i',0x00,0x00,0x00,0x00,0x00,0x08};
 
-
-static struct udp_pcb *udpPcb1_p;
+static struct udp_pcb *udpPcb;
 
 /* USER CODE END 4 */
 
@@ -422,43 +421,58 @@ void StartDefaultTask(void const * argument)
   MX_LWIP_Init();
   /* USER CODE BEGIN 5 */
 
+  //==================================SENDING UDP MESSAGE===================================//
+
+  void SendUDP(void){
+
+	ip_addr_t       client1IpAddr; //The Clients IP Adress
+
+	struct pbuf     *ethTxBuffer_p;
 
 
+    IP4_ADDR(&client1IpAddr, 192, 168, 1, 255); //IP Adress to send UDP to in this CASE BROADCAST!!!
 
-  void udpApp1_sendMagicPacket(void){
-    ip_addr_t       client1IpAddr;
-    struct pbuf     *ethTxBuffer_p;
-
-    IP4_ADDR(&client1IpAddr, 192, 168, 1, 255);
-
-    ethTxBuffer_p = pbuf_alloc(PBUF_TRANSPORT, sizeof(clientMagicPacket_c), PBUF_RAM);
+ //==========================TX BUFFER TO SOMETHING WE CAN SEND============================//
+    ethTxBuffer_p = pbuf_alloc(PBUF_TRANSPORT, sizeof(UDP_Message), PBUF_RAM);
     if (ethTxBuffer_p == NULL){}
 
-    memcpy(ethTxBuffer_p->payload, clientMagicPacket_c, sizeof(clientMagicPacket_c));
+    memcpy(ethTxBuffer_p->payload, UDP_Message, sizeof(UDP_Message));
+//========================================================================================//
 
-    udp_sendto(udpPcb1_p, ethTxBuffer_p, &client1IpAddr,9002);
+    udp_sendto(udpPcb, ethTxBuffer_p, &client1IpAddr,9002);  //SEND UDP TO PORT 9002
 
-    pbuf_free(ethTxBuffer_p);
+
+    pbuf_free(ethTxBuffer_p);  //Free the TX Buffer
   }
+
+//=======================================================================================//
 
   void udp_echo_recv(void *arg, struct udp_pcb *pcb, struct pbuf *p, const ip_addr_t *addr, u16_t port)
   {
-    HAL_GPIO_WritePin(GPIOB, LD2_Pin, GPIO_PIN_SET); //Blaue LED an
+
+	HAL_GPIO_TogglePin(GPIOB, LD2_Pin); //Blaue LED an
+
+	char str[20];
+	memcpy(str, p -> payload, p -> len);
+
+    pbuf_free(p);
   }
 
-    void udpApp1_init(void){
+
+
+    void UDP_init(void){
       err_t         udpErr;
       ip_addr_t     ownIPaddr;
 
-      udpPcb1_p = udp_new();
+      udpPcb = udp_new();
 
-      if(udpPcb1_p != NULL)
+      if(udpPcb != NULL)
       {
-        IP4_ADDR(&ownIPaddr, 192, 168, 1, 205); //STM32-IP
+        IP4_ADDR(&ownIPaddr, 192, 168, 1, 205); //The IP Adress of the STM32
 
-        udpErr = udp_bind(udpPcb1_p, &ownIPaddr, 9001);
+        udpErr = udp_bind(udpPcb, &ownIPaddr, 9001); //Definition of
 
-        udp_recv(udpPcb1_p, udp_echo_recv, NULL);
+        udp_recv(udpPcb, udp_echo_recv, NULL);
 
         if (udpErr ==ERR_OK){
         	HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_SET);
@@ -467,21 +481,25 @@ void StartDefaultTask(void const * argument)
     }
 
 
-    udpApp1_init();
+    UDP_init(); //INIT the UDP Session
+
+
     uint8_t count = 0;
+    udp_recv(udpPcb, udp_echo_recv, NULL);
 
   /* Infinite loop */
   for(;;)
   {
-	//clientMagicPacket_c[21] = (char)count;
-	count++;
-	clientMagicPacket_c[27] = count;
 
-	udpApp1_sendMagicPacket();
+
+
+	count++;
+	UDP_Message[27] = count;
+
+	SendUDP();
 	HAL_GPIO_TogglePin(GPIOB,LD1_Pin);
 
-
-    osDelay(100);
+    osDelay(50);
   }
   /* USER CODE END 5 */ 
 }
