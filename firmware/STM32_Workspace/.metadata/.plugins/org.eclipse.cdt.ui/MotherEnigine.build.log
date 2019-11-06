@@ -1,4 +1,4 @@
-18:56:00 **** Incremental Build of configuration Debug for project MotherEnigine ****
+17:50:30 **** Incremental Build of configuration Debug for project MotherEnigine ****
 make all 
 Building target: MotherEnigine.elf
 Invoking: MCU GCC Linker
@@ -10,8 +10,8 @@ Generating hex and Printing size information:
 arm-none-eabi-objcopy -O ihex "MotherEnigine.elf" "MotherEnigine.hex"
 arm-none-eabi-size "MotherEnigine.elf"
    text	   data	    bss	    dec	    hex	filename
-  66592	    164	  46532	 113288	  1ba88	MotherEnigine.elf
+  67988	    164	  46556	 114708	  1c014	MotherEnigine.elf
  
 
-18:56:01 Build Finished (took 1s.508ms)
+17:50:32 Build Finished (took 1s.670ms)
 
