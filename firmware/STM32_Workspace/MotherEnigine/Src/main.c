@@ -22,6 +22,7 @@
 #include "main.h"
 #include "cmsis_os.h"
 #include "lwip.h"
+#include "dspTask.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -67,7 +68,7 @@ static void MX_ADC3_Init(void);
 void StartDefaultTask(void const * argument);
 
 /* USER CODE BEGIN PFP */
-void dspTask(void const * argument);
+
 
 /* USER CODE END PFP */
 
@@ -511,22 +512,6 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-void dspTask(void const * argument){
-	for(;;){
-		osDelay(100);
-		//HAL_GPIO_TogglePin(GPIOB, LD3_Pin);
-	}
-
-}
-
-
-
-
-
-
-
-
-
 
 
 char UDP_Message[] =
@@ -548,6 +533,32 @@ void StartDefaultTask(void const * argument)
   /* init code for LWIP */
   MX_LWIP_Init();
   /* USER CODE BEGIN 5 */
+
+
+  const char * IPCGIhandler(int iIndex, int iNumParams, char *pcParam[], char *pcValue[])
+       {
+
+
+	  	uint32_t i=0;
+
+	  	char IP1[5];
+	  	char IP2[5];
+	  	char IP3[5];
+	  	char IP4[5];
+
+	  	int ind = iIndex;
+
+	    	 	memcpy (IP1, pcValue[0],3);
+				memcpy (IP2, pcValue[1],3);
+				memcpy (IP3, pcValue[2],3);
+				memcpy (IP4, pcValue[3],3);
+
+				HAL_GPIO_TogglePin(GPIOB, LD3_Pin);
+
+	  return "/leds.html";
+
+       }
+
 
   /**** CGI handler for controlling the LEDs ****/
      // the function pointer for a CGI script handler is defined in httpd.h as tCGIHandler
@@ -590,16 +601,18 @@ void StartDefaultTask(void const * argument)
 
      // this structure contains the name of the LED CGI and corresponding handler for the LEDs
      const tCGI LedCGI={"/leds.cgi", LedCGIhandler};
+     const tCGI IPCGI={"/IP.cgi", IPCGIhandler};
      //table of the CGI names and handlers
-     tCGI theCGItable[1];
+     tCGI theCGItable[2];
 
      // Initialize the CGI handlers
      void myCGIinit(void)
      {
      //add LED control CGI to the table
      theCGItable[0] = LedCGI;
+     theCGItable[1] = IPCGI;
      //give the table to the HTTP server
-     http_set_cgi_handlers(theCGItable, 1);
+     http_set_cgi_handlers(theCGItable, 2);
      } //myCGIinit
 
      //start the web server
@@ -635,7 +648,7 @@ void StartDefaultTask(void const * argument)
 
 //=======================================================================================//
 
-  void udp_echo_recv(void *arg, struct udp_pcb *pcb, struct pbuf *p, const ip_addr_t *addr, u16_t port)
+  void udp_recive(void *arg, struct udp_pcb *pcb, struct pbuf *p, const ip_addr_t *addr, u16_t port)
   {
 
 	HAL_GPIO_TogglePin(GPIOB, LD2_Pin); //Blaue LED an
@@ -660,7 +673,7 @@ void StartDefaultTask(void const * argument)
 
         udpErr = udp_bind(udpPcb, &ownIPaddr, 9001); //Definition of
 
-        udp_recv(udpPcb, udp_echo_recv, NULL);
+        udp_recv(udpPcb, udp_recive, NULL);
 
         if (udpErr ==ERR_OK){
 
@@ -673,7 +686,7 @@ void StartDefaultTask(void const * argument)
 
 
     uint8_t count = 0;
-    udp_recv(udpPcb, udp_echo_recv, NULL);
+    udp_recv(udpPcb, udp_recive, NULL);
 
   /* Infinite loop */
   for(;;)
@@ -683,7 +696,6 @@ void StartDefaultTask(void const * argument)
 	UDP_Message[27] = count;
 
 	SendUDP();
-	HAL_GPIO_TogglePin(GPIOB,LD1_Pin);
 
     osDelay(100);
   }
