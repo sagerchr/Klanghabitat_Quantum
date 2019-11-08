@@ -21,12 +21,13 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "cmsis_os.h"
-#include "lwip.h"
-#include "dspTask.h"
+
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "lwip/apps/httpd.h"
+
+#include "dspTask.h"
+#include "lwIPTask.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -51,10 +52,12 @@ ADC_HandleTypeDef hadc3;
 DAC_HandleTypeDef hdac;
 
 UART_HandleTypeDef huart3;
+UART_HandleTypeDef huart6;
 
 osThreadId defaultTaskHandle;
 /* USER CODE BEGIN PV */
 osThreadId dspTaskHandle;
+osThreadId lwIPTaskHandle;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -65,6 +68,7 @@ static void MX_DAC_Init(void);
 static void MX_USART3_UART_Init(void);
 static void MX_ADC2_Init(void);
 static void MX_ADC3_Init(void);
+static void MX_USART6_UART_Init(void);
 void StartDefaultTask(void const * argument);
 
 /* USER CODE BEGIN PFP */
@@ -111,6 +115,7 @@ int main(void)
   MX_USART3_UART_Init();
   MX_ADC2_Init();
   MX_ADC3_Init();
+  MX_USART6_UART_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -139,6 +144,9 @@ int main(void)
   /* USER CODE BEGIN RTOS_THREADS */
   osThreadDef(dspTask, dspTask, osPriorityRealtime, 0, 128);
   dspTaskHandle = osThreadCreate(osThread(dspTask), NULL);
+
+  osThreadDef(lwIPTask, lwIPTask, osPriorityNormal, 0, 128);
+  dspTaskHandle = osThreadCreate(osThread(lwIPTask), NULL);
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
 
@@ -208,8 +216,9 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_USART3;
+  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_USART3|RCC_PERIPHCLK_USART6;
   PeriphClkInitStruct.Usart3ClockSelection = RCC_USART3CLKSOURCE_PCLK1;
+  PeriphClkInitStruct.Usart6ClockSelection = RCC_USART6CLKSOURCE_PCLK2;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
   {
     Error_Handler();
@@ -446,6 +455,41 @@ static void MX_USART3_UART_Init(void)
 }
 
 /**
+  * @brief USART6 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART6_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART6_Init 0 */
+
+  /* USER CODE END USART6_Init 0 */
+
+  /* USER CODE BEGIN USART6_Init 1 */
+
+  /* USER CODE END USART6_Init 1 */
+  huart6.Instance = USART6;
+  huart6.Init.BaudRate = 230400;
+  huart6.Init.WordLength = UART_WORDLENGTH_8B;
+  huart6.Init.StopBits = UART_STOPBITS_1;
+  huart6.Init.Parity = UART_PARITY_NONE;
+  huart6.Init.Mode = UART_MODE_TX_RX;
+  huart6.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart6.Init.OverSampling = UART_OVERSAMPLING_16;
+  huart6.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  huart6.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&huart6) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART6_Init 2 */
+
+  /* USER CODE END USART6_Init 2 */
+
+}
+
+/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -514,10 +558,7 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 
 
-char UDP_Message[] =
-{'/','j','u','c','e','/','r','o','t','a','r','y','b','u','t','t','e','r',0x00,0x00,',','i',0x00,0x00,0x00,0x00,0x00,0x08};
 
-static struct udp_pcb *udpPcb;
 
 /* USER CODE END 4 */
 
@@ -530,174 +571,10 @@ static struct udp_pcb *udpPcb;
 /* USER CODE END Header_StartDefaultTask */
 void StartDefaultTask(void const * argument)
 {
-  /* init code for LWIP */
-  MX_LWIP_Init();
-  /* USER CODE BEGIN 5 */
-
-
-  const char * IPCGIhandler(int iIndex, int iNumParams, char *pcParam[], char *pcValue[])
-       {
-
-
-	  	uint32_t i=0;
-
-	  	char IP1[5];
-	  	char IP2[5];
-	  	char IP3[5];
-	  	char IP4[5];
-
-	  	int ind = iIndex;
-
-	    	 	memcpy (IP1, pcValue[0],3);
-				memcpy (IP2, pcValue[1],3);
-				memcpy (IP3, pcValue[2],3);
-				memcpy (IP4, pcValue[3],3);
-
-				HAL_GPIO_TogglePin(GPIOB, LD3_Pin);
-
-	  return "/leds.html";
-
-       }
-
-
-  /**** CGI handler for controlling the LEDs ****/
-     // the function pointer for a CGI script handler is defined in httpd.h as tCGIHandler
-     const char * LedCGIhandler(int iIndex, int iNumParams, char *pcParam[], char *pcValue[])
-     {
-     uint32_t i=0;
-     // index of the CGI within the theCGItable array passed to http_set_cgi_handlers
-     // Given how this example is structured, this may be a redundant check.
-     // Here there is only one handler iIndex == 0
-     if (iIndex == 0)
-     {
-     // turn off the LEDs
-
-    	 HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_RESET);
-     // Check the cgi parameters, e.g., GET /leds.cgi?led=1&led=2
-		 for (i=0; i<iNumParams; i++)
-		 {
-		 //if pcParmeter contains "led", then one of the LED check boxes has been set on
-			 if (strcmp(pcParam[i], "led") == 0)
-			 {
-			 //see if checkbox for LED 1 has been set
-				 if(strcmp(pcValue[i], "1") == 0)
-				 {
-				 // switch led 1 ON if 1
-					 HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_SET);
-				 }
-				 //see if checkbox for LED 2 has been set
-				 else if(strcmp(pcValue[i], "2") == 0)
-				 {
-				 // switch led 2 ON if 2
-					 HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_SET);
-				 }
-			 } //if
-		 } //for
-     } //if
-     //uniform resource identifier to send after CGI call, i.e., path and filename of the response
-     return "/leds.html";
-     } //LedCGIhandler
-
-
-     // this structure contains the name of the LED CGI and corresponding handler for the LEDs
-     const tCGI LedCGI={"/leds.cgi", LedCGIhandler};
-     const tCGI IPCGI={"/IP.cgi", IPCGIhandler};
-     //table of the CGI names and handlers
-     tCGI theCGItable[2];
-
-     // Initialize the CGI handlers
-     void myCGIinit(void)
-     {
-     //add LED control CGI to the table
-     theCGItable[0] = LedCGI;
-     theCGItable[1] = IPCGI;
-     //give the table to the HTTP server
-     http_set_cgi_handlers(theCGItable, 2);
-     } //myCGIinit
-
-     //start the web server
-     httpd_init();
-     //initialise the CGI handlers
-     myCGIinit();
-
-
-
-  //==================================SENDING UDP MESSAGE===================================//
-
-  void SendUDP(void){
-
-	ip_addr_t       client1IpAddr; //The Clients IP Adress
-
-	struct pbuf     *ethTxBuffer_p;
-
-
-    IP4_ADDR(&client1IpAddr, 192, 168, 1, 255); //IP Adress to send UDP to in this CASE BROADCAST!!!
-
- //==========================TX BUFFER TO SOMETHING WE CAN SEND============================//
-    ethTxBuffer_p = pbuf_alloc(PBUF_TRANSPORT, sizeof(UDP_Message), PBUF_RAM);
-    if (ethTxBuffer_p == NULL){}
-
-    memcpy(ethTxBuffer_p->payload, UDP_Message, sizeof(UDP_Message));
-//========================================================================================//
-
-    udp_sendto(udpPcb, ethTxBuffer_p, &client1IpAddr,9002);  //SEND UDP TO PORT 9002
-
-
-    pbuf_free(ethTxBuffer_p);  //Free the TX Buffer
-  }
-
-//=======================================================================================//
-
-  void udp_recive(void *arg, struct udp_pcb *pcb, struct pbuf *p, const ip_addr_t *addr, u16_t port)
-  {
-
-	HAL_GPIO_TogglePin(GPIOB, LD2_Pin); //Blaue LED an
-
-	char str[20];
-	memcpy(str, p -> payload, p -> len);
-
-    pbuf_free(p);
-  }
-
-
-
-    void UDP_init(void){
-      err_t         udpErr;
-      ip_addr_t     ownIPaddr;
-
-      udpPcb = udp_new();
-
-      if(udpPcb != NULL)
-      {
-        IP4_ADDR(&ownIPaddr, 192, 168, 1, 205); //The IP Adress of the STM32
-
-        udpErr = udp_bind(udpPcb, &ownIPaddr, 9001); //Definition of
-
-        udp_recv(udpPcb, udp_recive, NULL);
-
-        if (udpErr ==ERR_OK){
-
-        }
-      }
-    }
-
-
-    UDP_init(); //INIT the UDP Session
-
-
-    uint8_t count = 0;
-    udp_recv(udpPcb, udp_recive, NULL);
-
   /* Infinite loop */
   for(;;)
   {
 
-	count++;
-	UDP_Message[27] = count;
-
-	SendUDP();
-
-    osDelay(100);
   }
   /* USER CODE END 5 */ 
 }
