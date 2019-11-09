@@ -1,0 +1,101 @@
+#platform "Gen4-uLCD-70DCT-CLB"
+#inherit "4DGL_16bitColours.fnc"
+#inherit "VisualConst.inc"
+#inherit "gimpiConst.inc"
+
+var frame := 0;
+     var disk;
+
+func main()
+
+    gfx_Set(SCREEN_MODE,LANDSCAPE) ;
+
+
+    putstr("Mounting...\n");
+    if (!(disk:=file_Mount()))
+        while(!(disk :=file_Mount()))
+            putstr("Drive not mounted...");
+            pause(200);
+            gfx_Cls();
+            pause(200);
+        wend
+    endif
+       com_SetBaud(COM0, 20000);
+
+
+    gfx_BGcolour(WHITE);
+    gfx_Cls();
+
+    hndl := file_LoadImageControl("gimpi.dat", "gimpi.gci", 1);
+
+    //img_Show(hndl,iImage1) ;
+    gfx_Set(TRANSPARENCY, ON);
+    gfx_Set(TRANSPARENT_COLOUR, 0x3000);   //make the penguin eyes background colour transparent
+    //  gfx_Set(TRANSPARENT_COLOUR, 0x0F0F);
+       /*
+    img_SetWord(hndl, iUserimages1, IMAGE_INDEX, frame) ; // where frame is 0 to 4
+    img_Show(hndl,iUserimages1) ;
+
+    img_SetWord(hndl, iUserimages2, IMAGE_INDEX, frame) ; // where frame is 0 to 4
+    img_Show(hndl,iUserimages2) ;
+
+    // 0 1.0 generated 2019-03-06 19:04:32
+    img_Show(hndl,i0) ;
+         */
+
+
+
+       var char;
+       var frameLast;
+repeat
+       /*
+           char := serin(); // test the com0 port
+        if (char >= 0) // if a valid character is received
+            frame := char;
+        endif
+      //eyes open
+
+    if (frame != frameLast)
+    img_SetWord(hndl, iUserimages1, IMAGE_INDEX, frame) ; // where frame is 0 to 4
+    img_Show(hndl,iUserimages1) ;
+    endif
+    frameLast := frame;
+        */
+
+
+    repeat
+    img_Show(hndl,i5) ;
+    img_Show(hndl,i0) ;
+
+    img_Show(hndl,i6) ;
+    img_Show(hndl,i1) ;
+
+    img_Show(hndl,i7) ;
+    img_Show(hndl,i2) ;
+
+    img_Show(hndl,i8) ;
+    img_Show(hndl,i3) ;
+
+    img_Show(hndl,i9) ;
+    img_Show(hndl,i4) ;
+
+    img_Show(hndl,i10) ;
+    img_Show(hndl,i5) ;
+
+
+    //gfx_Cls() ;
+
+    /*
+    frame++;
+    until (frame == 21);
+    repeat
+
+    pause(100);
+    frame--;
+    until (frame == 0);
+    frame := 0;
+      */
+forever
+
+endfunc
+

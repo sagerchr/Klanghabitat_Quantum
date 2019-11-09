@@ -9,45 +9,38 @@
 #include "lwip/apps/httpd.h"
 #include "lwip.h"
 
-char UDP_Message[] =
-{'/','j','u','c','e','/','r','o','t','a','r','y','b','u','t','t','e','r',0x00,0x00,',','i',0x00,0x00,0x00,0x00,0x00,0x08};
+char UDP_Message[] = {'/','j','u','c','e','/','r','o','t','a','r','y','b','u','t','t','e','r',0x00,0x00,',','i',0x00,0x00,0x00,0x00,0x00,0x08};
 
 static struct udp_pcb *udpPcb;
+char str[20];
+
 void lwIPTask(void const * argument){
 
 
 
 	/* init code for LWIP */
-	  MX_LWIP_Init();
+
 	  /* USER CODE BEGIN 5 */
 
 
 	  const char * IPCGIhandler(int iIndex, int iNumParams, char *pcParam[], char *pcValue[])
 	       {
-
-
 		  	uint32_t i=0;
-
 		  	char IP1[5];
 		  	char IP2[5];
 		  	char IP3[5];
 		  	char IP4[5];
-
 		  	int ind = iIndex;
-
 		    	 	memcpy (IP1, pcValue[0],3);
 					memcpy (IP2, pcValue[1],3);
 					memcpy (IP3, pcValue[2],3);
 					memcpy (IP4, pcValue[3],3);
-
 					HAL_GPIO_TogglePin(GPIOB, LD3_Pin);
-
 		  return "/leds.html";
-
 	       }
 
 
-	  /**** CGI handler for controlling the LEDs ****/
+
 	     // the function pointer for a CGI script handler is defined in httpd.h as tCGIHandler
 	     const char * LedCGIhandler(int iIndex, int iNumParams, char *pcParam[], char *pcValue[])
 	     {
@@ -58,7 +51,6 @@ void lwIPTask(void const * argument){
 	     if (iIndex == 0)
 	     {
 	     // turn off the LEDs
-
 	    	 HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_RESET);
 	     // Check the cgi parameters, e.g., GET /leds.cgi?led=1&led=2
 			 for (i=0; i<iNumParams; i++)
@@ -84,14 +76,11 @@ void lwIPTask(void const * argument){
 	     //uniform resource identifier to send after CGI call, i.e., path and filename of the response
 	     return "/leds.html";
 	     } //LedCGIhandler
-
-
 	     // this structure contains the name of the LED CGI and corresponding handler for the LEDs
 	     const tCGI LedCGI={"/leds.cgi", LedCGIhandler};
 	     const tCGI IPCGI={"/IP.cgi", IPCGIhandler};
 	     //table of the CGI names and handlers
 	     tCGI theCGItable[2];
-
 	     // Initialize the CGI handlers
 	     void myCGIinit(void)
 	     {
@@ -102,92 +91,74 @@ void lwIPTask(void const * argument){
 	     http_set_cgi_handlers(theCGItable, 2);
 	     } //myCGIinit
 
-	     //start the web server
-	     httpd_init();
-	     //initialise the CGI handlers
-	     myCGIinit();
-
-
-
 	  //==================================SENDING UDP MESSAGE===================================//
 
-	  void SendUDP(void){
+	  void SendUDP(uint8_t count){
 
 		ip_addr_t       client1IpAddr; //The Clients IP Adress
-
 		struct pbuf     *ethTxBuffer_p;
-
-
+		UDP_Message[27] = count;
 	    IP4_ADDR(&client1IpAddr, 192, 168, 1, 255); //IP Adress to send UDP to in this CASE BROADCAST!!!
 
-	 //==========================TX BUFFER TO SOMETHING WE CAN SEND============================//
-	    ethTxBuffer_p = pbuf_alloc(PBUF_TRANSPORT, sizeof(UDP_Message), PBUF_RAM);
+
+	    ethTxBuffer_p = pbuf_alloc(PBUF_TRANSPORT, sizeof(UDP_Message), PBUF_RAM); //TX BUFFER TO SOMETHING WE CAN SEND
 	    if (ethTxBuffer_p == NULL){}
 
 	    memcpy(ethTxBuffer_p->payload, UDP_Message, sizeof(UDP_Message));
-	//========================================================================================//
 
 	    udp_sendto(udpPcb, ethTxBuffer_p, &client1IpAddr,9002);  //SEND UDP TO PORT 9002
-
-
 	    pbuf_free(ethTxBuffer_p);  //Free the TX Buffer
 	  }
-
 	//=======================================================================================//
+
+
+
+	//==================================Recive UDP MESSAGE===================================//
 
 	  void udp_recive(void *arg, struct udp_pcb *pcb, struct pbuf *p, const ip_addr_t *addr, u16_t port)
 	  {
-
 		HAL_GPIO_TogglePin(GPIOB, LD2_Pin); //Blaue LED an
-
-		char str[20];
 		memcpy(str, p -> payload, p -> len);
-
 	    pbuf_free(p);
 	  }
+	 //=======================================================================================//
 
-
-
+	 //==================================INIT UDP Session===================================//
 	    void UDP_init(void){
 	      err_t         udpErr;
 	      ip_addr_t     ownIPaddr;
-
 	      udpPcb = udp_new();
 
 	      if(udpPcb != NULL)
 	      {
 	        IP4_ADDR(&ownIPaddr, 192, 168, 1, 205); //The IP Adress of the STM32
-
 	        udpErr = udp_bind(udpPcb, &ownIPaddr, 9001); //Definition of
-
 	        udp_recv(udpPcb, udp_recive, NULL);
-
 	        if (udpErr ==ERR_OK){
-
 	        }
 	      }
 	    }
+	  //=======================================================================================//
 
 
-	    UDP_init(); //INIT the UDP Session
 
+	  //=======================CREATE & START all lwIP Services===============================//
+	     MX_LWIP_Init();
+	     UDP_init(); //INIT the UDP Session
+	     httpd_init();//start the web Server
+	     myCGIinit();//initialise the CGI handlers
+	     udp_recv(udpPcb, udp_recive, NULL);//Create udp_recive callback
+	  //=================================================================================//
 
 	    uint8_t count = 0;
-	    udp_recv(udpPcb, udp_recive, NULL);
-
 	  /* Infinite loop */
 	  for(;;)
 	  {
-
 		count++;
-		UDP_Message[27] = count;
-
-		SendUDP();
-
-	    osDelay(100);
+		str;
+		SendUDP(str[19]);
+	    osDelay(10);
 	  }
-
-
 
 }
 

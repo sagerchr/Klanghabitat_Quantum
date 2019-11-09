@@ -1,0 +1,73 @@
+(export (version D)
+  (design
+    (source "C:/Users/csager/Dropbox/Bastel - Projekte/Pultec EQ/Karten/KiCAD/PultecEQ.sch")
+    (date "04.04.2017 14:24:13")
+    (tool "Eeschema 4.0.1-stable")
+    (sheet (number 1) (name /) (tstamps /)
+      (title_block
+        (title)
+        (company)
+        (rev)
+        (date)
+        (source PultecEQ.sch)
+        (comment (number 1) (value ""))
+        (comment (number 2) (value ""))
+        (comment (number 3) (value ""))
+        (comment (number 4) (value "")))))
+  (components
+    (comp (ref Q1)
+      (value BC547)
+      (footprint TO-92)
+      (libsource (lib transistors) (part BC547))
+      (sheetpath (names /) (tstamps /))
+      (tstamp 58E38F2A))
+    (comp (ref R1)
+      (value "1000 k")
+      (libsource (lib device) (part R))
+      (sheetpath (names /) (tstamps /))
+      (tstamp 58E39087)))
+  (libparts
+    (libpart (lib transistors) (part BC547)
+      (aliases
+        (alias BC546)
+        (alias BC548)
+        (alias BC549)
+        (alias BC550))
+      (description "45V Vce, 0.1A Ic, NPN, Small Signal Transistor, TO-92")
+      (docs http://www.fairchildsemi.com/ds/BC/BC547.pdf)
+      (footprints
+        (fp TO-92*))
+      (fields
+        (field (name Reference) Q)
+        (field (name Value) BC547)
+        (field (name Footprint) TO-92))
+      (pins
+        (pin (num 1) (name C) (type passive))
+        (pin (num 2) (name B) (type input))
+        (pin (num 3) (name E) (type passive))))
+    (libpart (lib device) (part R)
+      (description Resistor)
+      (footprints
+        (fp R_*)
+        (fp Resistor_*))
+      (fields
+        (field (name Reference) R)
+        (field (name Value) R))
+      (pins
+        (pin (num 1) (name ~) (type passive))
+        (pin (num 2) (name ~) (type passive)))))
+  (libraries
+    (library (logical transistors)
+      (uri "C:\\Program Files (x86)\\KiCad\\share\\kicad\\library\\transistors.lib"))
+    (library (logical device)
+      (uri "C:\\Program Files (x86)\\KiCad\\share\\kicad\\library\\device.lib")))
+  (nets
+    (net (code 1) (name "Net-(Q1-Pad2)")
+      (node (ref Q1) (pin 2)))
+    (net (code 2) (name "Net-(Q1-Pad1)")
+      (node (ref Q1) (pin 1))
+      (node (ref R1) (pin 2)))
+    (net (code 3) (name GND)
+      (node (ref Q1) (pin 3)))
+    (net (code 4) (name +15V)
+      (node (ref R1) (pin 1)))))

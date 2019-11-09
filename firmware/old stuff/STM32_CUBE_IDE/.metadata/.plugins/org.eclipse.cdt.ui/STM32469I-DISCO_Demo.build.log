@@ -1,0 +1,10 @@
+17:14:09 **** Incremental Build of configuration Debug for project STM32469I-DISCO_Demo ****
+make all 
+arm-none-eabi-size   STM32469I-DISCO_Demo.elf 
+   text	   data	    bss	    dec	    hex	filename
+8760572	   3380	 273636	9037588	 89e714	STM32469I-DISCO_Demo.elf
+Finished building: default.size.stdout
+ 
+
+17:14:09 Build Finished. 0 errors, 0 warnings. (took 180ms)
+

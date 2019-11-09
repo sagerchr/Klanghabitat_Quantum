@@ -1,0 +1,86 @@
+07:33:53 **** Build of configuration Debug for project STM32F469i-Disco_BSP ****
+make all 
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -c -x assembler-with-cpp --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "startup/startup_stm32f469xx.o" "../startup/startup_stm32f469xx.s"
+arm-none-eabi-gcc "../Src/gpio.c" -mcpu=cortex-m4 -std=gnu11 -g3 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F469xx -c -I../Inc -I../Middlewares/ST/STM32_Audio/Addons/PDM/ -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32469I-Discovery/ -I../Drivers/Components/ -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O3 -ffunction-sections -Wall -fstack-usage -MMD -MP -MF"Src/gpio.d" -MT"Src/gpio.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/gpio.o"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F469xx -c -I../Inc -I../Middlewares/ST/STM32_Audio/Addons/PDM/ -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32469I-Discovery/ -I../Drivers/Components/ -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O3 -ffunction-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+In file included from ../Drivers/STM32469I-Discovery/stm32469i_discovery_lcd.h:54:0,
+                 from ../Drivers/STM32469I-Discovery/stm32469i_discovery_ts.h:49,
+                 from ../Src/main.c:28:
+../Drivers/STM32469I-Discovery/stm32469i_discovery_sdram.h:135:27: error: unknown type name 'FMC_SDRAM_CommandTypeDef'; did you mean 'ADC_Common_TypeDef'?
+ uint8_t BSP_SDRAM_Sendcmd(FMC_SDRAM_CommandTypeDef *SdramCmd);
+                           ^~~~~~~~~~~~~~~~~~~~~~~~
+                           ADC_Common_TypeDef
+../Drivers/STM32469I-Discovery/stm32469i_discovery_sdram.h:140:27: error: unknown type name 'SDRAM_HandleTypeDef'; did you mean 'DMA_HandleTypeDef'?
+ void    BSP_SDRAM_MspInit(SDRAM_HandleTypeDef  *hsdram, void *Params);
+                           ^~~~~~~~~~~~~~~~~~~
+                           DMA_HandleTypeDef
+../Drivers/STM32469I-Discovery/stm32469i_discovery_sdram.h:141:29: error: unknown type name 'SDRAM_HandleTypeDef'; did you mean 'DMA_HandleTypeDef'?
+ void    BSP_SDRAM_MspDeInit(SDRAM_HandleTypeDef  *hsdram, void *Params);
+                             ^~~~~~~~~~~~~~~~~~~
+                             DMA_HandleTypeDef
+In file included from ../Drivers/STM32469I-Discovery/stm32469i_discovery_ts.h:49:0,
+                 from ../Src/main.c:28:
+../Drivers/STM32469I-Discovery/stm32469i_discovery_lcd.h:376:8: error: unknown type name 'DMA2D_HandleTypeDef'
+ extern DMA2D_HandleTypeDef hdma2d_eval;
+        ^~~~~~~~~~~~~~~~~~~
+In file included from ../Src/main.c:30:0:
+../Drivers/STM32469I-Discovery/stm32469i_discovery_sd.h:130:28: error: unknown type name 'HAL_SD_CardInfoTypeDef'; did you mean 'HAL_SD_CardCIDTypedef'?
+ void    BSP_SD_GetCardInfo(HAL_SD_CardInfoTypeDef *CardInfo);
+                            ^~~~~~~~~~~~~~~~~~~~~~
+                            HAL_SD_CardCIDTypedef
+../Drivers/STM32469I-Discovery/stm32469i_discovery_sd.h:135:24: error: unknown type name 'SD_HandleTypeDef'; did you mean 'DMA_HandleTypeDef'?
+ void    BSP_SD_MspInit(SD_HandleTypeDef *hsd, void *Params);
+                        ^~~~~~~~~~~~~~~~
+                        DMA_HandleTypeDef
+../Drivers/STM32469I-Discovery/stm32469i_discovery_sd.h:136:31: error: unknown type name 'SD_HandleTypeDef'; did you mean 'DMA_HandleTypeDef'?
+ void    BSP_SD_Detect_MspInit(SD_HandleTypeDef *hsd, void *Params);
+                               ^~~~~~~~~~~~~~~~
+                               DMA_HandleTypeDef
+../Drivers/STM32469I-Discovery/stm32469i_discovery_sd.h:137:26: error: unknown type name 'SD_HandleTypeDef'; did you mean 'DMA_HandleTypeDef'?
+ void    BSP_SD_MspDeInit(SD_HandleTypeDef *hsd, void *Params);
+                          ^~~~~~~~~~~~~~~~
+                          DMA_HandleTypeDef
+In file included from ../Src/main.c:31:0:
+../Drivers/STM32469I-Discovery/stm32469i_discovery_qspi.h:142:23: error: unknown type name 'QSPI_HandleTypeDef'; did you mean 'EXTI_HandleTypeDef'?
+ void BSP_QSPI_MspInit(QSPI_HandleTypeDef *hqspi, void *Params);
+                       ^~~~~~~~~~~~~~~~~~
+                       EXTI_HandleTypeDef
+../Drivers/STM32469I-Discovery/stm32469i_discovery_qspi.h:143:25: error: unknown type name 'QSPI_HandleTypeDef'; did you mean 'EXTI_HandleTypeDef'?
+ void BSP_QSPI_MspDeInit(QSPI_HandleTypeDef *hqspi, void *Params);
+                         ^~~~~~~~~~~~~~~~~~
+                         EXTI_HandleTypeDef
+In file included from ../Src/main.c:35:0:
+../Drivers/STM32469I-Discovery/stm32469i_discovery_audio.h:289:33: error: unknown type name 'SAI_HandleTypeDef'; did you mean 'DMA_HandleTypeDef'?
+ void  BSP_AUDIO_OUT_ClockConfig(SAI_HandleTypeDef *hsai, uint32_t AudioFreq, void *Params);
+                                 ^~~~~~~~~~~~~~~~~
+                                 DMA_HandleTypeDef
+../Drivers/STM32469I-Discovery/stm32469i_discovery_audio.h:290:29: error: unknown type name 'SAI_HandleTypeDef'; did you mean 'DMA_HandleTypeDef'?
+ void  BSP_AUDIO_OUT_MspInit(SAI_HandleTypeDef *hsai, void *Params);
+                             ^~~~~~~~~~~~~~~~~
+                             DMA_HandleTypeDef
+../Drivers/STM32469I-Discovery/stm32469i_discovery_audio.h:291:31: error: unknown type name 'SAI_HandleTypeDef'; did you mean 'DMA_HandleTypeDef'?
+ void  BSP_AUDIO_OUT_MspDeInit(SAI_HandleTypeDef *hsai, void *Params);
+                               ^~~~~~~~~~~~~~~~~
+                               DMA_HandleTypeDef
+../Drivers/STM32469I-Discovery/stm32469i_discovery_audio.h:321:32: error: unknown type name 'I2S_HandleTypeDef'; did you mean 'DMA_HandleTypeDef'?
+ void  BSP_AUDIO_IN_ClockConfig(I2S_HandleTypeDef *hi2s, void *Params);
+                                ^~~~~~~~~~~~~~~~~
+                                DMA_HandleTypeDef
+../Drivers/STM32469I-Discovery/stm32469i_discovery_audio.h:322:28: error: unknown type name 'I2S_HandleTypeDef'; did you mean 'DMA_HandleTypeDef'?
+ void  BSP_AUDIO_IN_MspInit(I2S_HandleTypeDef *hi2s, void *Params);
+                            ^~~~~~~~~~~~~~~~~
+                            DMA_HandleTypeDef
+../Drivers/STM32469I-Discovery/stm32469i_discovery_audio.h:323:30: error: unknown type name 'I2S_HandleTypeDef'; did you mean 'DMA_HandleTypeDef'?
+ void  BSP_AUDIO_IN_MspDeInit(I2S_HandleTypeDef *hi2s, void *Params);
+                              ^~~~~~~~~~~~~~~~~
+                              DMA_HandleTypeDef
+../Src/main.c: In function 'main':
+../Src/main.c:138:8: error: unknown type name 'uint'; did you mean 'int'?
+    for(uint r=1;r<120;r+=1){
+        ^~~~
+        int
+make: *** [Src/subdir.mk:32: Src/main.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+
+07:33:55 Build Failed. 18 errors, 0 warnings. (took 2s.224ms)
+

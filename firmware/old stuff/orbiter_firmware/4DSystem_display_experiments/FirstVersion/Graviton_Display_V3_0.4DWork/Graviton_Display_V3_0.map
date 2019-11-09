@@ -1,0 +1,16 @@
+linked : 4     square 0000B3
+ stmt:Offset  stmt:offset  stmt:offset  stmt:offset  stmt:offset  stmt:offset  stmt:offset  stmt:offset
+  130:0000b3   131:0000b9   132:0000bf   133:0000cb   135:0000d7   136:0000d7   137:0000ea   140:0000fc 
+
+linked : 3     main 0000FF
+ stmt:Offset  stmt:offset  stmt:offset  stmt:offset  stmt:offset  stmt:offset  stmt:offset  stmt:offset
+   45:000101    46:000107    47:00010d    48:000113    49:000119    50:00011f    51:000125    18:000146 
+   19:00014f    20:000158    21:000161    22:00016a    23:000172    24:000178    27:000183    43:000189 
+   44:000195    69:00019d    70:00019d    71:0001b5    75:0001cd    77:0001d9    83:0001df    85:0001df 
+   87:0001e8    88:0001f0    96:0001f6    97:00020e   100:000226   101:00022e   102:00024c 
+
+skipped: 2     PrintDiskUnicode ----
+linked : 1     PrintDisk 00026E
+ stmt:Offset  stmt:offset  stmt:offset  stmt:offset  stmt:offset  stmt:offset  stmt:offset  stmt:offset
+    4:000270     5:00027c     6:000282     7:000288     8:000294     9:0002a0    10:0002a0    11:0002ab 
+
