@@ -21,7 +21,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "cmsis_os.h"
-
+#include "lwip.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -38,32 +38,41 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
-//****************************//
-//============PinOut==========//
-//****************************//
-//=============UART6==========//
-//		USART6_RX   -------->PC6
-//		USART6_TX   -------->PC7
-//****************************//
-//==============DAC===========//
-//		DAC_OUT1	-------->PA4
-//		DAC_OUT2	-------->PA5
-//****************************//
-//==============ADC1==========//
-//		ADC1-IN0	-------->PA0
-//		ADC1-IN3	-------->PA3
-//		ADC1-IN6	-------->PA6
-//****************************//
-//==============ADC2==========//
-//		ADC2-IN9	-------->PB1
-//		ADC2-IN10	-------->PC0
-//		ADC2-IN12	-------->PC2
-//****************************//
-//==============ADC3==========//
-//		ADC3-IN13	-------->PC3
-//		ADC3-IN14	-------->PF4
-//		ADC3-IN15	-------->PF5
-//****************************//
+//************************************
+//===============PinOut===============
+//************************************
+//===============UART6================
+//		USART6_RX   -------->PC6--(v)
+//		USART6_TX   -------->PC7--(v)
+//************************************
+//================DAC=================
+//		DAC_OUT1	-------->PA4--(v)
+//		DAC_OUT2	-------->PA5--(v)
+//************************************
+//================ADC1================
+//		ADC1-IN0	-------->PA0--(v)
+//		ADC1-IN3	-------->PA3--(v)
+//		ADC1-IN6	-------->PA6--(v)
+//************************************
+//================ADC2================
+//		ADC2-IN9	-------->PB1--(v)
+//		ADC2-IN10	-------->PC0--(v)
+//		ADC2-IN12	-------->PC2--(v)
+//************************************
+//================ADC3================
+//		ADC3-IN13	-------->PC3--(v)
+//		ADC3-IN14	-------->PF4--(v)
+//		ADC3-IN15	-------->PF5--(v)
+//************************************
+//================Relais==============
+//		Relais1		-------->PG1--(v)
+//		Relais2		-------->PE6--(v)
+//		Relais3		-------->PG15-(v)
+//		Relais4		-------->PG10-(v)
+//		Relais5		-------->PG12-(v)
+//		Relais6		-------->PG9--(v)
+//************************************
+
 
 /* USER CODE END PD */
 
@@ -527,19 +536,31 @@ static void MX_GPIO_Init(void)
   GPIO_InitTypeDef GPIO_InitStruct = {0};
 
   /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOE_CLK_ENABLE();
   __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOF_CLK_ENABLE();
   __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
-  __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOG_CLK_ENABLE();
+  __HAL_RCC_GPIOD_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(Relais2_GPIO_Port, Relais2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, LD1_Pin|LD3_Pin|LD2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(USB_PowerSwitchOn_GPIO_Port, USB_PowerSwitchOn_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOG, Relais1_Pin|USB_PowerSwitchOn_Pin|Relais6_Pin|Relais4_Pin 
+                          |Relais5_Pin|Relais3_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : Relais2_Pin */
+  GPIO_InitStruct.Pin = Relais2_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(Relais2_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : USER_Btn_Pin */
   GPIO_InitStruct.Pin = USER_Btn_Pin;
@@ -554,12 +575,14 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : USB_PowerSwitchOn_Pin */
-  GPIO_InitStruct.Pin = USB_PowerSwitchOn_Pin;
+  /*Configure GPIO pins : Relais1_Pin USB_PowerSwitchOn_Pin Relais6_Pin Relais4_Pin 
+                           Relais5_Pin Relais3_Pin */
+  GPIO_InitStruct.Pin = Relais1_Pin|USB_PowerSwitchOn_Pin|Relais6_Pin|Relais4_Pin 
+                          |Relais5_Pin|Relais3_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(USB_PowerSwitchOn_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);
 
   /*Configure GPIO pin : USB_OverCurrent_Pin */
   GPIO_InitStruct.Pin = USB_OverCurrent_Pin;
@@ -599,10 +622,13 @@ static void MX_GPIO_Init(void)
 /* USER CODE END Header_StartDefaultTask */
 void StartDefaultTask(void const * argument)
 {
+  /* init code for LWIP */
+
+  /* USER CODE BEGIN 5 */
   /* Infinite loop */
   for(;;)
   {
-
+    osDelay(1);
   }
   /* USER CODE END 5 */ 
 }
