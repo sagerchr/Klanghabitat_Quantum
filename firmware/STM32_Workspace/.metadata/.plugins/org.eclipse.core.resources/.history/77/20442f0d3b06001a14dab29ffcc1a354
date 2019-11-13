@@ -1,0 +1,17 @@
+/*
+ * lwiIPTask.h
+ *
+ *  Created on: 13.11.2019
+ *      Author: christiansager
+ */
+
+typedef enum
+{
+	bypass=0,
+	activate,
+}Bypass;
+
+void BypassActivate(Bypass State);
+
+
+

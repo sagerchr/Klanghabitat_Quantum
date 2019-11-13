@@ -1,0 +1,38 @@
+/*
+ * lwiIPTask.h
+ *
+ *  Created on: 13.11.2019
+ *      Author: christiansager
+ */
+/*******************************************/
+typedef enum
+{
+	bypass=0,
+	activate,
+}Byp;
+
+void Bypass(Byp State);
+/*******************************************/
+typedef enum
+{
+	MS=0,
+	RL,
+}Source;
+
+void VCASource(Source State);
+/*******************************************/
+typedef enum
+{
+	Normal=0,
+	MonoS,
+	MonoM,
+}Output;
+
+typedef enum
+{
+	Active=0,
+	Inactive,
+}Convert;
+
+void VCAOutput(Output Out, Convert Conv);
+/*******************************************/

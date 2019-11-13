@@ -22,12 +22,12 @@
 #include "main.h"
 #include "cmsis_os.h"
 #include "lwip.h"
-
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
 #include "dspTask.h"
 #include "lwIPTask.h"
+#include "MY_FLASH.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -115,7 +115,8 @@ void StartDefaultTask(void const * argument);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+uint8_t myTestWrite [5] = {0x11,0x22,0x33,0x44,0x55};
+uint8_t myTestRead [5];
 /* USER CODE END 0 */
 
 /**
@@ -625,10 +626,14 @@ void StartDefaultTask(void const * argument)
   /* init code for LWIP */
 
   /* USER CODE BEGIN 5 */
+
+
+
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+
+    osDelay(1000);
   }
   /* USER CODE END 5 */ 
 }

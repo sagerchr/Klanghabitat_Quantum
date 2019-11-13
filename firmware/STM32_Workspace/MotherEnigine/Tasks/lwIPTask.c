@@ -36,7 +36,7 @@ void lwIPTask(void const * argument){
 					memcpy (IP3, pcValue[2],3);
 					memcpy (IP4, pcValue[3],3);
 					HAL_GPIO_TogglePin(GPIOB, LD3_Pin);
-		  return "/leds.html";
+		  return "/index.html";
 	       }
 
 
