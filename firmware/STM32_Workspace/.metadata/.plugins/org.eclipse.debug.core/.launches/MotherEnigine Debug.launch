@@ -12,6 +12,7 @@
 <stringAttribute key="fr.ac6.mcu.ide.DBG_RESET_MODE" value="connect_under_reset"/>
 <stringAttribute key="fr.ac6.mcu.ide.DBG_STOP_WATCHDOG_THEN_HALTED_ALLOWED" value="true"/>
 <booleanAttribute key="fr.ac6.mcu.ide.OPENOCD_GENERATOR_OPTION" value="false"/>
+<booleanAttribute key="fr.ac6.mcu.ide.OPENOCD_LAUNCH" value="true"/>
 <stringAttribute key="fr.ac6.mcu.ide.OPENOCD_NAME" value="&quot;${openstm32_openocd_path}/openocd&quot;"/>
 <stringAttribute key="fr.ac6.mcu.ide.OPENOCD_OTHER_OPTIONS" value=""/>
 <stringAttribute key="fr.ac6.mcu.ide.OPENOCD_SCRIPT" value="${ProjDirPath}/MotherEnigine Debug.cfg"/>
@@ -45,6 +46,7 @@
 <stringAttribute key="org.eclipse.cdt.launch.COREFILE_PATH" value=""/>
 <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_REGISTER_GROUPS" value=""/>
 <stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="Debug/MotherEnigine.elf"/>
+<booleanAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME_ACTIVATED" value="true"/>
 <stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="MotherEnigine"/>
 <booleanAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_AUTO_ATTR" value="true"/>
 <stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value="fr.ac6.managedbuild.config.gnu.cross.exe.debug.1376318312"/>

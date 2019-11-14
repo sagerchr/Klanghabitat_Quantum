@@ -124,7 +124,8 @@ uint8_t myTestRead [5];
   * @retval int
   */
 int main(void)
-{
+
+ {
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -508,7 +509,7 @@ static void MX_USART6_UART_Init(void)
 
   /* USER CODE END USART6_Init 1 */
   huart6.Instance = USART6;
-  huart6.Init.BaudRate = 230400;
+  huart6.Init.BaudRate = 9600;
   huart6.Init.WordLength = UART_WORDLENGTH_8B;
   huart6.Init.StopBits = UART_STOPBITS_1;
   huart6.Init.Parity = UART_PARITY_NONE;
