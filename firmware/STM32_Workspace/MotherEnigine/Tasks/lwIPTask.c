@@ -120,6 +120,7 @@ void lwIPTask(void const * argument){
 		HAL_GPIO_TogglePin(GPIOB, LD2_Pin); //Blaue LED an
 		memcpy(str, p -> payload, p -> len);
 	    pbuf_free(p);
+
 	  }
 	 //=======================================================================================//
 
@@ -198,9 +199,14 @@ void lwIPTask(void const * argument){
 	  /* Infinite loop */
 	  for(;;)
 	  {
+
 		count++;
-		str;
-		SendUDP(str[19]);
+		str[19];
+		SendUDP(count);
+
+		if (count ==127){
+			count = 0;
+		}
 	    osDelay(10);
 	  }
 

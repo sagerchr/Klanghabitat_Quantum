@@ -204,11 +204,12 @@ public:
         addAndMakeVisible (senderLabel);
         senderLabel.attachToComponent (&rotaryKnob, false);
 
-        rotaryKnob.setRange (0.0, 1.0);
+        rotaryKnob.setRange (0.0, 127);
         rotaryKnob.setSliderStyle (Slider::RotaryVerticalDrag);
         rotaryKnob.setTextBoxStyle (Slider::TextBoxBelow, true, 150, 25);
         rotaryKnob.setBounds (50, 50, 180, 180);
         addAndMakeVisible (rotaryKnob);
+       
         rotaryKnob.onValueChange = [this]
         {
             // create and send an OSC message with an address and a float value:
@@ -220,10 +221,12 @@ public:
 
         // specify here where to send OSC messages to: host URL and UDP port number
         if (! sender1.connect ("127.0.0.1", 9001))
-            showConnectionErrorMessage ("Error: could not connect to UDP port 9001.");
+            showConnectionErrorMessage ("Error: could not connect to UDP ---  port 9005.");
         if (! sender2.connect ("127.0.0.1", 9002))
-            showConnectionErrorMessage ("Error: could not connect to UDP port 9002.");
-    }
+            showConnectionErrorMessage ("Error: could not connect to UDP --- port 9006.");
+
+        
+        }
 
 private:
     //==============================================================================
@@ -255,7 +258,7 @@ public:
         addAndMakeVisible (receiverLabel);
         receiverLabel.attachToComponent (&rotaryKnob, false);
 
-        rotaryKnob.setRange (0.0, 1.0);
+        rotaryKnob.setRange (0, 127);
         rotaryKnob.setSliderStyle (Slider::RotaryVerticalDrag);
         rotaryKnob.setTextBoxStyle (Slider::TextBoxBelow, true, 150, 25);
         rotaryKnob.setBounds (50, 50, 180, 180);
@@ -264,18 +267,19 @@ public:
 
         // specify here on which UDP port number to receive incoming OSC messages
         if (! connect (9001))
-            showConnectionErrorMessage ("Error: could not connect to UDP port 9001.");
+            showConnectionErrorMessage ("Error: could not connect to UDP --- port 9002.");
 
         // tell the component to listen for OSC messages matching this address:
-        addListener (this, "/juce/rotaryknob");
+        addListener (this, "/juce/rotarybutter");
     }
 
 private:
     //==============================================================================
     void oscMessageReceived (const OSCMessage& message) override
     {
-        if (message.size() == 1 && message[0].isFloat32())
-            rotaryKnob.setValue (jlimit (0.0f, 10.0f, message[0].getFloat32()));
+        if (message.size() == 1 && message[0].isInt32())
+            //rotaryKnob.setValue (jlimit (0.0f, 10.0f, message[0].getInt32()));
+        rotaryKnob.setValue((message[0].getInt32()));
     }
 
     void showConnectionErrorMessage (const String& messageText)
