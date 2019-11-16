@@ -1,0 +1,19 @@
+/*
+ * AudioMeter.h
+ *
+ *  Created on: 16.11.2019
+ *      Author: christiansager
+ */
+
+#ifndef APP_GUIELEMENTS_AUDIOMETER_H_
+#define APP_GUIELEMENTS_AUDIOMETER_H_
+
+static void drawFloat (int pos_x, int pos_y, float val, const char * s,const char * h);
+void drawBar (int pos_x, int pos_y, float PeakVal,float AvVal, const char * s );
+void drawVBar (int pos_x, int pos_y, float PeakVal,float AvVal, const char * s );
+void drawWaveForm();
+void drawWaveFormUart(int x,int y, int adc);
+void drawWaveFormUart2(int x,int y, int adc);
+
+
+#endif /* APP_GUIELEMENTS_AUDIOMETER_H_ */

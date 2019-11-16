@@ -47,7 +47,7 @@ x  * @file    GUI_App.c
 #include "main.h"
 #include "DIALOG.h"
 #include "usb_device.h"
-
+#include "UART_IO.h"
 
 
 extern  WM_HWIN CreateWindow(void);
@@ -72,7 +72,7 @@ int counter = 0;
 char transmitCDC[4];
 uint8_t ReciveCDC;
 uint8_t count;
-
+uint8_t buffer[10];
 char transmit[10];
 //GUI_RECT pRect = {250,100,600,400};
 GUI_RECT pRect = {200,0,600,480};
@@ -95,36 +95,12 @@ void GRAPHICS_MainTask(void) {
     while(1)
   {
 
-
-    	GUI_Delay(10);
+    	GUI_Delay(1);
 
     	WM_Invalidate(hWin);
 
-     //WM_InvalidateArea(&pRect);
-
-
-
     	WM_SendMessageNoPara(hWin, WM_PaintWindowAndDescs);
 
-    /******************Redraw *************************/
-    /****When Interval is reached redraw everything****/
-
-  /**********************************************************/
-
-  /******************** READ TOUCH SCREEN *******************/
-
-         //GUI_Delay(1);
-       //GUI_Exec();
-
-    	if (wait >= 0){
-
-      	     wait = 0;
-    	}
-    	wait++;
-
-
-
-   /**********************************************************/
 
    /******************** READ ENCODER ***********************/
 
@@ -138,6 +114,7 @@ void GRAPHICS_MainTask(void) {
     	     level=pots[0];
     	     left=pots[0];
     	     right=pots[5];
+
    /**********************************************************/
 
    /************** Panning Action TouchScreen ****************/
@@ -167,68 +144,6 @@ void GRAPHICS_MainTask(void) {
 
   /**********************************************************/
 
-  /***************** Sort Incoming data ********************/
-/*
-    	     int start = 0;
-    	     int offset = 0;
-    	     char incommingData[10];
-    	     for(int i = 0; i<10;i++){
-    	    	 if (UART_RECIVE[i] == 0xFF){
-    	    		   start = i; //found start index @start
-    	    		   break;
-    	    	 }
-    	     }
-
-    	     if (start == 0){
-    	    	 for (int i = 0; i< 10;i++){
-    	    	      incommingData[i] = UART_RECIVE[i];
-    	    	 }
-    	     }
-    	     else if (start != 0){
-        	     for (int i = 0; i< 10;i++){
-        	    	 incommingData[i] = UART_RECIVE[i+start];
-        	    	 offset = i+1;
-        	    	 if (i+start == 9){
-        	    		 break;
-        	    	 }
-        	     }
-        	     for (int i = 0; i< 10;i++){
-        	    	 incommingData[i+offset] = UART_RECIVE[i];
-        	    	 if (i+offset == 9){
-        	    		 break;
-        	    	 }
-        	     }
-    	     }
-
-
-
-
-    	     watchdog = incommingData[1];
-    	     adc1 = incommingData[3];
-*/
-
-
-
-
-    	     count++;
-
-    	     transmitCDC[0]=count;
-    	     transmitCDC[1]=adc1;
-    	     transmitCDC[2]=adc2;
-    	     transmitCDC[3]='\r';
-    	     transmitCDC[4]='\n';
-
-    	     /*
-				adc1 = counter;
-				counter ++;
-				if (counter >= 100){
-					counter = 0;
-				}
-    	      */
-	CDC_Transmit_FS("EINFACH nur ein blöder TEXT\r\n", 32);
-
-
-    	     //pots[5]=ReciveCDC;
 
   }
 /* USER CODE END GRAPHICS_MainTask */

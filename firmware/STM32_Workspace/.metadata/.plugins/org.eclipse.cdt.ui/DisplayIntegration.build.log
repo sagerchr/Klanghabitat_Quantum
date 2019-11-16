@@ -1,6 +1,43 @@
-11:25:01 **** Incremental Build of configuration Debug for project DisplayIntegration ****
+15:30:06 **** Incremental Build of configuration Debug for project DisplayIntegration ****
 make all 
-make: Nothing to be done for `all'.
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F469xx -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/STemWin/Target" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/STemWin/App" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Drivers/BSP/Components/otm8009a" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Middlewares/ST/STemWin/inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Drivers/BSP/Components/Common" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Drivers/CMSIS/Include" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'main':
+../Src/main.c:183:33: warning: pointer targets in passing argument 2 of 'HAL_UART_Receive_DMA' differ in signedness [-Wpointer-sign]
+   HAL_UART_Receive_DMA(&huart6, UART_RECIVE,10);
+                                 ^~~~~~~~~~~
+In file included from /Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Inc/stm32f4xx_hal_conf.h:368:0,
+                 from /Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:46,
+                 from /Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Inc/main.h:57,
+                 from ../Src/main.c:50:
+/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:650:19: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ HAL_StatusTypeDef HAL_UART_Receive_DMA(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+                   ^~~~~~~~~~~~~~~~~~~~
+At top level:
+../Src/main.c:462:13: warning: 'MX_TIM4_Init' defined but not used [-Wunused-function]
+ static void MX_TIM4_Init(void)
+             ^~~~~~~~~~~~
+../Src/main.c:429:13: warning: 'MX_TIM3_Init' defined but not used [-Wunused-function]
+ static void MX_TIM3_Init(void)
+             ^~~~~~~~~~~~
+Finished building: ../Src/main.c
+ 
+Building target: DisplayIntegration.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -L"/Users/christiansager/Documents/Klanghabitat_Quantum/firmware/STM32_Workspace/DisplayIntegration/Middlewares/ST/STemWin/Lib"  -specs=nosys.specs -specs=nano.specs -T"../STM32F469NIHx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "DisplayIntegration.elf" @"objects.list"  -l:STemWin540_CM4_GCC_ot_ARGB.a -lm
+Finished building target: DisplayIntegration.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "DisplayIntegration.elf" "DisplayIntegration.bin"
+arm-none-eabi-size "DisplayIntegration.elf" & arm-none-eabi-size --format=berkeley DisplayIntegration.elf
+   text	   data	    bss	    dec	    hex	filename
+ 132032	    764	 273260	 406056	  63228	DisplayIntegration.elf
+   text	   data	    bss	    dec	    hex	filename
+ 132032	    764	 273260	 406056	  63228	DisplayIntegration.elf
+ 
 
-11:25:02 Build Finished (took 195ms)
+15:30:08 Build Finished (took 1s.895ms)
 
