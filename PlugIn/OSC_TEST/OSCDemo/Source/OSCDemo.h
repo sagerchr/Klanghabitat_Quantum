@@ -260,13 +260,13 @@ public:
 
         rotaryKnob.setRange (0, 127);
         rotaryKnob.setSliderStyle (Slider::RotaryVerticalDrag);
-        rotaryKnob.setTextBoxStyle (Slider::TextBoxBelow, true, 150, 25);
+        rotaryKnob.setTextBoxStyle (Slider::TextBoxBelow, false, 150, 25);
         rotaryKnob.setBounds (50, 50, 180, 180);
         rotaryKnob.setInterceptsMouseClicks (false, false);
         addAndMakeVisible (rotaryKnob);
 
         // specify here on which UDP port number to receive incoming OSC messages
-        if (! connect (9001))
+        if (! connect (9002))
             showConnectionErrorMessage ("Error: could not connect to UDP --- port 9002.");
 
         // tell the component to listen for OSC messages matching this address:
@@ -337,7 +337,7 @@ public:
 private:
     //==============================================================================
     Label portNumberLabel    { {}, "UDP Port Number: " };
-    Label portNumberField    { {}, "9002" };
+    Label portNumberField    { {}, "9000" };
     TextButton connectButton { "Connect" };
     TextButton clearButton   { "Clear" };
     Label connectionStatusLabel;

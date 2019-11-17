@@ -13,9 +13,12 @@ char UDP_Message[] = {'/','j','u','c','e','/','r','o','t','a','r','y','b','u','t
 
 static struct udp_pcb *udpPcb;
 char str[20];
-
+TIM_HandleTypeDef htim5;
+ADC_HandleTypeDef hadc1;
 void lwIPTask(void const * argument){
 
+
+	uint8_t test;
 
 
 	/* init code for LWIP */
@@ -98,7 +101,7 @@ void lwIPTask(void const * argument){
 		ip_addr_t       client1IpAddr; //The Clients IP Adress
 		struct pbuf     *ethTxBuffer_p;
 		UDP_Message[27] = count;
-	    IP4_ADDR(&client1IpAddr, 192, 168, 1, 255); //IP Adress to send UDP to in this CASE BROADCAST!!!
+	    IP4_ADDR(&client1IpAddr, 192, 168, 1, 36); //IP Adress to send UDP to in this CASE BROADCAST!!!
 
 
 	    ethTxBuffer_p = pbuf_alloc(PBUF_TRANSPORT, sizeof(UDP_Message), PBUF_RAM); //TX BUFFER TO SOMETHING WE CAN SEND
@@ -107,6 +110,7 @@ void lwIPTask(void const * argument){
 	    memcpy(ethTxBuffer_p->payload, UDP_Message, sizeof(UDP_Message));
 
 	    udp_sendto(udpPcb, ethTxBuffer_p, &client1IpAddr,9002);  //SEND UDP TO PORT 9002
+
 	    pbuf_free(ethTxBuffer_p);  //Free the TX Buffer
 	  }
 	//=======================================================================================//
@@ -195,6 +199,10 @@ void lwIPTask(void const * argument){
 	     mySSIinit();
 	   //=====================================================================================//
 
+
+	     HAL_TIM_Base_Start(&htim5);
+	     HAL_ADC_Start(&hadc1);
+
 	    uint8_t count = 0;
 	  /* Infinite loop */
 	  for(;;)
@@ -202,12 +210,15 @@ void lwIPTask(void const * argument){
 
 		count++;
 		str[19];
-		SendUDP(count);
-
+		//SendUDP(str[19]);
+		test = conv_ADC1[0];
+		 test = HAL_ADC_PollForConversion(&hadc1, 1);
+		test = HAL_ADC_GetValue(&hadc1);
+		SendUDP(test);
 		if (count ==127){
 			count = 0;
 		}
-	    osDelay(10);
+	    osDelay(1);
 	  }
 
 }

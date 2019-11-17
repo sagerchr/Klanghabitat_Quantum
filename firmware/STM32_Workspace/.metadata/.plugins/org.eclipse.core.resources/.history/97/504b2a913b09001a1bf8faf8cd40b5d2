@@ -1,0 +1,38 @@
+/*
+ * dspTask.c
+ *
+ *  Created on: 07.11.2019
+ *      Author: christiansager
+ */
+
+#include "main.h"
+#include "RelaisControl.h"
+
+
+void dspTask(void const * argument){
+
+
+	ADC_HandleTypeDef hadc1;
+
+
+/******************Setting all Relais to default settings**************/
+	Bypass(bypass);
+	VCASource(RL);
+	VCAOutput(NormalOutput, MS_Deconvert_Inactive);
+/**********************************************************************/
+
+	uint32_t ADCValue;
+
+	for(;;){
+
+		 if (HAL_ADC_PollForConversion(&hadc1, 10000) == HAL_OK)
+		        {
+		            ADCValue = HAL_ADC_GetValue(&hadc1);
+		        }
+
+		osDelay(100);
+		HAL_GPIO_TogglePin(GPIOB, LD1_Pin);
+
+	}
+
+}
