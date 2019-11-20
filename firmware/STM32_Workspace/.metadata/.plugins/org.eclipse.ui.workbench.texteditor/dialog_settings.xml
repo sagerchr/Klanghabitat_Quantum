@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="STMicroelectronics" key="selection"/>
+		<item value="callback" key="selection"/>
 		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="callback"/>
+			<item value="call"/>
 			<item value="STMicroelectronics&amp;"/>
 			<item value="STMicroelectronics"/>
 			<item value="STM"/>
 			<item value=" GUI_Delay(100)"/>
 			<item value=" GUI_Delay"/>
 			<item value="GUI_Clear();"/>
-			<item value="hi2c2"/>
-			<item value="CD"/>
 		</list>
 		<list key="replacehistory">
 			<item value="0x00000000"/>
