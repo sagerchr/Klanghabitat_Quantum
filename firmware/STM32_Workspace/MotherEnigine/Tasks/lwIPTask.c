@@ -13,7 +13,7 @@ char UDP_Message[] = {'/','j','u','c','e','/','r','o','t','a','r','y','b','u','t
 
 static struct udp_pcb *udpPcb;
 char str[20];
-
+ADC_HandleTypeDef hadc1;
 void lwIPTask(void const * argument){
 
 
@@ -198,8 +198,8 @@ void lwIPTask(void const * argument){
 	     mySSIinit();
 	   //=====================================================================================//
 
-
-
+	     uint32_t value[2];
+	     HAL_ADC_Start_DMA(&hadc1,value,2);
 
 	    uint8_t count = 0;
 	  /* Infinite loop */
@@ -208,11 +208,8 @@ void lwIPTask(void const * argument){
 
 		count++;
 		str[19];
-		//SendUDP(str[19]);
-		//test = conv_ADC1[0];
 
-		SendUDP(conv_ADC1*3);
-
+		SendUDP(value[0]);
 		if (count ==127){
 			count = 0;
 		}

@@ -124,6 +124,7 @@ void StartDefaultTask(void const * argument);
 uint8_t myTestWrite [5] = {0x11,0x22,0x33,0x44,0x55};
 uint8_t myTestRead [5];
 
+
 /* USER CODE END 0 */
 
 /**
@@ -134,8 +135,18 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
 
+	  SCB_EnableICache();
+
+	  /* Enable D-Cache */
+	  SCB_EnableDCache();
   /* USER CODE END 1 */
   
+
+  /* Enable I-Cache---------------------------------------------------------*/
+  SCB_EnableICache();
+
+  /* Enable D-Cache---------------------------------------------------------*/
+  SCB_EnableDCache();
 
   /* MCU Configuration--------------------------------------------------------*/
 
@@ -155,18 +166,18 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_ADC1_Init();
   MX_DAC_Init();
   MX_USART3_UART_Init();
   MX_ADC2_Init();
   MX_ADC3_Init();
   MX_USART6_UART_Init();
-  MX_DMA_Init();
   MX_TIM5_Init();
   /* USER CODE BEGIN 2 */
 
-  HAL_ADC_Start_IT(&hadc1);
-  HAL_ADC_Start_IT(&hadc2);
+  //HAL_ADC_Start_IT(&hadc1);
+  //HAL_ADC_Start_IT(&hadc2);
   /* USER CODE END 2 */
 
   /* USER CODE BEGIN RTOS_MUTEX */
@@ -191,11 +202,14 @@ int main(void)
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
-  osThreadDef(dspTask, dspTask, osPriorityNormal, 0, 1000);
+  osThreadDef(lwIPTask, lwIPTask, osPriorityNormal, 0, 300);
+  lwIPTaskHandle = osThreadCreate(osThread(lwIPTask), NULL);
+
+  osThreadDef(dspTask, dspTask, osPriorityNormal, 0, 500);
   dspTaskHandle = osThreadCreate(osThread(dspTask), NULL);
 
-  osThreadDef(lwIPTask, lwIPTask, osPriorityNormal, 0, 1000);
-  dspTaskHandle = osThreadCreate(osThread(lwIPTask), NULL);
+
+
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
 
@@ -302,8 +316,8 @@ static void MX_ADC1_Init(void)
   hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
-  hadc1.Init.NbrOfConversion = 1;
-  hadc1.Init.DMAContinuousRequests = DISABLE;
+  hadc1.Init.NbrOfConversion = 2;
+  hadc1.Init.DMAContinuousRequests = ENABLE;
   hadc1.Init.EOCSelection = ADC_EOC_SEQ_CONV;
   if (HAL_ADC_Init(&hadc1) != HAL_OK)
   {
@@ -313,7 +327,15 @@ static void MX_ADC1_Init(void)
   */
   sConfig.Channel = ADC_CHANNEL_0;
   sConfig.Rank = ADC_REGULAR_RANK_1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_480CYCLES;
+  sConfig.SamplingTime = ADC_SAMPLETIME_112CYCLES;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time. 
+  */
+  sConfig.Channel = ADC_CHANNEL_3;
+  sConfig.Rank = ADC_REGULAR_RANK_2;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     Error_Handler();
@@ -352,7 +374,7 @@ static void MX_ADC2_Init(void)
   hadc2.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
   hadc2.Init.ExternalTrigConv = ADC_SOFTWARE_START;
   hadc2.Init.DataAlign = ADC_DATAALIGN_RIGHT;
-  hadc2.Init.NbrOfConversion = 1;
+  hadc2.Init.NbrOfConversion = 2;
   hadc2.Init.DMAContinuousRequests = DISABLE;
   hadc2.Init.EOCSelection = ADC_EOC_SEQ_CONV;
   if (HAL_ADC_Init(&hadc2) != HAL_OK)
@@ -364,6 +386,14 @@ static void MX_ADC2_Init(void)
   sConfig.Channel = ADC_CHANNEL_9;
   sConfig.Rank = ADC_REGULAR_RANK_1;
   sConfig.SamplingTime = ADC_SAMPLETIME_480CYCLES;
+  if (HAL_ADC_ConfigChannel(&hadc2, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time. 
+  */
+  sConfig.Rank = ADC_REGULAR_RANK_2;
+  sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
   if (HAL_ADC_ConfigChannel(&hadc2, &sConfig) != HAL_OK)
   {
     Error_Handler();
@@ -708,7 +738,7 @@ void StartDefaultTask(void const * argument)
   /* init code for LWIP */
   //MX_LWIP_Init();
   /* USER CODE BEGIN 5 */
-
+	HAL_Delay(2000);
 
 
   /* Infinite loop */
