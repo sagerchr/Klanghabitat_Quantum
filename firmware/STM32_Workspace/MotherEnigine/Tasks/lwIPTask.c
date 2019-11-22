@@ -8,12 +8,13 @@
 #include "main.h"
 #include "lwip/apps/httpd.h"
 #include "lwip.h"
-
-char UDP_Message[] = {'/','j','u','c','e','/','r','o','t','a','r','y','b','u','t','t','e','r',0x00,0x00,',','i',0x00,0x00,0x00,0x00,0x00,0x08};
+#include <string.h>
 
 static struct udp_pcb *udpPcb;
 char str[20];
 ADC_HandleTypeDef hadc1;
+UART_HandleTypeDef huart6;
+
 void lwIPTask(void const * argument){
 
 
@@ -33,11 +34,13 @@ void lwIPTask(void const * argument){
 		  	char IP3[5];
 		  	char IP4[5];
 		  	int ind = iIndex;
-		    	 	memcpy (IP1, pcValue[0],3);
-					memcpy (IP2, pcValue[1],3);
-					memcpy (IP3, pcValue[2],3);
-					memcpy (IP4, pcValue[3],3);
-					HAL_GPIO_TogglePin(GPIOB, LD3_Pin);
+
+		  	memcpy (IP1, pcValue[0],3);
+		  	memcpy (IP2, pcValue[1],3);
+		  	memcpy (IP3, pcValue[2],3);
+		  	memcpy (IP4, pcValue[3],3);
+		  	HAL_GPIO_TogglePin(GPIOB, LD3_Pin);
+
 		  return "/index.html";
 	       }
 
@@ -95,28 +98,31 @@ void lwIPTask(void const * argument){
 
 	  //==================================SENDING UDP MESSAGE===================================//
 
-	  void SendUDP(uint8_t count){
+	  void SendUDP(char *UDP_Message, int size ){
 
 		ip_addr_t       client1IpAddr; //The Clients IP Adress
 		struct pbuf     *ethTxBuffer_p;
-		UDP_Message[27] = count;
+
 	    IP4_ADDR(&client1IpAddr, 192, 168, 1, 36); //IP Adress to send UDP to in this CASE BROADCAST!!!
 
+	    char UDP[size];
+	    for (int i=0;i<size;i++){
+	    	UDP[i] = UDP_Message[i];
+	    }
 
-	    ethTxBuffer_p = pbuf_alloc(PBUF_TRANSPORT, sizeof(UDP_Message), PBUF_RAM); //TX BUFFER TO SOMETHING WE CAN SEND
+
+	    ethTxBuffer_p = pbuf_alloc(PBUF_TRANSPORT, size, PBUF_RAM); //TX BUFFER TO SOMETHING WE CAN SEND
 	    if (ethTxBuffer_p == NULL){}
 
-	    memcpy(ethTxBuffer_p->payload, UDP_Message, sizeof(UDP_Message));
+	    memcpy(ethTxBuffer_p->payload, UDP, size);
 
 	    udp_sendto(udpPcb, ethTxBuffer_p, &client1IpAddr,9002);  //SEND UDP TO PORT 9002
 
 	    pbuf_free(ethTxBuffer_p);  //Free the TX Buffer
 	  }
-	//=======================================================================================//
 
 
-
-	//==================================Recive UDP MESSAGE===================================//
+	 	//==================================Recive UDP MESSAGE===================================//
 
 	  void udp_recive(void *arg, struct udp_pcb *pcb, struct pbuf *p, const ip_addr_t *addr, u16_t port)
 	  {
@@ -198,22 +204,92 @@ void lwIPTask(void const * argument){
 	     mySSIinit();
 	   //=====================================================================================//
 
+	     void OSCmessageINTSend(char *OSCAdress,int size, int value){
+
+	    	 int index=0;
+	    	 char UDP_Message[100];
+
+	    	 for(int i=0; i< 100; i++){
+	    		 UDP_Message[i] = 0x01;
+	    	 }
+
+
+	    	 for(int i=0; i< size; i++){
+		    	 UDP_Message[i] = OSCAdress[i];
+	    	 }
+
+	    	 if(size==35||size==31||size==27||size==23||size == 19||size == 15||size == 11||size == 7||size == 3){
+	    		 UDP_Message[size] = 0x00;
+	    		 index=1;
+	    	 }
+	    	 else if(size==34||size==30||size==26||size==22||size == 18||size == 16||size == 12||size == 8||size == 4){
+
+	    		 UDP_Message[size] = 0x00;
+	    		 UDP_Message[size+1] = 0x00;
+	    		 index=2;
+	    	 }
+	    	 else if(size==33||size==29||size==25||size==21||size == 17||size == 15||size == 11||size == 7||size == 3){
+	    		 UDP_Message[size] = 0x00;
+	    		 UDP_Message[size+1] = 0x00;
+	    		 UDP_Message[size+2] = 0x00;
+	    		 index=3;
+	    	 }
+	    	 else if(size==32||size==28||size==24||size==20||size == 16||size == 14||size == 10||size == 6||size == 2){
+	    		 UDP_Message[size] = 0x00;
+	    		 UDP_Message[size+1] = 0x00;
+	    		 UDP_Message[size+2] = 0x00;
+	    		 UDP_Message[size+3] = 0x00;
+	    		 index=4;
+	    	 }
+
+    		 UDP_Message[size+index] = ',';
+    		 UDP_Message[size+index+1] = 'i';
+    		 UDP_Message[size+index+2] = 0x00;
+    		 UDP_Message[size+index+3] = 0x00;
+    		 UDP_Message[size+index+4] = 0x00;
+    		 UDP_Message[size+index+5] = 0x00;
+    		 UDP_Message[size+index+6] = 0x00;
+    		 UDP_Message[size+index+7] = value;
+
+    		 char UDP_SEND[size+index+8];
+
+	    	 for(int i=0; i< size+index+8; i++){
+	    		 UDP_SEND[i] = UDP_Message[i];
+	    	 }
+
+    		 SendUDP(UDP_SEND, sizeof(UDP_SEND));
+	     }
+
+
+
+
 	     uint32_t value[2];
+	     char transmit[10];
 	     HAL_ADC_Start_DMA(&hadc1,value,2);
 
-	    uint8_t count = 0;
+
 	  /* Infinite loop */
 	  for(;;)
 	  {
+		transmit[0]=0xFF;
+		transmit[1]=0x01;
+		transmit[2]=0x02;
+		transmit[3]=value[0];
+		transmit[4]=value[1];
+		transmit[5]=0x10;
+		transmit[6]=0x10;
+		transmit[7]=0x10;
+		transmit[8]=0x10;
+		transmit[9]=0x10;
 
-		count++;
-		str[19];
+		OSCmessageINTSend("/VALUE/Level/CH1/preVCA",  23, value[0]);
+		OSCmessageINTSend("/VALUE/Level/CH2/preVCA",  23, value[1]);
+		OSCmessageINTSend("/VALUE/Level/CH1/postVCA", 24, value[0]);
+		OSCmessageINTSend("/VALUE/Level/CH2/postVCA", 24, value[1]);
 
-		SendUDP(value[0]);
-		if (count ==127){
-			count = 0;
-		}
-	    osDelay(20);
+		HAL_UART_Transmit(&huart6, transmit,10,10);
+
+	    osDelay(10);
 	  }
 
 }

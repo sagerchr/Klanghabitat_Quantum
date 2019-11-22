@@ -6746,14 +6746,14 @@ NS Package M08A</description>
 <label x="167.64" y="83.82" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="USART6_RX" class="0">
+<net name="USART6_TX" class="0">
 <segment>
 <pinref part="U1" gate="G$6" pin="PC6"/>
 <wire x1="233.68" y1="119.38" x2="248.92" y2="119.38" width="0.1524" layer="91"/>
 <label x="241.3" y="119.38" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="USRAT6_TX" class="0">
+<net name="USRAT6_RX" class="0">
 <segment>
 <pinref part="U1" gate="G$6" pin="PC7"/>
 <wire x1="203.2" y1="99.06" x2="190.5" y2="99.06" width="0.1524" layer="91"/>

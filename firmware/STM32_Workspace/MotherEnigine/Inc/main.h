@@ -126,6 +126,7 @@ void Error_Handler(void);
 uint8_t conv_ADC1;
 uint8_t conv_ADC2;
 uint8_t DMA_ADC1[3];
+
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
