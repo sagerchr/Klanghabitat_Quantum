@@ -135,10 +135,6 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
 
-	  SCB_EnableICache();
-
-	  /* Enable D-Cache */
-	  SCB_EnableDCache();
   /* USER CODE END 1 */
   
 
@@ -175,9 +171,7 @@ int main(void)
   MX_USART6_UART_Init();
   MX_TIM5_Init();
   /* USER CODE BEGIN 2 */
-
-  //HAL_ADC_Start_IT(&hadc1);
-  //HAL_ADC_Start_IT(&hadc2);
+  HAL_ADC_Start_DMA(&hadc1,ADC1_RAW,2);
   /* USER CODE END 2 */
 
   /* USER CODE BEGIN RTOS_MUTEX */
@@ -327,7 +321,7 @@ static void MX_ADC1_Init(void)
   */
   sConfig.Channel = ADC_CHANNEL_0;
   sConfig.Rank = ADC_REGULAR_RANK_1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_28CYCLES;
+  sConfig.SamplingTime = ADC_SAMPLETIME_84CYCLES;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     Error_Handler();
@@ -714,11 +708,10 @@ static void MX_GPIO_Init(void)
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
 	  if (hadc->Instance == ADC1) {
-		  conv_ADC1 = HAL_ADC_GetValue(&hadc1);
+
 	  }
 
 	  if (hadc->Instance == ADC2) {
-		  conv_ADC2 = HAL_ADC_GetValue(&hadc2);
 
 	  }
 	  HAL_GPIO_TogglePin(GPIOG, Relais1_Pin);

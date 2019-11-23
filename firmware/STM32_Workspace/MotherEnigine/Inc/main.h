@@ -123,9 +123,7 @@ void Error_Handler(void);
 #define LD2_Pin GPIO_PIN_7
 #define LD2_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
-uint8_t conv_ADC1;
-uint8_t conv_ADC2;
-uint8_t DMA_ADC1[3];
+uint32_t ADC1_RAW[2];
 
 /* USER CODE END Private defines */
 

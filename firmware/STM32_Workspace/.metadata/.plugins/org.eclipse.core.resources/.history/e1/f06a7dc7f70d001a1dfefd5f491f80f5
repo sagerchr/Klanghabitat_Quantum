@@ -1,0 +1,9 @@
+/*
+ * UDP_SEND_RECIVE.h
+ *
+ *  Created on: 23.11.2019
+ *      Author: christiansager
+ */
+
+void UDP_init(void); //INIT the UDP Session
+void OSCmessageINTSend(char *OSCAdress,int size, int value);
