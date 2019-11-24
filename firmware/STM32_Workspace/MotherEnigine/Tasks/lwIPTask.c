@@ -14,7 +14,8 @@
 #include "MY_FLASH.h"
 
 uint8_t IP_READ[4];
-UART_HandleTypeDef huart6;
+DAC_HandleTypeDef hdac;
+DAC_HandleTypeDef huart6;
 
 void lwIPTask(void const * argument){
 
@@ -29,29 +30,33 @@ void lwIPTask(void const * argument){
 	 mySSIinit();//initialise the SSI handlers
    //================================================//
 
-
-	     char transmit[10];
+char UART_IN[10];
 
 	  /* Infinite loop */
 	  for(;;)
 	  {
-		transmit[0]=0xFF;
-		transmit[1]=0x01;
-		transmit[2]=0x02;
-		transmit[3]=ADC1_RAW[0];
-		transmit[4]=ADC1_RAW[1];
-		transmit[5]=0x10;
-		transmit[6]=0x10;
-		transmit[7]=0x10;
-		transmit[8]=0x10;
-		transmit[9]=0x10;
+
+
+		  HAL_UART_Receive(&huart6, UART_IN,10,10);
+		  HAL_UART_Transmit(&huart6, UART_transmit,10,10);
+		  UART_IN;
+		  UART_transmit[0]=0xFF;
+		  UART_transmit[1]=0x01;
+		  UART_transmit[2]=0x02;
+		  UART_transmit[3]=ADC1_RAW[0];
+		  UART_transmit[4]=ADC1_RAW[1];
+		  UART_transmit[5]=0x10;
+		  UART_transmit[6]=0x10;
+		  UART_transmit[7]=0x10;
+		  UART_transmit[8]=0x10;
+		  UART_transmit[9]=0x10;
+
+		HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R, 1000);
 
 		OSCmessageINTSend("/VALUE/Level/CH1/preVCA",  23, ADC1_RAW[0]);
 		OSCmessageINTSend("/VALUE/Level/CH2/preVCA",  23, ADC1_RAW[1]);
 		OSCmessageINTSend("/VALUE/Level/CH1/postVCA", 24, ADC1_RAW[0]);
 		OSCmessageINTSend("/VALUE/Level/CH2/postVCA", 24, ADC1_RAW[1]);
-
-		HAL_UART_Transmit(&huart6, transmit,10,10);
 
 	    osDelay(10);
 	  }
