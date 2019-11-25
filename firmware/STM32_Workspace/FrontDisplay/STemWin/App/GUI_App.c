@@ -1,13 +1,15 @@
   /**
   ******************************************************************************
 x  * @file    GUI_App.c
+  * @file    GUI_App.c
   * @author  MCD Application Team
   * @brief   Simple demo drawing "Hello world"  
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright Â© 2018 STMicroelectronics International N.V. 
+  * <h2><center>&copy; Copyright © 2018 STMicroelectronics International N.V.
   * All rights reserved.xx</center></h2>
+  * All rights reserved.</center></h2>
   *
   * Redistribution and use in source and binary forms, with or without 
   * modification, are permitted, provided that the following conditions are met:
@@ -79,80 +81,81 @@ GUI_RECT pRect = {200,0,600,480};
 int toggle=0;
 
 void CDC_ReceiveCallBack(uint8_t *buf, uint32_t len){
-	 ReciveCDC = &buf;
+     ReciveCDC = &buf;
 }
 
 int wait = 0;
 int activeKnob = 0;
 
+
 void GRAPHICS_MainTask(void) {
 
 
-	WM_HWIN hWin;
-	hWin = CreateWindow();
+    WM_HWIN hWin;
+    hWin = CreateWindow();
 
 
     while(1)
   {
 
-    	GUI_Delay(1);
+        GUI_Delay(1);
 
-    	WM_Invalidate(hWin);
+        WM_Invalidate(hWin);
 
-    	WM_SendMessageNoPara(hWin, WM_PaintWindowAndDescs);
+        WM_SendMessageNoPara(hWin, WM_PaintWindowAndDescs);
 
 
    /******************** READ ENCODER ***********************/
 
 
-    	     for (int i=0; i<6; i++){
-            	 i2cBuffer[0]= 0x0B;
-            	 HAL_I2C_Master_Transmit(&hi2c1, Adr[i],i2cBuffer,1,1);
-            	 HAL_I2C_Master_Receive(&hi2c1, Adr[i], &i2cBuffer[1],1,1);
-            	 pots[i]=i2cBuffer[1];
-    	     }
-    	     level=pots[0];
-    	     left=pots[0];
-    	     right=pots[5];
+             for (int i=0; i<6; i++){
+                 i2cBuffer[0]= 0x0B;
+                 HAL_I2C_Master_Transmit(&hi2c1, Adr[i],i2cBuffer,1,1);
+                 HAL_I2C_Master_Receive(&hi2c1, Adr[i], &i2cBuffer[1],1,1);
+                 pots[i]=i2cBuffer[1];
+             }
+             level=pots[0];
+             left=pots[0];
+             right=pots[5];
 
    /**********************************************************/
 
    /************** Panning Action TouchScreen ****************/
-    	     /*left = (X/2) - 200;
-    	     if (left <=1){left = 0;}
-    	     if (left >= 254){left = 254;}
+             /*left = (X/2) - 200;
+             if (left <=1){left = 0;}
+             if (left >= 254){left = 254;}
 
-    	     right = 200 - (X/2);
-    	     if (right <=1){right = 0;}
-    	     if (right >= 254){right = 254;}
+             right = 200 - (X/2);
+             if (right <=1){right = 0;}
+             if (right >= 254){right = 254;}
   /**********************************************************/
 
 
   /************ Transmit data to AnalogEngine****************/
-    		 transmit[0]=0xFF;
-    		 transmit[1]=left;
-    		 transmit[2]=pots[1];
-    		 transmit[3]=pots[2];
-    		 transmit[4]=pots[3];
-    		 transmit[5]=pots[4];
-    		 transmit[6]=right;
-    		 transmit[7]=0x01;
-    		 transmit[8]=0x02;
-    		 transmit[9]=0x03;
+             transmit[0]=0xFF;
+             transmit[1]=left;
+             transmit[2]=pots[1];
+             transmit[3]=pots[2];
+             transmit[4]=pots[3];
+             transmit[5]=pots[4];
+             transmit[6]=right;
+             transmit[7]=0x01;
+             transmit[8]=0x02;
+             transmit[9]=0x03;
 
-    	      HAL_UART_Transmit(&huart6, transmit , 10, 1);
+              HAL_UART_Transmit(&huart6, transmit , 10, 1);
 
   /**********************************************************/
 
 
   }
-/* USER CODE END GRAPHICS_MainTask */
-  while(1)
-{
-      GUI_Delay(100);
-}
-}
 
-/*************************** End of file ****************************/
+    /* USER CODE END GRAPHICS_MainTask */
+      while(1)
+    {
+          GUI_Delay(100);
+    }
+    }
 
+    /*************************** End of file ****************************/
 
