@@ -53,6 +53,7 @@ uint8_t GATEWAY_ADDRESS[4];
   * LwIP initialization function
   */
 void MX_LWIP_Init(uint8_t IP1,uint8_t IP2, uint8_t IP3, uint8_t IP4)
+
 {
   /* IP addresses initialization */
   IP_ADDRESS[0] = 192;

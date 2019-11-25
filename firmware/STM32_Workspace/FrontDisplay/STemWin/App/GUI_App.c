@@ -7,7 +7,7 @@ x  * @file    GUI_App.c
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright © 2018 STMicroelectronics International N.V.
+  * <h2><center>&copy; Copyright ï¿½ 2018 STMicroelectronics International N.V.
   * All rights reserved.xx</center></h2>
   * All rights reserved.</center></h2>
   *
@@ -115,8 +115,8 @@ void GRAPHICS_MainTask(void) {
                  pots[i]=i2cBuffer[1];
              }
              level=pots[0];
-             left=pots[0];
-             right=pots[5];
+             //left=pots[0];
+             //right=pots[5];
 
    /**********************************************************/
 
@@ -130,7 +130,7 @@ void GRAPHICS_MainTask(void) {
              if (right >= 254){right = 254;}
   /**********************************************************/
 
-
+             count++;
   /************ Transmit data to AnalogEngine****************/
              transmit[0]=0xFF;
              transmit[1]=left;
@@ -139,7 +139,7 @@ void GRAPHICS_MainTask(void) {
              transmit[4]=pots[3];
              transmit[5]=pots[4];
              transmit[6]=right;
-             transmit[7]=0x01;
+             transmit[7]=count;
              transmit[8]=0x02;
              transmit[9]=0x03;
 

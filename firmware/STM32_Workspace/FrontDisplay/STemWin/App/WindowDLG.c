@@ -184,6 +184,8 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
      		 }
   	  	  }
 
+  	  	left = Y_Left;
+		right = Y_Right;
 
 	 drawBar (390, 90,300+peaksmooth,300+smooth, "");
 	 drawBar (440, 90,300+peaksmooth,300+smooth, "");
