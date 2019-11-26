@@ -10,7 +10,7 @@
 
 TIM_HandleTypeDef htim5;
 ADC_HandleTypeDef hadc1;
-
+ADC_HandleTypeDef hadc2;
 void dspTask(void const * argument){
 
 

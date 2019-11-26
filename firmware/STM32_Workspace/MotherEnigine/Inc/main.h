@@ -124,6 +124,9 @@ void Error_Handler(void);
 #define LD2_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 uint32_t ADC1_RAW[2];
+uint32_t ADC1_MAX[2];
+uint32_t ADC2_RAW[2];
+uint32_t ADC2_MAX[2];
 char UART_transmit[10];
 char UART_recive[10];
 /* USER CODE END Private defines */

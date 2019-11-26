@@ -164,19 +164,21 @@ int main(void)
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_ADC1_Init();
-
+  MX_ADC2_Init();
   MX_DAC_Init();
   MX_USART3_UART_Init();
-  MX_ADC2_Init();
+
   MX_ADC3_Init();
   MX_USART6_UART_Init();
   MX_TIM5_Init();
   /* USER CODE BEGIN 2 */
-  HAL_ADC_Start_DMA(&hadc1,ADC1_RAW,2);
+
   HAL_DAC_Start(&hdac, DAC_CHANNEL_1);
   HAL_DAC_Start(&hdac, DAC_CHANNEL_2);
   HAL_UART_Transmit_DMA(&huart6, UART_transmit,10);
   HAL_UART_Receive_DMA(&huart6, UART_recive,10);
+  HAL_ADC_Start_DMA(&hadc1,ADC1_RAW,2);
+  HAL_ADC_Start_DMA(&hadc2,ADC2_RAW,2);
   /* USER CODE END 2 */
 
   /* USER CODE BEGIN RTOS_MUTEX */
@@ -201,7 +203,7 @@ int main(void)
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
-  osThreadDef(lwIPTask, lwIPTask, osPriorityNormal, 0, 300);
+  osThreadDef(lwIPTask, lwIPTask, osPriorityNormal, 0, 500);
   lwIPTaskHandle = osThreadCreate(osThread(lwIPTask), NULL);
 
   osThreadDef(dspTask, dspTask, osPriorityNormal, 0, 500);
@@ -335,7 +337,6 @@ static void MX_ADC1_Init(void)
   */
   sConfig.Channel = ADC_CHANNEL_3;
   sConfig.Rank = ADC_REGULAR_RANK_2;
-  sConfig.SamplingTime = ADC_SAMPLETIME_112CYCLES;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     Error_Handler();
@@ -366,7 +367,7 @@ static void MX_ADC2_Init(void)
   /** Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion) 
   */
   hadc2.Instance = ADC2;
-  hadc2.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV4;
+  hadc2.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV8;
   hadc2.Init.Resolution = ADC_RESOLUTION_8B;
   hadc2.Init.ScanConvMode = ADC_SCAN_ENABLE;
   hadc2.Init.ContinuousConvMode = ENABLE;
@@ -393,7 +394,7 @@ static void MX_ADC2_Init(void)
   /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time. 
   */
   sConfig.Rank = ADC_REGULAR_RANK_2;
-  sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
+  sConfig.SamplingTime = ADC_SAMPLETIME_84CYCLES;
   if (HAL_ADC_ConfigChannel(&hadc2, &sConfig) != HAL_OK)
   {
     Error_Handler();
@@ -719,19 +720,54 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+int resetADC1_MAX = 0;
+int maxValueLeft = 0;
+int newValueLeft = 0;
+
+int resetADC2_MAX = 0;
+int maxValueRight = 0;
+int newValueRight = 0;
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
 	  if (hadc->Instance == ADC1) {
 
+			if(maxValueLeft < ADC1_RAW[0]){
+				maxValueLeft = ADC1_RAW[0];
+			}
+
+			if(resetADC1_MAX == 1){
+				ADC1_MAX[0] = maxValueLeft;
+				maxValueLeft = 0;
+				resetADC1_MAX = 0;
+			}
 	  }
 
-	  if (hadc->Instance == ADC2) {
 
+	  if (hadc->Instance == ADC2) {
+			if(maxValueRight < ADC2_RAW[0]){
+				maxValueRight = ADC2_RAW[0];
+			}
+
+			if(resetADC2_MAX == 1){
+				ADC2_MAX[0] = maxValueRight;
+				maxValueRight = 0;
+				resetADC2_MAX = 0;
+			}
 	  }
 	  HAL_GPIO_TogglePin(GPIOG, Relais1_Pin);
 
+
+
 }
+
+HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart){
+	if (huart->Instance == USART6) {
+			resetADC1_MAX = 1;
+			resetADC2_MAX = 1;
+		  }
+}
+
 
 
 /* USER CODE END 4 */

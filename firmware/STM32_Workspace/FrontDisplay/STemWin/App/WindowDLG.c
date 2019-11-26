@@ -42,7 +42,7 @@ char Value;
 #define ID_WINDOW_0  (GUI_ID_USER + 0x00)
 
 uint8_t byte;
-
+DMA_HandleTypeDef hdma_usart6_rx;
 UART_HandleTypeDef huart6;
 //UART_HandleTypeDef huart6;
 // USER START (Optionally insert additional defines)
@@ -93,6 +93,13 @@ int Y_Left = 0;
 int levelIN1 = 0;
 int levelIN2 = 0;
 uint8_t buffer[10];
+
+
+int maxValueLeft = 0;
+int newValueLeft = 0;
+int maxValueRight = 0;
+int newValueRight = 0;
+int reset = 0;
 /*********************************************************************
 *
 *       Static code
@@ -115,16 +122,34 @@ uint8_t buffer[10];
 *       _cbDialog
 *///
 
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
+
+	BSP_LED_Toggle(LED1);
+   	UARTRECIVER(); //Recive Data from UART --> UARTDATA
+
+	newValueLeft = UARTDATA[3];
+	newValueRight = UARTDATA[4];
+
+	if(maxValueLeft < newValueLeft){
+		maxValueLeft = newValueLeft;
+	}
+
+	if(maxValueRight < newValueRight){
+		maxValueRight = newValueRight;
+	}
+
+	if(reset == 1){
+		adc1 = maxValueLeft;
+		adc2 = maxValueRight;
+		maxValueLeft = 0;
+		maxValueRight = 0;
+		reset = 0;
+	}
+}
+
+
+
 static void _cbDialog(WM_MESSAGE * pMsg) {
-
-
-	HAL_GPIO_TogglePin(GPIOA, LAMP1_Pin);
-    HAL_GPIO_TogglePin(GPIOG, LAMP2_Pin);
-
-
-    UARTRECIVER(); //Recive Data from UART --> UARTDATA
-
-    adc1 = UARTDATA[3];
 
 
   // USER END
@@ -132,19 +157,25 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 
   switch (pMsg->MsgId) {
   case WM_PAINT:
+	  reset = 1;
+	  HAL_GPIO_TogglePin(GPIOA, LAMP1_Pin);
     break;
+
   default:
+	    reset = 1;
     WM_DefaultProc(pMsg);
 
   }
 
+
+    HAL_GPIO_TogglePin(GPIOG, LAMP2_Pin);
 	  GUI_SetBkColor(GUI_DARKGRAY);
 	  GUI_DCACHE_Clear(0);
 	  GUI_Clear();
 
 
      drawWaveFormUartRight(0,240,adc1);
-     drawWaveFormUartLeft(450,240,adc1);
+     drawWaveFormUartLeft(450,240,adc2);
 
      adc1_ist = adc1;
 	 adc1_volt = (adc1/255.00)*3.6;

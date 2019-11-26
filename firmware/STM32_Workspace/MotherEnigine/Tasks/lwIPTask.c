@@ -38,13 +38,17 @@ char UART_IN[10];
 
 		  UART_recive;
 
+
+
+
+
 		  //HAL_UART_Transmit(&huart6, UART_transmit,10,10);
 		  UART_IN;
 		  UART_transmit[0]=0xFF;
 		  UART_transmit[1]=0x01;
 		  UART_transmit[2]=0x02;
-		  UART_transmit[3]=ADC1_RAW[0];
-		  UART_transmit[4]=ADC1_RAW[1];
+		  UART_transmit[3]=ADC1_MAX[0];
+		  UART_transmit[4]=ADC2_MAX[0];
 		  UART_transmit[5]=0x10;
 		  UART_transmit[6]=0x10;
 		  UART_transmit[7]=0x10;
@@ -54,9 +58,9 @@ char UART_IN[10];
 		HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R, UART_recive[1]);
 
 		OSCmessageINTSend("/VALUE/Level/CH1/preVCA",  23, ADC1_RAW[0]);
-		OSCmessageINTSend("/VALUE/Level/CH2/preVCA",  23, ADC1_RAW[1]);
-		OSCmessageINTSend("/VALUE/Level/CH1/postVCA", 24, ADC1_RAW[0]);
-		OSCmessageINTSend("/VALUE/Level/CH2/postVCA", 24, ADC1_RAW[1]);
+		OSCmessageINTSend("/VALUE/Level/CH2/preVCA",  23, ADC2_RAW[0]);
+		OSCmessageINTSend("/VALUE/Level/CH1/postVCA", 24, ADC1_RAW[1]);
+		OSCmessageINTSend("/VALUE/Level/CH2/postVCA", 24, ADC2_RAW[1]);
 
 	    osDelay(10);
 	  }

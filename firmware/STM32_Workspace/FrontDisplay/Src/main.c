@@ -129,7 +129,7 @@ char UART_RECIVE[10];
   * @retval None
   */
 int main(void)
-{
+ {
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -167,6 +167,10 @@ int main(void)
   /* USER CODE BEGIN 2 */
   Encoder_Init();
   BSP_LED_Init(LED1);
+  BSP_LED_Init(LED2);
+  BSP_LED_Init(LED3);
+  BSP_LED_Init(LED4);
+
 
 
   for (int i = 0; i < 255; i++){
