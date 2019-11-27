@@ -1,6 +1,89 @@
-18:43:11 **** Incremental Build of configuration Debug for project Analog Engine ****
+19:17:57 **** Build of configuration Debug for project Analog Engine ****
 make all 
-make: Nothing to be done for `all'.
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/Analog Engine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F303xE -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/Analog Engine/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/Analog Engine/Drivers/STM32F3xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/Analog Engine/Drivers/STM32F3xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/Analog Engine/Drivers/CMSIS/Device/ST/STM32F3xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/Analog Engine/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'main':
+../Src/main.c:174:33: warning: pointer targets in passing argument 2 of 'HAL_UART_Receive_DMA' differ in signedness [-Wpointer-sign]
+   HAL_UART_Receive_DMA(&huart1, UART_RECIVE,10);
+                                 ^~~~~~~~~~~
+In file included from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/Analog Engine/Inc/stm32f3xx_hal_conf.h:316:0,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/Analog Engine/Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:46,
+                 from ../Src/main.c:41:
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/Analog Engine/Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1356:19: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ HAL_StatusTypeDef HAL_UART_Receive_DMA(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+                   ^~~~~~~~~~~~~~~~~~~~
+../Src/main.c:205:32: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+     HAL_UART_Transmit(&huart1, transmit,10,10);
+                                ^~~~~~~~
+In file included from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/Analog Engine/Inc/stm32f3xx_hal_conf.h:316:0,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/Analog Engine/Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:46,
+                 from ../Src/main.c:41:
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/Analog Engine/Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_uart.h:1351:19: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+                   ^~~~~~~~~~~~~~~~~
+../Src/main.c:157:12: warning: unused variable 'avADC' [-Wunused-variable]
+   uint32_t avADC[2];
+            ^~~~~
+../Src/main.c:156:43: warning: unused variable 'internal' [-Wunused-variable]
+   uint32_t adc[2], buffer[2], sender [2], internal[48000];
+                                           ^~~~~~~~
+../Src/main.c:156:31: warning: unused variable 'sender' [-Wunused-variable]
+   uint32_t adc[2], buffer[2], sender [2], internal[48000];
+                               ^~~~~~
+../Src/main.c:156:12: warning: unused variable 'adc' [-Wunused-variable]
+   uint32_t adc[2], buffer[2], sender [2], internal[48000];
+            ^~~
+../Src/main.c:154:12: warning: unused variable 'values' [-Wunused-variable]
+   uint32_t values[200];
+            ^~~~~~
+../Src/main.c:153:12: warning: unused variable 'timerValue' [-Wunused-variable]
+   uint32_t timerValue = 0;
+            ^~~~~~~~~~
+../Src/main.c:152:12: warning: unused variable 'valByte' [-Wunused-variable]
+   uint16_t valByte;
+            ^~~~~~~
+../Src/main.c:151:9: warning: unused variable 'valVolt' [-Wunused-variable]
+   float valVolt = 0.1;
+         ^~~~~~~
+../Src/main.c:149:8: warning: unused variable 'test' [-Wunused-variable]
+   char test;
+        ^~~~
+../Src/main.c:145:8: warning: unused variable 'str' [-Wunused-variable]
+   char str[12];
+        ^~~
+../Src/main.c:144:7: warning: unused variable 'add' [-Wunused-variable]
+   int add = +1;
+       ^~~
+../Src/main.c:143:11: warning: unused variable 'byte' [-Wunused-variable]
+   uint8_t byte;
+           ^~~~
+../Src/main.c: In function 'debugPrint':
+../Src/main.c:813:46: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+ { HAL_UART_Transmit(huart, (uint8_t *) _out, strlen(_out), 10);
+                                              ^~~~~~
+../Src/main.c:813:46: warning: incompatible implicit declaration of built-in function 'strlen'
+../Src/main.c:813:46: note: include '<string.h>' or provide a declaration of 'strlen'
+../Src/main.c: In function 'debugPrintln':
+../Src/main.c:817:50: warning: incompatible implicit declaration of built-in function 'strlen'
+       HAL_UART_Transmit(huart, (uint8_t *) _out, strlen(_out), 10);
+                                                  ^~~~~~
+../Src/main.c:817:50: note: include '<string.h>' or provide a declaration of 'strlen'
+Finished building: ../Src/main.c
+ 
+Building target: Analog Engine.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F303RETx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Analog Engine.elf" @"objects.list"   -lm
+Finished building target: Analog Engine.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "Analog Engine.elf" "Analog Engine.bin"
+arm-none-eabi-size "Analog Engine.elf"
+   text	   data	    bss	    dec	    hex	filename
+  15704	     20	   2668	  18392	   47d8	Analog Engine.elf
+ 
 
-18:43:11 Build Finished (took 138ms)
+19:17:59 Build Finished (took 1s.398ms)
 

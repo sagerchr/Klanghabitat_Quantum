@@ -68,11 +68,20 @@ int adc1 = 0;
 float adc1_ist = 0;
 float adc1_volt = 0;
 float adc1_db = 0;
-float adc1_db_negative = 0;
-
+float smooth1= 0;
+float peaksmooth1= 0;
+float diff1 = 0;
 
 
 int adc2 = 0;
+float adc2_ist = 0;
+float adc2_volt = 0;
+float adc2_db = 0;
+float smooth2= 0;
+float peaksmooth2= 0;
+float diff2 = 0;
+
+
 int watchdog= 0;
 int left = 0;
 int right = 0;
@@ -84,8 +93,7 @@ char str[12];
 
 begin = 0;
 int refresh =0;
-float smooth= 0;
-float peaksmooth= 0;
+
 int once = 0;
 int Y_Right = 0;
 int Y_Left = 0;
@@ -139,8 +147,18 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 	}
 
 	if(reset == 1){
+		if(maxValueLeft==0){
+		adc1 = 1;
+		}
+		else{
 		adc1 = maxValueLeft;
+		}
+		if(maxValueRight==0){
+		adc2 = 1;
+		}
+		else{
 		adc2 = maxValueRight;
+		}
 		maxValueLeft = 0;
 		maxValueRight = 0;
 		reset = 0;
@@ -177,28 +195,63 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
      drawWaveFormUartRight(0,240,adc1);
      drawWaveFormUartLeft(450,240,adc2);
 
+
      adc1_ist = adc1;
-	 adc1_volt = (adc1/255.00)*3.6;
-	 adc1_db = 10*log(adc1_volt/3.0);
-
-	 if (adc1_db<=-300.0) {adc1_db = -300;}
+     adc1_volt = (adc1/255.00)*3.3;
+     adc1_db = 20*log(adc1_volt/0.775);
 
 
-	 if(adc1_db-smooth<0){
-		 smooth = smooth+(0.1*(adc1_db-smooth));
+
+     adc2_ist = adc2;
+	 adc2_volt = (adc2/255.00)*3.3;
+	 adc2_db = 20*log(adc2_volt/0.775);
+
+
+
+		GUI_GotoXY(350, 30);
+		GUI_SetColor(GUI_LIGHTGRAY);
+		GUI_SetFont(&GUI_Font24B_1);
+	  	GUI_DispFloatMin(adc1_db, 1);
+
+	  	GUI_GotoXY(450, 30);
+	  	GUI_DispFloatMin(adc1_db+60, 1);
+
+
+	 adc1_db = (adc1_db+60)*3;
+	 adc2_db = (adc2_db+60)*3;
+
+
+	 diff1 = adc1_db-smooth1;
+	 diff2 = adc2_db-smooth2;
+
+	 if(diff1<0){
+		 smooth1 = smooth1+(0.08*diff1);
+	 }
+	 else{
+		 smooth1 = smooth1+(1*diff1);
+	 }
+
+	 if((adc1_db-peaksmooth1)<0){
+		 peaksmooth1 = peaksmooth1+(0.03*diff1);
 	 }
 	 else {
-		 smooth = smooth+(0.15*(adc1_db-smooth));
+		 peaksmooth1= peaksmooth1+(1*diff1);
 	 }
 
-	 if(adc1_db-peaksmooth<0){
-		 peaksmooth = peaksmooth+(0.01*(adc1_db-peaksmooth));
+
+	 if(diff2<0){
+		 smooth2 = smooth2+(0.08*diff2);
+	 }
+	 else{
+		 smooth2 = smooth2+(1*diff2);
+	 }
+
+	 if((adc2_db-peaksmooth2)<0){
+		 peaksmooth2 = peaksmooth2+(0.03*diff2);
 	 }
 	 else {
-		 peaksmooth = peaksmooth+(1*(adc1_db-peaksmooth));
+		 peaksmooth2 = peaksmooth2+(1*diff2);
 	 }
-
-
 
 
   	  BSP_TS_GetState(&TS_State);
@@ -218,8 +271,8 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
   	  	left = Y_Left;
 		right = Y_Right;
 
-	 drawBar (390, 90,300+peaksmooth,300+smooth, "");
-	 drawBar (440, 90,300+peaksmooth,300+smooth, "");
+	 drawBar (390, 90,peaksmooth1,smooth1, "");
+	 drawBar (440, 90,peaksmooth2,smooth2, "");
 
 	 drawDashedLine(10, Y_Left, 350, Y_Left);
 	 drawDashedLine(450, Y_Right, 790, Y_Right);

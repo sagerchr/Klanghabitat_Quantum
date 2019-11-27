@@ -129,7 +129,7 @@ char UART_RECIVE[10];
   * @retval None
   */
 int main(void)
- {
+{
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
