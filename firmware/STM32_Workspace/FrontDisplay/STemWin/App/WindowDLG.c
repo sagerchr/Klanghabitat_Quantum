@@ -225,14 +225,14 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 	 diff2 = adc2_db-smooth2;
 
 	 if(diff1<0){
-		 smooth1 = smooth1+(0.08*diff1);
+		 smooth1 = smooth1+(0.035*diff1);
 	 }
 	 else{
 		 smooth1 = smooth1+(1*diff1);
 	 }
 
 	 if((adc1_db-peaksmooth1)<0){
-		 peaksmooth1 = peaksmooth1+(0.03*diff1);
+		 peaksmooth1 = peaksmooth1+(0.01*diff1);
 	 }
 	 else {
 		 peaksmooth1= peaksmooth1+(1*diff1);
@@ -240,14 +240,14 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 
 
 	 if(diff2<0){
-		 smooth2 = smooth2+(0.08*diff2);
+		 smooth2 = smooth2+(0.035*diff2);
 	 }
 	 else{
 		 smooth2 = smooth2+(1*diff2);
 	 }
 
 	 if((adc2_db-peaksmooth2)<0){
-		 peaksmooth2 = peaksmooth2+(0.03*diff2);
+		 peaksmooth2 = peaksmooth2+(0.01*diff2);
 	 }
 	 else {
 		 peaksmooth2 = peaksmooth2+(1*diff2);
