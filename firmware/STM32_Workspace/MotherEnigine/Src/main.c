@@ -132,7 +132,7 @@ void StartDefaultTask(void const * argument);
   * @retval int
   */
 int main(void)
-{
+ {
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -309,7 +309,7 @@ static void MX_ADC1_Init(void)
   /** Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion) 
   */
   hadc1.Instance = ADC1;
-  hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV4;
+  hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV8;
   hadc1.Init.Resolution = ADC_RESOLUTION_8B;
   hadc1.Init.ScanConvMode = ADC_SCAN_ENABLE;
   hadc1.Init.ContinuousConvMode = ENABLE;
@@ -328,7 +328,7 @@ static void MX_ADC1_Init(void)
   */
   sConfig.Channel = ADC_CHANNEL_0;
   sConfig.Rank = ADC_REGULAR_RANK_1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_84CYCLES;
+  sConfig.SamplingTime = ADC_SAMPLETIME_144CYCLES;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     Error_Handler();
@@ -386,7 +386,7 @@ static void MX_ADC2_Init(void)
   */
   sConfig.Channel = ADC_CHANNEL_9;
   sConfig.Rank = ADC_REGULAR_RANK_1;
-  sConfig.SamplingTime = ADC_SAMPLETIME_84CYCLES;
+  sConfig.SamplingTime = ADC_SAMPLETIME_480CYCLES;
   if (HAL_ADC_ConfigChannel(&hadc2, &sConfig) != HAL_OK)
   {
     Error_Handler();
@@ -394,7 +394,7 @@ static void MX_ADC2_Init(void)
   /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time. 
   */
   sConfig.Rank = ADC_REGULAR_RANK_2;
-  sConfig.SamplingTime = ADC_SAMPLETIME_84CYCLES;
+  sConfig.SamplingTime = ADC_SAMPLETIME_480CYCLES;
   if (HAL_ADC_ConfigChannel(&hadc2, &sConfig) != HAL_OK)
   {
     Error_Handler();
@@ -731,7 +731,7 @@ int newValueRight = 0;
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
 	  if (hadc->Instance == ADC1) {
-
+		  HAL_GPIO_TogglePin(GPIOG, Relais1_Pin);
 			if(maxValueLeft < ADC1_RAW[0]){
 				maxValueLeft = ADC1_RAW[0];
 			}
@@ -755,7 +755,7 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 				resetADC2_MAX = 0;
 			}
 	  }
-	  HAL_GPIO_TogglePin(GPIOG, Relais1_Pin);
+
 
 
 

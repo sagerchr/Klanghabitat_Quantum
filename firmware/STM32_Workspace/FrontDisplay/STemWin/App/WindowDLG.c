@@ -225,7 +225,7 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 	 diff2 = adc2_db-smooth2;
 
 	 if(diff1<0){
-		 smooth1 = smooth1+(0.035*diff1);
+		 smooth1 = smooth1+(0.055*diff1);
 	 }
 	 else{
 		 smooth1 = smooth1+(1*diff1);
@@ -240,7 +240,7 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 
 
 	 if(diff2<0){
-		 smooth2 = smooth2+(0.035*diff2);
+		 smooth2 = smooth2+(0.055*diff2);
 	 }
 	 else{
 		 smooth2 = smooth2+(1*diff2);
@@ -271,8 +271,8 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
   	  	left = Y_Left;
 		right = Y_Right;
 
-	 drawBar (390, 90,peaksmooth1,smooth1, "");
-	 drawBar (440, 90,peaksmooth2,smooth2, "");
+	 drawBar (395, 90,peaksmooth1,smooth1, "");
+	 drawBar (415, 90,peaksmooth2,smooth2, "");
 
 	 drawDashedLine(10, Y_Left, 350, Y_Left);
 	 drawDashedLine(450, Y_Right, 790, Y_Right);
