@@ -75,9 +75,9 @@ void ComunicationTask(void const * argument);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint32_t ENC1;
-uint32_t ENC2;
-uint32_t ENC3;
+uint32_t ENC1=10;
+uint32_t ENC2=10;
+uint32_t ENC3=10;
 
 uint8_t R_ENC1 = 100;
 uint8_t G_ENC1 = 50;
@@ -619,7 +619,7 @@ void ComunicationTask(void const * argument)
 
 
 
-    osDelay(ENC1+5);
+    osDelay(ENC1);
   }
   /* USER CODE END ComunicationTask */
 }

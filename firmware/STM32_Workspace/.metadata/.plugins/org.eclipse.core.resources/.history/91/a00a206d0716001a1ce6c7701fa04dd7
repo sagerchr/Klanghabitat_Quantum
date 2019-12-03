@@ -606,20 +606,12 @@ void ComunicationTask(void const * argument)
   {
 
 	 if(R_ENC1 == 100){R_ENC1=0;}
-	 else {R_ENC1++;}
-	 G_ENC1 = R_ENC1/2;
+	 else {R_ENC1=0++;}
 
-	 if(R_ENC2 == 100){R_ENC2=0;}
-	 else {R_ENC2++;}
-	 G_ENC2 = R_ENC2/2;
+	 if(G_ENC2 == 100){G_ENC1=0;}
+	 else {G_ENC1++;}
 
-	 if(R_ENC3 == 100){R_ENC3=0;}
-	 else {R_ENC3++;}
-	 G_ENC3 = R_ENC3/2;
-
-
-
-    osDelay(ENC1+5);
+    osDelay(10);
   }
   /* USER CODE END ComunicationTask */
 }

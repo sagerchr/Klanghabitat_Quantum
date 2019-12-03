@@ -156,7 +156,7 @@ int main(void)
   LEDHandle = osThreadCreate(osThread(LED), NULL);
 
   /* definition and creation of I2C */
-  osThreadDef(I2C, ComunicationTask, osPriorityNormal, 0, 96);
+  osThreadDef(I2C, ComunicationTask, osPriorityIdle, 0, 96);
   I2CHandle = osThreadCreate(osThread(I2C), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
@@ -586,7 +586,6 @@ void ENCODER_TASK(void const * argument)
 	else{HAL_GPIO_WritePin(GPIOB, B_ENC3_Pin,GPIO_PIN_SET);}
 
 	count++;
-
   }
   /* USER CODE END 5 */ 
 }
@@ -605,21 +604,12 @@ void ComunicationTask(void const * argument)
   for(;;)
   {
 
-	 if(R_ENC1 == 100){R_ENC1=0;}
-	 else {R_ENC1++;}
-	 G_ENC1 = R_ENC1/2;
-
-	 if(R_ENC2 == 100){R_ENC2=0;}
-	 else {R_ENC2++;}
-	 G_ENC2 = R_ENC2/2;
-
-	 if(R_ENC3 == 100){R_ENC3=0;}
-	 else {R_ENC3++;}
-	 G_ENC3 = R_ENC3/2;
+	 R_ENC1++;
+	 G_ENC1++;
+	 B_ENC1=0;
 
 
-
-    osDelay(ENC1+5);
+    osDelay(100);
   }
   /* USER CODE END ComunicationTask */
 }
