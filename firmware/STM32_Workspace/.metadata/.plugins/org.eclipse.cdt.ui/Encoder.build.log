@@ -1,6 +1,29 @@
-21:13:56 **** Incremental Build of configuration Debug for project Encoder ****
+22:34:43 **** Incremental Build of configuration Debug for project Encoder ****
 make all 
-make: Nothing to be done for `all'.
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/Encoder/Encoder/Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F031x6 -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/Encoder/Encoder/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/Encoder/Encoder/Drivers/STM32F0xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/Encoder/Encoder/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/Encoder/Encoder/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/Encoder/Encoder/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/Encoder/Encoder/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM0" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/Encoder/Encoder/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/Encoder/Encoder/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+Finished building: ../Src/main.c
+ 
+Building file: ../Src/stm32f0xx_hal_msp.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/Encoder/Encoder/Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F031x6 -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/Encoder/Encoder/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/Encoder/Encoder/Drivers/STM32F0xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/Encoder/Encoder/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/Encoder/Encoder/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/Encoder/Encoder/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/Encoder/Encoder/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM0" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/Encoder/Encoder/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/Encoder/Encoder/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f0xx_hal_msp.d" -MT"Src/stm32f0xx_hal_msp.o" -o "Src/stm32f0xx_hal_msp.o" "../Src/stm32f0xx_hal_msp.c"
+Finished building: ../Src/stm32f0xx_hal_msp.c
+ 
+Building target: Encoder.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft -specs=nosys.specs -specs=nano.specs -T"../STM32F031K6Tx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "Encoder.elf" @"objects.list"   -lm
+Finished building target: Encoder.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "Encoder.elf" "Encoder.hex"
+arm-none-eabi-size "Encoder.elf"
+   text	   data	    bss	    dec	    hex	filename
+  14220	     44	   4060	  18324	   4794	Encoder.elf
+ 
 
-21:13:57 Build Finished (took 160ms)
+22:34:44 Build Finished (took 996ms)
 

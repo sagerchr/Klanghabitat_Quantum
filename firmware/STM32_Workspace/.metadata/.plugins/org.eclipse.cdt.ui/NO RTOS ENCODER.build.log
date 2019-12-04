@@ -1,0 +1,153 @@
+21:50:43 **** Incremental Build of configuration Debug for project NO RTOS ENCODER ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F031x6 -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'main':
+../Src/main.c:116:12: warning: unused variable 'Encoder_CODE' [-Wunused-variable]
+   uint32_t Encoder_CODE;
+            ^~~~~~~~~~~~
+Finished building: ../Src/main.c
+ 
+Building file: ../Src/stm32f0xx_hal_msp.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F031x6 -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f0xx_hal_msp.d" -MT"Src/stm32f0xx_hal_msp.o" -o "Src/stm32f0xx_hal_msp.o" "../Src/stm32f0xx_hal_msp.c"
+Finished building: ../Src/stm32f0xx_hal_msp.c
+ 
+Building file: ../Src/stm32f0xx_hal_timebase_tim.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F031x6 -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f0xx_hal_timebase_tim.d" -MT"Src/stm32f0xx_hal_timebase_tim.o" -o "Src/stm32f0xx_hal_timebase_tim.o" "../Src/stm32f0xx_hal_timebase_tim.c"
+Finished building: ../Src/stm32f0xx_hal_timebase_tim.c
+ 
+Building file: ../Src/stm32f0xx_it.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F031x6 -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/stm32f0xx_it.d" -MT"Src/stm32f0xx_it.o" -o "Src/stm32f0xx_it.o" "../Src/stm32f0xx_it.c"
+Finished building: ../Src/stm32f0xx_it.c
+ 
+Building file: ../Src/system_stm32f0xx.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F031x6 -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/system_stm32f0xx.d" -MT"Src/system_stm32f0xx.o" -o "Src/system_stm32f0xx.o" "../Src/system_stm32f0xx.c"
+Finished building: ../Src/system_stm32f0xx.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F031x6 -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F031x6 -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_cortex.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F031x6 -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_dma.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_exti.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F031x6 -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_exti.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_exti.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_exti.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_exti.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_exti.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F031x6 -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F031x6 -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_flash_ex.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F031x6 -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_gpio.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F031x6 -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F031x6 -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_i2c_ex.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F031x6 -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F031x6 -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_pwr_ex.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F031x6 -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F031x6 -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_rcc_ex.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F031x6 -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F031x6 -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_tim_ex.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F031x6 -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart.c
+ 
+Building file: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart_ex.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Debug
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F031x6 -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Device/ST/STM32F0xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/NO RTOS ENCODER/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart_ex.d" -MT"Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart_ex.o" -o "Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart_ex.o" "../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart_ex.c"
+Finished building: ../Drivers/STM32F0xx_HAL_Driver/Src/stm32f0xx_hal_uart_ex.c
+ 
+Building target: NO RTOS ENCODER.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -mfloat-abi=soft -specs=nosys.specs -specs=nano.specs -T"../STM32F031K6Tx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "NO RTOS ENCODER.elf" @"objects.list"   -lm
+Finished building target: NO RTOS ENCODER.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "NO RTOS ENCODER.elf" "NO RTOS ENCODER.hex"
+arm-none-eabi-size "NO RTOS ENCODER.elf"
+   text	   data	    bss	    dec	    hex	filename
+  10680	     20	   2092	  12792	   31f8	NO RTOS ENCODER.elf
+ 
+
+21:50:49 Build Finished (took 5s.364ms)
+

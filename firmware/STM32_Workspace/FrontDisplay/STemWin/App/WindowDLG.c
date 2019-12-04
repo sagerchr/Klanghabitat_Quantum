@@ -37,7 +37,7 @@
 *
 **********************************************************************
 */
-
+I2C_HandleTypeDef hi2c1;
 char Value;
 #define ID_WINDOW_0  (GUI_ID_USER + 0x00)
 
@@ -108,6 +108,9 @@ int newValueLeft = 0;
 int maxValueRight = 0;
 int newValueRight = 0;
 int reset = 0;
+
+
+
 /*********************************************************************
 *
 *       Static code
@@ -254,6 +257,8 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 	 }
 
 
+
+
   	  BSP_TS_GetState(&TS_State);
   	  	  if(TS_State.touchX[0]>30 && TS_State.touchX[0]<750 && TS_State.touchY[0] > 30 && TS_State.touchY[0] < 450){
      	      X = TS_State.touchX[0];
@@ -270,6 +275,15 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 
   	  	left = Y_Left;
 		right = Y_Right;
+
+
+
+	 //HAL_I2C_Master_Receive(&hi2c1, 5, aRxBuffer,10,1000);
+
+
+	 //HAL_I2C_Master_Receive(&hi2c1, 5, aRxBuffer,10,1000);
+
+	//HAL_I2C_Master_Receive(&hi2c1, 5,(uint8_t *)aRxBuffer,10,1000);
 
 	 drawBar (395, 90,peaksmooth1,smooth1, "");
 	 drawBar (415, 90,peaksmooth2,smooth2, "");

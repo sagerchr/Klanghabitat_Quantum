@@ -80,6 +80,20 @@ char transmit[10];
 GUI_RECT pRect = {200,0,600,480};
 int toggle=0;
 
+
+
+uint8_t payload = 0;
+uint8_t Recive = 0;
+
+uint8_t aTxBuffer[] = "          ";
+
+/* Buffer used for reception */
+uint8_t aRxBuffer[10];
+
+uint32_t CODE;
+
+
+
 void CDC_ReceiveCallBack(uint8_t *buf, uint32_t len){
      ReciveCDC = &buf;
 }
@@ -93,7 +107,7 @@ void GRAPHICS_MainTask(void) {
 
     WM_HWIN hWin;
     hWin = CreateWindow();
-
+    BSP_LED_Off(LED2);
 
     while(1)
   {
@@ -107,17 +121,30 @@ void GRAPHICS_MainTask(void) {
 
    /******************** READ ENCODER ***********************/
 
-
+/*
              for (int i=0; i<6; i++){
                  i2cBuffer[0]= 0x0B;
                  HAL_I2C_Master_Transmit(&hi2c1, Adr[i],i2cBuffer,1,1);
                  HAL_I2C_Master_Receive(&hi2c1, Adr[i], &i2cBuffer[1],1,1);
                  pots[i]=i2cBuffer[1];
              }
+  */
              level=pots[0];
              //left=pots[0];
              //right=pots[5];
 
+        	 payload++;
+
+        	aTxBuffer[0]= 'T';
+        	aTxBuffer[1]= 'E';
+        	aTxBuffer[2]= 'S';
+        	aTxBuffer[3]= 'T';
+
+        	 aTxBuffer[9]=adc1;
+
+        	 HAL_I2C_Master_Transmit(&hi2c1, 5, aTxBuffer,10,1000);
+        	 HAL_I2C_Master_Receive(&hi2c1, 5, aRxBuffer,10,1000);
+        	 CODE = HAL_I2C_GetError(&hi2c1);
    /**********************************************************/
 
    /************** Panning Action TouchScreen ****************/
