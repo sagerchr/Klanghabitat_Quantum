@@ -176,8 +176,8 @@ int main(void)
   LEDHandle = osThreadCreate(osThread(LED), NULL);
 
   /* definition and creation of I2C */
-  osThreadDef(I2C, ComunicationTask, osPriorityNormal, 0, 96);
-  I2CHandle = osThreadCreate(osThread(I2C), NULL);
+  //osThreadDef(I2C, ComunicationTask, osPriorityNormal, 0, 96);
+  //I2CHandle = osThreadCreate(osThread(I2C), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -260,7 +260,7 @@ static void MX_I2C1_Init(void)
   /* USER CODE END I2C1_Init 1 */
   hi2c1.Instance = I2C1;
   hi2c1.Init.Timing = 0x00101D2D;
-  hi2c1.Init.OwnAddress1 = 5;
+  hi2c1.Init.OwnAddress1 = 30;
   hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
   hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
   hi2c1.Init.OwnAddress2 = 0;
@@ -273,7 +273,7 @@ static void MX_I2C1_Init(void)
   }
   /** Configure Analogue filter 
   */
-  if (HAL_I2CEx_ConfigAnalogFilter(&hi2c1, I2C_ANALOGFILTER_DISABLE) != HAL_OK)
+  if (HAL_I2CEx_ConfigAnalogFilter(&hi2c1, I2C_ANALOGFILTER_ENABLE) != HAL_OK)
   {
     Error_Handler();
   }
@@ -596,7 +596,9 @@ void ENCODER_TASK(void const * argument)
 	ENC1 = (TIM1->CNT)/4;
 	ENC2 = (TIM2->CNT)/4;
     ENC3 = (TIM3->CNT)/4;
-
+    aTxBuffer[7]=ENC1;
+    aTxBuffer[8]=ENC2;
+    aTxBuffer[9]=ENC3;
 	//A Ratio of about (R)38-(G)25-(B)0 gives nice yellow RATIO 1:2
 	if (count>=100){count=0;}
 
@@ -620,7 +622,7 @@ void ENCODER_TASK(void const * argument)
 	else{HAL_GPIO_WritePin(GPIOB, G_ENC3_Pin,GPIO_PIN_SET);}
 	if (count < B_ENC3){HAL_GPIO_WritePin(GPIOB, B_ENC3_Pin,GPIO_PIN_RESET);}
 	else{HAL_GPIO_WritePin(GPIOB, B_ENC3_Pin,GPIO_PIN_SET);}
-
+	HAL_I2C_Slave_Receive_IT(&hi2c1,aRxBuffer,10);
 	count++;
 
   }
@@ -638,17 +640,40 @@ void ComunicationTask(void const * argument)
 {
   /* USER CODE BEGIN ComunicationTask */
 
+
   /* Infinite loop */
   for(;;)
   {
 
-	  HAL_I2C_Slave_Receive_DMA(&hi2c1,aRxBuffer,10);
-	  //HAL_I2C_Slave_Transmit_DMA(&hi2c1,aTxBuffer,10);
+
 	  Encoder_CODE = HAL_I2C_GetError(&hi2c1);
+	  /*
+	  HAL_I2C_Slave_Receive_IT(&hi2c1,aRxBuffer,10);
+
+
 
 	  //HAL_I2C_Slave_Receive(&hi2c1,aRxBuffer,10,1000);
 
 	  //HAL_I2C_Slave_Transmit(&hi2c1,aTxBuffer,10,1000);
+	 */
+
+
+
+
+
+  }
+  /* USER CODE END ComunicationTask */
+}
+
+
+
+void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *hi2c)
+{
+  /* Prevent unused argument(s) compilation warning */
+ //UNUSED(hi2c);
+  HAL_I2C_Slave_Transmit(&hi2c1,aTxBuffer,10,100);
+
+
 	 R_ENC1 = aRxBuffer[9]/3;
 	 R_ENC2 = aRxBuffer[9]/3;
 	 R_ENC3 = aRxBuffer[9]/3;
@@ -666,11 +691,13 @@ void ComunicationTask(void const * argument)
 	 G_ENC3 = R_ENC3/2;
 
 
-
-
-  }
-  /* USER CODE END ComunicationTask */
+  /* NOTE : This function should not be modified, when the callback is needed,
+            the HAL_I2C_SlaveRxCpltCallback could be implemented in the user file
+   */
 }
+
+
+
 
 /**
   * @brief  Period elapsed callback in non blocking mode

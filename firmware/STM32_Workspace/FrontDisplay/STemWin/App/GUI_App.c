@@ -142,9 +142,10 @@ void GRAPHICS_MainTask(void) {
 
         	 aTxBuffer[9]=adc1;
 
-        	 HAL_I2C_Master_Transmit(&hi2c1, 5, aTxBuffer,10,1000);
-        	 HAL_I2C_Master_Receive(&hi2c1, 5, aRxBuffer,10,1000);
-        	 CODE = HAL_I2C_GetError(&hi2c1);
+        	 HAL_I2C_Master_Transmit(&hi2c1, 30, aTxBuffer,10,1000);
+        	 HAL_I2C_Master_Receive(&hi2c1, 30, aRxBuffer,10,1000);
+        	 pots[2]=aRxBuffer[8];
+        	 pots[3]=aRxBuffer[9];
    /**********************************************************/
 
    /************** Panning Action TouchScreen ****************/
