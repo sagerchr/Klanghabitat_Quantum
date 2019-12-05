@@ -1,4 +1,4 @@
-19:33:10 **** Incremental Build of configuration Debug for project Encoder ****
+19:50:27 **** Incremental Build of configuration Debug for project Encoder ****
 make all 
 Building file: ../Src/main.c
 Invoking: MCU GCC Compiler
@@ -16,8 +16,8 @@ Generating hex and Printing size information:
 arm-none-eabi-objcopy -O ihex "Encoder.elf" "Encoder.hex"
 arm-none-eabi-size "Encoder.elf"
    text	   data	    bss	    dec	    hex	filename
-  14536	     44	   4060	  18640	   48d0	Encoder.elf
+  14536	     44	   4052	  18632	   48c8	Encoder.elf
  
 
-19:33:11 Build Finished (took 783ms)
+19:50:28 Build Finished (took 856ms)
 

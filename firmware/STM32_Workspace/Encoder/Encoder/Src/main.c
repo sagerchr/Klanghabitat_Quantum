@@ -54,7 +54,6 @@ TIM_HandleTypeDef htim16;
 UART_HandleTypeDef huart1;
 
 osThreadId LEDHandle;
-osThreadId I2CHandle;
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -70,7 +69,6 @@ static void MX_USART1_UART_Init(void);
 static void MX_TIM16_Init(void);
 static void MX_DMA_Init(void);
 void ENCODER_TASK(void const * argument);
-void ComunicationTask(void const * argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -133,14 +131,13 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_DMA_Init();
   MX_I2C1_Init();
   MX_TIM1_Init();
   MX_TIM2_Init();
   MX_TIM3_Init();
   MX_USART1_UART_Init();
   MX_TIM16_Init();
-
+  MX_DMA_Init();
   /* USER CODE BEGIN 2 */
 
 
@@ -174,10 +171,6 @@ int main(void)
   /* definition and creation of LED */
   osThreadDef(LED, ENCODER_TASK, osPriorityNormal, 0, 96);
   LEDHandle = osThreadCreate(osThread(LED), NULL);
-
-  /* definition and creation of I2C */
-  //osThreadDef(I2C, ComunicationTask, osPriorityNormal, 0, 96);
-  //I2CHandle = osThreadCreate(osThread(I2C), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -515,7 +508,7 @@ static void MX_DMA_Init(void)
 
   /* DMA interrupt init */
   /* DMA1_Channel2_3_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Channel2_3_IRQn, 0, 0);
+  HAL_NVIC_SetPriority(DMA1_Channel2_3_IRQn, 3, 0);
   HAL_NVIC_EnableIRQ(DMA1_Channel2_3_IRQn);
 
 }
@@ -572,7 +565,26 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *hi2c)
+{
 
+	HAL_I2C_Slave_Transmit(&hi2c1,aTxBuffer,10,100);
+
+	 R_ENC1 = aRxBuffer[9]/3;
+	 R_ENC2 = aRxBuffer[9]/3;
+	 R_ENC3 = aRxBuffer[9]/3;
+
+	 if(R_ENC1 >= 100){R_ENC1=100;}
+	 else {R_ENC1++;}
+	 G_ENC1 = R_ENC1/2;
+	 if(R_ENC2 >= 100){R_ENC2=100;}
+	 else {R_ENC2++;}
+	 G_ENC2 = R_ENC2/2;
+	 if(R_ENC3 >= 100){R_ENC3=100;}
+	 else {R_ENC3++;}
+	 G_ENC3 = R_ENC3/2;
+
+}
 /* USER CODE END 4 */
 
 /* USER CODE BEGIN Header_ENCODER_TASK */
@@ -628,76 +640,6 @@ void ENCODER_TASK(void const * argument)
   }
   /* USER CODE END 5 */ 
 }
-
-/* USER CODE BEGIN Header_ComunicationTask */
-/**
-* @brief Function implementing the I2C thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_ComunicationTask */
-void ComunicationTask(void const * argument)
-{
-  /* USER CODE BEGIN ComunicationTask */
-
-
-  /* Infinite loop */
-  for(;;)
-  {
-
-
-	  Encoder_CODE = HAL_I2C_GetError(&hi2c1);
-	  /*
-	  HAL_I2C_Slave_Receive_IT(&hi2c1,aRxBuffer,10);
-
-
-
-	  //HAL_I2C_Slave_Receive(&hi2c1,aRxBuffer,10,1000);
-
-	  //HAL_I2C_Slave_Transmit(&hi2c1,aTxBuffer,10,1000);
-	 */
-
-
-
-
-
-  }
-  /* USER CODE END ComunicationTask */
-}
-
-
-
-void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *hi2c)
-{
-  /* Prevent unused argument(s) compilation warning */
- //UNUSED(hi2c);
-  HAL_I2C_Slave_Transmit(&hi2c1,aTxBuffer,10,100);
-
-
-	 R_ENC1 = aRxBuffer[9]/3;
-	 R_ENC2 = aRxBuffer[9]/3;
-	 R_ENC3 = aRxBuffer[9]/3;
-
-	 if(R_ENC1 >= 100){R_ENC1=100;}
-	 else {R_ENC1++;}
-	 G_ENC1 = R_ENC1/2;
-
-	 if(R_ENC2 >= 100){R_ENC2=100;}
-	 else {R_ENC2++;}
-	 G_ENC2 = R_ENC2/2;
-
-	 if(R_ENC3 >= 100){R_ENC3=100;}
-	 else {R_ENC3++;}
-	 G_ENC3 = R_ENC3/2;
-
-
-  /* NOTE : This function should not be modified, when the callback is needed,
-            the HAL_I2C_SlaveRxCpltCallback could be implemented in the user file
-   */
-}
-
-
-
 
 /**
   * @brief  Period elapsed callback in non blocking mode
