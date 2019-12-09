@@ -697,7 +697,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/STM32F031K6T6
 </class>
 </classes>
 <parts>
-<part name="S1" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="PEL12T-4225S-S1024" device="" package3d_urn="urn:adsk.eagle:package:15670448/2"/>
+<part name="S1" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="PEL12T-4225S-S1024" device="" package3d_urn="urn:adsk.eagle:package:15670448/2" override_package3d_urn="urn:adsk.eagle:package:15670448/3" override_package_urn="urn:adsk.eagle:footprint:15670447/1"/>
 <part name="NRST" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="TP" device="THT" package3d_urn="urn:adsk.eagle:package:817866/3"/>
 <part name="GND" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="TP" device="THT" package3d_urn="urn:adsk.eagle:package:817866/3"/>
 <part name="SWDIO" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="TP" device="THT" package3d_urn="urn:adsk.eagle:package:817866/3"/>
@@ -1408,6 +1408,11 @@ will not be understood (or retained) with this version.
 Since Version 8.3, EAGLE supports the association of 3D packages
 with devices in libraries, schematics, and board files. Those 3D
 packages will not be understood (or retained) with this version.
+</note>
+<note version="9.4" severity="warning">
+Since Version 9.4, EAGLE supports the overriding of 3D packages
+in schematics and board files. Those overridden 3d packages
+will not be understood (or retained) with this version.
 </note>
 </compatibility>
 </eagle>
