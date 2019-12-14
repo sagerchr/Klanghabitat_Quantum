@@ -363,6 +363,14 @@ TS-003</description>
 <pad name="8" x="58.92" y="33.02" drill="1.016" diameter="2.54"/>
 <pad name="7" x="58.92" y="45.72" drill="1.016" diameter="2.54"/>
 </package>
+<package name="D-5" urn="urn:adsk.eagle:footprint:2094189/2" library_version="136">
+<description>&lt;b&gt;DIODE&lt;/b&gt;</description>
+<pad name="A" x="0" y="0" drill="0.8128" shape="octagon"/>
+<pad name="C" x="-2.54" y="0" drill="0.8128" shape="octagon"/>
+<text x="-4.445" y="1.27" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-1.905" y="-2.54" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+<rectangle x1="-4.191" y1="-0.889" x2="-3.683" y2="0.889" layer="21"/>
+</package>
 </packages>
 <packages3d>
 <package3d name="W237-103" urn="urn:adsk.eagle:package:1899457/3" type="model" library_version="96">
@@ -421,6 +429,12 @@ TS-003</description>
 <package3d name="PRINTTRAFO_30-600-LPI" urn="urn:adsk.eagle:package:15708166/1" type="box" library_version="136">
 <packageinstances>
 <packageinstance name="PRINTTRAFO_30-600-LPI"/>
+</packageinstances>
+</package3d>
+<package3d name="D-5" urn="urn:adsk.eagle:package:2094195/4" type="model" library_version="136">
+<description>&lt;b&gt;DIODE&lt;/b&gt;</description>
+<packageinstances>
+<packageinstance name="D-5"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -686,7 +700,7 @@ TS15P05G D2 TSC</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="4148_SOD323" urn="urn:adsk.eagle:component:578211/22" library_version="96">
+<deviceset name="4148" urn="urn:adsk.eagle:component:578211/28" library_version="136">
 <description>Standard 4148 Diode SOD323 Format</description>
 <gates>
 <gate name="G$1" symbol="DIODE" x="0" y="0"/>
@@ -699,6 +713,18 @@ TS15P05G D2 TSC</description>
 </connects>
 <package3dinstances>
 <package3dinstance package3d_urn="urn:adsk.eagle:package:578210/4"/>
+</package3dinstances>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="THT" package="D-5">
+<connects>
+<connect gate="G$1" pin="A" pad="A"/>
+<connect gate="G$1" pin="C" pad="C"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:2094195/4"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -805,8 +831,8 @@ DIN A4, landscape with location and doc. field</description>
 <part name="C23" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="KONDENSATOR_THT" device="2.5MM" package3d_urn="urn:adsk.eagle:package:1899462/2" value="10nF"/>
 <part name="C24" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="KONDENSATOR_THT" device="2.5MM" package3d_urn="urn:adsk.eagle:package:1899462/2" value="10nF"/>
 <part name="C25" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="KONDENSATOR_THT" device="2.5MM" package3d_urn="urn:adsk.eagle:package:1899462/2" value="10nF"/>
-<part name="D1" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="4148_SOD323" device="" package3d_urn="urn:adsk.eagle:package:578210/4"/>
-<part name="D2" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="4148_SOD323" device="" package3d_urn="urn:adsk.eagle:package:578210/4"/>
+<part name="D1" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="4148" device="THT" package3d_urn="urn:adsk.eagle:package:2094195/4" value="4148THT"/>
+<part name="D2" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="4148" device="THT" package3d_urn="urn:adsk.eagle:package:2094195/4"/>
 <part name="U$2" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="PRINTTRAFO_30-600-LPI" device="" package3d_urn="urn:adsk.eagle:package:15708166/1"/>
 </parts>
 <sheets>
@@ -1070,6 +1096,15 @@ DIN A4, landscape with location and doc. field</description>
 <wire x1="180.34" y1="167.64" x2="144.78" y2="167.64" width="0.1524" layer="91"/>
 <wire x1="144.78" y1="167.64" x2="144.78" y2="157.48" width="0.1524" layer="91"/>
 <wire x1="71.12" y1="157.48" x2="76.2" y2="157.48" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$6" class="0">
+<segment>
+<pinref part="U$2" gate="G$1" pin="4"/>
+<wire x1="35.56" y1="137.16" x2="33.02" y2="137.16" width="0.1524" layer="91"/>
+<pinref part="U$2" gate="G$1" pin="2"/>
+<wire x1="33.02" y1="137.16" x2="33.02" y2="127" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="127" x2="35.56" y2="127" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
