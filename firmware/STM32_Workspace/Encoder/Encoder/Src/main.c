@@ -99,7 +99,11 @@ uint8_t aTxBuffer[] = "ENCODER123";
 /* Buffer used for reception */
 uint8_t aRxBuffer[10];
 
-uint32_t Encoder_CODE;
+//uint32_t Encoder_CODE;
+uint8_t buttonstate;
+
+
+int adress=0;
 /* USER CODE END 0 */
 
 /**
@@ -131,6 +135,9 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+
+  adress = HAL_GPIO_ReadPin(GPIOF,ADDRESS_Pin);
+
   MX_I2C1_Init();
   MX_TIM1_Init();
   MX_TIM2_Init();
@@ -245,6 +252,14 @@ static void MX_I2C1_Init(void)
 {
 
   /* USER CODE BEGIN I2C1_Init 0 */
+	int ownAddress1 = 0;
+	if (adress == 0){
+		ownAddress1 = 40;
+	}
+	if (adress == 1){
+		ownAddress1 = 30;
+	}
+
 
   /* USER CODE END I2C1_Init 0 */
 
@@ -253,7 +268,7 @@ static void MX_I2C1_Init(void)
   /* USER CODE END I2C1_Init 1 */
   hi2c1.Instance = I2C1;
   hi2c1.Init.Timing = 0x00101D2D;
-  hi2c1.Init.OwnAddress1 = 30;
+  hi2c1.Init.OwnAddress1 = ownAddress1;
   hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
   hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
   hi2c1.Init.OwnAddress2 = 0;
@@ -535,10 +550,17 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOB, B_ENC2_Pin|R_ENC3_Pin|G_ENC3_Pin|B_ENC3_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : Button_ENC3_Pin ADDRESS_Pin */
-  GPIO_InitStruct.Pin = Button_ENC3_Pin|ADDRESS_Pin;
+  GPIO_InitStruct.Pin = Button_ENC3_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
+
+  GPIO_InitStruct.Pin = ADDRESS_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
+
+
 
   /*Configure GPIO pins : R_ENC1_Pin G_ENC1_Pin B_ENC1_Pin R_ENC2_Pin 
                            G_ENC2_Pin */
@@ -559,7 +581,7 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pins : Button_ENC1_Pin Button_ENC2_Pin */
   GPIO_InitStruct.Pin = Button_ENC1_Pin|Button_ENC2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
 }
@@ -605,13 +627,40 @@ void ENCODER_TASK(void const * argument)
   for(;;)
   {
 
+
+
 	ENC1 = (TIM1->CNT)/4;
 	ENC2 = (TIM2->CNT)/4;
-    ENC3 = (TIM3->CNT)/4;
-    aTxBuffer[7]=ENC1;
-    aTxBuffer[8]=ENC2;
-    aTxBuffer[9]=ENC3;
-	//A Ratio of about (R)38-(G)25-(B)0 gives nice yellow RATIO 1:2
+    ENC3 = (TIM3->CNT)/2;
+
+    if(!HAL_GPIO_ReadPin(GPIOF,Button_ENC3_Pin)){
+    	buttonstate |= 1<<2;
+    }
+    else{
+    	buttonstate &= ~(1)<<2;
+    }
+    if(!HAL_GPIO_ReadPin(GPIOB,Button_ENC2_Pin)){
+    	buttonstate |= 1<<1;
+    }
+    else{
+    	buttonstate &= ~(1)<<1;
+    }
+    if(!HAL_GPIO_ReadPin(GPIOB,Button_ENC1_Pin)){
+    	buttonstate |= 1<<0;
+    }
+    else{
+    	buttonstate &= ~(1)<<0;
+    }
+
+
+
+
+
+
+
+
+
+    //A Ratio of about (R)38-(G)25-(B)0 gives nice yellow RATIO 1:2
 	if (count>=100){count=0;}
 
 	if (count < R_ENC1){HAL_GPIO_WritePin(GPIOA, R_ENC1_Pin,GPIO_PIN_RESET);}
@@ -635,6 +684,21 @@ void ENCODER_TASK(void const * argument)
 	if (count < B_ENC3){HAL_GPIO_WritePin(GPIOB, B_ENC3_Pin,GPIO_PIN_RESET);}
 	else{HAL_GPIO_WritePin(GPIOB, B_ENC3_Pin,GPIO_PIN_SET);}
 	HAL_I2C_Slave_Receive_IT(&hi2c1,aRxBuffer,10);
+
+    if(adress == 1){
+    	aTxBuffer[5] = buttonstate;
+        aTxBuffer[6]=ENC3;
+        aTxBuffer[7]=ENC2;
+        aTxBuffer[8]=ENC1;
+    }
+    else{
+    	aTxBuffer[5] = buttonstate;
+        aTxBuffer[6]=ENC1;
+        aTxBuffer[7]=ENC2;
+        aTxBuffer[8]=ENC3;
+    }
+
+
 	count++;
 
   }

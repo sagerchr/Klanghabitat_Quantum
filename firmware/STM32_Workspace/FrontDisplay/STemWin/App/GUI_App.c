@@ -79,7 +79,8 @@ char transmit[10];
 //GUI_RECT pRect = {250,100,600,400};
 GUI_RECT pRect = {200,0,600,480};
 int toggle=0;
-
+uint8_t buttonstateLeft;
+uint8_t buttonstateRight;
 
 
 uint8_t payload = 0;
@@ -89,6 +90,12 @@ uint8_t aTxBuffer[] = "          ";
 
 /* Buffer used for reception */
 uint8_t aRxBuffer[10];
+
+uint8_t aTxBuffer2[] = "          ";
+
+/* Buffer used for reception */
+uint8_t aRxBuffer2[10];
+
 
 uint32_t CODE;
 
@@ -120,18 +127,7 @@ void GRAPHICS_MainTask(void) {
 
 
    /******************** READ ENCODER ***********************/
-
-/*
-             for (int i=0; i<6; i++){
-                 i2cBuffer[0]= 0x0B;
-                 HAL_I2C_Master_Transmit(&hi2c1, Adr[i],i2cBuffer,1,1);
-                 HAL_I2C_Master_Receive(&hi2c1, Adr[i], &i2cBuffer[1],1,1);
-                 pots[i]=i2cBuffer[1];
-             }
-  */
-             level=pots[0];
-             //left=pots[0];
-             //right=pots[5];
+        	level=pots[0];
 
         	 payload++;
 
@@ -144,8 +140,17 @@ void GRAPHICS_MainTask(void) {
 
         	 HAL_I2C_Master_Transmit(&hi2c1, 30, aTxBuffer,10,1000);
         	 HAL_I2C_Master_Receive(&hi2c1, 30, aRxBuffer,10,1000);
-        	 if(aRxBuffer[8]!=255) {pots[2]=aRxBuffer[8];}
+        	 if(aRxBuffer[8]!=255) {pots[2]=aRxBuffer[7];}
+        	 if(aRxBuffer[9]!=255) {pots[1]=aRxBuffer[9];}
+        	 if(aRxBuffer[6]!=255) {buttonstateLeft=aRxBuffer[6];}
+
+        	 HAL_I2C_Master_Transmit(&hi2c1, 40, aTxBuffer,10,1000);
+        	 HAL_I2C_Master_Receive(&hi2c1, 40, aRxBuffer,10,1000);
+        	 if(aRxBuffer[8]!=255) {pots[4]=aRxBuffer[7];}
         	 if(aRxBuffer[9]!=255) {pots[3]=aRxBuffer[9];}
+        	 if(aRxBuffer[6]!=255) {buttonstateRight=aRxBuffer[6];}
+
+
 
    /**********************************************************/
 
