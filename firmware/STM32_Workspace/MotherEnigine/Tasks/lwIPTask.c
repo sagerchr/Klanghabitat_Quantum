@@ -18,13 +18,13 @@ DAC_HandleTypeDef hdac;
 DAC_HandleTypeDef huart6;
 
 void lwIPTask(void const * argument){
-
+/*
 	MY_FLASH_SetSectorAddrs(11, 0x081C0000);
 	MY_FLASH_ReadN(0,IP_READ,4,DATA_TYPE_8);
-
+*/
   //==========CREATE & START all lwIP Services========//
-	 MX_LWIP_Init(IP_READ[0],IP_READ[1],IP_READ[2],IP_READ[3]); //SetUp with IP ADRESS read from Flash
-	 UDP_init(192,168,1,36); //INIT the UDP Session (Partner IP ADRESS)
+	 MX_LWIP_Init(192,168,1,205); //SetUp with IP ADRESS read from Flash
+	 UDP_init(192,168,1,38); //INIT the UDP Session (Partner IP ADRESS)
 	 httpd_init();//start the web Server
 	 myCGIinit();//initialise the CGI handlers
 	 mySSIinit();//initialise the SSI handlers
@@ -47,8 +47,8 @@ char UART_IN[10];
 		  UART_transmit[0]=0xFF;
 		  UART_transmit[1]=0x01;
 		  UART_transmit[2]=0x02;
-		  UART_transmit[3]=ADC1_MAX[0];
-		  UART_transmit[4]=ADC2_MAX[0];
+		  UART_transmit[3]=analogIN[0];
+		  UART_transmit[4]=analogIN[1];
 		  UART_transmit[5]=0x10;
 		  UART_transmit[6]=0x10;
 		  UART_transmit[7]=0x10;
@@ -57,10 +57,10 @@ char UART_IN[10];
 
 		HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R, UART_recive[1]);
 
-		OSCmessageINTSend("/VALUE/Level/CH1/preVCA",  23, ADC1_RAW[0]);
-		OSCmessageINTSend("/VALUE/Level/CH2/preVCA",  23, ADC2_RAW[0]);
-		OSCmessageINTSend("/VALUE/Level/CH1/postVCA", 24, ADC1_RAW[1]);
-		OSCmessageINTSend("/VALUE/Level/CH2/postVCA", 24, ADC2_RAW[1]);
+		OSCmessageINTSend("/VALUE/Level/CH1/preVCA",  23, analogIN[0]);
+		OSCmessageINTSend("/VALUE/Level/CH2/preVCA",  23, analogIN[1]);
+		OSCmessageINTSend("/VALUE/Level/CH1/postVCA", 24, analogIN[0]);
+		OSCmessageINTSend("/VALUE/Level/CH2/postVCA", 24, analogIN[1]);
 
 	    osDelay(10);
 	  }
