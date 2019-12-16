@@ -55,7 +55,7 @@ char UART_IN[10];
 		  UART_transmit[8]=0x10;
 		  UART_transmit[9]=0x10;
 
-		HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R, UART_recive[1]);
+
 
 		OSCmessageINTSend("/VALUE/Level/CH1/preVCA",  23, analogIN[0]);
 		OSCmessageINTSend("/VALUE/Level/CH2/preVCA",  23, analogIN[1]);

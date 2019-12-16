@@ -9,11 +9,15 @@
 #include "RelaisControl.h"
 
 TIM_HandleTypeDef htim6;
+TIM_HandleTypeDef htim7;
+DAC_HandleTypeDef hdac;
+
+//uint8_t DSProundtrip = 10; //Defines the RoundTrip time of the DSP
+
 
 void dspTask(void const * argument){
 
 
-	HAL_TIM_Base_Start(&htim6);
 
 /******************Setting all Relais to default settings**************/
 	Bypass(bypass);
@@ -39,42 +43,16 @@ void dspTask(void const * argument){
 
 	  //**************RESET the ADC7606*******************//
 	  HAL_GPIO_WritePin(GPIOG, RESET_Pin,GPIO_PIN_SET);
-	  microDelay(1);
 	  HAL_GPIO_WritePin(GPIOG, RESET_Pin,GPIO_PIN_RESET);
 	  //**************************************************//
 
-
+		HAL_TIM_Base_Start(&htim6);
+		HAL_TIM_Base_Start_IT(&htim7);
 
 	for(;;){
+		HAL_Delay(1000);
+		HAL_GPIO_TogglePin(GPIOB, LD1_Pin); //grüne LED an
 
-
-
-	    //*************Start Measurement********************//
-	    HAL_GPIO_WritePin(GPIOC, CV_A_B_Pin,GPIO_PIN_RESET);
-	    microDelay(1);
-	    HAL_GPIO_WritePin(GPIOC, CV_A_B_Pin,GPIO_PIN_SET);
-
-	    microDelay(5); //CONVERSION FINISHED!!!
-
-
-	    HAL_GPIO_WritePin(GPIOF, DEBUG1_Pin, GPIO_PIN_SET);
-	    for (int i = 0; i<8; i++){
-
-	    	HAL_GPIO_WritePin(GPIOD, RD_Pin,GPIO_PIN_SET);
-	        HAL_GPIO_WritePin(GPIOD, CS_Pin,GPIO_PIN_SET);
-
-	        HAL_GPIO_WritePin(GPIOD, RD_Pin,GPIO_PIN_RESET);
-	        HAL_GPIO_WritePin(GPIOD, CS_Pin,GPIO_PIN_RESET);
-	        analogIN[i] = GPIOE->IDR;
-
-	    }
-	    HAL_GPIO_WritePin(GPIOF, DEBUG1_Pin, GPIO_PIN_RESET);
-
-	    HAL_GPIO_WritePin(GPIOD, CS_Pin,GPIO_PIN_SET);
-	    HAL_GPIO_WritePin(GPIOD, RD_Pin,GPIO_PIN_SET);
-
-		HAL_GPIO_TogglePin(GPIOD, DEBUG2_Pin);
-		microDelay(1);
 	}
 
 }
@@ -84,9 +62,4 @@ void dspTask(void const * argument){
 
 
 
-void microDelay (int time){
-	  while (__HAL_TIM_GET_COUNTER(&htim6) < time){
 
-	  }
-	  __HAL_TIM_SET_COUNTER(&htim6 , 0);
-}
