@@ -23,6 +23,7 @@
 #include "stm32f7xx_it.h"
 #include "FreeRTOS.h"
 #include "task.h"
+#include "math.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 /* USER CODE END Includes */
@@ -40,6 +41,8 @@
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
 
+int16_t analogINSigned[8];
+float volt;
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -223,46 +226,70 @@ void TIM7_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM7_IRQn 0 */
 
-	HAL_GPIO_WritePin(GPIOF, DEBUG1_Pin, GPIO_PIN_SET); //DEBUG rot
-	HAL_GPIO_WritePin(GPIOD, DEBUG2_Pin, GPIO_PIN_SET);//DEBUG gelb
-    //***********************Start Measurement*********************//
-    HAL_GPIO_WritePin(GPIOC, CV_A_B_Pin,GPIO_PIN_RESET);
-    microDelay(0);
-    HAL_GPIO_WritePin(GPIOC, CV_A_B_Pin,GPIO_PIN_SET);
-    //***************************ÜUpdate DACs**********************//
-
-    HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R, analogIN[0]); //Update ADC1
-    HAL_DAC_SetValue(&hdac, DAC_CHANNEL_2, DAC_ALIGN_12B_R, analogIN[1]); //Update ADC2
-
-    //*******************GET NEW DATA FROM ADC*********************//
-    //***Wait Time to be sure new data is ready to grab from ADC***//
-    //microDelay(5);
-    //If just 6 Channels are selected for READ then it is possible to read while Aquiering
-	HAL_GPIO_WritePin(GPIOF, DEBUG1_Pin, GPIO_PIN_RESET);//DEBUG rot
-
-    //*******************Get new samples from ADC******************//
-	//*******************this takes around 5µSec*******************//
-    for (int i = 0; i<6; i++){
-    	HAL_GPIO_WritePin(GPIOD, RD_Pin,GPIO_PIN_SET);
-        HAL_GPIO_WritePin(GPIOD, CS_Pin,GPIO_PIN_SET);
-        microDelay(0);
-        HAL_GPIO_WritePin(GPIOD, RD_Pin,GPIO_PIN_RESET);
-        HAL_GPIO_WritePin(GPIOD, CS_Pin,GPIO_PIN_RESET);
-        microDelay(0); //At least something... to get Ports updated
-        analogIN[i] = GPIOE->IDR;
-    }
-
-    HAL_GPIO_WritePin(GPIOD, CS_Pin,GPIO_PIN_SET);
-    HAL_GPIO_WritePin(GPIOD, RD_Pin,GPIO_PIN_SET);
-    //************************************************************//
-
-    HAL_GPIO_WritePin(GPIOD, DEBUG2_Pin, GPIO_PIN_RESET);//DEBUG gelb
-	__HAL_TIM_SET_COUNTER(&htim7 , 5);
-
   /* USER CODE END TIM7_IRQn 0 */
   HAL_TIM_IRQHandler(&htim7);
   /* USER CODE BEGIN TIM7_IRQn 1 */
 
+	//__HAL_TIM_SET_COUNTER(&htim7 , 0);
+	HAL_GPIO_WritePin(GPIOF, DEBUG1_Pin, GPIO_PIN_SET); //DEBUG rot
+	HAL_GPIO_WritePin(GPIOD, DEBUG2_Pin, GPIO_PIN_SET);//DEBUG gelb
+  //***********************Start Measurement*********************//
+  HAL_GPIO_WritePin(GPIOC, CV_A_B_Pin,GPIO_PIN_RESET);
+  microDelay(0);
+  HAL_GPIO_WritePin(GPIOC, CV_A_B_Pin,GPIO_PIN_SET);
+  //***************************ÜUpdate DACs**********************//
+
+  HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R, analogIN[0]); //Update ADC1
+  HAL_DAC_SetValue(&hdac, DAC_CHANNEL_2, DAC_ALIGN_12B_R, analogIN[1]); //Update ADC2
+
+
+  //*******************GET NEW DATA FROM ADC*********************//
+  //***Wait Time to be sure new data is ready to grab from ADC***//
+  //microDelay(5);
+  //If just 6 Channels are selected for READ then it is possible to read while Aquiering
+	HAL_GPIO_WritePin(GPIOF, DEBUG1_Pin, GPIO_PIN_RESET);//DEBUG rot
+
+  //*******************Get new samples from ADC******************//
+	//*******************this takes around 5µSec*******************//
+  for (int i = 0; i<6; i++){
+  	HAL_GPIO_WritePin(GPIOD, RD_Pin,GPIO_PIN_SET);
+      HAL_GPIO_WritePin(GPIOD, CS_Pin,GPIO_PIN_SET);
+      microDelay(0);
+      HAL_GPIO_WritePin(GPIOD, RD_Pin,GPIO_PIN_RESET);
+      HAL_GPIO_WritePin(GPIOD, CS_Pin,GPIO_PIN_RESET);
+      microDelay(0); //At least something... to get Ports updated
+      analogIN[i] = GPIOE->IDR;
+  }
+
+  HAL_GPIO_WritePin(GPIOD, CS_Pin,GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOD, RD_Pin,GPIO_PIN_SET);
+  //************************************************************//
+
+  for(int i=0; i<10; i++){RingIn1[i] = RingIn1[i+1]; dbuRingIn1[i] = dbuRingIn1[i+1]; dbuRingIn1[i] = dbuRingIn1[i+1];}
+  RingIn1[49] = analogIN[0]; //Put in new sample latest sample at position 49 in Buffer
+  voltRingIn2[9] = RingIn2[9]*10.0/32767; //Put in new sample latest sample at position 49 in Buffer
+
+  if (voltRingIn1[9]<0)
+  {volt = voltRingIn1[9]*(-1.0);}
+  else {volt = voltRingIn1[9];}
+
+  dbuRingIn1[9]  = 20*log(volt/0.775);
+
+
+  for(int i=0; i<10; i++){RingIn2[i] = RingIn2[i+1]; voltRingIn2[i] = voltRingIn2[i+1]; dbuRingIn2[i] = dbuRingIn2[i+1];}
+  RingIn2[9] = analogIN[1]; //Put in new sample latest sample at position 49 in Buffer
+  voltRingIn2[9] = RingIn2[9]*10.0/32767; //Put in new sample latest sample at position 49 in Buffer
+
+  if (voltRingIn2[9]<0)
+  {volt = voltRingIn2[9]*(-1.0);}
+  else {volt = voltRingIn2[9];}
+
+  dbuRingIn2[9]  = 20*log(volt/0.775);
+
+
+
+
+  HAL_GPIO_WritePin(GPIOD, DEBUG2_Pin, GPIO_PIN_RESET);//DEBUG gelb
   /* USER CODE END TIM7_IRQn 1 */
 }
 

@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="Callback" key="selection"/>
+		<item value="" key="selection"/>
 		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="ln"/>
 			<item value="Callback"/>
 			<item value="I2C_ITSlaveSeqCplt"/>
 			<item value="CL"/>
@@ -15,7 +16,6 @@
 			<item value="I2C"/>
 			<item value="DMA"/>
 			<item value="I2C_data10"/>
-			<item value="I2C_data"/>
 		</list>
 		<list key="replacehistory">
 			<item value="0x00000000"/>

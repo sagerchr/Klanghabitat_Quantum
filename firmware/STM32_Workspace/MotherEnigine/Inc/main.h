@@ -186,6 +186,20 @@ uint32_t ADC2_MAX[2];
 char UART_transmit[10];
 char UART_recive[10];
 uint16_t analogIN[8];
+
+int16_t RingIn1[10];
+int16_t RingIn2[10];
+
+float  voltRingIn1[10];
+float  voltRingIn2[10];
+
+float  dbuRingIn1[10];
+float  dbuRingIn2[10];
+
+int16_t RingIn3[50];
+int16_t RingIn4[50];
+int16_t RingIn5[50];
+int16_t RingIn6[50];
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
