@@ -44,23 +44,23 @@ char UART_IN[10];
 
 		  //HAL_UART_Transmit(&huart6, UART_transmit,10,10);
 		  UART_IN;
-		  UART_transmit[0]=0xFF;
-		  UART_transmit[1]=0x01;
-		  UART_transmit[2]=0x02;
-		  UART_transmit[3]=analogIN[0];
-		  UART_transmit[4]=analogIN[1];
-		  UART_transmit[5]=0x10;
-		  UART_transmit[6]=0x10;
-		  UART_transmit[7]=0x10;
-		  UART_transmit[8]=0x10;
-		  UART_transmit[9]=0x10;
+		  //UART_transmit[0]=0xFF;
+		  //UART_transmit[1]=0x01;
+		  //UART_transmit[2]=0x02;
+		  //UART_transmit[3]=voltageIn1MAX*100;
+		  //UART_transmit[4]=voltageIn2MAX*100;
+		  //UART_transmit[5]=0x10;
+		  //UART_transmit[6]=0x10;
+		  //UART_transmit[7]=0x10;
+		  //UART_transmit[8]=0x10;
+		  //UART_transmit[9]=0x10;
 
 
 
-		OSCmessageINTSend("/VALUE/Level/CH1/preVCA",  23, analogIN[0]);
-		OSCmessageINTSend("/VALUE/Level/CH2/preVCA",  23, analogIN[1]);
-		OSCmessageINTSend("/VALUE/Level/CH1/postVCA", 24, analogIN[0]);
-		OSCmessageINTSend("/VALUE/Level/CH2/postVCA", 24, analogIN[1]);
+		OSCmessageINTSend("/VALUE/Level/CH1/preVCA",  23, voltageIn1MAX*30);
+		OSCmessageINTSend("/VALUE/Level/CH2/preVCA",  23, voltageIn2MAX*30);
+		//OSCmessageINTSend("/VALUE/Level/CH1/postVCA", 24, analogIN[0]);
+		//OSCmessageINTSend("/VALUE/Level/CH2/postVCA", 24, analogIN[1]);
 
 	    osDelay(10);
 	  }

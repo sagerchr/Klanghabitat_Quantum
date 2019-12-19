@@ -187,14 +187,24 @@ char UART_transmit[10];
 char UART_recive[10];
 uint16_t analogIN[8];
 
-int16_t RingIn1[10];
-int16_t RingIn2[10];
+uint16_t samples;
+uint16_t indexer;
 
-float  voltRingIn1[10];
-float  voltRingIn2[10];
+int16_t RingIn1[50];
+int16_t RingIn2[50];
 
-float  dbuRingIn1[10];
-float  dbuRingIn2[10];
+float  voltageRMS[8];
+float  dbuRMS[8];
+
+float  voltRingIn1[50];
+float  voltageIn1MAX;
+float  voltRingIn2[50];
+float  voltageIn2MAX;
+
+uint8_t resetMax;
+
+float  dbuRingIn1[50];
+float  dbuRingIn2[50];
 
 int16_t RingIn3[50];
 int16_t RingIn4[50];

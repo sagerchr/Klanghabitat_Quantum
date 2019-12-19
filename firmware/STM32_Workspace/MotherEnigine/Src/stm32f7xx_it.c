@@ -43,6 +43,8 @@
 
 int16_t analogINSigned[8];
 float volt;
+float voltageRMStemp[8];
+
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -239,15 +241,13 @@ void TIM7_IRQHandler(void)
   HAL_GPIO_WritePin(GPIOC, CV_A_B_Pin,GPIO_PIN_SET);
   //***************************ÜUpdate DACs**********************//
 
-  HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R, analogIN[0]); //Update ADC1
-  HAL_DAC_SetValue(&hdac, DAC_CHANNEL_2, DAC_ALIGN_12B_R, analogIN[1]); //Update ADC2
 
 
   //*******************GET NEW DATA FROM ADC*********************//
   //***Wait Time to be sure new data is ready to grab from ADC***//
   //microDelay(5);
   //If just 6 Channels are selected for READ then it is possible to read while Aquiering
-	HAL_GPIO_WritePin(GPIOF, DEBUG1_Pin, GPIO_PIN_RESET);//DEBUG rot
+  HAL_GPIO_WritePin(GPIOF, DEBUG1_Pin, GPIO_PIN_RESET);//DEBUG rot
 
   //*******************Get new samples from ADC******************//
 	//*******************this takes around 5µSec*******************//
@@ -264,29 +264,65 @@ void TIM7_IRQHandler(void)
   HAL_GPIO_WritePin(GPIOD, CS_Pin,GPIO_PIN_SET);
   HAL_GPIO_WritePin(GPIOD, RD_Pin,GPIO_PIN_SET);
   //************************************************************//
-
-  for(int i=0; i<10; i++){RingIn1[i] = RingIn1[i+1]; dbuRingIn1[i] = dbuRingIn1[i+1]; dbuRingIn1[i] = dbuRingIn1[i+1];}
-  RingIn1[49] = analogIN[0]; //Put in new sample latest sample at position 49 in Buffer
-  voltRingIn2[9] = RingIn2[9]*10.0/32767; //Put in new sample latest sample at position 49 in Buffer
-
-  if (voltRingIn1[9]<0)
-  {volt = voltRingIn1[9]*(-1.0);}
-  else {volt = voltRingIn1[9];}
-
-  dbuRingIn1[9]  = 20*log(volt/0.775);
+  HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R, analogIN[0]); //Update ADC1
+  HAL_DAC_SetValue(&hdac, DAC_CHANNEL_2, DAC_ALIGN_12B_R, analogIN[1]); //Update ADC2
 
 
-  for(int i=0; i<10; i++){RingIn2[i] = RingIn2[i+1]; voltRingIn2[i] = voltRingIn2[i+1]; dbuRingIn2[i] = dbuRingIn2[i+1];}
-  RingIn2[9] = analogIN[1]; //Put in new sample latest sample at position 49 in Buffer
-  voltRingIn2[9] = RingIn2[9]*10.0/32767; //Put in new sample latest sample at position 49 in Buffer
 
-  if (voltRingIn2[9]<0)
-  {volt = voltRingIn2[9]*(-1.0);}
-  else {volt = voltRingIn2[9];}
+  RingIn1[indexer] = analogIN[0];
+  voltRingIn1[indexer] = RingIn1[indexer]*10.0/32767;
+  if (voltRingIn1[indexer]<0){volt = voltRingIn1[indexer]*(-1.0);}
+  else {volt = voltRingIn1[indexer];}
+  if (voltageIn1MAX < volt){voltageIn1MAX=volt;}
+  dbuRingIn1[indexer]  = 20*log(volt/0.775);
 
-  dbuRingIn2[9]  = 20*log(volt/0.775);
+  RingIn2[indexer] = analogIN[1];
+  voltRingIn2[indexer] = RingIn2[indexer]*10.0/32767;
+  if (voltRingIn2[indexer]<0){volt = voltRingIn2[indexer]*(-1.0);}
+  else {volt = voltRingIn2[indexer];}
+  if (voltageIn2MAX < volt){voltageIn2MAX=volt;}
+  dbuRingIn2[indexer]  = 20*log(volt/0.775);
 
 
+
+
+  voltageRMStemp[0] = voltageRMStemp[0] + (voltRingIn1[indexer]*voltRingIn1[indexer]);
+  voltageRMStemp[1] = voltageRMStemp[1] + (voltRingIn2[indexer]*voltRingIn2[indexer]);
+
+
+  indexer++;
+  if (indexer == samples){
+
+	  indexer = 0;
+	  voltageRMS[0]=voltageRMStemp[0];
+	  voltageRMS[1]=voltageRMStemp[1];
+
+	  for(int i=0;i<2;i++){
+		  voltageRMS[i] = voltageRMS[i]/samples;
+		  voltageRMS[i] = sqrt(voltageRMS[i]);
+		  dbuRMS[i]= 20*log(voltageRMS[i]/0.775);
+	  }
+
+	  voltageRMStemp[0]=0;
+	  voltageRMStemp[1]=0;
+  }
+
+  UART_transmit[0]=0xFF;
+  UART_transmit[1]=0x01;
+  UART_transmit[2]=0x02;
+  UART_transmit[3]=voltageIn1MAX*30;
+  UART_transmit[4]=voltageIn2MAX*30;
+  UART_transmit[5]=0x10;
+  UART_transmit[6]=0x10;
+  UART_transmit[7]=0x10;
+  UART_transmit[8]=0x10;
+  UART_transmit[9]=0x10;
+
+if (resetMax==1){
+	resetMax=0;
+	voltageIn1MAX=0;
+	voltageIn2MAX=0;
+}
 
 
   HAL_GPIO_WritePin(GPIOD, DEBUG2_Pin, GPIO_PIN_RESET);//DEBUG gelb

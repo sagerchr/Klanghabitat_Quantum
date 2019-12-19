@@ -130,7 +130,7 @@ void StartDefaultTask(void const * argument);
   * @retval int
   */
 int main(void)
-{
+  {
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -175,6 +175,11 @@ int main(void)
   HAL_DAC_Start(&hdac, DAC_CHANNEL_2);
   HAL_UART_Transmit_DMA(&huart6, UART_transmit,10);
   HAL_UART_Receive_DMA(&huart6, UART_recive,10);
+
+  indexer = 0;
+  samples = 50;
+  resetMax=0;
+
   /* USER CODE END 2 */
 
   /* USER CODE BEGIN RTOS_MUTEX */
@@ -706,21 +711,13 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-int resetADC1_MAX = 0;
-int maxValueLeft = 0;
-int newValueLeft = 0;
 
-int resetADC2_MAX = 0;
-int maxValueRight = 0;
-int newValueRight = 0;
 
 
 
 HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart){
-	if (huart->Instance == USART6) {
-			resetADC1_MAX = 1;
-			resetADC2_MAX = 1;
-		  }
+	if (huart->Instance == USART6) {resetMax=1;
+	}
 }
 
 
