@@ -235,17 +235,17 @@
 <text x="-5.334" y="-2.921" size="1.27" layer="25" ratio="10" rot="R90">&gt;NAME</text>
 <text x="-3.556" y="-0.635" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
-<package name="SOIC8" urn="urn:adsk.eagle:footprint:705545/1" library_version="63">
+<package name="SOIC8" urn="urn:adsk.eagle:footprint:705545/1" locally_modified="yes" library_version="152" library_locally_modified="yes">
 <description>&lt;b&gt;SOIC-8&lt;/b&gt; CASE 751-07&lt;p&gt;
 Source: http://www.onsemi.com/pub/Collateral/MC34164-D.PDF&lt;p&gt;
 &lt;b&gt;D (R-PDSO-G8)&lt;/b&gt;PLATIC SMALL-OUTLINE PACKAGE&lt;br&gt;
 Source: http://focus.ti.com/lit/ds/symlink/tlc27l2.pdf</description>
 <wire x1="2.4" y1="1.9" x2="2.4" y2="-1.4" width="0.2032" layer="21"/>
 <wire x1="2.4" y1="-1.4" x2="2.4" y2="-1.9" width="0.2032" layer="21"/>
-<wire x1="2.4" y1="-1.9" x2="-2.4" y2="-1.9" width="0.2032" layer="51"/>
+<wire x1="2.4" y1="-1.9" x2="-2.4" y2="-1.9" width="0.2032" layer="21"/>
 <wire x1="-2.4" y1="-1.9" x2="-2.4" y2="-1.4" width="0.2032" layer="21"/>
 <wire x1="-2.4" y1="-1.4" x2="-2.4" y2="1.9" width="0.2032" layer="21"/>
-<wire x1="-2.4" y1="1.9" x2="2.4" y2="1.9" width="0.2032" layer="51"/>
+<wire x1="-2.4" y1="1.9" x2="2.4" y2="1.9" width="0.2032" layer="21"/>
 <wire x1="2.4" y1="-1.4" x2="-2.4" y2="-1.4" width="0.2032" layer="21"/>
 <smd name="2" x="-0.635" y="-2.75" dx="0.6" dy="1.5" layer="1"/>
 <smd name="7" x="-0.635" y="2.75" dx="0.6" dy="1.5" layer="1"/>
@@ -265,6 +265,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tlc27l2.pdf</description>
 <rectangle x1="0.39" y1="2" x2="0.88" y2="3.1" layer="51"/>
 <rectangle x1="-0.88" y1="2" x2="-0.39" y2="3.1" layer="51"/>
 <rectangle x1="-2.15" y1="2" x2="-1.66" y2="3.1" layer="51"/>
+<circle x="-1.8" y="-0.9" radius="0.22360625" width="0.127" layer="21"/>
 </package>
 <package name="NEUTRIK_NC3MAH" urn="urn:adsk.eagle:footprint:705584/4" library_version="126" library_locally_modified="yes">
 <pad name="G" x="0" y="-12.7" drill="1.2"/>
@@ -615,7 +616,7 @@ TS-003</description>
 <packageinstance name="R0805"/>
 </packageinstances>
 </package3d>
-<package3d name="SOIC8" urn="urn:adsk.eagle:package:705548/2" type="model" library_version="83">
+<package3d name="SOIC8" urn="urn:adsk.eagle:package:705548/2" type="model" library_version="152" library_locally_modified="yes">
 <description>SOIC-8 CASE 751-07
 Source: http://www.onsemi.com/pub/Collateral/MC34164-D.PDF
 D (R-PDSO-G8)PLATIC SMALL-OUTLINE PACKAGE
@@ -968,7 +969,8 @@ TS-003</description>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="NEUTRIK_NC3FAH" urn="urn:adsk.eagle:component:705653/23" library_version="126" library_locally_modified="yes">
+<deviceset name="NEUTRIK_NC3FAH" urn="urn:adsk.eagle:component:705653/23" locally_modified="yes" library_version="152" library_locally_modified="yes">
+<description>XLR Connectors Female</description>
 <gates>
 <gate name="G$1" symbol="NEUTRIK_NC3FAH" x="0" y="0"/>
 </gates>
@@ -983,12 +985,14 @@ TS-003</description>
 <package3dinstance package3d_urn="urn:adsk.eagle:package:705652/8"/>
 </package3dinstances>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="MOUSER_PART_NUMBER" value="568-NC3FAH" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
 </deviceset>
-<deviceset name="RELAY_EE2-5NU" urn="urn:adsk.eagle:component:823803/15" prefix="K" library_version="127" library_locally_modified="yes">
+<deviceset name="RELAY_EE2-5NU" urn="urn:adsk.eagle:component:823803/16" locally_modified="yes" prefix="K" library_version="152" library_locally_modified="yes">
 <description>&lt;b&gt;RELAY&lt;/b&gt;&lt;p&gt;
 SPST</description>
 <gates>
@@ -1013,10 +1017,7 @@ SPST</description>
 </package3dinstances>
 <technologies>
 <technology name="">
-<attribute name="MF" value="" constant="no"/>
-<attribute name="MPN" value="" constant="no"/>
-<attribute name="OC_FARNELL" value="unknown" constant="no"/>
-<attribute name="OC_NEWARK" value="unknown" constant="no"/>
+<attribute name="MOUSER_PART_NUMBER" value="80-EE2-12NU" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -1074,7 +1075,7 @@ SPST</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="OP275" urn="urn:adsk.eagle:component:705549/22" prefix="IC" library_version="108" library_locally_modified="yes">
+<deviceset name="OP275" urn="urn:adsk.eagle:component:705549/22" locally_modified="yes" prefix="IC" library_version="152" library_locally_modified="yes">
 <description>&lt;b&gt;Dual Very Low Noise Precision Operational Amplifier&lt;/b&gt;&lt;p&gt;
 Source: http://www.analog.com/static/imported-files/data_sheets/OP270.pdf</description>
 <gates>
@@ -1116,12 +1117,15 @@ Source: http://www.analog.com/static/imported-files/data_sheets/OP270.pdf</descr
 <package3dinstance package3d_urn="urn:adsk.eagle:package:705548/2"/>
 </package3dinstances>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="MOUSER_PART_NUMBER" value="584-OP275GSZ-R7" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
 </deviceset>
-<deviceset name="NEUTRIK_NC3MAH" urn="urn:adsk.eagle:component:705586/21" library_version="126" library_locally_modified="yes">
+<deviceset name="NEUTRIK_NC3MAH" urn="urn:adsk.eagle:component:705586/21" locally_modified="yes" library_version="152" library_locally_modified="yes">
+<description>XLR Connectors Male</description>
 <gates>
 <gate name="G$1" symbol="NEUTRIK_NC3MAH" x="-2.54" y="-2.54"/>
 </gates>
@@ -1137,12 +1141,14 @@ Source: http://www.analog.com/static/imported-files/data_sheets/OP270.pdf</descr
 <package3dinstance package3d_urn="urn:adsk.eagle:package:705585/5"/>
 </package3dinstances>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="MOUSER_PART_NUMBER" value="568-NC3MAH" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
 </deviceset>
-<deviceset name="SCHRAUBKLEMME_3POL" urn="urn:adsk.eagle:component:1899464/6" prefix="X" uservalue="yes" library_version="96">
+<deviceset name="SCHRAUBKLEMME_3POL" urn="urn:adsk.eagle:component:1899464/7" prefix="X" uservalue="yes" library_version="151">
 <description>&lt;b&gt;WAGO SCREW CLAMP&lt;/b&gt;</description>
 <gates>
 <gate name="-1" symbol="KL" x="0" y="5.08" addlevel="always"/>
@@ -1160,17 +1166,13 @@ Source: http://www.analog.com/static/imported-files/data_sheets/OP270.pdf</descr
 <package3dinstance package3d_urn="urn:adsk.eagle:package:1899457/3"/>
 </package3dinstances>
 <technologies>
-<technology name="">
-<attribute name="MF" value="" constant="no"/>
-<attribute name="MPN" value="237-103" constant="no"/>
-<attribute name="OC_FARNELL" value="unknown" constant="no"/>
-<attribute name="OC_NEWARK" value="18M7116" constant="no"/>
-</technology>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ULN2003" urn="urn:adsk.eagle:component:2524641/3" library_version="114" library_locally_modified="yes">
+<deviceset name="ULN2003" urn="urn:adsk.eagle:component:2524641/3" locally_modified="yes" library_version="152" library_locally_modified="yes">
+<description>Darlington Transistors DARLINGTON TRNS ARRY</description>
 <gates>
 <gate name="A" symbol="ULN2003" x="0" y="-2.54"/>
 </gates>
@@ -1198,18 +1200,20 @@ Source: http://www.analog.com/static/imported-files/data_sheets/OP270.pdf</descr
 <package3dinstance package3d_urn="urn:adsk.eagle:package:763982/3"/>
 </package3dinstances>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="MOUSER_PART_NUMBER" value="863-ULN2003ADR2G" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
 </deviceset>
-<deviceset name="SMD_LED_0603" urn="urn:adsk.eagle:component:576431/37" library_version="117" library_locally_modified="yes">
-<description>SMD LED 0603</description>
+<deviceset name="LED" urn="urn:adsk.eagle:component:576431/38" locally_modified="yes" library_version="152" library_locally_modified="yes">
+<description>LED</description>
 <gates>
 <gate name="G$1" symbol="LED" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="WL-SMCW_0603">
+<device name="_SMD" package="WL-SMCW_0603">
 <connects>
 <connect gate="G$1" pin="+" pad="2"/>
 <connect gate="G$1" pin="-" pad="1"/>
@@ -1218,13 +1222,33 @@ Source: http://www.analog.com/static/imported-files/data_sheets/OP270.pdf</descr
 <package3dinstance package3d_urn="urn:adsk.eagle:package:576430/2"/>
 </package3dinstances>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="MOUSER_PART_NUMBER" value="" constant="no"/>
+</technology>
+<technology name="_BLUE">
+<attribute name="MOUSER_PART_NUMBER" value="710-150060BS75000" constant="no"/>
+</technology>
+<technology name="_GREEN">
+<attribute name="MOUSER_PART_NUMBER" value="710-150060VS75000" constant="no"/>
+</technology>
+<technology name="_ORANGE">
+<attribute name="MOUSER_PART_NUMBER" value="720-KODELLS122A4850" constant="no"/>
+</technology>
+<technology name="_RED">
+<attribute name="MOUSER_PART_NUMBER" value="710-150060SS75000" constant="no"/>
+</technology>
+<technology name="_WHITE">
+<attribute name="MOUSER_PART_NUMBER" value="720-KWDELPS2RAA6351" constant="no"/>
+</technology>
+<technology name="_YELOW">
+<attribute name="MOUSER_PART_NUMBER" value="710-150060YS75000" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ELECTROLYTHIC" urn="urn:adsk.eagle:component:1899465/12" uservalue="yes" library_version="149">
-<description>DigiKey: P5159-ND(4700µF)</description>
+<deviceset name="ELECTROLYTIC" urn="urn:adsk.eagle:component:1899465/13" uservalue="yes" library_version="152">
+<description>Electrolytic Capacitor SMD</description>
 <gates>
 <gate name="G$1" symbol="CPOL" x="-2.54" y="2.54"/>
 </gates>
@@ -1267,7 +1291,8 @@ Source: http://www.analog.com/static/imported-files/data_sheets/OP270.pdf</descr
 </device>
 </devices>
 </deviceset>
-<deviceset name="TL072" urn="urn:adsk.eagle:component:823801/9" library_version="121">
+<deviceset name="TL072" urn="urn:adsk.eagle:component:823801/9" locally_modified="yes" library_version="152" library_locally_modified="yes">
+<description>Operational Amplifier</description>
 <gates>
 <gate name="G$1" symbol="OPAMP" x="-7.62" y="7.62"/>
 <gate name="G$2" symbol="OPAMP" x="17.78" y="7.62"/>
@@ -1289,7 +1314,9 @@ Source: http://www.analog.com/static/imported-files/data_sheets/OP270.pdf</descr
 <package3dinstance package3d_urn="urn:adsk.eagle:package:705548/2"/>
 </package3dinstances>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="MOUSER_PART_NUMBER" value="595-TL072CDR" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -1334,7 +1361,7 @@ Source: http://www.analog.com/static/imported-files/data_sheets/OP270.pdf</descr
 </device>
 </devices>
 </deviceset>
-<deviceset name="78**" urn="urn:adsk.eagle:component:763984/17" library_version="128">
+<deviceset name="78**" urn="urn:adsk.eagle:component:763984/17" locally_modified="yes" library_version="152" library_locally_modified="yes">
 <gates>
 <gate name="G$1" symbol="78XX" x="-7.62" y="5.08"/>
 </gates>
@@ -1349,7 +1376,9 @@ Source: http://www.analog.com/static/imported-files/data_sheets/OP270.pdf</descr
 <package3dinstance package3d_urn="urn:adsk.eagle:package:763981/2"/>
 </package3dinstances>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="MOUSER_PART_NUMBER" value="513-NJM7812DL1A-TE1" constant="no"/>
+</technology>
 </technologies>
 </device>
 <device name="THT" package="78XXS_">
@@ -1430,7 +1459,7 @@ Source: http://www.analog.com/static/imported-files/data_sheets/OP270.pdf</descr
 </device>
 </devices>
 </deviceset>
-<deviceset name="BZT52C2V0T-7" urn="urn:adsk.eagle:component:16179618/3" prefix="Z" library_version="150">
+<deviceset name="BZT52C2V0T-7" urn="urn:adsk.eagle:component:16179618/3" locally_modified="yes" prefix="Z" library_version="152" library_locally_modified="yes">
 <description>&lt;b&gt;Diodes Inc BZT52C2V0T-7 Zener Diode, 2.4V 5% 300 mW SMT 2-Pin SOD-523&lt;/b&gt;&lt;p&gt;
 Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/BZT52C2V0T-7.pdf"&gt; Datasheet &lt;/a&gt;</description>
 <gates>
@@ -1447,12 +1476,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/BZT52C2V0T-7.
 </package3dinstances>
 <technologies>
 <technology name="">
-<attribute name="DESCRIPTION" value="Diodes Inc BZT52C2V0T-7 Zener Diode, 2.4V 5% 300 mW SMT 2-Pin SOD-523" constant="no"/>
-<attribute name="HEIGHT" value="0.65mm" constant="no"/>
-<attribute name="MANUFACTURER_NAME" value="Diodes Inc." constant="no"/>
-<attribute name="MANUFACTURER_PART_NUMBER" value="BZT52C2V0T-7" constant="no"/>
 <attribute name="MOUSER_PART_NUMBER" value="621-BZT52C2V0T-7" constant="no"/>
-<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=621-BZT52C2V0T-7" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -1462,7 +1486,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/BZT52C2V0T-7.
 </library>
 <library name="THAT_Library" urn="urn:adsk.eagle:library:704460">
 <packages>
-<package name="SO08" urn="urn:adsk.eagle:footprint:704558/1" locally_modified="yes" library_version="12" library_locally_modified="yes">
+<package name="SO08" urn="urn:adsk.eagle:footprint:704558/2" library_version="13">
 <description>&lt;b&gt;SMALL OUTLINE INTEGRATED CIRCUIT&lt;/b&gt;&lt;p&gt;
 body 3.9 mm/JEDEC MS-012AA</description>
 <wire x1="-2.9" y1="3.9" x2="2.9" y2="3.9" width="0.1998" layer="39"/>
@@ -1540,8 +1564,8 @@ body 3.9 mm/JEDEC MS-012AA</description>
 </package>
 </packages>
 <packages3d>
-<package3d name="SO08" urn="urn:adsk.eagle:package:704562/2" type="model" library_version="12" library_locally_modified="yes">
-<description>SMALL OUTLINE INTEGRATED CIRCUIT
+<package3d name="SO08" urn="urn:adsk.eagle:package:704562/3" type="model" library_version="13">
+<description>&lt;b&gt;SMALL OUTLINE INTEGRATED CIRCUIT&lt;/b&gt;&lt;p&gt;
 body 3.9 mm/JEDEC MS-012AA</description>
 <packageinstances>
 <packageinstance name="SO08"/>
@@ -1631,7 +1655,7 @@ body 3.9 mm/JEDEC MS-012AA</description>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="THAT1240" urn="urn:adsk.eagle:component:704565/7" locally_modified="yes" prefix="U" library_version="12" library_locally_modified="yes">
+<deviceset name="THAT1240" urn="urn:adsk.eagle:component:704565/8" prefix="U" library_version="13">
 <description>Balanced Line Receiver&lt;p&gt;
 THAT1240, THAT1243, THAT1246</description>
 <gates>
@@ -1649,10 +1673,18 @@ THAT1240, THAT1243, THAT1246</description>
 <connect gate="G$1" pin="V-" pad="4"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:704562/2"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:704562/3"/>
 </package3dinstances>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="MOUSER_PART_NUMBER" value="" constant="no"/>
+</technology>
+<technology name="P08-U">
+<attribute name="MOUSER_PART_NUMBER" value="" constant="no"/>
+</technology>
+<technology name="SO8-U">
+<attribute name="MOUSER_PART_NUMBER" value="887-1240S08-U" constant="no"/>
+</technology>
 </technologies>
 </device>
 <device name="PO8-U" package="DIL08">
@@ -1674,7 +1706,7 @@ THAT1240, THAT1243, THAT1246</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="THAT1646" urn="urn:adsk.eagle:component:704566/8" locally_modified="yes" prefix="U" library_version="12" library_locally_modified="yes">
+<deviceset name="THAT1646" urn="urn:adsk.eagle:component:704566/9" prefix="U" library_version="13">
 <description>Outsmarts Balanced Line Driver</description>
 <gates>
 <gate name="G$1" symbol="THAT1646" x="0" y="0"/>
@@ -1692,10 +1724,18 @@ THAT1240, THAT1243, THAT1246</description>
 <connect gate="G$1" pin="V-" pad="5"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:704562/2"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:704562/3"/>
 </package3dinstances>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="MOUSER_PART_NUMBER" value="" constant="no"/>
+</technology>
+<technology name="P08-U">
+<attribute name="MOUSER_PART_NUMBER" value="" constant="no"/>
+</technology>
+<technology name="SO8-U">
+<attribute name="MOUSER_PART_NUMBER" value="887-1646S08-U" constant="no"/>
+</technology>
 </technologies>
 </device>
 <device name="PO8-U" package="DIL08">
@@ -1718,7 +1758,7 @@ THAT1240, THAT1243, THAT1246</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="THAT2181" urn="urn:adsk.eagle:component:704632/1" locally_modified="yes" prefix="U" library_version="12" library_locally_modified="yes">
+<deviceset name="THAT2181" urn="urn:adsk.eagle:component:704632/2" prefix="U" library_version="13">
 <description>VCA Trimmable IC</description>
 <gates>
 <gate name="G$1" symbol="THAT2181" x="0" y="0"/>
@@ -1736,10 +1776,18 @@ THAT1240, THAT1243, THAT1246</description>
 <connect gate="G$1" pin="V-" pad="5"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:704562/2"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:704562/3"/>
 </package3dinstances>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="MOUSER_PART_NUMBER" value="" constant="no"/>
+</technology>
+<technology name="SIP8">
+<attribute name="MOUSER_PART_NUMBER" value="" constant="no"/>
+</technology>
+<technology name="SO8-U">
+<attribute name="MOUSER_PART_NUMBER" value="887-2181CS08-U"/>
+</technology>
 </technologies>
 </device>
 <device name="L" package="SIP8">
@@ -2484,8 +2532,8 @@ DIN A4, landscape with location and doc. field</description>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="NUCLEO-F429ZI" urn="urn:adsk.eagle:component:14788732/2" prefix="U" library_version="3">
-<description>STM32 Nucleo-144 development board with STM32F429ZIT6 MCU, supports Arduino, ST Zio and Morpho</description>
+<deviceset name="NUCLEO-F429ZI" urn="urn:adsk.eagle:component:14788732/3" locally_modified="yes" prefix="U" library_version="4" library_locally_modified="yes">
+<description>STM32 Nucleo-144 development board</description>
 <gates>
 <gate name="G$1" symbol="NUCLEO-F429ZI_SECTION1" x="-63.5" y="63.5"/>
 <gate name="G$2" symbol="NUCLEO-F429ZI_SECTION2" x="43.18" y="63.5" swaplevel="1"/>
@@ -2724,14 +2772,7 @@ DIN A4, landscape with location and doc. field</description>
 <package3dinstance package3d_urn="urn:adsk.eagle:package:14750753/3"/>
 </package3dinstances>
 <technologies>
-<technology name="">
-<attribute name="AVAILABILITY" value="Unavailable"/>
-<attribute name="DESCRIPTION" value=" STM32 Nucleo-144 development board with STM32F429ZIT6 MCU, supports Arduino, ST Zio and Morpho "/>
-<attribute name="MF" value="STMicroelectronics"/>
-<attribute name="MP" value="NUCLEO-F429ZI"/>
-<attribute name="PACKAGE" value="None"/>
-<attribute name="PRICE" value="None"/>
-</technology>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
@@ -2800,7 +2841,7 @@ DIN A4, landscape with location and doc. field</description>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="DAC084S085CIMM_NOPB" urn="urn:adsk.eagle:component:16089268/2" prefix="IC" library_version="5">
+<deviceset name="DAC084S085CIMM_NOPB" urn="urn:adsk.eagle:component:16089268/3" prefix="IC" library_version="6">
 <description>&lt;b&gt;8-Bit Micro Power QUAD Digital-to-Analog Converter with Rail-to-Rail Output&lt;/b&gt;&lt;p&gt;
 Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&amp;gotoUrl=http://www.ti.com/lit/gpn/dac084s085"&gt; Datasheet &lt;/a&gt;</description>
 <gates>
@@ -2825,12 +2866,7 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 </package3dinstances>
 <technologies>
 <technology name="">
-<attribute name="DESCRIPTION" value="8-Bit Micro Power QUAD Digital-to-Analog Converter with Rail-to-Rail Output" constant="no"/>
-<attribute name="HEIGHT" value="1.1mm" constant="no"/>
-<attribute name="MANUFACTURER_NAME" value="Texas Instruments" constant="no"/>
-<attribute name="MANUFACTURER_PART_NUMBER" value="DAC084S085CIMM/NOPB" constant="no"/>
 <attribute name="MOUSER_PART_NUMBER" value="926-DAC084S085CIMMNO" constant="no"/>
-<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=926-DAC084S085CIMMNO" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -2853,7 +2889,7 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 </groups>
 <parts>
 <part name="IN1(R/S)" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="NEUTRIK_NC3FAH" device="" package3d_urn="urn:adsk.eagle:package:705652/8"/>
-<part name="IN_RIGHT" library="THAT_Library" library_urn="urn:adsk.eagle:library:704460" deviceset="THAT1240" device="SO8-U" package3d_urn="urn:adsk.eagle:package:704562/2" value="1240"/>
+<part name="IN_RIGHT" library="THAT_Library" library_urn="urn:adsk.eagle:library:704460" deviceset="THAT1240" device="SO8-U" package3d_urn="urn:adsk.eagle:package:704562/3" technology="SO8-U" value="1240"/>
 <part name="K1" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RELAY_EE2-5NU" device="" package3d_urn="urn:adsk.eagle:package:823802/6" value="K1"/>
 <part name="P+1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="V+" device="" value="+15V"/>
 <part name="P-1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="V-" device="" value="-15V"/>
@@ -2870,7 +2906,7 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <part name="OUT2(L/M)" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="NEUTRIK_NC3MAH" device="" package3d_urn="urn:adsk.eagle:package:705585/5"/>
 <part name="K3" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RELAY_EE2-5NU" device="" package3d_urn="urn:adsk.eagle:package:823802/6" value="K3"/>
 <part name="K4" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RELAY_EE2-5NU" device="" package3d_urn="urn:adsk.eagle:package:823802/6" value="K4"/>
-<part name="IN_LEFT" library="THAT_Library" library_urn="urn:adsk.eagle:library:704460" deviceset="THAT1240" device="SO8-U" package3d_urn="urn:adsk.eagle:package:704562/2" value="1240"/>
+<part name="IN_LEFT" library="THAT_Library" library_urn="urn:adsk.eagle:library:704460" deviceset="THAT1240" device="SO8-U" package3d_urn="urn:adsk.eagle:package:704562/3" technology="SO8-U" value="1240"/>
 <part name="P+6" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="V+" device="" value="+15V"/>
 <part name="P-6" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="V-" device="" value="-15V"/>
 <part name="AGND9" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="AGND" device=""/>
@@ -2880,7 +2916,7 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <part name="AGND14" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="AGND" device=""/>
 <part name="AGND15" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="AGND" device=""/>
 <part name="AGND16" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="AGND" device=""/>
-<part name="OUT_LEFT" library="THAT_Library" library_urn="urn:adsk.eagle:library:704460" deviceset="THAT1646" device="SO8-U" package3d_urn="urn:adsk.eagle:package:704562/2" value="1646"/>
+<part name="OUT_LEFT" library="THAT_Library" library_urn="urn:adsk.eagle:library:704460" deviceset="THAT1646" device="SO8-U" package3d_urn="urn:adsk.eagle:package:704562/3" technology="SO8-U" value="1646"/>
 <part name="AGND17" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="AGND" device=""/>
 <part name="C11" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="CAPACITOR" device="&quot;" package3d_urn="urn:adsk.eagle:package:576738/3" value="100nF"/>
 <part name="C12" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="CAPACITOR" device="&quot;" package3d_urn="urn:adsk.eagle:package:576738/3" value="100nF"/>
@@ -2888,7 +2924,7 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <part name="AGND19" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="AGND" device=""/>
 <part name="P+7" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="V+" device="" value="+15V"/>
 <part name="P-7" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="V-" device="" value="-15V"/>
-<part name="OUT_RIGHT" library="THAT_Library" library_urn="urn:adsk.eagle:library:704460" deviceset="THAT1646" device="SO8-U" package3d_urn="urn:adsk.eagle:package:704562/2" value="1646"/>
+<part name="OUT_RIGHT" library="THAT_Library" library_urn="urn:adsk.eagle:library:704460" deviceset="THAT1646" device="SO8-U" package3d_urn="urn:adsk.eagle:package:704562/3" technology="SO8-U" value="1646"/>
 <part name="AGND20" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="AGND" device=""/>
 <part name="C13" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="CAPACITOR" device="&quot;" package3d_urn="urn:adsk.eagle:package:576738/3" value="100nF"/>
 <part name="C14" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="CAPACITOR" device="&quot;" package3d_urn="urn:adsk.eagle:package:576738/3" value="100nF"/>
@@ -2897,8 +2933,8 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <part name="P+8" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="V+" device="" value="+15V"/>
 <part name="P-13" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="V-" device="" value="-15V"/>
 <part name="IC4" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="OP275" device="" package3d_urn="urn:adsk.eagle:package:705548/2"/>
-<part name="U4" library="THAT_Library" library_urn="urn:adsk.eagle:library:704460" deviceset="THAT1240" device="SO8-U" package3d_urn="urn:adsk.eagle:package:704562/2" value="THAT1240"/>
-<part name="U6" library="THAT_Library" library_urn="urn:adsk.eagle:library:704460" deviceset="THAT1240" device="SO8-U" package3d_urn="urn:adsk.eagle:package:704562/2" value="THAT1240"/>
+<part name="U4" library="THAT_Library" library_urn="urn:adsk.eagle:library:704460" deviceset="THAT1240" device="SO8-U" package3d_urn="urn:adsk.eagle:package:704562/3" technology="SO8-U" value="THAT1240"/>
+<part name="U6" library="THAT_Library" library_urn="urn:adsk.eagle:library:704460" deviceset="THAT1240" device="SO8-U" package3d_urn="urn:adsk.eagle:package:704562/3" technology="SO8-U" value="THAT1240"/>
 <part name="P+9" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="V+" device="" value="+15V"/>
 <part name="P-11" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="V-" device="" value="-15V"/>
 <part name="P-14" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="V-" device="" value="-15V"/>
@@ -2912,10 +2948,10 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <part name="C25" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="CAPACITOR" device="&quot;" package3d_urn="urn:adsk.eagle:package:576738/3" value="100nF"/>
 <part name="C26" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="CAPACITOR" device="&quot;" package3d_urn="urn:adsk.eagle:package:576738/3" value="100nF"/>
 <part name="AGND39" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="AGND" device=""/>
-<part name="K5" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RELAY_EE2-5NU" device="" package3d_urn="urn:adsk.eagle:package:823802/6"/>
+<part name="K5" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RELAY_EE2-5NU" device="" package3d_urn="urn:adsk.eagle:package:823802/6" value="K5"/>
 <part name="AGND40" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="AGND" device=""/>
-<part name="U7" library="THAT_Library" library_urn="urn:adsk.eagle:library:704460" deviceset="THAT1240" device="SO8-U" package3d_urn="urn:adsk.eagle:package:704562/2" value="THAT1240"/>
-<part name="U8" library="THAT_Library" library_urn="urn:adsk.eagle:library:704460" deviceset="THAT1240" device="SO8-U" package3d_urn="urn:adsk.eagle:package:704562/2" value="THAT1240"/>
+<part name="U7" library="THAT_Library" library_urn="urn:adsk.eagle:library:704460" deviceset="THAT1240" device="SO8-U" package3d_urn="urn:adsk.eagle:package:704562/3" technology="SO8-U" value="THAT1240"/>
+<part name="U8" library="THAT_Library" library_urn="urn:adsk.eagle:library:704460" deviceset="THAT1240" device="SO8-U" package3d_urn="urn:adsk.eagle:package:704562/3" technology="SO8-U" value="THAT1240"/>
 <part name="P+17" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="V+" device="" value="+15V"/>
 <part name="P-15" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="V-" device="" value="-15V"/>
 <part name="P-16" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="V-" device="" value="-15V"/>
@@ -2930,9 +2966,9 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <part name="C30" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="CAPACITOR" device="&quot;" package3d_urn="urn:adsk.eagle:package:576738/3" value="100nF"/>
 <part name="AGND45" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="AGND" device=""/>
 <part name="AGND46" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="AGND" device=""/>
-<part name="K6" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RELAY_EE2-5NU" device="" package3d_urn="urn:adsk.eagle:package:823802/6"/>
-<part name="K7" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RELAY_EE2-5NU" device="" package3d_urn="urn:adsk.eagle:package:823802/6"/>
-<part name="K8" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RELAY_EE2-5NU" device="" package3d_urn="urn:adsk.eagle:package:823802/6"/>
+<part name="K6" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RELAY_EE2-5NU" device="" package3d_urn="urn:adsk.eagle:package:823802/6" value="K6"/>
+<part name="K7" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RELAY_EE2-5NU" device="" package3d_urn="urn:adsk.eagle:package:823802/6" value="K7"/>
+<part name="K8" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RELAY_EE2-5NU" device="" package3d_urn="urn:adsk.eagle:package:823802/6" value="K8"/>
 <part name="IC1" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="OP275" device="" package3d_urn="urn:adsk.eagle:package:705548/2"/>
 <part name="SUPPLY17" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="DGND" device=""/>
 <part name="C5" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="CAPACITOR" device="&quot;" package3d_urn="urn:adsk.eagle:package:576738/3" value="100nF"/>
@@ -2959,25 +2995,27 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <part name="FRAME6" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="A4L-LOC" device=""/>
 <part name="FRAME7" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="A4L-LOC" device=""/>
 <part name="U12" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="ULN2003" device="" package3d_urn="urn:adsk.eagle:package:763982/3"/>
-<part name="L1" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="SMD_LED_0603" device="" package3d_urn="urn:adsk.eagle:package:576430/2"/>
-<part name="L3" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="SMD_LED_0603" device="" package3d_urn="urn:adsk.eagle:package:576430/2"/>
-<part name="L5" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="SMD_LED_0603" device="" package3d_urn="urn:adsk.eagle:package:576430/2"/>
-<part name="L6" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="SMD_LED_0603" device="" package3d_urn="urn:adsk.eagle:package:576430/2"/>
-<part name="L7" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="SMD_LED_0603" device="" package3d_urn="urn:adsk.eagle:package:576430/2"/>
-<part name="L8" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="SMD_LED_0603" device="" package3d_urn="urn:adsk.eagle:package:576430/2"/>
-<part name="R7" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="500R">
+<part name="LED1" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="LED" device="_SMD" package3d_urn="urn:adsk.eagle:package:576430/2" technology="_BLUE" value="LED_BLUE_SMD"/>
+<part name="LED3" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="LED" device="_SMD" package3d_urn="urn:adsk.eagle:package:576430/2" technology="_BLUE" value="LED_BLUE_SMD"/>
+<part name="LED5" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="LED" device="_SMD" package3d_urn="urn:adsk.eagle:package:576430/2" technology="_BLUE" value="LED_BLUE_SMD">
+<attribute name="SPICEPREFIX" value="L"/>
+</part>
+<part name="LED6" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="LED" device="_SMD" package3d_urn="urn:adsk.eagle:package:576430/2" technology="_BLUE" value="LED_BLUE_SMD"/>
+<part name="LED7" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="LED" device="_SMD" package3d_urn="urn:adsk.eagle:package:576430/2" technology="_BLUE" value="LED_BLUE_SMD"/>
+<part name="LED8" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="LED" device="_SMD" package3d_urn="urn:adsk.eagle:package:576430/2" technology="_BLUE" value="LED_BLUE_SMD"/>
+<part name="R7" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="470R">
 <attribute name="SPICEPREFIX" value="R"/>
 </part>
-<part name="R8" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="500R">
+<part name="R8" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="470R">
 <attribute name="SPICEPREFIX" value="R"/>
 </part>
-<part name="R9" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="500R"/>
-<part name="R10" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="500R"/>
-<part name="R11" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="500R"/>
-<part name="R12" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="500R"/>
+<part name="R9" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="470R"/>
+<part name="R10" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="470R"/>
+<part name="R11" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="470R"/>
+<part name="R12" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="470R"/>
 <part name="FRAME12" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="A4L-LOC" device=""/>
-<part name="VCA1(LEFT)" library="THAT_Library" library_urn="urn:adsk.eagle:library:704460" deviceset="THAT2181" device="S" package3d_urn="urn:adsk.eagle:package:704562/2"/>
-<part name="VCA2(RIGHT)" library="THAT_Library" library_urn="urn:adsk.eagle:library:704460" deviceset="THAT2181" device="S" package3d_urn="urn:adsk.eagle:package:704562/2"/>
+<part name="VCA1(LEFT)" library="THAT_Library" library_urn="urn:adsk.eagle:library:704460" deviceset="THAT2181" device="S" package3d_urn="urn:adsk.eagle:package:704562/3" technology="SO8-U" value="THAT2181SO8-US"/>
+<part name="VCA2(RIGHT)" library="THAT_Library" library_urn="urn:adsk.eagle:library:704460" deviceset="THAT2181" device="S" package3d_urn="urn:adsk.eagle:package:704562/3" technology="SO8-U" value="THAT2181SO8-US"/>
 <part name="P-12" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="V-" device="" value="-15V"/>
 <part name="P+15" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="V+" device="" value="+15V"/>
 <part name="IC8" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="OP275" device="" package3d_urn="urn:adsk.eagle:package:705548/2"/>
@@ -2998,9 +3036,9 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <part name="R51" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="5k1"/>
 <part name="P+19" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="V+" device="" value="+15V"/>
 <part name="R52" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="20k"/>
-<part name="C67" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="ELECTROLYTHIC" device="ELCTROLYTIC_MIDSIZE_SMD" package3d_urn="urn:adsk.eagle:package:16179872/4" value="47µF"/>
+<part name="C67" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="ELECTROLYTIC" device="ELCTROLYTIC_MIDSIZE_SMD" package3d_urn="urn:adsk.eagle:package:16179872/4" value="47µF"/>
 <part name="R53" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="20k"/>
-<part name="C68" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="ELECTROLYTHIC" device="ELCTROLYTIC_MIDSIZE_SMD" package3d_urn="urn:adsk.eagle:package:16179872/4" value="47µF"/>
+<part name="C68" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="ELECTROLYTIC" device="ELCTROLYTIC_MIDSIZE_SMD" package3d_urn="urn:adsk.eagle:package:16179872/4" value="47µF"/>
 <part name="IC9" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="TL072" device="" package3d_urn="urn:adsk.eagle:package:705548/2"/>
 <part name="P-19" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="V-" device="" value="-15V"/>
 <part name="C57" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="CAPACITOR" device="&quot;" package3d_urn="urn:adsk.eagle:package:576738/3" value="100nF"/>
@@ -3026,25 +3064,24 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <part name="TP36" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="TP" device="THT" package3d_urn="urn:adsk.eagle:package:817866/3"/>
 <part name="TP37" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="TP" device="THT" package3d_urn="urn:adsk.eagle:package:817866/3"/>
 <part name="FRAME1" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="A4L-LOC" device=""/>
-<part name="L2" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="SMD_LED_0603" device="" package3d_urn="urn:adsk.eagle:package:576430/2"/>
-<part name="R33" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="500R"/>
-<part name="L4" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="SMD_LED_0603" device="" package3d_urn="urn:adsk.eagle:package:576430/2"/>
-<part name="R34" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="500R"/>
+<part name="LED2" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="LED" device="_SMD" package3d_urn="urn:adsk.eagle:package:576430/2" technology="_BLUE" value="LED_BLUE_SMD"/>
+<part name="R33" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="470R"/>
+<part name="LED4" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="LED" device="_SMD" package3d_urn="urn:adsk.eagle:package:576430/2" technology="_BLUE" value="LED_BLUE_SMD"/>
+<part name="R34" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="470R"/>
 <part name="U1" library="STM32_144" library_urn="urn:adsk.eagle:library:14788719" deviceset="NUCLEO-F429ZI" device="" package3d_urn="urn:adsk.eagle:package:14750753/3"/>
 <part name="SUPPLY10" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="DGND" device=""/>
-<part name="U$1" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="78**" device="" package3d_urn="urn:adsk.eagle:package:763981/2" value="7812"/>
+<part name="U2" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="78**" device="" package3d_urn="urn:adsk.eagle:package:763981/2" value="7812"/>
 <part name="P+14" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="V+" device="" value="+15V"/>
 <part name="SUPPLY9" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="DGND" device=""/>
 <part name="R35" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="0R"/>
 <part name="AGND50" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="AGND" device=""/>
-<part name="U$2" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="CAPACITOR" device="&quot;" package3d_urn="urn:adsk.eagle:package:576738/3"/>
-<part name="U$3" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="CAPACITOR" device="&quot;" package3d_urn="urn:adsk.eagle:package:576738/3"/>
+<part name="C69" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="CAPACITOR" device="&quot;" package3d_urn="urn:adsk.eagle:package:576738/3" value="0.33 uF"/>
+<part name="C70" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="CAPACITOR" device="&quot;" package3d_urn="urn:adsk.eagle:package:576738/3" value="100 nF"/>
 <part name="SUPPLY11" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="DGND" device=""/>
 <part name="SUPPLY12" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="DGND" device=""/>
 <part name="TP05" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="TP" device="THT" package3d_urn="urn:adsk.eagle:package:817866/3"/>
-<part name="TP06" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="TP" device="THT" package3d_urn="urn:adsk.eagle:package:817866/3"/>
-<part name="+15VOK" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="SMD_LED_0603" device="" package3d_urn="urn:adsk.eagle:package:576430/2"/>
-<part name="-15VOK" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="SMD_LED_0603" device="" package3d_urn="urn:adsk.eagle:package:576430/2"/>
+<part name="LED9" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="LED" device="_SMD" package3d_urn="urn:adsk.eagle:package:576430/2" technology="_GREEN" value="LED_GREEN_SMD"/>
+<part name="LED10" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="LED" device="_SMD" package3d_urn="urn:adsk.eagle:package:576430/2" technology="_GREEN" value="LED_GREEN_SMD"/>
 <part name="R14" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="220R"/>
 <part name="R29" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="220R"/>
 <part name="SUPPLY13" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="+12V" device=""/>
@@ -3057,7 +3094,7 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <part name="SUPPLY6" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="+12V" device=""/>
 <part name="SUPPLY8" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="+12V" device=""/>
 <part name="FRAME8" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="A4L-LOC" device=""/>
-<part name="U$4" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="AD7606_EVALBOARD" device="" package3d_urn="urn:adsk.eagle:package:16076049/2" override_package3d_urn="urn:adsk.eagle:package:16076049/3" override_package_urn="urn:adsk.eagle:footprint:16076048/2"/>
+<part name="U3" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="AD7606_EVALBOARD" device="" package3d_urn="urn:adsk.eagle:package:16076049/2" override_package3d_urn="urn:adsk.eagle:package:16076049/3" override_package_urn="urn:adsk.eagle:footprint:16076048/2"/>
 <part name="C9" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="CAPACITOR" device="&quot;" package3d_urn="urn:adsk.eagle:package:576738/3" value="470 pF"/>
 <part name="C10" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="CAPACITOR" device="&quot;" package3d_urn="urn:adsk.eagle:package:576738/3" value="470 pF"/>
 <part name="C15" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="CAPACITOR" device="&quot;" package3d_urn="urn:adsk.eagle:package:576738/3" value="47 pF"/>
@@ -3125,12 +3162,12 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <part name="C19" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="CAPACITOR" device="&quot;" package3d_urn="urn:adsk.eagle:package:576738/3" value="100nF"/>
 <part name="C23" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="CAPACITOR" device="&quot;" package3d_urn="urn:adsk.eagle:package:576738/3" value="100nF"/>
 <part name="C24" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="CAPACITOR" device="&quot;" package3d_urn="urn:adsk.eagle:package:576738/3" value="100nF"/>
-<part name="C31" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="ELECTROLYTHIC" device="ELCTROLYTIC_MIDSIZE_SMD" package3d_urn="urn:adsk.eagle:package:16179872/4" value="10 µF"/>
-<part name="C33" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="ELECTROLYTHIC" device="ELCTROLYTIC_MIDSIZE_SMD" package3d_urn="urn:adsk.eagle:package:16179872/4" value="10 µF"/>
-<part name="C34" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="ELECTROLYTHIC" device="ELCTROLYTIC_MIDSIZE_SMD" package3d_urn="urn:adsk.eagle:package:16179872/4" value="10 µF"/>
+<part name="C31" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="ELECTROLYTIC" device="ELCTROLYTIC_MIDSIZE_SMD" package3d_urn="urn:adsk.eagle:package:16179872/4" value="10 µF"/>
+<part name="C33" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="ELECTROLYTIC" device="ELCTROLYTIC_MIDSIZE_SMD" package3d_urn="urn:adsk.eagle:package:16179872/4" value="10 µF"/>
+<part name="C34" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="ELECTROLYTIC" device="ELCTROLYTIC_MIDSIZE_SMD" package3d_urn="urn:adsk.eagle:package:16179872/4" value="10 µF"/>
 <part name="FRAME10" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="A4L-LOC" device=""/>
-<part name="STAGE(LEFT)" library="THAT_Library" library_urn="urn:adsk.eagle:library:704460" deviceset="THAT2181" device="S" package3d_urn="urn:adsk.eagle:package:704562/2"/>
-<part name="STAGE(RIGHT)" library="THAT_Library" library_urn="urn:adsk.eagle:library:704460" deviceset="THAT2181" device="S" package3d_urn="urn:adsk.eagle:package:704562/2"/>
+<part name="STAGE(LEFT)" library="THAT_Library" library_urn="urn:adsk.eagle:library:704460" deviceset="THAT2181" device="S" package3d_urn="urn:adsk.eagle:package:704562/3" technology="SO8-U" value="THAT2181SO8-US"/>
+<part name="STAGE(RIGHT)" library="THAT_Library" library_urn="urn:adsk.eagle:library:704460" deviceset="THAT2181" device="S" package3d_urn="urn:adsk.eagle:package:704562/3" technology="SO8-U" value="THAT2181SO8-US"/>
 <part name="P-8" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="V-" device="" value="-15V"/>
 <part name="P+10" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="V+" device="" value="+15V"/>
 <part name="IC5" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="OP275" device="" package3d_urn="urn:adsk.eagle:package:705548/2"/>
@@ -3183,9 +3220,9 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <part name="AGND76" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="AGND" device=""/>
 <part name="P-26" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="V-" device="" value="-15V"/>
 <part name="AGND77" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="AGND" device=""/>
-<part name="C39" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="ELECTROLYTHIC" device="ELCTROLYTIC_MIDSIZE_SMD" package3d_urn="urn:adsk.eagle:package:16179872/4" value="10 µF"/>
+<part name="C39" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="ELECTROLYTIC" device="ELCTROLYTIC_MIDSIZE_SMD" package3d_urn="urn:adsk.eagle:package:16179872/4" value="10 µF"/>
 <part name="AGND78" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="AGND" device=""/>
-<part name="C40" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="ELECTROLYTHIC" device="ELCTROLYTIC_MIDSIZE_SMD" package3d_urn="urn:adsk.eagle:package:16179872/4" value="10 µF"/>
+<part name="C40" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="ELECTROLYTIC" device="ELCTROLYTIC_MIDSIZE_SMD" package3d_urn="urn:adsk.eagle:package:16179872/4" value="10 µF"/>
 <part name="R55" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="10k"/>
 <part name="R56" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="10k"/>
 <part name="R57" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="10k"/>
@@ -3199,7 +3236,7 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <part name="P+22" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="V+" device="" value="+15V"/>
 <part name="P-27" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="V-" device="" value="-15V"/>
 <part name="C20" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="CAPACITOR" device="&quot;" package3d_urn="urn:adsk.eagle:package:576738/3" value="100nF"/>
-<part name="C32" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="ELECTROLYTHIC" device="ELCTROLYTIC_MIDSIZE_SMD" package3d_urn="urn:adsk.eagle:package:16179872/4" value="10 µF"/>
+<part name="C32" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="ELECTROLYTIC" device="ELCTROLYTIC_MIDSIZE_SMD" package3d_urn="urn:adsk.eagle:package:16179872/4" value="10 µF"/>
 <part name="R67" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="10k"/>
 <part name="R68" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="10k"/>
 <part name="R69" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="10k"/>
@@ -3220,7 +3257,7 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <part name="AGND69" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="AGND" device=""/>
 <part name="AGND70" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="AGND" device=""/>
 <part name="C43" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="CAPACITOR" device="&quot;" package3d_urn="urn:adsk.eagle:package:576738/3" value="100nF"/>
-<part name="C44" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="ELECTROLYTHIC" device="ELCTROLYTIC_MIDSIZE_SMD" package3d_urn="urn:adsk.eagle:package:16179872/4" value="10 µF"/>
+<part name="C44" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="ELECTROLYTIC" device="ELCTROLYTIC_MIDSIZE_SMD" package3d_urn="urn:adsk.eagle:package:16179872/4" value="10 µF"/>
 <part name="Z1" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="BZT52C2V0T-7" device="" package3d_urn="urn:adsk.eagle:package:16179616/3"/>
 <part name="AGND48" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="AGND" device=""/>
 <part name="AGND49" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="AGND" device=""/>
@@ -3232,6 +3269,8 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <part name="R77" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="0R"/>
 <part name="TP03" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="TP" device="THT" package3d_urn="urn:adsk.eagle:package:817866/3"/>
 <part name="P+21" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="V+" device="" value="+15V"/>
+<part name="TP04" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="TP" device="THT" package3d_urn="urn:adsk.eagle:package:817866/3"/>
+<part name="TP06" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="TP" device="THT" package3d_urn="urn:adsk.eagle:package:817866/3"/>
 </parts>
 <sheets>
 <sheet>
@@ -3281,7 +3320,7 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <instance part="TP23" gate="G$1" x="63.5" y="40.64" smashed="yes">
 <attribute name="NAME" x="62.23" y="41.91" size="1.778" layer="95"/>
 </instance>
-<instance part="U$1" gate="G$1" x="210.82" y="99.06" smashed="yes">
+<instance part="U2" gate="G$1" x="210.82" y="99.06" smashed="yes">
 <attribute name="NAME" x="203.2" y="104.775" size="1.778" layer="95"/>
 <attribute name="VALUE" x="203.2" y="102.235" size="1.778" layer="96"/>
 </instance>
@@ -3298,11 +3337,11 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <instance part="AGND50" gate="VR1" x="162.56" y="81.28" smashed="yes">
 <attribute name="VALUE" x="160.02" y="78.74" size="1.778" layer="96"/>
 </instance>
-<instance part="U$2" gate="G$1" x="198.12" y="91.44" smashed="yes">
+<instance part="C69" gate="G$1" x="198.12" y="91.44" smashed="yes">
 <attribute name="NAME" x="199.644" y="91.821" size="1.778" layer="95"/>
 <attribute name="VALUE" x="199.644" y="86.741" size="1.778" layer="96"/>
 </instance>
-<instance part="U$3" gate="G$1" x="223.52" y="91.44" smashed="yes">
+<instance part="C70" gate="G$1" x="223.52" y="91.44" smashed="yes">
 <attribute name="NAME" x="225.044" y="91.821" size="1.778" layer="95"/>
 <attribute name="VALUE" x="225.044" y="86.741" size="1.778" layer="96"/>
 </instance>
@@ -3315,13 +3354,10 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <instance part="TP05" gate="G$1" x="147.32" y="99.06" smashed="yes">
 <attribute name="NAME" x="146.05" y="100.33" size="1.778" layer="95"/>
 </instance>
-<instance part="TP06" gate="G$1" x="71.12" y="68.58" smashed="yes">
-<attribute name="NAME" x="69.85" y="69.85" size="1.778" layer="95"/>
-</instance>
-<instance part="+15VOK" gate="G$1" x="83.82" y="73.66" smashed="yes" rot="R90">
+<instance part="LED9" gate="G$1" x="83.82" y="73.66" smashed="yes" rot="R90">
 <attribute name="NAME" x="78.648" y="72.372" size="1.27" layer="95" rot="R90"/>
 </instance>
-<instance part="-15VOK" gate="G$1" x="83.82" y="45.72" smashed="yes" rot="R90">
+<instance part="LED10" gate="G$1" x="83.82" y="45.72" smashed="yes" rot="R90">
 <attribute name="NAME" x="78.648" y="44.432" size="1.27" layer="95" rot="R90"/>
 </instance>
 <instance part="R14" gate="G$1" x="83.82" y="58.42" smashed="yes" rot="R90">
@@ -3341,6 +3377,12 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 </instance>
 <instance part="TP03" gate="G$1" x="132.08" y="99.06" smashed="yes">
 <attribute name="NAME" x="130.81" y="100.33" size="1.778" layer="95"/>
+</instance>
+<instance part="TP04" gate="G$1" x="68.58" y="68.58" smashed="yes">
+<attribute name="NAME" x="67.31" y="69.85" size="1.778" layer="95"/>
+</instance>
+<instance part="TP06" gate="G$1" x="147.32" y="63.5" smashed="yes">
+<attribute name="NAME" x="146.05" y="64.77" size="1.778" layer="95"/>
 </instance>
 </instances>
 <busses>
@@ -3363,9 +3405,9 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <segment>
 <pinref part="P+14" gate="1" pin="V+"/>
 <wire x1="198.12" y1="104.14" x2="198.12" y2="99.06" width="0.1524" layer="91"/>
-<pinref part="U$1" gate="G$1" pin="VI"/>
+<pinref part="U2" gate="G$1" pin="VI"/>
 <wire x1="198.12" y1="99.06" x2="200.66" y2="99.06" width="0.1524" layer="91"/>
-<pinref part="U$2" gate="G$1" pin="1"/>
+<pinref part="C69" gate="G$1" pin="1"/>
 <wire x1="198.12" y1="93.98" x2="198.12" y2="99.06" width="0.1524" layer="91"/>
 <junction x="198.12" y="99.06"/>
 </segment>
@@ -3373,25 +3415,25 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <net name="AGND" class="0">
 <segment>
 <pinref part="AGND23" gate="VR1" pin="AGND"/>
-<wire x1="53.34" y1="66.04" x2="63.5" y2="66.04" width="0.1524" layer="91"/>
-<wire x1="63.5" y1="66.04" x2="71.12" y2="66.04" width="0.1524" layer="91"/>
-<wire x1="71.12" y1="66.04" x2="76.2" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="66.04" x2="68.58" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="66.04" x2="76.2" y2="66.04" width="0.1524" layer="91"/>
 <wire x1="76.2" y1="66.04" x2="76.2" y2="63.5" width="0.1524" layer="91"/>
 <pinref part="TP16" gate="G$1" pin="TP"/>
-<junction x="63.5" y="66.04"/>
-<pinref part="TP18" gate="G$1" pin="TP"/>
-<pinref part="CONN3" gate="-1" pin="KL"/>
-<junction x="55.88" y="66.04"/>
-<wire x1="53.34" y1="66.04" x2="55.88" y2="66.04" width="0.1524" layer="91"/>
-<pinref part="TP06" gate="G$1" pin="TP"/>
-<junction x="71.12" y="66.04"/>
 <wire x1="76.2" y1="66.04" x2="83.82" y2="66.04" width="0.1524" layer="91"/>
 <junction x="76.2" y="66.04"/>
 <pinref part="R14" gate="G$1" pin="2"/>
 <wire x1="83.82" y1="66.04" x2="83.82" y2="63.5" width="0.1524" layer="91"/>
-<pinref part="+15VOK" gate="G$1" pin="-"/>
+<pinref part="LED9" gate="G$1" pin="-"/>
 <wire x1="83.82" y1="68.58" x2="83.82" y2="66.04" width="0.1524" layer="91"/>
 <junction x="83.82" y="66.04"/>
+<pinref part="CONN3" gate="-1" pin="KL"/>
+<pinref part="TP18" gate="G$1" pin="TP"/>
+<wire x1="53.34" y1="66.04" x2="55.88" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="66.04" x2="63.5" y2="66.04" width="0.1524" layer="91"/>
+<junction x="55.88" y="66.04"/>
+<junction x="63.5" y="66.04"/>
+<pinref part="TP04" gate="G$1" pin="TP"/>
+<junction x="68.58" y="66.04"/>
 </segment>
 <segment>
 <pinref part="R35" gate="G$1" pin="1"/>
@@ -3402,18 +3444,18 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 </net>
 <net name="DGND" class="0">
 <segment>
-<pinref part="U$1" gate="G$1" pin="GND"/>
+<pinref part="U2" gate="G$1" pin="GND"/>
 <pinref part="SUPPLY20" gate="G$1" pin="DGND"/>
 <wire x1="210.82" y1="91.44" x2="210.82" y2="81.28" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="SUPPLY11" gate="G$1" pin="DGND"/>
-<pinref part="U$2" gate="G$1" pin="2"/>
+<pinref part="C69" gate="G$1" pin="2"/>
 <wire x1="198.12" y1="81.28" x2="198.12" y2="86.36" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="SUPPLY12" gate="G$1" pin="DGND"/>
-<pinref part="U$3" gate="G$1" pin="2"/>
+<pinref part="C70" gate="G$1" pin="2"/>
 <wire x1="223.52" y1="81.28" x2="223.52" y2="86.36" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -3430,7 +3472,7 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 </net>
 <net name="N$50" class="0">
 <segment>
-<pinref part="-15VOK" gate="G$1" pin="+"/>
+<pinref part="LED10" gate="G$1" pin="+"/>
 <wire x1="83.82" y1="50.8" x2="83.82" y2="53.34" width="0.1524" layer="91"/>
 <pinref part="R14" gate="G$1" pin="1"/>
 </segment>
@@ -3438,7 +3480,7 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <net name="N$52" class="0">
 <segment>
 <pinref part="R29" gate="G$1" pin="1"/>
-<pinref part="+15VOK" gate="G$1" pin="+"/>
+<pinref part="LED9" gate="G$1" pin="+"/>
 <wire x1="83.82" y1="81.28" x2="83.82" y2="78.74" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -3451,7 +3493,7 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <junction x="63.5" y="38.1"/>
 <pinref part="P-4" gate="1" pin="V-"/>
 <wire x1="73.66" y1="38.1" x2="73.66" y2="35.56" width="0.1524" layer="91"/>
-<pinref part="-15VOK" gate="G$1" pin="-"/>
+<pinref part="LED10" gate="G$1" pin="-"/>
 <wire x1="83.82" y1="40.64" x2="83.82" y2="38.1" width="0.1524" layer="91"/>
 <wire x1="73.66" y1="38.1" x2="83.82" y2="38.1" width="0.1524" layer="91"/>
 <junction x="73.66" y="38.1"/>
@@ -3459,10 +3501,10 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 </net>
 <net name="+12V" class="0">
 <segment>
-<pinref part="U$1" gate="G$1" pin="VO"/>
+<pinref part="U2" gate="G$1" pin="VO"/>
 <wire x1="220.98" y1="99.06" x2="223.52" y2="99.06" width="0.1524" layer="91"/>
 <wire x1="223.52" y1="99.06" x2="223.52" y2="101.6" width="0.1524" layer="91"/>
-<pinref part="U$3" gate="G$1" pin="1"/>
+<pinref part="C70" gate="G$1" pin="1"/>
 <wire x1="223.52" y1="99.06" x2="223.52" y2="93.98" width="0.1524" layer="91"/>
 <junction x="223.52" y="99.06"/>
 <pinref part="SUPPLY13" gate="+12V" pin="+12V"/>
@@ -3475,6 +3517,14 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <label x="132.08" y="93.98" size="1.778" layer="95" rot="MR0" xref="yes"/>
 <pinref part="TP03" gate="G$1" pin="TP"/>
 <wire x1="132.08" y1="96.52" x2="132.08" y2="93.98" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="BOTTOM" class="0">
+<segment>
+<pinref part="TP06" gate="G$1" pin="TP"/>
+<wire x1="147.32" y1="60.96" x2="147.32" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="58.42" x2="152.4" y2="58.42" width="0.1524" layer="91"/>
+<label x="152.4" y="58.42" size="1.778" layer="95" xref="yes"/>
 </segment>
 </net>
 </nets>
@@ -3520,22 +3570,22 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <instance part="U12" gate="A" x="55.88" y="71.12" smashed="yes">
 <attribute name="NAME" x="48.26" y="86.36" size="1.778" layer="94"/>
 </instance>
-<instance part="L1" gate="G$1" x="88.9" y="121.92" smashed="yes" rot="R90">
+<instance part="LED1" gate="G$1" x="88.9" y="121.92" smashed="yes" rot="R90">
 <attribute name="NAME" x="83.728" y="120.632" size="1.27" layer="95" rot="R90"/>
 </instance>
-<instance part="L3" gate="G$1" x="129.54" y="121.92" smashed="yes" rot="R90">
+<instance part="LED3" gate="G$1" x="129.54" y="121.92" smashed="yes" rot="R90">
 <attribute name="NAME" x="124.368" y="120.632" size="1.27" layer="95" rot="R90"/>
 </instance>
-<instance part="L5" gate="G$1" x="162.56" y="121.92" smashed="yes" rot="R90">
+<instance part="LED5" gate="G$1" x="162.56" y="121.92" smashed="yes" rot="R90">
 <attribute name="NAME" x="157.388" y="120.632" size="1.27" layer="95" rot="R90"/>
 </instance>
-<instance part="L6" gate="G$1" x="182.88" y="121.92" smashed="yes" rot="R90">
+<instance part="LED6" gate="G$1" x="182.88" y="121.92" smashed="yes" rot="R90">
 <attribute name="NAME" x="177.708" y="120.632" size="1.27" layer="95" rot="R90"/>
 </instance>
-<instance part="L7" gate="G$1" x="200.66" y="121.92" smashed="yes" rot="R90">
+<instance part="LED7" gate="G$1" x="200.66" y="121.92" smashed="yes" rot="R90">
 <attribute name="NAME" x="195.488" y="120.632" size="1.27" layer="95" rot="R90"/>
 </instance>
-<instance part="L8" gate="G$1" x="218.44" y="121.92" smashed="yes" rot="R90">
+<instance part="LED8" gate="G$1" x="218.44" y="121.92" smashed="yes" rot="R90">
 <attribute name="NAME" x="213.268" y="120.632" size="1.27" layer="95" rot="R90"/>
 </instance>
 <instance part="R7" gate="G$1" x="88.9" y="106.68" smashed="yes" rot="R90">
@@ -3562,14 +3612,14 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <attribute name="NAME" x="216.9414" y="102.87" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="221.742" y="102.87" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="L2" gate="G$1" x="81.28" y="121.92" smashed="yes" rot="R90">
+<instance part="LED2" gate="G$1" x="81.28" y="121.92" smashed="yes" rot="R90">
 <attribute name="NAME" x="76.108" y="120.632" size="1.27" layer="95" rot="R90"/>
 </instance>
 <instance part="R33" gate="G$1" x="81.28" y="106.68" smashed="yes" rot="R90">
 <attribute name="NAME" x="79.7814" y="102.87" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="84.582" y="102.87" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="L4" gate="G$1" x="121.92" y="121.92" smashed="yes" rot="R90">
+<instance part="LED4" gate="G$1" x="121.92" y="121.92" smashed="yes" rot="R90">
 <attribute name="NAME" x="116.748" y="120.632" size="1.27" layer="95" rot="R90"/>
 </instance>
 <instance part="R34" gate="G$1" x="121.92" y="106.68" smashed="yes" rot="R90">
@@ -3707,42 +3757,42 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 </net>
 <net name="N$14" class="0">
 <segment>
-<pinref part="L1" gate="G$1" pin="-"/>
+<pinref part="LED1" gate="G$1" pin="-"/>
 <pinref part="R7" gate="G$1" pin="2"/>
 <wire x1="88.9" y1="116.84" x2="88.9" y2="111.76" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$16" class="0">
 <segment>
-<pinref part="L3" gate="G$1" pin="-"/>
+<pinref part="LED3" gate="G$1" pin="-"/>
 <pinref part="R8" gate="G$1" pin="2"/>
 <wire x1="129.54" y1="116.84" x2="129.54" y2="111.76" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$26" class="0">
 <segment>
-<pinref part="L8" gate="G$1" pin="-"/>
+<pinref part="LED8" gate="G$1" pin="-"/>
 <pinref part="R12" gate="G$1" pin="2"/>
 <wire x1="218.44" y1="116.84" x2="218.44" y2="111.76" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$29" class="0">
 <segment>
-<pinref part="L7" gate="G$1" pin="-"/>
+<pinref part="LED7" gate="G$1" pin="-"/>
 <pinref part="R11" gate="G$1" pin="2"/>
 <wire x1="200.66" y1="116.84" x2="200.66" y2="111.76" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$30" class="0">
 <segment>
-<pinref part="L6" gate="G$1" pin="-"/>
+<pinref part="LED6" gate="G$1" pin="-"/>
 <pinref part="R10" gate="G$1" pin="2"/>
 <wire x1="182.88" y1="116.84" x2="182.88" y2="111.76" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$32" class="0">
 <segment>
-<pinref part="L5" gate="G$1" pin="-"/>
+<pinref part="LED5" gate="G$1" pin="-"/>
 <pinref part="R9" gate="G$1" pin="2"/>
 <wire x1="162.56" y1="116.84" x2="162.56" y2="111.76" width="0.1524" layer="91"/>
 </segment>
@@ -3791,14 +3841,14 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 </net>
 <net name="N$49" class="0">
 <segment>
-<pinref part="L2" gate="G$1" pin="-"/>
+<pinref part="LED2" gate="G$1" pin="-"/>
 <pinref part="R33" gate="G$1" pin="2"/>
 <wire x1="81.28" y1="116.84" x2="81.28" y2="111.76" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$51" class="0">
 <segment>
-<pinref part="L4" gate="G$1" pin="-"/>
+<pinref part="LED4" gate="G$1" pin="-"/>
 <pinref part="R34" gate="G$1" pin="2"/>
 <wire x1="121.92" y1="116.84" x2="121.92" y2="111.76" width="0.1524" layer="91"/>
 </segment>
@@ -3813,11 +3863,11 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <wire x1="109.22" y1="111.76" x2="109.22" y2="114.3" width="0.1524" layer="91"/>
 <wire x1="109.22" y1="114.3" x2="96.52" y2="114.3" width="0.1524" layer="91"/>
 <junction x="96.52" y="114.3"/>
-<pinref part="L1" gate="G$1" pin="+"/>
+<pinref part="LED1" gate="G$1" pin="+"/>
 <wire x1="88.9" y1="127" x2="88.9" y2="129.54" width="0.1524" layer="91"/>
 <wire x1="88.9" y1="129.54" x2="96.52" y2="129.54" width="0.1524" layer="91"/>
 <junction x="96.52" y="129.54"/>
-<pinref part="L2" gate="G$1" pin="+"/>
+<pinref part="LED2" gate="G$1" pin="+"/>
 <wire x1="81.28" y1="127" x2="81.28" y2="129.54" width="0.1524" layer="91"/>
 <wire x1="81.28" y1="129.54" x2="88.9" y2="129.54" width="0.1524" layer="91"/>
 <junction x="88.9" y="129.54"/>
@@ -3838,11 +3888,11 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <wire x1="149.86" y1="111.76" x2="149.86" y2="114.3" width="0.1524" layer="91"/>
 <wire x1="149.86" y1="114.3" x2="137.16" y2="114.3" width="0.1524" layer="91"/>
 <junction x="137.16" y="114.3"/>
-<pinref part="L3" gate="G$1" pin="+"/>
+<pinref part="LED3" gate="G$1" pin="+"/>
 <wire x1="129.54" y1="127" x2="129.54" y2="129.54" width="0.1524" layer="91"/>
 <wire x1="129.54" y1="129.54" x2="137.16" y2="129.54" width="0.1524" layer="91"/>
 <junction x="137.16" y="129.54"/>
-<pinref part="L4" gate="G$1" pin="+"/>
+<pinref part="LED4" gate="G$1" pin="+"/>
 <wire x1="121.92" y1="127" x2="121.92" y2="129.54" width="0.1524" layer="91"/>
 <wire x1="121.92" y1="129.54" x2="129.54" y2="129.54" width="0.1524" layer="91"/>
 <junction x="129.54" y="129.54"/>
@@ -3851,7 +3901,7 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <segment>
 <pinref part="K5" gate="1" pin="1"/>
 <wire x1="170.18" y1="134.62" x2="170.18" y2="129.54" width="0.1524" layer="91"/>
-<pinref part="L5" gate="G$1" pin="+"/>
+<pinref part="LED5" gate="G$1" pin="+"/>
 <wire x1="170.18" y1="129.54" x2="170.18" y2="111.76" width="0.1524" layer="91"/>
 <wire x1="162.56" y1="127" x2="162.56" y2="129.54" width="0.1524" layer="91"/>
 <wire x1="162.56" y1="129.54" x2="170.18" y2="129.54" width="0.1524" layer="91"/>
@@ -3861,7 +3911,7 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <segment>
 <pinref part="K6" gate="1" pin="1"/>
 <wire x1="190.5" y1="134.62" x2="190.5" y2="129.54" width="0.1524" layer="91"/>
-<pinref part="L6" gate="G$1" pin="+"/>
+<pinref part="LED6" gate="G$1" pin="+"/>
 <wire x1="190.5" y1="129.54" x2="190.5" y2="111.76" width="0.1524" layer="91"/>
 <wire x1="182.88" y1="127" x2="182.88" y2="129.54" width="0.1524" layer="91"/>
 <wire x1="182.88" y1="129.54" x2="190.5" y2="129.54" width="0.1524" layer="91"/>
@@ -3871,7 +3921,7 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <segment>
 <pinref part="K7" gate="1" pin="1"/>
 <wire x1="208.28" y1="134.62" x2="208.28" y2="129.54" width="0.1524" layer="91"/>
-<pinref part="L7" gate="G$1" pin="+"/>
+<pinref part="LED7" gate="G$1" pin="+"/>
 <wire x1="208.28" y1="129.54" x2="208.28" y2="111.76" width="0.1524" layer="91"/>
 <wire x1="200.66" y1="127" x2="200.66" y2="129.54" width="0.1524" layer="91"/>
 <wire x1="200.66" y1="129.54" x2="208.28" y2="129.54" width="0.1524" layer="91"/>
@@ -3881,7 +3931,7 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <segment>
 <pinref part="K8" gate="1" pin="1"/>
 <wire x1="226.06" y1="134.62" x2="226.06" y2="129.54" width="0.1524" layer="91"/>
-<pinref part="L8" gate="G$1" pin="+"/>
+<pinref part="LED8" gate="G$1" pin="+"/>
 <wire x1="226.06" y1="129.54" x2="226.06" y2="111.76" width="0.1524" layer="91"/>
 <wire x1="218.44" y1="127" x2="218.44" y2="129.54" width="0.1524" layer="91"/>
 <wire x1="218.44" y1="129.54" x2="226.06" y2="129.54" width="0.1524" layer="91"/>
@@ -6809,7 +6859,7 @@ supply voltage</text>
 <attribute name="LAST_DATE_TIME" x="217.17" y="10.16" size="2.286" layer="94"/>
 <attribute name="SHEET" x="230.505" y="5.08" size="2.54" layer="94"/>
 </instance>
-<instance part="U$4" gate="G$1" x="101.6" y="96.52" smashed="yes"/>
+<instance part="U3" gate="G$1" x="101.6" y="96.52" smashed="yes"/>
 <instance part="SUPPLY14" gate="G$1" x="104.14" y="149.86" smashed="yes">
 <attribute name="VALUE" x="101.473" y="146.685" size="1.778" layer="96"/>
 </instance>
@@ -6935,206 +6985,206 @@ supply voltage</text>
 <nets>
 <net name="DB0" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="DB0"/>
+<pinref part="U3" gate="G$1" pin="DB0"/>
 <wire x1="68.58" y1="134.62" x2="55.88" y2="134.62" width="0.1524" layer="91"/>
 <label x="55.88" y="134.62" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="DB1" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="DB1"/>
+<pinref part="U3" gate="G$1" pin="DB1"/>
 <wire x1="68.58" y1="132.08" x2="55.88" y2="132.08" width="0.1524" layer="91"/>
 <label x="55.88" y="132.08" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="DB2" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="DB2"/>
+<pinref part="U3" gate="G$1" pin="DB2"/>
 <wire x1="68.58" y1="129.54" x2="55.88" y2="129.54" width="0.1524" layer="91"/>
 <label x="55.88" y="129.54" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="DB3" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="DB3"/>
+<pinref part="U3" gate="G$1" pin="DB3"/>
 <wire x1="68.58" y1="127" x2="55.88" y2="127" width="0.1524" layer="91"/>
 <label x="55.88" y="127" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="DB4" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="DB4"/>
+<pinref part="U3" gate="G$1" pin="DB4"/>
 <wire x1="68.58" y1="124.46" x2="55.88" y2="124.46" width="0.1524" layer="91"/>
 <label x="55.88" y="124.46" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="DB5" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="DB5"/>
+<pinref part="U3" gate="G$1" pin="DB5"/>
 <wire x1="68.58" y1="121.92" x2="55.88" y2="121.92" width="0.1524" layer="91"/>
 <label x="55.88" y="121.92" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="DB6" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="DB6"/>
+<pinref part="U3" gate="G$1" pin="DB6"/>
 <wire x1="68.58" y1="119.38" x2="55.88" y2="119.38" width="0.1524" layer="91"/>
 <label x="55.88" y="119.38" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="DB7" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="DB7"/>
+<pinref part="U3" gate="G$1" pin="DB7"/>
 <wire x1="68.58" y1="116.84" x2="55.88" y2="116.84" width="0.1524" layer="91"/>
 <label x="55.88" y="116.84" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="DB8" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="DB8"/>
+<pinref part="U3" gate="G$1" pin="DB8"/>
 <wire x1="68.58" y1="114.3" x2="55.88" y2="114.3" width="0.1524" layer="91"/>
 <label x="55.88" y="114.3" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="DB9" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="DB9"/>
+<pinref part="U3" gate="G$1" pin="DB9"/>
 <wire x1="68.58" y1="111.76" x2="55.88" y2="111.76" width="0.1524" layer="91"/>
 <label x="55.88" y="111.76" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="DB10" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="DB10"/>
+<pinref part="U3" gate="G$1" pin="DB10"/>
 <wire x1="68.58" y1="109.22" x2="55.88" y2="109.22" width="0.1524" layer="91"/>
 <label x="55.88" y="109.22" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="DB11" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="DB11"/>
+<pinref part="U3" gate="G$1" pin="DB11"/>
 <wire x1="68.58" y1="106.68" x2="55.88" y2="106.68" width="0.1524" layer="91"/>
 <label x="55.88" y="106.68" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="DB12" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="DB12"/>
+<pinref part="U3" gate="G$1" pin="DB12"/>
 <wire x1="68.58" y1="104.14" x2="55.88" y2="104.14" width="0.1524" layer="91"/>
 <label x="55.88" y="104.14" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="DB13" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="DB13"/>
+<pinref part="U3" gate="G$1" pin="DB13"/>
 <wire x1="68.58" y1="101.6" x2="55.88" y2="101.6" width="0.1524" layer="91"/>
 <label x="55.88" y="101.6" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="DB14" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="DB14"/>
+<pinref part="U3" gate="G$1" pin="DB14"/>
 <wire x1="68.58" y1="99.06" x2="55.88" y2="99.06" width="0.1524" layer="91"/>
 <label x="55.88" y="99.06" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="DB15" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="DB15"/>
+<pinref part="U3" gate="G$1" pin="DB15"/>
 <wire x1="68.58" y1="96.52" x2="55.88" y2="96.52" width="0.1524" layer="91"/>
 <label x="55.88" y="96.52" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="FRST" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="FRST"/>
+<pinref part="U3" gate="G$1" pin="FRST"/>
 <wire x1="83.82" y1="142.24" x2="83.82" y2="157.48" width="0.1524" layer="91"/>
 <label x="83.82" y="147.32" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="VIO" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="VIO"/>
+<pinref part="U3" gate="G$1" pin="VIO"/>
 <wire x1="86.36" y1="142.24" x2="86.36" y2="157.48" width="0.1524" layer="91"/>
 <label x="86.36" y="147.32" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="BUSY" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="BUSY"/>
+<pinref part="U3" gate="G$1" pin="BUSY"/>
 <wire x1="88.9" y1="142.24" x2="88.9" y2="157.48" width="0.1524" layer="91"/>
 <label x="88.9" y="147.32" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="CS" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="CS"/>
+<pinref part="U3" gate="G$1" pin="CS"/>
 <wire x1="91.44" y1="142.24" x2="91.44" y2="157.48" width="0.1524" layer="91"/>
 <label x="91.44" y="147.32" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="RD" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="RD"/>
+<pinref part="U3" gate="G$1" pin="RD"/>
 <wire x1="93.98" y1="142.24" x2="93.98" y2="157.48" width="0.1524" layer="91"/>
 <label x="93.98" y="147.32" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="RESET" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="RST"/>
+<pinref part="U3" gate="G$1" pin="RST"/>
 <wire x1="96.52" y1="142.24" x2="96.52" y2="157.48" width="0.1524" layer="91"/>
 <label x="96.52" y="147.32" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="RANGE" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="RANGE"/>
+<pinref part="U3" gate="G$1" pin="RANGE"/>
 <wire x1="83.82" y1="88.9" x2="83.82" y2="73.66" width="0.1524" layer="91"/>
 <label x="83.82" y="73.66" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="CV_A_B" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="CVB"/>
+<pinref part="U3" gate="G$1" pin="CVB"/>
 <wire x1="86.36" y1="88.9" x2="86.36" y2="73.66" width="0.1524" layer="91"/>
 <label x="88.9" y="73.66" size="1.778" layer="95" rot="R90"/>
-<pinref part="U$4" gate="G$1" pin="CVA"/>
+<pinref part="U3" gate="G$1" pin="CVA"/>
 <wire x1="88.9" y1="88.9" x2="88.9" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="86.36" y1="73.66" x2="88.9" y2="73.66" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="OS0" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="OS0"/>
+<pinref part="U3" gate="G$1" pin="OS0"/>
 <wire x1="91.44" y1="88.9" x2="91.44" y2="73.66" width="0.1524" layer="91"/>
 <label x="91.44" y="73.66" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="OS2" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="OS2"/>
+<pinref part="U3" gate="G$1" pin="OS2"/>
 <wire x1="93.98" y1="88.9" x2="93.98" y2="73.66" width="0.1524" layer="91"/>
 <label x="93.98" y="73.66" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="OS1" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="OS1"/>
+<pinref part="U3" gate="G$1" pin="OS1"/>
 <wire x1="96.52" y1="88.9" x2="96.52" y2="73.66" width="0.1524" layer="91"/>
 <label x="96.52" y="73.66" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="+5V_STM32" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="+5V"/>
+<pinref part="U3" gate="G$1" pin="+5V"/>
 <wire x1="99.06" y1="88.9" x2="99.06" y2="73.66" width="0.1524" layer="91"/>
 <label x="99.06" y="71.12" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="DGND" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="GND"/>
+<pinref part="U3" gate="G$1" pin="GND"/>
 <wire x1="99.06" y1="142.24" x2="99.06" y2="157.48" width="0.1524" layer="91"/>
 <pinref part="SUPPLY14" gate="G$1" pin="DGND"/>
 <wire x1="99.06" y1="157.48" x2="104.14" y2="157.48" width="0.1524" layer="91"/>
@@ -7143,35 +7193,35 @@ supply voltage</text>
 </net>
 <net name="AGND" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="G1"/>
+<pinref part="U3" gate="G$1" pin="G1"/>
 <wire x1="114.3" y1="132.08" x2="119.38" y2="132.08" width="0.1524" layer="91"/>
-<pinref part="U$4" gate="G$1" pin="G2"/>
+<pinref part="U3" gate="G$1" pin="G2"/>
 <wire x1="119.38" y1="132.08" x2="119.38" y2="127" width="0.1524" layer="91"/>
 <wire x1="119.38" y1="127" x2="114.3" y2="127" width="0.1524" layer="91"/>
-<pinref part="U$4" gate="G$1" pin="G3"/>
+<pinref part="U3" gate="G$1" pin="G3"/>
 <wire x1="119.38" y1="127" x2="119.38" y2="121.92" width="0.1524" layer="91"/>
 <wire x1="119.38" y1="121.92" x2="114.3" y2="121.92" width="0.1524" layer="91"/>
 <junction x="119.38" y="127"/>
-<pinref part="U$4" gate="G$1" pin="G4"/>
+<pinref part="U3" gate="G$1" pin="G4"/>
 <wire x1="119.38" y1="121.92" x2="119.38" y2="116.84" width="0.1524" layer="91"/>
 <wire x1="119.38" y1="116.84" x2="114.3" y2="116.84" width="0.1524" layer="91"/>
 <junction x="119.38" y="121.92"/>
-<pinref part="U$4" gate="G$1" pin="G5"/>
+<pinref part="U3" gate="G$1" pin="G5"/>
 <wire x1="119.38" y1="116.84" x2="119.38" y2="111.76" width="0.1524" layer="91"/>
 <wire x1="119.38" y1="111.76" x2="114.3" y2="111.76" width="0.1524" layer="91"/>
 <junction x="119.38" y="116.84"/>
-<pinref part="U$4" gate="G$1" pin="G6"/>
+<pinref part="U3" gate="G$1" pin="G6"/>
 <wire x1="119.38" y1="111.76" x2="119.38" y2="106.68" width="0.1524" layer="91"/>
 <wire x1="119.38" y1="106.68" x2="114.3" y2="106.68" width="0.1524" layer="91"/>
 <junction x="119.38" y="111.76"/>
-<pinref part="U$4" gate="G$1" pin="G7"/>
+<pinref part="U3" gate="G$1" pin="G7"/>
 <wire x1="119.38" y1="106.68" x2="119.38" y2="101.6" width="0.1524" layer="91"/>
 <wire x1="119.38" y1="101.6" x2="114.3" y2="101.6" width="0.1524" layer="91"/>
 <junction x="119.38" y="106.68"/>
 <wire x1="119.38" y1="101.6" x2="119.38" y2="96.52" width="0.1524" layer="91"/>
 <junction x="119.38" y="101.6"/>
 <pinref part="AGND4" gate="VR1" pin="AGND"/>
-<pinref part="U$4" gate="G$1" pin="G8"/>
+<pinref part="U3" gate="G$1" pin="G8"/>
 <wire x1="119.38" y1="96.52" x2="119.38" y2="76.2" width="0.1524" layer="91"/>
 <wire x1="114.3" y1="96.52" x2="119.38" y2="96.52" width="0.1524" layer="91"/>
 <junction x="119.38" y="96.52"/>
@@ -7224,7 +7274,7 @@ supply voltage</text>
 </net>
 <net name="N$4" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="V1"/>
+<pinref part="U3" gate="G$1" pin="V1"/>
 <wire x1="114.3" y1="134.62" x2="129.54" y2="134.62" width="0.1524" layer="91"/>
 <pinref part="R5" gate="G$1" pin="2"/>
 <pinref part="R6" gate="G$1" pin="2"/>
@@ -7278,7 +7328,7 @@ supply voltage</text>
 </net>
 <net name="N$6" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="V2"/>
+<pinref part="U3" gate="G$1" pin="V2"/>
 <pinref part="R13" gate="G$1" pin="2"/>
 <wire x1="114.3" y1="129.54" x2="137.16" y2="129.54" width="0.1524" layer="91"/>
 <pinref part="R15" gate="G$1" pin="2"/>
@@ -7290,7 +7340,7 @@ supply voltage</text>
 <net name="N$10" class="0">
 <segment>
 <pinref part="R17" gate="G$1" pin="2"/>
-<pinref part="U$4" gate="G$1" pin="V3"/>
+<pinref part="U3" gate="G$1" pin="V3"/>
 <wire x1="187.96" y1="124.46" x2="144.78" y2="124.46" width="0.1524" layer="91"/>
 <pinref part="R16" gate="G$1" pin="2"/>
 <wire x1="144.78" y1="124.46" x2="114.3" y2="124.46" width="0.1524" layer="91"/>
@@ -7300,7 +7350,7 @@ supply voltage</text>
 </net>
 <net name="N$12" class="0">
 <segment>
-<pinref part="U$4" gate="G$1" pin="V4"/>
+<pinref part="U3" gate="G$1" pin="V4"/>
 <pinref part="R18" gate="G$1" pin="2"/>
 <wire x1="114.3" y1="119.38" x2="152.4" y2="119.38" width="0.1524" layer="91"/>
 <pinref part="R23" gate="G$1" pin="2"/>
@@ -7312,7 +7362,7 @@ supply voltage</text>
 <net name="N$20" class="0">
 <segment>
 <pinref part="R19" gate="G$1" pin="2"/>
-<pinref part="U$4" gate="G$1" pin="V5"/>
+<pinref part="U3" gate="G$1" pin="V5"/>
 <wire x1="187.96" y1="114.3" x2="160.02" y2="114.3" width="0.1524" layer="91"/>
 <pinref part="R24" gate="G$1" pin="2"/>
 <wire x1="160.02" y1="114.3" x2="114.3" y2="114.3" width="0.1524" layer="91"/>
@@ -7323,7 +7373,7 @@ supply voltage</text>
 <net name="N$34" class="0">
 <segment>
 <pinref part="R20" gate="G$1" pin="2"/>
-<pinref part="U$4" gate="G$1" pin="V6"/>
+<pinref part="U3" gate="G$1" pin="V6"/>
 <wire x1="187.96" y1="109.22" x2="167.64" y2="109.22" width="0.1524" layer="91"/>
 <pinref part="R25" gate="G$1" pin="2"/>
 <wire x1="167.64" y1="109.22" x2="114.3" y2="109.22" width="0.1524" layer="91"/>
@@ -7334,7 +7384,7 @@ supply voltage</text>
 <net name="N$35" class="0">
 <segment>
 <pinref part="R21" gate="G$1" pin="2"/>
-<pinref part="U$4" gate="G$1" pin="V7"/>
+<pinref part="U3" gate="G$1" pin="V7"/>
 <wire x1="187.96" y1="104.14" x2="175.26" y2="104.14" width="0.1524" layer="91"/>
 <pinref part="R26" gate="G$1" pin="2"/>
 <wire x1="175.26" y1="104.14" x2="114.3" y2="104.14" width="0.1524" layer="91"/>
@@ -7345,7 +7395,7 @@ supply voltage</text>
 <net name="N$36" class="0">
 <segment>
 <pinref part="R22" gate="G$1" pin="2"/>
-<pinref part="U$4" gate="G$1" pin="V8"/>
+<pinref part="U3" gate="G$1" pin="V8"/>
 <wire x1="187.96" y1="99.06" x2="182.88" y2="99.06" width="0.1524" layer="91"/>
 <pinref part="R27" gate="G$1" pin="2"/>
 <wire x1="182.88" y1="99.06" x2="114.3" y2="99.06" width="0.1524" layer="91"/>
