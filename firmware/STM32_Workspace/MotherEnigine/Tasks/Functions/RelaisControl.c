@@ -23,13 +23,13 @@ void Bypass(Byp State){
 		case activate:
 			{
 				HAL_GPIO_WritePin(GPIOG, Relais1_Pin,GPIO_PIN_SET);
-				HAL_GPIO_WritePin(GPIOE, Relais2_Pin,GPIO_PIN_SET);
+				HAL_GPIO_WritePin(GPIOG, Relais2_Pin,GPIO_PIN_SET);
 			}
 			break;
 		case bypass:
 			{
 				HAL_GPIO_WritePin(GPIOG, Relais1_Pin,GPIO_PIN_RESET);
-				HAL_GPIO_WritePin(GPIOE, Relais2_Pin,GPIO_PIN_RESET);
+				HAL_GPIO_WritePin(GPIOG, Relais2_Pin,GPIO_PIN_RESET);
 			}
 			break;
 	}

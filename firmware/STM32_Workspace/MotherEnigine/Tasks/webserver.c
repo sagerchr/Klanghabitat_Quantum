@@ -4,6 +4,7 @@
 #include <string.h>
 #include "webserver.h"
 #include "MY_FLASH.h"
+#include "RelaisControl.h"
 
 
 char IP1_str[5],IP2_str[5],IP3_str[5],IP4_str[5];
@@ -92,6 +93,7 @@ char IP1_str_temp[5],IP2_str_temp[5],IP3_str_temp[5],IP4_str_temp[5];
 	     {
 	     // turn off the LEDs
 	    	 HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_RESET);
+	    	 Bypass(bypass);
 	     // Check the cgi parameters, e.g., GET /leds.cgi?led=1&led=2
 			 for (i=0; i<iNumParams; i++)
 			 {
@@ -103,6 +105,7 @@ char IP1_str_temp[5],IP2_str_temp[5],IP3_str_temp[5],IP4_str_temp[5];
 					 {
 					 // switch led 1 ON if 1
 						 HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_SET);
+						 Bypass(activate);
 					 }
 					 //see if checkbox for LED 2 has been set
 					 else if(strcmp(pcValue[i], "2") == 0)
