@@ -67,7 +67,7 @@
 //************************************
 //================Relais==============
 //		Relais1		-------->PG1--(v)
-//		Relais2		-------->PE6--(v)
+//		Relais2		-------->PG0--(v)
 //		Relais3		-------->PG15-(v)
 //		Relais4		-------->PG10-(v)
 //		Relais5		-------->PG12-(v)
@@ -85,6 +85,8 @@
 /* Private variables ---------------------------------------------------------*/
 
 DAC_HandleTypeDef hdac;
+
+SPI_HandleTypeDef hspi2;
 
 TIM_HandleTypeDef htim5;
 TIM_HandleTypeDef htim6;
@@ -110,6 +112,7 @@ static void MX_USART3_UART_Init(void);
 static void MX_USART6_UART_Init(void);
 static void MX_DMA_Init(void);
 static void MX_TIM5_Init(void);
+static void MX_SPI2_Init(void);
 static void MX_TIM6_Init(void);
 static void MX_TIM7_Init(void);
 static void MX_TIM10_Init(void);
@@ -130,7 +133,7 @@ void StartDefaultTask(void const * argument);
   * @retval int
   */
 int main(void)
-  {
+ {
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -160,25 +163,54 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  //#####################Reset the Display###############
+  HAL_GPIO_WritePin(GPIOD, DEBUG2_Pin, GPIO_PIN_SET);
+  HAL_Delay(10);
+  HAL_GPIO_WritePin(GPIOD, DEBUG2_Pin, GPIO_PIN_RESET);
+  HAL_Delay(100);
+  HAL_GPIO_WritePin(GPIOD, DEBUG2_Pin, GPIO_PIN_SET);
+  HAL_Delay(100);
+  //####################################################
   MX_DMA_Init();
   MX_DAC_Init();
   MX_USART3_UART_Init();
   MX_USART6_UART_Init();
-
   MX_TIM5_Init();
+  MX_SPI2_Init();
   MX_TIM6_Init();
   MX_TIM7_Init();
   MX_TIM10_Init();
-  /* USER CODE BEGIN 2 */
 
+
+
+  /* USER CODE BEGIN 2 */
   HAL_DAC_Start(&hdac, DAC_CHANNEL_1);
   HAL_DAC_Start(&hdac, DAC_CHANNEL_2);
   HAL_UART_Transmit_DMA(&huart6, UART_transmit,10);
   HAL_UART_Receive_DMA(&huart6, UART_recive,10);
 
+
+  //###### PUT the RESET to Output so Display can be reseted by its own again###
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+  GPIO_InitStruct.Pin = DEBUG2_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+  //############################################################################
   indexer = 0;
   samples = 50;
   resetMax=0;
+
+//while(1){
+
+	uint8_t message[2] = {81,224};
+	HAL_GPIO_WritePin(GPIOB, CS_DAC2_Pin, GPIO_PIN_RESET);
+
+	HAL_SPI_Transmit(&hspi2, (uint8_t *)message, strlen(message), 10000);
+	HAL_GPIO_WritePin(GPIOB, CS_DAC2_Pin, GPIO_PIN_SET);
+	HAL_Delay(1);
+  //}
 
   /* USER CODE END 2 */
 
@@ -331,6 +363,46 @@ static void MX_DAC_Init(void)
   /* USER CODE BEGIN DAC_Init 2 */
 
   /* USER CODE END DAC_Init 2 */
+
+}
+
+/**
+  * @brief SPI2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_SPI2_Init(void)
+{
+
+  /* USER CODE BEGIN SPI2_Init 0 */
+
+  /* USER CODE END SPI2_Init 0 */
+
+  /* USER CODE BEGIN SPI2_Init 1 */
+
+  /* USER CODE END SPI2_Init 1 */
+  /* SPI2 parameter configuration*/
+  hspi2.Instance = SPI2;
+  hspi2.Init.Mode = SPI_MODE_MASTER;
+  hspi2.Init.Direction = SPI_DIRECTION_2LINES;
+  hspi2.Init.DataSize = SPI_DATASIZE_8BIT;
+  hspi2.Init.CLKPolarity = SPI_POLARITY_LOW;
+  hspi2.Init.CLKPhase = SPI_PHASE_2EDGE;
+  hspi2.Init.NSS = SPI_NSS_SOFT;
+  hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_16;
+  hspi2.Init.FirstBit = SPI_FIRSTBIT_MSB;
+  hspi2.Init.TIMode = SPI_TIMODE_DISABLE;
+  hspi2.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+  hspi2.Init.CRCPolynomial = 7;
+  hspi2.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
+  hspi2.Init.NSSPMode = SPI_NSS_PULSE_DISABLE;
+  if (HAL_SPI_Init(&hspi2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN SPI2_Init 2 */
+
+  /* USER CODE END SPI2_Init 2 */
 
 }
 
@@ -612,7 +684,8 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(DEBUG1_GPIO_Port, DEBUG1_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, LD1_Pin|LD3_Pin|LD2_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, LD1_Pin|LD3_Pin|CS_DAC1_Pin|CS_DAC2_Pin 
+                          |LD2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOG, Relais2_Pin|Relais1_Pin|RESET_Pin|USB_PowerSwitchOn_Pin 
@@ -650,8 +723,10 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(DEBUG1_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : LD1_Pin LD3_Pin LD2_Pin */
-  GPIO_InitStruct.Pin = LD1_Pin|LD3_Pin|LD2_Pin;
+  /*Configure GPIO pins : LD1_Pin LD3_Pin CS_DAC1_Pin CS_DAC2_Pin 
+                           LD2_Pin */
+  GPIO_InitStruct.Pin = LD1_Pin|LD3_Pin|CS_DAC1_Pin|CS_DAC2_Pin 
+                          |LD2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;

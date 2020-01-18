@@ -6,7 +6,7 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2019 STMicroelectronics.
+  * <h2><center>&copy; Copyright (c) 2020 STMicroelectronics.
   * All rights reserved.</center></h2>
   *
   * This software component is licensed by ST under Ultimate Liberty license
@@ -48,7 +48,6 @@ extern ETH_HandleTypeDef heth;
 
 /* LWIP init function */	
 void MX_LWIP_Init(uint8_t IP1,uint8_t IP2, uint8_t IP3, uint8_t IP4);
-
 
 #if !WITH_RTOS
 /* USER CODE BEGIN 1 */

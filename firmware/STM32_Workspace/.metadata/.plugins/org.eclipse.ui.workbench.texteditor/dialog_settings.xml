@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="HAL_DAC_SetValue" key="selection"/>
+		<item value="CRCPolynomial" key="selection"/>
 		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="CRCPolynomial"/>
+			<item value="DEBUG2_Pin"/>
+			<item value="voltageRMS"/>
+			<item value="PB10"/>
+			<item value="DAC"/>
 			<item value="HAL_DAC_SetValue"/>
 			<item value="ln"/>
 			<item value="Callback"/>
-			<item value="I2C_ITSlaveSeqCplt"/>
-			<item value="CL"/>
-			<item value="CLB"/>
-			<item value="I2C"/>
-			<item value="DMA"/>
 		</list>
 		<list key="replacehistory">
 			<item value="0x00000000"/>
@@ -30,7 +30,7 @@
 		<item value="294" key="DIALOG_WIDTH"/>
 		<item value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont" key="DIALOG_FONT_NAME"/>
 		<item value="408" key="DIALOG_HEIGHT"/>
-		<item value="1053" key="DIALOG_X_ORIGIN"/>
-		<item value="618" key="DIALOG_Y_ORIGIN"/>
+		<item value="1070" key="DIALOG_X_ORIGIN"/>
+		<item value="576" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

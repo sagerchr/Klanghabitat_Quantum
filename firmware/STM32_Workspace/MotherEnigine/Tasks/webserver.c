@@ -94,6 +94,7 @@ char IP1_str_temp[5],IP2_str_temp[5],IP3_str_temp[5],IP4_str_temp[5];
 	     // turn off the LEDs
 	    	 HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_RESET);
 	    	 Bypass(bypass);
+
 	     // Check the cgi parameters, e.g., GET /leds.cgi?led=1&led=2
 			 for (i=0; i<iNumParams; i++)
 			 {

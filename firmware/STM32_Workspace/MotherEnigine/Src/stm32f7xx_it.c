@@ -23,9 +23,9 @@
 #include "stm32f7xx_it.h"
 #include "FreeRTOS.h"
 #include "task.h"
-#include "math.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "math.h"
 /* USER CODE END Includes */
   
 /* Private typedef -----------------------------------------------------------*/
@@ -78,7 +78,7 @@ extern UART_HandleTypeDef huart6;
 extern TIM_HandleTypeDef htim1;
 
 /* USER CODE BEGIN EV */
-
+SPI_HandleTypeDef hspi2;
 /* USER CODE END EV */
 
 /******************************************************************************/
@@ -234,7 +234,7 @@ void TIM7_IRQHandler(void)
 
 	//__HAL_TIM_SET_COUNTER(&htim7 , 0);
 	HAL_GPIO_WritePin(GPIOF, DEBUG1_Pin, GPIO_PIN_SET); //DEBUG rot
-	HAL_GPIO_WritePin(GPIOD, DEBUG2_Pin, GPIO_PIN_SET);//DEBUG gelb
+
   //***********************Start Measurement*********************//
   HAL_GPIO_WritePin(GPIOC, CV_A_B_Pin,GPIO_PIN_RESET);
   microDelay(0);
@@ -267,8 +267,8 @@ void TIM7_IRQHandler(void)
   //HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R, analogIN[0]); //Update ADC1
   //HAL_DAC_SetValue(&hdac, DAC_CHANNEL_2, DAC_ALIGN_12B_R, analogIN[1]); //Update ADC2
 
-  HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R,0); //Update ADC1
-  HAL_DAC_SetValue(&hdac, DAC_CHANNEL_2, DAC_ALIGN_12B_R, 0); //Update ADC2
+  HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R,UART_recive[3]+60); //Update ADC1
+  HAL_DAC_SetValue(&hdac, DAC_CHANNEL_2, DAC_ALIGN_12B_R,UART_recive[5]+60); //Update ADC2
 
 
 
@@ -313,8 +313,8 @@ void TIM7_IRQHandler(void)
   UART_transmit[0]=0xFF;
   UART_transmit[1]=0x01;
   UART_transmit[2]=0x02;
-  UART_transmit[3]=voltageIn1MAX*30;
-  UART_transmit[4]=voltageIn2MAX*30;
+  UART_transmit[3]=voltageIn1MAX*50;
+  UART_transmit[4]=voltageIn2MAX*50;
   UART_transmit[5]=0x10;
   UART_transmit[6]=0x10;
   UART_transmit[7]=0x10;
@@ -328,7 +328,10 @@ if (resetMax==1){
 }
 
 
-  HAL_GPIO_WritePin(GPIOD, DEBUG2_Pin, GPIO_PIN_RESET);//DEBUG gelb
+
+
+
+
   /* USER CODE END TIM7_IRQn 1 */
 }
 
@@ -370,8 +373,9 @@ void DMA2_Stream6_IRQHandler(void)
   /* USER CODE END DMA2_Stream6_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_usart6_tx);
   /* USER CODE BEGIN DMA2_Stream6_IRQn 1 */
-
+  HAL_UART_GetError(&huart6);
   /* USER CODE END DMA2_Stream6_IRQn 1 */
+
 }
 
 /**
@@ -383,9 +387,7 @@ void USART6_IRQHandler(void)
 
   /* USER CODE END USART6_IRQn 0 */
   HAL_UART_IRQHandler(&huart6);
-  /* USER CODE BEGIN USART6_IRQn 1 */
 
-  /* USER CODE END USART6_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */

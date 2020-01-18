@@ -12,7 +12,7 @@
 #include "UDP_SEND_RECIVE.h"
 #include "webserver.h"
 #include "MY_FLASH.h"
-
+#include "RelaisControl.h"
 uint8_t IP_READ[4];
 DAC_HandleTypeDef hdac;
 DAC_HandleTypeDef huart6;
@@ -24,7 +24,7 @@ void lwIPTask(void const * argument){
 */
   //==========CREATE & START all lwIP Services========//
 	 MX_LWIP_Init(192,168,1,205); //SetUp with IP ADRESS read from Flash
-	 UDP_init(192,168,1,38); //INIT the UDP Session (Partner IP ADRESS)
+	 UDP_init(192,168,1,42); //INIT the UDP Session (Partner IP ADRESS)
 	 httpd_init();//start the web Server
 	 myCGIinit();//initialise the CGI handlers
 	 mySSIinit();//initialise the SSI handlers
@@ -32,11 +32,13 @@ void lwIPTask(void const * argument){
 
 char UART_IN[10];
 
+
+
 	  /* Infinite loop */
 	  for(;;)
 	  {
 
-		  UART_recive;
+
 
 
 
@@ -55,10 +57,19 @@ char UART_IN[10];
 		  //UART_transmit[8]=0x10;
 		  //UART_transmit[9]=0x10;
 
+		 if (UDP_RECIVE[11] == 1){
+			 Bypass(bypass);
+		 }
+		 if (UDP_RECIVE[11] == 0){
+			 Bypass(activate);
+		 }
 
-
-		OSCmessageINTSend("/VALUE/Level/CH1/preVCA",  23, voltageIn1MAX*30);
-		OSCmessageINTSend("/VALUE/Level/CH2/preVCA",  23, voltageIn2MAX*30);
+		OSCmessageINTSend("/VALUE/Level/CH1/RMS",  20, voltageRMS[0]*30);
+		OSCmessageINTSend("/VALUE/Level/CH2/RMS",  20, voltageRMS[1]*30);
+		OSCmessageINTSend("/VALUE/Level/CH3/RMS",  20, voltageRMS[2]*30);
+		OSCmessageINTSend("/VALUE/Level/CH4/RMS",  20, voltageRMS[3]*30);
+		OSCmessageINTSend("/VALUE/Level/CH5/RMS",  20, voltageRMS[4]*30);
+		OSCmessageINTSend("/VALUE/Level/CH6/RMS",  20, voltageRMS[5]*30);
 		//OSCmessageINTSend("/VALUE/Level/CH1/postVCA", 24, analogIN[0]);
 		//OSCmessageINTSend("/VALUE/Level/CH2/postVCA", 24, analogIN[1]);
 

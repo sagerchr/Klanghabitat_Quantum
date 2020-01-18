@@ -179,17 +179,17 @@ V4_0</text>
 <rectangle x1="0.3302" y1="-0.4699" x2="0.8303" y2="0.4801" layer="51"/>
 <rectangle x1="-0.1999" y1="-0.3" x2="0.1999" y2="0.3" layer="35"/>
 </package>
-<package name="SOIC8" urn="urn:adsk.eagle:footprint:705545/1" library_version="152">
+<package name="SOIC8" urn="urn:adsk.eagle:footprint:705545/1" locally_modified="yes" library_version="152" library_locally_modified="yes">
 <description>&lt;b&gt;SOIC-8&lt;/b&gt; CASE 751-07&lt;p&gt;
 Source: http://www.onsemi.com/pub/Collateral/MC34164-D.PDF&lt;p&gt;
 &lt;b&gt;D (R-PDSO-G8)&lt;/b&gt;PLATIC SMALL-OUTLINE PACKAGE&lt;br&gt;
 Source: http://focus.ti.com/lit/ds/symlink/tlc27l2.pdf</description>
 <wire x1="2.4" y1="1.9" x2="2.4" y2="-1.4" width="0.2032" layer="21"/>
 <wire x1="2.4" y1="-1.4" x2="2.4" y2="-1.9" width="0.2032" layer="21"/>
-<wire x1="2.4" y1="-1.9" x2="-2.4" y2="-1.9" width="0.2032" layer="51"/>
+<wire x1="2.4" y1="-1.9" x2="-2.4" y2="-1.9" width="0.2032" layer="21"/>
 <wire x1="-2.4" y1="-1.9" x2="-2.4" y2="-1.4" width="0.2032" layer="21"/>
 <wire x1="-2.4" y1="-1.4" x2="-2.4" y2="1.9" width="0.2032" layer="21"/>
-<wire x1="-2.4" y1="1.9" x2="2.4" y2="1.9" width="0.2032" layer="51"/>
+<wire x1="-2.4" y1="1.9" x2="2.4" y2="1.9" width="0.2032" layer="21"/>
 <wire x1="2.4" y1="-1.4" x2="-2.4" y2="-1.4" width="0.2032" layer="21"/>
 <smd name="2" x="-0.635" y="-2.75" dx="0.6" dy="1.5" layer="1"/>
 <smd name="7" x="-0.635" y="2.75" dx="0.6" dy="1.5" layer="1"/>
@@ -209,6 +209,7 @@ Source: http://focus.ti.com/lit/ds/symlink/tlc27l2.pdf</description>
 <rectangle x1="0.39" y1="2" x2="0.88" y2="3.1" layer="51"/>
 <rectangle x1="-0.88" y1="2" x2="-0.39" y2="3.1" layer="51"/>
 <rectangle x1="-2.15" y1="2" x2="-1.66" y2="3.1" layer="51"/>
+<circle x="-1.8" y="-0.9" radius="0.22360625" width="0.127" layer="21"/>
 </package>
 <package name="NEUTRIK_NC3FAH" urn="urn:adsk.eagle:footprint:705651/6" library_version="126" library_locally_modified="yes">
 <pad name="2" x="3.81" y="-13.335" drill="1.6" shape="square"/>
@@ -517,7 +518,7 @@ TS-003</description>
 <packageinstance name="C0603"/>
 </packageinstances>
 </package3d>
-<package3d name="SOIC8" urn="urn:adsk.eagle:package:705548/2" type="model" library_version="152">
+<package3d name="SOIC8" urn="urn:adsk.eagle:package:705548/2" type="model" library_version="152" library_locally_modified="yes">
 <description>SOIC-8 CASE 751-07
 Source: http://www.onsemi.com/pub/Collateral/MC34164-D.PDF
 D (R-PDSO-G8)PLATIC SMALL-OUTLINE PACKAGE
@@ -1168,15 +1169,19 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="64.795" y="78.935" size="1.016" layer="27" rot="R270"/>
 </element>
 <element name="IN1(R/S)" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="NEUTRIK_NC3FAH" package3d_urn="urn:adsk.eagle:package:705652/8" value="NEUTRIK_NC3FAH" x="63.5" y="107.5" smashed="yes">
+<attribute name="MOUSER_PART_NUMBER" value="568-NC3FAH" x="63.5" y="107.5" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="54.61" y="99.88" size="1.27" layer="21"/>
 </element>
 <element name="K1" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="351" package3d_urn="urn:adsk.eagle:package:823802/6" value="K1" x="55.9" y="76" smashed="yes" rot="R90">
+<attribute name="MOUSER_PART_NUMBER" value="80-EE2-12NU" x="55.9" y="76" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="54.693" y="69.884" size="1.778" layer="25" ratio="10"/>
 </element>
 <element name="K2" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="351" package3d_urn="urn:adsk.eagle:package:823802/6" value="K2" x="6.2" y="76" smashed="yes" rot="R90">
+<attribute name="MOUSER_PART_NUMBER" value="80-EE2-12NU" x="6.2" y="76" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="4.893" y="70.084" size="1.778" layer="25" ratio="10"/>
 </element>
 <element name="OUT1(R/S)" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="NEUTRIK_NC3MAH" package3d_urn="urn:adsk.eagle:package:705585/5" value="NEUTRIK_NC3MAH" x="13" y="107.5" smashed="yes">
+<attribute name="MOUSER_PART_NUMBER" value="568-NC3MAH" x="13" y="107.5" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="4.11" y="99.88" size="1.27" layer="21"/>
 </element>
 <element name="IN_RIGHT" library="THAT_Library" library_urn="urn:adsk.eagle:library:704460" package="SO08" package3d_urn="urn:adsk.eagle:package:704562/3" value="1240" x="68.8" y="79.9" smashed="yes" rot="R270">
@@ -1185,15 +1190,19 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="64.8565" y="76.1495" size="0.8128" layer="27" ratio="10"/>
 </element>
 <element name="IN2(L/M)" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="NEUTRIK_NC3FAH" package3d_urn="urn:adsk.eagle:package:705652/8" value="NEUTRIK_NC3FAH" x="88.8" y="107.5" smashed="yes">
+<attribute name="MOUSER_PART_NUMBER" value="568-NC3FAH" x="88.8" y="107.5" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="79.91" y="99.88" size="1.27" layer="21"/>
 </element>
 <element name="OUT2(L/M)" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="NEUTRIK_NC3MAH" package3d_urn="urn:adsk.eagle:package:705585/5" value="NEUTRIK_NC3MAH" x="38.2" y="107.5" smashed="yes">
+<attribute name="MOUSER_PART_NUMBER" value="568-NC3MAH" x="38.2" y="107.5" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="29.31" y="99.88" size="1.27" layer="21"/>
 </element>
 <element name="K3" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="351" package3d_urn="urn:adsk.eagle:package:823802/6" value="K3" x="31.5" y="76" smashed="yes" rot="R90">
+<attribute name="MOUSER_PART_NUMBER" value="80-EE2-12NU" x="31.5" y="76" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="30.093" y="70.184" size="1.778" layer="25" ratio="10"/>
 </element>
 <element name="K4" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="351" package3d_urn="urn:adsk.eagle:package:823802/6" value="K4" x="81.2" y="76" smashed="yes" rot="R90">
+<attribute name="MOUSER_PART_NUMBER" value="80-EE2-12NU" x="81.2" y="76" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="79.693" y="70.284" size="1.778" layer="25" ratio="10"/>
 </element>
 <element name="IN_LEFT" library="THAT_Library" library_urn="urn:adsk.eagle:library:704460" package="SO08" package3d_urn="urn:adsk.eagle:package:704562/3" value="1240" x="93.6" y="80.2" smashed="yes" rot="R270">
@@ -1236,6 +1245,7 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="13.205" y="77.765" size="1.016" layer="27" rot="R90"/>
 </element>
 <element name="IC4" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="SOIC8" package3d_urn="urn:adsk.eagle:package:705548/2" value="OP275" x="81.3" y="66.5" smashed="yes" rot="R90">
+<attribute name="MOUSER_PART_NUMBER" value="584-OP275GSZ-R7" x="81.3" y="66.5" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="82.605" y="64.033" size="1.27" layer="25" rot="R180"/>
 <attribute name="VALUE" x="83.205" y="70.437" size="1.27" layer="27" rot="R180"/>
 </element>
@@ -1266,6 +1276,7 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="73.295" y="72.335" size="1.016" layer="27" rot="R270"/>
 </element>
 <element name="K5" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="351" package3d_urn="urn:adsk.eagle:package:823802/6" value="K5" x="81.3" y="51.7" smashed="yes" rot="R90">
+<attribute name="MOUSER_PART_NUMBER" value="80-EE2-12NU" x="81.3" y="51.7" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="82.893" y="47.684" size="1.778" layer="25" ratio="10" rot="R180"/>
 </element>
 <element name="U7" library="THAT_Library" library_urn="urn:adsk.eagle:library:704460" package="SO08" package3d_urn="urn:adsk.eagle:package:704562/3" value="THAT1240" x="7.2" y="38.1" smashed="yes" rot="R90">
@@ -1295,15 +1306,19 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="1.795" y="42.135" size="1.016" layer="27" rot="R270"/>
 </element>
 <element name="K6" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="351" package3d_urn="urn:adsk.eagle:package:823802/6" value="K6" x="6.2" y="58.35" smashed="yes" rot="R90">
+<attribute name="MOUSER_PART_NUMBER" value="80-EE2-12NU" x="6.2" y="58.35" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="4.893" y="52.534" size="1.778" layer="25" ratio="10"/>
 </element>
 <element name="K7" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="351" package3d_urn="urn:adsk.eagle:package:823802/6" value="K7" x="18.8" y="58.35" smashed="yes" rot="R90">
+<attribute name="MOUSER_PART_NUMBER" value="80-EE2-12NU" x="18.8" y="58.35" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="17.493" y="52.534" size="1.778" layer="25" ratio="10"/>
 </element>
 <element name="K8" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="351" package3d_urn="urn:adsk.eagle:package:823802/6" value="K8" x="31.6" y="58.35" smashed="yes" rot="R90">
+<attribute name="MOUSER_PART_NUMBER" value="80-EE2-12NU" x="31.6" y="58.35" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="30.193" y="52.634" size="1.778" layer="25" ratio="10"/>
 </element>
 <element name="IC1" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="SOIC8" package3d_urn="urn:adsk.eagle:package:705548/2" value="OP275" x="19.5" y="29.3" smashed="yes" rot="R180">
+<attribute name="MOUSER_PART_NUMBER" value="584-OP275GSZ-R7" x="19.5" y="29.3" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="15.667" y="30.805" size="1.27" layer="25" rot="R270"/>
 <attribute name="VALUE" x="15.563" y="31.205" size="1.27" layer="27" rot="R270"/>
 </element>
@@ -1328,36 +1343,37 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="24.5048" y="9.0476" size="1.27" layer="27" ratio="10" rot="R180"/>
 </element>
 <element name="U12" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="SOIC16" package3d_urn="urn:adsk.eagle:package:763982/3" value="ULN2003" x="157.4" y="84.5" smashed="yes" rot="R180">
+<attribute name="MOUSER_PART_NUMBER" value="863-ULN2003ADR2G" x="157.4" y="84.5" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="159.305" y="78.785" size="1.27" layer="25" rot="R180"/>
 <attribute name="VALUE" x="159.305" y="91.485" size="1.27" layer="27" rot="R180"/>
 </element>
 <element name="LED1" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="WL-SMCW_0603" package3d_urn="urn:adsk.eagle:package:576430/2" value="LED_BLUE_SMD" x="59.6" y="71.3" smashed="yes">
-<attribute name="MOUSER_PART_NUMBER" value="asd" x="59.6" y="71.3" size="1.778" layer="27" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="710-150060BS75000" x="59.6" y="71.3" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="59.73" y="69.47" size="1.016" layer="25" align="bottom-center"/>
 <attribute name="VALUE" x="58.76" y="70.26" size="0.3048" layer="27"/>
 </element>
 <element name="LED3" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="WL-SMCW_0603" package3d_urn="urn:adsk.eagle:package:576430/2" value="LED_BLUE_SMD" x="85" y="71" smashed="yes">
-<attribute name="MOUSER_PART_NUMBER" value="asd" x="85" y="71" size="1.778" layer="27" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="710-150060BS75000" x="85" y="71" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="85.03" y="69.57" size="1.016" layer="25" align="bottom-center"/>
 <attribute name="VALUE" x="84.16" y="69.96" size="0.3048" layer="27"/>
 </element>
 <element name="LED5" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="WL-SMCW_0603" package3d_urn="urn:adsk.eagle:package:576430/2" value="LED_BLUE_SMD" x="85" y="46.7" smashed="yes">
-<attribute name="MOUSER_PART_NUMBER" value="asd" x="85" y="46.7" size="1.778" layer="27" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="710-150060BS75000" x="85" y="46.7" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="85.03" y="45.17" size="1.016" layer="25" align="bottom-center"/>
 <attribute name="SPICEPREFIX" value="L" x="85" y="46.7" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="84.16" y="45.66" size="0.3048" layer="27"/>
 </element>
 <element name="LED6" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="WL-SMCW_0603" package3d_urn="urn:adsk.eagle:package:576430/2" value="LED_BLUE_SMD" x="10" y="53.35" smashed="yes">
-<attribute name="MOUSER_PART_NUMBER" value="asd" x="10" y="53.35" size="1.778" layer="27" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="710-150060BS75000" x="10" y="53.35" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="10.13" y="51.72" size="1.016" layer="25" align="bottom-center"/>
 <attribute name="VALUE" x="9.16" y="52.31" size="0.3048" layer="27"/>
 </element>
 <element name="LED7" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="WL-SMCW_0603" package3d_urn="urn:adsk.eagle:package:576430/2" value="LED_BLUE_SMD" x="22.6" y="53.35" smashed="yes">
-<attribute name="MOUSER_PART_NUMBER" value="asd" x="22.6" y="53.35" size="1.778" layer="27" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="710-150060BS75000" x="22.6" y="53.35" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="22.73" y="51.72" size="1.016" layer="25" align="bottom-center"/>
 </element>
 <element name="LED8" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="WL-SMCW_0603" package3d_urn="urn:adsk.eagle:package:576430/2" value="LED_BLUE_SMD" x="35.4" y="53.35" smashed="yes">
-<attribute name="MOUSER_PART_NUMBER" value="asd" x="35.4" y="53.35" size="1.778" layer="27" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="710-150060BS75000" x="35.4" y="53.35" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="35.53" y="51.82" size="1.016" layer="25" align="bottom-center"/>
 <attribute name="VALUE" x="34.06" y="52.01" size="0.3048" layer="27"/>
 </element>
@@ -1398,6 +1414,7 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="58.3435" y="59.9505" size="0.8128" layer="27" ratio="10" rot="R180"/>
 </element>
 <element name="IC8" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="SOIC8" package3d_urn="urn:adsk.eagle:package:705548/2" value="OP275" x="55.5" y="47" smashed="yes" rot="R270">
+<attribute name="MOUSER_PART_NUMBER" value="584-OP275GSZ-R7" x="55.5" y="47" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="53.395" y="49.667" size="1.27" layer="25"/>
 <attribute name="VALUE" x="56.695" y="42.663" size="1.27" layer="27"/>
 </element>
@@ -1450,6 +1467,7 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="72.025" y="59.985" size="1.27" layer="27" rot="R180"/>
 </element>
 <element name="IC9" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="SOIC8" package3d_urn="urn:adsk.eagle:package:705548/2" value="TL072" x="26.9" y="21.2" smashed="yes" rot="R270">
+<attribute name="MOUSER_PART_NUMBER" value="595-TL072CDR" x="26.9" y="21.2" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="24.595" y="23.867" size="1.27" layer="25"/>
 <attribute name="VALUE" x="26.895" y="16.463" size="1.27" layer="27"/>
 </element>
@@ -1488,7 +1506,7 @@ design rules under a new name.</description>
 <element name="TP36" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="THT_PIN" package3d_urn="urn:adsk.eagle:package:817866/3" value="TPTHT" x="60.85" y="57.9" smashed="yes" rot="R90"/>
 <element name="TP37" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="THT_PIN" package3d_urn="urn:adsk.eagle:package:817866/3" value="TPTHT" x="60.85" y="66.5" smashed="yes" rot="R90"/>
 <element name="LED2" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="WL-SMCW_0603" package3d_urn="urn:adsk.eagle:package:576430/2" value="LED_BLUE_SMD" x="10" y="71" smashed="yes">
-<attribute name="MOUSER_PART_NUMBER" value="asd" x="10" y="71" size="1.778" layer="27" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="710-150060BS75000" x="10" y="71" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="10.03" y="69.47" size="1.016" layer="25" align="bottom-center"/>
 <attribute name="VALUE" x="9.16" y="69.96" size="0.3048" layer="27"/>
 </element>
@@ -1497,7 +1515,7 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="0.565" y="71.86" size="0.8128" layer="27" rot="R180"/>
 </element>
 <element name="LED4" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="WL-SMCW_0603" package3d_urn="urn:adsk.eagle:package:576430/2" value="LED_BLUE_SMD" x="35.3" y="71.1" smashed="yes">
-<attribute name="MOUSER_PART_NUMBER" value="asd" x="35.3" y="71.1" size="1.778" layer="27" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="710-150060BS75000" x="35.3" y="71.1" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="35.33" y="69.57" size="1.016" layer="25" align="bottom-center"/>
 <attribute name="VALUE" x="34.46" y="70.06" size="0.3048" layer="27"/>
 </element>
@@ -1510,6 +1528,7 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="152.473" y="104.865" size="1.778" layer="27"/>
 </element>
 <element name="U2" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="TO252" package3d_urn="urn:adsk.eagle:package:763981/2" value="7812" x="132.8" y="7.4" smashed="yes">
+<attribute name="MOUSER_PART_NUMBER" value="513-NJM7812DL1A-TE1" x="132.8" y="7.4" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="128.99" y="4.86" size="1.27" layer="25" rot="R90"/>
 <attribute name="VALUE" x="137.88" y="4.86" size="1.27" layer="27" rot="R90"/>
 </element>
@@ -1527,12 +1546,12 @@ design rules under a new name.</description>
 </element>
 <element name="TP05" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="THT_PIN" package3d_urn="urn:adsk.eagle:package:817866/3" value="TPTHT" x="53.98" y="5" smashed="yes" rot="R90"/>
 <element name="LED9" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="WL-SMCW_0603" package3d_urn="urn:adsk.eagle:package:576430/2" value="LED_GREEN_SMD" x="9.2" y="7.8" smashed="yes" rot="R180">
-<attribute name="MOUSER_PART_NUMBER" value="ad" x="9.2" y="7.8" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="710-150060VS75000" x="9.2" y="7.8" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="9.17" y="7.13" size="0.3048" layer="25" rot="R180" align="bottom-center"/>
 <attribute name="VALUE" x="10.04" y="8.84" size="0.3048" layer="27" rot="R270"/>
 </element>
 <element name="LED10" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="WL-SMCW_0603" package3d_urn="urn:adsk.eagle:package:576430/2" value="LED_GREEN_SMD" x="4.4" y="8" smashed="yes" rot="R180">
-<attribute name="MOUSER_PART_NUMBER" value="ad" x="4.4" y="8" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="710-150060VS75000" x="4.4" y="8" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="4.67" y="7.33" size="0.3048" layer="25" rot="R180" align="bottom-center"/>
 <attribute name="VALUE" x="5.24" y="9.04" size="0.3048" layer="27" rot="R180"/>
 </element>
@@ -1704,6 +1723,7 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="36.7435" y="35.7505" size="0.8128" layer="27" ratio="10" rot="R90"/>
 </element>
 <element name="IC5" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="SOIC8" package3d_urn="urn:adsk.eagle:package:705548/2" value="OP275" x="31.6" y="29.9" smashed="yes" rot="R270">
+<attribute name="MOUSER_PART_NUMBER" value="584-OP275GSZ-R7" x="31.6" y="29.9" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="30.295" y="25.967" size="1.27" layer="25"/>
 <attribute name="VALUE" x="29.695" y="25.963" size="1.27" layer="27"/>
 </element>
@@ -1834,6 +1854,7 @@ design rules under a new name.</description>
 <element name="TP01" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="THT_PIN" package3d_urn="urn:adsk.eagle:package:817866/3" value="TPTHT" x="38.2" y="41" smashed="yes" rot="R90"/>
 <element name="TP02" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="THT_PIN" package3d_urn="urn:adsk.eagle:package:817866/3" value="TPTHT" x="38.3" y="48.8" smashed="yes" rot="R90"/>
 <element name="IC7" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="SOIC8" package3d_urn="urn:adsk.eagle:package:705548/2" value="TL072" x="38.4" y="8.7" smashed="yes" rot="R270">
+<attribute name="MOUSER_PART_NUMBER" value="595-TL072CDR" x="38.4" y="8.7" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="36.195" y="11.467" size="1.27" layer="25"/>
 <attribute name="VALUE" x="36.495" y="4.763" size="1.27" layer="27"/>
 </element>
@@ -1893,7 +1914,7 @@ design rules under a new name.</description>
 <attribute name="NAME" x="42.735" y="52.165" size="1.27" layer="25" rot="R180"/>
 <attribute name="VALUE" x="41.635" y="52.205" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="R73" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="10k" x="41" y="48.2" smashed="yes">
+<element name="R73" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="56k" x="41" y="48.2" smashed="yes">
 <attribute name="NAME" x="39.665" y="46.435" size="1.27" layer="25"/>
 <attribute name="VALUE" x="40.365" y="46.295" size="1.27" layer="27"/>
 </element>
@@ -1901,9 +1922,9 @@ design rules under a new name.</description>
 <attribute name="NAME" x="42.835" y="44.365" size="1.27" layer="25" rot="R180"/>
 <attribute name="VALUE" x="41.635" y="44.405" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="R59" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="56k" x="41" y="40.4" smashed="yes">
-<attribute name="NAME" x="39.465" y="38.735" size="1.27" layer="25"/>
-<attribute name="VALUE" x="40.365" y="38.495" size="1.27" layer="27"/>
+<element name="R59" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="56k" x="41" y="40.3" smashed="yes">
+<attribute name="NAME" x="39.465" y="38.635" size="1.27" layer="25"/>
+<attribute name="VALUE" x="40.365" y="38.395" size="1.27" layer="27"/>
 </element>
 <element name="R74" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="10k" x="48.9" y="19.6" smashed="yes" rot="R180">
 <attribute name="NAME" x="50.535" y="21.465" size="1.27" layer="25" rot="R180"/>
@@ -1930,12 +1951,7 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="60.585" y="14.075" size="1.27" layer="27" rot="R90"/>
 </element>
 <element name="Z1" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="SODFL1608X65N" package3d_urn="urn:adsk.eagle:package:16179616/3" value="BZT52C2V0T-7" x="59" y="34" smashed="yes" rot="R270">
-<attribute name="DESCRIPTION" value="Diodes Inc BZT52C2V0T-7 Zener Diode, 2.4V 5% 300 mW SMT 2-Pin SOD-523" x="59" y="34" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="HEIGHT" value="0.65mm" x="59" y="34" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MANUFACTURER_NAME" value="Diodes Inc." x="59" y="34" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MANUFACTURER_PART_NUMBER" value="BZT52C2V0T-7" x="59" y="34" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="MOUSER_PART_NUMBER" value="621-BZT52C2V0T-7" x="59" y="34" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=621-BZT52C2V0T-7" x="59" y="34" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="57.7" y="34.1" size="1.27" layer="25" rot="R270" align="center"/>
 <attribute name="VALUE" x="59" y="34" size="1.27" layer="27" rot="R270" align="center"/>
 </element>
@@ -4893,7 +4909,7 @@ design rules under a new name.</description>
 <wire x1="37.265" y1="37.465" x2="38.2" y2="38.4" width="0.508" layer="1"/>
 <wire x1="38.2" y1="38.4" x2="38.2" y2="41" width="0.508" layer="1"/>
 <wire x1="40.15" y1="42.5" x2="40.15" y2="41.2" width="0.508" layer="1"/>
-<wire x1="40.15" y1="41.2" x2="40.15" y2="40.4" width="0.508" layer="1"/>
+<wire x1="40.15" y1="41.2" x2="40.15" y2="40.3" width="0.508" layer="1"/>
 <wire x1="40.15" y1="41.2" x2="39.95" y2="41" width="0.508" layer="1"/>
 <wire x1="39.95" y1="41" x2="38.2" y2="41" width="0.508" layer="1"/>
 </signal>
@@ -4964,8 +4980,8 @@ design rules under a new name.</description>
 <wire x1="43.05" y1="40.25" x2="43.046" y2="40.246" width="0.508" layer="15"/>
 <wire x1="43.05" y1="40.25" x2="42.95" y2="40.25" width="0.508" layer="15"/>
 <via x="42.95" y="40.25" extent="1-16" drill="0.5"/>
-<wire x1="42.95" y1="40.25" x2="42" y2="40.25" width="0.508" layer="1"/>
-<wire x1="42" y1="40.25" x2="41.85" y2="40.4" width="0.508" layer="1"/>
+<wire x1="42.95" y1="40.25" x2="41.9" y2="40.25" width="0.508" layer="1"/>
+<wire x1="41.9" y1="40.25" x2="41.85" y2="40.3" width="0.508" layer="1"/>
 </signal>
 <signal name="N$60">
 <contactref element="IC3" pad="2"/>

@@ -172,6 +172,10 @@ void Error_Handler(void);
 #define Relais3_GPIO_Port GPIOG
 #define SWO_Pin GPIO_PIN_3
 #define SWO_GPIO_Port GPIOB
+#define CS_DAC1_Pin GPIO_PIN_4
+#define CS_DAC1_GPIO_Port GPIOB
+#define CS_DAC2_Pin GPIO_PIN_5
+#define CS_DAC2_GPIO_Port GPIOB
 #define LD2_Pin GPIO_PIN_7
 #define LD2_GPIO_Port GPIOB
 #define DB0_Pin GPIO_PIN_0

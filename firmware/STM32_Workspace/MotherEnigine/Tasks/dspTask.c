@@ -11,7 +11,7 @@
 TIM_HandleTypeDef htim6;
 TIM_HandleTypeDef htim7;
 DAC_HandleTypeDef hdac;
-
+SPI_HandleTypeDef hspi2;
 //uint8_t DSProundtrip = 10; //Defines the RoundTrip time of the DSP
 
 
@@ -20,7 +20,7 @@ void dspTask(void const * argument){
 
 
 /******************Setting all Relais to default settings**************/
-	Bypass(bypass);
+	Bypass(activate);
 	VCASource(RL);
 	VCAOutput(NormalOutput, MS_Deconvert_Inactive);
 /**********************************************************************/
@@ -49,9 +49,18 @@ void dspTask(void const * argument){
 		HAL_TIM_Base_Start(&htim6);
 		HAL_TIM_Base_Start_IT(&htim7);
 
+
+
+
 	for(;;){
 		HAL_Delay(1000);
 		HAL_GPIO_TogglePin(GPIOB, LD1_Pin); //grüne LED an
+
+
+
+
+
+
 
 	}
 

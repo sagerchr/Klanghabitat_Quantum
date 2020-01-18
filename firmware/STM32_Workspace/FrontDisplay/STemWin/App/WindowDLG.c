@@ -195,8 +195,8 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 	  GUI_Clear();
 
 
-     drawWaveFormUartRight(0,240,adc1);
-     drawWaveFormUartLeft(450,240,adc2);
+     drawWaveFormUartRight(0,240,adc2);
+     drawWaveFormUartLeft(450,240,adc1);
 
 
      adc1_ist = adc1;
@@ -224,8 +224,8 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 	 adc2_db = (adc2_db+60)*3;
 
 
-	 diff1 = adc1_db-smooth1;
-	 diff2 = adc2_db-smooth2;
+	 diff1 = adc2_db-smooth1;
+	 diff2 = adc1_db-smooth2;
 
 	 if(diff1<0){
 		 smooth1 = smooth1+(0.055*diff1);
