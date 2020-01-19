@@ -318,9 +318,9 @@ static void MX_TIM1_Init(void)
   htim1.Instance = TIM1;
   htim1.Init.Prescaler = 0;
   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim1.Init.Period = 255;
+  htim1.Init.Period = 1024;
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  htim1.Init.RepetitionCounter = 0;
+  //htim1.Init.RepetitionCounter = 0;
   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   sConfig.EncoderMode = TIM_ENCODERMODE_TI12;
   sConfig.IC1Polarity = TIM_ICPOLARITY_FALLING;
@@ -368,7 +368,7 @@ static void MX_TIM2_Init(void)
   htim2.Instance = TIM2;
   htim2.Init.Prescaler = 0;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 255;
+  htim2.Init.Period = 1024;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   sConfig.EncoderMode = TIM_ENCODERMODE_TI12;
@@ -417,10 +417,10 @@ static void MX_TIM3_Init(void)
   htim3.Instance = TIM3;
   htim3.Init.Prescaler = 0;
   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim3.Init.Period = 255;
+  htim3.Init.Period = 1024;
   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  sConfig.EncoderMode = TIM_ENCODERMODE_TI1;
+  sConfig.EncoderMode = TIM_ENCODERMODE_TI12;
   sConfig.IC1Polarity = TIM_ICPOLARITY_FALLING;
   sConfig.IC1Selection = TIM_ICSELECTION_DIRECTTI;
   sConfig.IC1Prescaler = TIM_ICPSC_DIV1;
@@ -592,16 +592,16 @@ void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *hi2c)
 
 	HAL_I2C_Slave_Transmit(&hi2c1,aTxBuffer,10,100);
 
-	 R_ENC1 = aRxBuffer[9]/3;
-	 R_ENC2 = aRxBuffer[9]/3;
-	 R_ENC3 = aRxBuffer[9]/3;
+	 R_ENC1 = 100;
+	 R_ENC2 = 0;
+	 R_ENC3 = 100;
 
 	 if(R_ENC1 >= 100){R_ENC1=100;}
 	 else {R_ENC1++;}
 	 G_ENC1 = R_ENC1/2;
-	 if(R_ENC2 >= 100){R_ENC2=100;}
-	 else {R_ENC2++;}
-	 G_ENC2 = R_ENC2/2;
+	 //if(R_ENC2 >= 100){R_ENC2=100;}
+	 ///else {R_ENC2++;}
+	 G_ENC2 = 0;
 	 if(R_ENC3 >= 100){R_ENC3=100;}
 	 else {R_ENC3++;}
 	 G_ENC3 = R_ENC3/2;
@@ -631,7 +631,7 @@ void ENCODER_TASK(void const * argument)
 
 	ENC1 = (TIM1->CNT)/4;
 	ENC2 = (TIM2->CNT)/4;
-    ENC3 = (TIM3->CNT)/2;
+    ENC3 = (TIM3->CNT)/4;
 
     if(!HAL_GPIO_ReadPin(GPIOF,Button_ENC3_Pin)){
     	buttonstate |= 1<<2;
