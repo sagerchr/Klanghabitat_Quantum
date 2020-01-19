@@ -29,6 +29,7 @@
 #include "dspTask.h"
 #include "lwIPTask.h"
 #include "MY_FLASH.h"
+#include "DAC_Control.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -202,15 +203,15 @@ int main(void)
   samples = 50;
   resetMax=0;
 
-//while(1){
 
-	uint8_t message[2] = {81,224};
-	HAL_GPIO_WritePin(GPIOB, CS_DAC2_Pin, GPIO_PIN_RESET);
+  DAC_Control(1,2,46); //offset VCA1
+  DAC_Control(2,2,43); //offset VCA2
 
-	HAL_SPI_Transmit(&hspi2, (uint8_t *)message, strlen(message), 10000);
-	HAL_GPIO_WritePin(GPIOB, CS_DAC2_Pin, GPIO_PIN_SET);
-	HAL_Delay(1);
-  //}
+  DAC_Control(1,1,0); //SYM1 adjust
+  DAC_Control(2,1,0); //SYM2 adjust
+  DAC_Control(3,1,0); //SYM3 adjust
+  DAC_Control(4,1,0); //SYM4 adjust
+
 
   /* USER CODE END 2 */
 

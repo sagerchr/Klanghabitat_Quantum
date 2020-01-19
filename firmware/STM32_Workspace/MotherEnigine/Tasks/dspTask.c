@@ -7,7 +7,7 @@
 
 #include "main.h"
 #include "RelaisControl.h"
-
+#include "DAC_Control.h"
 TIM_HandleTypeDef htim6;
 TIM_HandleTypeDef htim7;
 DAC_HandleTypeDef hdac;
@@ -53,13 +53,8 @@ void dspTask(void const * argument){
 
 
 	for(;;){
-		HAL_Delay(1000);
+		HAL_Delay(100);
 		HAL_GPIO_TogglePin(GPIOB, LD1_Pin); //grüne LED an
-
-
-
-
-
 
 
 	}
