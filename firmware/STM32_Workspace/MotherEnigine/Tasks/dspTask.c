@@ -12,8 +12,9 @@ TIM_HandleTypeDef htim6;
 TIM_HandleTypeDef htim7;
 DAC_HandleTypeDef hdac;
 SPI_HandleTypeDef hspi2;
-//uint8_t DSProundtrip = 10; //Defines the RoundTrip time of the DSP
 
+//uint8_t DSProundtrip = 10; //Defines the RoundTrip time of the DSP
+int errorcount;
 
 void dspTask(void const * argument){
 

@@ -66,6 +66,7 @@ uint16_t Adr[6] = {0,8,16,32,64,128};
 uint8_t word;
 char array[20];
 
+uint8_t errors= 0;
 int start = 0;
 int offset = 0;
 int intervall = 0;
@@ -177,7 +178,7 @@ void GRAPHICS_MainTask(void) {
              transmit[8]=0x02;
              transmit[9]=0x03;
 
-              HAL_UART_Transmit(&huart6, transmit , 10, 1);
+              HAL_UART_Transmit(&huart6, transmit , 10, 10);
 
   /**********************************************************/
 
@@ -193,3 +194,13 @@ void GRAPHICS_MainTask(void) {
 
     /*************************** End of file ****************************/
 
+void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
+{
+	errors = errors+1;
+
+  /* Prevent unused argument(s) compilation warning */
+	HAL_UART_Receive_DMA(&huart6, UART_RECIVE,10);
+  /* NOTE : This function should not be modified, when the callback is needed,
+            the HAL_UART_ErrorCallback can be implemented in the user file.
+   */
+}

@@ -15,7 +15,9 @@
 #include "RelaisControl.h"
 uint8_t IP_READ[4];
 DAC_HandleTypeDef hdac;
-DAC_HandleTypeDef huart6;
+UART_HandleTypeDef huart6;
+
+uint8_t errors= 0;
 
 void lwIPTask(void const * argument){
 /*
@@ -70,6 +72,9 @@ char UART_IN[10];
 		OSCmessageINTSend("/VALUE/Level/CH4/RMS",  20, voltageRMS[3]*30);
 		OSCmessageINTSend("/VALUE/Level/CH5/RMS",  20, voltageRMS[4]*30);
 		OSCmessageINTSend("/VALUE/Level/CH6/RMS",  20, voltageRMS[5]*30);
+
+
+		OSCmessageINTSend("/VALUE/ERROR/ER1____",  20, errors);
 		//OSCmessageINTSend("/VALUE/Level/CH1/postVCA", 24, analogIN[0]);
 		//OSCmessageINTSend("/VALUE/Level/CH2/postVCA", 24, analogIN[1]);
 
@@ -78,3 +83,13 @@ char UART_IN[10];
 
 }
 
+void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
+{
+	errors = errors+1;
+
+  /* Prevent unused argument(s) compilation warning */
+	  HAL_UART_Receive_DMA(&huart6, UART_recive,10);
+  /* NOTE : This function should not be modified, when the callback is needed,
+            the HAL_UART_ErrorCallback can be implemented in the user file.
+   */
+}
