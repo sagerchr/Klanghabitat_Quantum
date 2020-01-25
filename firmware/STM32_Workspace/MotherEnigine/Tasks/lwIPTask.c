@@ -13,6 +13,9 @@
 #include "webserver.h"
 #include "MY_FLASH.h"
 #include "RelaisControl.h"
+#include "OSC_Lib.h"
+
+
 uint8_t IP_READ[4];
 DAC_HandleTypeDef hdac;
 UART_HandleTypeDef huart6;
@@ -35,36 +38,50 @@ void lwIPTask(void const * argument){
 char UART_IN[10];
 
 
-
 	  /* Infinite loop */
 	  for(;;)
 	  {
 
 
+		 //=========================================================================//
+		 //=================CONTROL RELAIS VIA OSC MEASSAGE=========================//
+		 if (match("/MotherEngine/Relais/bypassLeft") && OSC_SIGNEDINTEGER ==  1){
+			 BypassLeft(bypass);}
+		 if (match("/MotherEngine/Relais/bypassLeft") && OSC_SIGNEDINTEGER == 0){
+			 BypassLeft(activate);}
+
+		 if (match("/MotherEngine/Relais/bypassRight") && OSC_SIGNEDINTEGER ==  1){
+			 BypassRight(bypass);}
+		 if (match("/MotherEngine/Relais/bypassRight") && OSC_SIGNEDINTEGER == 0){
+			 BypassRight(activate);}
+
+		 if (match("/MotherEngine/Relais/K5") && OSC_SIGNEDINTEGER == 1){
+			 HAL_GPIO_WritePin(GPIOG, Relais3_Pin,GPIO_PIN_SET);}
+		 if (match("/MotherEngine/Relais/K5") && OSC_SIGNEDINTEGER == 0){
+			 HAL_GPIO_WritePin(GPIOG, Relais3_Pin,GPIO_PIN_RESET);}
+
+		 if (match("/MotherEngine/Relais/K6") && OSC_SIGNEDINTEGER == 1){
+			 HAL_GPIO_WritePin(GPIOG, Relais4_Pin,GPIO_PIN_SET);}
+		 if (match("/MotherEngine/Relais/K6") && OSC_SIGNEDINTEGER == 0){
+			 HAL_GPIO_WritePin(GPIOG, Relais4_Pin,GPIO_PIN_RESET);}
+
+		 if (match("/MotherEngine/Relais/K7") && OSC_SIGNEDINTEGER == 1){
+			 HAL_GPIO_WritePin(GPIOG, Relais5_Pin,GPIO_PIN_SET);}
+		 if (match("/MotherEngine/Relais/K7") && OSC_SIGNEDINTEGER == 0){
+			 HAL_GPIO_WritePin(GPIOG, Relais5_Pin,GPIO_PIN_RESET);}
+
+		 if (match("/MotherEngine/Relais/K8") && OSC_SIGNEDINTEGER == 1){
+			 HAL_GPIO_WritePin(GPIOG, Relais6_Pin,GPIO_PIN_SET);}
+		 if (match("/MotherEngine/Relais/K8") && OSC_SIGNEDINTEGER == 0){
+			 HAL_GPIO_WritePin(GPIOG, Relais6_Pin,GPIO_PIN_RESET);}
+		 //=========================================================================//
+
+
+		 if (match("/MotherEngine/VCA1/offset")){DAC_Control(1,2,OSC_SIGNEDINTEGER);}
+		 if (match("/MotherEngine/VCA2/offset")){DAC_Control(2,2,OSC_SIGNEDINTEGER);}
 
 
 
-
-
-		  //HAL_UART_Transmit(&huart6, UART_transmit,10,10);
-		  UART_IN;
-		  //UART_transmit[0]=0xFF;
-		  //UART_transmit[1]=0x01;
-		  //UART_transmit[2]=0x02;
-		  //UART_transmit[3]=voltageIn1MAX*100;
-		  //UART_transmit[4]=voltageIn2MAX*100;
-		  //UART_transmit[5]=0x10;
-		  //UART_transmit[6]=0x10;
-		  //UART_transmit[7]=0x10;
-		  //UART_transmit[8]=0x10;
-		  //UART_transmit[9]=0x10;
-
-		 if (UDP_RECIVE[11] == 1){
-			 Bypass(bypass);
-		 }
-		 if (UDP_RECIVE[11] == 0){
-			 Bypass(activate);
-		 }
 
 		OSCmessageINTSend("/VALUE/Level/CH1/RMS",  20, voltageRMS[0]*30);
 		OSCmessageINTSend("/VALUE/Level/CH2/RMS",  20, voltageRMS[1]*30);
@@ -75,13 +92,32 @@ char UART_IN[10];
 
 
 		OSCmessageINTSend("/VALUE/ERROR/ER1____",  20, errors);
-		//OSCmessageINTSend("/VALUE/Level/CH1/postVCA", 24, analogIN[0]);
-		//OSCmessageINTSend("/VALUE/Level/CH2/postVCA", 24, analogIN[1]);
+
 
 	    osDelay(10);
 	  }
 
 }
+
+int match(char *matchString){
+	int i=0;
+	int OK=0;
+	while(OSC_PATH[i]!='\0'){
+		i++;
+			if(OSC_PATH[i] == matchString[i]){
+				OK = 1;
+			}
+			else{
+				OK = 0;
+				break;
+			}
+	}
+	if (OK == 1) return 1;
+	else if (OK == 0) return 0;
+}
+
+
+
 
 void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
 {

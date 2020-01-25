@@ -21,7 +21,8 @@ void dspTask(void const * argument){
 
 
 /******************Setting all Relais to default settings**************/
-	Bypass(activate);
+	BypassLeft(activate);
+	BypassRight(activate);
 	VCASource(RL);
 	VCAOutput(NormalOutput, MS_Deconvert_Inactive);
 /**********************************************************************/

@@ -11,7 +11,8 @@ typedef enum
 	activate,
 }Byp;
 
-void Bypass(Byp State);
+void BypassLeft(Byp State);
+void BypassRight(Byp State);
 /*******************************************/
 typedef enum
 {

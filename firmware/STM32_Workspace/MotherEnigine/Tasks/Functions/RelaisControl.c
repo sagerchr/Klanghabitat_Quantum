@@ -17,23 +17,44 @@ Relais5_GPIO_Port GPIOG
 Relais6_GPIO_Port GPIOG
 */
 
-void Bypass(Byp State){
+void BypassLeft(Byp State){
 	switch(State)
 	{
 		case activate:
 			{
 				HAL_GPIO_WritePin(GPIOG, Relais1_Pin,GPIO_PIN_SET);
-				HAL_GPIO_WritePin(GPIOG, Relais2_Pin,GPIO_PIN_SET);
 			}
 			break;
 		case bypass:
 			{
 				HAL_GPIO_WritePin(GPIOG, Relais1_Pin,GPIO_PIN_RESET);
+			}
+			break;
+	}
+}
+
+void BypassRight(Byp State){
+	switch(State)
+	{
+		case activate:
+			{
+				HAL_GPIO_WritePin(GPIOG, Relais2_Pin,GPIO_PIN_SET);
+			}
+			break;
+		case bypass:
+			{
 				HAL_GPIO_WritePin(GPIOG, Relais2_Pin,GPIO_PIN_RESET);
 			}
 			break;
 	}
 }
+
+
+
+
+
+
+
 
 void VCASource(Source State){
 	switch(State)

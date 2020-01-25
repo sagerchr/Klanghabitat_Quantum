@@ -1,5 +1,6 @@
 #include "lwip.h"
 #include "UDP_SEND_RECIVE.h"
+#include "OSC_Lib.h"
 
 int IP1_partner;
 int IP2_partner;
@@ -7,16 +8,40 @@ int IP3_partner;
 int IP4_partner;
 
 static struct udp_pcb *udpPcb;
+osc_message osc;
 
 
-
-
-//==================================Recive UDP MESSAGE===================================//
+//==============RECIVE UDP MESSAGE --> OUTPUT PARSED OSC MEASSAGE=========================//
 	void udp_recive(void *arg, struct udp_pcb *pcb, struct pbuf *p, const ip_addr_t *addr, u16_t port)
 	{
+		for (int i=0; i<50; i++){OSC_PATH[i] = 0x00;} //clear the OSC_PATH
 		HAL_GPIO_TogglePin(GPIOB, LD2_Pin); //Blaue LED an
-		memcpy(UDP_RECIVE, p -> payload, p -> len);
-		pbuf_free(p);
+		memcpy(UDP_RECIVE, p -> payload, p -> len); //put the incoming udp data to UDP_RECIVE
+		pbuf_free(p);//clear the udp buffer in the lwIP
+		tosc_parseMessage(&osc, p -> payload, p -> len);//Find .adressEND & .format
+		OSC_FORMAT = *osc.format; //Find out the format of data
+		uint8_t AdressEND = osc.adressEND;//safe the AdressEND to vraiable
+		memcpy(OSC_PATH, p -> payload, AdressEND); //Put the Payload until AdressEND as the OSC_PATH
+		uint8_t numberSTART = osc.numberSTART; //Find out where the starting of 4 byte number is
+
+		/*****Put the number as a SignedInteger because the Format is 'i'****/
+		if(OSC_FORMAT=='i'){
+			OSC_SIGNEDINTEGER = UDP_RECIVE[numberSTART+3]	|
+					(UDP_RECIVE[numberSTART+2] << 8) 		|
+					(UDP_RECIVE[numberSTART+1] << 16) 	  	|
+					(UDP_RECIVE[numberSTART] << 24);
+		}
+		/*********Put the number as a Float because the Format is 'f'*******************/
+		else if(OSC_FORMAT=='f'){
+			int32_t INT = UDP_RECIVE[numberSTART+3] 	|
+					(UDP_RECIVE[numberSTART+2] << 8) 	|
+					(UDP_RECIVE[numberSTART+1] << 16) 	|
+					(UDP_RECIVE[numberSTART] << 24);
+
+			memcpy(&OSC_FLOAT, &INT, sizeof(OSC_FLOAT));
+		}
+		/*******************************************************************************/
+
 	}
 //=======================================================================================//
 
