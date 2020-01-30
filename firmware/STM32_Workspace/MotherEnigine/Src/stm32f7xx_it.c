@@ -254,7 +254,7 @@ void TIM7_IRQHandler(void)
   for (int i = 0; i<6; i++){
   	HAL_GPIO_WritePin(GPIOD, RD_Pin,GPIO_PIN_SET);
       HAL_GPIO_WritePin(GPIOD, CS_Pin,GPIO_PIN_SET);
-      microDelay(0);
+      //microDelay(0);
       HAL_GPIO_WritePin(GPIOD, RD_Pin,GPIO_PIN_RESET);
       HAL_GPIO_WritePin(GPIOD, CS_Pin,GPIO_PIN_RESET);
       microDelay(0); //At least something... to get Ports updated
@@ -313,8 +313,8 @@ void TIM7_IRQHandler(void)
   UART_transmit[0]=0xFF;
   UART_transmit[1]=0x01;
   UART_transmit[2]=0x02;
-  UART_transmit[3]=voltageIn1MAX*50;
-  UART_transmit[4]=voltageIn2MAX*50;
+  UART_transmit[3]=voltageIn2MAX*50;
+  UART_transmit[4]=voltageIn1MAX*50;
   UART_transmit[5]=0x10;
   UART_transmit[6]=0x10;
   UART_transmit[7]=0x10;

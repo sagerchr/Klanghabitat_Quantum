@@ -134,7 +134,8 @@ void StartDefaultTask(void const * argument);
   * @retval int
   */
 int main(void)
- {
+
+{
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -204,13 +205,15 @@ int main(void)
   resetMax=0;
 
 
-  DAC_Control(1,2,46); //offset VCA1
-  DAC_Control(2,2,43); //offset VCA2
+	  DAC_Control(1,2,46); //offset VCA1
+	  DAC_Control(2,2,43); //offset VCA2
 
-  DAC_Control(1,1,0); //SYM1 adjust
-  DAC_Control(2,1,0); //SYM2 adjust
-  DAC_Control(3,1,0); //SYM3 adjust
-  DAC_Control(4,1,0); //SYM4 adjust
+	  DAC_Control(1,1,0); //SYM1 adjust
+	  DAC_Control(2,1,0); //SYM2 adjust
+	  DAC_Control(3,1,0); //SYM3 adjust
+	  DAC_Control(4,1,0); //SYM4 adjust
+
+
 
 
   /* USER CODE END 2 */

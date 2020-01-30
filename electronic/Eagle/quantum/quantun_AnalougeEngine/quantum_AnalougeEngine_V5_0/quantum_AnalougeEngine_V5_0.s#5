@@ -235,17 +235,17 @@
 <text x="-5.334" y="-2.921" size="1.27" layer="25" ratio="10" rot="R90">&gt;NAME</text>
 <text x="-3.556" y="-0.635" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
-<package name="SOIC8" urn="urn:adsk.eagle:footprint:705545/1" locally_modified="yes" library_version="152" library_locally_modified="yes">
+<package name="SOIC8" urn="urn:adsk.eagle:footprint:705545/1" library_version="152">
 <description>&lt;b&gt;SOIC-8&lt;/b&gt; CASE 751-07&lt;p&gt;
 Source: http://www.onsemi.com/pub/Collateral/MC34164-D.PDF&lt;p&gt;
 &lt;b&gt;D (R-PDSO-G8)&lt;/b&gt;PLATIC SMALL-OUTLINE PACKAGE&lt;br&gt;
 Source: http://focus.ti.com/lit/ds/symlink/tlc27l2.pdf</description>
 <wire x1="2.4" y1="1.9" x2="2.4" y2="-1.4" width="0.2032" layer="21"/>
 <wire x1="2.4" y1="-1.4" x2="2.4" y2="-1.9" width="0.2032" layer="21"/>
-<wire x1="2.4" y1="-1.9" x2="-2.4" y2="-1.9" width="0.2032" layer="21"/>
+<wire x1="2.4" y1="-1.9" x2="-2.4" y2="-1.9" width="0.2032" layer="51"/>
 <wire x1="-2.4" y1="-1.9" x2="-2.4" y2="-1.4" width="0.2032" layer="21"/>
 <wire x1="-2.4" y1="-1.4" x2="-2.4" y2="1.9" width="0.2032" layer="21"/>
-<wire x1="-2.4" y1="1.9" x2="2.4" y2="1.9" width="0.2032" layer="21"/>
+<wire x1="-2.4" y1="1.9" x2="2.4" y2="1.9" width="0.2032" layer="51"/>
 <wire x1="2.4" y1="-1.4" x2="-2.4" y2="-1.4" width="0.2032" layer="21"/>
 <smd name="2" x="-0.635" y="-2.75" dx="0.6" dy="1.5" layer="1"/>
 <smd name="7" x="-0.635" y="2.75" dx="0.6" dy="1.5" layer="1"/>
@@ -265,7 +265,6 @@ Source: http://focus.ti.com/lit/ds/symlink/tlc27l2.pdf</description>
 <rectangle x1="0.39" y1="2" x2="0.88" y2="3.1" layer="51"/>
 <rectangle x1="-0.88" y1="2" x2="-0.39" y2="3.1" layer="51"/>
 <rectangle x1="-2.15" y1="2" x2="-1.66" y2="3.1" layer="51"/>
-<circle x="-1.8" y="-0.9" radius="0.22360625" width="0.127" layer="21"/>
 </package>
 <package name="NEUTRIK_NC3MAH" urn="urn:adsk.eagle:footprint:705584/4" library_version="126" library_locally_modified="yes">
 <pad name="G" x="0" y="-12.7" drill="1.2"/>
@@ -527,7 +526,7 @@ TS-003</description>
 <packageinstance name="R0805"/>
 </packageinstances>
 </package3d>
-<package3d name="SOIC8" urn="urn:adsk.eagle:package:705548/2" type="model" library_version="152" library_locally_modified="yes">
+<package3d name="SOIC8" urn="urn:adsk.eagle:package:705548/2" type="model" library_version="152">
 <description>SOIC-8 CASE 751-07
 Source: http://www.onsemi.com/pub/Collateral/MC34164-D.PDF
 D (R-PDSO-G8)PLATIC SMALL-OUTLINE PACKAGE
@@ -802,8 +801,7 @@ TS-003</description>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="NEUTRIK_NC3FAH" urn="urn:adsk.eagle:component:705653/23" locally_modified="yes" library_version="152" library_locally_modified="yes">
-<description>XLR Connectors Female</description>
+<deviceset name="NEUTRIK_NC3FAH" urn="urn:adsk.eagle:component:705653/23" library_version="152">
 <gates>
 <gate name="G$1" symbol="NEUTRIK_NC3FAH" x="0" y="0"/>
 </gates>
@@ -818,14 +816,12 @@ TS-003</description>
 <package3dinstance package3d_urn="urn:adsk.eagle:package:705652/8"/>
 </package3dinstances>
 <technologies>
-<technology name="">
-<attribute name="MOUSER_PART_NUMBER" value="568-NC3FAH" constant="no"/>
-</technology>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
 </deviceset>
-<deviceset name="RELAY_EE2-5NU" urn="urn:adsk.eagle:component:823803/16" locally_modified="yes" prefix="K" library_version="152" library_locally_modified="yes">
+<deviceset name="RELAY_EE2-5NU" urn="urn:adsk.eagle:component:823803/16" prefix="K" library_version="152">
 <description>&lt;b&gt;RELAY&lt;/b&gt;&lt;p&gt;
 SPST</description>
 <gates>
@@ -849,9 +845,7 @@ SPST</description>
 <package3dinstance package3d_urn="urn:adsk.eagle:package:823802/6"/>
 </package3dinstances>
 <technologies>
-<technology name="">
-<attribute name="MOUSER_PART_NUMBER" value="80-EE2-12NU" constant="no"/>
-</technology>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
@@ -908,7 +902,7 @@ SPST</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="OP275" urn="urn:adsk.eagle:component:705549/22" locally_modified="yes" prefix="IC" library_version="152" library_locally_modified="yes">
+<deviceset name="OP275" urn="urn:adsk.eagle:component:705549/22" prefix="IC" library_version="152">
 <description>&lt;b&gt;Dual Very Low Noise Precision Operational Amplifier&lt;/b&gt;&lt;p&gt;
 Source: http://www.analog.com/static/imported-files/data_sheets/OP270.pdf</description>
 <gates>
@@ -950,15 +944,12 @@ Source: http://www.analog.com/static/imported-files/data_sheets/OP270.pdf</descr
 <package3dinstance package3d_urn="urn:adsk.eagle:package:705548/2"/>
 </package3dinstances>
 <technologies>
-<technology name="">
-<attribute name="MOUSER_PART_NUMBER" value="584-OP275GSZ-R7" constant="no"/>
-</technology>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
 </deviceset>
-<deviceset name="NEUTRIK_NC3MAH" urn="urn:adsk.eagle:component:705586/21" locally_modified="yes" library_version="152" library_locally_modified="yes">
-<description>XLR Connectors Male</description>
+<deviceset name="NEUTRIK_NC3MAH" urn="urn:adsk.eagle:component:705586/21" library_version="152">
 <gates>
 <gate name="G$1" symbol="NEUTRIK_NC3MAH" x="-2.54" y="-2.54"/>
 </gates>
@@ -974,15 +965,12 @@ Source: http://www.analog.com/static/imported-files/data_sheets/OP270.pdf</descr
 <package3dinstance package3d_urn="urn:adsk.eagle:package:705585/5"/>
 </package3dinstances>
 <technologies>
-<technology name="">
-<attribute name="MOUSER_PART_NUMBER" value="568-NC3MAH" constant="no"/>
-</technology>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ULN2003" urn="urn:adsk.eagle:component:2524641/3" locally_modified="yes" library_version="152" library_locally_modified="yes">
-<description>Darlington Transistors DARLINGTON TRNS ARRY</description>
+<deviceset name="ULN2003" urn="urn:adsk.eagle:component:2524641/3" library_version="152">
 <gates>
 <gate name="A" symbol="ULN2003" x="0" y="-2.54"/>
 </gates>
@@ -1010,14 +998,12 @@ Source: http://www.analog.com/static/imported-files/data_sheets/OP270.pdf</descr
 <package3dinstance package3d_urn="urn:adsk.eagle:package:763982/3"/>
 </package3dinstances>
 <technologies>
-<technology name="">
-<attribute name="MOUSER_PART_NUMBER" value="863-ULN2003ADR2G" constant="no"/>
-</technology>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
 </deviceset>
-<deviceset name="LED" urn="urn:adsk.eagle:component:576431/38" locally_modified="yes" library_version="152" library_locally_modified="yes">
+<deviceset name="LED" urn="urn:adsk.eagle:component:576431/38" library_version="152">
 <description>LED</description>
 <gates>
 <gate name="G$1" symbol="LED" x="0" y="0"/>
@@ -1033,25 +1019,25 @@ Source: http://www.analog.com/static/imported-files/data_sheets/OP270.pdf</descr
 </package3dinstances>
 <technologies>
 <technology name="">
-<attribute name="MOUSER_PART_NUMBER" value="" constant="no"/>
+<attribute name="MOUSER_PART_NUMBER" value="as" constant="no"/>
 </technology>
 <technology name="_BLUE">
-<attribute name="MOUSER_PART_NUMBER" value="710-150060BS75000" constant="no"/>
+<attribute name="MOUSER_PART_NUMBER" value="asd" constant="no"/>
 </technology>
 <technology name="_GREEN">
-<attribute name="MOUSER_PART_NUMBER" value="710-150060VS75000" constant="no"/>
+<attribute name="MOUSER_PART_NUMBER" value="ad" constant="no"/>
 </technology>
 <technology name="_ORANGE">
-<attribute name="MOUSER_PART_NUMBER" value="720-KODELLS122A4850" constant="no"/>
+<attribute name="MOUSER_PART_NUMBER" value="addd" constant="no"/>
 </technology>
 <technology name="_RED">
-<attribute name="MOUSER_PART_NUMBER" value="710-150060SS75000" constant="no"/>
+<attribute name="MOUSER_PART_NUMBER" value="ddd" constant="no"/>
 </technology>
 <technology name="_WHITE">
-<attribute name="MOUSER_PART_NUMBER" value="720-KWDELPS2RAA6351" constant="no"/>
+<attribute name="MOUSER_PART_NUMBER" value="ddd" constant="no"/>
 </technology>
 <technology name="_YELOW">
-<attribute name="MOUSER_PART_NUMBER" value="710-150060YS75000" constant="no"/>
+<attribute name="MOUSER_PART_NUMBER" value="dsqfs" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -1101,8 +1087,7 @@ Source: http://www.analog.com/static/imported-files/data_sheets/OP270.pdf</descr
 </device>
 </devices>
 </deviceset>
-<deviceset name="TL072" urn="urn:adsk.eagle:component:823801/9" locally_modified="yes" library_version="152" library_locally_modified="yes">
-<description>Operational Amplifier</description>
+<deviceset name="TL072" urn="urn:adsk.eagle:component:823801/9" library_version="152">
 <gates>
 <gate name="G$1" symbol="OPAMP" x="-7.62" y="7.62"/>
 <gate name="G$2" symbol="OPAMP" x="17.78" y="7.62"/>
@@ -1124,9 +1109,7 @@ Source: http://www.analog.com/static/imported-files/data_sheets/OP270.pdf</descr
 <package3dinstance package3d_urn="urn:adsk.eagle:package:705548/2"/>
 </package3dinstances>
 <technologies>
-<technology name="">
-<attribute name="MOUSER_PART_NUMBER" value="595-TL072CDR" constant="no"/>
-</technology>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
@@ -1171,7 +1154,7 @@ Source: http://www.analog.com/static/imported-files/data_sheets/OP270.pdf</descr
 </device>
 </devices>
 </deviceset>
-<deviceset name="78**" urn="urn:adsk.eagle:component:763984/17" locally_modified="yes" library_version="152" library_locally_modified="yes">
+<deviceset name="78**" urn="urn:adsk.eagle:component:763984/17" library_version="152">
 <gates>
 <gate name="G$1" symbol="78XX" x="-7.62" y="5.08"/>
 </gates>
@@ -1186,9 +1169,7 @@ Source: http://www.analog.com/static/imported-files/data_sheets/OP270.pdf</descr
 <package3dinstance package3d_urn="urn:adsk.eagle:package:763981/2"/>
 </package3dinstances>
 <technologies>
-<technology name="">
-<attribute name="MOUSER_PART_NUMBER" value="513-NJM7812DL1A-TE1" constant="no"/>
-</technology>
+<technology name=""/>
 </technologies>
 </device>
 <device name="THT" package="78XXS_">
@@ -1206,7 +1187,7 @@ Source: http://www.analog.com/static/imported-files/data_sheets/OP270.pdf</descr
 </device>
 </devices>
 </deviceset>
-<deviceset name="BZT52C2V0T-7" urn="urn:adsk.eagle:component:16179618/3" locally_modified="yes" prefix="Z" library_version="152" library_locally_modified="yes">
+<deviceset name="BZT52C2V0T-7" urn="urn:adsk.eagle:component:16179618/3" prefix="Z" library_version="152">
 <description>&lt;b&gt;Diodes Inc BZT52C2V0T-7 Zener Diode, 2.4V 5% 300 mW SMT 2-Pin SOD-523&lt;/b&gt;&lt;p&gt;
 Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/BZT52C2V0T-7.pdf"&gt; Datasheet &lt;/a&gt;</description>
 <gates>
@@ -1223,7 +1204,12 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/BZT52C2V0T-7.
 </package3dinstances>
 <technologies>
 <technology name="">
+<attribute name="DESCRIPTION" value="Diodes Inc BZT52C2V0T-7 Zener Diode, 2.4V 5% 300 mW SMT 2-Pin SOD-523" constant="no"/>
+<attribute name="HEIGHT" value="0.65mm" constant="no"/>
+<attribute name="MANUFACTURER_NAME" value="Diodes Inc." constant="no"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="BZT52C2V0T-7" constant="no"/>
 <attribute name="MOUSER_PART_NUMBER" value="621-BZT52C2V0T-7" constant="no"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=621-BZT52C2V0T-7" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -1936,7 +1922,7 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <packageinstance name="WR-BHD2.54_10PIN"/>
 </packageinstances>
 </package3d>
-<package3d name="GWLEXSMTS988GY" urn="urn:adsk.eagle:package:16401347/2" type="model" library_version="9">
+<package3d name="GWLEXSMTS988GY" urn="urn:adsk.eagle:package:16401347/3" type="model" library_version="11">
 <description>&lt;b&gt;GWLEX-SMT-S988G/Y-2&lt;/b&gt;&lt;br&gt;</description>
 <packageinstances>
 <packageinstance name="GWLEXSMTS988GY"/>
@@ -2049,7 +2035,7 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 </device>
 </devices>
 </deviceset>
-<deviceset name="GWLEX-SMT-S988G_Y" urn="urn:adsk.eagle:component:16401348/3" prefix="J" library_version="9">
+<deviceset name="GWLEX-SMT-S988G_Y" urn="urn:adsk.eagle:component:16401348/4" prefix="J" library_version="11">
 <description>&lt;b&gt;SMT MODULAR JACK&lt;/b&gt;&lt;p&gt;
 Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/GWLEX-SMT-S988G_Y.pdf"&gt; Datasheet &lt;/a&gt;</description>
 <gates>
@@ -2074,7 +2060,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/GWLEX-SMT-S98
 <connect gate="G$1" pin="YELLOW_K" pad="9"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:16401347/2"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:16401347/3"/>
 </package3dinstances>
 <technologies>
 <technology name="">
@@ -2385,7 +2371,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/GWLEX-SMT-S98
 <packageinstance name="QFN50P400X400X100-25N"/>
 </packageinstances>
 </package3d>
-<package3d name="PTS647SN50SMTR2LFS" urn="urn:adsk.eagle:package:16342971/2" type="model" library_version="12">
+<package3d name="PTS647SN50SMTR2LFS" urn="urn:adsk.eagle:package:16342971/3" type="model" library_version="13">
 <description>&lt;b&gt;PTS647SN50SMTR2LFS-2&lt;/b&gt;&lt;br&gt;</description>
 <packageinstances>
 <packageinstance name="PTS647SN50SMTR2LFS"/>
@@ -2744,7 +2730,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/LAN8742A-CZ-T
 </device>
 </devices>
 </deviceset>
-<deviceset name="PTS647SN50SMTR2LFS" urn="urn:adsk.eagle:component:16342975/2" prefix="S" library_version="12">
+<deviceset name="PTS647SN50SMTR2LFS" urn="urn:adsk.eagle:component:16342975/3" prefix="S" library_version="13">
 <description>&lt;b&gt;Tactile Switches 50mA 12VDC, 1.0N 5.0mm H, G leads&lt;/b&gt;&lt;p&gt;
 Source: &lt;a href="https://www.ckswitches.com/media/2567/pts647.pdf"&gt; Datasheet &lt;/a&gt;</description>
 <gates>
@@ -2759,7 +2745,7 @@ Source: &lt;a href="https://www.ckswitches.com/media/2567/pts647.pdf"&gt; Datash
 <connect gate="G$1" pin="4" pad="4"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:16342971/2"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:16342971/3"/>
 </package3dinstances>
 <technologies>
 <technology name="">
@@ -3356,10 +3342,11 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/STM32F767ZIT6
 <part name="CON2" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" deviceset="PIN_HEADER_RIBBON" device="_10_PIN_SMD" package3d_urn="urn:adsk.eagle:package:568050/10"/>
 <part name="T1" library="NUCLEO_parts" library_urn="urn:adsk.eagle:library:16331511" deviceset="H1102NL" device="" package3d_urn="urn:adsk.eagle:package:16335605/2"/>
 <part name="IC6" library="NUCLEO_parts" library_urn="urn:adsk.eagle:library:16331511" deviceset="LAN8742A-CZ-TR" device="" package3d_urn="urn:adsk.eagle:package:16335618/2"/>
-<part name="S1" library="NUCLEO_parts" library_urn="urn:adsk.eagle:library:16331511" deviceset="PTS647SN50SMTR2LFS" device="" package3d_urn="urn:adsk.eagle:package:16342971/2"/>
+<part name="S1" library="NUCLEO_parts" library_urn="urn:adsk.eagle:library:16331511" deviceset="PTS647SN50SMTR2LFS" device="" package3d_urn="urn:adsk.eagle:package:16342971/3"/>
 <part name="IC10" library="NUCLEO_parts" library_urn="urn:adsk.eagle:library:16331511" deviceset="STM32F767ZIT6" device="" package3d_urn="urn:adsk.eagle:package:15917322/2"/>
 <part name="X1" library="NUCLEO_parts" library_urn="urn:adsk.eagle:library:16331511" deviceset="USB_B_CONNECTOR" device="" package3d_urn="urn:adsk.eagle:package:2524212/2"/>
-<part name="J1" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" deviceset="GWLEX-SMT-S988G_Y" device="" package3d_urn="urn:adsk.eagle:package:16401347/2"/>
+<part name="J1" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" deviceset="GWLEX-SMT-S988G_Y" device="" package3d_urn="urn:adsk.eagle:package:16401347/3"/>
+<part name="CON3" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" deviceset="PIN_HEADER_RIBBON" device="_10_PIN_SMD" package3d_urn="urn:adsk.eagle:package:568050/10"/>
 </parts>
 <sheets>
 <sheet>
@@ -6387,6 +6374,11 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/STM32F767ZIT6
 <instance part="J1" gate="G$1" x="78.74" y="81.28" smashed="yes">
 <attribute name="NAME" x="105.41" y="88.9" size="1.778" layer="95" align="center-left"/>
 <attribute name="VALUE" x="105.41" y="86.36" size="1.778" layer="96" align="center-left"/>
+</instance>
+<instance part="CON3" gate="G$1" x="45.72" y="20.32" smashed="yes">
+<attribute name="VALUE" x="17.78" y="25.4" size="1.778" layer="96" rot="R90"/>
+<attribute name="NAME" x="48.26" y="25.4" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="20.32" y="38.1" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>

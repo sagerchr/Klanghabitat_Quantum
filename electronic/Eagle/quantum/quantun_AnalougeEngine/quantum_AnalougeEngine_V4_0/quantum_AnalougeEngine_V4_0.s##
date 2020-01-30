@@ -3247,7 +3247,7 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <part name="R71" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="10k"/>
 <part name="R72" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="10k"/>
 <part name="R46" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="10k"/>
-<part name="R73" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="56k"/>
+<part name="R73" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="10k"/>
 <part name="R58" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="10k"/>
 <part name="R59" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="56k"/>
 <part name="R74" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="10k"/>
@@ -6840,6 +6840,27 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <pinref part="U1" gate="G$6" pin="PB5"/>
 <wire x1="205.74" y1="86.36" x2="185.42" y2="86.36" width="0.1524" layer="91"/>
 <label x="185.42" y="86.36" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="SWDIO" class="0">
+<segment>
+<pinref part="U1" gate="G$5" pin="PA13"/>
+<wire x1="129.54" y1="106.68" x2="114.3" y2="106.68" width="0.1524" layer="91"/>
+<label x="114.3" y="106.68" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="SWCLK" class="0">
+<segment>
+<pinref part="U1" gate="G$5" pin="PA14"/>
+<wire x1="129.54" y1="104.14" x2="114.3" y2="104.14" width="0.1524" layer="91"/>
+<label x="114.3" y="104.14" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="NRST" class="0">
+<segment>
+<pinref part="U1" gate="G$5" pin="RESET"/>
+<wire x1="160.02" y1="106.68" x2="175.26" y2="106.68" width="0.1524" layer="91"/>
+<label x="167.64" y="106.68" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
