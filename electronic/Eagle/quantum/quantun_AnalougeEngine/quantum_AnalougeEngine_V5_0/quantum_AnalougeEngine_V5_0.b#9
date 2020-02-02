@@ -1033,6 +1033,36 @@ body 3.9 mm/JEDEC MS-012AA</description>
 <wire x1="-0.375" y1="-1.462" x2="-0.375" y2="1.462" width="0.2" layer="21"/>
 <wire x1="-1.875" y1="1.6" x2="-0.725" y2="1.6" width="0.2" layer="21"/>
 </package>
+<package name="NX3215SA" urn="urn:adsk.eagle:footprint:16838712/1" library_version="15">
+<description>&lt;b&gt;NX3215SA&lt;/b&gt;&lt;br&gt;
+</description>
+<smd name="1" x="-1.25" y="0" dx="1.8" dy="1" layer="1" rot="R90"/>
+<smd name="2" x="1.25" y="0" dx="1.8" dy="1" layer="1" rot="R90"/>
+<text x="-0.323" y="0.061" size="1.27" layer="25" align="center">&gt;NAME</text>
+<text x="-0.323" y="0.061" size="1.27" layer="27" align="center">&gt;VALUE</text>
+<wire x1="-1.6" y1="0.75" x2="1.6" y2="0.75" width="0.254" layer="51"/>
+<wire x1="1.6" y1="0.75" x2="1.6" y2="-0.75" width="0.254" layer="51"/>
+<wire x1="1.6" y1="-0.75" x2="-1.6" y2="-0.75" width="0.254" layer="51"/>
+<wire x1="-1.6" y1="-0.75" x2="-1.6" y2="0.75" width="0.254" layer="51"/>
+<wire x1="-0.5" y1="-0.75" x2="0.5" y2="-0.75" width="0.254" layer="21"/>
+<wire x1="-0.5" y1="0.75" x2="0.5" y2="0.75" width="0.254" layer="21"/>
+</package>
+<package name="RESC3226X100N" urn="urn:adsk.eagle:footprint:16838713/1" library_version="15">
+<description>&lt;b&gt;2-SMD&lt;/b&gt;&lt;br&gt;
+</description>
+<smd name="1" x="-1.15" y="0" dx="2.65" dy="1.75" layer="1" rot="R90"/>
+<smd name="2" x="1.15" y="0" dx="2.65" dy="1.75" layer="1" rot="R90"/>
+<text x="0" y="0" size="1.27" layer="25" align="center">&gt;NAME</text>
+<text x="0" y="0" size="1.27" layer="27" align="center">&gt;VALUE</text>
+<wire x1="-2.275" y1="1.6" x2="2.275" y2="1.6" width="0.05" layer="51"/>
+<wire x1="2.275" y1="1.6" x2="2.275" y2="-1.6" width="0.05" layer="51"/>
+<wire x1="2.275" y1="-1.6" x2="-2.275" y2="-1.6" width="0.05" layer="51"/>
+<wire x1="-2.275" y1="-1.6" x2="-2.275" y2="1.6" width="0.05" layer="51"/>
+<wire x1="-1.625" y1="1.275" x2="1.625" y2="1.275" width="0.1" layer="51"/>
+<wire x1="1.625" y1="1.275" x2="1.625" y2="-1.275" width="0.1" layer="51"/>
+<wire x1="1.625" y1="-1.275" x2="-1.625" y2="-1.275" width="0.1" layer="51"/>
+<wire x1="-1.625" y1="-1.275" x2="-1.625" y2="1.275" width="0.1" layer="51"/>
+</package>
 </packages>
 <packages3d>
 <package3d name="PTS647SN50SMTR2LFS" urn="urn:adsk.eagle:package:16342971/3" type="model" library_version="13">
@@ -1069,6 +1099,18 @@ body 3.9 mm/JEDEC MS-012AA</description>
 <description>&lt;b&gt;SOT23-6L&lt;/b&gt;&lt;br&gt;</description>
 <packageinstances>
 <packageinstance name="SOT95P280X145-6N"/>
+</packageinstances>
+</package3d>
+<package3d name="NX3215SA" urn="urn:adsk.eagle:package:16838716/3" type="model" library_version="15">
+<description>&lt;b&gt;NX3215SA&lt;/b&gt;&lt;br&gt;</description>
+<packageinstances>
+<packageinstance name="NX3215SA"/>
+</packageinstances>
+</package3d>
+<package3d name="RESC3226X100N" urn="urn:adsk.eagle:package:16838717/2" type="model" library_version="15">
+<description>&lt;b&gt;2-SMD&lt;/b&gt;&lt;br&gt;</description>
+<packageinstances>
+<packageinstance name="RESC3226X100N"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -2175,6 +2217,42 @@ design rules under a new name.</description>
 <attribute name="NAME" x="1.3" y="-36.7" size="1.27" layer="25" align="center"/>
 <attribute name="VALUE" x="1.3" y="-36.7" size="1.27" layer="27" align="center"/>
 </element>
+<element name="Y1" library="NUCLEO_parts" library_urn="urn:adsk.eagle:library:16331511" package="NX3215SA" package3d_urn="urn:adsk.eagle:package:16838716/3" value="NX3215SA-32.768K-STD-MUA-8" x="-0.7" y="-39.8" smashed="yes">
+<attribute name="DESCRIPTION" value="Crsytal unit for OA/AV/Mobile communications/Automotive" x="-0.7" y="-39.8" size="1.778" layer="27" display="off"/>
+<attribute name="HEIGHT" value="mm" x="-0.7" y="-39.8" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURER_NAME" value="NDK" x="-0.7" y="-39.8" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="NX3215SA-32.768K-STD-MUA-8" x="-0.7" y="-39.8" size="1.778" layer="27" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="344-NX3215SA32768K8" x="-0.7" y="-39.8" size="1.778" layer="27" display="off"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=344-NX3215SA32768K8" x="-0.7" y="-39.8" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="-1.023" y="-39.739" size="1.27" layer="25" align="center"/>
+<attribute name="VALUE" x="-1.023" y="-39.739" size="1.27" layer="27" align="center"/>
+</element>
+<element name="Y2" library="NUCLEO_parts" library_urn="urn:adsk.eagle:library:16331511" package="RESC3226X100N" package3d_urn="urn:adsk.eagle:package:16838717/2" value="NX3225GD-8MHZ-STD-CRA-3" x="-11" y="-42.5" smashed="yes">
+<attribute name="DESCRIPTION" value="A small surface-mount type crystal unit, ideal for an engine control CPU clock; delivering the high reliability that is particularly demanded by automotive" x="-11" y="-42.5" size="1.778" layer="27" display="off"/>
+<attribute name="HEIGHT" value="1mm" x="-11" y="-42.5" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURER_NAME" value="NDK" x="-11" y="-42.5" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="NX3225GD-8MHZ-STD-CRA-3" x="-11" y="-42.5" size="1.778" layer="27" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="344-NX3225GD8MCRA3" x="-11" y="-42.5" size="1.778" layer="27" display="off"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=344-NX3225GD8MCRA3" x="-11" y="-42.5" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="-11" y="-42.5" size="1.27" layer="25" align="center"/>
+<attribute name="VALUE" x="-11" y="-42.5" size="1.27" layer="27" align="center"/>
+</element>
+<element name="C65" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="C0603" package3d_urn="urn:adsk.eagle:package:576738/3" value="2.7 pF" x="-22.5" y="-46.3" smashed="yes">
+<attribute name="NAME" x="-23.135" y="-45.665" size="1.016" layer="25"/>
+<attribute name="VALUE" x="-23.135" y="-48.205" size="1.016" layer="27"/>
+</element>
+<element name="C66" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="C0603" package3d_urn="urn:adsk.eagle:package:576738/3" value="2.7 pF" x="-22.5" y="-50.9" smashed="yes">
+<attribute name="NAME" x="-23.135" y="-50.265" size="1.016" layer="25"/>
+<attribute name="VALUE" x="-23.135" y="-52.805" size="1.016" layer="27"/>
+</element>
+<element name="C69" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="C0603" package3d_urn="urn:adsk.eagle:package:576738/3" value="4.3 pF" x="-22.5" y="-55.5" smashed="yes">
+<attribute name="NAME" x="-23.135" y="-54.865" size="1.016" layer="25"/>
+<attribute name="VALUE" x="-23.135" y="-57.405" size="1.016" layer="27"/>
+</element>
+<element name="C70" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="C0603" package3d_urn="urn:adsk.eagle:package:576738/3" value="4.3 pF" x="-22.5" y="-60.1" smashed="yes">
+<attribute name="NAME" x="-23.135" y="-59.465" size="1.016" layer="25"/>
+<attribute name="VALUE" x="-23.135" y="-62.005" size="1.016" layer="27"/>
+</element>
 </elements>
 <signals>
 <signal name="N$1">
@@ -2379,6 +2457,10 @@ design rules under a new name.</description>
 <contactref element="X1" pad="4"/>
 <contactref element="IC12" pad="2"/>
 <contactref element="IC12" pad="5"/>
+<contactref element="C66" pad="2"/>
+<contactref element="C65" pad="2"/>
+<contactref element="C70" pad="2"/>
+<contactref element="C69" pad="2"/>
 <wire x1="175.85" y1="51.7" x2="177.65" y2="67.09" width="0" layer="19" extent="1-1"/>
 <wire x1="174.15" y1="47.1" x2="175.85" y2="51.7" width="0" layer="19" extent="1-1"/>
 <wire x1="174.15" y1="42.2" x2="174.15" y2="47.1" width="0" layer="19" extent="1-1"/>
@@ -2495,6 +2577,10 @@ design rules under a new name.</description>
 <wire x1="14.1" y1="52.35" x2="17.465" y2="56.5" width="0" layer="19" extent="1-1"/>
 <wire x1="16.71" y1="61.82" x2="17.465" y2="56.5" width="0" layer="19" extent="1-1"/>
 <wire x1="17.5" y1="47.45" x2="14.1" y2="52.35" width="0" layer="19" extent="1-1"/>
+<wire x1="-21.65" y1="-46.3" x2="0" y2="-36.7" width="0" layer="19" extent="1-1"/>
+<wire x1="-21.65" y1="-50.9" x2="-21.65" y2="-46.3" width="0" layer="19" extent="1-1"/>
+<wire x1="-21.65" y1="-55.5" x2="-21.65" y2="-50.9" width="0" layer="19" extent="1-1"/>
+<wire x1="-21.65" y1="-60.1" x2="-21.65" y2="-55.5" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="V+">
 <contactref element="IN_RIGHT" pad="7"/>
@@ -3773,6 +3859,34 @@ design rules under a new name.</description>
 <contactref element="IC12" pad="6"/>
 <wire x1="168.238" y1="33.45" x2="180.15" y2="67.09" width="0" layer="19" extent="1-1"/>
 <wire x1="2.6" y1="-35.75" x2="168.238" y2="33.45" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="32.768KHZ_A">
+<contactref element="Y1" pad="1"/>
+<contactref element="C66" pad="1"/>
+<contactref element="IC10" pad="8"/>
+<wire x1="-1.95" y1="-39.8" x2="146.762" y2="31.95" width="0" layer="19" extent="1-1"/>
+<wire x1="-23.35" y1="-50.9" x2="-1.95" y2="-39.8" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="32.768KHZ_B">
+<contactref element="Y1" pad="2"/>
+<contactref element="C65" pad="1"/>
+<contactref element="IC10" pad="9"/>
+<wire x1="0.55" y1="-39.8" x2="146.762" y2="31.45" width="0" layer="19" extent="1-1"/>
+<wire x1="-23.35" y1="-46.3" x2="0.55" y2="-39.8" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="8MHZ_CRYSTAL_A">
+<contactref element="C70" pad="1"/>
+<contactref element="Y2" pad="1"/>
+<contactref element="IC10" pad="23"/>
+<wire x1="-12.15" y1="-42.5" x2="146.762" y2="24.45" width="0" layer="19" extent="1-1"/>
+<wire x1="-23.35" y1="-60.1" x2="-12.15" y2="-42.5" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="8MHZ_CRYSTAL_B">
+<contactref element="C69" pad="1"/>
+<contactref element="Y2" pad="2"/>
+<contactref element="IC10" pad="24"/>
+<wire x1="-9.85" y1="-42.5" x2="146.762" y2="23.95" width="0" layer="19" extent="1-1"/>
+<wire x1="-23.35" y1="-55.5" x2="-9.85" y2="-42.5" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 <mfgpreviewcolors>

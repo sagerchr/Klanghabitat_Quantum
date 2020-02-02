@@ -9491,8 +9491,8 @@ pair</text>
 </segment>
 <segment>
 <pinref part="J1" gate="G$1" pin="GREEN_A"/>
-<wire x1="228.6" y1="129.54" x2="243.84" y2="129.54" width="0.1524" layer="91"/>
-<label x="243.84" y="129.54" size="1.016" layer="95" xref="yes"/>
+<wire x1="228.6" y1="129.54" x2="246.38" y2="129.54" width="0.1524" layer="91"/>
+<label x="246.38" y="129.54" size="1.016" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="LED1" class="0">
@@ -9506,9 +9506,9 @@ pair</text>
 <wire x1="228.6" y1="134.62" x2="231.14" y2="134.62" width="0.1524" layer="91"/>
 <pinref part="R85" gate="G$1" pin="2"/>
 <wire x1="231.14" y1="134.62" x2="231.14" y2="101.6" width="0.1524" layer="91"/>
-<wire x1="231.14" y1="134.62" x2="243.84" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="231.14" y1="134.62" x2="246.38" y2="134.62" width="0.1524" layer="91"/>
 <junction x="231.14" y="134.62"/>
-<label x="243.84" y="134.62" size="1.016" layer="95" xref="yes"/>
+<label x="246.38" y="134.62" size="1.016" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="N$50" class="0">
@@ -9608,10 +9608,10 @@ pair</text>
 <net name="N$87" class="0">
 <segment>
 <pinref part="J1" gate="G$1" pin="8"/>
-<wire x1="228.6" y1="139.7" x2="248.92" y2="139.7" width="0.1524" layer="91"/>
-<wire x1="248.92" y1="139.7" x2="248.92" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="228.6" y1="139.7" x2="243.84" y2="139.7" width="0.1524" layer="91"/>
+<wire x1="243.84" y1="139.7" x2="243.84" y2="114.3" width="0.1524" layer="91"/>
 <pinref part="R88" gate="G$1" pin="2"/>
-<wire x1="248.92" y1="114.3" x2="195.58" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="243.84" y1="114.3" x2="195.58" y2="114.3" width="0.1524" layer="91"/>
 <wire x1="195.58" y1="114.3" x2="195.58" y2="104.14" width="0.1524" layer="91"/>
 </segment>
 </net>
