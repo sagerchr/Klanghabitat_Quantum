@@ -6029,17 +6029,17 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <instance part="K6" gate="3" x="162.56" y="73.66" smashed="yes" rot="R90">
 <attribute name="PART" x="162.56" y="76.2" size="1.778" layer="95" rot="R90"/>
 </instance>
-<instance part="K7" gate="2" x="193.04" y="129.54" smashed="yes" rot="R90">
-<attribute name="PART" x="193.04" y="132.08" size="1.778" layer="95" rot="R90"/>
+<instance part="K7" gate="2" x="195.58" y="63.5" smashed="yes" rot="R90">
+<attribute name="PART" x="195.58" y="66.04" size="1.778" layer="95" rot="R90"/>
 </instance>
-<instance part="K7" gate="3" x="198.12" y="142.24" smashed="yes">
-<attribute name="PART" x="200.66" y="142.24" size="1.778" layer="95"/>
+<instance part="K7" gate="3" x="198.12" y="45.72" smashed="yes">
+<attribute name="PART" x="200.66" y="45.72" size="1.778" layer="95"/>
 </instance>
-<instance part="K8" gate="2" x="193.04" y="63.5" smashed="yes" rot="R90">
-<attribute name="PART" x="193.04" y="66.04" size="1.778" layer="95" rot="R90"/>
+<instance part="K8" gate="2" x="195.58" y="129.54" smashed="yes" rot="R90">
+<attribute name="PART" x="195.58" y="132.08" size="1.778" layer="95" rot="R90"/>
 </instance>
-<instance part="K8" gate="3" x="198.12" y="48.26" smashed="yes">
-<attribute name="PART" x="200.66" y="48.26" size="1.778" layer="95"/>
+<instance part="K8" gate="3" x="198.12" y="144.78" smashed="yes">
+<attribute name="PART" x="200.66" y="144.78" size="1.778" layer="95"/>
 </instance>
 <instance part="IC1" gate="A" x="76.2" y="119.38" smashed="yes">
 <attribute name="NAME" x="78.74" y="122.555" size="1.778" layer="95"/>
@@ -6252,40 +6252,26 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <net name="N$5" class="0">
 <segment>
 <pinref part="K6" gate="2" pin="P"/>
-<pinref part="K7" gate="2" pin="O"/>
 <wire x1="167.64" y1="139.7" x2="172.72" y2="139.7" width="0.1524" layer="91"/>
-<wire x1="172.72" y1="139.7" x2="187.96" y2="139.7" width="0.1524" layer="91"/>
-<wire x1="187.96" y1="139.7" x2="187.96" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="172.72" y1="139.7" x2="190.5" y2="139.7" width="0.1524" layer="91"/>
 <wire x1="172.72" y1="139.7" x2="172.72" y2="53.34" width="0.1524" layer="91"/>
-<wire x1="172.72" y1="53.34" x2="187.96" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="172.72" y1="53.34" x2="190.5" y2="53.34" width="0.1524" layer="91"/>
 <junction x="172.72" y="139.7"/>
-<pinref part="K8" gate="2" pin="S"/>
-<wire x1="187.96" y1="53.34" x2="187.96" y2="58.42" width="0.1524" layer="91"/>
+<pinref part="K7" gate="2" pin="S"/>
+<wire x1="190.5" y1="58.42" x2="190.5" y2="53.34" width="0.1524" layer="91"/>
+<pinref part="K8" gate="2" pin="O"/>
+<wire x1="190.5" y1="139.7" x2="190.5" y2="134.62" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$19" class="0">
 <segment>
 <pinref part="K6" gate="3" pin="P"/>
-<pinref part="K8" gate="2" pin="O"/>
-<wire x1="165.1" y1="73.66" x2="187.96" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="187.96" y1="73.66" x2="187.96" y2="68.58" width="0.1524" layer="91"/>
-<pinref part="K7" gate="2" pin="S"/>
-<wire x1="187.96" y1="124.46" x2="187.96" y2="73.66" width="0.1524" layer="91"/>
-<junction x="187.96" y="73.66"/>
-</segment>
-</net>
-<net name="OUT_R/S" class="0">
-<segment>
-<pinref part="K8" gate="2" pin="P"/>
-<wire x1="195.58" y1="63.5" x2="205.74" y2="63.5" width="0.1524" layer="91"/>
-<label x="200.66" y="63.5" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="OUT_L/M" class="0">
-<segment>
-<pinref part="K7" gate="2" pin="P"/>
-<wire x1="195.58" y1="129.54" x2="205.74" y2="129.54" width="0.1524" layer="91"/>
-<label x="200.66" y="129.54" size="1.778" layer="95"/>
+<wire x1="165.1" y1="73.66" x2="190.5" y2="73.66" width="0.1524" layer="91"/>
+<pinref part="K7" gate="2" pin="O"/>
+<wire x1="190.5" y1="73.66" x2="190.5" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="K8" gate="2" pin="S"/>
+<wire x1="190.5" y1="124.46" x2="190.5" y2="73.66" width="0.1524" layer="91"/>
+<junction x="190.5" y="73.66"/>
 </segment>
 </net>
 <net name="L/M_OUT(OUT_STAGE_LEFT)" class="0">
@@ -6312,6 +6298,20 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <wire x1="63.5" y1="86.36" x2="157.48" y2="86.36" width="0.1524" layer="91"/>
 <wire x1="157.48" y1="86.36" x2="157.48" y2="78.74" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="B" pin="+IN"/>
+</segment>
+</net>
+<net name="OUT_L/M" class="0">
+<segment>
+<pinref part="K8" gate="2" pin="P"/>
+<wire x1="198.12" y1="129.54" x2="213.36" y2="129.54" width="0.1524" layer="91"/>
+<label x="203.2" y="129.54" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="OUT_R/S" class="0">
+<segment>
+<pinref part="K7" gate="2" pin="P"/>
+<wire x1="198.12" y1="63.5" x2="210.82" y2="63.5" width="0.1524" layer="91"/>
+<label x="200.66" y="63.5" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>

@@ -77,10 +77,14 @@ char UART_IN[10];
 		 //=========================================================================//
 
 
-		 if (match("/MotherEngine/VCA1/offset")){DAC_Control(1,2,OSC_SIGNEDINTEGER);}
-		 if (match("/MotherEngine/VCA2/offset")){DAC_Control(2,2,OSC_SIGNEDINTEGER);}
+		 //if (match("/MotherEngine/VCA1/offset")){DAC_Control(1,2,OSC_SIGNEDINTEGER);}
+		// if (match("/MotherEngine/VCA2/offset")){DAC_Control(2,2,OSC_SIGNEDINTEGER);}
 
+		 DAC_Control(3,2,UART_recive[2]);
+		 DAC_Control(4,2,UART_recive[4]);
 
+		  DAC_Control(1,2,36); //offset VCA1
+		  DAC_Control(2,2,23); //offset VCA2
 
 
 		OSCmessageINTSend("/VALUE/Level/CH1/RMS",  20, voltageRMS[0]*30);

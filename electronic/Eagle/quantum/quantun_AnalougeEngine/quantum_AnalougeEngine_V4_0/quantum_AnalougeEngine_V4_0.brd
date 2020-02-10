@@ -3,7 +3,7 @@
 <eagle version="9.5.2">
 <drawing>
 <settings>
-<setting alwaysvectorfont="yes"/>
+<setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="0.1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
@@ -5056,6 +5056,12 @@ design rules under a new name.</description>
 <vertex x="174.4" y="109.2"/>
 <vertex x="174.4" y="-2.6"/>
 </polygon>
+</signal>
+<signal name="SWCLK">
+<contactref element="U1" pad="CN11_15"/>
+</signal>
+<signal name="SWDIO">
+<contactref element="U1" pad="CN11_13"/>
 </signal>
 </signals>
 <mfgpreviewcolors>

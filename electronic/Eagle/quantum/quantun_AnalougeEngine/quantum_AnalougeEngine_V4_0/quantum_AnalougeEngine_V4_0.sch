@@ -6842,6 +6842,20 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <label x="185.42" y="86.36" size="1.778" layer="95"/>
 </segment>
 </net>
+<net name="SWCLK" class="0">
+<segment>
+<pinref part="U1" gate="G$5" pin="PA14"/>
+<wire x1="129.54" y1="104.14" x2="114.3" y2="104.14" width="0.1524" layer="91"/>
+<label x="114.3" y="104.14" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="SWDIO" class="0">
+<segment>
+<pinref part="U1" gate="G$5" pin="PA13"/>
+<wire x1="129.54" y1="106.68" x2="114.3" y2="106.68" width="0.1524" layer="91"/>
+<label x="114.3" y="106.68" size="1.778" layer="95"/>
+</segment>
+</net>
 </nets>
 </sheet>
 <sheet>

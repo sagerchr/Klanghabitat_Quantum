@@ -272,7 +272,7 @@ void TIM7_IRQHandler(void)
 
 
 
-  RingIn1[indexer] = analogIN[0];
+   RingIn1[indexer] = analogIN[0];
   voltRingIn1[indexer] = RingIn1[indexer]*10.0/32767;
   if (voltRingIn1[indexer]<0){volt = voltRingIn1[indexer]*(-1.0);}
   else {volt = voltRingIn1[indexer];}
