@@ -2034,10 +2034,10 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 </library>
 <library name="electro_mechanical" urn="urn:adsk.eagle:library:16388331">
 <packages>
-<package name="MOLEX_90814-0204" urn="urn:adsk.eagle:footprint:16762550/1" library_version="13">
+<package name="MOLEX_90814-0204" urn="urn:adsk.eagle:footprint:16762550/2" library_version="17">
 <description>&lt;b&gt;MOLEX_90814-0204&lt;/b&gt;&lt;br&gt;
 </description>
-<smd name="1" x="0" y="0" dx="2.0066" dy="1.1938" layer="1" rot="R90"/>
+<smd name="1" x="0.127" y="0" dx="2.0066" dy="1.1938" layer="1" rot="R90"/>
 <smd name="2" x="1.27" y="5.9944" dx="2.0066" dy="1.1938" layer="1" rot="R90"/>
 <smd name="3" x="2.54" y="0" dx="2.0066" dy="1.1938" layer="1" rot="R90"/>
 <smd name="4" x="3.81" y="5.9944" dx="2.0066" dy="1.1938" layer="1" rot="R90"/>
@@ -2061,7 +2061,7 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <wire x1="0.3048" y1="-1.9304" x2="-0.4572" y2="-1.9304" width="0.508" layer="51" curve="-180"/>
 <wire x1="-0.4572" y1="-1.9304" x2="0.3048" y2="-1.9304" width="0.508" layer="51" curve="-180"/>
 </package>
-<package name="GWLEXSMTS988GY" urn="urn:adsk.eagle:footprint:16401345/1" library_version="9">
+<package name="GWLEXSMTS988GY" urn="urn:adsk.eagle:footprint:16401345/2" library_version="16">
 <description>&lt;b&gt;GWLEX-SMT-S988G/Y-2&lt;/b&gt;&lt;br&gt;
 </description>
 <smd name="1" x="3.57" y="7.05" dx="4.3" dy="0.61" layer="1" rot="R90"/>
@@ -2076,8 +2076,8 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <smd name="10" x="5.74" y="7.95" dx="2.5" dy="0.7" layer="1" rot="R90"/>
 <smd name="11" x="-5.74" y="7.95" dx="2.5" dy="0.7" layer="1" rot="R90"/>
 <smd name="12" x="-6.95" y="7.95" dx="2.5" dy="0.7" layer="1" rot="R90"/>
-<smd name="MP1" x="-8.95" y="-2.3" dx="3.6" dy="2.5" layer="1" rot="R90"/>
-<smd name="MP2" x="8.95" y="-2.3" dx="3.6" dy="2.5" layer="1" rot="R90"/>
+<smd name="MP1" x="-9.204" y="-2.3" dx="3.6" dy="2.032" layer="1" rot="R90"/>
+<smd name="MP2" x="9.204" y="-2.3" dx="3.6" dy="2.032" layer="1" rot="R90"/>
 <hole x="-6.35" y="-2.55" drill="3.25"/>
 <hole x="6.35" y="-2.55" drill="3.25"/>
 <text x="0" y="0.625" size="1.27" layer="25" align="center">&gt;NAME</text>
@@ -2097,20 +2097,18 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 <wire x1="-8.225" y1="-5" x2="-8.225" y2="-7.95" width="0.1" layer="21"/>
 <wire x1="-8.225" y1="-7.95" x2="8.225" y2="-7.95" width="0.1" layer="21"/>
 <wire x1="8.225" y1="-7.95" x2="8.225" y2="-5" width="0.1" layer="21"/>
-<wire x1="3.6" y1="9.6" x2="3.6" y2="9.6" width="0.2" layer="21"/>
 <wire x1="3.6" y1="9.6" x2="3.6" y2="9.8" width="0.2" layer="21" curve="180"/>
-<wire x1="3.6" y1="9.8" x2="3.6" y2="9.8" width="0.2" layer="21"/>
 <wire x1="3.6" y1="9.8" x2="3.6" y2="9.6" width="0.2" layer="21" curve="180"/>
 </package>
 </packages>
 <packages3d>
-<package3d name="MOLEX_90814-0204" urn="urn:adsk.eagle:package:16762552/2" type="model" library_version="13">
+<package3d name="MOLEX_90814-0204" urn="urn:adsk.eagle:package:16762552/3" type="model" library_version="17">
 <description>&lt;b&gt;MOLEX_90814-0204&lt;/b&gt;&lt;br&gt;</description>
 <packageinstances>
 <packageinstance name="MOLEX_90814-0204"/>
 </packageinstances>
 </package3d>
-<package3d name="GWLEXSMTS988GY" urn="urn:adsk.eagle:package:16401347/3" type="model" library_version="11">
+<package3d name="GWLEXSMTS988GY" urn="urn:adsk.eagle:package:16401347/4" type="model" library_version="16">
 <description>&lt;b&gt;GWLEX-SMT-S988G/Y-2&lt;/b&gt;&lt;br&gt;</description>
 <packageinstances>
 <packageinstance name="GWLEXSMTS988GY"/>
@@ -2158,7 +2156,7 @@ Source: &lt;a href="http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="90814-0204" urn="urn:adsk.eagle:component:16762553/2" prefix="J" library_version="13">
+<deviceset name="90814-0204" urn="urn:adsk.eagle:component:16762553/3" prefix="J" library_version="17">
 <description>&lt;b&gt;CONN HEADER 4POS 1.27MM SMD TIN&lt;/b&gt;&lt;p&gt;
 Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/90814-0204.pdf"&gt; Datasheet &lt;/a&gt;</description>
 <gates>
@@ -2173,7 +2171,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/90814-0204.pd
 <connect gate="G$1" pin="4" pad="4"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:16762552/2"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:16762552/3"/>
 </package3dinstances>
 <technologies>
 <technology name="">
@@ -2188,7 +2186,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/90814-0204.pd
 </device>
 </devices>
 </deviceset>
-<deviceset name="GWLEX-SMT-S988G_Y" urn="urn:adsk.eagle:component:16401348/4" prefix="J" library_version="11">
+<deviceset name="GWLEX-SMT-S988G_Y" urn="urn:adsk.eagle:component:16401348/5" prefix="J" library_version="16">
 <description>&lt;b&gt;SMT MODULAR JACK&lt;/b&gt;&lt;p&gt;
 Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/GWLEX-SMT-S988G_Y.pdf"&gt; Datasheet &lt;/a&gt;</description>
 <gates>
@@ -2213,7 +2211,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/GWLEX-SMT-S98
 <connect gate="G$1" pin="YELLOW_K" pad="9"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:16401347/3"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:16401347/4"/>
 </package3dinstances>
 <technologies>
 <technology name="">
@@ -4005,12 +4003,12 @@ waterclear,Size: 0603,</description>
 <part name="C32" library="passive components" library_urn="urn:adsk.eagle:library:16365137" deviceset="CAPACITOR" device="_1206" package3d_urn="urn:adsk.eagle:package:16431717/2" value="10 uF"/>
 <part name="C33" library="passive components" library_urn="urn:adsk.eagle:library:16365137" deviceset="CAPACITOR" device="_1206" package3d_urn="urn:adsk.eagle:package:16431717/2" value="10 uF"/>
 <part name="C34" library="passive components" library_urn="urn:adsk.eagle:library:16365137" deviceset="CAPACITOR" device="_1206" package3d_urn="urn:adsk.eagle:package:16431717/2" value="10 uF"/>
-<part name="ANALOG_VOLT" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" deviceset="90814-0204" device="" package3d_urn="urn:adsk.eagle:package:16762552/2"/>
-<part name="PROG." library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" deviceset="90814-0204" device="" package3d_urn="urn:adsk.eagle:package:16762552/2"/>
+<part name="ANALOG_VOLT" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" deviceset="90814-0204" device="" package3d_urn="urn:adsk.eagle:package:16762552/3"/>
+<part name="PROG." library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" deviceset="90814-0204" device="" package3d_urn="urn:adsk.eagle:package:16762552/3"/>
 <part name="FRAME11" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="A4L-LOC" device=""/>
 <part name="T1" library="NUCLEO_parts" library_urn="urn:adsk.eagle:library:16331511" deviceset="H1102NL" device="" package3d_urn="urn:adsk.eagle:package:16335605/2"/>
 <part name="IC6" library="NUCLEO_parts" library_urn="urn:adsk.eagle:library:16331511" deviceset="LAN8742A-CZ-TR" device="" package3d_urn="urn:adsk.eagle:package:16335618/2"/>
-<part name="J1" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" deviceset="GWLEX-SMT-S988G_Y" device="" package3d_urn="urn:adsk.eagle:package:16401347/3"/>
+<part name="J1" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" deviceset="GWLEX-SMT-S988G_Y" device="" package3d_urn="urn:adsk.eagle:package:16401347/4"/>
 <part name="FRAME1" library="frames" library_urn="urn:adsk.eagle:library:229" deviceset="RAHMEN3Q" device=""/>
 <part name="AGND88" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="AGND" device=""/>
 <part name="R78" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="10 k"/>
@@ -4026,7 +4024,7 @@ waterclear,Size: 0603,</description>
 <part name="LD3" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="LED" device="_SMD" package3d_urn="urn:adsk.eagle:package:576430/2" technology="_BLUE" value="LED_BLUE_SMD"/>
 <part name="R13" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="680R"/>
 <part name="AGND26" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="AGND" device=""/>
-<part name="DIGITAL_VOLT" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" deviceset="90814-0204" device="" package3d_urn="urn:adsk.eagle:package:16762552/2"/>
+<part name="DIGITAL_VOLT" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" deviceset="90814-0204" device="" package3d_urn="urn:adsk.eagle:package:16762552/3"/>
 <part name="P+2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="V+" device="" value="+15V"/>
 <part name="P-4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="V-" device="" value="-15V"/>
 <part name="AGND23" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="AGND" device=""/>
@@ -4203,7 +4201,7 @@ waterclear,Size: 0603,</description>
 <part name="R91" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="RESISTOR" device="" package3d_urn="urn:adsk.eagle:package:2453259/2" value="0 R"/>
 <part name="C102" library="passive components" library_urn="urn:adsk.eagle:library:16365137" deviceset="CAPACITOR" device="_1206" package3d_urn="urn:adsk.eagle:package:16431717/2" value="10 uF"/>
 <part name="C67" library="passive components" library_urn="urn:adsk.eagle:library:16365137" deviceset="CAPACITOR" device="_1206" package3d_urn="urn:adsk.eagle:package:16431717/2" value="10 uF"/>
-<part name="DISPLAY" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" deviceset="90814-0204" device="" package3d_urn="urn:adsk.eagle:package:16762552/2"/>
+<part name="DISPLAY" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" deviceset="90814-0204" device="" package3d_urn="urn:adsk.eagle:package:16762552/3"/>
 <part name="AGND119" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="AGND" device=""/>
 <part name="SUPPLY10" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="+12V" device=""/>
 <part name="IC16" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="OP275" device="" package3d_urn="urn:adsk.eagle:package:705548/2"/>
@@ -4411,9 +4409,13 @@ control LEDs</text>
 <pinref part="ANALOG_VOLT" gate="G$1" pin="3"/>
 <wire x1="144.78" y1="88.9" x2="147.32" y2="88.9" width="0.1524" layer="91"/>
 <label x="147.32" y="88.9" size="1.016" layer="95" xref="yes"/>
-<wire x1="147.32" y1="88.9" x2="147.32" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="88.9" x2="147.32" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="86.36" x2="147.32" y2="78.74" width="0.1524" layer="91"/>
 <wire x1="147.32" y1="78.74" x2="190.5" y2="78.74" width="0.1524" layer="91"/>
 <pinref part="R16" gate="G$1" pin="1"/>
+<pinref part="ANALOG_VOLT" gate="G$1" pin="4"/>
+<wire x1="144.78" y1="86.36" x2="147.32" y2="86.36" width="0.1524" layer="91"/>
+<junction x="147.32" y="86.36"/>
 </segment>
 </net>
 <net name="AGND" class="0">
@@ -7544,7 +7546,7 @@ pair</text>
 <wire x1="325.12" y1="162.56" x2="386.08" y2="162.56" width="0.1524" layer="94" style="dashdot"/>
 <wire x1="386.08" y1="162.56" x2="386.08" y2="193.04" width="0.1524" layer="94" style="dashdot"/>
 <wire x1="386.08" y1="193.04" x2="325.12" y2="193.04" width="0.1524" layer="94" style="dashdot"/>
-<text x="332.74" y="185.42" size="6.4516" layer="94">prg.adapter</text>
+<text x="325.12" y="185.42" size="6.4516" layer="94">display adapter</text>
 </plain>
 <instances>
 <instance part="S1" gate="G$1" x="40.64" y="106.68" smashed="yes" rot="R270">
@@ -8811,7 +8813,7 @@ pair</text>
 <sheet>
 <description>Ethernet PHY</description>
 <plain>
-<text x="2.54" y="165.1" size="7.62" layer="97">Ethernet PHY</text>
+<text x="5.08" y="165.1" size="7.62" layer="97">Ethernet PHY</text>
 <text x="131.318" y="122.174" size="1.778" layer="94">diff
 pair</text>
 <circle x="134.112" y="123.952" radius="5.08" width="0.1524" layer="94"/>
