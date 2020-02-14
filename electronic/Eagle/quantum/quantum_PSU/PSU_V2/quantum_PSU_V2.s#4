@@ -393,10 +393,10 @@ TS-003</description>
 <text x="-1.1" y="-2.3" size="1.27" layer="27">&gt;VALUE</text>
 <rectangle x1="-0.7" y1="-0.7" x2="-0.5" y2="0.7" layer="51"/>
 </package>
-<package name="DIODE_THT_STANDING" urn="urn:adsk.eagle:footprint:2094189/3" locally_modified="yes" library_version="24" library_locally_modified="yes">
+<package name="DIODE_THT_STANDING" urn="urn:adsk.eagle:footprint:2094189/3" library_version="24">
 <description>&lt;b&gt;DIODE&lt;/b&gt;</description>
-<pad name="A" x="0" y="0" drill="1" diameter="1.778" shape="octagon"/>
-<pad name="C" x="-2.54" y="0" drill="1" diameter="1.778" shape="octagon"/>
+<pad name="A" x="0" y="0" drill="0.8128" shape="octagon"/>
+<pad name="C" x="-2.54" y="0" drill="0.8128" shape="octagon"/>
 <text x="-4.445" y="1.27" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-1.905" y="-2.54" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 <rectangle x1="-4.191" y1="-0.889" x2="-3.683" y2="0.889" layer="21"/>
@@ -568,7 +568,7 @@ TS-003</description>
 <packageinstance name="SOD323-R"/>
 </packageinstances>
 </package3d>
-<package3d name="D-5" urn="urn:adsk.eagle:package:2094195/5" type="model" library_version="24" library_locally_modified="yes">
+<package3d name="D-5" urn="urn:adsk.eagle:package:2094195/5" type="model" library_version="24">
 <description>&lt;b&gt;DIODE&lt;/b&gt;</description>
 <packageinstances>
 <packageinstance name="DIODE_THT_STANDING"/>
@@ -944,7 +944,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/KBP308G.pdf"&
 </device>
 </devices>
 </deviceset>
-<deviceset name="DIODE" urn="urn:adsk.eagle:component:16365147/4" prefix="D" library_version="24" library_locally_modified="yes">
+<deviceset name="DIODE" urn="urn:adsk.eagle:component:16365147/4" prefix="D" library_version="24">
 <description>Standard 4148 Diode SOD323 Format</description>
 <gates>
 <gate name="G$1" symbol="DIODE" x="0" y="0"/>

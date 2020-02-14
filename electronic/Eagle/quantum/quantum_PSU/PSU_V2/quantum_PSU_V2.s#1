@@ -1781,13 +1781,6 @@ In this library the device names are the same as the pin names of the symbols, t
 <wire x1="27.94" y1="121.92" x2="35.56" y2="121.92" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$1" class="0">
-<segment>
-<pinref part="TRANSFORMATOR2" gate="G$1" pin="P$7"/>
-<pinref part="BR2" gate="G$1" pin="~_1"/>
-<wire x1="78.74" y1="119.38" x2="109.22" y2="119.38" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="+12V_OUT" class="0">
 <segment>
 <pinref part="D3" gate="G$1" pin="A"/>
@@ -2011,8 +2004,6 @@ In this library the device names are the same as the pin names of the symbols, t
 <segment>
 <pinref part="TRANSFORMATOR2" gate="G$1" pin="P$8"/>
 <wire x1="96.52" y1="111.76" x2="78.74" y2="111.76" width="0.1524" layer="91"/>
-<pinref part="BR2" gate="G$1" pin="~_2"/>
-<wire x1="96.52" y1="116.84" x2="109.22" y2="116.84" width="0.1524" layer="91"/>
 <wire x1="96.52" y1="111.76" x2="96.52" y2="116.84" width="0.1524" layer="91"/>
 </segment>
 </net>
