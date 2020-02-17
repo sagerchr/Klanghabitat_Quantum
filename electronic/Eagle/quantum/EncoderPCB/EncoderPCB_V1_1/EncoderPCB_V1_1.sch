@@ -796,10 +796,10 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/STM32F031K6T6
 </library>
 <library name="electro_mechanical" urn="urn:adsk.eagle:library:16388331">
 <packages>
-<package name="MOLEX_90814-0204" urn="urn:adsk.eagle:footprint:16762550/2" library_version="19">
+<package name="MOLEX_90814-0204" urn="urn:adsk.eagle:footprint:16762550/2" locally_modified="yes" library_version="19" library_locally_modified="yes">
 <description>&lt;b&gt;MOLEX_90814-0204&lt;/b&gt;&lt;br&gt;
 </description>
-<smd name="1" x="0.127" y="0" dx="2.0066" dy="1.1938" layer="1" rot="R90"/>
+<smd name="1" x="0.254" y="0" dx="2.0066" dy="1.1938" layer="1" rot="R90"/>
 <smd name="2" x="1.27" y="5.9944" dx="2.0066" dy="1.1938" layer="1" rot="R90"/>
 <smd name="3" x="2.54" y="0" dx="2.0066" dy="1.1938" layer="1" rot="R90"/>
 <smd name="4" x="3.81" y="5.9944" dx="2.0066" dy="1.1938" layer="1" rot="R90"/>
@@ -825,7 +825,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/STM32F031K6T6
 </package>
 </packages>
 <packages3d>
-<package3d name="MOLEX_90814-0204" urn="urn:adsk.eagle:package:16762552/3" type="model" library_version="19">
+<package3d name="MOLEX_90814-0204" urn="urn:adsk.eagle:package:16762552/3" type="model" library_version="19" library_locally_modified="yes">
 <description>&lt;b&gt;MOLEX_90814-0204&lt;/b&gt;&lt;br&gt;</description>
 <packageinstances>
 <packageinstance name="MOLEX_90814-0204"/>
@@ -847,7 +847,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/STM32F031K6T6
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="90814-0204" urn="urn:adsk.eagle:component:16762553/3" prefix="J" library_version="19">
+<deviceset name="90814-0204" urn="urn:adsk.eagle:component:16762553/3" prefix="J" library_version="19" library_locally_modified="yes">
 <description>&lt;b&gt;CONN HEADER 4POS 1.27MM SMD TIN&lt;/b&gt;&lt;p&gt;
 Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/90814-0204.pdf"&gt; Datasheet &lt;/a&gt;</description>
 <gates>
@@ -891,7 +891,6 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/90814-0204.pd
 <parts>
 <part name="S1" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="PEL12T-4225S-S1024" device="" package3d_urn="urn:adsk.eagle:package:15670448/3"/>
 <part name="C3" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="CAPACITOR" device="&quot;" package3d_urn="urn:adsk.eagle:package:576738/3" value="100nF"/>
-<part name="C4" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="CAPACITOR" device="&quot;" package3d_urn="urn:adsk.eagle:package:576738/3" value="100nF"/>
 <part name="GND6" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="+3V1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="R1" library="passive components" library_urn="urn:adsk.eagle:library:16365137" deviceset="RESISTOR" device="_0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="10k"/>
@@ -915,7 +914,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/90814-0204.pd
 <part name="+3V3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="C1" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="CAPACITOR" device="&quot;" package3d_urn="urn:adsk.eagle:package:576738/3" value="100nF"/>
 <part name="C2" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="CAPACITOR" device="&quot;" package3d_urn="urn:adsk.eagle:package:576738/3" value="100nF"/>
-<part name="C5" library="passive components" library_urn="urn:adsk.eagle:library:16365137" deviceset="CAPACITOR" device="_0603" package3d_urn="urn:adsk.eagle:package:576738/3"/>
+<part name="C4" library="passive components" library_urn="urn:adsk.eagle:library:16365137" deviceset="CAPACITOR" device="_1206" package3d_urn="urn:adsk.eagle:package:16431717/2" value="10 uF"/>
 <part name="I2C-CONN" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" deviceset="90814-0204" device="" package3d_urn="urn:adsk.eagle:package:16762552/3"/>
 <part name="GND1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="+3V4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
@@ -931,19 +930,15 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/90814-0204.pd
 <attribute name="NAME" x="130.81" y="20.32" size="1.778" layer="95" align="center-left"/>
 <attribute name="VALUE" x="130.81" y="17.78" size="1.778" layer="96" align="center-left"/>
 </instance>
-<instance part="C3" gate="G$1" x="83.82" y="83.82" smashed="yes">
-<attribute name="NAME" x="85.344" y="84.201" size="1.778" layer="95"/>
-<attribute name="VALUE" x="85.344" y="79.121" size="1.778" layer="96"/>
+<instance part="C3" gate="G$1" x="99.06" y="83.82" smashed="yes">
+<attribute name="NAME" x="100.584" y="84.201" size="1.778" layer="95"/>
+<attribute name="VALUE" x="100.584" y="79.121" size="1.778" layer="96"/>
 </instance>
-<instance part="C4" gate="G$1" x="96.52" y="83.82" smashed="yes">
-<attribute name="NAME" x="98.044" y="84.201" size="1.778" layer="95"/>
-<attribute name="VALUE" x="98.044" y="79.121" size="1.778" layer="96"/>
+<instance part="GND6" gate="1" x="99.06" y="68.58" smashed="yes">
+<attribute name="VALUE" x="96.52" y="66.04" size="1.778" layer="96"/>
 </instance>
-<instance part="GND6" gate="1" x="96.52" y="68.58" smashed="yes">
-<attribute name="VALUE" x="93.98" y="66.04" size="1.778" layer="96"/>
-</instance>
-<instance part="+3V1" gate="G$1" x="96.52" y="109.22" smashed="yes">
-<attribute name="VALUE" x="93.98" y="104.14" size="1.778" layer="96" rot="R90"/>
+<instance part="+3V1" gate="G$1" x="99.06" y="109.22" smashed="yes">
+<attribute name="VALUE" x="96.52" y="104.14" size="1.778" layer="96" rot="R90"/>
 </instance>
 <instance part="R1" gate="G$1" x="142.24" y="93.98" smashed="yes">
 <attribute name="NAME" x="145.542" y="94.4626" size="1.778" layer="95"/>
@@ -1012,15 +1007,15 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/90814-0204.pd
 <instance part="+3V3" gate="G$1" x="226.06" y="86.36" smashed="yes">
 <attribute name="VALUE" x="223.52" y="81.28" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="C1" gate="G$1" x="60.96" y="83.82" smashed="yes">
-<attribute name="NAME" x="62.484" y="84.201" size="1.778" layer="95"/>
-<attribute name="VALUE" x="62.484" y="79.121" size="1.778" layer="96"/>
+<instance part="C1" gate="G$1" x="78.74" y="83.82" smashed="yes">
+<attribute name="NAME" x="80.264" y="84.201" size="1.778" layer="95"/>
+<attribute name="VALUE" x="80.264" y="79.121" size="1.778" layer="96"/>
 </instance>
-<instance part="C2" gate="G$1" x="73.66" y="83.82" smashed="yes">
-<attribute name="NAME" x="75.184" y="84.201" size="1.778" layer="95"/>
-<attribute name="VALUE" x="75.184" y="79.121" size="1.778" layer="96"/>
+<instance part="C2" gate="G$1" x="88.9" y="83.82" smashed="yes">
+<attribute name="NAME" x="90.424" y="84.201" size="1.778" layer="95"/>
+<attribute name="VALUE" x="90.424" y="79.121" size="1.778" layer="96"/>
 </instance>
-<instance part="C5" gate="C$1" x="109.22" y="83.82" smashed="yes">
+<instance part="C4" gate="C$1" x="109.22" y="83.82" smashed="yes">
 <attribute name="NAME" x="110.744" y="84.201" size="1.778" layer="95"/>
 <attribute name="VALUE" x="110.744" y="79.121" size="1.778" layer="96"/>
 </instance>
@@ -1047,25 +1042,22 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/90814-0204.pd
 <nets>
 <net name="GND" class="0">
 <segment>
-<pinref part="C4" gate="G$1" pin="2"/>
-<wire x1="96.52" y1="78.74" x2="96.52" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="96.52" y1="73.66" x2="83.82" y2="73.66" width="0.1524" layer="91"/>
 <pinref part="C3" gate="G$1" pin="2"/>
-<wire x1="83.82" y1="78.74" x2="83.82" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="78.74" x2="99.06" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="109.22" y1="78.74" x2="109.22" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="109.22" y1="73.66" x2="96.52" y2="73.66" width="0.1524" layer="91"/>
-<junction x="96.52" y="73.66"/>
+<wire x1="109.22" y1="73.66" x2="99.06" y2="73.66" width="0.1524" layer="91"/>
+<junction x="99.06" y="73.66"/>
 <pinref part="GND6" gate="1" pin="GND"/>
-<wire x1="96.52" y1="73.66" x2="96.52" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="83.82" y1="73.66" x2="73.66" y2="73.66" width="0.1524" layer="91"/>
-<junction x="83.82" y="73.66"/>
+<wire x1="99.06" y1="73.66" x2="99.06" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="73.66" x2="88.9" y2="73.66" width="0.1524" layer="91"/>
+<junction x="99.06" y="73.66"/>
 <pinref part="C1" gate="G$1" pin="2"/>
-<wire x1="73.66" y1="73.66" x2="60.96" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="60.96" y1="73.66" x2="60.96" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="88.9" y1="73.66" x2="78.74" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="78.74" y1="73.66" x2="78.74" y2="78.74" width="0.1524" layer="91"/>
 <pinref part="C2" gate="G$1" pin="2"/>
-<wire x1="73.66" y1="78.74" x2="73.66" y2="73.66" width="0.1524" layer="91"/>
-<junction x="73.66" y="73.66"/>
-<pinref part="C5" gate="C$1" pin="2"/>
+<wire x1="88.9" y1="78.74" x2="88.9" y2="73.66" width="0.1524" layer="91"/>
+<junction x="88.9" y="73.66"/>
+<pinref part="C4" gate="C$1" pin="2"/>
 </segment>
 <segment>
 <pinref part="GND8" gate="1" pin="GND"/>
@@ -1114,16 +1106,13 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/90814-0204.pd
 <net name="+3V3" class="0">
 <segment>
 <pinref part="C3" gate="G$1" pin="1"/>
-<wire x1="83.82" y1="99.06" x2="83.82" y2="86.36" width="0.1524" layer="91"/>
-<wire x1="83.82" y1="99.06" x2="96.52" y2="99.06" width="0.1524" layer="91"/>
-<pinref part="C4" gate="G$1" pin="1"/>
-<wire x1="96.52" y1="86.36" x2="96.52" y2="99.06" width="0.1524" layer="91"/>
-<junction x="96.52" y="99.06"/>
+<wire x1="99.06" y1="99.06" x2="99.06" y2="86.36" width="0.1524" layer="91"/>
+<junction x="99.06" y="99.06"/>
 <pinref part="+3V1" gate="G$1" pin="+3V3"/>
-<wire x1="96.52" y1="106.68" x2="96.52" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="106.68" x2="99.06" y2="99.06" width="0.1524" layer="91"/>
 <wire x1="109.22" y1="86.36" x2="109.22" y2="88.9" width="0.1524" layer="91"/>
 <wire x1="109.22" y1="88.9" x2="109.22" y2="99.06" width="0.1524" layer="91"/>
-<wire x1="109.22" y1="99.06" x2="96.52" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="99.06" x2="99.06" y2="99.06" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="VDD_1"/>
 <wire x1="160.02" y1="99.06" x2="109.22" y2="99.06" width="0.1524" layer="91"/>
 <junction x="109.22" y="99.06"/>
@@ -1133,15 +1122,15 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/90814-0204.pd
 <pinref part="IC1" gate="G$1" pin="VDDA"/>
 <wire x1="160.02" y1="88.9" x2="109.22" y2="88.9" width="0.1524" layer="91"/>
 <junction x="109.22" y="88.9"/>
-<wire x1="83.82" y1="99.06" x2="73.66" y2="99.06" width="0.1524" layer="91"/>
-<junction x="83.82" y="99.06"/>
+<wire x1="99.06" y1="99.06" x2="88.9" y2="99.06" width="0.1524" layer="91"/>
+<junction x="99.06" y="99.06"/>
 <pinref part="C1" gate="G$1" pin="1"/>
-<wire x1="73.66" y1="99.06" x2="60.96" y2="99.06" width="0.1524" layer="91"/>
-<wire x1="60.96" y1="99.06" x2="60.96" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="88.9" y1="99.06" x2="78.74" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="78.74" y1="99.06" x2="78.74" y2="86.36" width="0.1524" layer="91"/>
 <pinref part="C2" gate="G$1" pin="1"/>
-<wire x1="73.66" y1="86.36" x2="73.66" y2="99.06" width="0.1524" layer="91"/>
-<junction x="73.66" y="99.06"/>
-<pinref part="C5" gate="C$1" pin="1"/>
+<wire x1="88.9" y1="86.36" x2="88.9" y2="99.06" width="0.1524" layer="91"/>
+<junction x="88.9" y="99.06"/>
+<pinref part="C4" gate="C$1" pin="1"/>
 </segment>
 <segment>
 <pinref part="S1" gate="G$1" pin="+_2"/>

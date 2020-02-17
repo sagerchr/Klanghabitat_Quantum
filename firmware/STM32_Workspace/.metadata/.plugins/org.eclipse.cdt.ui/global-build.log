@@ -17366,3 +17366,632 @@ arm-none-eabi-size "Encoder.elf"
 18:08:21 **** Incremental Build of configuration Debug for project Encoder ****
 make all 
 make: Nothing to be done for `all'.
+19:50:20 **** Incremental Build of configuration Debug for project FrontDisplay ****
+make all 
+make: Nothing to be done for `all'.
+19:50:44 **** Incremental Build of configuration Debug for project FrontDisplay ****
+make all 
+make: Nothing to be done for `all'.
+19:52:36 **** Incremental Build of configuration Debug for project FrontDisplay ****
+make all 
+make: Nothing to be done for `all'.
+19:54:28 **** Incremental Build of configuration Debug for project FrontDisplay ****
+make all 
+make: Nothing to be done for `all'.
+19:55:09 **** Incremental Build of configuration Debug for project FrontDisplay ****
+make all 
+make: Nothing to be done for `all'.
+19:56:58 **** Incremental Build of configuration Debug for project FrontDisplay ****
+make all 
+make: Nothing to be done for `all'.
+19:57:12 **** Incremental Build of configuration Debug for project FrontDisplay ****
+make all 
+make: Nothing to be done for `all'.
+19:59:33 **** Incremental Build of configuration Debug for project FrontDisplay ****
+make all 
+make: Nothing to be done for `all'.
+20:00:23 **** Incremental Build of configuration Debug for project FrontDisplay ****
+make all 
+make: Nothing to be done for `all'.
+20:02:52 **** Incremental Build of configuration Debug for project FrontDisplay ****
+make all 
+make: Nothing to be done for `all'.
+20:11:53 **** Incremental Build of configuration Debug for project FrontDisplay ****
+make all 
+make: Nothing to be done for `all'.
+20:12:59 **** Incremental Build of configuration Debug for project FrontDisplay ****
+make all 
+make: Nothing to be done for `all'.
+13:35:39 **** Incremental Build of configuration Debug for project FrontDisplay ****
+make all 
+Building file: ../STemWin/App/GUI_App.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32F469xx '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/STemWin/Target" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/STemWin/App" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/BSP/Components/otm8009a" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/BSP/Components/Common" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"STemWin/App/GUI_App.d" -MT"STemWin/App/GUI_App.o" -o "STemWin/App/GUI_App.o" "../STemWin/App/GUI_App.c"
+../STemWin/App/GUI_App.c: In function 'CDC_ReceiveCallBack':
+../STemWin/App/GUI_App.c:106:16: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+      ReciveCDC = &buf;
+                ^
+../STemWin/App/GUI_App.c: In function 'GRAPHICS_MainTask':
+../STemWin/App/GUI_App.c:127:36: warning: passing argument 2 of 'WM_SendMessageNoPara' makes integer from pointer without a cast [-Wint-conversion]
+         WM_SendMessageNoPara(hWin, WM_PaintWindowAndDescs);
+                                    ^~~~~~~~~~~~~~~~~~~~~~
+In file included from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/inc/DIALOG.h:56:0,
+                 from ../STemWin/App/GUI_App.c:50:
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/inc/WM.h:694:11: note: expected 'int' but argument is of type 'void (*)(GUI_HWIN) {aka void (*)(long int)}'
+ void      WM_SendMessageNoPara    (WM_HWIN hWin, int MsgId);             /* not to be documented (may change in future */
+           ^~~~~~~~~~~~~~~~~~~~
+../STemWin/App/GUI_App.c:166:3: warning: "/*" within comment [-Wcomment]
+   /**********************************************************/
+    
+../STemWin/App/GUI_App.c:181:42: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+               HAL_UART_Transmit(&huart6, transmit , 10, 10);
+                                          ^~~~~~~~
+In file included from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc/stm32f4xx_hal_conf.h:368:0,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:46,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc/main.h:57,
+                 from ../STemWin/App/GUI_App.h:45,
+                 from ../STemWin/App/GUI_App.c:47:
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:645:19: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+                   ^~~~~~~~~~~~~~~~~
+../STemWin/App/GUI_App.c: In function 'HAL_UART_ErrorCallback':
+../STemWin/App/GUI_App.c:202:32: warning: pointer targets in passing argument 2 of 'HAL_UART_Receive_DMA' differ in signedness [-Wpointer-sign]
+  HAL_UART_Receive_DMA(&huart6, UART_RECIVE,10);
+                                ^~~~~~~~~~~
+In file included from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc/stm32f4xx_hal_conf.h:368:0,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:46,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc/main.h:57,
+                 from ../STemWin/App/GUI_App.h:45,
+                 from ../STemWin/App/GUI_App.c:47:
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:650:19: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ HAL_StatusTypeDef HAL_UART_Receive_DMA(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+                   ^~~~~~~~~~~~~~~~~~~~
+Finished building: ../STemWin/App/GUI_App.c
+ 
+Building target: FrontDisplay.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -L"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/Lib"  -specs=nosys.specs -specs=nano.specs -T"../STM32F469NIHx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "FrontDisplay.elf" @"objects.list"  -l:STemWin540_CM4_GCC_ot_ARGB.a -lm
+Finished building target: FrontDisplay.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "FrontDisplay.elf" "FrontDisplay.bin"
+arm-none-eabi-size "FrontDisplay.elf"
+   text	   data	    bss	    dec	    hex	filename
+ 145144	    788	 273620	 419552	  666e0	FrontDisplay.elf
+ 
+13:36:03 **** Incremental Build of configuration Debug for project FrontDisplay ****
+make all 
+make: Nothing to be done for `all'.
+13:36:32 **** Incremental Build of configuration Debug for project FrontDisplay ****
+make all 
+make: Nothing to be done for `all'.
+13:37:02 **** Incremental Build of configuration Debug for project FrontDisplay ****
+make all 
+make: Nothing to be done for `all'.
+13:37:57 **** Incremental Build of configuration Debug for project FrontDisplay ****
+make all 
+Building file: ../STemWin/App/GUI_App.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32F469xx '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/STemWin/Target" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/STemWin/App" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/BSP/Components/otm8009a" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/BSP/Components/Common" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"STemWin/App/GUI_App.d" -MT"STemWin/App/GUI_App.o" -o "STemWin/App/GUI_App.o" "../STemWin/App/GUI_App.c"
+../STemWin/App/GUI_App.c: In function 'CDC_ReceiveCallBack':
+../STemWin/App/GUI_App.c:106:16: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+      ReciveCDC = &buf;
+                ^
+../STemWin/App/GUI_App.c: In function 'GRAPHICS_MainTask':
+../STemWin/App/GUI_App.c:127:36: warning: passing argument 2 of 'WM_SendMessageNoPara' makes integer from pointer without a cast [-Wint-conversion]
+         WM_SendMessageNoPara(hWin, WM_PaintWindowAndDescs);
+                                    ^~~~~~~~~~~~~~~~~~~~~~
+In file included from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/inc/DIALOG.h:56:0,
+                 from ../STemWin/App/GUI_App.c:50:
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/inc/WM.h:694:11: note: expected 'int' but argument is of type 'void (*)(GUI_HWIN) {aka void (*)(long int)}'
+ void      WM_SendMessageNoPara    (WM_HWIN hWin, int MsgId);             /* not to be documented (may change in future */
+           ^~~~~~~~~~~~~~~~~~~~
+../STemWin/App/GUI_App.c:166:3: warning: "/*" within comment [-Wcomment]
+   /**********************************************************/
+    
+../STemWin/App/GUI_App.c:181:42: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+               HAL_UART_Transmit(&huart6, transmit , 10, 10);
+                                          ^~~~~~~~
+In file included from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc/stm32f4xx_hal_conf.h:368:0,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:46,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc/main.h:57,
+                 from ../STemWin/App/GUI_App.h:45,
+                 from ../STemWin/App/GUI_App.c:47:
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:645:19: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+                   ^~~~~~~~~~~~~~~~~
+../STemWin/App/GUI_App.c: In function 'HAL_UART_ErrorCallback':
+../STemWin/App/GUI_App.c:202:32: warning: pointer targets in passing argument 2 of 'HAL_UART_Receive_DMA' differ in signedness [-Wpointer-sign]
+  HAL_UART_Receive_DMA(&huart6, UART_RECIVE,10);
+                                ^~~~~~~~~~~
+In file included from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc/stm32f4xx_hal_conf.h:368:0,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:46,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc/main.h:57,
+                 from ../STemWin/App/GUI_App.h:45,
+                 from ../STemWin/App/GUI_App.c:47:
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:650:19: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ HAL_StatusTypeDef HAL_UART_Receive_DMA(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+                   ^~~~~~~~~~~~~~~~~~~~
+Finished building: ../STemWin/App/GUI_App.c
+ 
+Building target: FrontDisplay.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -L"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/Lib"  -specs=nosys.specs -specs=nano.specs -T"../STM32F469NIHx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "FrontDisplay.elf" @"objects.list"  -l:STemWin540_CM4_GCC_ot_ARGB.a -lm
+Finished building target: FrontDisplay.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "FrontDisplay.elf" "FrontDisplay.bin"
+arm-none-eabi-size "FrontDisplay.elf"
+   text	   data	    bss	    dec	    hex	filename
+ 145144	    788	 273620	 419552	  666e0	FrontDisplay.elf
+ 
+13:38:45 **** Incremental Build of configuration Debug for project FrontDisplay ****
+make all 
+Building file: ../STemWin/App/GUI_App.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32F469xx '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/STemWin/Target" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/STemWin/App" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/BSP/Components/otm8009a" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/BSP/Components/Common" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"STemWin/App/GUI_App.d" -MT"STemWin/App/GUI_App.o" -o "STemWin/App/GUI_App.o" "../STemWin/App/GUI_App.c"
+../STemWin/App/GUI_App.c: In function 'CDC_ReceiveCallBack':
+../STemWin/App/GUI_App.c:106:16: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+      ReciveCDC = &buf;
+                ^
+../STemWin/App/GUI_App.c: In function 'GRAPHICS_MainTask':
+../STemWin/App/GUI_App.c:127:36: warning: passing argument 2 of 'WM_SendMessageNoPara' makes integer from pointer without a cast [-Wint-conversion]
+         WM_SendMessageNoPara(hWin, WM_PaintWindowAndDescs);
+                                    ^~~~~~~~~~~~~~~~~~~~~~
+In file included from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/inc/DIALOG.h:56:0,
+                 from ../STemWin/App/GUI_App.c:50:
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/inc/WM.h:694:11: note: expected 'int' but argument is of type 'void (*)(GUI_HWIN) {aka void (*)(long int)}'
+ void      WM_SendMessageNoPara    (WM_HWIN hWin, int MsgId);             /* not to be documented (may change in future */
+           ^~~~~~~~~~~~~~~~~~~~
+../STemWin/App/GUI_App.c:166:3: warning: "/*" within comment [-Wcomment]
+   /**********************************************************/
+    
+../STemWin/App/GUI_App.c:181:42: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+               HAL_UART_Transmit(&huart6, transmit , 10, 10);
+                                          ^~~~~~~~
+In file included from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc/stm32f4xx_hal_conf.h:368:0,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:46,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc/main.h:57,
+                 from ../STemWin/App/GUI_App.h:45,
+                 from ../STemWin/App/GUI_App.c:47:
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:645:19: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+                   ^~~~~~~~~~~~~~~~~
+../STemWin/App/GUI_App.c: In function 'HAL_UART_ErrorCallback':
+../STemWin/App/GUI_App.c:202:32: warning: pointer targets in passing argument 2 of 'HAL_UART_Receive_DMA' differ in signedness [-Wpointer-sign]
+  HAL_UART_Receive_DMA(&huart6, UART_RECIVE,10);
+                                ^~~~~~~~~~~
+In file included from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc/stm32f4xx_hal_conf.h:368:0,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:46,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc/main.h:57,
+                 from ../STemWin/App/GUI_App.h:45,
+                 from ../STemWin/App/GUI_App.c:47:
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:650:19: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ HAL_StatusTypeDef HAL_UART_Receive_DMA(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+                   ^~~~~~~~~~~~~~~~~~~~
+Finished building: ../STemWin/App/GUI_App.c
+ 
+Building target: FrontDisplay.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -L"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/Lib"  -specs=nosys.specs -specs=nano.specs -T"../STM32F469NIHx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "FrontDisplay.elf" @"objects.list"  -l:STemWin540_CM4_GCC_ot_ARGB.a -lm
+Finished building target: FrontDisplay.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "FrontDisplay.elf" "FrontDisplay.bin"
+arm-none-eabi-size "FrontDisplay.elf"
+   text	   data	    bss	    dec	    hex	filename
+ 145144	    788	 273620	 419552	  666e0	FrontDisplay.elf
+ 
+13:39:23 **** Incremental Build of configuration Debug for project FrontDisplay ****
+make all 
+Building file: ../STemWin/App/GUI_App.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32F469xx '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/STemWin/Target" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/STemWin/App" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/BSP/Components/otm8009a" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/BSP/Components/Common" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"STemWin/App/GUI_App.d" -MT"STemWin/App/GUI_App.o" -o "STemWin/App/GUI_App.o" "../STemWin/App/GUI_App.c"
+../STemWin/App/GUI_App.c: In function 'CDC_ReceiveCallBack':
+../STemWin/App/GUI_App.c:106:16: warning: assignment makes integer from pointer without a cast [-Wint-conversion]
+      ReciveCDC = &buf;
+                ^
+../STemWin/App/GUI_App.c: In function 'GRAPHICS_MainTask':
+../STemWin/App/GUI_App.c:127:36: warning: passing argument 2 of 'WM_SendMessageNoPara' makes integer from pointer without a cast [-Wint-conversion]
+         WM_SendMessageNoPara(hWin, WM_PaintWindowAndDescs);
+                                    ^~~~~~~~~~~~~~~~~~~~~~
+In file included from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/inc/DIALOG.h:56:0,
+                 from ../STemWin/App/GUI_App.c:50:
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/inc/WM.h:694:11: note: expected 'int' but argument is of type 'void (*)(GUI_HWIN) {aka void (*)(long int)}'
+ void      WM_SendMessageNoPara    (WM_HWIN hWin, int MsgId);             /* not to be documented (may change in future */
+           ^~~~~~~~~~~~~~~~~~~~
+../STemWin/App/GUI_App.c:166:3: warning: "/*" within comment [-Wcomment]
+   /**********************************************************/
+    
+../STemWin/App/GUI_App.c:181:42: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+               HAL_UART_Transmit(&huart6, transmit , 10, 10);
+                                          ^~~~~~~~
+In file included from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc/stm32f4xx_hal_conf.h:368:0,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:46,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc/main.h:57,
+                 from ../STemWin/App/GUI_App.h:45,
+                 from ../STemWin/App/GUI_App.c:47:
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:645:19: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+                   ^~~~~~~~~~~~~~~~~
+../STemWin/App/GUI_App.c: In function 'HAL_UART_ErrorCallback':
+../STemWin/App/GUI_App.c:202:32: warning: pointer targets in passing argument 2 of 'HAL_UART_Receive_DMA' differ in signedness [-Wpointer-sign]
+  HAL_UART_Receive_DMA(&huart6, UART_RECIVE,10);
+                                ^~~~~~~~~~~
+In file included from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc/stm32f4xx_hal_conf.h:368:0,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:46,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc/main.h:57,
+                 from ../STemWin/App/GUI_App.h:45,
+                 from ../STemWin/App/GUI_App.c:47:
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:650:19: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ HAL_StatusTypeDef HAL_UART_Receive_DMA(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+                   ^~~~~~~~~~~~~~~~~~~~
+Finished building: ../STemWin/App/GUI_App.c
+ 
+Building file: ../STemWin/App/WindowDLG.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32F469xx '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/STemWin/Target" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/STemWin/App" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/BSP/Components/otm8009a" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/BSP/Components/Common" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"STemWin/App/WindowDLG.d" -MT"STemWin/App/WindowDLG.o" -o "STemWin/App/WindowDLG.o" "../STemWin/App/WindowDLG.c"
+../STemWin/App/WindowDLG.c:94:1: warning: data definition has no type or storage class
+ begin = 0;
+ ^~~~~
+../STemWin/App/WindowDLG.c:94:1: warning: type defaults to 'int' in declaration of 'begin' [-Wimplicit-int]
+In file included from ../STemWin/App/WindowDLG.c:31:0:
+../STemWin/App/GuiElements/AudioMeter.h:11:13: warning: 'drawFloat' declared 'static' but never defined [-Wunused-function]
+ static void drawFloat (int pos_x, int pos_y, float val, const char * s,const char * h);
+             ^~~~~~~~~
+Finished building: ../STemWin/App/WindowDLG.c
+ 
+Building target: FrontDisplay.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -L"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/Lib"  -specs=nosys.specs -specs=nano.specs -T"../STM32F469NIHx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "FrontDisplay.elf" @"objects.list"  -l:STemWin540_CM4_GCC_ot_ARGB.a -lm
+Finished building target: FrontDisplay.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "FrontDisplay.elf" "FrontDisplay.bin"
+arm-none-eabi-size "FrontDisplay.elf"
+   text	   data	    bss	    dec	    hex	filename
+ 145144	    788	 273620	 419552	  666e0	FrontDisplay.elf
+ 
+13:42:01 **** Incremental Build of configuration Debug for project FrontDisplay ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32F469xx '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/STemWin/Target" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/STemWin/App" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/BSP/Components/otm8009a" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/BSP/Components/Common" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'main':
+../Src/main.c:190:33: warning: pointer targets in passing argument 2 of 'HAL_UART_Receive_DMA' differ in signedness [-Wpointer-sign]
+   HAL_UART_Receive_DMA(&huart6, UART_RECIVE,10);
+                                 ^~~~~~~~~~~
+In file included from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc/stm32f4xx_hal_conf.h:368:0,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:46,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc/main.h:57,
+                 from ../Src/main.c:50:
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:650:19: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ HAL_StatusTypeDef HAL_UART_Receive_DMA(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+                   ^~~~~~~~~~~~~~~~~~~~
+Finished building: ../Src/main.c
+ 
+Building file: ../STemWin/App/WindowDLG.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32F469xx '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/STemWin/Target" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/STemWin/App" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/BSP/Components/otm8009a" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/BSP/Components/Common" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"STemWin/App/WindowDLG.d" -MT"STemWin/App/WindowDLG.o" -o "STemWin/App/WindowDLG.o" "../STemWin/App/WindowDLG.c"
+../STemWin/App/WindowDLG.c:94:1: warning: data definition has no type or storage class
+ begin = 0;
+ ^~~~~
+../STemWin/App/WindowDLG.c:94:1: warning: type defaults to 'int' in declaration of 'begin' [-Wimplicit-int]
+In file included from ../STemWin/App/WindowDLG.c:31:0:
+../STemWin/App/GuiElements/AudioMeter.h:11:13: warning: 'drawFloat' declared 'static' but never defined [-Wunused-function]
+ static void drawFloat (int pos_x, int pos_y, float val, const char * s,const char * h);
+             ^~~~~~~~~
+Finished building: ../STemWin/App/WindowDLG.c
+ 
+Building target: FrontDisplay.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -L"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/Lib"  -specs=nosys.specs -specs=nano.specs -T"../STM32F469NIHx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "FrontDisplay.elf" @"objects.list"  -l:STemWin540_CM4_GCC_ot_ARGB.a -lm
+Finished building target: FrontDisplay.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "FrontDisplay.elf" "FrontDisplay.bin"
+arm-none-eabi-size "FrontDisplay.elf"
+   text	   data	    bss	    dec	    hex	filename
+ 145144	    788	 273620	 419552	  666e0	FrontDisplay.elf
+ 
+13:42:18 **** Incremental Build of configuration Debug for project FrontDisplay ****
+make all 
+make: Nothing to be done for `all'.
+13:45:45 **** Incremental Build of configuration Debug for project FrontDisplay ****
+make all 
+Building file: ../STemWin/Target/GUIConf.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32F469xx '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/STemWin/Target" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/STemWin/App" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/BSP/Components/otm8009a" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/BSP/Components/Common" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"STemWin/Target/GUIConf.d" -MT"STemWin/Target/GUIConf.o" -o "STemWin/Target/GUIConf.o" "../STemWin/Target/GUIConf.c"
+Finished building: ../STemWin/Target/GUIConf.c
+ 
+Building target: FrontDisplay.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -L"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/Lib"  -specs=nosys.specs -specs=nano.specs -T"../STM32F469NIHx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "FrontDisplay.elf" @"objects.list"  -l:STemWin540_CM4_GCC_ot_ARGB.a -lm
+/Applications/Ac6/SystemWorkbench.app/Contents/Eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.macos64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/bin/ld: FrontDisplay.elf section `.bss' will not fit in region `RAM'
+/Applications/Ac6/SystemWorkbench.app/Contents/Eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.macos64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/bin/ld: region `RAM' overflowed by 202720 bytes
+collect2: error: ld returned 1 exit status
+make: *** [FrontDisplay.elf] Error 1
+13:45:54 **** Incremental Build of configuration Debug for project FrontDisplay ****
+make all 
+Building target: FrontDisplay.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -L"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/Lib"  -specs=nosys.specs -specs=nano.specs -T"../STM32F469NIHx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "FrontDisplay.elf" @"objects.list"  -l:STemWin540_CM4_GCC_ot_ARGB.a -lm
+/Applications/Ac6/SystemWorkbench.app/Contents/Eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.macos64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/bin/ld: FrontDisplay.elf section `.bss' will not fit in region `RAM'
+/Applications/Ac6/SystemWorkbench.app/Contents/Eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.macos64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/bin/ld: region `RAM' overflowed by 202720 bytes
+collect2: error: ld returned 1 exit status
+make: *** [FrontDisplay.elf] Error 1
+13:46:03 **** Incremental Build of configuration Debug for project FrontDisplay ****
+make all 
+Building file: ../STemWin/Target/GUIConf.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32F469xx '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/STemWin/Target" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/STemWin/App" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/BSP/Components/otm8009a" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/BSP/Components/Common" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"STemWin/Target/GUIConf.d" -MT"STemWin/Target/GUIConf.o" -o "STemWin/Target/GUIConf.o" "../STemWin/Target/GUIConf.c"
+Finished building: ../STemWin/Target/GUIConf.c
+ 
+Building target: FrontDisplay.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -L"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/Lib"  -specs=nosys.specs -specs=nano.specs -T"../STM32F469NIHx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "FrontDisplay.elf" @"objects.list"  -l:STemWin540_CM4_GCC_ot_ARGB.a -lm
+/Applications/Ac6/SystemWorkbench.app/Contents/Eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.macos64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/bin/ld: FrontDisplay.elf section `.bss' will not fit in region `RAM'
+/Applications/Ac6/SystemWorkbench.app/Contents/Eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.macos64_1.17.0.201812190825/tools/compiler/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/bin/ld: region `RAM' overflowed by 100320 bytes
+collect2: error: ld returned 1 exit status
+make: *** [FrontDisplay.elf] Error 1
+13:46:10 **** Incremental Build of configuration Debug for project FrontDisplay ****
+make all 
+Building file: ../STemWin/Target/GUIConf.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32F469xx '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/STemWin/Target" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/STemWin/App" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/BSP/Components/otm8009a" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/BSP/Components/Common" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"STemWin/Target/GUIConf.d" -MT"STemWin/Target/GUIConf.o" -o "STemWin/Target/GUIConf.o" "../STemWin/Target/GUIConf.c"
+Finished building: ../STemWin/Target/GUIConf.c
+ 
+Building target: FrontDisplay.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -L"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/Lib"  -specs=nosys.specs -specs=nano.specs -T"../STM32F469NIHx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "FrontDisplay.elf" @"objects.list"  -l:STemWin540_CM4_GCC_ot_ARGB.a -lm
+Finished building target: FrontDisplay.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "FrontDisplay.elf" "FrontDisplay.bin"
+arm-none-eabi-size "FrontDisplay.elf"
+   text	   data	    bss	    dec	    hex	filename
+ 145144	    788	 273620	 419552	  666e0	FrontDisplay.elf
+ 
+13:46:28 **** Incremental Build of configuration Debug for project FrontDisplay ****
+make all 
+Building file: ../STemWin/Target/GUIConf.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32F469xx '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/STemWin/Target" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/STemWin/App" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/BSP/Components/otm8009a" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/BSP/Components/Common" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"STemWin/Target/GUIConf.d" -MT"STemWin/Target/GUIConf.o" -o "STemWin/Target/GUIConf.o" "../STemWin/Target/GUIConf.c"
+Finished building: ../STemWin/Target/GUIConf.c
+ 
+Building target: FrontDisplay.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -L"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/Lib"  -specs=nosys.specs -specs=nano.specs -T"../STM32F469NIHx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "FrontDisplay.elf" @"objects.list"  -l:STemWin540_CM4_GCC_ot_ARGB.a -lm
+Finished building target: FrontDisplay.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "FrontDisplay.elf" "FrontDisplay.bin"
+arm-none-eabi-size "FrontDisplay.elf"
+   text	   data	    bss	    dec	    hex	filename
+ 145144	    788	 324820	 470752	  72ee0	FrontDisplay.elf
+ 
+13:47:07 **** Incremental Build of configuration Debug for project FrontDisplay ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32F469xx '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/STemWin/Target" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/STemWin/App" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/BSP/Components/otm8009a" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/BSP/Components/Common" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'main':
+../Src/main.c:190:33: warning: pointer targets in passing argument 2 of 'HAL_UART_Receive_DMA' differ in signedness [-Wpointer-sign]
+   HAL_UART_Receive_DMA(&huart6, UART_RECIVE,10);
+                                 ^~~~~~~~~~~
+In file included from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc/stm32f4xx_hal_conf.h:368:0,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:46,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc/main.h:57,
+                 from ../Src/main.c:50:
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:650:19: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ HAL_StatusTypeDef HAL_UART_Receive_DMA(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+                   ^~~~~~~~~~~~~~~~~~~~
+../Src/main.c:193:7: warning: unused variable 'error' [-Wunused-variable]
+   int error = GUI_SetOrientation(GUI_ROTATION_180);
+       ^~~~~
+Finished building: ../Src/main.c
+ 
+Building target: FrontDisplay.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -L"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/Lib"  -specs=nosys.specs -specs=nano.specs -T"../STM32F469NIHx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "FrontDisplay.elf" @"objects.list"  -l:STemWin540_CM4_GCC_ot_ARGB.a -lm
+Finished building target: FrontDisplay.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "FrontDisplay.elf" "FrontDisplay.bin"
+arm-none-eabi-size "FrontDisplay.elf"
+   text	   data	    bss	    dec	    hex	filename
+ 145144	    788	 324820	 470752	  72ee0	FrontDisplay.elf
+ 
+13:48:10 **** Incremental Build of configuration Debug for project FrontDisplay ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32F469xx '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/STemWin/Target" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/STemWin/App" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/BSP/Components/otm8009a" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/BSP/Components/Common" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'main':
+../Src/main.c:190:33: warning: pointer targets in passing argument 2 of 'HAL_UART_Receive_DMA' differ in signedness [-Wpointer-sign]
+   HAL_UART_Receive_DMA(&huart6, UART_RECIVE,10);
+                                 ^~~~~~~~~~~
+In file included from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc/stm32f4xx_hal_conf.h:368:0,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:46,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc/main.h:57,
+                 from ../Src/main.c:50:
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:650:19: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ HAL_StatusTypeDef HAL_UART_Receive_DMA(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+                   ^~~~~~~~~~~~~~~~~~~~
+../Src/main.c:193:7: warning: unused variable 'error' [-Wunused-variable]
+   int error = GUI_SetOrientationEx (GUI_ROTATION_180,1);
+       ^~~~~
+Finished building: ../Src/main.c
+ 
+Building target: FrontDisplay.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -L"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/Lib"  -specs=nosys.specs -specs=nano.specs -T"../STM32F469NIHx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "FrontDisplay.elf" @"objects.list"  -l:STemWin540_CM4_GCC_ot_ARGB.a -lm
+Finished building target: FrontDisplay.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "FrontDisplay.elf" "FrontDisplay.bin"
+arm-none-eabi-size "FrontDisplay.elf"
+   text	   data	    bss	    dec	    hex	filename
+ 145136	    788	 324820	 470744	  72ed8	FrontDisplay.elf
+ 
+13:48:41 **** Incremental Build of configuration Debug for project FrontDisplay ****
+make all 
+make: Nothing to be done for `all'.
+13:49:00 **** Incremental Build of configuration Debug for project FrontDisplay ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32F469xx '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/STemWin/Target" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/STemWin/App" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/BSP/Components/otm8009a" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/BSP/Components/Common" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'main':
+../Src/main.c:190:33: warning: pointer targets in passing argument 2 of 'HAL_UART_Receive_DMA' differ in signedness [-Wpointer-sign]
+   HAL_UART_Receive_DMA(&huart6, UART_RECIVE,10);
+                                 ^~~~~~~~~~~
+In file included from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc/stm32f4xx_hal_conf.h:368:0,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:46,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc/main.h:57,
+                 from ../Src/main.c:50:
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:650:19: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ HAL_StatusTypeDef HAL_UART_Receive_DMA(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+                   ^~~~~~~~~~~~~~~~~~~~
+../Src/main.c:193:7: warning: unused variable 'error' [-Wunused-variable]
+   int error = GUI_SetOrientationEx (GUI_ROTATION_180,0);
+       ^~~~~
+Finished building: ../Src/main.c
+ 
+Building target: FrontDisplay.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -L"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/Lib"  -specs=nosys.specs -specs=nano.specs -T"../STM32F469NIHx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "FrontDisplay.elf" @"objects.list"  -l:STemWin540_CM4_GCC_ot_ARGB.a -lm
+Finished building target: FrontDisplay.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "FrontDisplay.elf" "FrontDisplay.bin"
+arm-none-eabi-size "FrontDisplay.elf"
+   text	   data	    bss	    dec	    hex	filename
+ 145136	    788	 324820	 470744	  72ed8	FrontDisplay.elf
+ 
+13:49:26 **** Incremental Build of configuration Debug for project FrontDisplay ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32F469xx '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/STemWin/Target" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/STemWin/App" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/BSP/Components/otm8009a" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/BSP/Components/Common" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'main':
+../Src/main.c:191:33: warning: pointer targets in passing argument 2 of 'HAL_UART_Receive_DMA' differ in signedness [-Wpointer-sign]
+   HAL_UART_Receive_DMA(&huart6, UART_RECIVE,10);
+                                 ^~~~~~~~~~~
+In file included from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc/stm32f4xx_hal_conf.h:368:0,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:46,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc/main.h:57,
+                 from ../Src/main.c:50:
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:650:19: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ HAL_StatusTypeDef HAL_UART_Receive_DMA(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+                   ^~~~~~~~~~~~~~~~~~~~
+../Src/main.c:189:7: warning: unused variable 'error' [-Wunused-variable]
+   int error = GUI_SetOrientationEx (GUI_ROTATION_180,0);
+       ^~~~~
+Finished building: ../Src/main.c
+ 
+Building target: FrontDisplay.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -L"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/Lib"  -specs=nosys.specs -specs=nano.specs -T"../STM32F469NIHx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "FrontDisplay.elf" @"objects.list"  -l:STemWin540_CM4_GCC_ot_ARGB.a -lm
+Finished building target: FrontDisplay.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "FrontDisplay.elf" "FrontDisplay.bin"
+arm-none-eabi-size "FrontDisplay.elf"
+   text	   data	    bss	    dec	    hex	filename
+ 145136	    788	 324820	 470744	  72ed8	FrontDisplay.elf
+ 
+13:50:07 **** Incremental Build of configuration Debug for project FrontDisplay ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32F469xx '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/STemWin/Target" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/STemWin/App" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/BSP/Components/otm8009a" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/BSP/Components/Common" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'main':
+../Src/main.c:191:33: warning: pointer targets in passing argument 2 of 'HAL_UART_Receive_DMA' differ in signedness [-Wpointer-sign]
+   HAL_UART_Receive_DMA(&huart6, UART_RECIVE,10);
+                                 ^~~~~~~~~~~
+In file included from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc/stm32f4xx_hal_conf.h:368:0,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:46,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc/main.h:57,
+                 from ../Src/main.c:50:
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:650:19: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ HAL_StatusTypeDef HAL_UART_Receive_DMA(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+                   ^~~~~~~~~~~~~~~~~~~~
+Finished building: ../Src/main.c
+ 
+Building target: FrontDisplay.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -L"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/Lib"  -specs=nosys.specs -specs=nano.specs -T"../STM32F469NIHx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "FrontDisplay.elf" @"objects.list"  -l:STemWin540_CM4_GCC_ot_ARGB.a -lm
+Finished building target: FrontDisplay.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "FrontDisplay.elf" "FrontDisplay.bin"
+arm-none-eabi-size "FrontDisplay.elf"
+   text	   data	    bss	    dec	    hex	filename
+ 145144	    788	 324820	 470752	  72ee0	FrontDisplay.elf
+ 
+13:50:23 **** Incremental Build of configuration Debug for project FrontDisplay ****
+make all 
+make: Nothing to be done for `all'.
+13:50:47 **** Incremental Build of configuration Debug for project FrontDisplay ****
+make all 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Debug
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -DUSE_HAL_DRIVER -DSTM32F469xx '-D__weak=__attribute__((weak))' '-D__packed=__attribute__((__packed__))' -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/STemWin/Target" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/STemWin/App" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/BSP/Components/otm8009a" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/BSP/Components/Common" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'main':
+../Src/main.c:190:33: warning: pointer targets in passing argument 2 of 'HAL_UART_Receive_DMA' differ in signedness [-Wpointer-sign]
+   HAL_UART_Receive_DMA(&huart6, UART_RECIVE,10);
+                                 ^~~~~~~~~~~
+In file included from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc/stm32f4xx_hal_conf.h:368:0,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:46,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Inc/main.h:57,
+                 from ../Src/main.c:50:
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:650:19: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ HAL_StatusTypeDef HAL_UART_Receive_DMA(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+                   ^~~~~~~~~~~~~~~~~~~~
+Finished building: ../Src/main.c
+ 
+Building target: FrontDisplay.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -L"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/FrontDisplay/Middlewares/ST/STemWin/Lib"  -specs=nosys.specs -specs=nano.specs -T"../STM32F469NIHx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "FrontDisplay.elf" @"objects.list"  -l:STemWin540_CM4_GCC_ot_ARGB.a -lm
+Finished building target: FrontDisplay.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating binary and Printing size information:
+arm-none-eabi-objcopy -O binary "FrontDisplay.elf" "FrontDisplay.bin"
+arm-none-eabi-size "FrontDisplay.elf"
+   text	   data	    bss	    dec	    hex	filename
+ 133948	    788	 324820	 459556	  70324	FrontDisplay.elf
+ 
+13:51:05 **** Incremental Build of configuration Debug for project FrontDisplay ****
+make all 
+make: Nothing to be done for `all'.

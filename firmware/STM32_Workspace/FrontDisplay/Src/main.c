@@ -190,7 +190,7 @@ int main(void)
   HAL_UART_Receive_DMA(&huart6, UART_RECIVE,10);
   /* Initialise the graphical stack engine */
   GRAPHICS_Init();
-  
+
   /* Graphic application */  
   GRAPHICS_MainTask();
     
