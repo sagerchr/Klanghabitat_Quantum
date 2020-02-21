@@ -149,13 +149,13 @@
 <fusionsync huburn="a.cGVyc29uYWw6dWUyYWQzYTA1" projecturn="a.cGVyc29uYWw6dWUyYWQzYTA1IzIwMTkxMTEwMjM2NzAyNzAx" f3durn="urn:adsk.wipprod:dm.lineage:c0Sa_bRBSXulpZO2b_Sknw" pcbguid="11ab032f-ed1f-435e-9676-530fab4171c9" lastpulledtime="" lastsyncedchangeguid="15b955d2-c4c8-55b7-4b32-f446991b30f7"/>
 <plain>
 <wire x1="0" y1="0" x2="100" y2="0" width="0" layer="20"/>
-<wire x1="100" y1="0" x2="100" y2="140" width="0" layer="20"/>
-<wire x1="100" y1="140" x2="0" y2="140" width="0" layer="20"/>
-<wire x1="0" y1="140" x2="0" y2="0" width="0" layer="20"/>
+<wire x1="100" y1="0" x2="100" y2="100" width="0" layer="20"/>
+<wire x1="100" y1="100" x2="0" y2="100" width="0" layer="20"/>
+<wire x1="0" y1="100" x2="0" y2="0" width="0" layer="20"/>
 <hole x="4" y="4" drill="4"/>
-<hole x="4" y="136" drill="4"/>
-<hole x="96" y="136" drill="4"/>
-<hole x="96" y="4" drill="4"/>
+<hole x="5.4" y="95.1" drill="4"/>
+<hole x="93.4" y="96.3" drill="4"/>
+<hole x="91.8" y="3.6" drill="4"/>
 </plain>
 <libraries>
 <library name="OP-AMPS" urn="urn:adsk.eagle:library:16385278">
@@ -467,155 +467,62 @@ body 3.9 mm/JEDEC MS-012AA</description>
 <wire x1="0.3048" y1="-1.9304" x2="-0.4572" y2="-1.9304" width="0.508" layer="51" curve="-180"/>
 <wire x1="-0.4572" y1="-1.9304" x2="0.3048" y2="-1.9304" width="0.508" layer="51" curve="-180"/>
 </package>
-<package name="1001878310102TLF" urn="urn:adsk.eagle:footprint:17482616/1" library_version="26">
-<description>&lt;b&gt;10018783-10102TLF-2&lt;/b&gt;&lt;br&gt;
+<package name="1001878410210TLF" urn="urn:adsk.eagle:footprint:17482564/2" library_version="27">
+<description>&lt;b&gt;10018784-10210TLF-1&lt;/b&gt;&lt;br&gt;
 </description>
-<pad name="A1" x="0" y="0" drill="0.78" diameter="1.337" shape="square"/>
-<pad name="A2" x="1" y="2" drill="0.78" diameter="1.337"/>
-<pad name="A3" x="2" y="0" drill="0.78" diameter="1.337"/>
-<pad name="A4" x="3" y="2" drill="0.78" diameter="1.337"/>
-<pad name="A5" x="4" y="0" drill="0.78" diameter="1.337"/>
-<pad name="A6" x="5" y="2" drill="0.78" diameter="1.337"/>
-<pad name="A7" x="6" y="0" drill="0.78" diameter="1.337"/>
-<pad name="A8" x="7" y="2" drill="0.78" diameter="1.337"/>
-<pad name="A9" x="8" y="0" drill="0.78" diameter="1.337"/>
-<pad name="A10" x="9" y="2" drill="0.78" diameter="1.337"/>
-<pad name="A11" x="10" y="0" drill="0.78" diameter="1.337"/>
-<pad name="A12" x="13" y="2" drill="0.78" diameter="1.337"/>
-<pad name="A13" x="14" y="0" drill="0.78" diameter="1.337"/>
-<pad name="A14" x="15" y="2" drill="0.78" diameter="1.337"/>
-<pad name="A15" x="16" y="0" drill="0.78" diameter="1.337"/>
-<pad name="A16" x="17" y="2" drill="0.78" diameter="1.337"/>
-<pad name="A17" x="18" y="0" drill="0.78" diameter="1.337"/>
-<pad name="A18" x="19" y="2" drill="0.78" diameter="1.337"/>
-<pad name="A19" x="20" y="0" drill="0.78" diameter="1.337"/>
-<pad name="A20" x="21" y="2" drill="0.78" diameter="1.337"/>
-<pad name="A21" x="22" y="0" drill="0.78" diameter="1.337"/>
-<pad name="A22" x="23" y="2" drill="0.78" diameter="1.337"/>
-<pad name="A23" x="24" y="0" drill="0.78" diameter="1.337"/>
-<pad name="A24" x="25" y="2" drill="0.78" diameter="1.337"/>
-<pad name="A25" x="26" y="0" drill="0.78" diameter="1.337"/>
-<pad name="A26" x="27" y="2" drill="0.78" diameter="1.337"/>
-<pad name="A27" x="28" y="0" drill="0.78" diameter="1.337"/>
-<pad name="A28" x="29" y="2" drill="0.78" diameter="1.337"/>
-<pad name="A29" x="30" y="0" drill="0.78" diameter="1.337"/>
-<pad name="A30" x="31" y="2" drill="0.78" diameter="1.337"/>
-<pad name="A31" x="32" y="0" drill="0.78" diameter="1.337"/>
-<pad name="A32" x="33" y="2" drill="0.78" diameter="1.337"/>
-<pad name="A33" x="34" y="0" drill="0.78" diameter="1.337"/>
-<pad name="A34" x="35" y="2" drill="0.78" diameter="1.337"/>
-<pad name="A35" x="36" y="0" drill="0.78" diameter="1.337"/>
-<pad name="A36" x="37" y="2" drill="0.78" diameter="1.337"/>
-<pad name="A37" x="38" y="0" drill="0.78" diameter="1.337"/>
-<pad name="A38" x="39" y="2" drill="0.78" diameter="1.337"/>
-<pad name="A39" x="40" y="0" drill="0.78" diameter="1.337"/>
-<pad name="A40" x="41" y="2" drill="0.78" diameter="1.337"/>
-<pad name="A41" x="42" y="0" drill="0.78" diameter="1.337"/>
-<pad name="A42" x="43" y="2" drill="0.78" diameter="1.337"/>
-<pad name="A43" x="44" y="0" drill="0.78" diameter="1.337"/>
-<pad name="A44" x="45" y="2" drill="0.78" diameter="1.337"/>
-<pad name="A45" x="46" y="0" drill="0.78" diameter="1.337"/>
-<pad name="A46" x="47" y="2" drill="0.78" diameter="1.337"/>
-<pad name="A47" x="48" y="0" drill="0.78" diameter="1.337"/>
-<pad name="A48" x="49" y="2" drill="0.78" diameter="1.337"/>
-<pad name="A49" x="50" y="0" drill="0.78" diameter="1.337"/>
-<pad name="B1" x="0" y="-2.5" drill="0.78" diameter="1.337"/>
-<pad name="B2" x="1" y="-4.5" drill="0.78" diameter="1.337"/>
-<pad name="B3" x="2" y="-2.5" drill="0.78" diameter="1.337"/>
-<pad name="B4" x="3" y="-4.5" drill="0.78" diameter="1.337"/>
-<pad name="B5" x="4" y="-2.5" drill="0.78" diameter="1.337"/>
-<pad name="B6" x="5" y="-4.5" drill="0.78" diameter="1.337"/>
-<pad name="B7" x="6" y="-2.5" drill="0.78" diameter="1.337"/>
-<pad name="B8" x="7" y="-4.5" drill="0.78" diameter="1.337"/>
-<pad name="B9" x="8" y="-2.5" drill="0.78" diameter="1.337"/>
-<pad name="B10" x="9" y="-4.5" drill="0.78" diameter="1.337"/>
-<pad name="B11" x="10" y="-2.5" drill="0.78" diameter="1.337"/>
-<pad name="B12" x="13" y="-4.5" drill="0.78" diameter="1.337"/>
-<pad name="B13" x="14" y="-2.5" drill="0.78" diameter="1.337"/>
-<pad name="B14" x="15" y="-4.5" drill="0.78" diameter="1.337"/>
-<pad name="B15" x="16" y="-2.5" drill="0.78" diameter="1.337"/>
-<pad name="B16" x="17" y="-4.5" drill="0.78" diameter="1.337"/>
-<pad name="B17" x="18" y="-2.5" drill="0.78" diameter="1.337"/>
-<pad name="B18" x="19" y="-4.5" drill="0.78" diameter="1.337"/>
-<pad name="B19" x="20" y="-2.5" drill="0.78" diameter="1.337"/>
-<pad name="B20" x="21" y="-4.5" drill="0.78" diameter="1.337"/>
-<pad name="B21" x="22" y="-2.5" drill="0.78" diameter="1.337"/>
-<pad name="B22" x="23" y="-4.5" drill="0.78" diameter="1.337"/>
-<pad name="B23" x="24" y="-2.5" drill="0.78" diameter="1.337"/>
-<pad name="B24" x="25" y="-4.5" drill="0.78" diameter="1.337"/>
-<pad name="B25" x="26" y="-2.5" drill="0.78" diameter="1.337"/>
-<pad name="B26" x="27" y="-4.5" drill="0.78" diameter="1.337"/>
-<pad name="B27" x="28" y="-2.5" drill="0.78" diameter="1.337"/>
-<pad name="B28" x="29" y="-4.5" drill="0.78" diameter="1.337"/>
-<pad name="B29" x="30" y="-2.5" drill="0.78" diameter="1.337"/>
-<pad name="B30" x="31" y="-4.5" drill="0.78" diameter="1.337"/>
-<pad name="B31" x="32" y="-2.5" drill="0.78" diameter="1.337"/>
-<pad name="B32" x="33" y="-4.5" drill="0.78" diameter="1.337"/>
-<pad name="B33" x="34" y="-2.5" drill="0.78" diameter="1.337"/>
-<pad name="B34" x="35" y="-4.5" drill="0.78" diameter="1.337"/>
-<pad name="B35" x="36" y="-2.5" drill="0.78" diameter="1.337"/>
-<pad name="B36" x="37" y="-4.5" drill="0.78" diameter="1.337"/>
-<pad name="B37" x="38" y="-2.5" drill="0.78" diameter="1.337"/>
-<pad name="B38" x="39" y="-4.5" drill="0.78" diameter="1.337"/>
-<pad name="B39" x="40" y="-2.5" drill="0.78" diameter="1.337"/>
-<pad name="B40" x="41" y="-4.5" drill="0.78" diameter="1.337"/>
-<pad name="B41" x="42" y="-2.5" drill="0.78" diameter="1.337"/>
-<pad name="B42" x="43" y="-4.5" drill="0.78" diameter="1.337"/>
-<pad name="B43" x="44" y="-2.5" drill="0.78" diameter="1.337"/>
-<pad name="B44" x="45" y="-4.5" drill="0.78" diameter="1.337"/>
-<pad name="B45" x="46" y="-2.5" drill="0.78" diameter="1.337"/>
-<pad name="B46" x="47" y="-4.5" drill="0.78" diameter="1.337"/>
-<pad name="B47" x="48" y="-2.5" drill="0.78" diameter="1.337"/>
-<pad name="B48" x="49" y="-4.5" drill="0.78" diameter="1.337"/>
-<pad name="B49" x="50" y="-2.5" drill="0.78" diameter="1.337"/>
-<hole x="11.65" y="-1.25" drill="2.4"/>
-<hole x="51.8" y="-1.25" drill="2.4"/>
-<text x="25.15" y="-1.25" size="1.27" layer="25" align="center">&gt;NAME</text>
-<text x="25.15" y="-1.25" size="1.27" layer="27" align="center">&gt;VALUE</text>
-<wire x1="-2.85" y1="-4.95" x2="53.15" y2="-4.95" width="0.2" layer="51"/>
-<wire x1="53.15" y1="-4.95" x2="53.15" y2="2.45" width="0.2" layer="51"/>
-<wire x1="53.15" y1="2.45" x2="-2.85" y2="2.45" width="0.2" layer="51"/>
-<wire x1="-2.85" y1="2.45" x2="-2.85" y2="-4.95" width="0.2" layer="51"/>
-<wire x1="-0.5" y1="2.45" x2="-2.85" y2="2.45" width="0.1" layer="21"/>
-<wire x1="-2.85" y1="2.45" x2="-2.85" y2="2.45" width="0.1" layer="21"/>
-<wire x1="-2.85" y1="2.45" x2="-0.5" y2="2.45" width="0.1" layer="21"/>
-<wire x1="-0.5" y1="2.45" x2="-0.5" y2="2.45" width="0.1" layer="21"/>
-<wire x1="-2.85" y1="2.45" x2="-2.85" y2="2.45" width="0.1" layer="21"/>
-<wire x1="-2.85" y1="2.45" x2="-2.85" y2="-4.95" width="0.1" layer="21"/>
-<wire x1="-2.85" y1="-4.95" x2="-2.85" y2="-4.95" width="0.1" layer="21"/>
-<wire x1="-2.85" y1="-4.95" x2="-2.85" y2="2.45" width="0.1" layer="21"/>
-<wire x1="-2.85" y1="-4.95" x2="-0.25" y2="-4.95" width="0.1" layer="21"/>
-<wire x1="-0.25" y1="-4.95" x2="-0.25" y2="-5" width="0.1" layer="21"/>
-<wire x1="-0.25" y1="-5" x2="-2.85" y2="-5" width="0.1" layer="21"/>
-<wire x1="-2.85" y1="-5" x2="-2.85" y2="-4.95" width="0.1" layer="21"/>
-<wire x1="10.25" y1="2.45" x2="12" y2="2.45" width="0.1" layer="21"/>
-<wire x1="12" y1="2.45" x2="12" y2="2.45" width="0.1" layer="21"/>
-<wire x1="12" y1="2.45" x2="10.25" y2="2.45" width="0.1" layer="21"/>
-<wire x1="10.25" y1="2.45" x2="10.25" y2="2.45" width="0.1" layer="21"/>
-<wire x1="10" y1="-5" x2="12" y2="-5" width="0.1" layer="21"/>
-<wire x1="12" y1="-5" x2="12" y2="-4.95" width="0.1" layer="21"/>
-<wire x1="12" y1="-4.95" x2="10" y2="-4.95" width="0.1" layer="21"/>
-<wire x1="10" y1="-4.95" x2="10" y2="-5" width="0.1" layer="21"/>
-<wire x1="50" y1="2.45" x2="53.15" y2="2.45" width="0.1" layer="21"/>
-<wire x1="53.15" y1="2.45" x2="53.15" y2="2.45" width="0.1" layer="21"/>
-<wire x1="53.15" y1="2.45" x2="50" y2="2.45" width="0.1" layer="21"/>
-<wire x1="50" y1="2.45" x2="50" y2="2.45" width="0.1" layer="21"/>
-<wire x1="53.15" y1="2.45" x2="53.15" y2="2.45" width="0.1" layer="21"/>
-<wire x1="53.15" y1="2.45" x2="53.15" y2="-0.25" width="0.1" layer="21"/>
-<wire x1="53.15" y1="-0.25" x2="53.15" y2="-0.25" width="0.1" layer="21"/>
-<wire x1="53.15" y1="-0.25" x2="53.15" y2="2.45" width="0.1" layer="21"/>
-<wire x1="53.15" y1="-2.5" x2="53.15" y2="-2.5" width="0.1" layer="21"/>
-<wire x1="53.15" y1="-2.5" x2="53.15" y2="-4.95" width="0.1" layer="21"/>
-<wire x1="53.15" y1="-4.95" x2="53.15" y2="-4.95" width="0.1" layer="21"/>
-<wire x1="53.15" y1="-4.95" x2="53.15" y2="-2.5" width="0.1" layer="21"/>
-<wire x1="53.15" y1="-4.95" x2="50" y2="-4.95" width="0.1" layer="21"/>
-<wire x1="50" y1="-4.95" x2="50" y2="-4.95" width="0.1" layer="21"/>
-<wire x1="50" y1="-4.95" x2="53.15" y2="-4.95" width="0.1" layer="21"/>
-<wire x1="53.15" y1="-4.95" x2="53.15" y2="-4.95" width="0.1" layer="21"/>
-<wire x1="-3.85" y1="3.669" x2="54.15" y2="3.669" width="0.1" layer="51"/>
-<wire x1="54.15" y1="3.669" x2="54.15" y2="-6.169" width="0.1" layer="51"/>
-<wire x1="54.15" y1="-6.169" x2="-3.85" y2="-6.169" width="0.1" layer="51"/>
-<wire x1="-3.85" y1="-6.169" x2="-3.85" y2="3.669" width="0.1" layer="51"/>
+<pad name="A1" x="0" y="1.27" drill="0.78" diameter="1.337"/>
+<pad name="A2" x="1" y="3.27" drill="0.78" diameter="1.337"/>
+<pad name="A3" x="2" y="1.27" drill="0.78" diameter="1.337"/>
+<pad name="A4" x="3" y="3.27" drill="0.78" diameter="1.337"/>
+<pad name="A5" x="4" y="1.27" drill="0.78" diameter="1.337"/>
+<pad name="A6" x="5" y="3.27" drill="0.78" diameter="1.337"/>
+<pad name="A7" x="6" y="1.27" drill="0.78" diameter="1.337"/>
+<pad name="A8" x="7" y="3.27" drill="0.78" diameter="1.337"/>
+<pad name="A9" x="8" y="1.27" drill="0.78" diameter="1.337"/>
+<pad name="A10" x="9" y="3.27" drill="0.78" diameter="1.337"/>
+<pad name="A11" x="10" y="1.27" drill="0.78" diameter="1.337"/>
+<pad name="A12" x="13" y="3.27" drill="0.78" diameter="1.337"/>
+<pad name="A13" x="14" y="1.27" drill="0.78" diameter="1.337"/>
+<pad name="A14" x="15" y="3.27" drill="0.78" diameter="1.337"/>
+<pad name="A15" x="16" y="1.27" drill="0.78" diameter="1.337"/>
+<pad name="A16" x="17" y="3.27" drill="0.78" diameter="1.337"/>
+<pad name="A17" x="18" y="1.27" drill="0.78" diameter="1.337"/>
+<pad name="A18" x="19" y="3.27" drill="0.78" diameter="1.337"/>
+<pad name="B1" x="0" y="-1.23" drill="0.78" diameter="1.337"/>
+<pad name="B2" x="1" y="-3.23" drill="0.78" diameter="1.337"/>
+<pad name="B3" x="2" y="-1.23" drill="0.78" diameter="1.337"/>
+<pad name="B4" x="3" y="-3.23" drill="0.78" diameter="1.337"/>
+<pad name="B5" x="4" y="-1.23" drill="0.78" diameter="1.337"/>
+<pad name="B6" x="5" y="-3.23" drill="0.78" diameter="1.337"/>
+<pad name="B7" x="6" y="-1.23" drill="0.78" diameter="1.337"/>
+<pad name="B8" x="7" y="-3.23" drill="0.78" diameter="1.337"/>
+<pad name="B9" x="8" y="-1.23" drill="0.78" diameter="1.337"/>
+<pad name="B10" x="9" y="-3.23" drill="0.78" diameter="1.337"/>
+<pad name="B11" x="10" y="-1.23" drill="0.78" diameter="1.337"/>
+<pad name="B12" x="13" y="-3.23" drill="0.78" diameter="1.337"/>
+<pad name="B13" x="14" y="-1.23" drill="0.78" diameter="1.337"/>
+<pad name="B14" x="15" y="-3.23" drill="0.78" diameter="1.337"/>
+<pad name="B15" x="16" y="-1.23" drill="0.78" diameter="1.337"/>
+<pad name="B16" x="17" y="-3.23" drill="0.78" diameter="1.337"/>
+<pad name="B17" x="18" y="-1.23" drill="0.78" diameter="1.337"/>
+<pad name="B18" x="19" y="-3.23" drill="0.78" diameter="1.337"/>
+<hole x="11.65" y="0.02" drill="2.4"/>
+<hole x="20.8" y="0.02" drill="2.4"/>
+<text x="10" y="-0.546" size="1.27" layer="25" align="center">&gt;NAME</text>
+<text x="10" y="-0.546" size="1.27" layer="27" align="center">&gt;VALUE</text>
+<wire x1="-2.1" y1="3.72" x2="22.9" y2="3.72" width="0.2" layer="51"/>
+<wire x1="22.9" y1="3.72" x2="22.9" y2="-5.03" width="0.2" layer="51"/>
+<wire x1="22.9" y1="-5.03" x2="-2.1" y2="-5.03" width="0.2" layer="51"/>
+<wire x1="-2.1" y1="-5.03" x2="-2.1" y2="3.72" width="0.2" layer="51"/>
+<wire x1="-3.9" y1="4.939" x2="23.9" y2="4.939" width="0.1" layer="51"/>
+<wire x1="23.9" y1="4.939" x2="23.9" y2="-6.03" width="0.1" layer="51"/>
+<wire x1="23.9" y1="-6.03" x2="-3.9" y2="-6.03" width="0.1" layer="51"/>
+<wire x1="-3.9" y1="-6.03" x2="-3.9" y2="4.939" width="0.1" layer="51"/>
+<wire x1="-2.1" y1="3.72" x2="-2.1" y2="-5.03" width="0.1" layer="21"/>
+<wire x1="-2.1" y1="-5.03" x2="22.9" y2="-5.03" width="0.1" layer="21"/>
+<wire x1="22.9" y1="-5.03" x2="22.9" y2="3.72" width="0.1" layer="21"/>
+<wire x1="-2.6" y1="1.52" x2="-2.9" y2="1.52" width="0.3" layer="21" curve="180"/>
+<wire x1="-2.9" y1="1.52" x2="-2.6" y2="1.52" width="0.3" layer="21" curve="180"/>
 </package>
 </packages>
 <packages3d>
@@ -625,10 +532,10 @@ body 3.9 mm/JEDEC MS-012AA</description>
 <packageinstance name="MOLEX_90814-0204"/>
 </packageinstances>
 </package3d>
-<package3d name="1001878310102TLF" urn="urn:adsk.eagle:package:17482617/2" type="model" library_version="26">
-<description>&lt;b&gt;10018783-10102TLF-2&lt;/b&gt;&lt;br&gt;</description>
+<package3d name="1001878410210TLF" urn="urn:adsk.eagle:package:17482565/3" type="model" library_version="27">
+<description>&lt;b&gt;10018784-10210TLF-1&lt;/b&gt;&lt;br&gt;</description>
 <packageinstances>
-<packageinstance name="1001878310102TLF"/>
+<packageinstance name="1001878410210TLF"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -1360,85 +1267,217 @@ design rules under a new name.</description>
 <attribute name="NAME" x="-89.535" y="-492.125" size="1.27" layer="25"/>
 <attribute name="VALUE" x="-89.535" y="-494.665" size="1.27" layer="27"/>
 </element>
-<element name="J4" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" package="1001878310102TLF" package3d_urn="urn:adsk.eagle:package:17482617/2" value="10018783-10102TLF" x="40" y="80" smashed="yes" rot="R90">
-<attribute name="DESCRIPTION" value="PCI Express / PCI Connectors x8 98 POS" x="40" y="80" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="HEIGHT" value="11.25mm" x="40" y="80" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER_NAME" value="Amphenol" x="40" y="80" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER_PART_NUMBER" value="10018783-10102TLF" x="40" y="80" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MOUSER_PART_NUMBER" value="649-18783-10102TLF" x="40" y="80" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=649-18783-10102TLF" x="40" y="80" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="NAME" x="41.25" y="105.15" size="1.27" layer="25" rot="R90" align="center"/>
-<attribute name="VALUE" x="47.6" y="84.83" size="1.27" layer="27" rot="R90" align="center"/>
+<element name="J4" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" package="1001878410210TLF" package3d_urn="urn:adsk.eagle:package:17482565/3" value="10018784-10210TLF" x="40" y="75" smashed="yes" rot="R90">
+<attribute name="DESCRIPTION" value="PCI Express / PCI Connectors 36P CARD EDGE ASSM VERTICAL" x="40" y="75" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="HEIGHT" value="11.25mm" x="40" y="75" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURER_NAME" value="Amphenol" x="40" y="75" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="10018784-10210TLF" x="40" y="75" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="649-1001878410210TLF" x="40" y="75" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=649-1001878410210TLF" x="40" y="75" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="NAME" x="47.05" y="71.4" size="1.27" layer="25" rot="R90" align="center"/>
+<attribute name="VALUE" x="47.8" y="90.5" size="1.27" layer="27" rot="R90" align="center"/>
 </element>
-<element name="J5" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" package="1001878310102TLF" package3d_urn="urn:adsk.eagle:package:17482617/2" value="10018783-10102TLF" x="40" y="10" smashed="yes" rot="R90">
-<attribute name="DESCRIPTION" value="PCI Express / PCI Connectors x8 98 POS" x="40" y="10" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="HEIGHT" value="11.25mm" x="40" y="10" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER_NAME" value="Amphenol" x="40" y="10" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER_PART_NUMBER" value="10018783-10102TLF" x="40" y="10" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MOUSER_PART_NUMBER" value="649-18783-10102TLF" x="40" y="10" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=649-18783-10102TLF" x="40" y="10" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="NAME" x="41.25" y="35.15" size="1.27" layer="25" rot="R90" align="center"/>
-<attribute name="VALUE" x="47.6" y="14.83" size="1.27" layer="27" rot="R90" align="center"/>
+<element name="J5" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" package="1001878410210TLF" package3d_urn="urn:adsk.eagle:package:17482565/3" value="10018784-10210TLF" x="40" y="25" smashed="yes" rot="R270">
+<attribute name="DESCRIPTION" value="PCI Express / PCI Connectors 36P CARD EDGE ASSM VERTICAL" x="40" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="HEIGHT" value="11.25mm" x="40" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MANUFACTURER_NAME" value="Amphenol" x="40" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="10018784-10210TLF" x="40" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="649-1001878410210TLF" x="40" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=649-1001878410210TLF" x="40" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="45.75" y="1.65" size="1.27" layer="25" rot="R270" align="center"/>
+<attribute name="VALUE" x="32.4" y="20.17" size="1.27" layer="27" rot="R270" align="center"/>
 </element>
-<element name="J6" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" package="1001878310102TLF" package3d_urn="urn:adsk.eagle:package:17482617/2" value="10018783-10102TLF" x="20" y="80" smashed="yes" rot="R90">
-<attribute name="DESCRIPTION" value="PCI Express / PCI Connectors x8 98 POS" x="20" y="80" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="HEIGHT" value="11.25mm" x="20" y="80" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER_NAME" value="Amphenol" x="20" y="80" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER_PART_NUMBER" value="10018783-10102TLF" x="20" y="80" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MOUSER_PART_NUMBER" value="649-18783-10102TLF" x="20" y="80" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=649-18783-10102TLF" x="20" y="80" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="NAME" x="21.25" y="105.15" size="1.27" layer="25" rot="R90" align="center"/>
-<attribute name="VALUE" x="27.6" y="84.83" size="1.27" layer="27" rot="R90" align="center"/>
+<element name="J6" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" package="1001878410210TLF" package3d_urn="urn:adsk.eagle:package:17482565/3" value="10018784-10210TLF" x="20" y="75" smashed="yes" rot="R90">
+<attribute name="DESCRIPTION" value="PCI Express / PCI Connectors 36P CARD EDGE ASSM VERTICAL" x="20" y="75" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="HEIGHT" value="11.25mm" x="20" y="75" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURER_NAME" value="Amphenol" x="20" y="75" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="10018784-10210TLF" x="20" y="75" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="649-1001878410210TLF" x="20" y="75" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=649-1001878410210TLF" x="20" y="75" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="NAME" x="26.95" y="71.7" size="1.27" layer="25" rot="R90" align="center"/>
+<attribute name="VALUE" x="27.8" y="90.5" size="1.27" layer="27" rot="R90" align="center"/>
 </element>
-<element name="J7" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" package="1001878310102TLF" package3d_urn="urn:adsk.eagle:package:17482617/2" value="10018783-10102TLF" x="20" y="10" smashed="yes" rot="R90">
-<attribute name="DESCRIPTION" value="PCI Express / PCI Connectors x8 98 POS" x="20" y="10" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="HEIGHT" value="11.25mm" x="20" y="10" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER_NAME" value="Amphenol" x="20" y="10" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER_PART_NUMBER" value="10018783-10102TLF" x="20" y="10" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MOUSER_PART_NUMBER" value="649-18783-10102TLF" x="20" y="10" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=649-18783-10102TLF" x="20" y="10" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="NAME" x="21.25" y="35.15" size="1.27" layer="25" rot="R90" align="center"/>
-<attribute name="VALUE" x="27.2" y="14.23" size="1.27" layer="27" rot="R90" align="center"/>
+<element name="J7" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" package="1001878410210TLF" package3d_urn="urn:adsk.eagle:package:17482565/3" value="10018784-10210TLF" x="20" y="25" smashed="yes" rot="R270">
+<attribute name="DESCRIPTION" value="PCI Express / PCI Connectors 36P CARD EDGE ASSM VERTICAL" x="20" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="HEIGHT" value="11.25mm" x="20" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MANUFACTURER_NAME" value="Amphenol" x="20" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="10018784-10210TLF" x="20" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="649-1001878410210TLF" x="20" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=649-1001878410210TLF" x="20" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="25.85" y="1.65" size="1.27" layer="25" rot="R270" align="center"/>
+<attribute name="VALUE" x="12.8" y="20.77" size="1.27" layer="27" rot="R270" align="center"/>
 </element>
-<element name="J3" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" package="1001878310102TLF" package3d_urn="urn:adsk.eagle:package:17482617/2" value="10018783-10102TLF" x="60" y="80" smashed="yes" rot="R90">
-<attribute name="DESCRIPTION" value="PCI Express / PCI Connectors x8 98 POS" x="60" y="80" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="HEIGHT" value="11.25mm" x="60" y="80" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER_NAME" value="Amphenol" x="60" y="80" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER_PART_NUMBER" value="10018783-10102TLF" x="60" y="80" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MOUSER_PART_NUMBER" value="649-18783-10102TLF" x="60" y="80" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=649-18783-10102TLF" x="60" y="80" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="NAME" x="61.25" y="105.15" size="1.27" layer="25" rot="R90" align="center"/>
-<attribute name="VALUE" x="67.65" y="84.65" size="1.27" layer="27" rot="R90" align="center"/>
+<element name="J3" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" package="1001878410210TLF" package3d_urn="urn:adsk.eagle:package:17482565/3" value="10018784-10210TLF" x="60" y="75" smashed="yes" rot="R90">
+<attribute name="DESCRIPTION" value="PCI Express / PCI Connectors 36P CARD EDGE ASSM VERTICAL" x="60" y="75" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="HEIGHT" value="11.25mm" x="60" y="75" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURER_NAME" value="Amphenol" x="60" y="75" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="10018784-10210TLF" x="60" y="75" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="649-1001878410210TLF" x="60" y="75" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=649-1001878410210TLF" x="60" y="75" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="NAME" x="66.95" y="71.7" size="1.27" layer="25" rot="R90" align="center"/>
+<attribute name="VALUE" x="67.85" y="90.5" size="1.27" layer="27" rot="R90" align="center"/>
 </element>
-<element name="J8" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" package="1001878310102TLF" package3d_urn="urn:adsk.eagle:package:17482617/2" value="10018783-10102TLF" x="80" y="10" smashed="yes" rot="R90">
-<attribute name="DESCRIPTION" value="PCI Express / PCI Connectors x8 98 POS" x="80" y="10" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="HEIGHT" value="11.25mm" x="80" y="10" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER_NAME" value="Amphenol" x="80" y="10" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER_PART_NUMBER" value="10018783-10102TLF" x="80" y="10" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MOUSER_PART_NUMBER" value="649-18783-10102TLF" x="80" y="10" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=649-18783-10102TLF" x="80" y="10" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="NAME" x="81.25" y="35.15" size="1.27" layer="25" rot="R90" align="center"/>
-<attribute name="VALUE" x="87.35" y="14.35" size="1.27" layer="27" rot="R90" align="center"/>
+<element name="J8" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" package="1001878410210TLF" package3d_urn="urn:adsk.eagle:package:17482565/3" value="10018784-10210TLF" x="80" y="25" smashed="yes" rot="R270">
+<attribute name="DESCRIPTION" value="PCI Express / PCI Connectors 36P CARD EDGE ASSM VERTICAL" x="80" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="HEIGHT" value="11.25mm" x="80" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MANUFACTURER_NAME" value="Amphenol" x="80" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="10018784-10210TLF" x="80" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="649-1001878410210TLF" x="80" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=649-1001878410210TLF" x="80" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="85.75" y="1.65" size="1.27" layer="25" rot="R270" align="center"/>
+<attribute name="VALUE" x="72.65" y="20.65" size="1.27" layer="27" rot="R270" align="center"/>
 </element>
-<element name="J9" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" package="1001878310102TLF" package3d_urn="urn:adsk.eagle:package:17482617/2" value="10018783-10102TLF" x="60" y="10" smashed="yes" rot="R90">
-<attribute name="DESCRIPTION" value="PCI Express / PCI Connectors x8 98 POS" x="60" y="10" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="HEIGHT" value="11.25mm" x="60" y="10" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER_NAME" value="Amphenol" x="60" y="10" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER_PART_NUMBER" value="10018783-10102TLF" x="60" y="10" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MOUSER_PART_NUMBER" value="649-18783-10102TLF" x="60" y="10" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=649-18783-10102TLF" x="60" y="10" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="NAME" x="61.25" y="35.15" size="1.27" layer="25" rot="R90" align="center"/>
-<attribute name="VALUE" x="67.45" y="14.25" size="1.27" layer="27" rot="R90" align="center"/>
+<element name="J9" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" package="1001878410210TLF" package3d_urn="urn:adsk.eagle:package:17482565/3" value="10018784-10210TLF" x="60" y="25" smashed="yes" rot="R270">
+<attribute name="DESCRIPTION" value="PCI Express / PCI Connectors 36P CARD EDGE ASSM VERTICAL" x="60" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="HEIGHT" value="11.25mm" x="60" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MANUFACTURER_NAME" value="Amphenol" x="60" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="10018784-10210TLF" x="60" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="649-1001878410210TLF" x="60" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=649-1001878410210TLF" x="60" y="25" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="NAME" x="65.75" y="1.65" size="1.27" layer="25" rot="R270" align="center"/>
+<attribute name="VALUE" x="52.55" y="20.75" size="1.27" layer="27" rot="R270" align="center"/>
 </element>
-<element name="J10" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" package="1001878310102TLF" package3d_urn="urn:adsk.eagle:package:17482617/2" value="10018783-10102TLF" x="80" y="80" smashed="yes" rot="R90">
-<attribute name="DESCRIPTION" value="PCI Express / PCI Connectors x8 98 POS" x="80" y="80" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="HEIGHT" value="11.25mm" x="80" y="80" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER_NAME" value="Amphenol" x="80" y="80" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER_PART_NUMBER" value="10018783-10102TLF" x="80" y="80" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MOUSER_PART_NUMBER" value="649-18783-10102TLF" x="80" y="80" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=649-18783-10102TLF" x="80" y="80" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="NAME" x="81.25" y="105.15" size="1.27" layer="25" rot="R90" align="center"/>
-<attribute name="VALUE" x="87.45" y="85.05" size="1.27" layer="27" rot="R90" align="center"/>
+<element name="J10" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" package="1001878410210TLF" package3d_urn="urn:adsk.eagle:package:17482565/3" value="10018784-10210TLF" x="80" y="75" smashed="yes" rot="R90">
+<attribute name="DESCRIPTION" value="PCI Express / PCI Connectors 36P CARD EDGE ASSM VERTICAL" x="80" y="75" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="HEIGHT" value="11.25mm" x="80" y="75" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURER_NAME" value="Amphenol" x="80" y="75" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="10018784-10210TLF" x="80" y="75" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="649-1001878410210TLF" x="80" y="75" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=649-1001878410210TLF" x="80" y="75" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="NAME" x="87.15" y="72.1" size="1.27" layer="25" rot="R90" align="center"/>
+<attribute name="VALUE" x="87.65" y="90.5" size="1.27" layer="27" rot="R90" align="center"/>
+</element>
+<element name="IC7" library="SPI" library_urn="urn:adsk.eagle:library:750815" package="SOP50P490X110-10N" package3d_urn="urn:adsk.eagle:package:16089267/2" value="DAC084S085CIMM_NOPB" x="-78.9" y="-497" smashed="yes">
+<attribute name="MOUSER_PART_NUMBER" value="926-DAC084S085CIMMNO" x="-86.5" y="-497" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="-78.9" y="-497" size="1.27" layer="25" align="center"/>
+<attribute name="VALUE" x="-78.9" y="-497" size="1.27" layer="27" align="center"/>
+</element>
+<element name="R42" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="500 R" x="-88.9" y="-501.3" smashed="yes">
+<attribute name="NAME" x="-89.535" y="-500.665" size="1.27" layer="25"/>
+<attribute name="VALUE" x="-89.535" y="-503.205" size="1.27" layer="27"/>
+</element>
+<element name="R45" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="500 R" x="-88.9" y="-506.2" smashed="yes">
+<attribute name="NAME" x="-89.535" y="-505.565" size="1.27" layer="25"/>
+<attribute name="VALUE" x="-89.535" y="-508.105" size="1.27" layer="27"/>
+</element>
+<element name="R46" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="500 R" x="-88.9" y="-511.1" smashed="yes">
+<attribute name="NAME" x="-89.535" y="-510.465" size="1.27" layer="25"/>
+<attribute name="VALUE" x="-89.535" y="-513.005" size="1.27" layer="27"/>
+</element>
+<element name="C20" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="C1206" package3d_urn="urn:adsk.eagle:package:16431717/2" value="10 uF" x="-86.5" y="-514.8" smashed="yes">
+<attribute name="NAME" x="-86.5" y="-514.8" size="1.27" layer="25" align="center"/>
+<attribute name="VALUE" x="-86.5" y="-514.8" size="1.27" layer="27" align="center"/>
+</element>
+<element name="C21" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="C0603" package3d_urn="urn:adsk.eagle:package:576738/3" value="100 nF" x="-88.9" y="-518" smashed="yes">
+<attribute name="NAME" x="-89.535" y="-517.365" size="1.016" layer="25"/>
+<attribute name="VALUE" x="-89.535" y="-519.905" size="1.016" layer="27"/>
+</element>
+<element name="C22" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="C1206" package3d_urn="urn:adsk.eagle:package:16431717/2" value="10 uF" x="-87.6" y="-526.3" smashed="yes">
+<attribute name="NAME" x="-87.6" y="-526.3" size="1.27" layer="25" align="center"/>
+<attribute name="VALUE" x="-87.6" y="-526.3" size="1.27" layer="27" align="center"/>
+</element>
+<element name="C23" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="C0603" package3d_urn="urn:adsk.eagle:package:576738/3" value="100 nF" x="-88.9" y="-522.6" smashed="yes">
+<attribute name="NAME" x="-89.535" y="-521.965" size="1.016" layer="25"/>
+<attribute name="VALUE" x="-89.535" y="-524.505" size="1.016" layer="27"/>
+</element>
+<element name="IC8" library="SPI" library_urn="urn:adsk.eagle:library:750815" package="SOP50P490X110-10N" package3d_urn="urn:adsk.eagle:package:16089267/2" value="DAC084S085CIMM_NOPB" x="-78.9" y="-543.7" smashed="yes">
+<attribute name="MOUSER_PART_NUMBER" value="926-DAC084S085CIMMNO" x="-86.5" y="-529.3" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="-78.9" y="-543.7" size="1.27" layer="25" align="center"/>
+<attribute name="VALUE" x="-78.9" y="-543.7" size="1.27" layer="27" align="center"/>
+</element>
+<element name="R47" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="500 R" x="-88.9" y="-529.9" smashed="yes">
+<attribute name="NAME" x="-89.535" y="-529.265" size="1.27" layer="25"/>
+<attribute name="VALUE" x="-89.535" y="-531.805" size="1.27" layer="27"/>
+</element>
+<element name="R48" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="500 R" x="-82.7" y="-529.9" smashed="yes">
+<attribute name="NAME" x="-83.335" y="-529.265" size="1.27" layer="25"/>
+<attribute name="VALUE" x="-83.335" y="-531.805" size="1.27" layer="27"/>
+</element>
+<element name="R49" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="500 R" x="-88.9" y="-534.8" smashed="yes">
+<attribute name="NAME" x="-89.535" y="-534.165" size="1.27" layer="25"/>
+<attribute name="VALUE" x="-89.535" y="-536.705" size="1.27" layer="27"/>
+</element>
+<element name="C24" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="C1206" package3d_urn="urn:adsk.eagle:package:16431717/2" value="10 uF" x="-87.6" y="-546.8" smashed="yes">
+<attribute name="NAME" x="-87.6" y="-546.8" size="1.27" layer="25" align="center"/>
+<attribute name="VALUE" x="-87.6" y="-546.8" size="1.27" layer="27" align="center"/>
+</element>
+<element name="C25" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="C0603" package3d_urn="urn:adsk.eagle:package:576738/3" value="100 nF" x="-82.7" y="-534.5" smashed="yes">
+<attribute name="NAME" x="-83.335" y="-533.865" size="1.016" layer="25"/>
+<attribute name="VALUE" x="-83.335" y="-536.405" size="1.016" layer="27"/>
+</element>
+<element name="C26" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="C1206" package3d_urn="urn:adsk.eagle:package:16431717/2" value="10 uF" x="-82" y="-546.8" smashed="yes">
+<attribute name="NAME" x="-82" y="-546.8" size="1.27" layer="25" align="center"/>
+<attribute name="VALUE" x="-82" y="-546.8" size="1.27" layer="27" align="center"/>
+</element>
+<element name="C27" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="C0603" package3d_urn="urn:adsk.eagle:package:576738/3" value="100 nF" x="-88.9" y="-539.4" smashed="yes">
+<attribute name="NAME" x="-89.535" y="-538.765" size="1.016" layer="25"/>
+<attribute name="VALUE" x="-89.535" y="-541.305" size="1.016" layer="27"/>
+</element>
+<element name="IC9" library="SPI" library_urn="urn:adsk.eagle:library:750815" package="SOP50P490X110-10N" package3d_urn="urn:adsk.eagle:package:16089267/2" value="DAC084S085CIMM_NOPB" x="-78.9" y="-564.2" smashed="yes">
+<attribute name="MOUSER_PART_NUMBER" value="926-DAC084S085CIMMNO" x="-86.5" y="-549.8" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="-78.9" y="-564.2" size="1.27" layer="25" align="center"/>
+<attribute name="VALUE" x="-78.9" y="-564.2" size="1.27" layer="27" align="center"/>
+</element>
+<element name="R50" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="500 R" x="-88.9" y="-550.4" smashed="yes">
+<attribute name="NAME" x="-89.535" y="-549.765" size="1.27" layer="25"/>
+<attribute name="VALUE" x="-89.535" y="-552.305" size="1.27" layer="27"/>
+</element>
+<element name="R51" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="500 R" x="-82.7" y="-550.4" smashed="yes">
+<attribute name="NAME" x="-83.335" y="-549.765" size="1.27" layer="25"/>
+<attribute name="VALUE" x="-83.335" y="-552.305" size="1.27" layer="27"/>
+</element>
+<element name="R52" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="500 R" x="-88.9" y="-555.3" smashed="yes">
+<attribute name="NAME" x="-89.535" y="-554.665" size="1.27" layer="25"/>
+<attribute name="VALUE" x="-89.535" y="-557.205" size="1.27" layer="27"/>
+</element>
+<element name="C28" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="C1206" package3d_urn="urn:adsk.eagle:package:16431717/2" value="10 uF" x="-87.6" y="-567.3" smashed="yes">
+<attribute name="NAME" x="-87.6" y="-567.3" size="1.27" layer="25" align="center"/>
+<attribute name="VALUE" x="-87.6" y="-567.3" size="1.27" layer="27" align="center"/>
+</element>
+<element name="C29" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="C0603" package3d_urn="urn:adsk.eagle:package:576738/3" value="100 nF" x="-82.7" y="-555" smashed="yes">
+<attribute name="NAME" x="-83.335" y="-554.365" size="1.016" layer="25"/>
+<attribute name="VALUE" x="-83.335" y="-556.905" size="1.016" layer="27"/>
+</element>
+<element name="C30" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="C1206" package3d_urn="urn:adsk.eagle:package:16431717/2" value="10 uF" x="-82" y="-567.3" smashed="yes">
+<attribute name="NAME" x="-82" y="-567.3" size="1.27" layer="25" align="center"/>
+<attribute name="VALUE" x="-82" y="-567.3" size="1.27" layer="27" align="center"/>
+</element>
+<element name="C31" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="C0603" package3d_urn="urn:adsk.eagle:package:576738/3" value="100 nF" x="-88.9" y="-559.9" smashed="yes">
+<attribute name="NAME" x="-89.535" y="-559.265" size="1.016" layer="25"/>
+<attribute name="VALUE" x="-89.535" y="-561.805" size="1.016" layer="27"/>
+</element>
+<element name="IC10" library="SPI" library_urn="urn:adsk.eagle:library:750815" package="SOP50P490X110-10N" package3d_urn="urn:adsk.eagle:package:16089267/2" value="DAC084S085CIMM_NOPB" x="-78.9" y="-584.7" smashed="yes">
+<attribute name="MOUSER_PART_NUMBER" value="926-DAC084S085CIMMNO" x="-86.5" y="-570.3" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="-78.9" y="-584.7" size="1.27" layer="25" align="center"/>
+<attribute name="VALUE" x="-78.9" y="-584.7" size="1.27" layer="27" align="center"/>
+</element>
+<element name="R53" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="500 R" x="-88.9" y="-570.9" smashed="yes">
+<attribute name="NAME" x="-89.535" y="-570.265" size="1.27" layer="25"/>
+<attribute name="VALUE" x="-89.535" y="-572.805" size="1.27" layer="27"/>
+</element>
+<element name="R54" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="500 R" x="-82.7" y="-570.9" smashed="yes">
+<attribute name="NAME" x="-83.335" y="-570.265" size="1.27" layer="25"/>
+<attribute name="VALUE" x="-83.335" y="-572.805" size="1.27" layer="27"/>
+</element>
+<element name="R55" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="500 R" x="-88.9" y="-575.8" smashed="yes">
+<attribute name="NAME" x="-89.535" y="-575.165" size="1.27" layer="25"/>
+<attribute name="VALUE" x="-89.535" y="-577.705" size="1.27" layer="27"/>
+</element>
+<element name="C32" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="C1206" package3d_urn="urn:adsk.eagle:package:16431717/2" value="10 uF" x="-87.6" y="-587.8" smashed="yes">
+<attribute name="NAME" x="-87.6" y="-587.8" size="1.27" layer="25" align="center"/>
+<attribute name="VALUE" x="-87.6" y="-587.8" size="1.27" layer="27" align="center"/>
+</element>
+<element name="C33" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="C0603" package3d_urn="urn:adsk.eagle:package:576738/3" value="100 nF" x="-82.7" y="-575.5" smashed="yes">
+<attribute name="NAME" x="-83.335" y="-574.865" size="1.016" layer="25"/>
+<attribute name="VALUE" x="-83.335" y="-577.405" size="1.016" layer="27"/>
+</element>
+<element name="C34" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="C1206" package3d_urn="urn:adsk.eagle:package:16431717/2" value="10 uF" x="-82" y="-587.8" smashed="yes">
+<attribute name="NAME" x="-82" y="-587.8" size="1.27" layer="25" align="center"/>
+<attribute name="VALUE" x="-82" y="-587.8" size="1.27" layer="27" align="center"/>
+</element>
+<element name="C35" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="C0603" package3d_urn="urn:adsk.eagle:package:576738/3" value="100 nF" x="-88.9" y="-580.4" smashed="yes">
+<attribute name="NAME" x="-89.535" y="-579.765" size="1.016" layer="25"/>
+<attribute name="VALUE" x="-89.535" y="-582.305" size="1.016" layer="27"/>
 </element>
 </elements>
 <signals>
@@ -1558,6 +1597,29 @@ design rules under a new name.</description>
 <contactref element="C16" pad="2"/>
 <contactref element="C17" pad="2"/>
 <contactref element="R39" pad="1"/>
+<contactref element="IC2" pad="5"/>
+<contactref element="U1" pad="3"/>
+<contactref element="U1" pad="6"/>
+<contactref element="IC7" pad="6"/>
+<contactref element="C20" pad="2"/>
+<contactref element="C21" pad="2"/>
+<contactref element="C22" pad="2"/>
+<contactref element="C23" pad="2"/>
+<contactref element="IC8" pad="6"/>
+<contactref element="C24" pad="2"/>
+<contactref element="C25" pad="2"/>
+<contactref element="C26" pad="2"/>
+<contactref element="C27" pad="2"/>
+<contactref element="IC9" pad="6"/>
+<contactref element="C28" pad="2"/>
+<contactref element="C29" pad="2"/>
+<contactref element="C30" pad="2"/>
+<contactref element="C31" pad="2"/>
+<contactref element="IC10" pad="6"/>
+<contactref element="C32" pad="2"/>
+<contactref element="C33" pad="2"/>
+<contactref element="C34" pad="2"/>
+<contactref element="C35" pad="2"/>
 <wire x1="-77.47" y1="-447.3956" x2="-77.47" y2="-429.6156" width="0" layer="19" extent="1-1"/>
 <wire x1="-85.35" y1="-461.852" x2="-77.47" y2="-447.3956" width="0" layer="19" extent="1-1"/>
 <wire x1="-79.75" y1="-470.328" x2="-85.35" y2="-461.852" width="0" layer="19" extent="1-1"/>
@@ -1568,6 +1630,26 @@ design rules under a new name.</description>
 <wire x1="-88.05" y1="-482.6" x2="-88.05" y2="-477.52" width="0" layer="19" extent="1-1"/>
 <wire x1="-88.05" y1="-487.68" x2="-88.05" y2="-482.6" width="0" layer="19" extent="1-1"/>
 <wire x1="-89.75" y1="-492.76" x2="-88.05" y2="-487.68" width="0" layer="19" extent="1-1"/>
+<wire x1="-76.7" y1="-498" x2="-89.75" y2="-492.76" width="0" layer="19" extent="1-1"/>
+<wire x1="-84.9" y1="-514.8" x2="-76.7" y2="-498" width="0" layer="19" extent="1-1"/>
+<wire x1="-88.05" y1="-518" x2="-84.9" y2="-514.8" width="0" layer="19" extent="1-1"/>
+<wire x1="-88.05" y1="-522.6" x2="-88.05" y2="-518" width="0" layer="19" extent="1-1"/>
+<wire x1="-86" y1="-526.3" x2="-88.05" y2="-522.6" width="0" layer="19" extent="1-1"/>
+<wire x1="-81.85" y1="-534.5" x2="-86" y2="-526.3" width="0" layer="19" extent="1-1"/>
+<wire x1="-88.05" y1="-539.4" x2="-81.85" y2="-534.5" width="0" layer="19" extent="1-1"/>
+<wire x1="-86" y1="-546.8" x2="-88.05" y2="-539.4" width="0" layer="19" extent="1-1"/>
+<wire x1="-80.4" y1="-546.8" x2="-86" y2="-546.8" width="0" layer="19" extent="1-1"/>
+<wire x1="-76.7" y1="-544.7" x2="-80.4" y2="-546.8" width="0" layer="19" extent="1-1"/>
+<wire x1="-81.85" y1="-555" x2="-80.4" y2="-546.8" width="0" layer="19" extent="1-1"/>
+<wire x1="-88.05" y1="-559.9" x2="-81.85" y2="-555" width="0" layer="19" extent="1-1"/>
+<wire x1="-86" y1="-567.3" x2="-88.05" y2="-559.9" width="0" layer="19" extent="1-1"/>
+<wire x1="-80.4" y1="-567.3" x2="-86" y2="-567.3" width="0" layer="19" extent="1-1"/>
+<wire x1="-76.7" y1="-565.2" x2="-80.4" y2="-567.3" width="0" layer="19" extent="1-1"/>
+<wire x1="-81.85" y1="-575.5" x2="-80.4" y2="-567.3" width="0" layer="19" extent="1-1"/>
+<wire x1="-88.05" y1="-580.4" x2="-81.85" y2="-575.5" width="0" layer="19" extent="1-1"/>
+<wire x1="-86" y1="-587.8" x2="-88.05" y2="-580.4" width="0" layer="19" extent="1-1"/>
+<wire x1="-80.4" y1="-587.8" x2="-86" y2="-587.8" width="0" layer="19" extent="1-1"/>
+<wire x1="-76.7" y1="-585.7" x2="-80.4" y2="-587.8" width="0" layer="19" extent="1-1"/>
 <wire x1="-82.48" y1="-399.735" x2="-77.47" y2="-429.6156" width="0" layer="19" extent="1-1"/>
 <wire x1="-82.48" y1="-384.495" x2="-82.48" y2="-399.735" width="0" layer="19" extent="1-1"/>
 <wire x1="-71.46" y1="-362.95" x2="-82.48" y2="-384.495" width="0" layer="19" extent="1-1"/>
@@ -1603,9 +1685,6 @@ design rules under a new name.</description>
 <wire x1="-19.685" y1="-26.46" x2="-19.685" y2="-41.7" width="0" layer="19" extent="1-1"/>
 <wire x1="-20.955" y1="-16.72" x2="-19.685" y2="-26.46" width="0" layer="19" extent="1-1"/>
 <wire x1="-19.685" y1="-11.22" x2="-20.955" y2="-16.72" width="0" layer="19" extent="1-1"/>
-<contactref element="IC2" pad="5"/>
-<contactref element="U1" pad="3"/>
-<contactref element="U1" pad="6"/>
 </signal>
 <signal name="MID1_R-IN">
 <contactref element="R5" pad="1"/>
@@ -1858,9 +1937,57 @@ design rules under a new name.</description>
 <contactref element="IC5" pad="7"/>
 <contactref element="R32" pad="2"/>
 <contactref element="R34" pad="2"/>
+<contactref element="IC7" pad="1"/>
+<contactref element="IC7" pad="7"/>
+<contactref element="C20" pad="1"/>
+<contactref element="C21" pad="1"/>
+<contactref element="C22" pad="1"/>
+<contactref element="C23" pad="1"/>
+<contactref element="IC8" pad="1"/>
+<contactref element="C26" pad="1"/>
+<contactref element="C27" pad="1"/>
+<contactref element="IC8" pad="7"/>
+<contactref element="C24" pad="1"/>
+<contactref element="C25" pad="1"/>
+<contactref element="IC9" pad="1"/>
+<contactref element="C30" pad="1"/>
+<contactref element="C31" pad="1"/>
+<contactref element="IC9" pad="7"/>
+<contactref element="C28" pad="1"/>
+<contactref element="C29" pad="1"/>
+<contactref element="IC10" pad="1"/>
+<contactref element="C34" pad="1"/>
+<contactref element="C35" pad="1"/>
+<contactref element="IC10" pad="7"/>
+<contactref element="C32" pad="1"/>
+<contactref element="C33" pad="1"/>
 <wire x1="-88.05" y1="-389.89" x2="-88.05" y2="-405.13" width="0" layer="19" extent="1-1"/>
 <wire x1="-75.86" y1="-360.95" x2="-88.05" y2="-389.89" width="0" layer="19" extent="1-1"/>
 <wire x1="-71.46" y1="-362.45" x2="-75.86" y2="-360.95" width="0" layer="19" extent="1-1"/>
+<wire x1="-81.1" y1="-496" x2="-88.05" y2="-405.13" width="0" layer="19" extent="1-1"/>
+<wire x1="-76.7" y1="-497.5" x2="-81.1" y2="-496" width="0" layer="19" extent="1-1"/>
+<wire x1="-88.1" y1="-514.8" x2="-81.1" y2="-496" width="0" layer="19" extent="1-1"/>
+<wire x1="-89.75" y1="-518" x2="-88.1" y2="-514.8" width="0" layer="19" extent="1-1"/>
+<wire x1="-89.75" y1="-522.6" x2="-89.75" y2="-518" width="0" layer="19" extent="1-1"/>
+<wire x1="-89.2" y1="-526.3" x2="-89.75" y2="-522.6" width="0" layer="19" extent="1-1"/>
+<wire x1="-83.55" y1="-534.5" x2="-89.2" y2="-526.3" width="0" layer="19" extent="1-1"/>
+<wire x1="-89.75" y1="-539.4" x2="-83.55" y2="-534.5" width="0" layer="19" extent="1-1"/>
+<wire x1="-89.2" y1="-546.8" x2="-89.75" y2="-539.4" width="0" layer="19" extent="1-1"/>
+<wire x1="-83.6" y1="-546.8" x2="-89.2" y2="-546.8" width="0" layer="19" extent="1-1"/>
+<wire x1="-81.1" y1="-542.7" x2="-83.6" y2="-546.8" width="0" layer="19" extent="1-1"/>
+<wire x1="-76.7" y1="-544.2" x2="-81.1" y2="-542.7" width="0" layer="19" extent="1-1"/>
+<wire x1="-83.55" y1="-555" x2="-83.6" y2="-546.8" width="0" layer="19" extent="1-1"/>
+<wire x1="-89.75" y1="-559.9" x2="-83.55" y2="-555" width="0" layer="19" extent="1-1"/>
+<wire x1="-89.2" y1="-567.3" x2="-89.75" y2="-559.9" width="0" layer="19" extent="1-1"/>
+<wire x1="-83.6" y1="-567.3" x2="-89.2" y2="-567.3" width="0" layer="19" extent="1-1"/>
+<wire x1="-81.1" y1="-563.2" x2="-83.6" y2="-567.3" width="0" layer="19" extent="1-1"/>
+<wire x1="-76.7" y1="-564.7" x2="-81.1" y2="-563.2" width="0" layer="19" extent="1-1"/>
+<wire x1="-83.55" y1="-575.5" x2="-83.6" y2="-567.3" width="0" layer="19" extent="1-1"/>
+<wire x1="-89.75" y1="-580.4" x2="-83.55" y2="-575.5" width="0" layer="19" extent="1-1"/>
+<wire x1="-89.2" y1="-587.8" x2="-89.75" y2="-580.4" width="0" layer="19" extent="1-1"/>
+<wire x1="-83.6" y1="-587.8" x2="-89.2" y2="-587.8" width="0" layer="19" extent="1-1"/>
+<wire x1="-81.1" y1="-583.7" x2="-83.6" y2="-587.8" width="0" layer="19" extent="1-1"/>
+<wire x1="-76.7" y1="-585.2" x2="-81.1" y2="-583.7" width="0" layer="19" extent="1-1"/>
 <wire x1="-56.81" y1="-178.07" x2="-75.86" y2="-360.95" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$21">
@@ -2088,6 +2215,114 @@ design rules under a new name.</description>
 <contactref element="IC6" pad="2"/>
 <contactref element="R39" pad="2"/>
 <wire x1="-86.788" y1="-464.09" x2="-88.05" y2="-492.76" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$31">
+<contactref element="IC7" pad="8"/>
+<contactref element="R42" pad="1"/>
+<wire x1="-76.7" y1="-497" x2="-89.75" y2="-501.3" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$32">
+<contactref element="R45" pad="1"/>
+<contactref element="IC7" pad="9"/>
+<wire x1="-76.7" y1="-496.5" x2="-89.75" y2="-506.2" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$33">
+<contactref element="IC7" pad="10"/>
+<contactref element="R46" pad="1"/>
+<wire x1="-76.7" y1="-496" x2="-89.75" y2="-511.1" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$34">
+<contactref element="IC7" pad="2"/>
+</signal>
+<signal name="N$35">
+<contactref element="IC7" pad="3"/>
+</signal>
+<signal name="N$36">
+<contactref element="IC7" pad="4"/>
+</signal>
+<signal name="N$37">
+<contactref element="IC7" pad="5"/>
+</signal>
+<signal name="N$38">
+<contactref element="IC8" pad="8"/>
+<contactref element="R47" pad="1"/>
+<wire x1="-89.75" y1="-529.9" x2="-76.7" y2="-543.7" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$39">
+<contactref element="R48" pad="1"/>
+<contactref element="IC8" pad="9"/>
+<wire x1="-83.55" y1="-529.9" x2="-76.7" y2="-543.2" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$40">
+<contactref element="IC8" pad="10"/>
+<contactref element="R49" pad="1"/>
+<wire x1="-76.7" y1="-542.7" x2="-89.75" y2="-534.8" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$41">
+<contactref element="IC8" pad="2"/>
+</signal>
+<signal name="N$42">
+<contactref element="IC8" pad="3"/>
+</signal>
+<signal name="N$43">
+<contactref element="IC8" pad="4"/>
+</signal>
+<signal name="N$44">
+<contactref element="IC8" pad="5"/>
+</signal>
+<signal name="N$45">
+<contactref element="IC9" pad="8"/>
+<contactref element="R50" pad="1"/>
+<wire x1="-89.75" y1="-550.4" x2="-76.7" y2="-564.2" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$46">
+<contactref element="R51" pad="1"/>
+<contactref element="IC9" pad="9"/>
+<wire x1="-83.55" y1="-550.4" x2="-76.7" y2="-563.7" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$47">
+<contactref element="IC9" pad="10"/>
+<contactref element="R52" pad="1"/>
+<wire x1="-76.7" y1="-563.2" x2="-89.75" y2="-555.3" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$48">
+<contactref element="IC9" pad="2"/>
+</signal>
+<signal name="N$49">
+<contactref element="IC9" pad="3"/>
+</signal>
+<signal name="N$50">
+<contactref element="IC9" pad="4"/>
+</signal>
+<signal name="N$51">
+<contactref element="IC9" pad="5"/>
+</signal>
+<signal name="N$52">
+<contactref element="IC10" pad="8"/>
+<contactref element="R53" pad="1"/>
+<wire x1="-89.75" y1="-570.9" x2="-76.7" y2="-584.7" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$53">
+<contactref element="R54" pad="1"/>
+<contactref element="IC10" pad="9"/>
+<wire x1="-83.55" y1="-570.9" x2="-76.7" y2="-584.2" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$54">
+<contactref element="IC10" pad="10"/>
+<contactref element="R55" pad="1"/>
+<wire x1="-76.7" y1="-583.7" x2="-89.75" y2="-575.8" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$55">
+<contactref element="IC10" pad="2"/>
+</signal>
+<signal name="N$59">
+<contactref element="IC10" pad="3"/>
+</signal>
+<signal name="N$60">
+<contactref element="IC10" pad="4"/>
+</signal>
+<signal name="N$61">
+<contactref element="IC10" pad="5"/>
 </signal>
 </signals>
 <mfgpreviewcolors>
