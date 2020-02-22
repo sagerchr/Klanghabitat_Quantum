@@ -17995,3 +17995,202 @@ arm-none-eabi-size "FrontDisplay.elf"
 13:51:05 **** Incremental Build of configuration Debug for project FrontDisplay ****
 make all 
 make: Nothing to be done for `all'.
+14:59:56 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+Building file: ../Tasks/lwIPTask.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F767xx '-DLWIP_HTTPD_SSI=1' '-DLWIP_HTTPD_CGI=1' -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif/ppp" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix/sys" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system/arch" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/apps/httpd"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Tasks/lwIPTask.d" -MT"Tasks/lwIPTask.o" -o "Tasks/lwIPTask.o" "../Tasks/lwIPTask.c"
+../Tasks/lwIPTask.c: In function 'lwIPTask':
+../Tasks/lwIPTask.c:48:8: warning: implicit declaration of function 'match'; did you mean 'rpmatch'? [-Wimplicit-function-declaration]
+    if (match("/MotherEngine/Relais/bypassLeft") && OSC_SIGNEDINTEGER ==  1){
+        ^~~~~
+        rpmatch
+../Tasks/lwIPTask.c:83:4: warning: implicit declaration of function 'DAC_Control' [-Wimplicit-function-declaration]
+    DAC_Control(3,2,UART_recive[2]);
+    ^~~~~~~~~~~
+../Tasks/lwIPTask.c:38:6: warning: unused variable 'UART_IN' [-Wunused-variable]
+ char UART_IN[10];
+      ^~~~~~~
+../Tasks/lwIPTask.c: In function 'HAL_UART_ErrorCallback':
+../Tasks/lwIPTask.c:131:34: warning: pointer targets in passing argument 2 of 'HAL_UART_Receive_DMA' differ in signedness [-Wpointer-sign]
+    HAL_UART_Receive_DMA(&huart6, UART_recive,10);
+                                  ^~~~~~~~~~~
+In file included from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Inc/stm32f7xx_hal_conf.h:374:0,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:30,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Inc/main.h:31,
+                 from ../Tasks/lwIPTask.c:8:
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart.h:1341:19: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ HAL_StatusTypeDef HAL_UART_Receive_DMA(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+                   ^~~~~~~~~~~~~~~~~~~~
+In file included from ../Tasks/lwIPTask.c:14:0:
+../Tasks/lwIPTask.c: At top level:
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Inc/MY_FLASH.h:34:13: warning: 'MY_FLASH_EraseSector' declared 'static' but never defined [-Wunused-function]
+ static void MY_FLASH_EraseSector(void);
+             ^~~~~~~~~~~~~~~~~~~~
+../Tasks/lwIPTask.c: In function 'match':
+../Tasks/lwIPTask.c:121:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+Finished building: ../Tasks/lwIPTask.c
+ 
+Building file: ../Src/main.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F767xx '-DLWIP_HTTPD_SSI=1' '-DLWIP_HTTPD_CGI=1' -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif/ppp" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix/sys" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system/arch" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/apps/httpd"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
+../Src/main.c: In function 'main':
+../Src/main.c:191:34: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit_DMA' differ in signedness [-Wpointer-sign]
+   HAL_UART_Transmit_DMA(&huart6, UART_transmit,10);
+                                  ^~~~~~~~~~~~~
+In file included from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Inc/stm32f7xx_hal_conf.h:374:0,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:30,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Inc/main.h:31,
+                 from ../Src/main.c:22:
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart.h:1340:19: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ HAL_StatusTypeDef HAL_UART_Transmit_DMA(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+                   ^~~~~~~~~~~~~~~~~~~~~
+../Src/main.c:192:33: warning: pointer targets in passing argument 2 of 'HAL_UART_Receive_DMA' differ in signedness [-Wpointer-sign]
+   HAL_UART_Receive_DMA(&huart6, UART_recive,10);
+                                 ^~~~~~~~~~~
+In file included from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Inc/stm32f7xx_hal_conf.h:374:0,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:30,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Inc/main.h:31,
+                 from ../Src/main.c:22:
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart.h:1341:19: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ HAL_StatusTypeDef HAL_UART_Receive_DMA(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+                   ^~~~~~~~~~~~~~~~~~~~
+../Src/main.c: At top level:
+../Src/main.c:797:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart){
+ ^~~~~~~~~~~~~~~~~~~~~~~
+../Src/main.c:797:1: warning: conflicting types for 'HAL_UART_TxCpltCallback'
+In file included from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Inc/stm32f7xx_hal_conf.h:374:0,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:30,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Inc/main.h:31,
+                 from ../Src/main.c:22:
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart.h:1355:6: note: previous declaration of 'HAL_UART_TxCpltCallback' was here
+ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart);
+      ^~~~~~~~~~~~~~~~~~~~~~~
+In file included from ../Src/main.c:31:0:
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Inc/MY_FLASH.h:34:13: warning: 'MY_FLASH_EraseSector' declared 'static' but never defined [-Wunused-function]
+ static void MY_FLASH_EraseSector(void);
+             ^~~~~~~~~~~~~~~~~~~~
+Finished building: ../Src/main.c
+ 
+Building target: MotherEnigine.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F767ZITx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "MotherEnigine.elf" @"objects.list"   -lm
+Finished building target: MotherEnigine.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "MotherEnigine.elf" "MotherEnigine.hex"
+arm-none-eabi-size "MotherEnigine.elf"
+   text	   data	    bss	    dec	    hex	filename
+ 101464	    512	  48912	 150888	  24d68	MotherEnigine.elf
+ 
+15:00:22 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+make: Nothing to be done for `all'.
+15:00:42 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+Building file: ../Tasks/lwIPTask.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F767xx '-DLWIP_HTTPD_SSI=1' '-DLWIP_HTTPD_CGI=1' -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif/ppp" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix/sys" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system/arch" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/apps/httpd"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Tasks/lwIPTask.d" -MT"Tasks/lwIPTask.o" -o "Tasks/lwIPTask.o" "../Tasks/lwIPTask.c"
+../Tasks/lwIPTask.c: In function 'lwIPTask':
+../Tasks/lwIPTask.c:48:8: warning: implicit declaration of function 'match'; did you mean 'rpmatch'? [-Wimplicit-function-declaration]
+    if (match("/MotherEngine/Relais/bypassLeft") && OSC_SIGNEDINTEGER ==  1){
+        ^~~~~
+        rpmatch
+../Tasks/lwIPTask.c:83:4: warning: implicit declaration of function 'DAC_Control' [-Wimplicit-function-declaration]
+    DAC_Control(3,2,UART_recive[2]);
+    ^~~~~~~~~~~
+../Tasks/lwIPTask.c:38:6: warning: unused variable 'UART_IN' [-Wunused-variable]
+ char UART_IN[10];
+      ^~~~~~~
+../Tasks/lwIPTask.c: In function 'HAL_UART_ErrorCallback':
+../Tasks/lwIPTask.c:131:34: warning: pointer targets in passing argument 2 of 'HAL_UART_Receive_DMA' differ in signedness [-Wpointer-sign]
+    HAL_UART_Receive_DMA(&huart6, UART_recive,10);
+                                  ^~~~~~~~~~~
+In file included from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Inc/stm32f7xx_hal_conf.h:374:0,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:30,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Inc/main.h:31,
+                 from ../Tasks/lwIPTask.c:8:
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart.h:1341:19: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ HAL_StatusTypeDef HAL_UART_Receive_DMA(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+                   ^~~~~~~~~~~~~~~~~~~~
+In file included from ../Tasks/lwIPTask.c:14:0:
+../Tasks/lwIPTask.c: At top level:
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Inc/MY_FLASH.h:34:13: warning: 'MY_FLASH_EraseSector' declared 'static' but never defined [-Wunused-function]
+ static void MY_FLASH_EraseSector(void);
+             ^~~~~~~~~~~~~~~~~~~~
+../Tasks/lwIPTask.c: In function 'match':
+../Tasks/lwIPTask.c:121:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+Finished building: ../Tasks/lwIPTask.c
+ 
+Building target: MotherEnigine.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F767ZITx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "MotherEnigine.elf" @"objects.list"   -lm
+Finished building target: MotherEnigine.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "MotherEnigine.elf" "MotherEnigine.hex"
+arm-none-eabi-size "MotherEnigine.elf"
+   text	   data	    bss	    dec	    hex	filename
+ 101464	    512	  48912	 150888	  24d68	MotherEnigine.elf
+ 
+15:01:11 **** Incremental Build of configuration Debug for project MotherEnigine ****
+make all 
+Building file: ../Tasks/lwIPTask.c
+Invoking: MCU GCC Compiler
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Debug
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F767xx '-DLWIP_HTTPD_SSI=1' '-DLWIP_HTTPD_CGI=1' -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif/ppp" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/apps" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/priv" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/lwip/prot" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/netif" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/include/posix/sys" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/system/arch" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/CMSIS/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Middlewares/Third_Party/LwIP/src/apps/httpd"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Tasks/lwIPTask.d" -MT"Tasks/lwIPTask.o" -o "Tasks/lwIPTask.o" "../Tasks/lwIPTask.c"
+../Tasks/lwIPTask.c: In function 'lwIPTask':
+../Tasks/lwIPTask.c:48:8: warning: implicit declaration of function 'match'; did you mean 'rpmatch'? [-Wimplicit-function-declaration]
+    if (match("/MotherEngine/Relais/bypassLeft") && OSC_SIGNEDINTEGER ==  1){
+        ^~~~~
+        rpmatch
+../Tasks/lwIPTask.c:83:4: warning: implicit declaration of function 'DAC_Control' [-Wimplicit-function-declaration]
+    DAC_Control(3,2,UART_recive[2]);
+    ^~~~~~~~~~~
+../Tasks/lwIPTask.c:38:6: warning: unused variable 'UART_IN' [-Wunused-variable]
+ char UART_IN[10];
+      ^~~~~~~
+../Tasks/lwIPTask.c: In function 'HAL_UART_ErrorCallback':
+../Tasks/lwIPTask.c:131:34: warning: pointer targets in passing argument 2 of 'HAL_UART_Receive_DMA' differ in signedness [-Wpointer-sign]
+    HAL_UART_Receive_DMA(&huart6, UART_recive,10);
+                                  ^~~~~~~~~~~
+In file included from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Inc/stm32f7xx_hal_conf.h:374:0,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:30,
+                 from /Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Inc/main.h:31,
+                 from ../Tasks/lwIPTask.c:8:
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart.h:1341:19: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'char *'
+ HAL_StatusTypeDef HAL_UART_Receive_DMA(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+                   ^~~~~~~~~~~~~~~~~~~~
+In file included from ../Tasks/lwIPTask.c:14:0:
+../Tasks/lwIPTask.c: At top level:
+/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/MotherEnigine/Inc/MY_FLASH.h:34:13: warning: 'MY_FLASH_EraseSector' declared 'static' but never defined [-Wunused-function]
+ static void MY_FLASH_EraseSector(void);
+             ^~~~~~~~~~~~~~~~~~~~
+../Tasks/lwIPTask.c: In function 'match':
+../Tasks/lwIPTask.c:121:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+Finished building: ../Tasks/lwIPTask.c
+ 
+Building target: MotherEnigine.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F767ZITx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "MotherEnigine.elf" @"objects.list"   -lm
+Finished building target: MotherEnigine.elf
+ 
+/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
+Generating hex and Printing size information:
+arm-none-eabi-objcopy -O ihex "MotherEnigine.elf" "MotherEnigine.hex"
+arm-none-eabi-size "MotherEnigine.elf"
+   text	   data	    bss	    dec	    hex	filename
+ 101464	    512	  48912	 150888	  24d68	MotherEnigine.elf
+ 
