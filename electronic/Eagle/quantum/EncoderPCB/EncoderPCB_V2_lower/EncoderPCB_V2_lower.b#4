@@ -3,10 +3,10 @@
 <eagle version="9.5.2">
 <drawing>
 <settings>
-<setting alwaysvectorfont="yes"/>
+<setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="mm" unit="mm" style="lines" multiple="1" display="no" altdistance="5" altunitdist="mil" altunit="mil"/>
+<grid distance="1" unitdist="mm" unit="mm" style="lines" multiple="1" display="no" altdistance="5" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="16" fill="1" visible="no" active="no"/>
@@ -146,28 +146,28 @@
 <layer number="255" name="routoute" color="7" fill="1" visible="yes" active="yes"/>
 </layers>
 <board>
-<fusionsync huburn="a.cGVyc29uYWw6dWUyYWQzYTA1" projecturn="a.cGVyc29uYWw6dWUyYWQzYTA1IzIwMTkxMTEwMjM2NzAyNzAx" f3durn="urn:adsk.wipprod:dm.lineage:IIW9lbJCRRO72YmYkOFTQg" pcbguid="4fe288c0-76b8-4b18-8e68-8315bbc6e364" lastpulledtime="" lastsyncedchangeguid="28216b51-d62f-de53-c884-b2866768fa19"/>
+<fusionsync huburn="a.cGVyc29uYWw6dWUyYWQzYTA1" projecturn="a.cGVyc29uYWw6dWUyYWQzYTA1IzIwMTkxMTEwMjM2NzAyNzAx" f3durn="urn:adsk.wipprod:dm.lineage:IIW9lbJCRRO72YmYkOFTQg" pcbguid="4fe288c0-76b8-4b18-8e68-8315bbc6e364" lastpulledtime="" lastsyncedchangeguid="3a34e781-b421-fc9c-75e8-1349419cb8bc"/>
 <plain>
 <wire x1="0" y1="0" x2="130" y2="0" width="0" layer="20"/>
-<wire x1="130" y1="0" x2="130" y2="30" width="0" layer="20"/>
-<wire x1="130" y1="30" x2="119" y2="30" width="0" layer="20"/>
-<wire x1="119" y1="30" x2="119" y2="23" width="0" layer="20"/>
-<wire x1="119" y1="23" x2="107.25" y2="23" width="0" layer="20"/>
-<wire x1="107.25" y1="23" x2="107.25" y2="20" width="0" layer="20"/>
-<wire x1="107.25" y1="20" x2="99.75" y2="20" width="0" layer="20"/>
-<wire x1="99.75" y1="20" x2="99.75" y2="23" width="0" layer="20"/>
-<wire x1="99.75" y1="23" x2="46" y2="23" width="0" layer="20"/>
-<wire x1="46" y1="23" x2="46" y2="43" width="0" layer="20"/>
-<wire x1="46" y1="43" x2="23" y2="43" width="0" layer="20"/>
-<wire x1="23" y1="43" x2="23" y2="23" width="0" layer="20"/>
-<wire x1="23" y1="23" x2="11" y2="23" width="0" layer="20"/>
-<wire x1="11" y1="23" x2="11" y2="30" width="0" layer="20"/>
-<wire x1="11" y1="30" x2="0" y2="30" width="0" layer="20"/>
-<wire x1="0" y1="30" x2="0" y2="0" width="0" layer="20"/>
-<hole x="124.31" y="3.5" drill="4"/>
-<hole x="5.69" y="3.5" drill="4"/>
-<hole x="5.69" y="26" drill="4"/>
-<hole x="124.31" y="26" drill="4"/>
+<wire x1="130" y1="0" x2="130" y2="32" width="0" layer="20"/>
+<wire x1="130" y1="32" x2="119" y2="32" width="0" layer="20"/>
+<wire x1="119" y1="32" x2="119" y2="25" width="0" layer="20"/>
+<wire x1="119" y1="25" x2="107.25" y2="25" width="0" layer="20"/>
+<wire x1="107.25" y1="25" x2="107.25" y2="22" width="0" layer="20"/>
+<wire x1="107.25" y1="22" x2="99.75" y2="22" width="0" layer="20"/>
+<wire x1="99.75" y1="22" x2="99.75" y2="25" width="0" layer="20"/>
+<wire x1="99.75" y1="25" x2="46" y2="25" width="0" layer="20"/>
+<wire x1="46" y1="25" x2="46" y2="32" width="0" layer="20"/>
+<wire x1="46" y1="32" x2="28" y2="32" width="0" layer="20"/>
+<wire x1="28" y1="32" x2="28" y2="25" width="0" layer="20"/>
+<wire x1="28" y1="25" x2="11" y2="25" width="0" layer="20"/>
+<wire x1="11" y1="25" x2="11" y2="32" width="0" layer="20"/>
+<wire x1="11" y1="32" x2="0" y2="32" width="0" layer="20"/>
+<wire x1="0" y1="32" x2="0" y2="0" width="0" layer="20"/>
+<hole x="124.31" y="5.5" drill="4"/>
+<hole x="5.69" y="5.5" drill="4"/>
+<hole x="5.5" y="28" drill="4"/>
+<hole x="124.31" y="28" drill="4"/>
 </plain>
 <libraries>
 <library name="C_Sager_Bibliothek" urn="urn:adsk.eagle:library:560098">
@@ -337,7 +337,7 @@
 <wire x1="0.3048" y1="-1.9304" x2="-0.4572" y2="-1.9304" width="0.508" layer="51" curve="-180"/>
 <wire x1="-0.4572" y1="-1.9304" x2="0.3048" y2="-1.9304" width="0.508" layer="51" curve="-180"/>
 </package>
-<package name="PEL12T4225SS1024" urn="urn:adsk.eagle:footprint:15670447/1" locally_modified="yes" library_version="20" library_locally_modified="yes">
+<package name="PEL12T4225SS1024" urn="urn:adsk.eagle:footprint:15670447/2" library_version="40">
 <description>&lt;b&gt;PEL12T-4225S-S1024-2&lt;/b&gt;&lt;br&gt;
 </description>
 <pad name="1" x="-4" y="7.25" drill="1.1" diameter="1.6"/>
@@ -378,7 +378,7 @@
 <packageinstance name="MOLEX_90814-0204"/>
 </packageinstances>
 </package3d>
-<package3d name="PEL12T4225SS1024" urn="urn:adsk.eagle:package:15670448/3" type="model" library_version="20" library_locally_modified="yes">
+<package3d name="PEL12T4225SS1024" urn="urn:adsk.eagle:package:15670448/6" type="model" library_version="41">
 <description>&lt;b&gt;PEL12T-4225S-S1024-2&lt;/b&gt;&lt;br&gt;</description>
 <packageinstances>
 <packageinstance name="PEL12T4225SS1024"/>
@@ -579,177 +579,183 @@ design rules under a new name.</description>
 </pass>
 </autorouter>
 <elements>
-<element name="S1" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" package="PEL12T4225SS1024" package3d_urn="urn:adsk.eagle:package:15670448/3" value="PEL12T-4225S-S1024" x="65" y="8.02" smashed="yes" rot="MR90">
-<attribute name="DESCRIPTION" value="Encoders Red Blue/Green LED Push Switch Knurled" x="65" y="8.02" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="HEIGHT" value="25mm" x="65" y="8.02" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="MANUFACTURER_NAME" value="Bourns" x="65" y="8.02" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="MANUFACTURER_PART_NUMBER" value="PEL12T-4225S-S1024" x="65" y="8.02" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="MOUSER_PART_NUMBER" value="652-PEL12T4225SS1024" x="65" y="8.02" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=652-PEL12T4225SS1024" x="65" y="8.02" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="NAME" x="72.36" y="13.82" size="1.27" layer="26" rot="MR90" align="center"/>
-<attribute name="VALUE" x="68.81" y="8.02" size="1.27" layer="28" rot="MR90" align="center"/>
+<element name="S3" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" package="PEL12T4225SS1024" package3d_urn="urn:adsk.eagle:package:15670448/6" value="PEL12T-4225S-S1024" x="54.5" y="10.02" smashed="yes" rot="MR90">
+<attribute name="DESCRIPTION" value="Encoders Red Blue/Green LED Push Switch Knurled" x="54.5" y="10.02" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="HEIGHT" value="25mm" x="54.5" y="10.02" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="MANUFACTURER_NAME" value="Bourns" x="54.5" y="10.02" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="PEL12T-4225S-S1024" x="54.5" y="10.02" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="652-PEL12T4225SS1024" x="54.5" y="10.02" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=652-PEL12T4225SS1024" x="54.5" y="10.02" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="NAME" x="62.86" y="2.82" size="1.27" layer="26" rot="MR90" align="center"/>
+<attribute name="VALUE" x="58.31" y="10.02" size="1.27" layer="28" rot="MR90" align="center"/>
 </element>
-<element name="C3" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="C0603" package3d_urn="urn:adsk.eagle:package:576738/3" value="100nF" x="128.83" y="17.81" smashed="yes" rot="R90">
-<attribute name="NAME" x="128.279" y="16.886" size="1.016" layer="25" rot="R90"/>
-<attribute name="VALUE" x="130.862" y="16.286" size="1.016" layer="27" rot="R90"/>
+<element name="C3" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="C0603" package3d_urn="urn:adsk.eagle:package:576738/3" value="100nF" x="126.195" y="18.302" smashed="yes" rot="R90">
+<attribute name="NAME" x="126.787" y="19.714" size="1.016" layer="25" rot="R90"/>
+<attribute name="VALUE" x="128.227" y="16.778" size="1.016" layer="27" rot="R90"/>
 </element>
-<element name="R1" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="10k" x="115.5" y="15" smashed="yes" rot="R180">
-<attribute name="NAME" x="116.386" y="16.284" size="0.8128" layer="25" rot="R180"/>
-<attribute name="VALUE" x="114.992" y="13.984" size="0.8128" layer="27" rot="R180"/>
+<element name="R1" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="10k" x="128.151" y="18.333" smashed="yes" rot="R270">
+<attribute name="NAME" x="127.756" y="21.124" size="0.8128" layer="25" rot="R270"/>
+<attribute name="VALUE" x="129.167" y="17.825" size="0.8128" layer="27" rot="R270"/>
 </element>
-<element name="IC1" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="QFP80P900X900X160-32N" package3d_urn="urn:adsk.eagle:package:15674183/2" value="STM32F031K6T6" x="122.31" y="16.18" smashed="yes" rot="R180">
-<attribute name="DESCRIPTION" value="ARM Microcontrollers - MCU 16/32-BITS MICROS" x="122.31" y="16.18" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="HEIGHT" value="1.6mm" x="122.31" y="16.18" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURER_NAME" value="STMicroelectronics" x="122.31" y="16.18" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MANUFACTURER_PART_NUMBER" value="STM32F031K6T6" x="122.31" y="16.18" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MOUSER_PART_NUMBER" value="511-STM32F031K6T6" x="122.31" y="16.18" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=511-STM32F031K6T6" x="122.31" y="16.18" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="NAME" x="126.209" y="22.049" size="1.27" layer="25" rot="R180" align="center"/>
-<attribute name="VALUE" x="122.818" y="22.403" size="1.27" layer="27" rot="R180" align="center"/>
+<element name="IC1" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="QFP80P900X900X160-32N" package3d_urn="urn:adsk.eagle:package:15674183/2" value="STM32F031K6T6" x="120" y="17" smashed="yes" rot="R180">
+<attribute name="DESCRIPTION" value="ARM Microcontrollers - MCU 16/32-BITS MICROS" x="120" y="17" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="HEIGHT" value="1.6mm" x="120" y="17" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER_NAME" value="STMicroelectronics" x="120" y="17" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="STM32F031K6T6" x="120" y="17" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="511-STM32F031K6T6" x="120" y="17" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=511-STM32F031K6T6" x="120" y="17" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="NAME" x="123.899" y="22.869" size="1.27" layer="25" rot="R180" align="center"/>
+<attribute name="VALUE" x="120.508" y="23.223" size="1.27" layer="27" rot="R180" align="center"/>
 </element>
-<element name="R2" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="51 R" x="68.4" y="19.7" smashed="yes" rot="R270">
-<attribute name="NAME" x="67.808" y="18.768" size="0.8128" layer="25" rot="R90"/>
-<attribute name="VALUE" x="65.86" y="20.335" size="0.8128" layer="27" rot="R270"/>
+<element name="R2" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="51 R" x="59" y="6" smashed="yes">
+<attribute name="NAME" x="59.932" y="7.408" size="0.8128" layer="25" rot="R180"/>
+<attribute name="VALUE" x="58.365" y="3.46" size="0.8128" layer="27"/>
 </element>
-<element name="R3" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="51 R" x="65.4" y="19.9" smashed="yes" rot="R270">
-<attribute name="NAME" x="64.908" y="19.068" size="0.8128" layer="25" rot="R90"/>
-<attribute name="VALUE" x="62.86" y="20.535" size="0.8128" layer="27" rot="R270"/>
+<element name="R3" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="51 R" x="59" y="9" smashed="yes">
+<attribute name="NAME" x="59.832" y="10.508" size="0.8128" layer="25" rot="R180"/>
+<attribute name="VALUE" x="58.365" y="6.46" size="0.8128" layer="27"/>
 </element>
-<element name="R4" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="51 R" x="62.2" y="19.8" smashed="yes" rot="R270">
-<attribute name="NAME" x="61.535" y="19.195" size="0.8128" layer="25" rot="R90"/>
-<attribute name="VALUE" x="59.66" y="20.435" size="0.8128" layer="27" rot="R270"/>
+<element name="R4" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="51 R" x="59" y="12" smashed="yes">
+<attribute name="NAME" x="59.605" y="13.335" size="0.8128" layer="25" rot="R180"/>
+<attribute name="VALUE" x="58.365" y="9.46" size="0.8128" layer="27"/>
 </element>
-<element name="S3" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" package="PEL12T4225SS1024" package3d_urn="urn:adsk.eagle:package:15670448/3" value="PEL12T-4225S-S1024" x="85" y="8.02" smashed="yes" rot="MR90">
-<attribute name="DESCRIPTION" value="Encoders Red Blue/Green LED Push Switch Knurled" x="105.32" y="-12.3" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="HEIGHT" value="25mm" x="105.32" y="-12.3" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="MANUFACTURER_NAME" value="Bourns" x="105.32" y="-12.3" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="MANUFACTURER_PART_NUMBER" value="PEL12T-4225S-S1024" x="105.32" y="-12.3" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="MOUSER_PART_NUMBER" value="652-PEL12T4225SS1024" x="105.32" y="-12.3" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=652-PEL12T4225SS1024" x="105.32" y="-12.3" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="NAME" x="92.31" y="13.82" size="1.27" layer="26" rot="MR90" align="center"/>
-<attribute name="VALUE" x="91.35" y="8.02" size="1.27" layer="28" rot="MR90" align="center"/>
+<element name="S2" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" package="PEL12T4225SS1024" package3d_urn="urn:adsk.eagle:package:15670448/6" value="PEL12T-4225S-S1024" x="75.5" y="10.02" smashed="yes" rot="MR90">
+<attribute name="DESCRIPTION" value="Encoders Red Blue/Green LED Push Switch Knurled" x="95.82" y="-10.3" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="HEIGHT" value="25mm" x="95.82" y="-10.3" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="MANUFACTURER_NAME" value="Bourns" x="95.82" y="-10.3" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="PEL12T-4225S-S1024" x="95.82" y="-10.3" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="652-PEL12T4225SS1024" x="95.82" y="-10.3" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=652-PEL12T4225SS1024" x="95.82" y="-10.3" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="NAME" x="83.81" y="2.82" size="1.27" layer="26" rot="MR90" align="center"/>
+<attribute name="VALUE" x="81.85" y="10.02" size="1.27" layer="28" rot="MR90" align="center"/>
 </element>
-<element name="R8" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="51 R" x="81.5" y="19.9" smashed="yes" rot="R270">
-<attribute name="NAME" x="80.216" y="20.586" size="0.8128" layer="25" rot="R270"/>
-<attribute name="VALUE" x="78.96" y="20.535" size="0.8128" layer="27" rot="R270"/>
+<element name="R8" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="51 R" x="80" y="6" smashed="yes">
+<attribute name="NAME" x="79.314" y="6.716" size="0.8128" layer="25"/>
+<attribute name="VALUE" x="79.365" y="3.46" size="0.8128" layer="27"/>
 </element>
-<element name="R9" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="51 R" x="78.3" y="19.7" smashed="yes" rot="R270">
-<attribute name="NAME" x="77.016" y="20.386" size="0.8128" layer="25" rot="R270"/>
-<attribute name="VALUE" x="75.76" y="20.335" size="0.8128" layer="27" rot="R270"/>
+<element name="R9" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="51 R" x="80" y="9" smashed="yes">
+<attribute name="NAME" x="79.314" y="9.716" size="0.8128" layer="25"/>
+<attribute name="VALUE" x="79.365" y="6.46" size="0.8128" layer="27"/>
 </element>
-<element name="R10" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="51 R" x="73.4" y="20" smashed="yes" rot="R90">
-<attribute name="NAME" x="72.884" y="19.014" size="0.8128" layer="25" rot="R90"/>
-<attribute name="VALUE" x="75.94" y="19.365" size="0.8128" layer="27" rot="R90"/>
+<element name="R10" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="51 R" x="80" y="12" smashed="yes" rot="R180">
+<attribute name="NAME" x="80.986" y="13.484" size="0.8128" layer="25" rot="R180"/>
+<attribute name="VALUE" x="80.635" y="14.54" size="0.8128" layer="27" rot="R180"/>
 </element>
-<element name="R11" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="10k" x="124.5" y="9.6" smashed="yes" rot="R180">
-<attribute name="NAME" x="125.529" y="8.984" size="0.8128" layer="25" rot="R180"/>
-<attribute name="VALUE" x="124.119" y="8.584" size="0.8128" layer="27" rot="R180"/>
+<element name="R11" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="10k" x="123.23" y="10.854" smashed="yes" rot="R180">
+<attribute name="NAME" x="124.259" y="10.238" size="0.8128" layer="25" rot="R180"/>
+<attribute name="VALUE" x="122.849" y="9.838" size="0.8128" layer="27" rot="R180"/>
 </element>
-<element name="C1" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="C0603" package3d_urn="urn:adsk.eagle:package:576738/3" value="100nF" x="115.5" y="13" smashed="yes">
-<attribute name="NAME" x="114.752" y="13.492" size="1.016" layer="25"/>
-<attribute name="VALUE" x="111.944" y="14.016" size="1.016" layer="27"/>
+<element name="C1" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="C0603" package3d_urn="urn:adsk.eagle:package:576738/3" value="100nF" x="116.167" y="23.144" smashed="yes">
+<attribute name="NAME" x="115.419" y="23.636" size="1.016" layer="25"/>
+<attribute name="VALUE" x="112.611" y="24.16" size="1.016" layer="27"/>
 </element>
-<element name="C2" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="C0603" package3d_urn="urn:adsk.eagle:package:576738/3" value="100nF" x="116.1" y="17.6" smashed="yes" rot="R90">
-<attribute name="NAME" x="116.535" y="19.079" size="1.016" layer="25" rot="R90"/>
-<attribute name="VALUE" x="118.132" y="15.568" size="1.016" layer="27" rot="R90"/>
+<element name="C4" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="C1206" package3d_urn="urn:adsk.eagle:package:16431717/2" value="10 uF" x="126.381" y="13.792" smashed="yes" rot="R270">
+<attribute name="NAME" x="127.402" y="14.573" size="1.016" layer="25" rot="R270"/>
+<attribute name="VALUE" x="124.476" y="14.427" size="1.016" layer="27" rot="R270"/>
 </element>
-<element name="C4" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="C1206" package3d_urn="urn:adsk.eagle:package:16431717/2" value="10 uF" x="114" y="18.3" smashed="yes" rot="R90">
-<attribute name="NAME" x="117.265" y="17.265" size="1.016" layer="25" rot="R90"/>
-<attribute name="VALUE" x="115.905" y="17.665" size="1.016" layer="27" rot="R90"/>
+<element name="I2C-CONN" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" package="MOLEX_90814-0204" package3d_urn="urn:adsk.eagle:package:16762552/4" value="90814-0204" x="38.7" y="29.9" smashed="yes" rot="R180">
+<attribute name="DESCRIPTION" value="CONN HEADER 4POS 1.27MM SMD TIN" x="38.7" y="29.9" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="HEIGHT" value="mm" x="38.7" y="29.9" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER_NAME" value="Molex" x="38.7" y="29.9" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="90814-0204" x="38.7" y="29.9" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="538-90814-0204" x="38.7" y="29.9" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=538-90814-0204" x="38.7" y="29.9" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="NAME" x="36.8178" y="22.5" size="1.27" layer="25" rot="R180" align="center"/>
+<attribute name="VALUE" x="41.8496" y="35.3102" size="1.27" layer="27" rot="R180" align="center"/>
 </element>
-<element name="I2C-CONN" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" package="MOLEX_90814-0204" package3d_urn="urn:adsk.eagle:package:16762552/4" value="90814-0204" x="32.7" y="34.9" smashed="yes" rot="R90">
-<attribute name="DESCRIPTION" value="CONN HEADER 4POS 1.27MM SMD TIN" x="32.7" y="34.9" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="HEIGHT" value="mm" x="32.7" y="34.9" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER_NAME" value="Molex" x="32.7" y="34.9" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER_PART_NUMBER" value="90814-0204" x="32.7" y="34.9" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MOUSER_PART_NUMBER" value="538-90814-0204" x="32.7" y="34.9" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=538-90814-0204" x="32.7" y="34.9" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="NAME" x="25.3" y="36.7822" size="1.27" layer="25" rot="R90" align="center"/>
-<attribute name="VALUE" x="38.1102" y="31.7504" size="1.27" layer="27" rot="R90" align="center"/>
+<element name="PRG-CONN" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" package="MOLEX_90814-0204" package3d_urn="urn:adsk.eagle:package:16762552/4" value="90814-0204" x="17.5" y="7.9" smashed="yes" rot="R180">
+<attribute name="DESCRIPTION" value="CONN HEADER 4POS 1.27MM SMD TIN" x="33.1" y="-9.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="HEIGHT" value="mm" x="33.1" y="-9.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER_NAME" value="Molex" x="33.1" y="-9.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="90814-0204" x="33.1" y="-9.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="538-90814-0204" x="33.1" y="-9.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=538-90814-0204" x="33.1" y="-9.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="NAME" x="15.3178" y="4.4" size="1.27" layer="25" rot="R180" align="center"/>
+<attribute name="VALUE" x="20.6496" y="13.3102" size="1.27" layer="27" rot="R180" align="center"/>
 </element>
-<element name="PRG-CONN" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" package="MOLEX_90814-0204" package3d_urn="urn:adsk.eagle:package:16762552/4" value="90814-0204" x="42.5" y="34.9" smashed="yes" rot="R90">
-<attribute name="DESCRIPTION" value="CONN HEADER 4POS 1.27MM SMD TIN" x="25.5" y="19.3" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="HEIGHT" value="mm" x="25.5" y="19.3" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER_NAME" value="Molex" x="25.5" y="19.3" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MANUFACTURER_PART_NUMBER" value="90814-0204" x="25.5" y="19.3" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MOUSER_PART_NUMBER" value="538-90814-0204" x="25.5" y="19.3" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=538-90814-0204" x="25.5" y="19.3" size="1.778" layer="27" rot="R90" display="off"/>
-<attribute name="NAME" x="44" y="37.0822" size="1.27" layer="25" rot="R90" align="center"/>
-<attribute name="VALUE" x="47.9102" y="31.7504" size="1.27" layer="27" rot="R90" align="center"/>
+<element name="S4" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" package="PEL12T4225SS1024" package3d_urn="urn:adsk.eagle:package:15670448/6" value="PEL12T-4225S-S1024" x="33.5" y="10.02" smashed="yes" rot="MR90">
+<attribute name="DESCRIPTION" value="Encoders Red Blue/Green LED Push Switch Knurled" x="52" y="-8.58" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="HEIGHT" value="25mm" x="52" y="-8.58" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="MANUFACTURER_NAME" value="Bourns" x="52" y="-8.58" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="PEL12T-4225S-S1024" x="52" y="-8.58" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="652-PEL12T4225SS1024" x="52" y="-8.58" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=652-PEL12T4225SS1024" x="52" y="-8.58" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="NAME" x="41.4" y="2.42" size="1.27" layer="26" rot="MR270" align="center"/>
+<attribute name="VALUE" x="33.5" y="10.02" size="1.27" layer="28" rot="MR90" align="center"/>
 </element>
-<element name="S2" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" package="PEL12T4225SS1024" package3d_urn="urn:adsk.eagle:package:15670448/3" value="PEL12T-4225S-S1024" x="45" y="8.02" smashed="yes" rot="MR90">
-<attribute name="DESCRIPTION" value="Encoders Red Blue/Green LED Push Switch Knurled" x="63.5" y="-10.58" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="HEIGHT" value="25mm" x="63.5" y="-10.58" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="MANUFACTURER_NAME" value="Bourns" x="63.5" y="-10.58" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="MANUFACTURER_PART_NUMBER" value="PEL12T-4225S-S1024" x="63.5" y="-10.58" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="MOUSER_PART_NUMBER" value="652-PEL12T4225SS1024" x="63.5" y="-10.58" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=652-PEL12T4225SS1024" x="63.5" y="-10.58" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="NAME" x="48.9" y="6.42" size="1.27" layer="26" rot="MR270" align="center"/>
-<attribute name="VALUE" x="45" y="8.02" size="1.27" layer="28" rot="MR90" align="center"/>
+<element name="S1" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" package="PEL12T4225SS1024" package3d_urn="urn:adsk.eagle:package:15670448/6" value="PEL12T-4225S-S1024" x="96.5" y="10.02" smashed="yes" rot="MR90">
+<attribute name="DESCRIPTION" value="Encoders Red Blue/Green LED Push Switch Knurled" x="115" y="-8.58" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="HEIGHT" value="25mm" x="115" y="-8.58" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="MANUFACTURER_NAME" value="Bourns" x="115" y="-8.58" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="PEL12T-4225S-S1024" x="115" y="-8.58" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="652-PEL12T4225SS1024" x="115" y="-8.58" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=652-PEL12T4225SS1024" x="115" y="-8.58" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="NAME" x="104.5" y="2.12" size="1.27" layer="26" rot="MR90" align="center"/>
+<attribute name="VALUE" x="96.5" y="10.02" size="1.27" layer="28" rot="MR90" align="center"/>
 </element>
-<element name="S4" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" package="PEL12T4225SS1024" package3d_urn="urn:adsk.eagle:package:15670448/3" value="PEL12T-4225S-S1024" x="105" y="8.02" smashed="yes" rot="MR90">
-<attribute name="DESCRIPTION" value="Encoders Red Blue/Green LED Push Switch Knurled" x="123.5" y="-10.58" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="HEIGHT" value="25mm" x="123.5" y="-10.58" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="MANUFACTURER_NAME" value="Bourns" x="123.5" y="-10.58" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="MANUFACTURER_PART_NUMBER" value="PEL12T-4225S-S1024" x="123.5" y="-10.58" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="MOUSER_PART_NUMBER" value="652-PEL12T4225SS1024" x="123.5" y="-10.58" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=652-PEL12T4225SS1024" x="123.5" y="-10.58" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="NAME" x="109" y="6.12" size="1.27" layer="26" rot="MR90" align="center"/>
-<attribute name="VALUE" x="105" y="8.02" size="1.27" layer="28" rot="MR90" align="center"/>
+<element name="C5" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="C0603" package3d_urn="urn:adsk.eagle:package:576738/3" value="100nF" x="3.854" y="15.8" smashed="yes" rot="R270">
+<attribute name="NAME" x="3.283" y="14.278" size="1.016" layer="25" rot="R270"/>
+<attribute name="VALUE" x="1.949" y="16.435" size="1.016" layer="27" rot="R270"/>
 </element>
-<element name="S5" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" package="PEL12T4225SS1024" package3d_urn="urn:adsk.eagle:package:15670448/3" value="PEL12T-4225S-S1024" x="25" y="8.02" smashed="yes" rot="MR90">
-<attribute name="DESCRIPTION" value="Encoders Red Blue/Green LED Push Switch Knurled" x="43.5" y="-10.58" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="HEIGHT" value="25mm" x="43.5" y="-10.58" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="MANUFACTURER_NAME" value="Bourns" x="43.5" y="-10.58" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="MANUFACTURER_PART_NUMBER" value="PEL12T-4225S-S1024" x="43.5" y="-10.58" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="MOUSER_PART_NUMBER" value="652-PEL12T4225SS1024" x="43.5" y="-10.58" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=652-PEL12T4225SS1024" x="43.5" y="-10.58" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="NAME" x="28.5" y="3.72" size="1.27" layer="26" rot="MR90" align="center"/>
-<attribute name="VALUE" x="25" y="8.02" size="1.27" layer="28" rot="MR90" align="center"/>
+<element name="R5" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="10k" x="1.942" y="15.842" smashed="yes" rot="R90">
+<attribute name="NAME" x="2.576" y="12.098" size="1.27" layer="25" rot="R90"/>
+<attribute name="VALUE" x="3.847" y="15.207" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="C5" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="C0603" package3d_urn="urn:adsk.eagle:package:576738/3" value="100nF" x="26.6" y="22.8" smashed="yes">
-<attribute name="NAME" x="25.965" y="23.435" size="1.016" layer="25"/>
-<attribute name="VALUE" x="25.965" y="20.895" size="1.016" layer="27"/>
+<element name="IC2" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="QFP80P900X900X160-32N" package3d_urn="urn:adsk.eagle:package:15674183/2" value="STM32F031K6T6" x="10" y="17" smashed="yes">
+<attribute name="DESCRIPTION" value="ARM Microcontrollers - MCU 16/32-BITS MICROS" x="7.7" y="7.6" size="1.778" layer="27" display="off"/>
+<attribute name="HEIGHT" value="1.6mm" x="7.7" y="7.6" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURER_NAME" value="STMicroelectronics" x="7.7" y="7.6" size="1.778" layer="27" display="off"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="STM32F031K6T6" x="7.7" y="7.6" size="1.778" layer="27" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="511-STM32F031K6T6" x="7.7" y="7.6" size="1.778" layer="27" display="off"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=511-STM32F031K6T6" x="7.7" y="7.6" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="13.975" y="22.946" size="1.27" layer="25" align="center"/>
+<attribute name="VALUE" x="10" y="17" size="1.27" layer="27" align="center"/>
 </element>
-<element name="R5" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="10k" x="26.8" y="28" smashed="yes">
-<attribute name="NAME" x="26.165" y="28.635" size="1.27" layer="25"/>
-<attribute name="VALUE" x="26.165" y="26.095" size="1.27" layer="27"/>
+<element name="R6" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="10k" x="9.081" y="23.222" smashed="yes" rot="R180">
+<attribute name="NAME" x="10.351" y="25" size="1.27" layer="25" rot="R180"/>
+<attribute name="VALUE" x="9.716" y="25.127" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="IC2" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="QFP80P900X900X160-32N" package3d_urn="urn:adsk.eagle:package:15674183/2" value="STM32F031K6T6" x="34.6" y="24.4" smashed="yes">
-<attribute name="DESCRIPTION" value="ARM Microcontrollers - MCU 16/32-BITS MICROS" x="32.3" y="15" size="1.778" layer="27" display="off"/>
-<attribute name="HEIGHT" value="1.6mm" x="32.3" y="15" size="1.778" layer="27" display="off"/>
-<attribute name="MANUFACTURER_NAME" value="STMicroelectronics" x="32.3" y="15" size="1.778" layer="27" display="off"/>
-<attribute name="MANUFACTURER_PART_NUMBER" value="STM32F031K6T6" x="32.3" y="15" size="1.778" layer="27" display="off"/>
-<attribute name="MOUSER_PART_NUMBER" value="511-STM32F031K6T6" x="32.3" y="15" size="1.778" layer="27" display="off"/>
-<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=511-STM32F031K6T6" x="32.3" y="15" size="1.778" layer="27" display="off"/>
-<attribute name="NAME" x="41.4" y="34.6" size="1.27" layer="25" align="center"/>
-<attribute name="VALUE" x="34.6" y="24.4" size="1.27" layer="27" align="center"/>
+<element name="C6" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="C0603" package3d_urn="urn:adsk.eagle:package:576738/3" value="100nF" x="13.698" y="10.879" smashed="yes" rot="R180">
+<attribute name="NAME" x="14.333" y="10.244" size="1.016" layer="25" rot="R180"/>
+<attribute name="VALUE" x="14.333" y="12.784" size="1.016" layer="27" rot="R180"/>
 </element>
-<element name="R6" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="10k" x="26.7" y="25" smashed="yes">
-<attribute name="NAME" x="26.065" y="25.635" size="1.27" layer="25"/>
-<attribute name="VALUE" x="26.065" y="23.095" size="1.27" layer="27"/>
+<element name="C8" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="C1206" package3d_urn="urn:adsk.eagle:package:16431717/2" value="10 uF" x="3.581" y="20.208" smashed="yes" rot="R270">
+<attribute name="NAME" x="1.825" y="20.208" size="1.27" layer="25" rot="R270" align="center"/>
+<attribute name="VALUE" x="3.581" y="20.208" size="1.27" layer="27" rot="R270" align="center"/>
 </element>
-<element name="C6" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="C0603" package3d_urn="urn:adsk.eagle:package:576738/3" value="100nF" x="42" y="19.8" smashed="yes">
-<attribute name="NAME" x="41.365" y="20.435" size="1.016" layer="25"/>
-<attribute name="VALUE" x="41.365" y="17.895" size="1.016" layer="27"/>
+<element name="PRG-CONN1" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" package="MOLEX_90814-0204" package3d_urn="urn:adsk.eagle:package:16762552/4" value="90814-0204" x="116.3" y="8.2" smashed="yes" rot="R180">
+<attribute name="DESCRIPTION" value="CONN HEADER 4POS 1.27MM SMD TIN" x="132.6" y="-8.8" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="HEIGHT" value="mm" x="132.6" y="-8.8" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER_NAME" value="Molex" x="132.6" y="-8.8" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="90814-0204" x="132.6" y="-8.8" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MOUSER_PART_NUMBER" value="538-90814-0204" x="132.6" y="-8.8" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=538-90814-0204" x="132.6" y="-8.8" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="NAME" x="115.0178" y="3.9798" size="1.27" layer="25" rot="R90" align="center"/>
+<attribute name="VALUE" x="119.4496" y="13.6102" size="1.27" layer="27" rot="R180" align="center"/>
 </element>
-<element name="C7" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" package="C0603" package3d_urn="urn:adsk.eagle:package:576738/3" value="100nF" x="41.8" y="22.5" smashed="yes">
-<attribute name="NAME" x="41.165" y="23.135" size="1.016" layer="25"/>
-<attribute name="VALUE" x="41.165" y="20.595" size="1.016" layer="27"/>
+<element name="R7" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="51 R" x="101" y="6" smashed="yes">
+<attribute name="NAME" x="100.365" y="6.635" size="1.27" layer="25"/>
+<attribute name="VALUE" x="100.365" y="4.095" size="1.27" layer="27"/>
 </element>
-<element name="C8" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="C1206" package3d_urn="urn:adsk.eagle:package:16431717/2" value="10 uF" x="26.2" y="20.7" smashed="yes">
-<attribute name="NAME" x="26.2" y="22.5" size="1.27" layer="25" align="center"/>
-<attribute name="VALUE" x="26.2" y="20.7" size="1.27" layer="27" align="center"/>
+<element name="R12" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="51 R" x="101" y="9" smashed="yes">
+<attribute name="NAME" x="100.365" y="9.635" size="1.27" layer="25"/>
+<attribute name="VALUE" x="100.365" y="7.095" size="1.27" layer="27"/>
 </element>
-<element name="PRG-CONN1" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" package="MOLEX_90814-0204" package3d_urn="urn:adsk.eagle:package:16762552/4" value="90814-0204" x="4.3" y="15.2" smashed="yes" rot="R270">
-<attribute name="DESCRIPTION" value="CONN HEADER 4POS 1.27MM SMD TIN" x="21.3" y="31.5" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="HEIGHT" value="mm" x="21.3" y="31.5" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MANUFACTURER_NAME" value="Molex" x="21.3" y="31.5" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MANUFACTURER_PART_NUMBER" value="90814-0204" x="21.3" y="31.5" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MOUSER_PART_NUMBER" value="538-90814-0204" x="21.3" y="31.5" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=538-90814-0204" x="21.3" y="31.5" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="NAME" x="13.5202" y="17.9178" size="1.27" layer="25" rot="R270" align="center"/>
-<attribute name="VALUE" x="-1.1102" y="18.3496" size="1.27" layer="27" rot="R270" align="center"/>
+<element name="R13" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="51 R" x="101" y="12" smashed="yes">
+<attribute name="NAME" x="100.365" y="12.635" size="1.27" layer="25"/>
+<attribute name="VALUE" x="100.365" y="10.095" size="1.27" layer="27"/>
+</element>
+<element name="R14" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="51 R" x="38" y="6" smashed="yes">
+<attribute name="NAME" x="37.365" y="6.635" size="1.27" layer="25"/>
+<attribute name="VALUE" x="37.365" y="4.095" size="1.27" layer="27"/>
+</element>
+<element name="R15" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="51 R" x="38" y="9" smashed="yes">
+<attribute name="NAME" x="37.365" y="9.635" size="1.27" layer="25"/>
+<attribute name="VALUE" x="37.365" y="7.095" size="1.27" layer="27"/>
+</element>
+<element name="R16" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="51 R" x="38" y="12" smashed="yes">
+<attribute name="NAME" x="37.365" y="12.635" size="1.27" layer="25"/>
+<attribute name="VALUE" x="37.365" y="10.095" size="1.27" layer="27"/>
 </element>
 </elements>
 <signals>
@@ -757,89 +763,86 @@ design rules under a new name.</description>
 <contactref element="C3" pad="2"/>
 <contactref element="IC1" pad="16"/>
 <contactref element="IC1" pad="32"/>
-<contactref element="R1" pad="1"/>
-<contactref element="S1" pad="C1"/>
 <contactref element="S3" pad="C1"/>
+<contactref element="S2" pad="C1"/>
 <contactref element="R11" pad="1"/>
 <contactref element="C1" pad="2"/>
-<contactref element="C2" pad="2"/>
 <polygon width="0.1524" layer="1">
-<vertex x="130" y="30"/>
+<vertex x="130" y="32"/>
 <vertex x="130" y="0"/>
 <vertex x="0" y="0"/>
-<vertex x="0" y="30"/>
-<vertex x="10.9" y="30"/>
-<vertex x="10.9" y="23"/>
-<vertex x="23" y="23"/>
-<vertex x="23" y="43"/>
-<vertex x="46" y="43"/>
-<vertex x="46" y="23"/>
-<vertex x="99.7" y="23"/>
-<vertex x="99.7" y="20"/>
-<vertex x="107.3" y="20"/>
-<vertex x="107.3" y="23"/>
-<vertex x="119" y="23"/>
-<vertex x="119" y="30"/>
+<vertex x="0" y="32"/>
+<vertex x="10.9" y="32"/>
+<vertex x="10.9" y="25"/>
+<vertex x="28" y="25"/>
+<vertex x="28" y="32"/>
+<vertex x="46" y="32"/>
+<vertex x="46" y="25"/>
+<vertex x="99.7" y="25"/>
+<vertex x="99.7" y="22"/>
+<vertex x="107.3" y="22"/>
+<vertex x="107.3" y="25"/>
+<vertex x="119" y="25"/>
+<vertex x="119" y="32"/>
 </polygon>
 <contactref element="C4" pad="2"/>
 <contactref element="I2C-CONN" pad="4"/>
 <contactref element="PRG-CONN" pad="4"/>
 <contactref element="C5" pad="2"/>
 <contactref element="C6" pad="2"/>
-<contactref element="C7" pad="2"/>
 <contactref element="C8" pad="2"/>
 <contactref element="IC2" pad="16"/>
 <contactref element="IC2" pad="32"/>
-<contactref element="R5" pad="1"/>
 <contactref element="R6" pad="1"/>
 <contactref element="PRG-CONN1" pad="4"/>
-<wire x1="125.11" y1="11.942" x2="128.83" y2="18.66" width="0" layer="19" extent="1-1"/>
-<wire x1="125.35" y1="9.6" x2="125.11" y2="11.942" width="0" layer="19" extent="1-1"/>
-<wire x1="116.35" y1="13" x2="125.35" y2="9.6" width="0" layer="19" extent="1-1"/>
-<wire x1="116.35" y1="15" x2="116.35" y2="13" width="0" layer="19" extent="1-1"/>
-<wire x1="116.1" y1="18.45" x2="116.35" y2="15" width="0" layer="19" extent="1-1"/>
-<wire x1="114" y1="19.9" x2="116.1" y2="18.45" width="0" layer="19" extent="1-1"/>
-<wire x1="119.51" y1="20.418" x2="116.1" y2="18.45" width="0" layer="19" extent="1-1"/>
-<wire x1="77.75" y1="8.02" x2="114" y2="19.9" width="0" layer="19" extent="1-1"/>
-<wire x1="57.75" y1="8.02" x2="77.75" y2="8.02" width="0" layer="19" extent="1-1"/>
-<wire x1="42.85" y1="19.8" x2="57.75" y2="8.02" width="0" layer="19" extent="1-1"/>
-<wire x1="42.65" y1="22.5" x2="42.85" y2="19.8" width="0" layer="19" extent="1-1"/>
-<wire x1="37.4" y1="20.162" x2="42.85" y2="19.8" width="0" layer="19" extent="1-1"/>
-<wire x1="27.8" y1="20.7" x2="37.4" y2="20.162" width="0" layer="19" extent="1-1"/>
-<wire x1="27.45" y1="22.8" x2="27.8" y2="20.7" width="0" layer="19" extent="1-1"/>
-<wire x1="25.85" y1="25" x2="27.45" y2="22.8" width="0" layer="19" extent="1-1"/>
-<wire x1="25.95" y1="28" x2="25.85" y2="25" width="0" layer="19" extent="1-1"/>
-<wire x1="31.8" y1="28.638" x2="25.95" y2="28" width="0" layer="19" extent="1-1"/>
-<wire x1="26.7056" y1="38.71" x2="25.95" y2="28" width="0" layer="19" extent="1-1"/>
-<wire x1="36.5056" y1="38.71" x2="26.7056" y2="38.71" width="0" layer="19" extent="1-1"/>
-<wire x1="10.2944" y1="11.39" x2="27.8" y2="20.7" width="0" layer="19" extent="1-1"/>
+<contactref element="S1" pad="C1"/>
+<contactref element="S4" pad="C1"/>
+<contactref element="R1" pad="1"/>
+<wire x1="126.195" y1="19.152" x2="128.151" y2="19.183" width="0" layer="19" extent="1-1"/>
+<wire x1="126.381" y1="12.192" x2="126.195" y2="19.152" width="0" layer="19" extent="1-1"/>
+<wire x1="124.08" y1="10.854" x2="126.381" y2="12.192" width="0" layer="19" extent="1-1"/>
+<wire x1="122.8" y1="12.762" x2="124.08" y2="10.854" width="0" layer="19" extent="1-1"/>
+<wire x1="117.2" y1="21.238" x2="126.195" y2="19.152" width="0" layer="19" extent="1-1"/>
+<wire x1="117.017" y1="23.144" x2="117.2" y2="21.238" width="0" layer="19" extent="1-1"/>
+<wire x1="112.49" y1="2.2056" x2="122.8" y2="12.762" width="0" layer="19" extent="1-1"/>
+<wire x1="89.25" y1="10.02" x2="112.49" y2="2.2056" width="0" layer="19" extent="1-1"/>
+<wire x1="68.25" y1="10.02" x2="89.25" y2="10.02" width="0" layer="19" extent="1-1"/>
+<wire x1="47.25" y1="10.02" x2="68.25" y2="10.02" width="0" layer="19" extent="1-1"/>
+<wire x1="34.89" y1="23.9056" x2="47.25" y2="10.02" width="0" layer="19" extent="1-1"/>
+<wire x1="26.25" y1="10.02" x2="34.89" y2="23.9056" width="0" layer="19" extent="1-1"/>
+<wire x1="13.69" y1="1.9056" x2="26.25" y2="10.02" width="0" layer="19" extent="1-1"/>
+<wire x1="12.848" y1="10.879" x2="13.69" y2="1.9056" width="0" layer="19" extent="1-1"/>
+<wire x1="12.8" y1="12.762" x2="12.848" y2="10.879" width="0" layer="19" extent="1-1"/>
+<wire x1="3.854" y1="14.95" x2="12.8" y2="12.762" width="0" layer="19" extent="1-1"/>
+<wire x1="3.581" y1="18.608" x2="3.854" y2="14.95" width="0" layer="19" extent="1-1"/>
+<wire x1="7.2" y1="21.238" x2="3.581" y2="18.608" width="0" layer="19" extent="1-1"/>
+<wire x1="9.931" y1="23.222" x2="7.2" y2="21.238" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="+3V3">
 <contactref element="C3" pad="1"/>
 <contactref element="IC1" pad="1"/>
-<contactref element="S1" pad="5"/>
 <contactref element="S3" pad="5"/>
+<contactref element="S2" pad="5"/>
 <contactref element="IC1" pad="5"/>
 <contactref element="IC1" pad="17"/>
 <contactref element="C1" pad="1"/>
-<contactref element="C2" pad="1"/>
 <polygon width="0.1524" layer="16">
-<vertex x="130" y="30"/>
+<vertex x="130" y="32"/>
 <vertex x="130" y="0"/>
 <vertex x="0" y="0"/>
-<vertex x="0" y="30"/>
-<vertex x="10.9" y="30"/>
-<vertex x="10.9" y="23"/>
-<vertex x="23" y="23"/>
-<vertex x="23" y="43"/>
-<vertex x="46" y="43"/>
-<vertex x="46" y="23"/>
-<vertex x="99.7" y="23"/>
-<vertex x="99.7" y="20"/>
-<vertex x="107.3" y="20"/>
-<vertex x="107.3" y="23"/>
-<vertex x="119" y="23"/>
-<vertex x="119" y="30"/>
+<vertex x="0" y="32"/>
+<vertex x="10.9" y="32"/>
+<vertex x="10.9" y="25"/>
+<vertex x="28" y="25"/>
+<vertex x="28" y="32"/>
+<vertex x="46" y="32"/>
+<vertex x="46" y="25"/>
+<vertex x="99.7" y="25"/>
+<vertex x="99.7" y="22"/>
+<vertex x="107.3" y="22"/>
+<vertex x="107.3" y="25"/>
+<vertex x="119" y="25"/>
+<vertex x="119" y="32"/>
 </polygon>
 <contactref element="C4" pad="1"/>
 <contactref element="I2C-CONN" pad="3"/>
@@ -847,238 +850,320 @@ design rules under a new name.</description>
 <contactref element="IC2" pad="1"/>
 <contactref element="IC2" pad="5"/>
 <contactref element="C6" pad="1"/>
-<contactref element="C7" pad="1"/>
 <contactref element="C8" pad="1"/>
 <contactref element="IC2" pad="17"/>
-<wire x1="126.548" y1="16.58" x2="128.83" y2="16.96" width="0" layer="19" extent="1-1"/>
-<wire x1="126.548" y1="13.38" x2="126.548" y2="16.58" width="0" layer="19" extent="1-1"/>
-<wire x1="118.072" y1="18.98" x2="126.548" y2="16.58" width="0" layer="19" extent="1-1"/>
-<wire x1="116.1" y1="16.75" x2="118.072" y2="18.98" width="0" layer="19" extent="1-1"/>
-<wire x1="114" y1="16.7" x2="116.1" y2="16.75" width="0" layer="19" extent="1-1"/>
-<wire x1="114.65" y1="13" x2="114" y2="16.7" width="0" layer="19" extent="1-1"/>
-<wire x1="92.25" y1="12.02" x2="114" y2="16.7" width="0" layer="19" extent="1-1"/>
-<wire x1="72.25" y1="12.02" x2="92.25" y2="12.02" width="0" layer="19" extent="1-1"/>
-<wire x1="41.15" y1="19.8" x2="72.25" y2="12.02" width="0" layer="19" extent="1-1"/>
-<wire x1="40.95" y1="22.5" x2="41.15" y2="19.8" width="0" layer="19" extent="1-1"/>
-<wire x1="38.838" y1="21.6" x2="40.95" y2="22.5" width="0" layer="19" extent="1-1"/>
-<wire x1="30.362" y1="24" x2="38.838" y2="21.6" width="0" layer="19" extent="1-1"/>
-<wire x1="30.362" y1="27.2" x2="30.362" y2="24" width="0" layer="19" extent="1-1"/>
-<wire x1="25.75" y1="22.8" x2="30.362" y2="24" width="0" layer="19" extent="1-1"/>
-<wire x1="24.6" y1="20.7" x2="25.75" y2="22.8" width="0" layer="19" extent="1-1"/>
-<wire x1="32.7" y1="37.44" x2="30.362" y2="27.2" width="0" layer="19" extent="1-1"/>
+<contactref element="S1" pad="5"/>
+<contactref element="S4" pad="5"/>
+<contactref element="R5" pad="1"/>
+<wire x1="124.238" y1="17.4" x2="126.195" y2="17.452" width="0" layer="19" extent="1-1"/>
+<wire x1="126.381" y1="15.392" x2="126.195" y2="17.452" width="0" layer="19" extent="1-1"/>
+<wire x1="124.238" y1="14.2" x2="126.381" y2="15.392" width="0" layer="19" extent="1-1"/>
+<wire x1="115.762" y1="19.8" x2="124.238" y2="17.4" width="0" layer="19" extent="1-1"/>
+<wire x1="115.317" y1="23.144" x2="115.762" y2="19.8" width="0" layer="19" extent="1-1"/>
+<wire x1="103.75" y1="14.02" x2="115.762" y2="19.8" width="0" layer="19" extent="1-1"/>
+<wire x1="82.75" y1="14.02" x2="103.75" y2="14.02" width="0" layer="19" extent="1-1"/>
+<wire x1="61.75" y1="14.02" x2="82.75" y2="14.02" width="0" layer="19" extent="1-1"/>
+<wire x1="40.75" y1="14.02" x2="61.75" y2="14.02" width="0" layer="19" extent="1-1"/>
+<wire x1="36.16" y1="29.9" x2="40.75" y2="14.02" width="0" layer="19" extent="1-1"/>
+<wire x1="14.548" y1="10.879" x2="40.75" y2="14.02" width="0" layer="19" extent="1-1"/>
+<wire x1="14.238" y1="14.2" x2="14.548" y2="10.879" width="0" layer="19" extent="1-1"/>
+<wire x1="5.762" y1="16.6" x2="14.238" y2="14.2" width="0" layer="19" extent="1-1"/>
+<wire x1="3.854" y1="16.65" x2="5.762" y2="16.6" width="0" layer="19" extent="1-1"/>
+<wire x1="1.942" y1="14.992" x2="3.854" y2="16.65" width="0" layer="19" extent="1-1"/>
+<wire x1="5.762" y1="19.8" x2="5.762" y2="16.6" width="0" layer="19" extent="1-1"/>
+<wire x1="3.581" y1="21.808" x2="5.762" y2="19.8" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="NRST">
-<contactref element="IC1" pad="4"/>
-<contactref element="PRG-CONN" pad="2"/>
-<contactref element="IC2" pad="4"/>
-<contactref element="PRG-CONN1" pad="2"/>
-<wire x1="36.5056" y1="36.17" x2="126.548" y2="15.78" width="0" layer="19" extent="1-1"/>
-<wire x1="30.362" y1="24.8" x2="36.5056" y2="36.17" width="0" layer="19" extent="1-1"/>
-<wire x1="10.2944" y1="13.93" x2="30.362" y2="24.8" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="USART1_RX1">
-<contactref element="IC1" pad="25"/>
+<signal name="B_USART1_RX">
 <contactref element="IC2" pad="25"/>
-<wire x1="37.4" y1="28.638" x2="119.51" y2="11.942" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="USART1_TX">
-<contactref element="IC1" pad="8"/>
+<signal name="B_USART1_TX">
 <contactref element="IC2" pad="8"/>
-<wire x1="30.362" y1="21.6" x2="126.548" y2="18.98" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="I2C1_SDA">
 <contactref element="IC1" pad="20"/>
 <contactref element="I2C-CONN" pad="1"/>
 <contactref element="IC2" pad="20"/>
-<wire x1="38.838" y1="24" x2="118.072" y2="16.58" width="0" layer="19" extent="1-1"/>
-<wire x1="32.7" y1="35.154" x2="38.838" y2="24" width="0" layer="19" extent="1-1"/>
+<wire x1="38.446" y1="29.9" x2="115.762" y2="17.4" width="0" layer="19" extent="1-1"/>
+<wire x1="14.238" y1="16.6" x2="38.446" y2="29.9" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="I2C1_SCL">
 <contactref element="IC1" pad="29"/>
 <contactref element="I2C-CONN" pad="2"/>
 <contactref element="IC2" pad="29"/>
-<wire x1="34.2" y1="28.638" x2="122.71" y2="11.942" width="0" layer="19" extent="1-1"/>
-<wire x1="26.7056" y1="36.17" x2="34.2" y2="28.638" width="0" layer="19" extent="1-1"/>
+<wire x1="37.43" y1="23.9056" x2="120.4" y2="12.762" width="0" layer="19" extent="1-1"/>
+<wire x1="9.6" y1="21.238" x2="37.43" y2="23.9056" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="SWDIO">
-<contactref element="IC1" pad="23"/>
-<contactref element="PRG-CONN" pad="3"/>
-<contactref element="IC2" pad="23"/>
-<contactref element="PRG-CONN1" pad="3"/>
-<wire x1="42.5" y1="37.44" x2="118.072" y2="14.18" width="0" layer="19" extent="1-1"/>
-<wire x1="38.838" y1="26.4" x2="42.5" y2="37.44" width="0" layer="19" extent="1-1"/>
-<wire x1="4.3" y1="12.66" x2="38.838" y2="26.4" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="SWCLK">
-<contactref element="IC1" pad="24"/>
-<contactref element="PRG-CONN" pad="1"/>
-<contactref element="IC2" pad="24"/>
-<contactref element="PRG-CONN1" pad="1"/>
-<wire x1="42.5" y1="35.154" x2="118.072" y2="13.38" width="0" layer="19" extent="1-1"/>
-<wire x1="38.838" y1="27.2" x2="42.5" y2="35.154" width="0" layer="19" extent="1-1"/>
-<wire x1="4.3" y1="14.946" x2="38.838" y2="27.2" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="ADRR.">
+<signal name="A_ADRR.">
 <contactref element="IC1" pad="3"/>
 <contactref element="R1" pad="2"/>
-<contactref element="IC2" pad="3"/>
-<contactref element="R5" pad="2"/>
-<wire x1="114.65" y1="15" x2="126.548" y2="14.98" width="0" layer="19" extent="1-1"/>
-<wire x1="30.362" y1="25.6" x2="114.65" y2="15" width="0" layer="19" extent="1-1"/>
-<wire x1="27.65" y1="28" x2="30.362" y2="25.6" width="0" layer="19" extent="1-1"/>
+<wire x1="124.238" y1="15.8" x2="128.151" y2="17.483" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="ENCODER2_A">
-<contactref element="IC1" pad="6"/>
-<contactref element="IC2" pad="6"/>
-<wire x1="30.362" y1="23.2" x2="126.548" y2="17.38" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="ENCODER2_B">
-<contactref element="IC1" pad="7"/>
-<contactref element="IC2" pad="7"/>
-<wire x1="30.362" y1="22.4" x2="126.548" y2="18.18" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="R_ENC1">
-<contactref element="IC1" pad="9"/>
-<contactref element="R2" pad="1"/>
-<contactref element="IC2" pad="9"/>
-<wire x1="68.4" y1="20.55" x2="125.11" y2="20.418" width="0" layer="19" extent="1-1"/>
-<wire x1="31.8" y1="20.162" x2="68.4" y2="20.55" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="G_ENC1">
-<contactref element="IC1" pad="10"/>
-<contactref element="R3" pad="1"/>
-<contactref element="IC2" pad="10"/>
-<wire x1="65.4" y1="20.75" x2="124.31" y2="20.418" width="0" layer="19" extent="1-1"/>
-<wire x1="32.6" y1="20.162" x2="65.4" y2="20.75" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="B_ENC1">
-<contactref element="IC1" pad="11"/>
-<contactref element="R4" pad="1"/>
-<contactref element="IC2" pad="11"/>
-<wire x1="62.2" y1="20.65" x2="123.51" y2="20.418" width="0" layer="19" extent="1-1"/>
-<wire x1="33.4" y1="20.162" x2="62.2" y2="20.65" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="ENCODER3_A">
-<contactref element="IC1" pad="12"/>
-<contactref element="S3" pad="A1"/>
+<signal name="B_ENCODER3_A">
 <contactref element="IC2" pad="12"/>
-<wire x1="77.75" y1="5.52" x2="122.71" y2="20.418" width="0" layer="19" extent="1-1"/>
-<wire x1="34.2" y1="20.162" x2="77.75" y2="5.52" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="ENCODER3_B">
-<contactref element="IC1" pad="13"/>
-<contactref element="S3" pad="B1"/>
+<signal name="B_ENCODER3_B">
 <contactref element="IC2" pad="13"/>
-<wire x1="77.75" y1="10.52" x2="121.91" y2="20.418" width="0" layer="19" extent="1-1"/>
-<wire x1="35" y1="20.162" x2="77.75" y2="10.52" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="B_ENC2">
-<contactref element="IC1" pad="14"/>
-<contactref element="IC2" pad="14"/>
-<wire x1="35.8" y1="20.162" x2="121.11" y2="20.418" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="R_ENC3">
-<contactref element="IC1" pad="15"/>
-<contactref element="R8" pad="1"/>
+<signal name="B_R_ENC3">
 <contactref element="IC2" pad="15"/>
-<wire x1="81.5" y1="20.75" x2="120.31" y2="20.418" width="0" layer="19" extent="1-1"/>
-<wire x1="36.6" y1="20.162" x2="81.5" y2="20.75" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="ENCODER1_A">
-<contactref element="IC1" pad="18"/>
-<contactref element="S1" pad="A1"/>
-<contactref element="IC2" pad="18"/>
-<wire x1="57.75" y1="5.52" x2="118.072" y2="18.18" width="0" layer="19" extent="1-1"/>
-<wire x1="38.838" y1="22.4" x2="57.75" y2="5.52" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="ENCODER1_B">
-<contactref element="IC1" pad="19"/>
-<contactref element="S1" pad="B1"/>
-<contactref element="IC2" pad="19"/>
-<wire x1="57.75" y1="10.52" x2="118.072" y2="17.38" width="0" layer="19" extent="1-1"/>
-<wire x1="38.838" y1="23.2" x2="57.75" y2="10.52" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="R_ENC2">
-<contactref element="IC1" pad="21"/>
-<contactref element="IC2" pad="21"/>
-<wire x1="38.838" y1="24.8" x2="118.072" y2="15.78" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="G_ENC2">
-<contactref element="IC1" pad="22"/>
-<contactref element="IC2" pad="22"/>
-<wire x1="38.838" y1="25.6" x2="118.072" y2="14.98" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="BUTTON_ENC1">
-<contactref element="IC1" pad="28"/>
-<contactref element="S1" pad="3"/>
-<contactref element="IC2" pad="28"/>
-<wire x1="72.25" y1="8.02" x2="121.91" y2="11.942" width="0" layer="19" extent="1-1"/>
-<wire x1="35" y1="28.638" x2="72.25" y2="8.02" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="B_ENC3">
-<contactref element="IC1" pad="27"/>
-<contactref element="R10" pad="1"/>
+<signal name="B_B_ENC3">
 <contactref element="IC2" pad="27"/>
-<wire x1="73.4" y1="19.15" x2="121.11" y2="11.942" width="0" layer="19" extent="1-1"/>
-<wire x1="35.8" y1="28.638" x2="73.4" y2="19.15" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="G_ENC3">
-<contactref element="IC1" pad="26"/>
-<contactref element="R9" pad="1"/>
+<signal name="B_G_ENC3">
 <contactref element="IC2" pad="26"/>
-<wire x1="78.3" y1="20.55" x2="120.31" y2="11.942" width="0" layer="19" extent="1-1"/>
-<wire x1="36.6" y1="28.638" x2="78.3" y2="20.55" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="BUTTON_ENC2">
-<contactref element="IC1" pad="30"/>
-<contactref element="IC2" pad="30"/>
-<wire x1="33.4" y1="28.638" x2="123.51" y2="11.942" width="0" layer="19" extent="1-1"/>
-</signal>
-<signal name="BOOT_0">
+<signal name="A_BOOT_0">
 <contactref element="IC1" pad="31"/>
 <contactref element="R11" pad="2"/>
-<contactref element="IC2" pad="31"/>
-<contactref element="R6" pad="2"/>
-<wire x1="123.65" y1="9.6" x2="124.31" y2="11.942" width="0" layer="19" extent="1-1"/>
-<wire x1="32.6" y1="28.638" x2="123.65" y2="9.6" width="0" layer="19" extent="1-1"/>
-<wire x1="27.55" y1="25" x2="32.6" y2="28.638" width="0" layer="19" extent="1-1"/>
+<wire x1="122.38" y1="10.854" x2="122" y2="12.762" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="BUTTON_ENC3">
-<contactref element="IC1" pad="2"/>
-<contactref element="S3" pad="3"/>
+<signal name="B_BUTTON_ENC3">
 <contactref element="IC2" pad="2"/>
-<wire x1="92.25" y1="8.02" x2="126.548" y2="14.18" width="0" layer="19" extent="1-1"/>
-<wire x1="30.362" y1="26.4" x2="92.25" y2="8.02" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$9">
-<contactref element="S1" pad="1"/>
+<contactref element="S3" pad="1"/>
 <contactref element="R2" pad="2"/>
-<wire x1="72.25" y1="4.02" x2="68.4" y2="18.85" width="0" layer="19" extent="1-1"/>
+<wire x1="59.85" y1="6" x2="61.75" y2="6.02" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$10">
 <contactref element="R3" pad="2"/>
-<contactref element="S1" pad="2"/>
-<wire x1="72.25" y1="6.02" x2="65.4" y2="19.05" width="0" layer="19" extent="1-1"/>
+<contactref element="S3" pad="2"/>
+<wire x1="59.85" y1="9" x2="61.75" y2="8.02" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$12">
 <contactref element="R4" pad="2"/>
-<contactref element="S1" pad="4"/>
-<wire x1="72.25" y1="10.02" x2="62.2" y2="18.95" width="0" layer="19" extent="1-1"/>
+<contactref element="S3" pad="4"/>
+<wire x1="59.85" y1="12" x2="61.75" y2="12.02" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$15">
-<contactref element="S3" pad="1"/>
+<contactref element="S2" pad="1"/>
 <contactref element="R8" pad="2"/>
-<wire x1="92.25" y1="4.02" x2="81.5" y2="19.05" width="0" layer="19" extent="1-1"/>
+<wire x1="80.85" y1="6" x2="82.75" y2="6.02" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$16">
 <contactref element="R9" pad="2"/>
-<contactref element="S3" pad="2"/>
-<wire x1="78.3" y1="18.85" x2="92.25" y2="6.02" width="0" layer="19" extent="1-1"/>
+<contactref element="S2" pad="2"/>
+<wire x1="80.85" y1="9" x2="82.75" y2="8.02" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="N$17">
 <contactref element="R10" pad="2"/>
-<contactref element="S3" pad="4"/>
-<wire x1="73.4" y1="20.85" x2="92.25" y2="10.02" width="0" layer="19" extent="1-1"/>
+<contactref element="S2" pad="4"/>
+<wire x1="79.15" y1="12" x2="82.75" y2="12.02" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="A_R_ENC2">
+<contactref element="R8" pad="1"/>
+<contactref element="IC1" pad="21"/>
+<wire x1="79.15" y1="6" x2="115.762" y2="16.6" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="A_G_ENC2">
+<contactref element="R9" pad="1"/>
+<contactref element="IC1" pad="22"/>
+<wire x1="79.15" y1="9" x2="115.762" y2="15.8" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="A_BUTTON_ENC2">
+<contactref element="S2" pad="3"/>
+<contactref element="IC1" pad="30"/>
+<wire x1="82.75" y1="10.02" x2="121.2" y2="12.762" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="A_B_ENC2">
+<contactref element="R10" pad="1"/>
+<contactref element="IC1" pad="14"/>
+<wire x1="80.85" y1="12" x2="118.8" y2="21.238" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="A_ENCODER2_A">
+<contactref element="S2" pad="A1"/>
+<contactref element="IC1" pad="6"/>
+<wire x1="68.25" y1="7.52" x2="124.238" y2="18.2" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="A_ENCODER2_B">
+<contactref element="S2" pad="B1"/>
+<contactref element="IC1" pad="7"/>
+<wire x1="68.25" y1="12.52" x2="124.238" y2="19" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$1">
+<contactref element="R7" pad="2"/>
+<contactref element="S1" pad="1"/>
+<wire x1="103.75" y1="6.02" x2="101.85" y2="6" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$2">
+<contactref element="R12" pad="2"/>
+<contactref element="S1" pad="2"/>
+<wire x1="103.75" y1="8.02" x2="101.85" y2="9" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$3">
+<contactref element="R13" pad="2"/>
+<contactref element="S1" pad="4"/>
+<wire x1="103.75" y1="12.02" x2="101.85" y2="12" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="A_R_ENC1">
+<contactref element="R7" pad="1"/>
+<contactref element="IC1" pad="9"/>
+<wire x1="100.15" y1="6" x2="122.8" y2="21.238" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="A_G_ENC1">
+<contactref element="R12" pad="1"/>
+<contactref element="IC1" pad="10"/>
+<wire x1="100.15" y1="9" x2="122" y2="21.238" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="A_B_ENC1">
+<contactref element="R13" pad="1"/>
+<contactref element="IC1" pad="11"/>
+<wire x1="100.15" y1="12" x2="121.2" y2="21.238" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="A_BUTTON_ENC1">
+<contactref element="S1" pad="3"/>
+<contactref element="IC1" pad="28"/>
+<wire x1="103.75" y1="10.02" x2="119.6" y2="12.762" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="A_ENCODER1_A">
+<contactref element="S1" pad="A1"/>
+<contactref element="IC1" pad="18"/>
+<wire x1="89.25" y1="7.52" x2="115.762" y2="19" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="A_ENCODER1_B">
+<contactref element="S1" pad="B1"/>
+<contactref element="IC1" pad="19"/>
+<wire x1="89.25" y1="12.52" x2="115.762" y2="18.2" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="A_B_ENC3">
+<contactref element="IC1" pad="27"/>
+</signal>
+<signal name="A_G_ENC3">
+<contactref element="IC1" pad="26"/>
+</signal>
+<signal name="A_R_ENC3">
+<contactref element="IC1" pad="15"/>
+</signal>
+<signal name="A_ENCODER3_B">
+<contactref element="IC1" pad="13"/>
+</signal>
+<signal name="A_ENCODER3_A">
+<contactref element="IC1" pad="12"/>
+</signal>
+<signal name="A_BUTTON_ENC3">
+<contactref element="IC1" pad="2"/>
+</signal>
+<signal name="A_USART1_TX">
+<contactref element="IC1" pad="8"/>
+</signal>
+<signal name="A_USART1_RX">
+<contactref element="IC1" pad="25"/>
+</signal>
+<signal name="B_R_ENC1">
+<contactref element="R2" pad="1"/>
+<contactref element="IC2" pad="9"/>
+<wire x1="7.2" y1="12.762" x2="58.15" y2="6" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="B_G_ENC1">
+<contactref element="R3" pad="1"/>
+<contactref element="IC2" pad="10"/>
+<wire x1="8" y1="12.762" x2="58.15" y2="9" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="B_BUTTON_ENC1">
+<contactref element="S3" pad="3"/>
+<contactref element="IC2" pad="28"/>
+<wire x1="10.4" y1="21.238" x2="61.75" y2="10.02" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="B_B_ENC1">
+<contactref element="R4" pad="1"/>
+<contactref element="IC2" pad="11"/>
+<wire x1="8.8" y1="12.762" x2="58.15" y2="12" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="B_ENCODER1_A">
+<contactref element="S3" pad="A1"/>
+<contactref element="IC2" pad="18"/>
+<wire x1="14.238" y1="15" x2="47.25" y2="7.52" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="B_ENCODER1_B">
+<contactref element="S3" pad="B1"/>
+<contactref element="IC2" pad="19"/>
+<wire x1="14.238" y1="15.8" x2="47.25" y2="12.52" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$4">
+<contactref element="R14" pad="2"/>
+<contactref element="S4" pad="1"/>
+<wire x1="38.85" y1="6" x2="40.75" y2="6.02" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$5">
+<contactref element="R15" pad="2"/>
+<contactref element="S4" pad="2"/>
+<wire x1="38.85" y1="9" x2="40.75" y2="8.02" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="N$6">
+<contactref element="R16" pad="2"/>
+<contactref element="S4" pad="4"/>
+<wire x1="38.85" y1="12" x2="40.75" y2="12.02" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="B_R_ENC2">
+<contactref element="R14" pad="1"/>
+<contactref element="IC2" pad="21"/>
+<wire x1="14.238" y1="17.4" x2="37.15" y2="6" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="B_G_ENC2">
+<contactref element="R15" pad="1"/>
+<contactref element="IC2" pad="22"/>
+<wire x1="14.238" y1="18.2" x2="37.15" y2="9" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="B_BUTTON_ENC2">
+<contactref element="S4" pad="3"/>
+<contactref element="IC2" pad="30"/>
+<wire x1="8.8" y1="21.238" x2="40.75" y2="10.02" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="B_B_ENC2">
+<contactref element="R16" pad="1"/>
+<contactref element="IC2" pad="14"/>
+<wire x1="11.2" y1="12.762" x2="37.15" y2="12" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="B_ENCODER2_A">
+<contactref element="S4" pad="A1"/>
+<contactref element="IC2" pad="6"/>
+<wire x1="5.762" y1="15.8" x2="26.25" y2="7.52" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="B_ENCODER2_B">
+<contactref element="S4" pad="B1"/>
+<contactref element="IC2" pad="7"/>
+<wire x1="5.762" y1="15" x2="26.25" y2="12.52" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="A_SWCLK">
+<contactref element="PRG-CONN1" pad="1"/>
+<contactref element="IC1" pad="24"/>
+<wire x1="116.046" y1="8.2" x2="115.762" y2="14.2" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="A_NRST">
+<contactref element="PRG-CONN1" pad="2"/>
+<contactref element="IC1" pad="4"/>
+<wire x1="115.03" y1="2.2056" x2="124.238" y2="16.6" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="A_SWDIO">
+<contactref element="PRG-CONN1" pad="3"/>
+<contactref element="IC1" pad="23"/>
+<wire x1="113.76" y1="8.2" x2="115.762" y2="15" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="B_SWCLK">
+<contactref element="PRG-CONN" pad="1"/>
+<contactref element="IC2" pad="24"/>
+<wire x1="17.246" y1="7.9" x2="14.238" y2="19.8" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="B_NRST">
+<contactref element="PRG-CONN" pad="2"/>
+<contactref element="IC2" pad="4"/>
+<wire x1="16.23" y1="1.9056" x2="5.762" y2="17.4" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="B_SWDIO">
+<contactref element="PRG-CONN" pad="3"/>
+<contactref element="IC2" pad="23"/>
+<wire x1="14.96" y1="7.9" x2="14.238" y2="19" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="B_ADRR.">
+<contactref element="IC2" pad="3"/>
+<contactref element="R5" pad="2"/>
+<wire x1="1.942" y1="16.692" x2="5.762" y2="18.2" width="0" layer="19" extent="1-1"/>
+</signal>
+<signal name="B_BOOT_0">
+<contactref element="IC2" pad="31"/>
+<contactref element="R6" pad="2"/>
+<wire x1="8" y1="21.238" x2="8.231" y2="23.222" width="0" layer="19" extent="1-1"/>
 </signal>
 </signals>
 <mfgpreviewcolors>

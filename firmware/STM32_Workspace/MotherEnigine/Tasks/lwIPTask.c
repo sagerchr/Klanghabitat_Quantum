@@ -89,10 +89,47 @@ char UART_IN[10];
 
 		OSCmessageINTSend("/VALUE/Level/CH1/RMS",  20, voltageRMS[0]*30);
 		OSCmessageINTSend("/VALUE/Level/CH2/RMS",  20, voltageRMS[1]*30);
-		OSCmessageINTSend("/VALUE/Level/CH3/RMS",  20, voltageRMS[2]*30);
-		OSCmessageINTSend("/VALUE/Level/CH4/RMS",  20, voltageRMS[3]*30);
-		OSCmessageINTSend("/VALUE/Level/CH5/RMS",  20, voltageRMS[4]*30);
-		OSCmessageINTSend("/VALUE/Level/CH6/RMS",  20, voltageRMS[5]*30);
+		//OSCmessageINTSend("/VALUE/Level/CH3/RMS",  20, voltageRMS[2]*30);
+		//OSCmessageINTSend("/VALUE/Level/CH4/RMS",  20, voltageRMS[3]*30);
+		//OSCmessageINTSend("/VALUE/Level/CH5/RMS",  20, voltageRMS[4]*30);
+		//OSCmessageINTSend("/VALUE/Level/CH6/RMS",  20, voltageRMS[5]*30);
+
+
+
+		OSCmessageINTSend("/help/Level/devider",  19, 146);
+
+
+		  char data[sizeof(float)];
+		  float f = -1.236;
+		  memcpy(data, &dbuRMS[0], sizeof &dbuRMS[0]);    // send data
+		  char a = data[0];char b = data[1];char c = data[2];char d = data[3];
+		  OSCmessageFLOATSend("/VALUE/Level/CH1/FLOAT",  22, a,b,c,d);
+
+		  memcpy(data, &dbuRMS[1], sizeof &dbuRMS[0]);    // send data
+		  a = data[0]; b = data[1];c = data[2];d = data[3];
+		  OSCmessageFLOATSend("/VALUE/Level/CH2/FLOAT",  22, a,b,c,d);
+
+		  memcpy(data, &dbuRMS[2], sizeof &dbuRMS[0]);    // send data
+		  a = data[0]; b = data[1];c = data[2];d = data[3];
+		  OSCmessageFLOATSend("/VALUE/Level/CH3/FLOAT",  22, a,b,c,d);
+
+		  memcpy(data, &dbuRMS[3], sizeof &dbuRMS[0]);    // send data
+		  a = data[0]; b = data[1];c = data[2];d = data[3];
+		  OSCmessageFLOATSend("/VALUE/Level/CH4/FLOAT",  22, a,b,c,d);
+
+		  memcpy(data, &dbuRMS[4], sizeof &dbuRMS[0]);    // send data
+		  a = data[0]; b = data[1];c = data[2];d = data[3];
+		  OSCmessageFLOATSend("/VALUE/Level/CH5/FLOAT",  22, a,b,c,d);
+
+		  memcpy(data, &dbuRMS[5], sizeof &dbuRMS[0]);    // send data
+		  a = data[0]; b = data[1];c = data[2];d = data[3];
+		  OSCmessageFLOATSend("/VALUE/Level/CH6/FLOAT",  22, a,b,c,d);
+
+		float offset = -124.0;
+
+		  memcpy(data, &offset, sizeof &dbuRMS[0]);    // send data
+		  a = data[0]; b = data[1];c = data[2];d = data[3];
+		  OSCmessageFLOATSend("/help/Level/offset",  18, a,b,c,d);
 
 
 		OSCmessageINTSend("/VALUE/ERROR/ER1____",  20, errors);

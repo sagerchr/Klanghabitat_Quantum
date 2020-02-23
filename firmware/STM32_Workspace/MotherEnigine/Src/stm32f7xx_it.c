@@ -247,7 +247,7 @@ void TIM7_IRQHandler(void)
   //***Wait Time to be sure new data is ready to grab from ADC***//
   //microDelay(5);
   //If just 6 Channels are selected for READ then it is possible to read while Aquiering
-  HAL_GPIO_WritePin(GPIOF, DEBUG1_Pin, GPIO_PIN_RESET);//DEBUG rot
+
 
   //*******************Get new samples from ADC******************//
 	//*******************this takes around 5µSec*******************//
@@ -285,12 +285,44 @@ void TIM7_IRQHandler(void)
   else {volt = voltRingIn2[indexer];}
   if (voltageIn2MAX < volt){voltageIn2MAX=volt;}
   dbuRingIn2[indexer]  = 20*log(volt/0.775);
+/*
+  RingIn3[indexer] = analogIN[2];
+  voltRingIn3[indexer] = RingIn3[indexer]*10.0/32767;
+  if (voltRingIn3[indexer]<0){volt = voltRingIn3[indexer]*(-1.0);}
+  else {volt = voltRingIn3[indexer];}
+  if (voltageIn3MAX < volt){voltageIn3MAX=volt;}
+  dbuRingIn3[indexer]  = 20*log(volt/0.775);
+
+  RingIn4[indexer] = analogIN[3];
+  voltRingIn4[indexer] = RingIn4[indexer]*10.0/32767;
+  if (voltRingIn4[indexer]<0){volt = voltRingIn4[indexer]*(-1.0);}
+  else {volt = voltRingIn4[indexer];}
+  if (voltageIn4MAX < volt){voltageIn4MAX=volt;}
+  dbuRingIn4[indexer]  = 20*log(volt/0.775);
+*/
+  RingIn5[indexer] = analogIN[4];
+  voltRingIn5[indexer] = RingIn5[indexer]*10.0/32767;
+  if (voltRingIn5[indexer]<0){volt = voltRingIn5[indexer]*(-1.0);}
+  else {volt = voltRingIn5[indexer];}
+  if (voltageIn5MAX < volt){voltageIn5MAX=volt;}
+  dbuRingIn5[indexer]  = 20*log(volt/0.775);
+
+  RingIn6[indexer] = analogIN[5];
+  voltRingIn6[indexer] = RingIn6[indexer]*10.0/32767;
+  if (voltRingIn6[indexer]<0){volt = voltRingIn6[indexer]*(-1.0);}
+  else {volt = voltRingIn6[indexer];}
+  if (voltageIn6MAX < volt){voltageIn6MAX=volt;}
+  dbuRingIn6[indexer]  = 20*log(volt/0.775);
 
 
 
 
   voltageRMStemp[0] = voltageRMStemp[0] + (voltRingIn1[indexer]*voltRingIn1[indexer]);
   voltageRMStemp[1] = voltageRMStemp[1] + (voltRingIn2[indexer]*voltRingIn2[indexer]);
+  voltageRMStemp[2] = voltageRMStemp[2] + (voltRingIn3[indexer]*voltRingIn3[indexer]);
+  voltageRMStemp[3] = voltageRMStemp[3] + (voltRingIn4[indexer]*voltRingIn4[indexer]);
+  voltageRMStemp[4] = voltageRMStemp[4] + (voltRingIn5[indexer]*voltRingIn5[indexer]);
+  voltageRMStemp[5] = voltageRMStemp[5] + (voltRingIn6[indexer]*voltRingIn6[indexer]);
 
 
   indexer++;
@@ -299,8 +331,11 @@ void TIM7_IRQHandler(void)
 	  indexer = 0;
 	  voltageRMS[0]=voltageRMStemp[0];
 	  voltageRMS[1]=voltageRMStemp[1];
-
-	  for(int i=0;i<2;i++){
+	  voltageRMS[2]=voltageRMStemp[2];
+	  voltageRMS[3]=voltageRMStemp[3];
+	  voltageRMS[4]=voltageRMStemp[4];
+	  voltageRMS[5]=voltageRMStemp[5];
+	  for(int i=0;i<6;i++){
 		  voltageRMS[i] = voltageRMS[i]/samples;
 		  voltageRMS[i] = sqrt(voltageRMS[i]);
 		  dbuRMS[i]= 20*log(voltageRMS[i]/0.775);
@@ -308,6 +343,10 @@ void TIM7_IRQHandler(void)
 
 	  voltageRMStemp[0]=0;
 	  voltageRMStemp[1]=0;
+	  voltageRMStemp[2]=0;
+	  voltageRMStemp[3]=0;
+	  voltageRMStemp[4]=0;
+	  voltageRMStemp[5]=0;
   }
 
   UART_transmit[0]=0xFF;
@@ -325,12 +364,16 @@ if (resetMax==1){
 	resetMax=0;
 	voltageIn1MAX=0;
 	voltageIn2MAX=0;
+	voltageIn3MAX=0;
+	voltageIn4MAX=0;
+	voltageIn5MAX=0;
+	voltageIn6MAX=0;
 }
 
 
 
 
-
+HAL_GPIO_WritePin(GPIOF, DEBUG1_Pin, GPIO_PIN_RESET);//DEBUG rot
 
   /* USER CODE END TIM7_IRQn 1 */
 }

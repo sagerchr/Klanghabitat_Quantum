@@ -98,6 +98,67 @@ osc_message osc;
   }
 //=======================================================================================//
 
+  void OSCmessageFLOATSend(char *OSCAdress,int size, int a, int b, int c, int d){
+
+		 int index=0;
+		 char UDP_Message[100];
+
+		 for(int i=0; i< 100; i++){
+			 UDP_Message[i] = 0x01;
+		 }
+
+
+		 for(int i=0; i< size; i++){
+			 UDP_Message[i] = OSCAdress[i];
+		 }
+
+		 if(size==35||size==31||size==27||size==23||size == 19||size == 15||size == 11||size == 7||size == 3){
+			 UDP_Message[size] = 0x00;
+			 index=1;
+		 }
+		 else if(size==34||size==30||size==26||size==22||size == 18||size == 16||size == 12||size == 8||size == 4){
+
+			 UDP_Message[size] = 0x00;
+			 UDP_Message[size+1] = 0x00;
+			 index=2;
+		 }
+		 else if(size==33||size==29||size==25||size==21||size == 17||size == 15||size == 11||size == 7||size == 3){
+			 UDP_Message[size] = 0x00;
+			 UDP_Message[size+1] = 0x00;
+			 UDP_Message[size+2] = 0x00;
+			 index=3;
+		 }
+		 else if(size==32||size==28||size==24||size==20||size == 16||size == 14||size == 10||size == 6||size == 2){
+			 UDP_Message[size] = 0x00;
+			 UDP_Message[size+1] = 0x00;
+			 UDP_Message[size+2] = 0x00;
+			 UDP_Message[size+3] = 0x00;
+			 index=4;
+		 }
+
+		 UDP_Message[size+index] = ',';
+		 UDP_Message[size+index+1] = 'f';
+		 UDP_Message[size+index+2] = 0x00;
+		 UDP_Message[size+index+3] = 0x00;
+		 UDP_Message[size+index+4] = d;
+		 UDP_Message[size+index+5] = c;
+		 UDP_Message[size+index+6] = b;
+		 UDP_Message[size+index+7] = a;
+
+		 char UDP_SEND[size+index+8];
+
+		 for(int i=0; i< size+index+8; i++){
+			 UDP_SEND[i] = UDP_Message[i];
+		 }
+
+		 SendUDP(UDP_SEND, sizeof(UDP_SEND));
+	 }
+
+
+
+
+
+
 
 void OSCmessageINTSend(char *OSCAdress,int size, int value){
 

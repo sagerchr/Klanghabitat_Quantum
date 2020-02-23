@@ -196,6 +196,10 @@ uint16_t indexer;
 
 int16_t RingIn1[50];
 int16_t RingIn2[50];
+int16_t RingIn3[50];
+int16_t RingIn4[50];
+int16_t RingIn5[50];
+int16_t RingIn6[50];
 
 float  voltageRMS[8];
 float  dbuRMS[8];
@@ -204,16 +208,23 @@ float  voltRingIn1[50];
 float  voltageIn1MAX;
 float  voltRingIn2[50];
 float  voltageIn2MAX;
+float  voltRingIn3[50];
+float  voltageIn3MAX;
+float  voltRingIn4[50];
+float  voltageIn4MAX;
+float  voltRingIn5[50];
+float  voltageIn5MAX;
+float  voltRingIn6[50];
+float  voltageIn6MAX;
 
 uint8_t resetMax;
 
 float  dbuRingIn1[50];
 float  dbuRingIn2[50];
-
-int16_t RingIn3[50];
-int16_t RingIn4[50];
-int16_t RingIn5[50];
-int16_t RingIn6[50];
+float  dbuRingIn3[50];
+float  dbuRingIn4[50];
+float  dbuRingIn5[50];
+float  dbuRingIn6[50];
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
