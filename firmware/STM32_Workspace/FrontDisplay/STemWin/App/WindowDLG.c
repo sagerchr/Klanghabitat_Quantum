@@ -81,6 +81,21 @@ float smooth2= 0;
 float peaksmooth2= 0;
 float diff2 = 0;
 
+int adc3 = 0;
+float adc3_ist = 0;
+float adc3_volt = 0;
+float adc3_db = 0;
+float smooth3= 0;
+float peaksmooth3= 0;
+float diff3 = 0;
+
+int adc4 = 0;
+float adc4_ist = 0;
+float adc4_volt = 0;
+float adc4_db = 0;
+float smooth4= 0;
+float peaksmooth4= 0;
+float diff4 = 0;
 
 int watchdog= 0;
 int left = 0;
@@ -107,6 +122,12 @@ int maxValueLeft = 0;
 int newValueLeft = 0;
 int maxValueRight = 0;
 int newValueRight = 0;
+
+int maxValueLeftOUT = 0;
+int newValueLeftOUT = 0;
+int maxValueRightOUT = 0;
+int newValueRightOUT = 0;
+
 int reset = 0;
 
 
@@ -140,6 +161,8 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 
 	newValueLeft = UARTDATA[3];
 	newValueRight = UARTDATA[4];
+	newValueLeftOUT = UARTDATA[7];
+	newValueRightOUT = UARTDATA[8];
 
 	if(maxValueLeft < newValueLeft){
 		maxValueLeft = newValueLeft;
@@ -148,6 +171,15 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 	if(maxValueRight < newValueRight){
 		maxValueRight = newValueRight;
 	}
+
+	if(maxValueLeftOUT < newValueLeftOUT){
+		maxValueLeftOUT = newValueLeftOUT;
+	}
+
+	if(maxValueRightOUT < newValueRightOUT){
+		maxValueRightOUT = newValueRightOUT;
+	}
+
 
 	if(reset == 1){
 		if(maxValueLeft==0){
@@ -162,8 +194,22 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 		else{
 		adc2 = maxValueRight;
 		}
+		if(maxValueLeftOUT==0){
+		adc3 = 1;
+		}
+		else{
+		adc3 = maxValueLeftOUT;
+		}
+		if(maxValueRightOUT==0){
+		adc4 = 1;
+		}
+		else{
+		adc4 = maxValueRightOUT;
+		}
 		maxValueLeft = 0;
 		maxValueRight = 0;
+		maxValueLeftOUT = 0;
+		maxValueRightOUT = 0;
 		reset = 0;
 	}
 }
@@ -195,37 +241,39 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 	  GUI_Clear();
 
 
-     drawWaveFormUartRight(0,240,adc2);
-     drawWaveFormUartLeft(450,240,adc1);
+     drawWaveFormUartRight(30,280,adc1);
+     drawWaveFormUartLeft(420,280,adc2);
 
 
      adc1_ist = adc1;
      adc1_volt = (adc1/255.00)*3.3;
      adc1_db = 20*log(adc1_volt/0.775);
 
-
-
      adc2_ist = adc2;
 	 adc2_volt = (adc2/255.00)*3.3;
 	 adc2_db = 20*log(adc2_volt/0.775);
 
+     adc3_ist = adc3;
+     adc3_volt = (adc3/255.00)*3.3;
+     adc3_db = 20*log(adc3_volt/0.775);
 
-
-		GUI_GotoXY(350, 30);
-		GUI_SetColor(GUI_LIGHTGRAY);
-		GUI_SetFont(&GUI_Font24B_1);
-	  	GUI_DispFloatMin(adc1_db, 1);
-
-	  	GUI_GotoXY(450, 30);
-	  	GUI_DispFloatMin(adc1_db+60, 1);
+     adc4_ist = adc4;
+	 adc4_volt = (adc4/255.00)*3.3;
+	 adc4_db = 20*log(adc4_volt/0.775);
 
 
 	 adc1_db = (adc1_db+60)*3;
 	 adc2_db = (adc2_db+60)*3;
+	 adc3_db = (adc3_db+60)*3;
+	 adc4_db = (adc4_db+60)*3;
+
+	 diff1 = adc1_db-smooth1;
+	 diff2 = adc2_db-smooth2;
+	 diff3 = adc3_db-smooth3;
+	 diff4 = adc4_db-smooth4;
 
 
-	 diff1 = adc2_db-smooth1;
-	 diff2 = adc1_db-smooth2;
+
 
 	 if(diff1<0){
 		 smooth1 = smooth1+(0.055*diff1);
@@ -258,6 +306,38 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 
 
 
+	 if(diff3<0){
+		 smooth3 = smooth3+(0.055*diff3);
+	 }
+	 else{
+		 smooth3 = smooth3+(1*diff3);
+	 }
+
+	 if((adc3_db-peaksmooth3)<0){
+		 peaksmooth3 = peaksmooth3+(0.01*diff3);
+	 }
+	 else {
+		 peaksmooth3 = peaksmooth3+(1*diff3);
+	 }
+
+
+
+	 if(diff4<0){
+		 smooth4 = smooth4+(0.055*diff4);
+	 }
+	 else{
+		 smooth4 = smooth4+(1*diff4);
+	 }
+
+	 if((adc4_db-peaksmooth4)<0){
+		 peaksmooth4 = peaksmooth4+(0.01*diff4);
+	 }
+	 else {
+		 peaksmooth4 = peaksmooth4+(1*diff4);
+	 }
+
+
+
 
   	  BSP_TS_GetState(&TS_State);
   	  	  if(TS_State.touchX[0]>30 && TS_State.touchX[0]<750 && TS_State.touchY[0] > 30 && TS_State.touchY[0] < 450){
@@ -278,22 +358,41 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 
 
 
-	 //HAL_I2C_Master_Receive(&hi2c1, 5, aRxBuffer,10,1000);
+	drawBarHorizontal (350, 170,peaksmooth1,smooth1, "", 1);
+	drawBarHorizontal (450, 170,peaksmooth2,smooth2, "", 0);
+	drawBarHorizontal (350, 200,peaksmooth3,smooth3, "", 1);
+	drawBarHorizontal (450, 200,peaksmooth4,smooth4, "", 0);
 
-
-	 //HAL_I2C_Master_Receive(&hi2c1, 5, aRxBuffer,10,1000);
-
-	//HAL_I2C_Master_Receive(&hi2c1, 5,(uint8_t *)aRxBuffer,10,1000);
-
-	 drawBar (395, 90,peaksmooth1,smooth1, "");
-	 drawBar (415, 90,peaksmooth2,smooth2, "");
 
 	 drawDashedLine(10, Y_Left, 350, Y_Left);
 	 drawDashedLine(450, Y_Right, 790, Y_Right);
 
 	 ENCODER_UPDATE(); //Display Encoder Values
+	 GUI_SetColor(GUI_GRAY);
+	 GUI_DrawRoundedFrame(5,   350, 200, 465, 5,4);
+	 GUI_DrawRoundedFrame(200, 350, 400, 465, 5,4);
+	 GUI_DrawRoundedFrame(400, 350, 600, 465, 5,4);
+	 GUI_DrawRoundedFrame(600, 350, 875, 465, 5,4);
 
+	 GUI_SetColor(GUI_LIGHTGRAY);
+	 GUI_SetFont(&GUI_FontD24x32);
+	 drawFloatNumber(10,10,adc1,"","");
+	 GUI_SetColor(GUI_LIGHTGRAY);
+	 GUI_SetFont(&GUI_FontD24x32);
+	 drawFloatNumber(10,50,adc2,"","");
 
+	 GUI_SetColor(GUI_LIGHTGRAY);
+	 GUI_SetFont(&GUI_FontD24x32);
+	 drawFloatNumber(700,10,adc3,"","");
+	 GUI_SetColor(GUI_LIGHTGRAY);
+	 GUI_SetFont(&GUI_FontD24x32);
+	 drawFloatNumber(700,50,adc4,"","");
+
+	 GUI_SetColor(GUI_GRAY);
+	 GUI_DrawRoundedFrame(5,   5, 200, 100, 5,4);
+	 GUI_DrawRoundedFrame(200, 5, 400, 100, 5,4);
+	 GUI_DrawRoundedFrame(400, 5, 600, 100, 5,4);
+	 GUI_DrawRoundedFrame(600, 5, 875, 100, 5,4);
 /*==================================================*/
 
 GUI_SetFont(&GUI_Font24B_1);

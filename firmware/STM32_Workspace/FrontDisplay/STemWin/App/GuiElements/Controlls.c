@@ -8,8 +8,8 @@
 #include "DIALOG.h"
 #include "GUI.h"
 
-int pox[6]={15,15,15,620,620,620};
-int poy[6]={220,400,70,400,70,220};
+int pox[6]={15,15,220,620,420,620};
+int poy[6]={220,400,400,400,400,220};
 const char *header[6] = {"Input","Threshold","Attack","Ratio","Release","Output"};
 const char *units[6] = {"dB","dB","ms","","ms","dB"};
 int delay[6];
@@ -32,7 +32,7 @@ void drawControllBar (int pos_x, int pos_y, float PeakVal,float AvVal,  const ch
 			GUI_DrawGradientV(pos_x, pos_y-10, pos_x+AvVal, pos_y, 0xFFFF8000, 0xFFFFA500);
 	}
 
-void drawFloatNumber (int pos_x, int pos_y, float val, const char * s, const char * h){
+drawFloatNumber (int pos_x, int pos_y, float val, const char * s, const char * h){
 
 		GUI_GotoXY(pos_x, pos_y);
 	  	GUI_DispFloatMin(val, 1);

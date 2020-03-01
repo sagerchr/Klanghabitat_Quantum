@@ -352,12 +352,12 @@ void TIM7_IRQHandler(void)
   UART_transmit[0]=0xFF;
   UART_transmit[1]=0x01;
   UART_transmit[2]=0x02;
-  UART_transmit[3]=voltageIn2MAX*50;
-  UART_transmit[4]=voltageIn1MAX*50;
+  UART_transmit[3]=voltageIn1MAX*30;
+  UART_transmit[4]=voltageIn2MAX*30;
   UART_transmit[5]=0x10;
   UART_transmit[6]=0x10;
-  UART_transmit[7]=0x10;
-  UART_transmit[8]=0x10;
+  UART_transmit[7]=voltageIn5MAX*30;
+  UART_transmit[8]=voltageIn6MAX*30;
   UART_transmit[9]=0x10;
 
 if (resetMax==1){

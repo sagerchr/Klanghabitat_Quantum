@@ -10,6 +10,7 @@
 
 static void drawFloat (int pos_x, int pos_y, float val, const char * s,const char * h);
 void drawBar (int pos_x, int pos_y, float PeakVal,float AvVal, const char * s );
+void drawBarHorizontal (int pos_x, int pos_y, float PeakVal,float AvVal,  const char * s , int invert);
 void drawWaveForm();
 void drawWaveFormUartLeft(int x,int y, int adc);
 void drawWaveFormUartRight(int x,int y, int adc);

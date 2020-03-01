@@ -57,7 +57,7 @@ void drawBar (int pos_x, int pos_y, float PeakVal,float AvVal,  const char * s )
 	GUI_SetFont(&GUI_Font20_1);
 	GUI_GotoXY(pos_x-40, pos_y-25);
 
-    GUI_DispFloatMin((AvVal-200)/4, 2);
+    //GUI_DispFloatMin((AvVal-200)/4, 2);
 
 
 	for (int i=0; i<30; i++){
@@ -97,3 +97,46 @@ void drawFloat (int pos_x, int pos_y, float val, const char * s, const char * h)
 	  		  GUI_DispStringAt(h, pos_x, pos_y-35);
 
 	  	  }
+
+
+void drawBarHorizontal (int pos_x, int pos_y, float PeakVal,float AvVal,  const char * s , int invert){
+	GUI_SetColor(GUI_LIGHTGRAY);
+	GUI_GotoXY(pos_x-40, pos_y-25);
+
+	int lastLine = 0;
+	int bottomX = 0;
+	int rednes = 0;
+
+if(invert == 0){
+	for (int i=0; i<30; i++){
+		lastLine = pos_x+(i*10);
+		GUI_DrawVLine(lastLine+0,pos_y, pos_y+10);
+		GUI_DrawVLine(lastLine+5,pos_y, pos_y+5);
+	}
+	GUI_DrawVLine(lastLine+10,pos_y, pos_y+10);
+
+
+	bottomX = lastLine+10;
+
+	rednes = AvVal *100 /bottomX;
+	GUI_DrawGradientH(pos_x, pos_y-20, pos_x + AvVal, pos_y, 0xFFFFA500, 0xFFFF6E00);
+}
+
+if(invert == 1){
+	for (int i=30; i>0; i--){
+		lastLine = pos_x-(i*10);
+		GUI_DrawVLine(lastLine+0,pos_y, pos_y+10);
+		GUI_DrawVLine(lastLine+5,pos_y, pos_y+5);
+	}
+	GUI_DrawVLine(lastLine+10,pos_y, pos_y+10);
+
+
+	bottomX = lastLine+10;
+
+	rednes = AvVal *100 /bottomX;
+	GUI_DrawGradientH(pos_x-AvVal, pos_y-20, pos_x, pos_y, 0xFFFF6E00,0xFFFFA500);
+}
+
+
+
+}

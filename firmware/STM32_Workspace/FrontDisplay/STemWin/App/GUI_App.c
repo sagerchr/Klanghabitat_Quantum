@@ -167,19 +167,16 @@ void GRAPHICS_MainTask(void) {
 
              count++;
   /************ Transmit data to AnalogEngine****************/
-             transmit[0]=0xFF;
-             transmit[1]=left;
-             transmit[2]=pots[1];
-             transmit[3]=pots[2];
-             transmit[4]=pots[3];
-             transmit[5]=pots[4];
-             transmit[6]=right;
-             transmit[7]=count;
-             transmit[8]=0x02;
-             transmit[9]=0x03;
-
-              HAL_UART_Transmit(&huart6, transmit , 10, 10);
-
+             UART_TRANSFER[0]=0xFF;
+             UART_TRANSFER[1]=left;
+             UART_TRANSFER[2]=pots[1];
+             UART_TRANSFER[3]=pots[2];
+             UART_TRANSFER[4]=pots[3];
+             UART_TRANSFER[5]=pots[4];
+             UART_TRANSFER[6]=right;
+             UART_TRANSFER[7]=count;
+             UART_TRANSFER[8]=0x02;
+			 UART_TRANSFER[9]=0x03;
   /**********************************************************/
 
 

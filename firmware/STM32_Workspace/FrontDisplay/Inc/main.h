@@ -10,7 +10,7 @@
   * inserted by the user or by software development tools
   * are owned by their respective copyright owners.
   *
-  * Copyright (c) 2019 STMicroelectronics International N.V. 
+  * Copyright (c) 2020 STMicroelectronics International N.V. 
   * All rights reserved.
   *
   * Redistribution and use in source and binary forms, with or without 
@@ -97,6 +97,7 @@
 extern int Test;
 extern uint32_t DMA_TRANSFER[250];
 extern char UART_RECIVE[10];
+char UART_TRANSFER[10];
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

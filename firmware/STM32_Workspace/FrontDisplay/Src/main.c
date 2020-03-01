@@ -10,7 +10,7 @@
   * inserted by the user or by software development tools
   * are owned by their respective copyright owners.
   *
-  * Copyright (c) 2019 STMicroelectronics International N.V. 
+  * Copyright (c) 2020 STMicroelectronics International N.V. 
   * All rights reserved.
   *
   * Redistribution and use in source and binary forms, with or without 
@@ -78,6 +78,7 @@ TIM_HandleTypeDef htim4;
 
 UART_HandleTypeDef huart6;
 DMA_HandleTypeDef hdma_usart6_rx;
+DMA_HandleTypeDef hdma_usart6_tx;
 
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
@@ -188,9 +189,10 @@ int main(void)
   GRAPHICS_HW_Init();
   BSP_TS_Init(800, 480);
   HAL_UART_Receive_DMA(&huart6, UART_RECIVE,10);
+  HAL_UART_Transmit_DMA(&huart6, UART_TRANSFER,10);
   /* Initialise the graphical stack engine */
   GRAPHICS_Init();
-
+  
   /* Graphic application */  
   GRAPHICS_MainTask();
     
@@ -569,6 +571,9 @@ static void MX_DMA_Init(void)
   /* DMA2_Stream1_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA2_Stream1_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA2_Stream1_IRQn);
+  /* DMA2_Stream6_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA2_Stream6_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA2_Stream6_IRQn);
 
 }
 
