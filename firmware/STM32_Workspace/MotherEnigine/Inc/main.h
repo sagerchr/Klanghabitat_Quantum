@@ -187,8 +187,8 @@ uint32_t ADC1_RAW[2];
 uint32_t ADC1_MAX[2];
 uint32_t ADC2_RAW[2];
 uint32_t ADC2_MAX[2];
-char UART_transmit[10];
-char UART_recive[10];
+char UART_transmit[50];
+char UART_recive[50];
 uint16_t analogIN[8];
 
 uint16_t samples;

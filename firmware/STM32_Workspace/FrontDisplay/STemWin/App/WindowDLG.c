@@ -64,38 +64,38 @@ int p = 0;
 int X = 0; //TOUCH X
 int Y = 0; //TOUCH Y
 
-int adc1 = 0;
-float adc1_ist = 0;
-float adc1_volt = 0;
-float adc1_db = 0;
-float smooth1= 0;
-float peaksmooth1= 0;
-float diff1 = 0;
+int adc1 = 0.0;
+float adc1_ist = 0.0;
+float adc1_volt = 0.0;
+float adc1_db = 0.0;
+float smooth1= 0.0;
+float peaksmooth1= 0.0;
+float diff1 = 0.0;
 
 
-int adc2 = 0;
-float adc2_ist = 0;
-float adc2_volt = 0;
-float adc2_db = 0;
-float smooth2= 0;
-float peaksmooth2= 0;
-float diff2 = 0;
+int adc2 = 0.0;
+float adc2_ist = 0.0;
+float adc2_volt = 0.0;
+float adc2_db = 0.0;
+float smooth2= 0.0;
+float peaksmooth2= 0.0;
+float diff2 = 0.0;
 
-int adc3 = 0;
-float adc3_ist = 0;
-float adc3_volt = 0;
-float adc3_db = 0;
-float smooth3= 0;
-float peaksmooth3= 0;
-float diff3 = 0;
+int adc3 = 0.0;
+float adc3_ist = 0.0;
+float adc3_volt = 0.0;
+float adc3_db = 0.0;
+float smooth3= 0.0;
+float peaksmooth3= 0.0;
+float diff3 = 0.0;
 
-int adc4 = 0;
-float adc4_ist = 0;
-float adc4_volt = 0;
-float adc4_db = 0;
-float smooth4= 0;
-float peaksmooth4= 0;
-float diff4 = 0;
+int adc4 = 0.0;
+float adc4_ist = 0.0;
+float adc4_volt = 0.0;
+float adc4_db = 0.0;
+float smooth4= 0.0;
+float peaksmooth4= 0.0;
+float diff4 = 0.0;
 
 int watchdog= 0;
 int left = 0;
@@ -130,7 +130,7 @@ int newValueRightOUT = 0;
 
 int reset = 0;
 
-
+float test = 0.0;
 
 /*********************************************************************
 *
@@ -159,10 +159,10 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 	BSP_LED_Toggle(LED1);
    	UARTRECIVER(); //Recive Data from UART --> UARTDATA
 
-	newValueLeft = UARTDATA[3];
-	newValueRight = UARTDATA[4];
-	newValueLeftOUT = UARTDATA[7];
-	newValueRightOUT = UARTDATA[8];
+	newValueLeft = UARTDATA[6];
+	newValueRight = UARTDATA[7];
+	newValueLeftOUT = UARTDATA[10];
+	newValueRightOUT = UARTDATA[11];
 
 	if(maxValueLeft < newValueLeft){
 		maxValueLeft = newValueLeft;
@@ -267,12 +267,20 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 	 adc3_db = (adc3_db+60)*3;
 	 adc4_db = (adc4_db+60)*3;
 
-	 diff1 = adc1_db-smooth1;
-	 diff2 = adc2_db-smooth2;
-	 diff3 = adc3_db-smooth3;
-	 diff4 = adc4_db-smooth4;
 
 
+	 if(adc1_db > -100){
+		 diff1 = adc1_db-smooth1;
+	 }
+	 if(adc2_db > -100){
+		 diff2 = adc2_db-smooth2;
+	 }
+	 if(adc3_db > -100){
+		 diff3 = adc3_db-smooth3;
+	 }
+	 if(adc4_db > -100){
+		 diff4 = adc4_db-smooth4;
+	 }
 
 
 	 if(diff1<0){
@@ -338,7 +346,6 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 
 
 
-
   	  BSP_TS_GetState(&TS_State);
   	  	  if(TS_State.touchX[0]>30 && TS_State.touchX[0]<750 && TS_State.touchY[0] > 30 && TS_State.touchY[0] < 450){
      	      X = TS_State.touchX[0];
@@ -398,6 +405,21 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 GUI_SetFont(&GUI_Font24B_1);
 
 GUI_SetColor(GUI_GRAY);
+
+
+int32_t INT = UARTDATA[15] 	|
+		(UARTDATA[14] << 8) 	|
+		(UARTDATA[13] << 16) 	|
+		(UARTDATA[12] << 24);
+
+memcpy(&test, &INT, sizeof(test));
+//drawFloatNumber(300,50,test,"","");
+drawFloatNumber(500,50,UARTDATA[50],"","");
+
+
+
+
+
 
 }
 

@@ -119,7 +119,7 @@ uint8_t adresses[255];
 int Test=12;
 int test;
 uint32_t DMA_TRANSFER[250];
-char UART_RECIVE[10];
+char UART_RECIVE[50];
 
 
 /* USER CODE END 0 */
@@ -188,8 +188,8 @@ int main(void)
 /* Initialise the graphical hardware */
   GRAPHICS_HW_Init();
   BSP_TS_Init(800, 480);
-  HAL_UART_Receive_DMA(&huart6, UART_RECIVE,10);
-  HAL_UART_Transmit_DMA(&huart6, UART_TRANSFER,10);
+  HAL_UART_Receive_DMA(&huart6, UART_RECIVE,50);
+  HAL_UART_Transmit_DMA(&huart6, UART_TRANSFER,50);
   /* Initialise the graphical stack engine */
   GRAPHICS_Init();
   

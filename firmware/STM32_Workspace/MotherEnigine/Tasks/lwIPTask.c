@@ -14,7 +14,7 @@
 #include "MY_FLASH.h"
 #include "RelaisControl.h"
 #include "OSC_Lib.h"
-
+#include "UART_correction.h"
 
 uint8_t IP_READ[4];
 DAC_HandleTypeDef hdac;
@@ -77,11 +77,9 @@ char UART_IN[10];
 		 //=========================================================================//
 
 
-		 //if (match("/MotherEngine/VCA1/offset")){DAC_Control(1,2,OSC_SIGNEDINTEGER);}
-		// if (match("/MotherEngine/VCA2/offset")){DAC_Control(2,2,OSC_SIGNEDINTEGER);}
 
-		 DAC_Control(3,2,UART_recive[2]);
-		 DAC_Control(4,2,UART_recive[4]);
+		 DAC_Control(3,2,UART_reciveCorrected[6]);
+		 DAC_Control(4,2,UART_reciveCorrected[8]);
 
 		  DAC_Control(1,2,36); //offset VCA1
 		  DAC_Control(2,2,23); //offset VCA2
@@ -89,10 +87,6 @@ char UART_IN[10];
 
 		OSCmessageINTSend("/VALUE/Level/CH1/RMS",  20, voltageRMS[0]*30);
 		OSCmessageINTSend("/VALUE/Level/CH2/RMS",  20, voltageRMS[1]*30);
-		//OSCmessageINTSend("/VALUE/Level/CH3/RMS",  20, voltageRMS[2]*30);
-		//OSCmessageINTSend("/VALUE/Level/CH4/RMS",  20, voltageRMS[3]*30);
-		//OSCmessageINTSend("/VALUE/Level/CH5/RMS",  20, voltageRMS[4]*30);
-		//OSCmessageINTSend("/VALUE/Level/CH6/RMS",  20, voltageRMS[5]*30);
 
 
 
@@ -135,7 +129,33 @@ char UART_IN[10];
 		OSCmessageINTSend("/VALUE/ERROR/ER1____",  20, errors);
 
 
-	    osDelay(10);
+
+//*************************SEND DATA TO FRONTPANEL************************//
+
+		for (int i= 0; i<100;i++){
+			UART_transmit[i] = 0x00;
+		}
+
+		  UART_transmit[0]='#';
+		  UART_transmit[1]='s';
+		  UART_transmit[2]='t';
+		  UART_transmit[3]='a';
+		  UART_transmit[4]=0x01;//1
+		  UART_transmit[5]=0x02;//2
+		  UART_transmit[6]=voltageIn1MAX*30;//3
+		  UART_transmit[7]=voltageIn2MAX*30;//4
+		  UART_transmit[8]=0x10;//5
+		  UART_transmit[9]=0x10;//6
+		  UART_transmit[10]=voltageIn5MAX*30;//7
+		  UART_transmit[11]=voltageIn6MAX*30;//8
+		  UART_transmit[12]=d;
+		  UART_transmit[13]=c;
+		  UART_transmit[14]=b;
+		  UART_transmit[15]=a;
+		  UART_transmit[16]=0x10;
+		  UART_transmit[17]=0x10;
+
+//***********************************************************************//
 	  }
 
 }
@@ -165,7 +185,7 @@ void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
 	errors = errors+1;
 
   /* Prevent unused argument(s) compilation warning */
-	  HAL_UART_Receive_DMA(&huart6, UART_recive,10);
+	  HAL_UART_Receive_DMA(&huart6, UART_recive,50);
   /* NOTE : This function should not be modified, when the callback is needed,
             the HAL_UART_ErrorCallback can be implemented in the user file.
    */

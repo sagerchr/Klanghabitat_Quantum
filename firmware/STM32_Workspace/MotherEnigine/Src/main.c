@@ -25,7 +25,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "UART_correction.h"
 #include "dspTask.h"
 #include "lwIPTask.h"
 #include "MY_FLASH.h"
@@ -188,8 +188,8 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_DAC_Start(&hdac, DAC_CHANNEL_1);
   HAL_DAC_Start(&hdac, DAC_CHANNEL_2);
-  HAL_UART_Transmit_DMA(&huart6, UART_transmit,10);
-  HAL_UART_Receive_DMA(&huart6, UART_recive,10);
+  HAL_UART_Transmit_DMA(&huart6, UART_transmit,50);
+  HAL_UART_Receive_DMA(&huart6, UART_recive,50);
 
 
   //###### PUT the RESET to Output so Display can be reseted by its own again###
@@ -592,7 +592,7 @@ static void MX_USART3_UART_Init(void)
 
   /* USER CODE END USART3_Init 1 */
   huart3.Instance = USART3;
-  huart3.Init.BaudRate = 115200;
+  huart3.Init.BaudRate = 19200;
   huart3.Init.WordLength = UART_WORDLENGTH_8B;
   huart3.Init.StopBits = UART_STOPBITS_1;
   huart3.Init.Parity = UART_PARITY_NONE;
@@ -791,12 +791,18 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 
+
+   	UART_correction(); //Recive Data from UART --> UARTDATA
+}
 
 
 HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart){
 	if (huart->Instance == USART6) {resetMax=1;
 	}
+
+
 }
 
 

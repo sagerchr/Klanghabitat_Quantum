@@ -167,16 +167,20 @@ void GRAPHICS_MainTask(void) {
 
              count++;
   /************ Transmit data to AnalogEngine****************/
-             UART_TRANSFER[0]=0xFF;
-             UART_TRANSFER[1]=left;
-             UART_TRANSFER[2]=pots[1];
-             UART_TRANSFER[3]=pots[2];
-             UART_TRANSFER[4]=pots[3];
-             UART_TRANSFER[5]=pots[4];
-             UART_TRANSFER[6]=right;
-             UART_TRANSFER[7]=count;
-             UART_TRANSFER[8]=0x02;
-			 UART_TRANSFER[9]=0x03;
+             UART_TRANSFER[0]='#';
+             UART_TRANSFER[1]='s';
+             UART_TRANSFER[2]='t';
+             UART_TRANSFER[3]='a';
+             UART_TRANSFER[4]=0xFF;//0
+             UART_TRANSFER[5]=left;//1
+             UART_TRANSFER[6]=pots[1];//2
+             UART_TRANSFER[7]=pots[2];//3
+             UART_TRANSFER[8]=pots[3];//4
+             UART_TRANSFER[9]=pots[4];//5
+             UART_TRANSFER[10]=right;//6
+             UART_TRANSFER[11]=count;//7
+             UART_TRANSFER[12]=0x02;//8
+			 UART_TRANSFER[13]=0x03;//9
   /**********************************************************/
 
 
@@ -196,7 +200,7 @@ void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
 	errors = errors+1;
 
   /* Prevent unused argument(s) compilation warning */
-	HAL_UART_Receive_DMA(&huart6, UART_RECIVE,10);
+	HAL_UART_Receive_DMA(&huart6, UART_RECIVE,50);
   /* NOTE : This function should not be modified, when the callback is needed,
             the HAL_UART_ErrorCallback can be implemented in the user file.
    */
