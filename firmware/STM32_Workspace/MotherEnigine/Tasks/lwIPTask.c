@@ -95,9 +95,9 @@ char UART_IN[10];
 
 		  char data[sizeof(float)];
 		  float f = -1.236;
-		  memcpy(data, &dbuRMS[0], sizeof &dbuRMS[0]);    // send data
 		  char a = data[0];char b = data[1];char c = data[2];char d = data[3];
-		  OSCmessageFLOATSend("/VALUE/Level/CH1/FLOAT",  22, a,b,c,d);
+
+
 
 		  memcpy(data, &dbuRMS[1], sizeof &dbuRMS[0]);    // send data
 		  a = data[0]; b = data[1];c = data[2];d = data[3];
@@ -125,6 +125,9 @@ char UART_IN[10];
 		  a = data[0]; b = data[1];c = data[2];d = data[3];
 		  OSCmessageFLOATSend("/help/Level/offset",  18, a,b,c,d);
 
+		  memcpy(data, &dbuRMS[0], sizeof &dbuRMS[0]);    // send data
+		  a = data[0]; b = data[1];c = data[2];d = data[3];
+		  OSCmessageFLOATSend("/VALUE/Level/CH1/FLOAT",  22, a,b,c,d);
 
 		OSCmessageINTSend("/VALUE/ERROR/ER1____",  20, errors);
 
@@ -132,9 +135,23 @@ char UART_IN[10];
 
 //*************************SEND DATA TO FRONTPANEL************************//
 
-		for (int i= 0; i<100;i++){
+//#################!!!!!!!!!!!!ATTENTION!!!!!!!!!!!!#################//
+
+//				DMA Pause -> Write Data -> DMA Resume
+// This is done because we want to write data without transferring data
+// 	This is just possible because in stm32f7xx_hal_uart.c the UART_RX was disabled
+// otherwise DMA for RX would also be stopping.
+
+//
+
+//#############PAUSE the DMA to be able to write data#######//
+		HAL_UART_DMAPause(&huart6);
+//##########################################################//
+		for (int i= 0; i<50;i++){
 			UART_transmit[i] = 0x00;
 		}
+
+
 
 		  UART_transmit[0]='#';
 		  UART_transmit[1]='s';
@@ -152,8 +169,14 @@ char UART_IN[10];
 		  UART_transmit[13]=c;
 		  UART_transmit[14]=b;
 		  UART_transmit[15]=a;
-		  UART_transmit[16]=0x10;
-		  UART_transmit[17]=0x10;
+		  UART_transmit[16]='\r';
+		  UART_transmit[17]='\n';
+
+		  resetMax=1;
+//############# RESMUE the DMA to output the data#########//
+		  HAL_UART_DMAResume(&huart6);
+//#######################################################//
+
 
 //***********************************************************************//
 	  }

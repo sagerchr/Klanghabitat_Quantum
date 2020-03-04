@@ -212,6 +212,8 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 		maxValueRightOUT = 0;
 		reset = 0;
 	}
+
+
 }
 
 
@@ -412,8 +414,12 @@ int32_t INT = UARTDATA[15] 	|
 		(UARTDATA[13] << 16) 	|
 		(UARTDATA[12] << 24);
 
+
+
 memcpy(&test, &INT, sizeof(test));
-//drawFloatNumber(300,50,test,"","");
+
+UARTDATA[50]=huart6.hdmarx->Instance->NDTR;
+drawFloatNumber(300,50,test,"","");
 drawFloatNumber(500,50,UARTDATA[50],"","");
 
 

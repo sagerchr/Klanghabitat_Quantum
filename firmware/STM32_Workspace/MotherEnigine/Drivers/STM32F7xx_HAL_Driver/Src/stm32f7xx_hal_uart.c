@@ -1461,16 +1461,18 @@ HAL_StatusTypeDef HAL_UART_DMAPause(UART_HandleTypeDef *huart)
     /* Disable the UART DMA Tx request */
     CLEAR_BIT(huart->Instance->CR3, USART_CR3_DMAT);
   }
+
+  /*
   if ((HAL_IS_BIT_SET(huart->Instance->CR3, USART_CR3_DMAR)) &&
       (rxstate == HAL_UART_STATE_BUSY_RX))
-  {
+  //	  {
     /* Disable PE and ERR (Frame error, noise error, overrun error) interrupts */
-    CLEAR_BIT(huart->Instance->CR1, USART_CR1_PEIE);
-    CLEAR_BIT(huart->Instance->CR3, USART_CR3_EIE);
+   // CLEAR_BIT(huart->Instance->CR1, USART_CR1_PEIE);
+   // CLEAR_BIT(huart->Instance->CR3, USART_CR3_EIE);
 
     /* Disable the UART DMA Rx request */
-    CLEAR_BIT(huart->Instance->CR3, USART_CR3_DMAR);
-  }
+  //  CLEAR_BIT(huart->Instance->CR3, USART_CR3_DMAR);
+  //}
 
   /* Process Unlocked */
   __HAL_UNLOCK(huart);

@@ -9,6 +9,11 @@
 
 void UARTRECIVER(){
 
+	 for(int i = 0; i<50;i++){
+		 UARTDATA[i]	= 0x00;
+
+	 }
+
 	 int start = 0;
 	 int offset = 0;
 	   	    	     for(int i = 0; i<50;i++){
