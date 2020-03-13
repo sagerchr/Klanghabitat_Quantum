@@ -29,7 +29,7 @@ void lwIPTask(void const * argument){
 */
   //==========CREATE & START all lwIP Services========//
 	 MX_LWIP_Init(192,168,1,205); //SetUp with IP ADRESS read from Flash
-	 UDP_init(192,168,1,40); //INIT the UDP Session (Partner IP ADRESS)
+	 UDP_init(192,168,1,41); //INIT the UDP Session (Partner IP ADRESS)
 	 httpd_init();//start the web Server
 	 myCGIinit();//initialise the CGI handlers
 	 mySSIinit();//initialise the SSI handlers
@@ -75,6 +75,7 @@ char UART_IN[10];
 		 if (match("/MotherEngine/Relais/K8") && OSC_SIGNEDINTEGER == 0){
 			 HAL_GPIO_WritePin(GPIOG, Relais6_Pin,GPIO_PIN_RESET);}
 		 //=========================================================================//
+
 
 
 
@@ -129,9 +130,54 @@ char UART_IN[10];
 		  a = data[0]; b = data[1];c = data[2];d = data[3];
 		  OSCmessageFLOATSend("/VALUE/Level/CH1/FLOAT",  22, a,b,c,d);
 
+/*****************************************************************************/
+		  memcpy(data, &FFT_result[1], sizeof &FFT_result[0]);    // send data
+		  a = data[0]; b = data[1];c = data[2];d = data[3];
+		  OSCmessageFLOATSend("/VALUE/Level/FFT/0",  18, a,b,c,d);
+
+		  memcpy(data, &FFT_result[2], sizeof &FFT_result[0]);    // send data
+		  a = data[0]; b = data[1];c = data[2];d = data[3];
+		  OSCmessageFLOATSend("/VALUE/Level/FFT/1",  18, a,b,c,d);
+
+		  memcpy(data, &FFT_result[3], sizeof &FFT_result[0]);    // send data
+		  a = data[0]; b = data[1];c = data[2];d = data[3];
+		  OSCmessageFLOATSend("/VALUE/Level/FFT/2",  18, a,b,c,d);
+
+		  memcpy(data, &FFT_result[5], sizeof &FFT_result[0]);     // send data
+		  a = data[0]; b = data[1];c = data[2];d = data[3];
+		  OSCmessageFLOATSend("/VALUE/Level/FFT/3",  18, a,b,c,d);
+
+		  memcpy(data, &FFT_result[8], sizeof &FFT_result[0]);    // send data
+		  a = data[0]; b = data[1];c = data[2];d = data[3];
+		  OSCmessageFLOATSend("/VALUE/Level/FFT/4",  18, a,b,c,d);
+
+		  memcpy(data, &FFT_result[10], sizeof &FFT_result[0]);     // send data
+		  a = data[0]; b = data[1];c = data[2];d = data[3];
+		  OSCmessageFLOATSend("/VALUE/Level/FFT/5",  18, a,b,c,d);
+
+		  memcpy(data, &FFT_result[20], sizeof &FFT_result[0]);    // send data
+		  a = data[0]; b = data[1];c = data[2];d = data[3];
+		  OSCmessageFLOATSend("/VALUE/Level/FFT/6",  18, a,b,c,d);
+
+		  memcpy(data, &FFT_result[30], sizeof &FFT_result[0]);     // send data
+		  a = data[0]; b = data[1];c = data[2];d = data[3];
+		  OSCmessageFLOATSend("/VALUE/Level/FFT/7",  18, a,b,c,d);
+
+		  memcpy(data, &FFT_result[50], sizeof &FFT_result[0]);     // send data
+		  a = data[0]; b = data[1];c = data[2];d = data[3];
+		  OSCmessageFLOATSend("/VALUE/Level/FFT/8",  18, a,b,c,d);
+
+		  memcpy(data, &FFT_result[80], sizeof &FFT_result[0]);     // send data
+		  a = data[0]; b = data[1];c = data[2];d = data[3];
+		  OSCmessageFLOATSend("/VALUE/Level/FFT/9",  18, a,b,c,d);
+
+/*****************************************************************************/
+
+
 		OSCmessageINTSend("/VALUE/ERROR/ER1____",  20, errors);
 
-
+		  memcpy(data, &voltRingIn1[0], sizeof &voltRingIn1[0]);    // send data
+		  a = data[0]; b = data[1];c = data[2];d = data[3];
 
 //*************************SEND DATA TO FRONTPANEL************************//
 
@@ -177,9 +223,10 @@ char UART_IN[10];
 		  HAL_UART_DMAResume(&huart6);
 //#######################################################//
 
-
+		  HAL_Delay(25);
 //***********************************************************************//
 	  }
+
 
 }
 

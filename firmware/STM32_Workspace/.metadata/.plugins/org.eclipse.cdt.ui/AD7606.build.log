@@ -1,38 +1,6 @@
-22:09:03 **** Incremental Build of configuration Debug for project AD7606 ****
+20:03:38 **** Incremental Build of configuration Debug for project AD7606 ****
 make all 
-Building file: ../Src/main.c
-Invoking: MCU GCC Compiler
-/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/AD7606/Debug
-arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F767xx -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/AD7606/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/AD7606/Drivers/STM32F7xx_HAL_Driver/Inc" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/AD7606/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/AD7606/Drivers/CMSIS/Device/ST/STM32F7xx/Include" -I"/Users/christiansager/klanghabitat_quantum/firmware/STM32_Workspace/AD7606/Drivers/CMSIS/Include"  -Og -g3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Src/main.d" -MT"Src/main.o" -o "Src/main.o" "../Src/main.c"
-../Src/main.c: In function 'main':
-../Src/main.c:131:3: warning: implicit declaration of function 'microDelay'; did you mean 'HAL_Delay'? [-Wimplicit-function-declaration]
-   microDelay(1);
-   ^~~~~~~~~~
-   HAL_Delay
-../Src/main.c: At top level:
-../Src/main.c:510:6: warning: conflicting types for 'microDelay'
- void microDelay (int time){
-      ^~~~~~~~~~
-../Src/main.c:131:3: note: previous implicit declaration of 'microDelay' was here
-   microDelay(1);
-   ^~~~~~~~~~
-../Src/main.c:243:13: warning: 'MX_ETH_Init' defined but not used [-Wunused-function]
- static void MX_ETH_Init(void)
-             ^~~~~~~~~~~
-Finished building: ../Src/main.c
- 
-Building target: AD7606.elf
-Invoking: MCU GCC Linker
-arm-none-eabi-gcc -mcpu=cortex-m7 -mthumb -mfloat-abi=hard -mfpu=fpv5-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F767ZITx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -o "AD7606.elf" @"objects.list"   -lm
-Finished building target: AD7606.elf
- 
-/Library/Developer/CommandLineTools/usr/bin/make --no-print-directory post-build
-Generating hex and Printing size information:
-arm-none-eabi-objcopy -O ihex "AD7606.elf" "AD7606.hex"
-arm-none-eabi-size "AD7606.elf"
-   text	   data	    bss	    dec	    hex	filename
-   9580	     20	   1932	  11532	   2d0c	AD7606.elf
- 
+make: Nothing to be done for `all'.
 
-22:09:04 Build Finished (took 736ms)
+20:03:38 Build Finished (took 140ms)
 

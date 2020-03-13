@@ -9,9 +9,9 @@
 <stringAttribute key="fr.ac6.mcu.ide.DBG_INTERFACE" value="SWD"/>
 <stringAttribute key="fr.ac6.mcu.ide.DBG_INTERFACE_FREQUENCY" value="8000000.0"/>
 <stringAttribute key="fr.ac6.mcu.ide.DBG_LOW_POWER_MODE_ALLOWED" value="true"/>
-<stringAttribute key="fr.ac6.mcu.ide.DBG_RESET_MODE" value="connect_under_reset"/>
+<stringAttribute key="fr.ac6.mcu.ide.DBG_RESET_MODE" value="soft"/>
 <stringAttribute key="fr.ac6.mcu.ide.DBG_STOP_WATCHDOG_THEN_HALTED_ALLOWED" value="true"/>
-<booleanAttribute key="fr.ac6.mcu.ide.OPENOCD_GENERATOR_OPTION" value="false"/>
+<booleanAttribute key="fr.ac6.mcu.ide.OPENOCD_GENERATOR_OPTION" value="true"/>
 <booleanAttribute key="fr.ac6.mcu.ide.OPENOCD_LAUNCH" value="true"/>
 <stringAttribute key="fr.ac6.mcu.ide.OPENOCD_NAME" value="&quot;${openstm32_openocd_path}/openocd&quot;"/>
 <stringAttribute key="fr.ac6.mcu.ide.OPENOCD_OTHER_OPTIONS" value=""/>
@@ -28,7 +28,7 @@
 <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.loadImage" value="true"/>
 <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.loadSymbols" value="true"/>
 <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.pcRegister" value=""/>
-<intAttribute key="org.eclipse.cdt.debug.gdbjtag.core.portNumber" value="3334"/>
+<intAttribute key="org.eclipse.cdt.debug.gdbjtag.core.portNumber" value="1234"/>
 <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.runCommands" value=""/>
 <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.setPcRegister" value="false"/>
 <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.setResume" value="true"/>

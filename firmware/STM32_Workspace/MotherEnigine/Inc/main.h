@@ -183,6 +183,10 @@ void Error_Handler(void);
 #define DB1_Pin GPIO_PIN_1
 #define DB1_GPIO_Port GPIOE
 /* USER CODE BEGIN Private defines */
+#define SAMPLES                    (512)         /* 256 real party and 256 imaginary parts */
+#define FFT_SIZE                (SAMPLES / 2) /* FFT size is always the same size as we have samples, so 256 in our case */
+
+#define ARM_MATH_CM7
 uint32_t ADC1_RAW[2];
 uint32_t ADC1_MAX[2];
 uint32_t ADC2_RAW[2];
@@ -194,37 +198,39 @@ uint16_t analogIN[8];
 uint16_t samples;
 uint16_t indexer;
 
-int16_t RingIn1[50];
-int16_t RingIn2[50];
-int16_t RingIn3[50];
-int16_t RingIn4[50];
-int16_t RingIn5[50];
-int16_t RingIn6[50];
+int16_t RingIn1[512];
+int16_t RingIn2[512];
+int16_t RingIn3[512];
+int16_t RingIn4[512];
+int16_t RingIn5[512];
+int16_t RingIn6[512];
+
+float  FFT_result[100];
 
 float  voltageRMS[8];
 float  dbuRMS[8];
 
-float  voltRingIn1[50];
+float  voltRingIn1[512];
 float  voltageIn1MAX;
-float  voltRingIn2[50];
+float  voltRingIn2[512];
 float  voltageIn2MAX;
-float  voltRingIn3[50];
+float  voltRingIn3[512];
 float  voltageIn3MAX;
-float  voltRingIn4[50];
+float  voltRingIn4[512];
 float  voltageIn4MAX;
-float  voltRingIn5[50];
+float  voltRingIn5[512];
 float  voltageIn5MAX;
-float  voltRingIn6[50];
+float  voltRingIn6[512];
 float  voltageIn6MAX;
 
 uint8_t resetMax;
 
-float  dbuRingIn1[50];
-float  dbuRingIn2[50];
-float  dbuRingIn3[50];
-float  dbuRingIn4[50];
-float  dbuRingIn5[50];
-float  dbuRingIn6[50];
+float  dbuRingIn1[512];
+float  dbuRingIn2[512];
+float  dbuRingIn3[512];
+float  dbuRingIn4[512];
+float  dbuRingIn5[512];
+float  dbuRingIn6[512];
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

@@ -30,6 +30,7 @@
 #include "lwIPTask.h"
 #include "MY_FLASH.h"
 #include "DAC_Control.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -201,9 +202,8 @@ int main(void)
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
   //############################################################################
   indexer = 0;
-  samples = 50;
+  samples = 512;
   resetMax=0;
-
 
 
 
@@ -240,7 +240,7 @@ int main(void)
   //defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
-  osThreadDef(lwIPTask, lwIPTask, osPriorityNormal, 0, 500);
+  osThreadDef(lwIPTask, lwIPTask, osPriorityNormal, 0, 1000);
   lwIPTaskHandle = osThreadCreate(osThread(lwIPTask), NULL);
 
   osThreadDef(dspTask, dspTask, osPriorityNormal, 0, 500);

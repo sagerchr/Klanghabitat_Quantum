@@ -52,6 +52,8 @@
 <layer number="54" name="bCopper" color="7" fill="1" visible="no" active="no"/>
 <layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
 <layer number="57" name="tCAD" color="7" fill="1" visible="no" active="no"/>
+<layer number="59" name="tCarbon" color="7" fill="1" visible="no" active="no"/>
+<layer number="60" name="bCarbon" color="7" fill="1" visible="no" active="no"/>
 <layer number="88" name="SimResults" color="9" fill="1" visible="yes" active="yes"/>
 <layer number="89" name="SimProbes" color="9" fill="1" visible="yes" active="yes"/>
 <layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
@@ -78,6 +80,8 @@
 <layer number="111" name="LPC17xx" color="7" fill="1" visible="no" active="yes"/>
 <layer number="112" name="tSilk" color="7" fill="1" visible="no" active="yes"/>
 <layer number="113" name="ReferenceLS" color="7" fill="1" visible="no" active="no"/>
+<layer number="114" name="Badge_Outline" color="11" fill="1" visible="no" active="no"/>
+<layer number="115" name="ReferenceISLANDS" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="116" name="Patch_BOT" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="118" name="Rect_Pads" color="7" fill="1" visible="no" active="no"/>
 <layer number="120" name="Descript" color="7" fill="1" visible="yes" active="yes"/>
@@ -89,6 +93,7 @@
 <layer number="126" name="_bNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="127" name="_tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="128" name="_bValues" color="7" fill="1" visible="no" active="yes"/>
+<layer number="129" name="Mask" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="131" name="tAdjust" color="7" fill="1" visible="no" active="yes"/>
 <layer number="132" name="bAdjust" color="7" fill="1" visible="no" active="yes"/>
 <layer number="144" name="Drill_legend" color="7" fill="1" visible="yes" active="yes"/>
@@ -124,6 +129,12 @@
 <layer number="222" name="222bmp" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="223" name="223bmp" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="224" name="224bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="225" name="225bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="226" name="226bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="227" name="227bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="228" name="228bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="229" name="229bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="230" name="230bmp" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="231" name="Eagle3D_PG1" color="7" fill="1" visible="no" active="no"/>
 <layer number="232" name="Eagle3D_PG2" color="7" fill="1" visible="no" active="no"/>
 <layer number="233" name="Eagle3D_PG3" color="7" fill="1" visible="no" active="no"/>
@@ -132,6 +143,7 @@
 <layer number="250" name="Descript" color="3" fill="1" visible="yes" active="yes"/>
 <layer number="251" name="SMDround" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="254" name="OrgLBR" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="255" name="routoute" color="7" fill="1" visible="yes" active="yes"/>
 </layers>
 <schematic xreflabel="%F%N/%S.%C%R" xrefpart="/%S.%C%R">
 <libraries>
@@ -183,7 +195,7 @@ DIN A4, landscape with location and doc. field</description>
 </library>
 <library name="passive components" urn="urn:adsk.eagle:library:16365137">
 <packages>
-<package name="LPI_SIZE_18" urn="urn:adsk.eagle:footprint:16386766/2" library_version="17">
+<package name="LPI_SIZE_18" urn="urn:adsk.eagle:footprint:16386766/2" locally_modified="yes" library_version="24" library_locally_modified="yes">
 <hole x="0" y="0" drill="4"/>
 <hole x="60.4" y="0" drill="4"/>
 <hole x="0" y="49.2" drill="4"/>
@@ -192,14 +204,14 @@ DIN A4, landscape with location and doc. field</description>
 <wire x1="63.6" y1="-4" x2="63.6" y2="52.4" width="0.4064" layer="21"/>
 <wire x1="63.6" y1="52.4" x2="-3.2" y2="52.4" width="0.4064" layer="21"/>
 <wire x1="-3.2" y1="52.4" x2="-3.2" y2="-4" width="0.4064" layer="21"/>
-<pad name="P$1" x="5.1" y="5.6" drill="1" diameter="2.54"/>
-<pad name="P$2" x="5.1" y="18.3" drill="1" diameter="2.54"/>
-<pad name="P$4" x="5.1" y="31" drill="1" diameter="2.54"/>
-<pad name="P$3" x="5.1" y="43.7" drill="1" diameter="2.54"/>
-<pad name="P$5" x="56.4" y="5.6" drill="1" diameter="2.54"/>
-<pad name="P$6" x="56.4" y="18.3" drill="1" diameter="2.54"/>
-<pad name="P$8" x="56.4" y="31" drill="1" diameter="2.54"/>
-<pad name="P$7" x="56.4" y="43.7" drill="1" diameter="2.54"/>
+<pad name="P$1" x="5.1" y="5.6" drill="1.5" diameter="3.81"/>
+<pad name="P$2" x="5.1" y="18.3" drill="1.5" diameter="3.81"/>
+<pad name="P$4" x="5.1" y="31" drill="1.5" diameter="3.81"/>
+<pad name="P$3" x="5.1" y="43.7" drill="1.5" diameter="3.81"/>
+<pad name="P$5" x="56.4" y="5.6" drill="1.5" diameter="3.81"/>
+<pad name="P$6" x="56.4" y="18.3" drill="1.5" diameter="3.81"/>
+<pad name="P$8" x="56.4" y="31" drill="1.5" diameter="3.81"/>
+<pad name="P$7" x="56.4" y="43.7" drill="1.5" diameter="3.81"/>
 <text x="-3.81" y="-11.43" size="5.08" layer="27">&gt;VALUE</text>
 <text x="-3.81" y="-17.78" size="5.08" layer="25">&gt;NAME</text>
 </package>
@@ -393,10 +405,10 @@ TS-003</description>
 <text x="-1.1" y="-2.3" size="1.27" layer="27">&gt;VALUE</text>
 <rectangle x1="-0.7" y1="-0.7" x2="-0.5" y2="0.7" layer="51"/>
 </package>
-<package name="DIODE_THT_STANDING" urn="urn:adsk.eagle:footprint:2094189/3" library_version="24">
+<package name="DIODE_THT_STANDING" urn="urn:adsk.eagle:footprint:2094189/3" locally_modified="yes" library_version="24" library_locally_modified="yes">
 <description>&lt;b&gt;DIODE&lt;/b&gt;</description>
-<pad name="A" x="0" y="0" drill="0.8128" shape="octagon"/>
-<pad name="C" x="-2.54" y="0" drill="0.8128" shape="octagon"/>
+<pad name="A" x="0" y="0" drill="1" diameter="1.778" shape="octagon"/>
+<pad name="C" x="-2.54" y="0" drill="1" diameter="1.778" shape="octagon"/>
 <text x="-4.445" y="1.27" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-1.905" y="-2.54" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 <rectangle x1="-4.191" y1="-0.889" x2="-3.683" y2="0.889" layer="21"/>
@@ -515,7 +527,7 @@ http://www.bccomponents.com/</description>
 </package>
 </packages>
 <packages3d>
-<package3d name="LPI_SIZE_18" urn="urn:adsk.eagle:package:16386769/3" type="model" library_version="17">
+<package3d name="LPI_SIZE_18" urn="urn:adsk.eagle:package:16386769/3" type="model" library_version="24" library_locally_modified="yes">
 <packageinstances>
 <packageinstance name="LPI_SIZE_18"/>
 </packageinstances>
@@ -568,7 +580,7 @@ TS-003</description>
 <packageinstance name="SOD323-R"/>
 </packageinstances>
 </package3d>
-<package3d name="D-5" urn="urn:adsk.eagle:package:2094195/5" type="model" library_version="24">
+<package3d name="D-5" urn="urn:adsk.eagle:package:2094195/5" type="model" library_version="24" library_locally_modified="yes">
 <description>&lt;b&gt;DIODE&lt;/b&gt;</description>
 <packageinstances>
 <packageinstance name="DIODE_THT_STANDING"/>
@@ -721,7 +733,7 @@ http://www.bccomponents.com/</description>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="PRINTTRAFO" urn="urn:adsk.eagle:component:16386770/5" prefix="TRANS" library_version="22">
+<deviceset name="PRINTTRAFO" urn="urn:adsk.eagle:component:16386770/5" prefix="TRANS" library_version="24" library_locally_modified="yes">
 <description>Printtrafo several siyes availlable</description>
 <gates>
 <gate name="G$1" symbol="SYMETRICAL_TRAFO" x="0" y="0"/>
@@ -944,7 +956,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/KBP308G.pdf"&
 </device>
 </devices>
 </deviceset>
-<deviceset name="DIODE" urn="urn:adsk.eagle:component:16365147/4" prefix="D" library_version="24">
+<deviceset name="DIODE" urn="urn:adsk.eagle:component:16365147/4" prefix="D" library_version="24" library_locally_modified="yes">
 <description>Standard 4148 Diode SOD323 Format</description>
 <gates>
 <gate name="G$1" symbol="DIODE" x="0" y="0"/>
@@ -1040,10 +1052,10 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/KBP308G.pdf"&
 </library>
 <library name="electro_mechanical" urn="urn:adsk.eagle:library:16388331">
 <packages>
-<package name="MOLEX_90814-0204" urn="urn:adsk.eagle:footprint:16762550/2" library_version="17">
+<package name="MOLEX_90814-0204" urn="urn:adsk.eagle:footprint:16762550/3" library_version="43">
 <description>&lt;b&gt;MOLEX_90814-0204&lt;/b&gt;&lt;br&gt;
 </description>
-<smd name="1" x="0.127" y="0" dx="2.0066" dy="1.1938" layer="1" rot="R90"/>
+<smd name="1" x="0.254" y="0" dx="2.0066" dy="1.1938" layer="1" rot="R90"/>
 <smd name="2" x="1.27" y="5.9944" dx="2.0066" dy="1.1938" layer="1" rot="R90"/>
 <smd name="3" x="2.54" y="0" dx="2.0066" dy="1.1938" layer="1" rot="R90"/>
 <smd name="4" x="3.81" y="5.9944" dx="2.0066" dy="1.1938" layer="1" rot="R90"/>
@@ -1067,12 +1079,12 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/KBP308G.pdf"&
 <wire x1="0.3048" y1="-1.9304" x2="-0.4572" y2="-1.9304" width="0.508" layer="51" curve="-180"/>
 <wire x1="-0.4572" y1="-1.9304" x2="0.3048" y2="-1.9304" width="0.508" layer="51" curve="-180"/>
 </package>
-<package name="PF0030PC" urn="urn:adsk.eagle:footprint:16991589/1" library_version="17">
+<package name="PF0030PC" urn="urn:adsk.eagle:footprint:16991589/1" locally_modified="yes" library_version="43" library_locally_modified="yes">
 <description>&lt;b&gt;PF0030/PC-2&lt;/b&gt;&lt;br&gt;
 </description>
 <pad name="1" x="0" y="0" drill="1.7" diameter="2.55"/>
-<pad name="2" x="14" y="0" drill="1.7" diameter="2.55"/>
-<pad name="3" x="7" y="11.7" drill="1.7" diameter="2.55"/>
+<pad name="3" x="14" y="0" drill="1.7" diameter="2.55"/>
+<pad name="2" x="7" y="11.7" drill="1.7" diameter="2.55"/>
 <pad name="MH1" x="-11" y="23.7" drill="3.4" diameter="5.1"/>
 <pad name="MH2" x="25" y="23.7" drill="3.4" diameter="5.1"/>
 <text x="7" y="15.962" size="1.27" layer="25" align="center">&gt;NAME</text>
@@ -1133,13 +1145,13 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/KBP308G.pdf"&
 </package>
 </packages>
 <packages3d>
-<package3d name="MOLEX_90814-0204" urn="urn:adsk.eagle:package:16762552/3" type="model" library_version="17">
+<package3d name="MOLEX_90814-0204" urn="urn:adsk.eagle:package:16762552/4" type="model" library_version="43">
 <description>&lt;b&gt;MOLEX_90814-0204&lt;/b&gt;&lt;br&gt;</description>
 <packageinstances>
 <packageinstance name="MOLEX_90814-0204"/>
 </packageinstances>
 </package3d>
-<package3d name="PF0030PC" urn="urn:adsk.eagle:package:16991597/2" type="model" library_version="17">
+<package3d name="PF0030PC" urn="urn:adsk.eagle:package:16991597/2" type="model" library_version="43" library_locally_modified="yes">
 <description>&lt;b&gt;PF0030/PC-2&lt;/b&gt;&lt;br&gt;</description>
 <packageinstances>
 <packageinstance name="PF0030PC"/>
@@ -1165,7 +1177,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/KBP308G.pdf"&
 <pin name="3" x="20.32" y="0" length="middle" rot="R180"/>
 <pin name="4" x="20.32" y="-2.54" length="middle" rot="R180"/>
 </symbol>
-<symbol name="PF0030_PC" urn="urn:adsk.eagle:symbol:16991586/1" library_version="17">
+<symbol name="PF0030_PC" urn="urn:adsk.eagle:symbol:16991586/1" locally_modified="yes" library_version="43" library_locally_modified="yes">
 <wire x1="5.08" y1="2.54" x2="17.78" y2="2.54" width="0.254" layer="94"/>
 <wire x1="17.78" y1="-7.62" x2="17.78" y2="2.54" width="0.254" layer="94"/>
 <wire x1="17.78" y1="-7.62" x2="5.08" y2="-7.62" width="0.254" layer="94"/>
@@ -1194,7 +1206,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/KBP308G.pdf"&
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="90814-0204" urn="urn:adsk.eagle:component:16762553/3" prefix="J" library_version="17">
+<deviceset name="90814-0204" urn="urn:adsk.eagle:component:16762553/4" prefix="J" library_version="43">
 <description>&lt;b&gt;CONN HEADER 4POS 1.27MM SMD TIN&lt;/b&gt;&lt;p&gt;
 Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/90814-0204.pdf"&gt; Datasheet &lt;/a&gt;</description>
 <gates>
@@ -1209,7 +1221,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/90814-0204.pd
 <connect gate="G$1" pin="4" pad="4"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:16762552/3"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:16762552/4"/>
 </package3dinstances>
 <technologies>
 <technology name="">
@@ -1224,7 +1236,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/90814-0204.pd
 </device>
 </devices>
 </deviceset>
-<deviceset name="PF0030_PC" urn="urn:adsk.eagle:component:16991601/2" prefix="J" library_version="17">
+<deviceset name="PF0030_PC" urn="urn:adsk.eagle:component:16991601/2" locally_modified="yes" prefix="J" library_version="43" library_locally_modified="yes">
 <description>&lt;b&gt;Bulgin C14 Right Angle Through Hole IEC Plug Male, 10A, 250 V ac&lt;/b&gt;&lt;p&gt;
 Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/PF0030_PC.pdf"&gt; Datasheet &lt;/a&gt;</description>
 <gates>
@@ -1366,8 +1378,8 @@ In this library the device names are the same as the pin names of the symbols, t
 <part name="C9" library="passive components" library_urn="urn:adsk.eagle:library:16365137" deviceset="CAPACITOR_ELECTROLYTIC" device="_8MM-THT" package3d_urn="urn:adsk.eagle:package:17282495/2" value="100 uF/25V"/>
 <part name="C3" library="passive components" library_urn="urn:adsk.eagle:library:16365137" deviceset="CAPACITOR_ELECTROLYTIC" device="_16MM-THT" package3d_urn="urn:adsk.eagle:package:1899458/5" value="4700 uF/25 V"/>
 <part name="BR2" library="passive components" library_urn="urn:adsk.eagle:library:16365137" deviceset="BRIDGE_RECTIFIER" device="" package3d_urn="urn:adsk.eagle:package:16388481/3"/>
-<part name="J1" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" deviceset="90814-0204" device="" package3d_urn="urn:adsk.eagle:package:16762552/3"/>
-<part name="J2" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" deviceset="90814-0204" device="" package3d_urn="urn:adsk.eagle:package:16762552/3"/>
+<part name="J1" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" deviceset="90814-0204" device="" package3d_urn="urn:adsk.eagle:package:16762552/4"/>
+<part name="J2" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" deviceset="90814-0204" device="" package3d_urn="urn:adsk.eagle:package:16762552/4"/>
 <part name="J3" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" deviceset="PF0030_PC" device="" package3d_urn="urn:adsk.eagle:package:16991597/2"/>
 <part name="U4" library="passive components" library_urn="urn:adsk.eagle:library:16365137" deviceset="78**" device="_THT" package3d_urn="urn:adsk.eagle:package:1899455/2" value="7805"/>
 <part name="C10" library="passive components" library_urn="urn:adsk.eagle:library:16365137" deviceset="CAPACITOR" device="_5MM" package3d_urn="urn:adsk.eagle:package:1899461/5" value="100 nF"/>
@@ -1583,19 +1595,20 @@ In this library the device names are the same as the pin names of the symbols, t
 <nets>
 <net name="N$8" class="0">
 <segment>
-<pinref part="TRANSFORMATOR1" gate="G$1" pin="P$3"/>
 <pinref part="TRANSFORMATOR2" gate="G$1" pin="P$3"/>
-<wire x1="45.72" y1="154.94" x2="50.8" y2="154.94" width="0.1524" layer="91"/>
 <wire x1="50.8" y1="119.38" x2="45.72" y2="119.38" width="0.1524" layer="91"/>
-<wire x1="45.72" y1="119.38" x2="45.72" y2="154.94" width="0.1524" layer="91"/>
-<junction x="45.72" y="154.94"/>
+<wire x1="45.72" y1="119.38" x2="45.72" y2="147.32" width="0.1524" layer="91"/>
 <pinref part="J3" gate="G$1" pin="3"/>
+<wire x1="45.72" y1="147.32" x2="45.72" y2="154.94" width="0.1524" layer="91"/>
 <wire x1="30.48" y1="154.94" x2="33.02" y2="154.94" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="154.94" x2="45.72" y2="154.94" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="127" x2="33.02" y2="154.94" width="0.1524" layer="91"/>
 <junction x="33.02" y="154.94"/>
 <pinref part="X1" gate="-2" pin="KL"/>
 <wire x1="27.94" y1="127" x2="33.02" y2="127" width="0.1524" layer="91"/>
+<pinref part="TRANSFORMATOR1" gate="G$1" pin="P$4"/>
+<wire x1="50.8" y1="147.32" x2="45.72" y2="147.32" width="0.1524" layer="91"/>
+<junction x="45.72" y="147.32"/>
 </segment>
 </net>
 <net name="N$9" class="0">
@@ -1986,9 +1999,9 @@ In this library the device names are the same as the pin names of the symbols, t
 <segment>
 <pinref part="TRANSFORMATOR1" gate="G$1" pin="P$1"/>
 <wire x1="50.8" y1="134.62" x2="48.26" y2="134.62" width="0.1524" layer="91"/>
-<pinref part="TRANSFORMATOR1" gate="G$1" pin="P$4"/>
-<wire x1="48.26" y1="134.62" x2="48.26" y2="147.32" width="0.1524" layer="91"/>
-<wire x1="48.26" y1="147.32" x2="50.8" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="134.62" x2="48.26" y2="154.94" width="0.1524" layer="91"/>
+<pinref part="TRANSFORMATOR1" gate="G$1" pin="P$3"/>
+<wire x1="50.8" y1="154.94" x2="48.26" y2="154.94" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$5" class="0">
