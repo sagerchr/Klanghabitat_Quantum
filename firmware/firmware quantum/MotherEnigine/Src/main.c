@@ -154,7 +154,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
+  //JUST agit test from CubeIDE
   /* USER CODE END Init */
 
   /* Configure the system clock */
