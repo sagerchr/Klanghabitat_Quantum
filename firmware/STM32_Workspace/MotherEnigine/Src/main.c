@@ -136,7 +136,7 @@ void StartDefaultTask(void const * argument);
   */
 int main(void)
 
-{
+ {
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -206,7 +206,8 @@ int main(void)
   resetMax=0;
 
 
-
+  	  DAC_Control(1,2,35); //offset VCA1
+  	  DAC_Control(2,2,25); //offset VCA2
 	  DAC_Control(3,2,1); //offset VCA1
 	  DAC_Control(4,2,1); //offset VCA2
 

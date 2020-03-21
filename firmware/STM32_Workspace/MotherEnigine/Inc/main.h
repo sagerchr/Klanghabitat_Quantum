@@ -209,6 +209,9 @@ float  FFT_result[100];
 
 float  voltageRMS[8];
 float  dbuRMS[8];
+float  dbuMAX[8];
+
+float Input[512];
 
 float  voltRingIn1[512];
 float  voltageIn1MAX;

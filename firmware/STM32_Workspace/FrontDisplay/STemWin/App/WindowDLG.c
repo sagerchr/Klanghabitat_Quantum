@@ -132,6 +132,14 @@ int reset = 0;
 
 float test = 0.0;
 
+float leftIN = 0.0;
+float rightIN = 0.0;
+
+float max_leftIN = 0.0;
+float max_rightIN = 0.0;
+
+float rightDB = -130.0;
+float leftDB = -130.0;
 /*********************************************************************
 *
 *       Static code
@@ -181,7 +189,38 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 	}
 
 
+	int32_t INT;
+
+		   /************Input Data to float**************/
+		   INT = UARTDATA[15] 	|
+		   		(UARTDATA[14] << 8) 	|
+		   		(UARTDATA[13] << 16) 	|
+		   		(UARTDATA[12] << 24);
+
+		   memcpy(&test, &INT, sizeof(test));
+		   leftIN = test;
+		   /*********************************************/
+
+		   /************Input Data to float**************/
+		   INT = UARTDATA[19] 	|
+		   		(UARTDATA[18] << 8) 	|
+		   		(UARTDATA[17] << 16) 	|
+		   		(UARTDATA[16] << 24);
+		   memcpy(&test, &INT, sizeof(test));
+		   rightIN = test;
+		   /*********************************************/
+			if(max_leftIN < leftIN){
+				max_leftIN = leftIN;
+			}
+			if(max_rightIN < rightIN){
+				max_rightIN = rightIN;
+			}
+
 	if(reset == 1){
+
+		rightDB = max_rightIN;
+		leftDB =  max_leftIN;
+
 		if(maxValueLeft==0){
 		adc1 = 1;
 		}
@@ -210,6 +249,8 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 		maxValueRight = 0;
 		maxValueLeftOUT = 0;
 		maxValueRightOUT = 0;
+		max_leftIN = -130.0;
+		max_rightIN = -130.0;
 		reset = 0;
 	}
 
@@ -237,14 +278,21 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
   }
 
 
+
+
     HAL_GPIO_TogglePin(GPIOG, LAMP2_Pin);
 	  GUI_SetBkColor(GUI_DARKGRAY);
 	  GUI_DCACHE_Clear(0);
 	  GUI_Clear();
 
 
+
+
+
      drawWaveFormUartRight(30,280,adc1);
      drawWaveFormUartLeft(420,280,adc2);
+
+
 
 
      adc1_ist = adc1;
@@ -271,9 +319,9 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 
 
 
-	 if(adc1_db > -100){
-		 diff1 = adc1_db-smooth1;
-	 }
+
+
+
 	 if(adc2_db > -100){
 		 diff2 = adc2_db-smooth2;
 	 }
@@ -285,33 +333,40 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 	 }
 
 
+
+
+
+	  diff1 = rightDB-smooth1;
+
 	 if(diff1<0){
-		 smooth1 = smooth1+(0.055*diff1);
+		 smooth1 = smooth1+(0.3*diff1);
 	 }
 	 else{
 		 smooth1 = smooth1+(1*diff1);
 	 }
 
-	 if((adc1_db-peaksmooth1)<0){
-		 peaksmooth1 = peaksmooth1+(0.01*diff1);
+	 if((rightDB-peaksmooth1)<0){
+		 peaksmooth1 = peaksmooth1+(0.005*(leftDB-peaksmooth1));
 	 }
 	 else {
-		 peaksmooth1= peaksmooth1+(1*diff1);
+		 peaksmooth1= peaksmooth1+(1*(leftDB-peaksmooth1));
 	 }
 
 
+	 diff2 = leftDB-smooth2;
+
 	 if(diff2<0){
-		 smooth2 = smooth2+(0.055*diff2);
+		 smooth2 = smooth2+(0.3*diff2);
 	 }
 	 else{
 		 smooth2 = smooth2+(1*diff2);
 	 }
 
-	 if((adc2_db-peaksmooth2)<0){
-		 peaksmooth2 = peaksmooth2+(0.01*diff2);
+	 if((leftDB-peaksmooth2)<0){
+		 peaksmooth2 = peaksmooth2+(0.005*(leftDB-peaksmooth2));
 	 }
 	 else {
-		 peaksmooth2 = peaksmooth2+(1*diff2);
+		 peaksmooth2 = peaksmooth2+(1*(leftDB-peaksmooth2));
 	 }
 
 
@@ -366,11 +421,20 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 		right = Y_Right;
 
 
+		   GUI_SetColor(GUI_LIGHTGRAY);
+		   GUI_SetFont(&GUI_FontD24x32);
+		   drawFloatNumber(30,150,peaksmooth2,"dB","");
+		   GUI_SetColor(GUI_LIGHTGRAY);
+		   GUI_SetFont(&GUI_FontD24x32);
+		   drawFloatNumber(650,150,peaksmooth1,"dB","");
 
-	drawBarHorizontal (350, 170,peaksmooth1,smooth1, "", 1);
-	drawBarHorizontal (450, 170,peaksmooth2,smooth2, "", 0);
-	drawBarHorizontal (350, 200,peaksmooth3,smooth3, "", 1);
-	drawBarHorizontal (450, 200,peaksmooth4,smooth4, "", 0);
+
+
+
+	drawBarHorizontal (350, 170,(130+peaksmooth2)*1,(130+smooth2)*1, "", 1);
+	drawBarHorizontal (450, 170,(130+peaksmooth1)*1,(130+smooth1)*1, "", 0);
+	//drawBarHorizontal (350, 200,peaksmooth3,smooth3, "", 1);
+	//drawBarHorizontal (450, 200,peaksmooth4,smooth4, "", 0);
 
 
 	 drawDashedLine(10, Y_Left, 350, Y_Left);
@@ -404,22 +468,13 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 	 GUI_DrawRoundedFrame(600, 5, 875, 100, 5,4);
 /*==================================================*/
 
-GUI_SetFont(&GUI_Font24B_1);
-
-GUI_SetColor(GUI_GRAY);
-
-
-int32_t INT = UARTDATA[15] 	|
-		(UARTDATA[14] << 8) 	|
-		(UARTDATA[13] << 16) 	|
-		(UARTDATA[12] << 24);
 
 
 
-memcpy(&test, &INT, sizeof(test));
+
 
 UARTDATA[50]=huart6.hdmarx->Instance->NDTR;
-drawFloatNumber(300,50,test,"","");
+
 drawFloatNumber(500,50,UARTDATA[50],"","");
 
 

@@ -108,7 +108,7 @@ void drawBarHorizontal (int pos_x, int pos_y, float PeakVal,float AvVal,  const 
 	int rednes = 0;
 
 if(invert == 0){
-	for (int i=0; i<30; i++){
+	for (int i=0; i<18; i++){
 		lastLine = pos_x+(i*10);
 		GUI_DrawVLine(lastLine+0,pos_y, pos_y+10);
 		GUI_DrawVLine(lastLine+5,pos_y, pos_y+5);
@@ -120,10 +120,19 @@ if(invert == 0){
 
 	rednes = AvVal *100 /bottomX;
 	GUI_DrawGradientH(pos_x, pos_y-20, pos_x + AvVal, pos_y, 0xFFFFA500, 0xFFFF6E00);
+
+
+	GUI_SetColor(GUI_RED);
+
+	GUI_DrawVLine(pos_x + PeakVal-4, pos_y-20,pos_y-1);
+	GUI_DrawVLine(pos_x + PeakVal-3, pos_y-20,pos_y-1);
+	GUI_DrawVLine(pos_x + PeakVal-2, pos_y-20,pos_y-1);
+	GUI_DrawVLine(pos_x + PeakVal-1, pos_y-20,pos_y-1);
+	GUI_DrawVLine(pos_x + PeakVal-0, pos_y-20,pos_y-1);
 }
 
 if(invert == 1){
-	for (int i=30; i>0; i--){
+	for (int i=18; i>0; i--){
 		lastLine = pos_x-(i*10);
 		GUI_DrawVLine(lastLine+0,pos_y, pos_y+10);
 		GUI_DrawVLine(lastLine+5,pos_y, pos_y+5);
@@ -135,6 +144,17 @@ if(invert == 1){
 
 	rednes = AvVal *100 /bottomX;
 	GUI_DrawGradientH(pos_x-AvVal, pos_y-20, pos_x, pos_y, 0xFFFF6E00,0xFFFFA500);
+
+
+	GUI_SetColor(GUI_RED);
+
+	GUI_DrawVLine(pos_x - PeakVal-4, pos_y-20,pos_y-1);
+	GUI_DrawVLine(pos_x - PeakVal-3, pos_y-20,pos_y-1);
+	GUI_DrawVLine(pos_x - PeakVal-2, pos_y-20,pos_y-1);
+	GUI_DrawVLine(pos_x - PeakVal-1, pos_y-20,pos_y-1);
+	GUI_DrawVLine(pos_x - PeakVal-0, pos_y-20,pos_y-1);
+
+
 }
 
 

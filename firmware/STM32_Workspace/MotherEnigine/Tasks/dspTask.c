@@ -63,10 +63,16 @@ void dspTask(void const * argument){
 		uint16_t max;
 		float32_t Output[FFT_SIZE];
 
-		TM_FFT_Init_F32(&FFT, FFT_SIZE, 0);
-		TM_FFT_SetBuffers_F32(&FFT, voltRingIn1,Output);
+
+		TM_FFT_Init_F32(&FFT, FFT_SIZE, 1);
+		TM_FFT_SetBuffers_F32(&FFT, Input,Output);
 
 	for(;;){
+
+
+		for(int i=0; i<SAMPLES; i++){
+			Input[i]=voltRingIn1[i];
+		}
 
 
 		TM_FFT_Process_F32(&FFT);
