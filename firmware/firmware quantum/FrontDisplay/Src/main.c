@@ -188,8 +188,8 @@ int main(void)
 /* Initialise the graphical hardware */
   GRAPHICS_HW_Init();
   BSP_TS_Init(800, 480);
-  HAL_UART_Receive_DMA(&huart6, UART_RECIVE,50);
-  HAL_UART_Transmit_DMA(&huart6, UART_TRANSFER,50);
+  HAL_UART_Receive_DMA(&huart6, UART_RECIVE,150);
+  HAL_UART_Transmit_DMA(&huart6, UART_TRANSFER,150);
   /* Initialise the graphical stack engine */
   GRAPHICS_Init();
   

@@ -191,7 +191,7 @@ char UART_IN[10];
 //#############PAUSE the DMA to be able to write data#######//
 		HAL_UART_DMAPause(&huart6);
 //##########################################################//
-		for (int i= 0; i<50;i++){
+		for (int i= 0; i<150;i++){
 			UART_transmit[i] = 0x00;
 		}
 
@@ -259,7 +259,7 @@ void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
 	errors = errors+1;
 
   /* Prevent unused argument(s) compilation warning */
-	  HAL_UART_Receive_DMA(&huart6, UART_recive,50);
+	  HAL_UART_Receive_DMA(&huart6, UART_recive,150);
   /* NOTE : This function should not be modified, when the callback is needed,
             the HAL_UART_ErrorCallback can be implemented in the user file.
    */

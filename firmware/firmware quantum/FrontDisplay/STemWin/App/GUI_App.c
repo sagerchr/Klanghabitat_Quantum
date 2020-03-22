@@ -200,7 +200,7 @@ void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
 	errors = errors+1;
 
   /* Prevent unused argument(s) compilation warning */
-	HAL_UART_Receive_DMA(&huart6, UART_RECIVE,50);
+	HAL_UART_Receive_DMA(&huart6, UART_RECIVE,150);
   /* NOTE : This function should not be modified, when the callback is needed,
             the HAL_UART_ErrorCallback can be implemented in the user file.
    */
