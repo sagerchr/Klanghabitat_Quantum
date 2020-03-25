@@ -140,6 +140,9 @@ float max_rightIN = 0.0;
 
 float rightDB = -130.0;
 float leftDB = -130.0;
+
+float spectrum[50];
+
 /*********************************************************************
 *
 *       Static code
@@ -297,7 +300,9 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 
      if (right > 200){
    	  for(int i=0; i<50;i++){
-   		  drawBar((i*10)+150,50,UARTDATA[i+100],UARTDATA[i+100],"");
+   		  float value = UARTDATA[i+100]+1;
+   		float value2 = 93+72+(30*(log(value/250.0)));
+   		  drawBar((i*10)+100,0,value2,value2,"");
    	  }
      }
 
