@@ -289,8 +289,17 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 
 
 
+
+
      drawWaveFormUartRight(30,280,adc1);
      drawWaveFormUartLeft(420,280,adc2);
+
+
+     if (right > 200){
+   	  for(int i=0; i<50;i++){
+   		  drawBar((i*10)+150,50,UARTDATA[i+100],UARTDATA[i+100],"");
+   	  }
+     }
 
 
 

@@ -29,7 +29,7 @@ void lwIPTask(void const * argument){
 */
   //==========CREATE & START all lwIP Services========//
 	 MX_LWIP_Init(192,168,1,205); //SetUp with IP ADRESS read from Flash
-	 UDP_init(192,168,1,41); //INIT the UDP Session (Partner IP ADRESS)
+	 UDP_init(192,168,1,43); //INIT the UDP Session (Partner IP ADRESS)
 	 httpd_init();//start the web Server
 	 myCGIinit();//initialise the CGI handlers
 	 mySSIinit();//initialise the SSI handlers
@@ -130,43 +130,43 @@ char UART_IN[10];
 		  OSCmessageFLOATSend("/VALUE/Level/CH1/FLOAT",  22, a,b,c,d);
 
 /*****************************************************************************/
-		  memcpy(data, &FFT_result[1], sizeof &FFT_result[0]);    // send data
+		  memcpy(data, &FFT_result[0], sizeof &FFT_result[0]);    // send data
 		  a = data[0]; b = data[1];c = data[2];d = data[3];
 		  OSCmessageFLOATSend("/VALUE/Level/FFT/0",  18, a,b,c,d);
 
-		  memcpy(data, &FFT_result[2], sizeof &FFT_result[0]);    // send data
+		  memcpy(data, &FFT_result[1], sizeof &FFT_result[0]);    // send data
 		  a = data[0]; b = data[1];c = data[2];d = data[3];
 		  OSCmessageFLOATSend("/VALUE/Level/FFT/1",  18, a,b,c,d);
 
-		  memcpy(data, &FFT_result[3], sizeof &FFT_result[0]);    // send data
+		  memcpy(data, &FFT_result[2], sizeof &FFT_result[0]);    // send data
 		  a = data[0]; b = data[1];c = data[2];d = data[3];
 		  OSCmessageFLOATSend("/VALUE/Level/FFT/2",  18, a,b,c,d);
 
-		  memcpy(data, &FFT_result[5], sizeof &FFT_result[0]);     // send data
+		  memcpy(data, &FFT_result[3], sizeof &FFT_result[0]);     // send data
 		  a = data[0]; b = data[1];c = data[2];d = data[3];
 		  OSCmessageFLOATSend("/VALUE/Level/FFT/3",  18, a,b,c,d);
 
-		  memcpy(data, &FFT_result[8], sizeof &FFT_result[0]);    // send data
+		  memcpy(data, &FFT_result[4], sizeof &FFT_result[0]);    // send data
 		  a = data[0]; b = data[1];c = data[2];d = data[3];
 		  OSCmessageFLOATSend("/VALUE/Level/FFT/4",  18, a,b,c,d);
 
-		  memcpy(data, &FFT_result[10], sizeof &FFT_result[0]);     // send data
+		  memcpy(data, &FFT_result[5], sizeof &FFT_result[0]);     // send data
 		  a = data[0]; b = data[1];c = data[2];d = data[3];
 		  OSCmessageFLOATSend("/VALUE/Level/FFT/5",  18, a,b,c,d);
 
-		  memcpy(data, &FFT_result[20], sizeof &FFT_result[0]);    // send data
+		  memcpy(data, &FFT_result[6], sizeof &FFT_result[0]);    // send data
 		  a = data[0]; b = data[1];c = data[2];d = data[3];
 		  OSCmessageFLOATSend("/VALUE/Level/FFT/6",  18, a,b,c,d);
 
-		  memcpy(data, &FFT_result[30], sizeof &FFT_result[0]);     // send data
+		  memcpy(data, &FFT_result[7], sizeof &FFT_result[0]);     // send data
 		  a = data[0]; b = data[1];c = data[2];d = data[3];
 		  OSCmessageFLOATSend("/VALUE/Level/FFT/7",  18, a,b,c,d);
 
-		  memcpy(data, &FFT_result[50], sizeof &FFT_result[0]);     // send data
+		  memcpy(data, &FFT_result[8], sizeof &FFT_result[0]);     // send data
 		  a = data[0]; b = data[1];c = data[2];d = data[3];
 		  OSCmessageFLOATSend("/VALUE/Level/FFT/8",  18, a,b,c,d);
 
-		  memcpy(data, &FFT_result[80], sizeof &FFT_result[0]);     // send data
+		  memcpy(data, &FFT_result[9], sizeof &FFT_result[0]);     // send data
 		  a = data[0]; b = data[1];c = data[2];d = data[3];
 		  OSCmessageFLOATSend("/VALUE/Level/FFT/9",  18, a,b,c,d);
 
@@ -221,6 +221,10 @@ char UART_IN[10];
 		  UART_transmit[17]=c;
 		  UART_transmit[18]=b;
 		  UART_transmit[19]=a;
+
+		  for(int i=100; i<150; i++){
+			  UART_transmit[i]= FFT_result[i-100]/2;
+		  }
 
 		  resetMax=1;
 //############# RESMUE the DMA to output the data#########//

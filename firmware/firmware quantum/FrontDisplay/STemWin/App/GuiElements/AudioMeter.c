@@ -62,10 +62,10 @@ void drawBar (int pos_x, int pos_y, float PeakVal,float AvVal,  const char * s )
 
 	for (int i=0; i<30; i++){
 		lastLine = pos_y+(i*10);
-		GUI_DrawHLine(lastLine+0,pos_x, pos_x+10);
-		GUI_DrawHLine(lastLine+5,pos_x, pos_x+5);
+		//GUI_DrawHLine(lastLine+0,pos_x, pos_x+10);
+		//GUI_DrawHLine(lastLine+5,pos_x, pos_x+5);
 	}
-	GUI_DrawHLine(lastLine+10,pos_x, pos_x+10);
+	//GUI_DrawHLine(lastLine+10,pos_x, pos_x+10);
 	bottomY = lastLine+10;
 
 	rednes = AvVal *100 /bottomY;
@@ -73,7 +73,8 @@ void drawBar (int pos_x, int pos_y, float PeakVal,float AvVal,  const char * s )
 	/*DRAW INDICATOR AV*/
 
 	//GUI_DrawGradientV(pos_x-30, pos_y, pos_x-1, bottomY- AvVal -1, 0xFF505050, 0xFF505050);
-	GUI_DrawGradientV(pos_x-10, bottomY- AvVal, pos_x-1, bottomY, 0xFFFF6E00, 0xFFFFA500);
+	//GUI_DrawGradientV(pos_x-10, bottomY- AvVal, pos_x-1, bottomY, 0xFFFF6E00, 0xFFFFA500);
+	GUI_DrawGradientV(pos_x-10, bottomY- AvVal, pos_x-1, bottomY, 0xFF0000FF, 0xFF000080);
 
 	if (PeakVal >298){PeakVal=298;}
 	/*DRAW INDICATOR PEAK*/

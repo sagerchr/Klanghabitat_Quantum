@@ -8,8 +8,9 @@
 #include "main.h"
 #include "RelaisControl.h"
 #include "DAC_Control.h"
-#include "tm_stm32f4_fft.h"
-
+#include "stm32f7xx.h"
+#include "arm_math.h"
+#include "arm_const_structs.h"
 
 TIM_HandleTypeDef htim6;
 TIM_HandleTypeDef htim7;
@@ -57,28 +58,27 @@ void dspTask(void const * argument){
 		HAL_TIM_Base_Start(&htim6);
 		HAL_TIM_Base_Start_IT(&htim7);
 
+ 		float32_t Output[256];
+		float32_t IN[512];
+		 arm_cfft_radix4_instance_f32 S;
 
-		TM_FFT_F32_t FFT;    /*!< FFT structure */
-		uint16_t i;
-		uint16_t max;
-		float32_t Output[FFT_SIZE];
-
-
-		TM_FFT_Init_F32(&FFT, FFT_SIZE, 1);
-		TM_FFT_SetBuffers_F32(&FFT, Input,Output);
 
 	for(;;){
 
 
-		for(int i=0; i<SAMPLES; i++){
-			Input[i]=voltRingIn1[i];
+		for(int i=0; i<512; i+=2){
+			IN[i]=voltRingIn1[i];
+			IN[i+1]=0.0;
 		}
 
 
-		TM_FFT_Process_F32(&FFT);
+		//https://stm32f4-discovery.net/2014/10/stm32f4-fft-example/
+		arm_cfft_radix4_init_f32(&S, 256, 0, 1);
+		arm_cfft_radix4_f32(&S, IN);
+		arm_cmplx_mag_f32(IN, Output, 256);
 
-		HAL_Delay(10);
 
+		HAL_Delay(1);
 		HAL_GPIO_TogglePin(GPIOB, LD1_Pin); //grüne LED an
 		for(int i = 0; i<100; i++){
 			FFT_result[i] = Output[i];

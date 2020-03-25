@@ -244,7 +244,7 @@ int main(void)
   osThreadDef(lwIPTask, lwIPTask, osPriorityNormal, 0, 1000);
   lwIPTaskHandle = osThreadCreate(osThread(lwIPTask), NULL);
 
-  osThreadDef(dspTask, dspTask, osPriorityNormal, 0, 500);
+  osThreadDef(dspTask, dspTask, osPriorityNormal, 0, 1000);
   dspTaskHandle = osThreadCreate(osThread(dspTask), NULL);
 
 
