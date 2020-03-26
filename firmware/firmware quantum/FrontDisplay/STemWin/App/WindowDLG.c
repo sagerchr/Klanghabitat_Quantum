@@ -142,7 +142,10 @@ float rightDB = -130.0;
 float leftDB = -130.0;
 
 float spectrum[50];
+float spectrum_max[50];
+float spectrum_smooth[50];
 
+int startup = 0;
 /*********************************************************************
 *
 *       Static code
@@ -219,6 +222,14 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 				max_rightIN = rightIN;
 			}
 
+			for(int i=0; i<50; i++){
+				if (spectrum_max[i]<UARTDATA[i+100]){
+					spectrum_max[i] = UARTDATA[i+100];
+				}
+			}
+
+
+
 	if(reset == 1){
 
 		rightDB = max_rightIN;
@@ -254,8 +265,15 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 		maxValueRightOUT = 0;
 		max_leftIN = -130.0;
 		max_rightIN = -130.0;
+
+
+
+
 		reset = 0;
+
 	}
+
+
 
 
 }
@@ -266,6 +284,12 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 
 
   // USER END
+if(startup == 0){
+	for (int i=0; i<50; i++){
+		spectrum_smooth[i]=0.0;
+	}
+	startup = 1;
+}
 
 
   switch (pMsg->MsgId) {
@@ -294,17 +318,8 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 
 
 
-     drawWaveFormUartRight(30,280,adc1);
-     drawWaveFormUartLeft(420,280,adc2);
 
 
-     if (right > 200){
-   	  for(int i=0; i<50;i++){
-   		  float value = UARTDATA[i+100]+1;
-   		float value2 = 93+72+(30*(log(value/250.0)));
-   		  drawBar((i*10)+100,0,value2,value2,"");
-   	  }
-     }
 
 
 
@@ -345,6 +360,44 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 	 if(adc4_db > -100){
 		 diff4 = adc4_db-smooth4;
 	 }
+
+
+
+
+
+
+	 for(int i=0; i<50;i++){
+		 int diff = spectrum_max[i]-spectrum_smooth[i];
+
+		 if (diff<0){
+			 spectrum_smooth[i] = spectrum_smooth[i]+(0.1*diff);
+		 }
+		 else{
+			 spectrum_smooth[i] = spectrum_smooth[i]+(1*diff);
+		 }
+
+	 }
+     if (right > 200){
+   	  for(int i=0; i<50;i++){
+   		  float value = spectrum_smooth[i];
+   		float value2 = 93+72+(30*(log(value/250.0)));
+   		  drawBar((i*7)+420,50,value2,value2,"");
+   		  drawBar((i*7)+30,50,value2,value2,"");
+   	  }
+
+   	  }
+     else{
+     	drawWaveFormUartLeft(420,280,adc2);
+     	drawWaveFormUartRight(30,280,adc1);
+     }
+
+
+		for(int i=0; i<50;i++){
+			spectrum_max[i] = 0;
+		}
+
+
+
 
 
 

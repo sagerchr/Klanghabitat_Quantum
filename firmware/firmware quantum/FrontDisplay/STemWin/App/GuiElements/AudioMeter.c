@@ -74,7 +74,7 @@ void drawBar (int pos_x, int pos_y, float PeakVal,float AvVal,  const char * s )
 
 	//GUI_DrawGradientV(pos_x-30, pos_y, pos_x-1, bottomY- AvVal -1, 0xFF505050, 0xFF505050);
 	//GUI_DrawGradientV(pos_x-10, bottomY- AvVal, pos_x-1, bottomY, 0xFFFF6E00, 0xFFFFA500);
-	GUI_DrawGradientV(pos_x-5, bottomY- AvVal, pos_x-1, bottomY, 0xFF0000FF, 0xFF000080);
+	GUI_DrawGradientV(pos_x-5, bottomY- AvVal, pos_x-1, bottomY, 0xFFFF6E00, 0xFFFFA500);
 
 	if (PeakVal >298){PeakVal=298;}
 	/*DRAW INDICATOR PEAK*/
