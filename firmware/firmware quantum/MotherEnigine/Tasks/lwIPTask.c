@@ -223,7 +223,9 @@ char UART_IN[10];
 		  UART_transmit[19]=a;
 
 		  for(int i=100; i<150; i++){
-			  UART_transmit[i]= FFT_result[i-100]/2;
+
+			  UART_transmit[i-50]= FFT_result[i-100]/2;
+			  UART_transmit[i]= FFT_result2[i-100]/2;
 		  }
 
 		  resetMax=1;

@@ -62,27 +62,59 @@ void dspTask(void const * argument){
 		float32_t IN[512];
 		 arm_cfft_radix4_instance_f32 S;
 
+		int toggle = 0;
 
 	for(;;){
 
 
-		for(int i=0; i<512; i+=2){
-			IN[i]=voltRingIn1[i];
-			IN[i+1]=0.0;
+		if (toggle == 0){
+			toggle = 1;
+			for(int i=0; i<512; i+=2){
+				IN[i]=voltRingIn1[i];
+				IN[i+1]=0.0;
+				}
 		}
+		else {
+			toggle = 0;
+			for(int i=0; i<512; i+=2){
+				IN[i]=voltRingIn2[i];
+				IN[i+1]=0.0;
+				}
+		}
+
+			if(toggle == 0){
+
+				arm_cfft_radix4_init_f32(&S, 256, 0, 1);
+				arm_cfft_radix4_f32(&S, IN);
+				arm_cmplx_mag_f32(IN, Output, 256);
+
+				for (int i=0; i<100;i++){
+				FFT_result[i] = Output[i];
+				}
+
+			}
+
+			if(toggle == 1){
+
+				arm_cfft_radix4_init_f32(&S, 256, 0, 1);
+				arm_cfft_radix4_f32(&S, IN);
+				arm_cmplx_mag_f32(IN, Output, 256);
+
+				for (int i=0; i<100;i++){
+				FFT_result2[i] = Output[i];
+				}
+
+			}
+
 
 
 		//https://stm32f4-discovery.net/2014/10/stm32f4-fft-example/
-		arm_cfft_radix4_init_f32(&S, 256, 0, 1);
-		arm_cfft_radix4_f32(&S, IN);
-		arm_cmplx_mag_f32(IN, Output, 256);
 
 
-		HAL_Delay(1);
+
+		HAL_Delay(10);
 		HAL_GPIO_TogglePin(GPIOB, LD1_Pin); //grüne LED an
-		for(int i = 0; i<100; i++){
-			FFT_result[i] = Output[i];
-		}
+
 
 	}
 

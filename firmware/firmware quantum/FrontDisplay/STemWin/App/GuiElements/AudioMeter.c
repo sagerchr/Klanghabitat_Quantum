@@ -8,41 +8,55 @@
 #include "DIALOG.h"
 #include "GUI.h"
 
-int16_t  ringBufferRight[400];
-int16_t  ringBufferLeft[400];
+int16_t  ringBufferRight[350];
+int16_t  ringBufferLeft[350];
 
-void drawWaveFormUartRight(int x,int y, int adc){
+void clearBuffer(){
+	for(int i=0; i<350;i++){
+		ringBufferLeft[i] = 1;
+		ringBufferRight[i] = 1;
+	}
+}
+
+
+void drawWaveFormUartLeft(int x,int y, int adc, int clear){
 	uint32_t lineStart,lineEnd;
 
-	 for(int i=0; i<350;i++){
-	    ringBufferRight[i] = ringBufferRight[i+1];
-	    }
+	if(clear == 1){
+	clearBuffer();
+	}
 
+	ringBufferLeft[350] = adc;
 		for(int i=0; i<350;i++){
-
-		    ringBufferRight[350] = adc;
+			ringBufferLeft[i] = ringBufferLeft[i+1];
 
 		    GUI_SetColor( GUI_ORANGE );
-	        lineStart = y - (ringBufferRight[i]/2);
-	        lineEnd = lineStart + (ringBufferRight[i]);
-	        GUI_DrawVLine(x+i,lineStart, lineEnd);
+	        lineStart = y - (ringBufferLeft[i]/2);
+	        lineEnd = lineStart + (ringBufferLeft[i]);
+	        GUI_DrawVLine(350+x-i,lineStart, lineEnd);
+
+
 	     }
 }
 
-void drawWaveFormUartLeft(int x,int y, int adc){
+void drawWaveFormUartRight(int x,int y, int adc, int clear){
 	uint32_t lineStart,lineEnd;
 
-	 for(int i=0; i<350;i++){
-	    ringBufferLeft[i] = ringBufferLeft[i+1];
-	    }
+	if(clear == 1){
+	clearBuffer();
+	}
 
+	ringBufferRight[350] = adc;
 		for(int i=0; i<350;i++){
-		    ringBufferLeft[350] = adc;
+			ringBufferRight[i] = ringBufferRight[i+1];
+
 
 		    GUI_SetColor( GUI_ORANGE );
-		    lineStart = y - (ringBufferLeft[i]/2);
-	        lineEnd = lineStart + (ringBufferLeft[i]);
-	        GUI_DrawVLine(350+x-i,lineStart, lineEnd);
+		    lineStart = y - (ringBufferRight[i]/2);
+	        lineEnd = lineStart + (ringBufferRight[i]);
+	        GUI_DrawVLine(x+i,lineStart, lineEnd);
+
+
 	     }
 
 }

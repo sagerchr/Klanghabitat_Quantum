@@ -206,7 +206,7 @@ int16_t RingIn5[512];
 int16_t RingIn6[512];
 
 float  FFT_result[100];
-
+float  FFT_result2[100];
 float  voltageRMS[8];
 float  dbuRMS[8];
 float  dbuMAX[8];
