@@ -140,6 +140,14 @@ float max_rightIN = 0.0;
 
 float rightDB = -130.0;
 float leftDB = -130.0;
+
+float spectrum[100];
+float spectrum_max[100];
+float spectrum_smooth[100];
+
+int startup = 0;
+
+int clearDisplay = 1;
 /*********************************************************************
 *
 *       Static code
@@ -216,6 +224,14 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 				max_rightIN = rightIN;
 			}
 
+			for(int i=0; i<100; i++){
+				if (spectrum_max[i]<UARTDATA[i+50]){
+					spectrum_max[i] = UARTDATA[i+50];
+				}
+			}
+
+
+
 	if(reset == 1){
 
 		rightDB = max_rightIN;
@@ -251,8 +267,15 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 		maxValueRightOUT = 0;
 		max_leftIN = -130.0;
 		max_rightIN = -130.0;
+
+
+
+
 		reset = 0;
+
 	}
+
+
 
 
 }
@@ -263,6 +286,12 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 
 
   // USER END
+if(startup == 0){
+	for (int i=0; i<50; i++){
+		spectrum_smooth[i]=0.0;
+	}
+	startup = 1;
+}
 
 
   switch (pMsg->MsgId) {
@@ -284,15 +313,6 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 	  GUI_SetBkColor(GUI_DARKGRAY);
 	  GUI_DCACHE_Clear(0);
 	  GUI_Clear();
-
-
-
-
-
-     drawWaveFormUartRight(30,280,adc1);
-     drawWaveFormUartLeft(420,280,adc2);
-
-
 
 
      adc1_ist = adc1;
@@ -331,6 +351,60 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 	 if(adc4_db > -100){
 		 diff4 = adc4_db-smooth4;
 	 }
+
+
+
+
+
+
+
+     if (right > 200){
+
+
+
+    	 for(int i=0; i<100;i++){
+    		 int diff = spectrum_max[i]-spectrum_smooth[i];
+
+    		 if (diff<0){
+    			 spectrum_smooth[i] = spectrum_smooth[i]+(0.1*diff);
+    		 }
+    		 else{
+    			 spectrum_smooth[i] = spectrum_smooth[i]+(1*diff);
+    		 }
+    	 }
+
+
+   	  for(int i=0; i<50;i++){
+   		float value = spectrum_smooth[i];
+   		float value2 = 93+72+(30*(log(value/250.0)));
+
+   		float valueB = spectrum_smooth[i+50];
+   		float valueB2 = 93+72+(30*(log(valueB/250.0)));
+   		  drawBar((i*7)+420,50,value2,value2,"");
+   		  drawBar((i*7)+30,50,valueB2,valueB2,"");
+
+
+   	  }
+		for(int i=0; i<100;i++){
+			spectrum_max[i] = 0;
+		}
+
+		clearDisplay = 1;
+   	  }
+     else{
+
+    	drawWaveFormUartLeft(30,280,adc1, clearDisplay);
+     	drawWaveFormUartRight(420,280,adc2, clearDisplay);
+
+ 		if (clearDisplay == 1){
+ 			clearDisplay = 0;
+ 		}
+     }
+
+
+
+
+
 
 
 

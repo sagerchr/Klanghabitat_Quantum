@@ -191,8 +191,8 @@ uint32_t ADC1_RAW[2];
 uint32_t ADC1_MAX[2];
 uint32_t ADC2_RAW[2];
 uint32_t ADC2_MAX[2];
-char UART_transmit[50];
-char UART_recive[50];
+char UART_transmit[150];
+char UART_recive[150];
 uint16_t analogIN[8];
 
 uint16_t samples;
@@ -206,7 +206,7 @@ int16_t RingIn5[512];
 int16_t RingIn6[512];
 
 float  FFT_result[100];
-
+float  FFT_result2[100];
 float  voltageRMS[8];
 float  dbuRMS[8];
 float  dbuMAX[8];

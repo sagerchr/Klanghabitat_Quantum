@@ -154,7 +154,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
+  //JUST agit test from CubeIDE
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -189,8 +189,8 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_DAC_Start(&hdac, DAC_CHANNEL_1);
   HAL_DAC_Start(&hdac, DAC_CHANNEL_2);
-  HAL_UART_Transmit_DMA(&huart6, UART_transmit,50);
-  HAL_UART_Receive_DMA(&huart6, UART_recive,50);
+  HAL_UART_Transmit_DMA(&huart6, UART_transmit,150);
+  HAL_UART_Receive_DMA(&huart6, UART_recive,150);
 
 
   //###### PUT the RESET to Output so Display can be reseted by its own again###
@@ -244,7 +244,7 @@ int main(void)
   osThreadDef(lwIPTask, lwIPTask, osPriorityNormal, 0, 1000);
   lwIPTaskHandle = osThreadCreate(osThread(lwIPTask), NULL);
 
-  osThreadDef(dspTask, dspTask, osPriorityNormal, 0, 500);
+  osThreadDef(dspTask, dspTask, osPriorityNormal, 0, 1000);
   dspTaskHandle = osThreadCreate(osThread(dspTask), NULL);
 
 

@@ -1,2 +1,2 @@
 void UART_correction();
-char UART_reciveCorrected[50];
+char UART_reciveCorrected[150];
