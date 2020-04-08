@@ -234,6 +234,9 @@ float  dbuRingIn3[512];
 float  dbuRingIn4[512];
 float  dbuRingIn5[512];
 float  dbuRingIn6[512];
+
+uint8_t IP_READ_FLASH[4];
+
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

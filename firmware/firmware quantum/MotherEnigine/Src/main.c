@@ -216,6 +216,10 @@ int main(void)
 	  DAC_Control(3,1,150); //SYM3 adjust
 	  DAC_Control(4,1,200); //SYM4 adjust
 
+	  IP_READ_FLASH[0]=192;
+	  IP_READ_FLASH[1]=168;
+	  IP_READ_FLASH[2]=1;
+	  IP_READ_FLASH[3]=205;
 
   /* USER CODE END 2 */
 

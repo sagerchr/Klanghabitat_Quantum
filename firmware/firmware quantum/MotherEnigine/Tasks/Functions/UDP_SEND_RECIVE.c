@@ -1,11 +1,15 @@
 #include "lwip.h"
 #include "UDP_SEND_RECIVE.h"
 #include "OSC_Lib.h"
+#include "main.h"
 
 int IP1_partner;
 int IP2_partner;
 int IP3_partner;
 int IP4_partner;
+
+
+
 
 static struct udp_pcb *udpPcb;
 osc_message osc;
@@ -61,7 +65,7 @@ osc_message osc;
 
      if(udpPcb != NULL)
      {
-       IP4_ADDR(&ownIPaddr, 192, 168, 1, 205); //The IP Adress of the STM32
+       IP4_ADDR(&ownIPaddr, IP_READ_FLASH[0], IP_READ_FLASH[1], IP_READ_FLASH[2], IP_READ_FLASH[3]); //The IP Adress of the STM32
        udpErr = udp_bind(udpPcb, &ownIPaddr, 9001); //Definition of
        udp_recv(udpPcb, udp_recive, NULL);
        if (udpErr ==ERR_OK){
@@ -70,6 +74,7 @@ osc_message osc;
      udp_recv(udpPcb, udp_recive, NULL);//Create udp_recive callback
    }
 //=======================================================================================//
+
 
 
 

@@ -16,32 +16,105 @@
 #include "OSC_Lib.h"
 #include "UART_correction.h"
 
-uint8_t IP_READ[4];
+
 DAC_HandleTypeDef hdac;
 UART_HandleTypeDef huart6;
-
+static struct udp_pcb *Broadcaster;
 uint8_t errors= 0;
-
+char Serial_READ[4] = {5,9,7,'S'};
+uint8_t i = 0;
 void lwIPTask(void const * argument){
 /*
 	MY_FLASH_SetSectorAddrs(11, 0x081C0000);
 	MY_FLASH_ReadN(0,IP_READ,4,DATA_TYPE_8);
 */
-  //==========CREATE & START all lwIP Services========//
-	 MX_LWIP_Init(192,168,1,205); //SetUp with IP ADRESS read from Flash
+	//==========CREATE & START all lwIP Services========//
+	 MX_LWIP_Init(IP_READ_FLASH[0], IP_READ_FLASH[1], IP_READ_FLASH[2], IP_READ_FLASH[3]); //SetUp with IP ADRESS read from Flash
 	 UDP_init(192,168,1,43); //INIT the UDP Session (Partner IP ADRESS)
 	 httpd_init();//start the web Server
-	 myCGIinit();//initialise the CGI handlers
-	 mySSIinit();//initialise the SSI handlers
-   //================================================//
+	 myCGIinit();//initialize the CGI handlers
+	 mySSIinit();//initialize the SSI handlers
+	//============================================================================================================//
+
+
+
+
+
+
+
+	//============================================================================================================//
+	// In this section the management of client is done.
+	//
+	// #1: The device is currently broadcasting its IP and Serial Number on Port 9010
+	// #2: If a client wants to connect he has to send its IP Address + some more info
+	// #3: A new socket will be created via UDP_init
+	// #4: running the server application normally
+	//
+	// #5:
+	// #6:
+	//
+
+	//============================================================================================================//
+
+	void ConnectionWhish(void *arg, struct udp_pcb *pcb, struct pbuf *p, const ip_addr_t *addr, u16_t port)
+
+	{
+
+		 //create or destroy UDP socket here in this callback
+
+	}
+
+	 err_t         udpErr;
+	 ip_addr_t     ownIPaddr;
+	 Broadcaster = udp_new();
+
+	 if(Broadcaster != NULL)
+	      {
+	        IP4_ADDR(&ownIPaddr,  IP_READ_FLASH[0], IP_READ_FLASH[1], IP_READ_FLASH[2], IP_READ_FLASH[3]); //The IP Adress of the STM32
+	        udpErr = udp_bind(Broadcaster, &ownIPaddr, 9010); //Definition of
+	        udp_recv(Broadcaster, ConnectionWhish, NULL);//Create udp_recive callback
+	        if (udpErr ==ERR_OK){
+	        }
+	      }
+
+
+	//============================================================================================================//
+	void BroadcastMyName(uint8_t status)
+
+	{
+
+	ip_addr_t       client1IpAddr; //The Clients IP Address
+	struct pbuf     *ethTxBuffer_p;
+
+
+	IP4_ADDR(&client1IpAddr, IP_READ_FLASH[0], IP_READ_FLASH[1], IP_READ_FLASH[2], 255); //IP Adress to send UDP
+	char UDP[17] = {'Q','U','A','N','T','_',Serial_READ[0],Serial_READ[1],Serial_READ[2],Serial_READ[2],'_',status,'_',IP_READ_FLASH[0],IP_READ_FLASH[1],IP_READ_FLASH[2],IP_READ_FLASH[3]};
+
+	ethTxBuffer_p = pbuf_alloc(PBUF_TRANSPORT, sizeof(UDP), PBUF_RAM); //TX BUFFER TO SOMETHING WE CAN SEND
+	if (ethTxBuffer_p == NULL){}
+
+	memcpy(ethTxBuffer_p->payload, UDP, sizeof(UDP));
+	udp_sendto(Broadcaster, ethTxBuffer_p, &client1IpAddr,9010);  //SEND UDP TO PORT 9002
+	pbuf_free(ethTxBuffer_p);  //Free the TX Buffer
+
+	}
+
+	//============================================================================================================//
+
+
+
+
+
+
 
 char UART_IN[10];
-
 
 	  /* Infinite loop */
 	  for(;;)
 	  {
 
+		  i++;
+		  BroadcastMyName(i);
 
 		 //=========================================================================//
 		 //=================CONTROL RELAIS VIA OSC MEASSAGE=========================//
