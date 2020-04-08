@@ -19,7 +19,7 @@ void clearBuffer(){
 }
 
 
-void drawWaveFormUartLeft(int x,int y, int adc, int clear){
+void drawWaveFormUartRight(int x,int y, int adc, int clear){
 	uint32_t lineStart,lineEnd;
 
 	if(clear == 1){
@@ -39,7 +39,7 @@ void drawWaveFormUartLeft(int x,int y, int adc, int clear){
 	     }
 }
 
-void drawWaveFormUartRight(int x,int y, int adc, int clear){
+void drawWaveFormUartLeft(int x,int y, int adc, int clear){
 	uint32_t lineStart,lineEnd;
 
 	if(clear == 1){

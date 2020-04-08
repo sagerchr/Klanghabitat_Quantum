@@ -141,9 +141,9 @@ float max_rightIN = 0.0;
 float rightDB = -130.0;
 float leftDB = -130.0;
 
-float spectrum[50];
-float spectrum_max[50];
-float spectrum_smooth[50];
+float spectrum[100];
+float spectrum_max[100];
+float spectrum_smooth[100];
 
 int startup = 0;
 
@@ -393,8 +393,9 @@ if(startup == 0){
    	  }
      else{
 
-     	drawWaveFormUartLeft(420,280,adc1, clearDisplay);
-     	drawWaveFormUartRight(30,280,adc2, clearDisplay);
+    	drawWaveFormUartLeft(30,280,adc1, clearDisplay);
+     	drawWaveFormUartRight(420,280,adc2, clearDisplay);
+
  		if (clearDisplay == 1){
  			clearDisplay = 0;
  		}
