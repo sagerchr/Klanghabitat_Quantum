@@ -55,6 +55,7 @@ osc_message osc;
    void UDP_init(int IP1,int IP2,int IP3,int IP4){
      err_t         udpErr;
      ip_addr_t     ownIPaddr;
+     udpPcb = udp_remove();
      udpPcb = udp_new();
 
 
@@ -71,7 +72,7 @@ osc_message osc;
        if (udpErr ==ERR_OK){
        }
      }
-     udp_recv(udpPcb, udp_recive, NULL);//Create udp_recive callback
+     //udp_recv(udpPcb, udp_recive, NULL);//Create udp_recive callback
    }
 //=======================================================================================//
 
@@ -121,19 +122,19 @@ osc_message osc;
 			 UDP_Message[size] = 0x00;
 			 index=1;
 		 }
-		 else if(size==34||size==30||size==26||size==22||size == 18||size == 16||size == 12||size == 8||size == 4){
+		 else if(size==34||size==30||size==26||size==22||size == 18||size == 14||size == 10||size == 6||size == 2){
 
 			 UDP_Message[size] = 0x00;
 			 UDP_Message[size+1] = 0x00;
 			 index=2;
 		 }
-		 else if(size==33||size==29||size==25||size==21||size == 17||size == 15||size == 11||size == 7||size == 3){
+		 else if(size==33||size==29||size==25||size==21||size == 17||size == 13||size == 9||size == 5||size == 1){
 			 UDP_Message[size] = 0x00;
 			 UDP_Message[size+1] = 0x00;
 			 UDP_Message[size+2] = 0x00;
 			 index=3;
 		 }
-		 else if(size==32||size==28||size==24||size==20||size == 16||size == 14||size == 10||size == 6||size == 2){
+		 else if(size==32||size==28||size==24||size==20||size == 16||size == 12||size == 8||size == 4||size == 0){
 			 UDP_Message[size] = 0x00;
 			 UDP_Message[size+1] = 0x00;
 			 UDP_Message[size+2] = 0x00;
@@ -220,3 +221,184 @@ void OSCmessageINTSend(char *OSCAdress,int size, int value){
 
 		 SendUDP(UDP_SEND, sizeof(UDP_SEND));
 	 }
+
+
+int OSCmessageDeviceInfo(char *OSCAdress,int size, char *Message, int sizeMessage, char IP1, char IP2, char IP3, char IP4){
+
+		 int index=0;
+		 int endMessage=0;
+		 char UDP_Message[100];
+
+		 for(int i=0; i< 100; i++){
+			 UDP_Message[i] = 0x01;
+		 }
+
+
+		 for(int i=0; i< size; i++){
+			 UDP_Message[i] = OSCAdress[i];
+		 }
+
+
+
+		 if(size==47||size==43||size==39||size==35||size==31||size==27||size==23||size == 19||size == 15||size == 11||size == 7||size == 3){
+			 UDP_Message[size] = 0x00;
+			 index=1;
+		 }
+		 else if(size==46||size==42||size==38||size==34||size==30||size==26||size==22||size == 18||size == 14||size == 10||size == 6||size == 2){
+
+			 UDP_Message[size] = 0x00;
+			 UDP_Message[size+1] = 0x00;
+			 index=2;
+		 }
+		 else if(size==45||size==41||size==37||size==33||size==29||size==25||size==21||size == 17||size == 13||size == 9||size == 5||size == 1){
+			 UDP_Message[size] = 0x00;
+			 UDP_Message[size+1] = 0x00;
+			 UDP_Message[size+2] = 0x00;
+			 index=3;
+		 }
+		 else if(size==44||size==40||size==36||size==32||size==28||size==24||size==20||size == 16||size == 12||size == 8||size == 4||size == 0){
+			 UDP_Message[size] = 0x00;
+			 UDP_Message[size+1] = 0x00;
+			 UDP_Message[size+2] = 0x00;
+			 UDP_Message[size+3] = 0x00;
+			 index=4;
+		 }
+
+		 UDP_Message[size+index] = ',';
+		 UDP_Message[size+index+1] = 's';
+
+		 UDP_Message[size+index+2] = 0x00;
+		 UDP_Message[size+index+3] = 0x00;
+
+
+
+
+
+		 char str[3];
+ //________________________________________________________________________________________________________________//
+		 sprintf(str, "%d", IP1);
+		 if (IP1<10){
+			 UDP_Message[size+index+4] = '0';
+			 UDP_Message[size+index+5] = '0';
+			 UDP_Message[size+index+6] = str[0];
+			 }
+		 else if (IP1<100 && IP1>=10){
+			 UDP_Message[size+index+4] = '0';
+			 UDP_Message[size+index+5] = str[0];
+			 UDP_Message[size+index+6] = str[1];
+			 }
+		 else if (IP1>=100){
+			 UDP_Message[size+index+4] = str[0];
+			 UDP_Message[size+index+5] = str[1];
+			 UDP_Message[size+index+6] = str[2];
+			 }
+		 UDP_Message[size+index+7] = '.';
+//________________________________________________________________________________________________________________//
+		 sprintf(str, "%d", IP2);
+		 if (IP2<10){
+			 UDP_Message[size+index+8] = '0';
+			 UDP_Message[size+index+9] = '0';
+			 UDP_Message[size+index+10] = str[0];
+			 }
+		 else if (IP2<100 && IP2>=10){
+			 UDP_Message[size+index+8] = '0';
+			 UDP_Message[size+index+9] = str[0];
+			 UDP_Message[size+index+10] = str[1];
+			 }
+		 else if (IP2>=100){
+			 UDP_Message[size+index+8] = str[0];
+			 UDP_Message[size+index+9] = str[1];
+			 UDP_Message[size+index+10] = str[2];
+			 }
+		 UDP_Message[size+index+11] = '.';
+//________________________________________________________________________________________________________________//
+		 sprintf(str, "%d", IP3);
+		 if (IP3<10){
+			 UDP_Message[size+index+12] = '0';
+			 UDP_Message[size+index+13] = '0';
+			 UDP_Message[size+index+14] = str[0];
+			 }
+		 else if (IP3<100 && IP3>=10){
+			 UDP_Message[size+index+12] = '0';
+			 UDP_Message[size+index+13] = str[0];
+			 UDP_Message[size+index+14] = str[1];
+			 }
+		 else if (IP3>=100){
+			 UDP_Message[size+index+12] = str[0];
+			 UDP_Message[size+index+13] = str[1];
+			 UDP_Message[size+index+14] = str[2];
+			 }
+		 UDP_Message[size+index+15] = '.';
+//________________________________________________________________________________________________________________//
+		 sprintf(str, "%d", IP4);
+		 if (IP4<10){
+			 UDP_Message[size+index+16] = '0';
+			 UDP_Message[size+index+17] = '0';
+			 UDP_Message[size+index+18] = str[0];
+			 }
+		 else if (IP4<100 && IP4>=10){
+			 UDP_Message[size+index+16] = '0';
+			 UDP_Message[size+index+17] = str[0];
+			 UDP_Message[size+index+18] = str[1];
+			 }
+		 else if (IP4>=100){
+			 UDP_Message[size+index+16] = str[0];
+			 UDP_Message[size+index+17] = str[1];
+			 UDP_Message[size+index+18] = str[2];
+			 }
+		 UDP_Message[size+index+19] = ';';
+//________________________________________________________________________________________________________________//
+
+
+
+
+
+		 for(int i=0; i<sizeMessage; i++){
+			 UDP_Message[size+index+20+i] = Message[i];
+			 endMessage=size+index+20+i;
+		 }
+
+
+
+
+		 if(sizeMessage==47||sizeMessage==43||sizeMessage==39||sizeMessage==35||sizeMessage==31||sizeMessage==27||sizeMessage==23||sizeMessage == 19||sizeMessage == 15||sizeMessage == 11||sizeMessage == 7||sizeMessage == 3){
+			 UDP_Message[endMessage+1] = 0x00;
+			 index=1;
+		 }
+		 else if(sizeMessage==46||sizeMessage==42||sizeMessage==38||sizeMessage==34||sizeMessage==30||sizeMessage==26||sizeMessage==22||sizeMessage == 18||sizeMessage == 14||sizeMessage == 10||sizeMessage == 6||sizeMessage == 2){
+
+			 UDP_Message[endMessage+1] = 0x00;
+			 UDP_Message[endMessage+2] = 0x00;
+			 index=2;
+		 }
+		 else if(sizeMessage==45||sizeMessage==41||sizeMessage==37||sizeMessage==33||sizeMessage==29||sizeMessage==25||sizeMessage==21||sizeMessage == 17||sizeMessage == 13||sizeMessage == 9||sizeMessage == 5||sizeMessage == 1){
+			 UDP_Message[endMessage+1] = 0x00;
+			 UDP_Message[endMessage+2] = 0x00;
+			 UDP_Message[endMessage+3] = 0x00;
+			 index=3;
+		 }
+		 else if(sizeMessage==44||sizeMessage==40||sizeMessage==36||sizeMessage==32||sizeMessage==28||sizeMessage==24||sizeMessage==20||sizeMessage == 16||sizeMessage == 12||sizeMessage == 8||sizeMessage == 4||sizeMessage == 0){
+			 UDP_Message[endMessage+1] = 0x00;
+			 UDP_Message[endMessage+2] = 0x00;
+			 UDP_Message[endMessage+3] = 0x00;
+			 UDP_Message[endMessage+4] = 0x00;
+			 index=4;
+		 }
+
+
+
+		 char UDP_SEND[endMessage+index+1];
+
+		 for(int i=0; i< endMessage+index+1; i++){
+			 UDP_SEND[i] = UDP_Message[i];
+			 DeviceInfo[i] = UDP_Message[i];
+		 }
+
+
+
+
+return endMessage+index+1;
+
+		 //SendUDP(UDP_SEND, sizeof(UDP_SEND));
+	 }
+

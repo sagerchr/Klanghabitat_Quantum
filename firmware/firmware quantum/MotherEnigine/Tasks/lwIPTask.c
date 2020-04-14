@@ -22,7 +22,20 @@ UART_HandleTypeDef huart6;
 static struct udp_pcb *Broadcaster;
 uint8_t errors= 0;
 char Serial_READ[4] = {5,9,7,'S'};
-uint8_t i = 0;
+uint8_t l = 0;
+int stringlength;
+
+osc_message osc;
+
+uint8_t IP_Client[4];
+char IP1_client[3];
+char IP2_client[3];
+char IP3_client[3];
+char IP4_client[3];
+
+uint8_t IP_client_number[4];
+
+
 void lwIPTask(void const * argument){
 /*
 	MY_FLASH_SetSectorAddrs(11, 0x081C0000);
@@ -30,7 +43,7 @@ void lwIPTask(void const * argument){
 */
 	//==========CREATE & START all lwIP Services========//
 	 MX_LWIP_Init(IP_READ_FLASH[0], IP_READ_FLASH[1], IP_READ_FLASH[2], IP_READ_FLASH[3]); //SetUp with IP ADRESS read from Flash
-	 UDP_init(192,168,1,43); //INIT the UDP Session (Partner IP ADRESS)
+	//UDP_init(192,168,1,43); //INIT the UDP Session (Partner IP ADRESS)
 	 httpd_init();//start the web Server
 	 myCGIinit();//initialize the CGI handlers
 	 mySSIinit();//initialize the SSI handlers
@@ -56,11 +69,98 @@ void lwIPTask(void const * argument){
 
 	//============================================================================================================//
 
-	void ConnectionWhish(void *arg, struct udp_pcb *pcb, struct pbuf *p, const ip_addr_t *addr, u16_t port)
+
+	 void ConnectionWhish(void *arg, struct udp_pcb *pcb, struct pbuf *p, const ip_addr_t *addr, u16_t port)
 
 	{
+		char IP_Adress_Client[16];
+		for (int i=0; i<50; i++){OSC_PATH[i] = 0x00;} //clear the OSC_PATH
+		HAL_GPIO_TogglePin(GPIOB, LD2_Pin); //Blaue LED an
+		memcpy(UDP_RECIVE, p -> payload, p -> len); //put the incoming udp data to UDP_RECIVE
+		pbuf_free(p);//clear the udp buffer in the lwIP
+		tosc_parseMessage(&osc, p -> payload, p -> len);//Find .adressEND & .format
+		OSC_FORMAT = *osc.format; //Find out the format of data
+		uint8_t AdressEND = osc.adressEND;//safe the AdressEND to vraiable
+		memcpy(OSC_PATH, p -> payload, AdressEND); //Put the Payload until AdressEND as the OSC_PATH
+		uint8_t numberSTART = osc.numberSTART; //Find out where the starting of 4 byte number is
 
-		 //create or destroy UDP socket here in this callback
+
+		if(OSC_FORMAT=='s'){
+			for (int i=0;i<16;i++){
+				IP_Adress_Client[i] = UDP_RECIVE[numberSTART+i];
+			}
+
+			int i = 0;
+			int index = 0;
+
+			while (IP_Adress_Client[i]!= '.'){
+				IP1_client[i-index] = IP_Adress_Client[i];
+				i++;
+			}
+			i++;
+			index = i;
+
+			while (IP_Adress_Client[i]!= '.'){
+				IP2_client[i-index] = IP_Adress_Client[i];
+				i++;
+			}
+			i++;
+			index = i;
+
+//============================================================================//
+			while (IP_Adress_Client[i]!= '.'){
+				IP3_client[i-index] = IP_Adress_Client[i];
+				i++;
+			}
+			if (i-index == 2){
+				for (int i=2; i>0;i--){
+					IP3_client[i] = IP3_client [i-1];
+				}
+				IP3_client[0] = '0';
+			}
+			if (i-index == 1){
+				for (int i=2; i>0;i--){
+					IP3_client[i] = IP3_client [i-2];
+				}
+				IP3_client[0] = '0';
+				IP3_client[1] = '0';
+			}
+			i++;
+			index = i;
+//============================================================================//
+			while (IP_Adress_Client[i]!= 0x00){
+				IP4_client[i-index] = IP_Adress_Client[i];
+				i++;
+			}
+			if (i-index == 2){
+				for (int i=2; i>0;i--){
+					IP4_client[i] = IP4_client [i-1];
+				}
+				IP4_client[0] = '0';
+			}
+			if (i-index == 1){
+				for (int i=2; i>0;i--){
+					IP4_client[i] = IP4_client [i-2];
+				}
+				IP4_client[0] = '0';
+				IP4_client[1] = '0';
+			}
+
+//============================================================================//
+
+
+
+		}
+
+		IP_client_number[0] =  atoi(IP1_client);
+		IP_client_number[1] =  atoi(IP2_client);
+		IP_client_number[2] =  atoi(IP3_client);
+		IP_client_number[3] =  atoi(IP4_client);
+
+
+
+		UDP_init(IP_client_number[0],IP_client_number[1],IP_client_number[2],IP_client_number[3]);
+
 
 	}
 
@@ -79,7 +179,7 @@ void lwIPTask(void const * argument){
 
 
 	//============================================================================================================//
-	void BroadcastMyName(uint8_t status)
+	void BroadcastDeviceInfo(uint8_t status)
 
 	{
 
@@ -87,13 +187,20 @@ void lwIPTask(void const * argument){
 	struct pbuf     *ethTxBuffer_p;
 
 
-	IP4_ADDR(&client1IpAddr, IP_READ_FLASH[0], IP_READ_FLASH[1], IP_READ_FLASH[2], 255); //IP Adress to send UDP
-	char UDP[17] = {'Q','U','A','N','T','_',Serial_READ[0],Serial_READ[1],Serial_READ[2],Serial_READ[2],'_',status,'_',IP_READ_FLASH[0],IP_READ_FLASH[1],IP_READ_FLASH[2],IP_READ_FLASH[3]};
+	stringlength = OSCmessageDeviceInfo("/klanghabitat/DeviceInfo", 24, "Device: Quantum; Version: 1.0; status: ready",44, (char)IP_READ_FLASH[0],(char)IP_READ_FLASH[1],(char)IP_READ_FLASH[2],(char)IP_READ_FLASH[3]); //Will be found as "DeviceInfo"
 
-	ethTxBuffer_p = pbuf_alloc(PBUF_TRANSPORT, sizeof(UDP), PBUF_RAM); //TX BUFFER TO SOMETHING WE CAN SEND
+
+	char DeviceInfoToSend[stringlength];
+	for(int i=0; i<stringlength; i++){
+		DeviceInfoToSend[i]=DeviceInfo[i];
+	}
+
+	IP4_ADDR(&client1IpAddr,  IP_READ_FLASH[0], IP_READ_FLASH[1], IP_READ_FLASH[2], 255); //make Broadcast xxx.xxx.xxx.255
+
+	ethTxBuffer_p = pbuf_alloc(PBUF_TRANSPORT, sizeof(DeviceInfoToSend), PBUF_RAM); //TX BUFFER TO SOMETHING WE CAN SEND
 	if (ethTxBuffer_p == NULL){}
-
-	memcpy(ethTxBuffer_p->payload, UDP, sizeof(UDP));
+	memcpy(ethTxBuffer_p->payload, DeviceInfoToSend, sizeof(DeviceInfoToSend));
+	//memcpy(ethTxBuffer_p->payload, UDP, sizeof(UDP));
 	udp_sendto(Broadcaster, ethTxBuffer_p, &client1IpAddr,9010);  //SEND UDP TO PORT 9002
 	pbuf_free(ethTxBuffer_p);  //Free the TX Buffer
 
@@ -108,13 +215,15 @@ void lwIPTask(void const * argument){
 
 
 char UART_IN[10];
-
+//char FFT_String[12] = {'/','F','F','T','/','L','E','F','T','/','0','0'};
 	  /* Infinite loop */
 	  for(;;)
 	  {
 
-		  i++;
-		  BroadcastMyName(i);
+		  l++;
+		  if (l == 0){BroadcastDeviceInfo(l);}
+
+		  //OSCmessageStringSend("/klanghabitat", 13, "Device: Test; IP: 127.1.1.2",27);
 
 		 //=========================================================================//
 		 //=================CONTROL RELAIS VIA OSC MEASSAGE=========================//
@@ -203,45 +312,26 @@ char UART_IN[10];
 		  OSCmessageFLOATSend("/VALUE/Level/CH1/FLOAT",  22, a,b,c,d);
 
 /*****************************************************************************/
-		  memcpy(data, &FFT_result[0], sizeof &FFT_result[0]);    // send data
-		  a = data[0]; b = data[1];c = data[2];d = data[3];
-		  OSCmessageFLOATSend("/VALUE/Level/FFT/0",  18, a,b,c,d);
+		  char p = 48;
+		  char k = 48;
 
-		  memcpy(data, &FFT_result[1], sizeof &FFT_result[0]);    // send data
-		  a = data[0]; b = data[1];c = data[2];d = data[3];
-		  OSCmessageFLOATSend("/VALUE/Level/FFT/1",  18, a,b,c,d);
+		  char FFT_String[12] = {'/','F','F','T','/','L','E','F','T','/','0','0'};
 
-		  memcpy(data, &FFT_result[2], sizeof &FFT_result[0]);    // send data
-		  a = data[0]; b = data[1];c = data[2];d = data[3];
-		  OSCmessageFLOATSend("/VALUE/Level/FFT/2",  18, a,b,c,d);
+		  for (int i=0; i<50; i++){
+			  memcpy(data, &FFT_result[i], sizeof &FFT_result[i]);    // send data
+			  a = data[0]; b = data[1];c = data[2];d = data[3];
+			  FFT_String[11] = p;
+			  OSCmessageFLOATSend(FFT_String, 12, a,b,c,d);
+			  p = (char)p+1;
+			  if(p == 58){
+				  p=48;
+				  k = (char)k+1;
+				  FFT_String[10] = k;
+			  }
 
-		  memcpy(data, &FFT_result[3], sizeof &FFT_result[0]);     // send data
-		  a = data[0]; b = data[1];c = data[2];d = data[3];
-		  OSCmessageFLOATSend("/VALUE/Level/FFT/3",  18, a,b,c,d);
+		  }
 
-		  memcpy(data, &FFT_result[4], sizeof &FFT_result[0]);    // send data
-		  a = data[0]; b = data[1];c = data[2];d = data[3];
-		  OSCmessageFLOATSend("/VALUE/Level/FFT/4",  18, a,b,c,d);
 
-		  memcpy(data, &FFT_result[5], sizeof &FFT_result[0]);     // send data
-		  a = data[0]; b = data[1];c = data[2];d = data[3];
-		  OSCmessageFLOATSend("/VALUE/Level/FFT/5",  18, a,b,c,d);
-
-		  memcpy(data, &FFT_result[6], sizeof &FFT_result[0]);    // send data
-		  a = data[0]; b = data[1];c = data[2];d = data[3];
-		  OSCmessageFLOATSend("/VALUE/Level/FFT/6",  18, a,b,c,d);
-
-		  memcpy(data, &FFT_result[7], sizeof &FFT_result[0]);     // send data
-		  a = data[0]; b = data[1];c = data[2];d = data[3];
-		  OSCmessageFLOATSend("/VALUE/Level/FFT/7",  18, a,b,c,d);
-
-		  memcpy(data, &FFT_result[8], sizeof &FFT_result[0]);     // send data
-		  a = data[0]; b = data[1];c = data[2];d = data[3];
-		  OSCmessageFLOATSend("/VALUE/Level/FFT/8",  18, a,b,c,d);
-
-		  memcpy(data, &FFT_result[9], sizeof &FFT_result[0]);     // send data
-		  a = data[0]; b = data[1];c = data[2];d = data[3];
-		  OSCmessageFLOATSend("/VALUE/Level/FFT/9",  18, a,b,c,d);
 
 /*****************************************************************************/
 

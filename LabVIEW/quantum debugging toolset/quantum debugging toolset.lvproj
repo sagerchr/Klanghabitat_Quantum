@@ -11,6 +11,7 @@
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="SimpleUDP_readOut.vi" Type="VI" URL="../SimpleUDP_readOut.vi"/>
+		<Item Name="SimpleUDP_send.vi" Type="VI" URL="../SimpleUDP_send.vi"/>
 		<Item Name="WaveFormGraph.vi" Type="VI" URL="../WaveFormGraph.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
