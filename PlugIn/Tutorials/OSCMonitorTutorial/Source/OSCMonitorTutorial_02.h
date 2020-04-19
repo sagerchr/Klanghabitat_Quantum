@@ -44,6 +44,8 @@
 
 
 #pragma once
+#include "ListBoxClass.h"
+
 
 //==============================================================================
 class OSCLogListBox    : public ListBox,
@@ -187,6 +189,7 @@ private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (OSCLogListBox)
 };
 
+
 //==============================================================================
 class MainContentComponent   : public Component,
                                 private Timer,
@@ -219,10 +222,10 @@ public:
         updateConnectionStatusLabel();
         addAndMakeVisible (connectionStatusLabel);
 
-        oscLogListBox.setBounds (10, 40, 355, 200);
+        oscLogListBox.setBounds (10, 40, 355, 100);
         addAndMakeVisible (oscLogListBox);
         
-        oscLogListBox2.setBounds (10, 250, 355, 200);
+        oscLogListBox2.setBounds (10, 150, 355, 100);
         addAndMakeVisible (oscLogListBox2);
         
         
@@ -236,11 +239,6 @@ public:
         sendButton.onClick = [this] { sendButtonClicked(); };
         
         
-        
-
-        
-        
-        
         oscStreamer.addListener(this);
         oscReceiver.addListener (this);
         
@@ -251,6 +249,10 @@ public:
 
         for (int i = 0; i<50; i++){
             FFT_Left[i] = -80.0f;
+        }
+        
+        for (int i = 0; i<300; i++){
+           ch1_array[i] = 0;
         }
         
         startTimer(10);
@@ -271,8 +273,7 @@ private:
     TextButton sendButton   { "connect" };
     Label connectionStatusLabel;
     ComboBox deviceList {"select the dedicated device"};
-    
-    
+       
     OSCLogListBox oscLogListBox;
     OSCLogListBox oscLogListBox2;
     
@@ -287,8 +288,10 @@ private:
     int CH1=0;
     int CH2=0;
     
-    float FFT_Left[50];
-    float FFT_Left_raw[50];
+    int ch1_array[300];
+    
+    float FFT_Left[100];
+    float FFT_Left_raw[100];
 
     
     float band0 = 0.0f;
@@ -343,7 +346,7 @@ private:
 
     void sendButtonClicked()
     {
-        sender.connect (Device_IPAdress, 9010);
+        sender.connect (Device_IPAdress, 9011);
         auto IpAdress = juce::IPAddress::getLocalAddress().toString();
 
         IpAdress = deviceList.getItemText(deviceList.getSelectedId()-1);
@@ -381,7 +384,7 @@ private:
         
         //==========================Get Ip Adress of target========================//
         if (message.getAddressPattern().toString() == "/klanghabitat/DeviceInfo"){
-           // oscLogListBox.addOSCMessage (message);
+            oscLogListBox.addOSCMessage (message);
             //Device_IPAdress = message.getArguments();
             for (auto* arg = message.begin(); arg != message.end(); ++arg)
                 Device_IPAdress = arg->getString().substring(0, 15);
@@ -393,6 +396,12 @@ private:
             if (message.getAddressPattern().toString() == "/VALUE/Level/CH1/RMS"){
             for (auto* arg = message.begin(); arg != message.end(); ++arg)
                 CH1 = arg->getInt32();
+                
+                for (int i =0; i<300;i++){
+                    ch1_array [i] = ch1_array [i+1];
+                }
+                
+                ch1_array [299] = CH1;
             }
             if (message.getAddressPattern().toString() == "/VALUE/Level/CH2/RMS"){
             for (auto* arg = message.begin(); arg != message.end(); ++arg)
@@ -403,7 +412,8 @@ private:
                 "/FFT/LEFT/10","/FFT/LEFT/11","/FFT/LEFT/12","/FFT/LEFT/13","/FFT/LEFT/14","/FFT/LEFT/15","/FFT/LEFT/16","/FFT/LEFT/17","/FFT/LEFT/18","/FFT/LEFT/19",
                 "/FFT/LEFT/20","/FFT/LEFT/21","/FFT/LEFT/22","/FFT/LEFT/23","/FFT/LEFT/24","/FFT/LEFT/25","/FFT/LEFT/26","/FFT/LEFT/27","/FFT/LEFT/28","/FFT/LEFT/29",
                 "/FFT/LEFT/30","/FFT/LEFT/31","/FFT/LEFT/32","/FFT/LEFT/33","/FFT/LEFT/34","/FFT/LEFT/35","/FFT/LEFT/36","/FFT/LEFT/37","/FFT/LEFT/38","/FFT/LEFT/39",
-                "/FFT/LEFT/40","/FFT/LEFT/41","/FFT/LEFT/42","/FFT/LEFT/43","/FFT/LEFT/44","/FFT/LEFT/45","/FFT/LEFT/46","/FFT/LEFT/47","/FFT/LEFT/48","/FFT/LEFT/49"};
+                "/FFT/LEFT/40","/FFT/LEFT/41","/FFT/LEFT/42","/FFT/LEFT/43","/FFT/LEFT/44","/FFT/LEFT/45","/FFT/LEFT/46","/FFT/LEFT/47","/FFT/LEFT/48","/FFT/LEFT/49",
+                };
             
           for (int i=0; i<50; i++){
 
@@ -412,6 +422,8 @@ private:
                              FFT_Left_raw[i] =arg->getFloat32();
                              FFT_Left[i] =  (20 * log10 (FFT_Left_raw[i]/100))-50;
                          }
+              
+              
           }
 
         }
@@ -423,6 +435,8 @@ private:
     void paint (Graphics& g) override
 {
     int yposition=500;
+    int middlepoint=400;
+    int xPosition = 30;
     
    // g.fillAll (Colours::darkgrey);
     g.setColour (Colours::orange);
@@ -432,9 +446,13 @@ private:
     
     for(int i = 0; i<50; i++){
         if (FFT_Left[i]<= -100.0){FFT_Left[i]=100.0;}
-       g.fillRect (10+(4*i), yposition+abs((int)FFT_Left[i]), 2, 100 - abs((int)FFT_Left[i]));
+       g.fillRect (xPosition+10+(6*i), yposition+abs((int)FFT_Left[i]), 4, 100 - abs((int)FFT_Left[i]));
     }
     
+     
+    for(int i = 0; i<300; i++){
+       g.fillRect (i+xPosition, middlepoint - (ch1_array [i]/2), 1,  ch1_array [i]+1);
+    }
 
 }
     

@@ -49,6 +49,13 @@ osc_message osc;
 	}
 //=======================================================================================//
 
+	void UDP_deinit(){
+
+	     if(udpPcb != NULL){
+	     	 udpPcb = udp_remove();
+	    }
+	}
+
 
 
 //==================================INIT UDP Session===================================//
@@ -184,19 +191,19 @@ void OSCmessageINTSend(char *OSCAdress,int size, int value){
 			 UDP_Message[size] = 0x00;
 			 index=1;
 		 }
-		 else if(size==34||size==30||size==26||size==22||size == 18||size == 16||size == 12||size == 8||size == 4){
+		 else if(size==34||size==30||size==26||size==22||size == 18||size == 14||size == 10||size == 6||size == 2){
 
 			 UDP_Message[size] = 0x00;
 			 UDP_Message[size+1] = 0x00;
 			 index=2;
 		 }
-		 else if(size==33||size==29||size==25||size==21||size == 17||size == 15||size == 11||size == 7||size == 3){
+		 else if(size==33||size==29||size==25||size==21||size == 17||size == 13||size == 9||size == 5||size == 1){
 			 UDP_Message[size] = 0x00;
 			 UDP_Message[size+1] = 0x00;
 			 UDP_Message[size+2] = 0x00;
 			 index=3;
 		 }
-		 else if(size==32||size==28||size==24||size==20||size == 16||size == 14||size == 10||size == 6||size == 2){
+		 else if(size==32||size==28||size==24||size==20||size == 16||size == 12||size == 8||size == 4||size == 0){
 			 UDP_Message[size] = 0x00;
 			 UDP_Message[size+1] = 0x00;
 			 UDP_Message[size+2] = 0x00;

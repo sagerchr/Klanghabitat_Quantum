@@ -33,6 +33,10 @@
 			isa = PBXBuildFile;
 			fileRef = C9C7091DEC80394E5FF00791;
 		};
+		D714D3CA8E851A9A9BEBFD65 = {
+			isa = PBXBuildFile;
+			fileRef = 125033E64FB026A7629FEA78;
+		};
 		7705101395E32FA6A41BAA98 = {
 			isa = PBXBuildFile;
 			fileRef = C591CA93A11210479456B211;
@@ -64,6 +68,13 @@
 			path = "/Users/christiansager/Documents/JUCE/modules/juce_core";
 			sourceTree = "<absolute>";
 		};
+		125033E64FB026A7629FEA78 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			name = ListBoxClass.cpp;
+			path = ../../Source/ListBoxClass.cpp;
+			sourceTree = "SOURCE_ROOT";
+		};
 		1257EB692142C10FCCC08D32 = {
 			isa = PBXFileReference;
 			lastKnownFileType = file;
@@ -90,6 +101,13 @@
 			lastKnownFileType = sourcecode.c.h;
 			name = JuceHeader.h;
 			path = ../../JuceLibraryCode/JuceHeader.h;
+			sourceTree = "SOURCE_ROOT";
+		};
+		51C060FFED96A29E87E2007F = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = ListBoxClass.h;
+			path = ../../Source/ListBoxClass.h;
 			sourceTree = "SOURCE_ROOT";
 		};
 		5AEDC5550AA95F78E021424D = {
@@ -162,13 +180,6 @@
 			path = "../../JuceLibraryCode/include_juce_graphics.mm";
 			sourceTree = "SOURCE_ROOT";
 		};
-		AFC4518BDD1C1BCA05D14CBC = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = "OSCMonitorTutorial_01.h";
-			path = "../../Source/OSCMonitorTutorial_01.h";
-			sourceTree = "SOURCE_ROOT";
-		};
 		B19E142BA39F961318E5C2C0 = {
 			isa = PBXFileReference;
 			lastKnownFileType = wrapper.framework;
@@ -230,7 +241,6 @@
 			children = (
 				C9C7091DEC80394E5FF00791,
 				83387E3A3DF5D70A0180BDB8,
-				AFC4518BDD1C1BCA05D14CBC,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -239,6 +249,8 @@
 			isa = PBXGroup;
 			children = (
 				52DB80EE65878CD6F4C46960,
+				125033E64FB026A7629FEA78,
+				51C060FFED96A29E87E2007F,
 			);
 			name = OSCMonitorTutorial;
 			sourceTree = "<group>";
@@ -529,6 +541,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				64DE7B6C95B06349C86B1338,
+				D714D3CA8E851A9A9BEBFD65,
 				7705101395E32FA6A41BAA98,
 				80D5A61941E17F3AF8B0E53E,
 				1A259F31B43F7275B1E167F2,

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT name="OSCMonitorTutorial" companyName="JUCE" version="1.0.0"
+              userNotes="Monitors incoming OSC messages." companyWebsite="http://juce.com"
+              defines="" projectType="guiapp" id="t3EshC" jucerVersion="5.4.7">
+  <MAINGROUP id="eL8kgZ" name="OSCMonitorTutorial">
+    <GROUP id="{2A337F28-5C61-6D3A-3532-2376C8DC76DA}" name="Source">
+      <GROUP id="{12BF7489-8BA7-AA72-205E-347EC4B1A082}" name="GUI Classes">
+        <FILE id="hIXKV7" name="OSCListBoxClass.cpp" compile="1" resource="0"
+              file="Source/GUI Classes/OSCListBoxClass.cpp"/>
+        <FILE id="FjEh1Z" name="OSCListBoxClass.h" compile="0" resource="0"
+              file="Source/GUI Classes/OSCListBoxClass.h"/>
+        <FILE id="mP3MPM" name="WaveForm.h" compile="0" resource="0" file="Source/GUI Classes/WaveForm.h"/>
+        <FILE id="IbAmfP" name="WaveForm.cpp" compile="1" resource="0" file="Source/GUI Classes/WaveForm.cpp"/>
+      </GROUP>
+      <FILE id="Hb2qlz" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+      <FILE id="YC1DiB" name="OSCMonitorTutorial_02.h" compile="0" resource="0"
+            file="Source/OSCMonitorTutorial_02.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <MODULES>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_osc" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+  <EXPORTFORMATS>
+    <XCODE_IPHONE targetFolder="Builds/iOS">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" codeSigningIdentity="3Y6NQ6NDCP" iosCompatibility="13.0"/>
+        <CONFIGURATION isDebug="0" name="Release" codeSigningIdentity="3Y6NQ6NDCP" iosCompatibility="13.0"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_osc"/>
+        <MODULEPATH id="juce_gui_basics"/>
+        <MODULEPATH id="juce_graphics"/>
+        <MODULEPATH id="juce_events"/>
+        <MODULEPATH id="juce_data_structures"/>
+        <MODULEPATH id="juce_core"/>
+      </MODULEPATHS>
+    </XCODE_IPHONE>
+    <XCODE_MAC targetFolder="Builds/MacOSX">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="OSCMonitorTutorial"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="OSCMonitorTutorial"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path=""/>
+        <MODULEPATH id="juce_data_structures" path=""/>
+        <MODULEPATH id="juce_events" path=""/>
+        <MODULEPATH id="juce_graphics" path=""/>
+        <MODULEPATH id="juce_gui_basics" path=""/>
+        <MODULEPATH id="juce_osc" path=""/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+    <VS2017 targetFolder="Builds/VisualStudio2017">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="OSCMonitorTutorial"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="OSCMonitorTutorial"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path=""/>
+        <MODULEPATH id="juce_data_structures" path=""/>
+        <MODULEPATH id="juce_events" path=""/>
+        <MODULEPATH id="juce_graphics" path=""/>
+        <MODULEPATH id="juce_gui_basics" path=""/>
+        <MODULEPATH id="juce_osc" path=""/>
+      </MODULEPATHS>
+    </VS2017>
+    <LINUX_MAKE targetFolder="Builds/LinuxMakefile">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="OSCMonitorTutorial"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="OSCMonitorTutorial"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path=""/>
+        <MODULEPATH id="juce_data_structures" path=""/>
+        <MODULEPATH id="juce_events" path=""/>
+        <MODULEPATH id="juce_graphics" path=""/>
+        <MODULEPATH id="juce_gui_basics" path=""/>
+        <MODULEPATH id="juce_osc" path=""/>
+      </MODULEPATHS>
+    </LINUX_MAKE>
+  </EXPORTFORMATS>
+  <JUCEOPTIONS/>
+  <LIVE_SETTINGS>
+    <OSX/>
+  </LIVE_SETTINGS>
+</JUCERPROJECT>

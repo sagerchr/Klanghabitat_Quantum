@@ -3,7 +3,7 @@
 <eagle version="9.5.2">
 <drawing>
 <settings>
-<setting alwaysvectorfont="yes"/>
+<setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="0.1" unitdist="mm" unit="mm" style="lines" multiple="1" display="no" altdistance="5" altunitdist="mil" altunit="mil"/>
@@ -146,7 +146,7 @@
 <layer number="255" name="routoute" color="7" fill="1" visible="yes" active="yes"/>
 </layers>
 <board>
-<fusionsync huburn="a.cGVyc29uYWw6dWUyYWQzYTA1" projecturn="a.cGVyc29uYWw6dWUyYWQzYTA1IzIwMTkxMTEwMjM2NzAyNzAx" f3durn="urn:adsk.wipprod:dm.lineage:zAb2UMZBSrmtLcc2tGNNXw" pcbguid="bd8b16a2-f50c-4eb2-8ebb-7bc0cecf7ec5" lastpulledtime="" lastsyncedchangeguid="5c6f3853-e357-3365-8fa0-be302e14187b"/>
+<fusionsync huburn="a.cGVyc29uYWw6dWUyYWQzYTA1" projecturn="a.cGVyc29uYWw6dWUyYWQzYTA1IzIwMTkxMTEwMjM2NzAyNzAx" f3durn="urn:adsk.wipprod:dm.lineage:zAb2UMZBSrmtLcc2tGNNXw" pcbguid="bd8b16a2-f50c-4eb2-8ebb-7bc0cecf7ec5" lastpulledtime="" lastsyncedchangeguid="b23afb60-a504-05d3-b201-da927d269b2b"/>
 <plain>
 <wire x1="0" y1="0" x2="136" y2="0" width="0" layer="20"/>
 <wire x1="136" y1="0" x2="136" y2="28" width="0" layer="20"/>
@@ -158,7 +158,7 @@
 <wire x1="0" y1="28" x2="0" y2="0" width="0" layer="20"/>
 <hole x="96" y="5.5" drill="4"/>
 <hole x="40" y="5.5" drill="4"/>
-<hole x="8.59" y="24" drill="4.5"/>
+<hole x="8.69" y="24" drill="4.5"/>
 <hole x="127.31" y="24" drill="4.5"/>
 </plain>
 <libraries>

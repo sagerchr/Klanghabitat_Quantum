@@ -139,6 +139,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\Main.cpp"/>
+    <ClCompile Include="..\..\Source\ListBoxClass.cpp"/>
     <ClCompile Include="C:\JUCE\modules\juce_core\containers\juce_AbstractFifo.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -1264,7 +1265,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\OSCMonitorTutorial_02.h"/>
-    <ClInclude Include="..\..\Source\OSCMonitorTutorial_01.h"/>
+    <ClInclude Include="..\..\Source\ListBoxClass.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_core\containers\juce_AbstractFifo.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_core\containers\juce_Array.h"/>
     <ClInclude Include="C:\JUCE\modules\juce_core\containers\juce_ArrayAllocationBase.h"/>

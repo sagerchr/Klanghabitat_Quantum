@@ -8,22 +8,22 @@
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
-<layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
-<layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
-<layer number="18" name="Vias" color="2" fill="1" visible="no" active="no"/>
-<layer number="19" name="Unrouted" color="6" fill="1" visible="no" active="no"/>
-<layer number="20" name="Dimension" color="24" fill="1" visible="no" active="no"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="no"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="no"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="no" active="no"/>
-<layer number="28" name="bValues" color="7" fill="1" visible="no" active="no"/>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="no"/>
+<layer number="2" name="Route2" color="16" fill="1" visible="yes" active="no"/>
+<layer number="15" name="Route15" color="23" fill="1" visible="yes" active="no"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="no"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="no"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="no"/>
+<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="no"/>
+<layer number="20" name="Dimension" color="24" fill="1" visible="yes" active="no"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="no"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="no"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="no"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="no"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="no"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="no"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="no"/>
@@ -32,8 +32,8 @@
 <layer number="34" name="bFinish" color="6" fill="6" visible="no" active="no"/>
 <layer number="35" name="tGlue" color="7" fill="4" visible="no" active="no"/>
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="no"/>
-<layer number="37" name="tTest" color="7" fill="1" visible="no" active="no"/>
-<layer number="38" name="bTest" color="7" fill="1" visible="no" active="no"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="yes" active="no"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="yes" active="no"/>
 <layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="no"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="no"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="no"/>
@@ -41,19 +41,19 @@
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="no"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="no"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="no"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="no" active="no"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="no" active="no"/>
-<layer number="48" name="Document" color="7" fill="1" visible="no" active="no"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="no" active="no"/>
-<layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="no"/>
-<layer number="52" name="bDocu" color="7" fill="1" visible="no" active="no"/>
-<layer number="53" name="tCopper" color="7" fill="11" visible="no" active="no"/>
-<layer number="54" name="bCopper" color="7" fill="1" visible="no" active="no"/>
-<layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
-<layer number="57" name="tCAD" color="7" fill="1" visible="no" active="no"/>
-<layer number="59" name="tCarbon" color="7" fill="1" visible="no" active="no"/>
-<layer number="60" name="bCarbon" color="7" fill="1" visible="no" active="no"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="no"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="no"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="no"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="no"/>
+<layer number="50" name="dxf" color="7" fill="1" visible="yes" active="no"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="no"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="no"/>
+<layer number="53" name="tCopper" color="7" fill="11" visible="yes" active="no"/>
+<layer number="54" name="bCopper" color="7" fill="1" visible="yes" active="no"/>
+<layer number="56" name="wert" color="7" fill="1" visible="yes" active="no"/>
+<layer number="57" name="tCAD" color="7" fill="1" visible="yes" active="no"/>
+<layer number="59" name="tCarbon" color="7" fill="1" visible="yes" active="no"/>
+<layer number="60" name="bCarbon" color="7" fill="1" visible="yes" active="no"/>
 <layer number="88" name="SimResults" color="9" fill="1" visible="yes" active="yes"/>
 <layer number="89" name="SimProbes" color="9" fill="1" visible="yes" active="yes"/>
 <layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
@@ -218,6 +218,16 @@
 <wire x1="-3.15" y1="-3.15" x2="-3.15" y2="3.15" width="0.2" layer="21"/>
 <circle x="-4.575" y="4" radius="0.2" width="0.4" layer="25"/>
 </package>
+<package name="TP" urn="urn:adsk.eagle:footprint:817536/1" library_version="152">
+<smd name="P$1" x="0" y="0" dx="1.27" dy="1.27" layer="1" roundness="100"/>
+<text x="-2.54" y="1.27" size="1.27" layer="25">&gt;name</text>
+</package>
+<package name="THT_PIN" urn="urn:adsk.eagle:footprint:817865/2" library_version="152">
+<pad name="P$1" x="0" y="0" drill="1" shape="long"/>
+</package>
+<package name="OVAL_PAD" urn="urn:adsk.eagle:footprint:3036140/1" locally_modified="yes" library_version="152" library_locally_modified="yes">
+<smd name="P$1" x="0" y="0" dx="1" dy="2" layer="1"/>
+</package>
 </packages>
 <packages3d>
 <package3d name="C0603" urn="urn:adsk.eagle:package:576738/3" type="model" library_version="132">
@@ -230,6 +240,21 @@
 <description>&lt;b&gt;STM32F031K6T6&lt;/b&gt;&lt;br&gt;</description>
 <packageinstances>
 <packageinstance name="QFP80P900X900X160-32N"/>
+</packageinstances>
+</package3d>
+<package3d name="TP" urn="urn:adsk.eagle:package:817537/2" type="model" library_version="152">
+<packageinstances>
+<packageinstance name="TP"/>
+</packageinstances>
+</package3d>
+<package3d name="THT_PIN" urn="urn:adsk.eagle:package:817866/3" type="model" library_version="152">
+<packageinstances>
+<packageinstance name="THT_PIN"/>
+</packageinstances>
+</package3d>
+<package3d name="OVAL_PAD" urn="urn:adsk.eagle:package:3036141/3" type="model" library_version="152" library_locally_modified="yes">
+<packageinstances>
+<packageinstance name="OVAL_PAD"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -283,6 +308,14 @@
 <pin name="PB4" x="22.86" y="17.78" length="middle" rot="R270"/>
 <pin name="PB3" x="25.4" y="17.78" length="middle" rot="R270"/>
 <pin name="PA15" x="27.94" y="17.78" length="middle" rot="R270"/>
+</symbol>
+<symbol name="TP" urn="urn:adsk.eagle:symbol:817535/1" library_version="152">
+<wire x1="-0.762" y1="-0.762" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="0.762" y2="-0.762" width="0.254" layer="94"/>
+<wire x1="0.762" y1="-0.762" x2="0" y2="-1.524" width="0.254" layer="94"/>
+<wire x1="0" y1="-1.524" x2="-0.762" y2="-0.762" width="0.254" layer="94"/>
+<text x="-1.27" y="1.27" size="1.778" layer="95">&gt;NAME</text>
+<pin name="TP" x="0" y="-2.54" visible="off" length="short" direction="in" rot="R90"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -360,6 +393,46 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/STM32F031K6T6
 <attribute name="MOUSER_PART_NUMBER" value="511-STM32F031K6T6" constant="no"/>
 <attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=511-STM32F031K6T6" constant="no"/>
 </technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="TP" urn="urn:adsk.eagle:component:817538/19" library_version="152" library_locally_modified="yes">
+<gates>
+<gate name="G$1" symbol="TP" x="0" y="5.08"/>
+</gates>
+<devices>
+<device name="SMD" package="TP">
+<connects>
+<connect gate="G$1" pin="TP" pad="P$1"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:817537/2"/>
+</package3dinstances>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="THT" package="THT_PIN">
+<connects>
+<connect gate="G$1" pin="TP" pad="P$1"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:817866/3"/>
+</package3dinstances>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="" package="OVAL_PAD">
+<connects>
+<connect gate="G$1" pin="TP" pad="P$1"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:3036141/3"/>
+</package3dinstances>
+<technologies>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
@@ -762,6 +835,35 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/STM32F031K6T6
 <wire x1="-5.5" y1="6.35" x2="-6.2" y2="6.35" width="0.1" layer="21"/>
 <wire x1="-6.2" y1="6.35" x2="-6.2" y2="2.75" width="0.1" layer="21"/>
 </package>
+<package name="686104183422" urn="urn:adsk.eagle:footprint:18115752/2" library_version="47">
+<description>&lt;b&gt;686104183422-2&lt;/b&gt;&lt;br&gt;
+</description>
+<smd name="1" x="-1.5" y="1.9" dx="1" dy="0.3" layer="1" rot="R90"/>
+<smd name="2" x="-0.5" y="1.9" dx="1" dy="0.3" layer="1" rot="R90"/>
+<smd name="3" x="0.5" y="1.9" dx="1" dy="0.3" layer="1" rot="R90"/>
+<smd name="4" x="1.5" y="1.9" dx="1" dy="0.3" layer="1" rot="R90"/>
+<smd name="5" x="-4.275" y="0" dx="1.65" dy="1.3" layer="1"/>
+<smd name="6" x="4.275" y="0" dx="1.65" dy="1.3" layer="1"/>
+<text x="0" y="0" size="1.27" layer="25" align="center">&gt;NAME</text>
+<text x="0" y="0" size="1.27" layer="27" align="center">&gt;VALUE</text>
+<wire x1="-5.1" y1="1.4" x2="5.1" y2="1.4" width="0.2" layer="51"/>
+<wire x1="5.1" y1="1.4" x2="5.1" y2="-3.67" width="0.2" layer="51"/>
+<wire x1="5.1" y1="-3.67" x2="-5.1" y2="-3.67" width="0.2" layer="51"/>
+<wire x1="-5.1" y1="-3.67" x2="-5.1" y2="1.4" width="0.2" layer="51"/>
+<wire x1="-6.1" y1="3.4" x2="6.1" y2="3.4" width="0.1" layer="51"/>
+<wire x1="6.1" y1="3.4" x2="6.1" y2="-4.67" width="0.1" layer="51"/>
+<wire x1="6.1" y1="-4.67" x2="-6.1" y2="-4.67" width="0.1" layer="51"/>
+<wire x1="-6.1" y1="-4.67" x2="-6.1" y2="3.4" width="0.1" layer="51"/>
+<wire x1="-5.1" y1="0.8" x2="-5.1" y2="1.4" width="0.1" layer="21"/>
+<wire x1="-5.1" y1="1.4" x2="-1.8" y2="1.4" width="0.1" layer="21"/>
+<wire x1="-5.1" y1="-0.8" x2="-5.1" y2="-3.67" width="0.1" layer="21"/>
+<wire x1="-5.1" y1="-3.67" x2="5.1" y2="-3.67" width="0.1" layer="21"/>
+<wire x1="5.1" y1="-3.67" x2="5.1" y2="-0.8" width="0.1" layer="21"/>
+<wire x1="1.8" y1="1.4" x2="5.1" y2="1.4" width="0.1" layer="21"/>
+<wire x1="5.1" y1="1.4" x2="5.1" y2="0.8" width="0.1" layer="21"/>
+<wire x1="-1.6" y1="2.9" x2="-1.4" y2="2.9" width="0.2" layer="21" curve="180"/>
+<wire x1="-1.4" y1="2.9" x2="-1.6" y2="2.9" width="0.2" layer="21" curve="180"/>
+</package>
 </packages>
 <packages3d>
 <package3d name="MOLEX_90814-0204" urn="urn:adsk.eagle:package:16762552/4" type="model" library_version="20" library_locally_modified="yes">
@@ -774,6 +876,12 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/STM32F031K6T6
 <description>&lt;b&gt;PEL12T-4225S-S1024-2&lt;/b&gt;&lt;br&gt;</description>
 <packageinstances>
 <packageinstance name="PEL12T4225SS1024"/>
+</packageinstances>
+</package3d>
+<package3d name="686104183422" urn="urn:adsk.eagle:package:18115753/3" type="model" library_version="47">
+<description>&lt;b&gt;686104183422-2&lt;/b&gt;&lt;br&gt;</description>
+<packageinstances>
+<packageinstance name="686104183422"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -807,6 +915,20 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/STM32F031K6T6
 <pin name="C1" x="25.4" y="-5.08" length="middle" rot="R180"/>
 <pin name="MH1" x="25.4" y="-7.62" length="middle" rot="R180"/>
 <pin name="MH2" x="25.4" y="-10.16" length="middle" rot="R180"/>
+</symbol>
+<symbol name="686104183422" urn="urn:adsk.eagle:symbol:18115751/1" library_version="47">
+<wire x1="5.08" y1="2.54" x2="15.24" y2="2.54" width="0.254" layer="94"/>
+<wire x1="15.24" y1="-10.16" x2="15.24" y2="2.54" width="0.254" layer="94"/>
+<wire x1="15.24" y1="-10.16" x2="5.08" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="5.08" y1="2.54" x2="5.08" y2="-10.16" width="0.254" layer="94"/>
+<text x="16.51" y="7.62" size="1.778" layer="95" align="center-left">&gt;NAME</text>
+<text x="16.51" y="5.08" size="1.778" layer="96" align="center-left">&gt;VALUE</text>
+<pin name="1" x="20.32" y="0" length="middle" rot="R180"/>
+<pin name="2" x="20.32" y="-2.54" length="middle" rot="R180"/>
+<pin name="3" x="20.32" y="-5.08" length="middle" rot="R180"/>
+<pin name="4" x="20.32" y="-7.62" length="middle" rot="R180"/>
+<pin name="5" x="0" y="0" length="middle"/>
+<pin name="6" x="0" y="-2.54" length="middle"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -876,6 +998,38 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/PEL12T-4225S-
 </device>
 </devices>
 </deviceset>
+<deviceset name="686104183422" urn="urn:adsk.eagle:component:18115754/2" prefix="J" library_version="47">
+<description>&lt;b&gt;Wurth Elektronik WR-FPC Series 1mm Pitch 4 Way Horizontal SMT Female FPC Connector, Top Contact&lt;/b&gt;&lt;p&gt;
+Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/686104183422.pdf"&gt; Datasheet &lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="686104183422" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="686104183422">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+<connect gate="G$1" pin="3" pad="3"/>
+<connect gate="G$1" pin="4" pad="4"/>
+<connect gate="G$1" pin="5" pad="5"/>
+<connect gate="G$1" pin="6" pad="6"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:18115753/3"/>
+</package3dinstances>
+<technologies>
+<technology name="">
+<attribute name="DESCRIPTION" value="Wurth Elektronik WR-FPC Series 1mm Pitch 4 Way Horizontal SMT Female FPC Connector, Top Contact" constant="no"/>
+<attribute name="HEIGHT" value="1.3mm" constant="no"/>
+<attribute name="MANUFACTURER_NAME" value="Wurth Elektronik" constant="no"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="686104183422" constant="no"/>
+<attribute name="MOUSER_PART_NUMBER" value="710-686104183422" constant="no"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=710-686104183422" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 </libraries>
@@ -912,7 +1066,6 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/PEL12T-4225S-
 <part name="+3V3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="C1" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="CAPACITOR" device="&quot;" package3d_urn="urn:adsk.eagle:package:576738/3" value="100nF"/>
 <part name="C4" library="passive components" library_urn="urn:adsk.eagle:library:16365137" deviceset="CAPACITOR" device="_1206" package3d_urn="urn:adsk.eagle:package:16431717/2" value="10 uF"/>
-<part name="I2C-CONN" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" deviceset="90814-0204" device="" package3d_urn="urn:adsk.eagle:package:16762552/4"/>
 <part name="GND1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="+3V4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="PRG-CONN" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" deviceset="90814-0204" device="" package3d_urn="urn:adsk.eagle:package:16762552/4"/>
@@ -943,6 +1096,11 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/PEL12T-4225S-
 <part name="R16" library="passive components" library_urn="urn:adsk.eagle:library:16365137" deviceset="RESISTOR" device="_0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="51 R"/>
 <part name="+3V9" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="GND17" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="J1" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" deviceset="686104183422" device="" package3d_urn="urn:adsk.eagle:package:18115753/3"/>
+<part name="U$1" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="TP" device="" package3d_urn="urn:adsk.eagle:package:3036141/3"/>
+<part name="U$2" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="TP" device="" package3d_urn="urn:adsk.eagle:package:3036141/3"/>
+<part name="U$3" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="TP" device="" package3d_urn="urn:adsk.eagle:package:3036141/3"/>
+<part name="U$4" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="TP" device="" package3d_urn="urn:adsk.eagle:package:3036141/3"/>
 </parts>
 <sheets>
 <sheet>
@@ -1035,15 +1193,11 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/PEL12T-4225S-
 <attribute name="NAME" x="131.064" y="84.201" size="1.778" layer="95"/>
 <attribute name="VALUE" x="131.064" y="79.121" size="1.778" layer="96"/>
 </instance>
-<instance part="I2C-CONN" gate="G$1" x="302.26" y="88.9" smashed="yes">
-<attribute name="NAME" x="306.07" y="96.52" size="1.778" layer="95" align="center-left"/>
-<attribute name="VALUE" x="306.07" y="93.98" size="1.778" layer="96" align="center-left"/>
+<instance part="GND1" gate="1" x="345.44" y="50.8" smashed="yes">
+<attribute name="VALUE" x="342.9" y="48.26" size="1.778" layer="96"/>
 </instance>
-<instance part="GND1" gate="1" x="325.12" y="81.28" smashed="yes">
-<attribute name="VALUE" x="322.58" y="78.74" size="1.778" layer="96"/>
-</instance>
-<instance part="+3V4" gate="G$1" x="325.12" y="96.52" smashed="yes">
-<attribute name="VALUE" x="322.58" y="91.44" size="1.778" layer="96" rot="R90"/>
+<instance part="+3V4" gate="G$1" x="345.44" y="68.58" smashed="yes">
+<attribute name="VALUE" x="342.9" y="63.5" size="1.778" layer="96" rot="R90"/>
 </instance>
 <instance part="PRG-CONN" gate="G$1" x="383.54" y="53.34" smashed="yes">
 <attribute name="NAME" x="387.35" y="60.96" size="1.778" layer="95" align="center-left"/>
@@ -1145,6 +1299,22 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/PEL12T-4225S-
 <instance part="GND17" gate="1" x="487.68" y="-27.94" smashed="yes" rot="R90">
 <attribute name="VALUE" x="490.22" y="-30.48" size="1.778" layer="96" rot="R90"/>
 </instance>
+<instance part="J1" gate="G$1" x="289.56" y="68.58" smashed="yes">
+<attribute name="NAME" x="285.75" y="76.2" size="1.778" layer="95" align="center-left"/>
+<attribute name="VALUE" x="285.75" y="73.66" size="1.778" layer="96" align="center-left"/>
+</instance>
+<instance part="U$1" gate="G$1" x="312.42" y="86.36" smashed="yes">
+<attribute name="NAME" x="311.15" y="87.63" size="1.778" layer="95"/>
+</instance>
+<instance part="U$2" gate="G$1" x="317.5" y="86.36" smashed="yes">
+<attribute name="NAME" x="316.23" y="87.63" size="1.778" layer="95"/>
+</instance>
+<instance part="U$3" gate="G$1" x="322.58" y="86.36" smashed="yes">
+<attribute name="NAME" x="321.31" y="87.63" size="1.778" layer="95"/>
+</instance>
+<instance part="U$4" gate="G$1" x="327.66" y="86.36" smashed="yes">
+<attribute name="NAME" x="326.39" y="87.63" size="1.778" layer="95"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -1197,9 +1367,13 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/PEL12T-4225S-
 </segment>
 <segment>
 <pinref part="GND1" gate="1" pin="GND"/>
-<wire x1="325.12" y1="83.82" x2="325.12" y2="86.36" width="0.1524" layer="91"/>
-<pinref part="I2C-CONN" gate="G$1" pin="4"/>
-<wire x1="325.12" y1="86.36" x2="322.58" y2="86.36" width="0.1524" layer="91"/>
+<pinref part="J1" gate="G$1" pin="4"/>
+<wire x1="345.44" y1="53.34" x2="345.44" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="345.44" y1="60.96" x2="327.66" y2="60.96" width="0.1524" layer="91"/>
+<pinref part="U$4" gate="G$1" pin="TP"/>
+<wire x1="327.66" y1="60.96" x2="309.88" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="327.66" y1="83.82" x2="327.66" y2="60.96" width="0.1524" layer="91"/>
+<junction x="327.66" y="60.96"/>
 </segment>
 <segment>
 <pinref part="GND2" gate="1" pin="GND"/>
@@ -1301,9 +1475,13 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/PEL12T-4225S-
 </segment>
 <segment>
 <pinref part="+3V4" gate="G$1" pin="+3V3"/>
-<wire x1="325.12" y1="93.98" x2="325.12" y2="88.9" width="0.1524" layer="91"/>
-<pinref part="I2C-CONN" gate="G$1" pin="3"/>
-<wire x1="325.12" y1="88.9" x2="322.58" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="345.44" y1="66.04" x2="345.44" y2="63.5" width="0.1524" layer="91"/>
+<pinref part="J1" gate="G$1" pin="3"/>
+<wire x1="345.44" y1="63.5" x2="322.58" y2="63.5" width="0.1524" layer="91"/>
+<pinref part="U$3" gate="G$1" pin="TP"/>
+<wire x1="322.58" y1="63.5" x2="309.88" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="322.58" y1="63.5" x2="322.58" y2="83.82" width="0.1524" layer="91"/>
+<junction x="322.58" y="63.5"/>
 </segment>
 <segment>
 <pinref part="C5" gate="G$1" pin="1"/>
@@ -1375,9 +1553,14 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/PEL12T-4225S-
 <label x="218.44" y="88.9" size="1.016" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="I2C-CONN" gate="G$1" pin="1"/>
-<wire x1="302.26" y1="88.9" x2="299.72" y2="88.9" width="0.1524" layer="91"/>
-<label x="299.72" y="88.9" size="1.016" layer="95" rot="R180" xref="yes"/>
+<wire x1="312.42" y1="78.74" x2="342.9" y2="78.74" width="0.1524" layer="91"/>
+<label x="342.9" y="78.74" size="1.016" layer="95" xref="yes"/>
+<wire x1="312.42" y1="78.74" x2="312.42" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="J1" gate="G$1" pin="1"/>
+<wire x1="312.42" y1="68.58" x2="309.88" y2="68.58" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="TP"/>
+<wire x1="312.42" y1="83.82" x2="312.42" y2="78.74" width="0.1524" layer="91"/>
+<junction x="312.42" y="78.74"/>
 </segment>
 <segment>
 <pinref part="IC2" gate="G$1" pin="PA10"/>
@@ -1392,9 +1575,14 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/PEL12T-4225S-
 <label x="177.8" y="134.62" size="1.016" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="I2C-CONN" gate="G$1" pin="2"/>
-<wire x1="302.26" y1="86.36" x2="299.72" y2="86.36" width="0.1524" layer="91"/>
-<label x="299.72" y="86.36" size="1.016" layer="95" rot="R180" xref="yes"/>
+<wire x1="317.5" y1="73.66" x2="342.9" y2="73.66" width="0.1524" layer="91"/>
+<label x="342.9" y="73.66" size="1.016" layer="95" xref="yes"/>
+<wire x1="317.5" y1="73.66" x2="317.5" y2="66.04" width="0.1524" layer="91"/>
+<pinref part="J1" gate="G$1" pin="2"/>
+<wire x1="317.5" y1="66.04" x2="309.88" y2="66.04" width="0.1524" layer="91"/>
+<pinref part="U$2" gate="G$1" pin="TP"/>
+<wire x1="317.5" y1="83.82" x2="317.5" y2="73.66" width="0.1524" layer="91"/>
+<junction x="317.5" y="73.66"/>
 </segment>
 <segment>
 <pinref part="IC2" gate="G$1" pin="PB6"/>

@@ -157,9 +157,10 @@ void lwIPTask(void const * argument){
 		IP_client_number[2] =  atoi(IP3_client);
 		IP_client_number[3] =  atoi(IP4_client);
 
+		if (match("/connection")){UDP_init(IP_client_number[0],IP_client_number[1],IP_client_number[2],IP_client_number[3]);}
+		if (match("/Disconnection")){UDP_init(10,0,0,0);}
 
-
-		UDP_init(IP_client_number[0],IP_client_number[1],IP_client_number[2],IP_client_number[3]);
+		//UDP_init(IP_client_number[0],IP_client_number[1],IP_client_number[2],IP_client_number[3]);
 
 
 	}
@@ -171,7 +172,7 @@ void lwIPTask(void const * argument){
 	 if(Broadcaster != NULL)
 	      {
 	        IP4_ADDR(&ownIPaddr,  IP_READ_FLASH[0], IP_READ_FLASH[1], IP_READ_FLASH[2], IP_READ_FLASH[3]); //The IP Adress of the STM32
-	        udpErr = udp_bind(Broadcaster, &ownIPaddr, 9010); //Definition of
+	        udpErr = udp_bind(Broadcaster, &ownIPaddr, 9011); //Definition of
 	        udp_recv(Broadcaster, ConnectionWhish, NULL);//Create udp_recive callback
 	        if (udpErr ==ERR_OK){
 	        }
@@ -222,7 +223,7 @@ char UART_IN[10];
 
 		  l++;
 		  if (l == 0){BroadcastDeviceInfo(l);}
-
+		  OSCmessageINTSend("/Watchdog",  9, l);
 		  //OSCmessageStringSend("/klanghabitat", 13, "Device: Test; IP: 127.1.1.2",27);
 
 		 //=========================================================================//
@@ -314,7 +315,7 @@ char UART_IN[10];
 /*****************************************************************************/
 		  char p = 48;
 		  char k = 48;
-
+/*
 		  char FFT_String[12] = {'/','F','F','T','/','L','E','F','T','/','0','0'};
 
 		  for (int i=0; i<50; i++){
@@ -331,7 +332,7 @@ char UART_IN[10];
 
 		  }
 
-
+*/
 
 /*****************************************************************************/
 

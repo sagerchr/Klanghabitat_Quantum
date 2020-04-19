@@ -208,6 +208,9 @@
     <ClCompile Include="..\..\Source\Main.cpp">
       <Filter>OSCMonitorTutorial\Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\ListBoxClass.cpp">
+      <Filter>OSCMonitorTutorial</Filter>
+    </ClCompile>
     <ClCompile Include="C:\JUCE\modules\juce_core\containers\juce_AbstractFifo.cpp">
       <Filter>JUCE Modules\juce_core\containers</Filter>
     </ClCompile>
@@ -1413,8 +1416,8 @@
     <ClInclude Include="..\..\Source\OSCMonitorTutorial_02.h">
       <Filter>OSCMonitorTutorial\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\OSCMonitorTutorial_01.h">
-      <Filter>OSCMonitorTutorial\Source</Filter>
+    <ClInclude Include="..\..\Source\ListBoxClass.h">
+      <Filter>OSCMonitorTutorial</Filter>
     </ClInclude>
     <ClInclude Include="C:\JUCE\modules\juce_core\containers\juce_AbstractFifo.h">
       <Filter>JUCE Modules\juce_core\containers</Filter>

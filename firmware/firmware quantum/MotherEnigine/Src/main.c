@@ -245,7 +245,7 @@ int main(void)
   //defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
-  osThreadDef(lwIPTask, lwIPTask, osPriorityNormal, 0, 1000);
+  osThreadDef(lwIPTask, lwIPTask, osPriorityNormal, 0, 1200);
   lwIPTaskHandle = osThreadCreate(osThread(lwIPTask), NULL);
 
   osThreadDef(dspTask, dspTask, osPriorityNormal, 0, 1000);
