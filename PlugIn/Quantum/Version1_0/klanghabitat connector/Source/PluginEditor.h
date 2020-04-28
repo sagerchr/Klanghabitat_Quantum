@@ -34,6 +34,16 @@ public:
     void connectButtonClicked();
     void connectTarget();
     void disconnectTarget();
+    
+    void MSButtonClicked();
+    void MS_SignalButtonClicked();
+    void LeftBypassButtonClicked();
+    void RightBypassButtonClicked();
+    void ListenMidButtonClicked();
+    void ListenSideButtonClicked();
+    
+    
+    
 private:
     // This reference is provided as a quick way for your editor to
     // access the processor object that created it.
@@ -49,6 +59,8 @@ private:
     OSCSender sender;
     
     String Device_IPAdress;
+    String TargetIP;
+    
     
     Label Device_Incoming_Message{ {}, "" };
     
@@ -61,6 +73,14 @@ private:
     ComboBox deviceList {"select the dedicated device"};
     TextButton connectButton   {};
     
+    TextButton MSButton           {};
+    TextButton MS_SignalButton    {};
+    TextButton LeftBypassButton   {};
+    TextButton RightBypassButton  {};
+    TextButton ListenMidButton    {};
+    TextButton ListenSideButton   {};
+    
+    
     Label stringToTarget;
     Label Watchdog;
     
@@ -72,6 +92,13 @@ private:
     
     bool listen;
     bool connected;
+    
+    bool MS_STERO_IN = 0;
+    bool MS_STERO_OUT = 0;
+    bool L_BYPASS = 0;
+    bool R_BYPASS = 0;
+    bool MID = 0;
+    bool SIDE = 0;
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (KlanghabitatConnectorAudioProcessorEditor)
 };

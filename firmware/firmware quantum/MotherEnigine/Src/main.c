@@ -206,15 +206,17 @@ int main(void)
   resetMax=0;
 
 
-  	  DAC_Control(1,2,35); //offset VCA1
-  	  DAC_Control(2,2,25); //offset VCA2
-	  DAC_Control(3,2,1); //offset VCA1
-	  DAC_Control(4,2,1); //offset VCA2
 
-	  DAC_Control(1,1,50); //SYM1 adjust
-	  DAC_Control(2,1,100); //SYM2 adjust
-	  DAC_Control(3,1,150); //SYM3 adjust
-	  DAC_Control(4,1,200); //SYM4 adjust
+	  DAC_Control(1,1,119); //SYM1 adjust
+	  DAC_Control(2,1,115); //SYM2 adjust
+	  DAC_Control(3,1,246); //SYM3 adjust
+	  DAC_Control(4,1,254); //SYM4 adjust
+
+	  DAC_Control(1,2,50);
+	  DAC_Control(2,2,50);
+	  DAC_Control(3,2,128); //offset VCA1
+	  DAC_Control(4,2,128); //offset VCA2
+
 
 	  IP_READ_FLASH[0]=192;
 	  IP_READ_FLASH[1]=168;

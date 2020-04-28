@@ -3,6 +3,9 @@
 <JUCERPROJECT id="SKgTLs" name="klanghabitat connector" projectType="audioplug"
               jucerVersion="5.4.7" companyName="klanghabitat" companyWebsite="www.klanghabitat.com">
   <MAINGROUP id="aed2Y1" name="klanghabitat connector">
+    <GROUP id="{B1AD5F1E-C61F-92AE-E4B2-66FEEBC78E92}" name="Resources">
+      <FILE id="RrGkdz" name="wave icon.png" compile="0" resource="1" file="Resources/wave icon.png"/>
+    </GROUP>
     <GROUP id="{8AD6083D-6766-4DE1-158F-63BAEEE9037D}" name="Source">
       <GROUP id="{EC419777-626D-DEA1-1927-F42465D568E5}" name="GUI Classes">
         <FILE id="P2VuTy" name="ConnectedAnimation.cpp" compile="1" resource="0"

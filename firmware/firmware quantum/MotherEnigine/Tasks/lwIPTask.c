@@ -259,13 +259,13 @@ char UART_IN[10];
 			 HAL_GPIO_WritePin(GPIOG, Relais6_Pin,GPIO_PIN_RESET);}
 		 //=========================================================================//
 
+		  DAC_Control(3,2,250); //offset VCA1
+		  DAC_Control(4,2,250); //offset VCA2
 
-
-
-		 DAC_Control(3,2,UART_reciveCorrected[6]);
-		 DAC_Control(4,2,UART_reciveCorrected[8]);
-
-
+		  //DAC_Control(1,1,UART_reciveCorrected[6]); //SYM1 adjust
+		  //DAC_Control(2,1,UART_reciveCorrected[7]); //SYM2 adjust
+		  //DAC_Control(3,1,UART_reciveCorrected[8]); //SYM3 adjust
+		  //DAC_Control(4,1,UART_reciveCorrected[9]); //SYM4 adjust
 
 
 		OSCmessageINTSend("/VALUE/Level/CH1/RMS",  20, voltageRMS[0]*30);

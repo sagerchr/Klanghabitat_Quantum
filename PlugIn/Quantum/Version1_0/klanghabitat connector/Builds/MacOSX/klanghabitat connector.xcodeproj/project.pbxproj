@@ -97,6 +97,10 @@
 			isa = PBXBuildFile;
 			fileRef = 868B64534A989EE8676DAE55;
 		};
+		31DE17977A081E70DA29676C = {
+			isa = PBXBuildFile;
+			fileRef = 624AC540E1FD4737BC976362;
+		};
 		981E6C130AC00BD13FAF7D16 = {
 			isa = PBXBuildFile;
 			fileRef = 057DD1E9347A88AFDEE47E6E;
@@ -377,6 +381,13 @@
 			path = "../../Source/GUI Classes/OSCListBoxClass.h";
 			sourceTree = "SOURCE_ROOT";
 		};
+		624AC540E1FD4737BC976362 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			name = BinaryData.cpp;
+			path = ../../JuceLibraryCode/BinaryData.cpp;
+			sourceTree = "SOURCE_ROOT";
+		};
 		6278DFC4F496F75CF69473C4 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.objcpp;
@@ -411,6 +422,13 @@
 			name = OpenGL.framework;
 			path = System/Library/Frameworks/OpenGL.framework;
 			sourceTree = SDKROOT;
+		};
+		774BAA19DDCF804F8C023E4C = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = BinaryData.h;
+			path = ../../JuceLibraryCode/BinaryData.h;
+			sourceTree = "SOURCE_ROOT";
 		};
 		795C8035F56A5F0F3B49D3E6 = {
 			isa = PBXFileReference;
@@ -460,6 +478,13 @@
 			name = "juce_audio_processors";
 			path = "/Users/christiansager/Documents/JUCE/modules/juce_audio_processors";
 			sourceTree = "<absolute>";
+		};
+		9160007A1906BFCA80FDBE7F = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "wave icon.png";
+			path = "../../Resources/wave icon.png";
+			sourceTree = "SOURCE_ROOT";
 		};
 		94EFDFE662F4F4D7A6C80E57 = {
 			isa = PBXFileReference;
@@ -664,6 +689,14 @@
 			path = "../../JuceLibraryCode/include_juce_audio_plugin_client_utils.cpp";
 			sourceTree = "SOURCE_ROOT";
 		};
+		FDCDDD5453EBD2BA2F55CB15 = {
+			isa = PBXGroup;
+			children = (
+				9160007A1906BFCA80FDBE7F,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		C5DC4333039125FF329CD2AF = {
 			isa = PBXGroup;
 			children = (
@@ -692,6 +725,7 @@
 		7629D5746E94FCA835A909C1 = {
 			isa = PBXGroup;
 			children = (
+				FDCDDD5453EBD2BA2F55CB15,
 				3DB5F326B09B452E358888AE,
 			);
 			name = "klanghabitat connector";
@@ -723,6 +757,8 @@
 			isa = PBXGroup;
 			children = (
 				F359944F29064133DBBC0449,
+				624AC540E1FD4737BC976362,
+				774BAA19DDCF804F8C023E4C,
 				057DD1E9347A88AFDEE47E6E,
 				970D87FEAE943B3E1360B1A3,
 				DAE62819244EB97C949D1A79,
@@ -1568,6 +1604,7 @@
 				992BD9F823A0AA94772C2753,
 				9BD4A01BB3D8FC9ABBB0CCE4,
 				2C448DCB26EDC56416604528,
+				31DE17977A081E70DA29676C,
 				981E6C130AC00BD13FAF7D16,
 				09DAD4D86CE6EF0701DBAD68,
 				5856E5A792781C48DD905817,

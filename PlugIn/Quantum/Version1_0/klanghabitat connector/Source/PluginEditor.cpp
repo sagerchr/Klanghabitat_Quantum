@@ -114,6 +114,40 @@ KlanghabitatConnectorAudioProcessorEditor::KlanghabitatConnectorAudioProcessorEd
     OutGainLabel.setJustificationType(Justification::horizontallyCentred);
     
     
+    MSButton.setBounds(550, 400, 120, 30);
+    addAndMakeVisible (MSButton);
+    MSButton.onClick = [this] { KlanghabitatConnectorAudioProcessorEditor::MSButtonClicked(); };
+    MSButton.setButtonText ("MS/STERO IN (K5)");
+    
+    MS_SignalButton.setBounds(670, 400, 120, 30);
+    addAndMakeVisible (MS_SignalButton);
+    MS_SignalButton.onClick = [this] { KlanghabitatConnectorAudioProcessorEditor::MS_SignalButtonClicked(); };
+    MS_SignalButton.setButtonText ("MS/STERO OUT (K6)");
+    
+    LeftBypassButton.setBounds(790, 400, 120, 30);
+    addAndMakeVisible (LeftBypassButton);
+    LeftBypassButton.onClick = [this] { KlanghabitatConnectorAudioProcessorEditor::LeftBypassButtonClicked(); };
+    LeftBypassButton.setButtonText ("L BYPASS");
+    
+    RightBypassButton.setBounds(910, 400, 120, 30);
+    addAndMakeVisible (RightBypassButton);
+    RightBypassButton.onClick = [this] { KlanghabitatConnectorAudioProcessorEditor::RightBypassButtonClicked(); };
+    RightBypassButton.setButtonText ("R BYPASS");
+    
+    ListenMidButton.setBounds(1030, 400, 120, 30);
+    addAndMakeVisible (ListenMidButton);
+    ListenMidButton.onClick = [this] { KlanghabitatConnectorAudioProcessorEditor::ListenMidButtonClicked(); };
+    ListenMidButton.setButtonText ("MID (K8)");
+    
+    ListenSideButton.setBounds(1150, 400, 120, 30);
+    addAndMakeVisible (ListenSideButton);
+    ListenSideButton.onClick = [this] { KlanghabitatConnectorAudioProcessorEditor::ListenSideButtonClicked(); };
+    ListenSideButton.setButtonText ("SIDE (K7)");
+    
+    
+    
+    
+
     //#######################Connection########################################################
     deviceList.setBounds(550,10,290,25);
     addAndMakeVisible(deviceList);
@@ -143,6 +177,7 @@ KlanghabitatConnectorAudioProcessorEditor::KlanghabitatConnectorAudioProcessorEd
     
     startTimer(1000);
     
+    setResizable (true, true);
     setSize (1600, 500);
 }
 
@@ -215,6 +250,7 @@ void KlanghabitatConnectorAudioProcessorEditor::connectTarget(){
            
             if (IPAddressTarget.substring(0,4) == allIpAdresses[i].toString().substring(0, 4)){
                 myIPAdress = allIpAdresses[i].toString();
+                TargetIP = IPAddressTarget;
                 sender.connect (IPAddressTarget, 9011);
                 sender.send ("/connection", myIPAdress);//sending "/connection" + IPAdress will start target to send downstream
                 break;
@@ -274,3 +310,48 @@ void KlanghabitatConnectorAudioProcessorEditor::oscMessageReceived (const OSCMes
     }
     
 }
+
+
+
+
+
+
+//======================Out going event handles================================
+
+void KlanghabitatConnectorAudioProcessorEditor::MSButtonClicked(){
+    sender.connect (TargetIP, 9001);
+    MS_STERO_IN = !MS_STERO_IN;
+    sender.send ("/MotherEngine/Relais/K5", (int)MS_STERO_IN);
+    sender.disconnect();
+}
+void KlanghabitatConnectorAudioProcessorEditor::MS_SignalButtonClicked(){
+    sender.connect (TargetIP, 9001);
+    MS_STERO_OUT = !MS_STERO_OUT;
+    sender.send ("/MotherEngine/Relais/K6", (int)MS_STERO_OUT);
+    sender.disconnect();
+}
+void KlanghabitatConnectorAudioProcessorEditor::LeftBypassButtonClicked(){
+    sender.connect (TargetIP, 9001);
+    L_BYPASS = !L_BYPASS;
+    sender.send ("/MotherEngine/Relais/bypassLeft", (int)L_BYPASS);
+    sender.disconnect();
+}
+void KlanghabitatConnectorAudioProcessorEditor::RightBypassButtonClicked(){
+    sender.connect (TargetIP, 9001);
+    R_BYPASS = !R_BYPASS;
+    sender.send ("/MotherEngine/Relais/bypassRight", (int)R_BYPASS);
+    sender.disconnect();
+}
+void KlanghabitatConnectorAudioProcessorEditor::ListenMidButtonClicked(){
+    sender.connect (TargetIP, 9001);
+    MID = !MID;
+    sender.send ("/MotherEngine/Relais/K8", (int)MID);
+    sender.disconnect();
+}
+void KlanghabitatConnectorAudioProcessorEditor::ListenSideButtonClicked(){
+    sender.connect (TargetIP, 9001);
+    SIDE = !SIDE;
+    sender.send ("/MotherEngine/Relais/K7", (int)SIDE);
+    sender.disconnect();
+}
+
