@@ -22,7 +22,9 @@
 #include "main.h"
 #include "cmsis_os.h"
 #include "fatfs.h"
-
+#include "../tasks/SerialHandleTask/SerialHandleTask.h"
+#include "../tasks/EncoderHandleTask/EncoderHandleTask.h"
+#include "../tasks/OSCHandleTask/OSCHandleTask.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -64,8 +66,11 @@ DMA_HandleTypeDef hdma_usart6_rx;
 DMA_HandleTypeDef hdma_usart6_tx;
 
 osThreadId defaultTaskHandle;
-/* USER CODE BEGIN PV */
 
+/* USER CODE BEGIN PV */
+osThreadId SerialHandleTaskHandle;
+osThreadId EncoderHandleTaskHandle;
+osThreadId OSCHandleTaskHandle;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -89,11 +94,13 @@ extern void GRAPHICS_MainTask(void);
 void StartDefaultTask(void const * argument);
 
 /* USER CODE BEGIN PFP */
-
+void Encoder_Init(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+uint8_t i2c[17];
+uint16_t EncoderAdr[6] = {0,8,16,32,64,128};
 
 /* USER CODE END 0 */
 
@@ -139,7 +146,7 @@ int main(void)
   MX_USART3_UART_Init();
   MX_USART6_UART_Init();
   /* USER CODE BEGIN 2 */
-
+  Encoder_Init();
   /* USER CODE END 2 */
 
 /* Initialise the graphical hardware */
@@ -153,6 +160,8 @@ int main(void)
   /* USER CODE BEGIN RTOS_MUTEX */
   /* add mutexes, ... */
   BSP_TS_Init(800, 480);
+  HAL_UART_Receive_DMA(&huart6, UART_RECIVE,150);
+  HAL_UART_Transmit_DMA(&huart6, UART_TRANSFER,150);
   /* USER CODE END RTOS_MUTEX */
 
   /* USER CODE BEGIN RTOS_SEMAPHORES */
@@ -169,13 +178,19 @@ int main(void)
 
   /* Create the thread(s) */
   /* definition and creation of defaultTask */
-  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 4096);
+  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 4000);
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
-
   /* USER CODE BEGIN RTOS_THREADS */
+  osThreadDef(SerialHandleTask, SerialHandleTask, osPriorityNormal, 0, 500);
+  SerialHandleTaskHandle = osThreadCreate(osThread(SerialHandleTask), NULL);
+
+  osThreadDef(EncoderHandleTask, EncoderHandleTask, osPriorityNormal, 0, 250);
+  EncoderHandleTaskHandle = osThreadCreate(osThread(EncoderHandleTask), NULL);
+
+  osThreadDef(OSCHandleTask, OSCHandleTask, osPriorityNormal, 0, 2000);
+  OSCHandleTaskHandle = osThreadCreate(osThread(OSCHandleTask), NULL);
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
-
   /* Start scheduler */
   osKernelStart();
   
@@ -649,7 +664,7 @@ static void MX_USART6_UART_Init(void)
 
   /* USER CODE END USART6_Init 1 */
   huart6.Instance = USART6;
-  huart6.Init.BaudRate = 19200;
+  huart6.Init.BaudRate = 115200;
   huart6.Init.WordLength = UART_WORDLENGTH_8B;
   huart6.Init.StopBits = UART_STOPBITS_1;
   huart6.Init.Parity = UART_PARITY_NONE;
@@ -820,7 +835,40 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+void Encoder_Init(){
+	HAL_Delay(0);
 
+	for(int i=0; i<6;i++){
+		i2c[0]= 0x00;
+		i2c[1]= 0x80;
+		HAL_I2C_Master_Transmit(&hi2c1,EncoderAdr[i], i2c,2,10);
+	}
+
+	for(int i=0; i<6;i++){
+		i2c[0]= 0x0C;
+		i2c[1]= 0x00;
+		i2c[2]= 0x00;
+		i2c[3]= 0x10;
+		i2c[4]= 0x10;
+		HAL_I2C_Master_Transmit(&hi2c1,EncoderAdr[i], i2c,5,10);
+	}
+
+	for(int i=0; i<6;i++){
+		i2c[0]= 0x00;
+		i2c[1]= 0x10;
+		HAL_I2C_Master_Transmit(&hi2c1,EncoderAdr[i], i2c,2,10);
+	}
+
+	for(int i=0; i<6;i++){
+		i2c[0]= 0x14;
+		i2c[1]= 0x00;
+		i2c[2]= 0x00;
+		i2c[3]= 0x00;
+		i2c[4]= 0x01;
+		HAL_I2C_Master_Transmit(&hi2c1,EncoderAdr[i], i2c,5,10);
+	}
+	HAL_Delay(500);
+}
 /* USER CODE END 4 */
 
 /* USER CODE BEGIN Header_StartDefaultTask */

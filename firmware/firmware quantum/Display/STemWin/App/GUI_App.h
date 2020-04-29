@@ -48,6 +48,16 @@
 #ifndef GUI_APP_H
 #define GUI_APP_H
 
+extern int X;
+extern int Y;
+
+extern int adc1;
+extern int adc2;
+extern int watchdog;
+
+extern int left;
+extern int right;
+
 void GRAPHICS_MainTask(void);
 
 #endif /* GUI_APP_H */

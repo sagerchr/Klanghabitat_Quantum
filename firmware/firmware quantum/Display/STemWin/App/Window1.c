@@ -2,7 +2,11 @@
 #include "GUI_App.h"
 #include "DIALOG.h"
 #include "GUI.h"
+#include "main.h"
 #include "stm32f4xx_hal.h"
+#include "GuiElements/AudioMeter.h"
+#include "GuiElements/Controlls.h"
+#include "../tasks/SerialHandleTask/UART_IO.h"
 
 static int i = 20;
 
@@ -13,16 +17,11 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
     break;
   default:
     WM_DefaultProc(pMsg);
+
+    GUI_Clear();
+
   }
 
-
-	  GUI_SetBkColor(GUI_WHITE);
-	  GUI_Clear();
-	  GUI_SetColor(GUI_GREEN);
-	  GUI_SetFont(&GUI_Font32_1);
-	  GUI_DispStringAt("Window1", i, 50);
-	  if(i == 500) i=0;
-	  i++;
 }
 
 
@@ -30,7 +29,7 @@ WM_HWIN CreateWindow1(void) {
 
   WM_HWIN Window;
 
-  Window = WM_CreateWindow(0, 300, 600, 200,WM_CF_SHOW, _cbDialog, 0);
+  Window = WM_CreateWindow(0, 300, 500, 200,WM_CF_SHOW, _cbDialog, 0);
 
   WM_MULTIBUF_Enable(1);
 

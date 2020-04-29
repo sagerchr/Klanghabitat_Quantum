@@ -52,9 +52,7 @@ extern  WM_HWIN CreateMainWindow(void);
 extern  WM_HWIN CreateWindow1(void);
 extern  WM_HWIN CreateWindow2(void);
 extern  WM_HWIN CreateWindow3(WM_HWIN *hWinParent);
-TS_StateTypeDef TS_State;
-int X=0;
-int Y=0;
+
 
 void GRAPHICS_MainTask(void) {
 
@@ -68,45 +66,24 @@ void GRAPHICS_MainTask(void) {
 	  GUI_Clear();
 
 	WM_HWIN MainWindow;
-	WM_HWIN Window1;
-	WM_HWIN Window2;
-	WM_HWIN Window3;
+
 
 	MainWindow = CreateMainWindow();
-	Window2 = CreateWindow2();
-	Window1 = CreateWindow1();
-	Window3 = CreateWindow3(&Window1);
+
 /* USER CODE BEGIN GRAPHICS_MainTask */
  /* User can implement his graphic application here */
   /* Hello Word example */
 
 /* USER CODE END GRAPHICS_MainTask */
-	int p=0;
+
 
 
   while(1)
 { 	  //WM_ClrHasTrans(SecondWindow);
 
-	  p+=0;
 
-      WM_Invalidate(Window1);
-      WM_SendMessageNoPara(Window1, WM_Paint);
-
-      WM_Invalidate(Window2);
-      WM_SendMessageNoPara(Window2, WM_Paint);
-
-      WM_Invalidate(Window3);
-      WM_SendMessageNoPara(Window3, WM_Paint);
-
-
-      BSP_TS_GetState(&TS_State);
-
-      X = TS_State.touchX[0];
-      Y = TS_State.touchY[0];
-
-
-      WM_MoveTo(Window1,X-300,Y);
-
+      WM_Invalidate(MainWindow);
+      WM_SendMessageNoPara(MainWindow, WM_Paint);
 
       GUI_Delay(1);
 

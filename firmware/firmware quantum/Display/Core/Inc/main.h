@@ -265,7 +265,13 @@ void Error_Handler(void);
 #define STLK_TX_Pin GPIO_PIN_11
 #define STLK_TX_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
+char UART_RECIVE[150];
+char UART_TRANSFER[150];
 
+int TouchX;
+int TouchY;
+
+int pots[6];
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
