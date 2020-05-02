@@ -11,6 +11,7 @@
 UART_HandleTypeDef huart6;
 void SerialHandleTask(void const * argument)
 {
+
   for(;;)
   {
 
@@ -28,13 +29,11 @@ void SerialHandleTask(void const * argument)
       UART_TRANSFER[11]=0x00;
       UART_TRANSFER[12]=0x02;//8
 	  UART_TRANSFER[13]=0x03;//9
+
   }
 
 }
 
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 
-	UARTRECIVER();
-}
 
 

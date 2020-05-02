@@ -147,6 +147,11 @@ int main(void)
   MX_USART6_UART_Init();
   /* USER CODE BEGIN 2 */
   Encoder_Init();
+
+  BSP_LED_Init(LED1);
+  BSP_LED_Init(LED2);
+  BSP_LED_Init(LED3);
+  BSP_LED_Init(LED4);
   /* USER CODE END 2 */
 
 /* Initialise the graphical hardware */
@@ -154,11 +159,12 @@ int main(void)
 
   /* Initialise the graphical stack engine */
   GRAPHICS_Init();
-      
   
+
 
   /* USER CODE BEGIN RTOS_MUTEX */
   /* add mutexes, ... */
+
   BSP_TS_Init(800, 480);
   HAL_UART_Receive_DMA(&huart6, UART_RECIVE,150);
   HAL_UART_Transmit_DMA(&huart6, UART_TRANSFER,150);
@@ -178,17 +184,17 @@ int main(void)
 
   /* Create the thread(s) */
   /* definition and creation of defaultTask */
-  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 4000);
+  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal , 0, 6000);
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
   /* USER CODE BEGIN RTOS_THREADS */
-  osThreadDef(SerialHandleTask, SerialHandleTask, osPriorityNormal, 0, 500);
-  SerialHandleTaskHandle = osThreadCreate(osThread(SerialHandleTask), NULL);
+  //osThreadDef(SerialHandleTask, SerialHandleTask, osPriorityNormal, 0, 1000);
+  //SerialHandleTaskHandle = osThreadCreate(osThread(SerialHandleTask), NULL);
 
-  osThreadDef(EncoderHandleTask, EncoderHandleTask, osPriorityNormal, 0, 250);
-  EncoderHandleTaskHandle = osThreadCreate(osThread(EncoderHandleTask), NULL);
+  //osThreadDef(EncoderHandleTask, EncoderHandleTask, osPriorityAboveNormal, 0, 1000);
+  //EncoderHandleTaskHandle = osThreadCreate(osThread(EncoderHandleTask), NULL);
 
-  osThreadDef(OSCHandleTask, OSCHandleTask, osPriorityNormal, 0, 2000);
-  OSCHandleTaskHandle = osThreadCreate(osThread(OSCHandleTask), NULL);
+  //osThreadDef(OSCHandleTask, OSCHandleTask, osPriorityNormal, 0, 1000);
+  //OSCHandleTaskHandle = osThreadCreate(osThread(OSCHandleTask), NULL);
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
   /* Start scheduler */
@@ -836,7 +842,7 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 void Encoder_Init(){
-	HAL_Delay(0);
+
 
 	for(int i=0; i<6;i++){
 		i2c[0]= 0x00;
@@ -867,7 +873,7 @@ void Encoder_Init(){
 		i2c[4]= 0x01;
 		HAL_I2C_Master_Transmit(&hi2c1,EncoderAdr[i], i2c,5,10);
 	}
-	HAL_Delay(500);
+
 }
 /* USER CODE END 4 */
 

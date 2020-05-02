@@ -26,34 +26,38 @@ void drawWaveFormUartRight(int x,int y, int adc, int clear){
 	clearBuffer();
 	}
 
-	ringBufferLeft[350] = adc;
-		for(int i=0; i<350;i++){
-			ringBufferLeft[i] = ringBufferLeft[i+1];
+	//ringBufferLeft[350] = adc;
+		for(int i=0; i<500;i++){
+			//ringBufferLeft[i] = ringBufferLeft[i+1];
 
 		    GUI_SetColor( GUI_ORANGE );
-	        lineStart = y - (ringBufferLeft[i]/2);
-	        lineEnd = lineStart + (ringBufferLeft[i]);
-	        GUI_DrawVLine(350+x-i,lineStart, lineEnd);
+	        lineStart = y - (LeftStream[i]/2);
+	        lineEnd = lineStart + (LeftStream[i]);
+	        GUI_DrawVLine(500+x-i,lineStart, lineEnd);
 
 
 	     }
+
+
 }
 
 void drawWaveFormUartLeft(int x,int y, int adc, int clear){
 	uint32_t lineStart,lineEnd;
 
+
+
+
+
 	if(clear == 1){
 	clearBuffer();
 	}
 
-	ringBufferRight[350] = adc;
-		for(int i=0; i<350;i++){
-			ringBufferRight[i] = ringBufferRight[i+1];
-
-
+	//ringBufferRight[350] = adc;
+		for(int i=0; i<500;i++){
+			//ringBufferRight[i] = ringBufferRight[i+1];
 		    GUI_SetColor( GUI_ORANGE );
-		    lineStart = y - (ringBufferRight[i]/2);
-	        lineEnd = lineStart + (ringBufferRight[i]);
+		    lineStart = y - (RightStream[i]/2);
+	        lineEnd = lineStart + (RightStream[i]);
 	        GUI_DrawVLine(x+i,lineStart, lineEnd);
 
 
@@ -160,7 +164,6 @@ if(invert == 1){
 	rednes = AvVal *100 /bottomX;
 	GUI_DrawGradientH(pos_x-AvVal, pos_y-20, pos_x, pos_y, 0xFFFF6E00,0xFFFFA500);
 
-
 	GUI_SetColor(GUI_RED);
 
 	GUI_DrawVLine(pos_x - PeakVal-4, pos_y-20,pos_y-1);
@@ -175,3 +178,34 @@ if(invert == 1){
 
 
 }
+
+
+void drawBarDotted (int pos_x, int pos_y, float PeakVal,float AvVal){
+	GUI_SetColor( GUI_ORANGE );
+	int val=0;
+	int max=0;
+	for (int i=0; i < 75; i++){
+		if(AvVal>i){
+			GUI_SetColor(GUI_ORANGE);
+		}
+		else{
+			GUI_SetColor(GUI_GRAY);
+
+			if(max==0 && PeakVal<i){
+				GUI_SetColor(GUI_LIGHTRED);
+				max=1;
+			}
+		}
+
+		GUI_FillRect((i*10)+pos_x,pos_y,(i*10)+pos_x+5,pos_y+40);
+	}
+
+
+
+
+
+
+}
+
+
+

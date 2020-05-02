@@ -268,10 +268,19 @@ void Error_Handler(void);
 char UART_RECIVE[150];
 char UART_TRANSFER[150];
 
-int TouchX;
-int TouchY;
+int TouchXCoordinate;
+int TouchYCoordinate;
 
 int pots[6];
+
+uint8_t LeftStream[200];
+uint8_t RightStream[200];
+int reset;
+int adc1;
+int adc2;
+int adc3;
+int adc4;
+
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
