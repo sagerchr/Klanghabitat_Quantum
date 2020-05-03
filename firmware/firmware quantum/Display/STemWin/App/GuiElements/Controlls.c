@@ -86,3 +86,41 @@ void drawDashedLine(int x0, int y0, int x1, int y1){
 	 GUI_DrawLine(x0, y0+4, x1, y1+4);
 	 GUI_DrawLine(x0, y0+5, x1, y1+5);
 }
+
+
+void ArcControl(int pos_x, int pos_y, float val,const char * s){
+
+
+
+	  GUI_SetPenSize(20);
+	  GUI_SetColor(GUI_GRAY);
+
+	  int x0 = pos_x;
+	  int y0 = pos_y;
+	  static int radius = 60;
+
+
+	  GUI_DrawArc(x0, y0, radius, radius, -0, 260);
+
+	  float a = (-0+val*1)*3.1415926/180;
+	  int x = -radius*cos(a)+x0;
+	  int y = -radius*sin(a)+y0;
+
+	  GUI_SetPenSize(20);
+	  GUI_SetColor(GUI_ORANGE);
+	  GUI_DrawArc(x0, y0, radius, radius, -0+(250-val), 260);
+
+	  GUI_SetColor(GUI_LIGHTGRAY);
+	  GUI_SetFont(&GUI_Font24B_1);
+      GUI_DispStringAt(s, pos_x-10, pos_y);
+	  GUI_GotoXY(pos_x-10, pos_y+25);
+	  GUI_DispFloatMin(val, 1);
+
+
+/*
+	  GUI_SetColor(GUI_LIGHTRED);
+	  GUI_SetPenSize(40);
+	  GUI_DrawPoint(x,y);
+*/
+
+}

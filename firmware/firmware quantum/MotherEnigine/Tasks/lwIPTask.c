@@ -34,7 +34,7 @@ char IP3_client[3];
 char IP4_client[3];
 
 uint8_t IP_client_number[4];
-
+uint8_t upcounter;
 
 void lwIPTask(void const * argument){
 /*
@@ -268,8 +268,12 @@ char UART_IN[10];
 		  //DAC_Control(4,1,UART_reciveCorrected[9]); //SYM4 adjust
 
 
-		OSCmessageINTSend("/VALUE/Level/CH1/RMS",  20, voltageRMS[0]*30);
-		OSCmessageINTSend("/VALUE/Level/CH2/RMS",  20, voltageRMS[1]*30);
+		//OSCmessageINTSend("/VALUE/Level/CH1/RMS",  20, voltageRMS[0]*30);
+		  OSCmessageINTSend("/VALUE/Level/CH1/RMS",  20, voltageIn1MAX*30);
+		  OSCmessageINTSend("/VALUE/Level/CH2/RMS",  20, voltageIn2MAX*30);
+
+
+
 
 
 
@@ -359,7 +363,7 @@ char UART_IN[10];
 			UART_transmit[i] = 0x00;
 		}
 
-
+			upcounter++;
 
 		  UART_transmit[0]='#';
 		  UART_transmit[1]='s';
@@ -367,6 +371,7 @@ char UART_IN[10];
 		  UART_transmit[3]='a';
 		  UART_transmit[4]=0x01;//1
 		  UART_transmit[5]=0x02;//2
+		  //UART_transmit[6]=upcounter;//3
 		  UART_transmit[6]=voltageIn1MAX*30;//3
 		  UART_transmit[7]=voltageIn2MAX*30;//4
 		  UART_transmit[8]=0x10;//5
@@ -385,19 +390,19 @@ char UART_IN[10];
 		  UART_transmit[17]=c;
 		  UART_transmit[18]=b;
 		  UART_transmit[19]=a;
-
+		  resetMax=1;
 		  for(int i=100; i<150; i++){
 
 			  UART_transmit[i-50]= FFT_result[i-100]/2;
 			  UART_transmit[i]= FFT_result2[i-100]/2;
 		  }
 
-		  resetMax=1;
+
 //############# RESMUE the DMA to output the data#########//
 		  HAL_UART_DMAResume(&huart6);
 //#######################################################//
 
-		   HAL_Delay(5);
+		   HAL_Delay(1);
 //***********************************************************************//
 	  }
 

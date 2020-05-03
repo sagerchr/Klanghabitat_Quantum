@@ -345,7 +345,7 @@ void TIM7_IRQHandler(void)
 
 
   if (indexer == SAMPLES){
-	  HAL_GPIO_WritePin(GPIOF, DEBUG1_Pin, GPIO_PIN_SET);//DEBUG rot
+
 	  indexer = 0;
 
 
@@ -370,22 +370,23 @@ void TIM7_IRQHandler(void)
 	  voltageRMStemp[5]=0;
 
 
-	  HAL_GPIO_WritePin(GPIOF, DEBUG1_Pin, GPIO_PIN_RESET); //DEBUG rot
+
   }
 
 
+  if (resetMax==1){
+  	resetMax=0;
+  	voltageIn1MAX=0;
+  	voltageIn2MAX=0;
+  	voltageIn3MAX=0;
+  	voltageIn4MAX=0;
+  	voltageIn5MAX=0;
+  	voltageIn6MAX=0;
+  	for (int i=0; i<8;i++){
+  		dbuMAX[i] = -130.0;
+  	}
 
-if (resetMax==1){
-	resetMax=0;
-	voltageIn1MAX=0;
-	voltageIn2MAX=0;
-	voltageIn3MAX=0;
-	voltageIn4MAX=0;
-	voltageIn5MAX=0;
-	voltageIn6MAX=0;
-	for (int i=0; i<8;i++){
-		dbuMAX[i] = -130.0;
-	}
+  	HAL_GPIO_TogglePin(GPIOF, DEBUG1_Pin);
 
 
 }

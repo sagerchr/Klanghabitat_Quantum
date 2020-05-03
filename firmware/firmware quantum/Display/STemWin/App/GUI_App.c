@@ -52,7 +52,7 @@
 
 extern  WM_HWIN CreateMainWindow(void);
 extern  WM_HWIN CreateSettingsWindow(void);
-extern  WM_HWIN CreateWindow2(void);
+extern  WM_HWIN CreateInfoWindow(void);
 extern  WM_HWIN CreateWindow3(WM_HWIN *hWinParent);
 UART_HandleTypeDef huart6;
 
@@ -136,20 +136,28 @@ void GRAPHICS_MainTask(void) {
 
 	  WM_HWIN MainWindow;
 	  WM_HWIN SettingsWindow;
+	  WM_HWIN InfoWindow;
 
+	  InfoWindow = CreateInfoWindow();
 	MainWindow = CreateMainWindow();
 	SettingsWindow = CreateSettingsWindow();
-	GUI_Clear();
+
+
 /* USER CODE BEGIN GRAPHICS_MainTask */
  /* User can implement his graphic application here */
   /* Hello Word example */
 
 /* USER CODE END GRAPHICS_MainTask */
-	int moved = 0;
+	int SettingsVisable = 0;
 	uint8_t wait=0;
 	int slide=480;
 	int raiser=50;
 	int count=1;
+	int closestartscreen=0;
+	int timer = 0;
+
+	int valuechange=0;
+	WM_ShowWindow (InfoWindow);
   while(1)
 {
 
@@ -184,6 +192,10 @@ void GRAPHICS_MainTask(void) {
      	 if(aRxBuffer[8]!=255) {pots[2]=aRxBuffer[7];}
      	 if(aRxBuffer[9]!=255) {pots[1]=aRxBuffer[9];}
      	 if(aRxBuffer[6]!=255) {buttonstateLeft=aRxBuffer[6];}
+     	BSP_TS_GetState(&TS_State);
+     	TouchXCoordinate = TS_State.touchX[0];
+     	TouchYCoordinate = TS_State.touchY[0];
+     	TouchDetected = TS_State.touchDetected;
      	 count=2;
      	 break;
     case 2:
@@ -192,41 +204,47 @@ void GRAPHICS_MainTask(void) {
      	 if(aRxBuffer[8]!=255) {pots[4]=aRxBuffer[7];}
      	 if(aRxBuffer[9]!=255) {pots[3]=aRxBuffer[9];}
      	 if(aRxBuffer[6]!=255) {buttonstateRight=aRxBuffer[6];}
-         count=3;
+     	BSP_TS_GetState(&TS_State);
+     	TouchXCoordinate = TS_State.touchX[0];
+     	TouchYCoordinate = TS_State.touchY[0];
+     	TouchDetected = TS_State.touchDetected;
+         count=1;
      	 break;
     case 3:
-    	BSP_TS_GetState(&TS_State);
-    	TouchXCoordinate = TS_State.touchX[0];
-        TouchYCoordinate = TS_State.touchY[0];
+
         count=1;
      	 break;
     }
 
 
-	BSP_TS_GetState(&TS_State);
-	TouchXCoordinate = TS_State.touchX[0];
-    TouchYCoordinate = TS_State.touchY[0];
-
-
-
-	    if(TouchYCoordinate<350&&moved==1){
+	    if(TouchXCoordinate>450&&TouchXCoordinate<600&&TouchYCoordinate>300&&SettingsVisable==1){
 	    	WM_MoveTo(SettingsWindow,100 , 480);
 	    	slide =480;
-	    	moved = 0;
+	    	SettingsVisable = 0;
+	    	valuechange = 0;
+	    }
+	    if(TouchXCoordinate>200&&TouchXCoordinate<250&&TouchYCoordinate>300&&SettingsVisable==1&&valuechange==0){
+	    	if(Waveform==0){
+	    		Waveform = 1;
+	    		valuechange=1;
+	    	}
+	    	else{
+	    		Waveform = 0;
+	    		valuechange=1;
+	    	}
 	    }
 
 
-
-	    if(TouchYCoordinate>300&&TouchXCoordinate>250&&TouchXCoordinate<350 && moved == 0){
+	    if(TouchXCoordinate>0&&TouchXCoordinate<100&&TouchYCoordinate>150&&TouchYCoordinate<300 && SettingsVisable == 0){
 	    	if(slide >= 100){
 	    		slide-=raiser;
 	    		raiser-=3;
 	    	}
 	    	WM_MoveWindow(SettingsWindow,0,-400);
-	    	moved = 1;
+	    	SettingsVisable = 1;
 	    }
 
-	    if (moved == 1){
+	    if (SettingsVisable == 1){
 	    	WM_Invalidate(SettingsWindow);
 		    WM_SendMessageNoPara(SettingsWindow, WM_Paint);
 		    wait = 0;
@@ -235,9 +253,34 @@ void GRAPHICS_MainTask(void) {
 
 
 
-	    wait++;
 	    WM_Invalidate(MainWindow);
 	    WM_SendMessageNoPara(MainWindow, WM_Paint);
+
+
+
+
+	    if(TouchDetected){
+	    	touch++;
+	    }
+	    else{
+	    	touch=0;
+	    }
+
+	    if (touch>20){
+	    	timer = 0;
+	    	WM_ShowWindow (InfoWindow);
+	    	touch = 0;
+	    }
+
+
+	    wait++;
+	    timer++;
+
+	    if (timer>20){
+	    	WM_HideWindow (InfoWindow);
+	    }
+
+
 
 
 
@@ -273,24 +316,12 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 
-	BSP_LED_Toggle(LED1);
+
    	UARTRECIVER(); //Recive Data from UART --> UARTDATA
 
 
 
-	LeftStream[199] = adc2;
 
-	for(int i=0; i<199;i++)
-	{
-		LeftStream[i] = LeftStream[i+1];
-	}
-
-	RightStream[199] = adc1;
-
-	for(int i=0; i<199;i++)
-	{
-		RightStream[i] = RightStream[i+1];
-	}
 
 
 
@@ -389,10 +420,63 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 
 
 
-
+		BSP_LED_Toggle(LED1);
 		reset = 0;
 
 	}
+
+
+	   int val 	= adc1;
+	   int val2 =adc2;
+
+
+	  if (val2 > val2buffered){
+		  val2buffered = val2;
+	  }
+	  else {
+		  val2buffered -=0.05*(val2buffered-val2);
+	  }
+
+	  if (val > val1buffered){
+		  val1buffered = val;
+	  }
+	  else {
+		  val1buffered -=0.05*(val1buffered-val);
+	  }
+
+
+	  if (val2 > val2MAXbuffered){
+		  val2MAXbuffered = val2;
+	  }
+	  else {
+		  val2MAXbuffered -=0.01*(val2MAXbuffered-val2);
+	  }
+
+	  if (val > val1MAXbuffered){
+		  val1MAXbuffered = val;
+	  }
+	  else {
+		  val1MAXbuffered -=0.01*(val1MAXbuffered-val);
+	  }
+
+
+		LeftStream[199] = adc2;
+
+		for(int i=0; i<199;i++)
+		{
+			LeftStream[i] = LeftStream[i+1];
+		}
+
+		RightStream[199] = adc1;
+
+		for(int i=0; i<199;i++)
+		{
+			RightStream[i] = RightStream[i+1];
+		}
+
+
+
+
 
 
 

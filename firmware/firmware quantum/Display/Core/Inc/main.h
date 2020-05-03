@@ -270,7 +270,9 @@ char UART_TRANSFER[150];
 
 int TouchXCoordinate;
 int TouchYCoordinate;
-
+int TouchDetected;
+int touch;
+int Waveform;
 int pots[6];
 
 uint8_t LeftStream[200];
@@ -280,6 +282,13 @@ int adc1;
 int adc2;
 int adc3;
 int adc4;
+
+
+
+float val2buffered;
+float val1buffered;
+float val2MAXbuffered;
+float val1MAXbuffered;
 
 /* USER CODE END Private defines */
 

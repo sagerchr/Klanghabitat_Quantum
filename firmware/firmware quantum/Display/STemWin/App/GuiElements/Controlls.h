@@ -12,7 +12,7 @@ void drawControllBar(int pos_x, int pos_y, float PeakVal,float AvVal, const char
 void ENCODER_UPDATE();
 void drawDashedLine(int x0, int y0, int x1, int y1);
 drawFloatNumber (int pos_x, int pos_y, float val, const char * s, const char * h);
-
+void ArcControl (int pos_x, int pos_y, float val,const char * s);
 
 
 #endif /* APP_GUIELEMENTS_CONTROLLS_H_ */

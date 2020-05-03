@@ -8,7 +8,7 @@
 #include "GuiElements/Controlls.h"
 #include "../tasks/SerialHandleTask/UART_IO.h"
 #include "recources/buttons/spectrum.h"
-#include "recources/buttons/menu.h"
+
 #include "recources/buttons/network.h"
 #include "recources/buttons/home.h"
 
@@ -48,7 +48,6 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 
 
 	  GUI_DrawBitmap(&bmspectrum, 80, 270);
-	  GUI_DrawBitmap(&bmmenu, 200, 270);
 	  GUI_DrawBitmap(&bmnetwork, 320, 270);
 	  GUI_DrawBitmap(&bmhome, 440, 270);
 
