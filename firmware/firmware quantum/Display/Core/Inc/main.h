@@ -39,6 +39,7 @@ extern "C" {
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "stm32469i_discovery_ts.h"
+
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -265,7 +266,7 @@ void Error_Handler(void);
 #define STLK_TX_Pin GPIO_PIN_11
 #define STLK_TX_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
-char UART_RECIVE[150];
+char UART_RECIVE[50];
 char UART_TRANSFER[150];
 
 int TouchXCoordinate;
@@ -275,8 +276,10 @@ int touch;
 int Waveform;
 int pots[6];
 
-uint8_t LeftStream[200];
-uint8_t RightStream[200];
+int upcounter;
+int upcounterLast;
+uint8_t LeftStream[400];
+uint8_t RightStream[400];
 int reset;
 int adc1;
 int adc2;

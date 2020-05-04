@@ -8,10 +8,8 @@
 #include "GuiElements/Controlls.h"
 #include "../tasks/SerialHandleTask/UART_IO.h"
 #include "recources/buttons/spectrum.h"
-
 #include "recources/buttons/network.h"
 #include "recources/buttons/home.h"
-
 #include "recources/buttons/back.h"
 #include "recources/buttons/next.h"
 

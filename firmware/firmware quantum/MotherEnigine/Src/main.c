@@ -189,7 +189,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_DAC_Start(&hdac, DAC_CHANNEL_1);
   HAL_DAC_Start(&hdac, DAC_CHANNEL_2);
-  HAL_UART_Transmit_DMA(&huart6, UART_transmit,150);
+  HAL_UART_Transmit_DMA(&huart6, UART_transmit,50);
   HAL_UART_Receive_DMA(&huart6, UART_recive,150);
 
 

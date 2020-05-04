@@ -30,7 +30,7 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
   	  GUI_DCACHE_Clear(0);
 	  GUI_Clear();
 	  GUI_SetBkColor(GUI_DARKGRAY);
-	  reset = 1;
+
 
 
 GUI_SetColor( GUI_LIGHTGRAY );
@@ -41,13 +41,13 @@ GUI_SetColor( GUI_LIGHTGRAY );
 
 
 //GUI_DrawBitmap(&bmmaintenance, 665, 8);
-GUI_DrawBitmap(&bmmenu, 50, 210);
 
 
 
-  int x1=380;
-  x=452;
-  y=-350;
+
+  int x1=345;
+  x=465;
+  y=-346;
 
  if(Waveform){
   	for(int i=100; i<200;i++){
@@ -62,7 +62,7 @@ GUI_DrawBitmap(&bmmenu, 50, 210);
   	     lineEnd2 = lineStart2 + (LeftStream[i]);
   	     GUI_DrawVLine(x+(i*4),lineStart2, lineEnd2);
   	     */
-
+  	   GUI_SetColor(GUI_GRAY);
   	   GUI_DrawHLine(y+(i*4),x1-RightStream[299-i], x1);
   	   GUI_DrawHLine(y+(i*4),x, x+LeftStream[299-i]);
 
@@ -72,8 +72,8 @@ GUI_DrawBitmap(&bmmenu, 50, 210);
  }
 
 
-	  drawBarDottedVertical (360, 30,val1MAXbuffered/1,val1buffered/1);
-	  drawBarDottedVertical (420, 30,val2MAXbuffered/1,val2buffered/1);
+	  drawBarDottedVertical (350, 30,val1MAXbuffered/1,val1buffered/1);
+	  drawBarDottedVertical (410, 30,val2MAXbuffered/1,val2buffered/1);
 
 
 
@@ -85,10 +85,56 @@ GUI_DrawBitmap(&bmmenu, 50, 210);
   //drawFloatNumber (20, 220, TouchXCoordinate, "", "");
   //drawFloatNumber (20, 260, TouchYCoordinate, "", "");
 
- ArcControl(100,400,pots[1],"Attack");
- ArcControl(100,100,pots[2],"Ratio");
- ArcControl(700,100,pots[4],"Volume");
- ArcControl(700,400,pots[3],"Thresh");
+ ArcControl(80,160,pots[1],"Attack");
+ ArcControl(80,340,pots[2],"Ratio");
+
+
+ ArcControl(720,160,pots[4],"Volume");
+ ArcControl(720,340,pots[3],"Thresh");
+
+ //GUI_DrawBitmap(&bmmenu, 50, 360);
+
+ GUI_AA_SetFactor(3);
+ GUI_SetPenSize(30);
+ GUI_SetColor(GUI_GRAY);
+
+
+ static int radius = 400;
+
+ GUI_SetPenSize(30);
+ GUI_SetColor(GUI_GRAY);
+ GUI_DrawArc(1000, 240, radius, radius, 150, 210);
+ //GUI_AA_DrawArc(1000, 240, radius, radius, 150, 210);
+ GUI_SetColor(GUI_ORANGE);
+ GUI_DrawArc(1000, 240, radius, radius, 150+(250-pots[4]), 210);
+ //GUI_AA_DrawArc(1000, 240, radius, radius, 150+(250-pots[4]), 210);
+
+
+ GUI_SetColor(GUI_GRAY);
+ GUI_DrawArc(-200, 240, radius, radius, -30, 30);
+ GUI_SetColor(GUI_ORANGE);
+ GUI_DrawArc(-200, 240, radius, radius, -30+(250-pots[2]), 30);
+ /*
+
+ float a = (-0+val*1)*3.1415926/180;
+ int x = -radius*cos(a)+x0;
+ int y = -radius*sin(a)+y0;
+
+ GUI_SetPenSize(20);
+ GUI_SetColor(GUI_ORANGE);
+ GUI_DrawArc(x0, y0, radius, radius, -0+(250-val), 260);
+
+ GUI_SetColor(GUI_LIGHTGRAY);
+ GUI_SetFont(&GUI_Font24B_1);
+ GUI_DispStringAt(s, pos_x-10, pos_y);
+ GUI_GotoXY(pos_x-10, pos_y+25);
+ GUI_DispFloatMin(val, 1);
+ */
+
+
+
+
+
 
 
 

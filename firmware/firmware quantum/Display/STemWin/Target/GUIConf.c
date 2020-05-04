@@ -55,7 +55,7 @@
 //
 // Define the available number of bytes available for the GUI
 //
-#define GUI_NUMBYTES  (1024) *  100   // x KByte
+#define GUI_NUMBYTES  (1024) *  150   // x KByte
 
 /*********************************************************************
 *

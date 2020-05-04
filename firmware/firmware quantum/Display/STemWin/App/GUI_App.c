@@ -49,7 +49,6 @@
 #include "main.h"
 #include "../tasks/SerialHandleTask/UART_IO.h"
 
-
 extern  WM_HWIN CreateMainWindow(void);
 extern  WM_HWIN CreateSettingsWindow(void);
 extern  WM_HWIN CreateInfoWindow(void);
@@ -158,9 +157,16 @@ void GRAPHICS_MainTask(void) {
 
 	int valuechange=0;
 	WM_ShowWindow (InfoWindow);
+
+
+
+	  uint32_t lineStart,lineEnd;
+	  uint32_t lineStart2,lineEnd2;
+	  Waveform = 1;
   while(1)
 {
 
+	  reset = 1;
       GUI_Delay(1);
 
       UART_TRANSFER[0]='#';
@@ -187,11 +193,7 @@ void GRAPHICS_MainTask(void) {
 
     switch (count) {
     case 1:
-     	 HAL_I2C_Master_Transmit(&hi2c1, 30, aTxBuffer,10,1);
-     	 HAL_I2C_Master_Receive(&hi2c1, 30, aRxBuffer,10,1);
-     	 if(aRxBuffer[8]!=255) {pots[2]=aRxBuffer[7];}
-     	 if(aRxBuffer[9]!=255) {pots[1]=aRxBuffer[9];}
-     	 if(aRxBuffer[6]!=255) {buttonstateLeft=aRxBuffer[6];}
+
      	BSP_TS_GetState(&TS_State);
      	TouchXCoordinate = TS_State.touchX[0];
      	TouchYCoordinate = TS_State.touchY[0];
@@ -199,20 +201,21 @@ void GRAPHICS_MainTask(void) {
      	 count=2;
      	 break;
     case 2:
-    	HAL_I2C_Master_Transmit(&hi2c1, 40, aTxBuffer,10,1);
-     	 HAL_I2C_Master_Receive(&hi2c1, 40, aRxBuffer,10,1);
-     	 if(aRxBuffer[8]!=255) {pots[4]=aRxBuffer[7];}
-     	 if(aRxBuffer[9]!=255) {pots[3]=aRxBuffer[9];}
-     	 if(aRxBuffer[6]!=255) {buttonstateRight=aRxBuffer[6];}
-     	BSP_TS_GetState(&TS_State);
-     	TouchXCoordinate = TS_State.touchX[0];
-     	TouchYCoordinate = TS_State.touchY[0];
-     	TouchDetected = TS_State.touchDetected;
+    	 HAL_I2C_Master_Transmit(&hi2c1, 30, aTxBuffer,10,10);
+    	 HAL_I2C_Master_Receive(&hi2c1, 30, aRxBuffer,10,10);
+    	 if(aRxBuffer[8]!=255) {pots[2]=aRxBuffer[7];}
+    	 if(aRxBuffer[9]!=255) {pots[1]=aRxBuffer[9];}
+    	 if(aRxBuffer[6]!=255) {buttonstateLeft=aRxBuffer[6];}
+    	 HAL_I2C_Master_Transmit(&hi2c1, 40, aTxBuffer,10,10);
+    	 HAL_I2C_Master_Receive(&hi2c1, 40, aRxBuffer,10,10);
+    	 if(aRxBuffer[8]!=255) {pots[4]=aRxBuffer[7];}
+    	 if(aRxBuffer[9]!=255) {pots[3]=aRxBuffer[9];}
+    	 if(aRxBuffer[6]!=255) {buttonstateRight=aRxBuffer[6];}
          count=1;
      	 break;
     case 3:
 
-        count=1;
+         count=1;
      	 break;
     }
 
@@ -284,7 +287,7 @@ void GRAPHICS_MainTask(void) {
 
 
 
-	    BSP_LED_Toggle(LED1);
+
 }
 }
 
@@ -320,10 +323,10 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
    	UARTRECIVER(); //Recive Data from UART --> UARTDATA
 
 
+    BSP_LED_Toggle(LED1);
 
 
-
-
+    upcounter = UARTDATA[4];
 
 	newValueLeft = UARTDATA[6];
 	newValueRight = UARTDATA[7];
@@ -382,7 +385,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 
 
 
-	if(reset == 1){
+	if(reset == 1 || (upcounter != upcounterLast)){
 
 		rightDB = max_rightIN;
 		leftDB =  max_leftIN;
@@ -434,14 +437,14 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 		  val2buffered = val2;
 	  }
 	  else {
-		  val2buffered -=0.05*(val2buffered-val2);
+		  val2buffered -=0.005*(val2buffered-val2);
 	  }
 
 	  if (val > val1buffered){
 		  val1buffered = val;
 	  }
 	  else {
-		  val1buffered -=0.05*(val1buffered-val);
+		  val1buffered -=0.005*(val1buffered-val);
 	  }
 
 
@@ -449,30 +452,36 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 		  val2MAXbuffered = val2;
 	  }
 	  else {
-		  val2MAXbuffered -=0.01*(val2MAXbuffered-val2);
+		  val2MAXbuffered -=0.001*(val2MAXbuffered-val2);
 	  }
 
 	  if (val > val1MAXbuffered){
 		  val1MAXbuffered = val;
 	  }
 	  else {
-		  val1MAXbuffered -=0.01*(val1MAXbuffered-val);
+		  val1MAXbuffered -=0.001*(val1MAXbuffered-val);
 	  }
 
 
-		LeftStream[199] = adc2;
 
-		for(int i=0; i<199;i++)
-		{
-			LeftStream[i] = LeftStream[i+1];
-		}
 
-		RightStream[199] = adc1;
+if(upcounter != upcounterLast){
+	LeftStream[199] = adc2;
 
-		for(int i=0; i<199;i++)
-		{
-			RightStream[i] = RightStream[i+1];
-		}
+	for(int i=0; i<199;i++)
+	{
+		LeftStream[i] = LeftStream[i+1];
+	}
+
+	RightStream[199] = adc1;
+
+	for(int i=0; i<199;i++)
+	{
+		RightStream[i] = RightStream[i+1];
+	}
+	upcounterLast=upcounter;
+}
+
 
 
 
