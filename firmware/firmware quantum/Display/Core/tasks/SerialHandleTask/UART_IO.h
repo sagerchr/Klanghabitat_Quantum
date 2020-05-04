@@ -9,7 +9,7 @@
 #define APP_UART_IO_H_
 
 void UARTRECIVER();
-char UARTDATA[50];
+char UARTDATA[150];
 
 
 #endif /* APP_UART_IO_H_ */

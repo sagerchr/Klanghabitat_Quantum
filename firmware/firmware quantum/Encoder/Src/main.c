@@ -675,14 +675,14 @@ void ENCODER_TASK(void const * argument)
 	else{HAL_GPIO_WritePin(GPIOA, G_ENC1_Pin,GPIO_PIN_SET);}
 	if (count < B_ENC1){HAL_GPIO_WritePin(GPIOA, B_ENC1_Pin,GPIO_PIN_RESET);}
 	else{HAL_GPIO_WritePin(GPIOA, B_ENC1_Pin,GPIO_PIN_SET);}
-
+/*
 	if (count < R_ENC2){HAL_GPIO_WritePin(GPIOA, R_ENC2_Pin,GPIO_PIN_RESET);}
 	else{HAL_GPIO_WritePin(GPIOA, R_ENC2_Pin,GPIO_PIN_SET);}
 	if (count < G_ENC2){HAL_GPIO_WritePin(GPIOA, G_ENC2_Pin,GPIO_PIN_RESET);}
 	else{HAL_GPIO_WritePin(GPIOA, G_ENC2_Pin,GPIO_PIN_SET);}
 	if (count < B_ENC2){HAL_GPIO_WritePin(GPIOB, B_ENC2_Pin,GPIO_PIN_RESET);}
 	else{HAL_GPIO_WritePin(GPIOB, B_ENC2_Pin,GPIO_PIN_SET);}
-
+*/
 	if (count < R_ENC3){HAL_GPIO_WritePin(GPIOB, R_ENC3_Pin,GPIO_PIN_RESET);}
 	else{HAL_GPIO_WritePin(GPIOB, R_ENC3_Pin,GPIO_PIN_SET);}
 	if (count < G_ENC3){HAL_GPIO_WritePin(GPIOB, G_ENC3_Pin,GPIO_PIN_RESET);}

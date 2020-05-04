@@ -122,6 +122,9 @@ float leftIN = 0.0;
 float rightIN = 0.0;
 
 float spectrum_max[100];
+TIM_HandleTypeDef htim4;
+
+int count=1;
 void GRAPHICS_MainTask(void) {
 
 
@@ -151,7 +154,7 @@ void GRAPHICS_MainTask(void) {
 	uint8_t wait=0;
 	int slide=480;
 	int raiser=50;
-	int count=1;
+
 	int closestartscreen=0;
 	int timer = 0;
 
@@ -163,9 +166,13 @@ void GRAPHICS_MainTask(void) {
 	  uint32_t lineStart,lineEnd;
 	  uint32_t lineStart2,lineEnd2;
 	  Waveform = 1;
+	  HAL_TIM_Base_Start(&htim4);
+
   while(1)
 {
 
+
+	  BSP_LED_Toggle(LED1);
 	  reset = 1;
       GUI_Delay(1);
 
@@ -184,40 +191,9 @@ void GRAPHICS_MainTask(void) {
       UART_TRANSFER[12]=0x02;//8
 	  UART_TRANSFER[13]=0x03;//9
 
-    aTxBuffer[0]= 'T';
-  	aTxBuffer[1]= 'E';
-  	aTxBuffer[2]= 'S';
-  	aTxBuffer[3]= 'T';
 
-  	aTxBuffer[9]=10;
 
-    switch (count) {
-    case 1:
 
-     	BSP_TS_GetState(&TS_State);
-     	TouchXCoordinate = TS_State.touchX[0];
-     	TouchYCoordinate = TS_State.touchY[0];
-     	TouchDetected = TS_State.touchDetected;
-     	 count=2;
-     	 break;
-    case 2:
-    	 HAL_I2C_Master_Transmit(&hi2c1, 30, aTxBuffer,10,10);
-    	 HAL_I2C_Master_Receive(&hi2c1, 30, aRxBuffer,10,10);
-    	 if(aRxBuffer[8]!=255) {pots[2]=aRxBuffer[7];}
-    	 if(aRxBuffer[9]!=255) {pots[1]=aRxBuffer[9];}
-    	 if(aRxBuffer[6]!=255) {buttonstateLeft=aRxBuffer[6];}
-    	 HAL_I2C_Master_Transmit(&hi2c1, 40, aTxBuffer,10,10);
-    	 HAL_I2C_Master_Receive(&hi2c1, 40, aRxBuffer,10,10);
-    	 if(aRxBuffer[8]!=255) {pots[4]=aRxBuffer[7];}
-    	 if(aRxBuffer[9]!=255) {pots[3]=aRxBuffer[9];}
-    	 if(aRxBuffer[6]!=255) {buttonstateRight=aRxBuffer[6];}
-         count=1;
-     	 break;
-    case 3:
-
-         count=1;
-     	 break;
-    }
 
 
 	    if(TouchXCoordinate>450&&TouchXCoordinate<600&&TouchYCoordinate>300&&SettingsVisable==1){
@@ -258,6 +234,21 @@ void GRAPHICS_MainTask(void) {
 
 	    WM_Invalidate(MainWindow);
 	    WM_SendMessageNoPara(MainWindow, WM_Paint);
+
+	    aTxBuffer[0]= 'T';
+	  	aTxBuffer[1]= 'E';
+	  	aTxBuffer[2]= 'S';
+	  	aTxBuffer[3]= 'T';
+
+	  	aTxBuffer[9]=10;
+
+		  GUI_SetColor(GUI_LIGHTGRAY);
+		  GUI_SetFont(&GUI_Font24B_1);
+		  GUI_GotoXY(30,30);
+		  GUI_DispFloatMin(TIM4->CNT, 1);
+
+
+
 
 
 
@@ -320,10 +311,39 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 
 
+  	if(TIM4->CNT>100){
+	    switch (count) {
+	    case 1:
+			 HAL_I2C_Master_Transmit(&hi2c1, 40, aTxBuffer,10,10);
+			 HAL_I2C_Master_Receive(&hi2c1, 40, aRxBuffer,10,10);
+			 if(aRxBuffer[8]!=255) {pots[4]=aRxBuffer[7];}
+			 if(aRxBuffer[9]!=255) {pots[3]=aRxBuffer[9];}
+			 if(aRxBuffer[6]!=255) {buttonstateRight=aRxBuffer[6];}
+	    	 count =2;
+	     	 break;
+	    case 2:
+			 HAL_I2C_Master_Transmit(&hi2c1, 30, aTxBuffer,10,10);
+			 HAL_I2C_Master_Receive(&hi2c1, 30, aRxBuffer,10,10);
+			 if(aRxBuffer[8]!=255) {pots[2]=aRxBuffer[7];}
+			 if(aRxBuffer[9]!=255) {pots[1]=aRxBuffer[9];}
+			 if(aRxBuffer[6]!=255) {buttonstateLeft=aRxBuffer[6];}
+	    	 count=3;
+	     	 break;
+	    case 3:
+	    	BSP_TS_GetState(&TS_State);
+	     	TouchXCoordinate = TS_State.touchX[0];
+	     	TouchYCoordinate = TS_State.touchY[0];
+	     	TouchDetected = TS_State.touchDetected;
+	     	count=1;
+	        break;
+	    }
+	    TIM4->CNT = 0;
+  	}
+
    	UARTRECIVER(); //Recive Data from UART --> UARTDATA
 
 
-    BSP_LED_Toggle(LED1);
+
 
 
     upcounter = UARTDATA[4];
@@ -466,16 +486,16 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 
 
 if(upcounter != upcounterLast){
-	LeftStream[199] = adc2;
+	LeftStream[399] = adc2;
 
-	for(int i=0; i<199;i++)
+	for(int i=0; i<399;i++)
 	{
 		LeftStream[i] = LeftStream[i+1];
 	}
 
-	RightStream[199] = adc1;
+	RightStream[399] = adc1;
 
-	for(int i=0; i<199;i++)
+	for(int i=0; i<399;i++)
 	{
 		RightStream[i] = RightStream[i+1];
 	}

@@ -166,7 +166,7 @@ int main(void)
   /* add mutexes, ... */
 
   BSP_TS_Init(800, 480);
-  HAL_UART_Receive_DMA(&huart6, UART_RECIVE,50);
+  HAL_UART_Receive_DMA(&huart6, UART_RECIVE,100);
   HAL_UART_Transmit_DMA(&huart6, UART_TRANSFER,150);
   /* USER CODE END RTOS_MUTEX */
 
@@ -184,13 +184,13 @@ int main(void)
 
   /* Create the thread(s) */
   /* definition and creation of defaultTask */
-  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal , 0, 6000);
+  osThreadDef(defaultTask, StartDefaultTask, osPriorityAboveNormal , 0, 6000);
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
   /* USER CODE BEGIN RTOS_THREADS */
   //osThreadDef(SerialHandleTask, SerialHandleTask, osPriorityNormal, 0, 1000);
   //SerialHandleTaskHandle = osThreadCreate(osThread(SerialHandleTask), NULL);
 
-  //osThreadDef(EncoderHandleTask, EncoderHandleTask, osPriorityAboveNormal, 0, 1000);
+  //osThreadDef(EncoderHandleTask, EncoderHandleTask, osPriorityNormal, 0, 1000);
   //EncoderHandleTaskHandle = osThreadCreate(osThread(EncoderHandleTask), NULL);
 
   //osThreadDef(OSCHandleTask, OSCHandleTask, osPriorityNormal, 0, 1000);
@@ -558,12 +558,15 @@ static void MX_TIM3_Init(void)
   {
     Error_Handler();
   }
+  /*
   sSlaveConfig.SlaveMode = TIM_SLAVEMODE_RESET;
   sSlaveConfig.InputTrigger = TIM_TS_ITR0;
   if (HAL_TIM_SlaveConfigSynchro(&htim3, &sSlaveConfig) != HAL_OK)
   {
     Error_Handler();
+
   }
+  */
   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
   if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
@@ -595,21 +598,24 @@ static void MX_TIM4_Init(void)
 
   /* USER CODE END TIM4_Init 1 */
   htim4.Instance = TIM4;
-  htim4.Init.Prescaler = 0;
+  htim4.Init.Prescaler = 100000;
   htim4.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim4.Init.Period = 1000;
+  htim4.Init.Period = 100000;
   htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim4.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim4) != HAL_OK)
   {
     Error_Handler();
   }
+
   sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
   if (HAL_TIM_ConfigClockSource(&htim4, &sClockSourceConfig) != HAL_OK)
   {
     Error_Handler();
   }
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
+
+
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET  ;
   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
   if (HAL_TIMEx_MasterConfigSynchronization(&htim4, &sMasterConfig) != HAL_OK)
   {

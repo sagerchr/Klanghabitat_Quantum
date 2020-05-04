@@ -33,6 +33,9 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 
 
 
+
+
+
 GUI_SetColor( GUI_LIGHTGRAY );
 
 
@@ -47,30 +50,48 @@ GUI_SetColor( GUI_LIGHTGRAY );
 
   int x1=345;
   x=465;
-  y=-346;
+  //y=-346;
+
 
  if(Waveform){
-  	for(int i=100; i<200;i++){
+/*
+	if(pots[3]<20&&pots[3]>0){
+		y=-1146;
+	  	for(int i=300; i<400;i++){
+	  	   GUI_SetColor( GUI_GRAY );
+	  	   GUI_SetColor(GUI_GRAY);
+	  	   GUI_DrawHLine(y+(i*4),x1-RightStream[699-i], x1);
+	  	   GUI_DrawHLine(y+(i*4),x, x+LeftStream[699-i]);
+	  	   }
+	}
+	if(pots[3]<40&&pots[3]>=20){
+		y=-346;
+		for(int i=200; i<400;i++){
+		   GUI_SetColor( GUI_GRAY );
+		   GUI_SetColor(GUI_GRAY);
+		   GUI_DrawHLine(y+(i*2),x1-RightStream[599-i], x1);
+		   GUI_DrawHLine(y+(i*2),x, x+LeftStream[599-i]);
+		   }
+	}
 
-  	   	 GUI_SetColor( GUI_GRAY );
-  	   	 /*
-  	   	 lineStart = y - (RightStream[i]/2);
-  	     lineEnd = lineStart + (RightStream[i]);
-  	     GUI_DrawVLine(x+(i*4),lineStart, lineEnd);
-
-  		 lineStart2 = (480-y) - (LeftStream[i]/2);
-  	     lineEnd2 = lineStart2 + (LeftStream[i]);
-  	     GUI_DrawVLine(x+(i*4),lineStart2, lineEnd2);
-  	     */
-  	   GUI_SetColor(GUI_GRAY);
-  	   GUI_DrawHLine(y+(i*4),x1-RightStream[299-i], x1);
-  	   GUI_DrawHLine(y+(i*4),x, x+LeftStream[299-i]);
-
-
-
-  	   }
+	if(pots[3]>=40){
+		y=54;
+		for(int i=0; i<400;i++){
+			GUI_SetColor( GUI_GRAY );
+			GUI_SetColor(GUI_GRAY);
+			GUI_DrawHLine(y+(i*1),x1-RightStream[399-i], x1);
+			GUI_DrawHLine(y+(i*1),x, x+LeftStream[399-i]);
+			}
+	}
+*/
+		y=-348;
+		for(int i=200; i<400;i++){
+		   GUI_SetColor( GUI_GRAY );
+		   GUI_SetColor(GUI_GRAY);
+		   GUI_DrawHLine(y+(i*2),x1-RightStream[599-i], x1);
+		   GUI_DrawHLine(y+(i*2),x, x+LeftStream[599-i]);
+		}
  }
-
 
 	  drawBarDottedVertical (350, 30,val1MAXbuffered/1,val1buffered/1);
 	  drawBarDottedVertical (410, 30,val2MAXbuffered/1,val2buffered/1);
