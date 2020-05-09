@@ -53,11 +53,21 @@ extern  WM_HWIN CreateMainWindow(void);
 extern  WM_HWIN CreateSettingsWindow(void);
 extern  WM_HWIN CreateInfoWindow(void);
 extern  WM_HWIN CreateWindow3(WM_HWIN *hWinParent);
+extern  WM_HWIN CreateSettingsButtonWindow(void);
+
+
+
+
+
+
+
+
+
 UART_HandleTypeDef huart6;
 
 
 I2C_HandleTypeDef hi2c1;
-TS_StateTypeDef TS_State;
+TS_StateTypeDef ts;
 
 uint8_t level = 0;
 uint8_t aTxBuffer[] = "          ";
@@ -65,7 +75,7 @@ uint8_t aRxBuffer[10];
 
 uint8_t buttonstateLeft;
 uint8_t buttonstateRight;
-
+int pass = 0;
 
 int maxValueLeft = 0;
 int newValueLeft = 0;
@@ -121,8 +131,11 @@ float diff4 = 0.0;
 float leftIN = 0.0;
 float rightIN = 0.0;
 
-float spectrum_max[100];
+int trans;
 TIM_HandleTypeDef htim4;
+GUI_RECT pRect = {200,0,600,480};
+int done = 0;
+
 
 int count=1;
 void GRAPHICS_MainTask(void) {
@@ -133,17 +146,23 @@ void GRAPHICS_MainTask(void) {
 
 
 	GUI_Clear();
-	  GUI_SetBkColor(GUI_DARKGRAY);
 
+	GUI_SetBkColor(GUI_DARKGRAY);
 
 	  WM_HWIN MainWindow;
 	  WM_HWIN SettingsWindow;
 	  WM_HWIN InfoWindow;
+	  WM_HWIN SettingsButtonWindow;
 
-	  InfoWindow = CreateInfoWindow();
+	 // WM_HWIN SpectrumButton;
+
+	InfoWindow = CreateInfoWindow();
 	MainWindow = CreateMainWindow();
 	SettingsWindow = CreateSettingsWindow();
+	SettingsButtonWindow = CreateSettingsButtonWindow();
 
+
+	//SpectrumButton = CreateSpectrumButton();
 
 /* USER CODE BEGIN GRAPHICS_MainTask */
  /* User can implement his graphic application here */
@@ -152,8 +171,8 @@ void GRAPHICS_MainTask(void) {
 /* USER CODE END GRAPHICS_MainTask */
 	int SettingsVisable = 0;
 	uint8_t wait=0;
-	int slide=480;
-	int raiser=50;
+	int slide=-100;
+	int raiser=20;
 
 	int closestartscreen=0;
 	int timer = 0;
@@ -171,10 +190,13 @@ void GRAPHICS_MainTask(void) {
   while(1)
 {
 
+	  pass++;
+	  if (pass < 100){
+
+	  }
 
 	  BSP_LED_Toggle(LED1);
 	  reset = 1;
-      GUI_Delay(1);
 
       UART_TRANSFER[0]='#';
       UART_TRANSFER[1]='s';
@@ -186,54 +208,32 @@ void GRAPHICS_MainTask(void) {
       UART_TRANSFER[7]=pots[2];//3
       UART_TRANSFER[8]=pots[3];//4
       UART_TRANSFER[9]=pots[4];//5
-      UART_TRANSFER[10]=0x00;
+      UART_TRANSFER[10]=Button_okState;
       UART_TRANSFER[11]=0x00;
       UART_TRANSFER[12]=0x02;//8
 	  UART_TRANSFER[13]=0x03;//9
 
 
 
+	  	//Create Settings Dialog
+	   // if(TouchXCoordinate>0&&TouchXCoordinate<200&&TouchYCoordinate>300&&SettingsVisable==0){
+	   // 	SettingsVisable = 1;
+	   // 	Dialog = CreateDialog();
+	  //  }
 
-
-
-	    if(TouchXCoordinate>450&&TouchXCoordinate<600&&TouchYCoordinate>300&&SettingsVisable==1){
-	    	WM_MoveTo(SettingsWindow,100 , 480);
-	    	slide =480;
-	    	SettingsVisable = 0;
-	    	valuechange = 0;
-	    }
-	    if(TouchXCoordinate>200&&TouchXCoordinate<250&&TouchYCoordinate>300&&SettingsVisable==1&&valuechange==0){
-	    	if(Waveform==0){
-	    		Waveform = 1;
-	    		valuechange=1;
-	    	}
-	    	else{
-	    		Waveform = 0;
-	    		valuechange=1;
-	    	}
-	    }
-
-
-	    if(TouchXCoordinate>0&&TouchXCoordinate<100&&TouchYCoordinate>150&&TouchYCoordinate<300 && SettingsVisable == 0){
-	    	if(slide >= 100){
-	    		slide-=raiser;
-	    		raiser-=3;
-	    	}
-	    	WM_MoveWindow(SettingsWindow,0,-400);
-	    	SettingsVisable = 1;
-	    }
-
-	    if (SettingsVisable == 1){
-	    	WM_Invalidate(SettingsWindow);
-		    WM_SendMessageNoPara(SettingsWindow, WM_Paint);
-		    wait = 0;
-		    WM_SetFocus(SettingsWindow);
-	    }
-
+	    //Destroy Settings Dialog
+	  //  if(TouchXCoordinate>0&&TouchXCoordinate<200&&TouchYCoordinate>300&&SettingsVisable==1){
+	  //  	SettingsVisable = 0;
+	  //  	WM_DeleteWindow(Dialog);
+	 //   }
 
 
 	    WM_Invalidate(MainWindow);
 	    WM_SendMessageNoPara(MainWindow, WM_Paint);
+
+
+
+
 
 	    aTxBuffer[0]= 'T';
 	  	aTxBuffer[1]= 'E';
@@ -242,9 +242,10 @@ void GRAPHICS_MainTask(void) {
 
 	  	aTxBuffer[9]=10;
 
-		  GUI_SetColor(GUI_LIGHTGRAY);
+
+	  	  GUI_SetColor(GUI_LIGHTGRAY);
 		  GUI_SetFont(&GUI_Font24B_1);
-		  GUI_GotoXY(30,30);
+		  GUI_GotoXY(10,10);
 		  GUI_DispFloatMin(TIM4->CNT, 1);
 
 
@@ -260,14 +261,17 @@ void GRAPHICS_MainTask(void) {
 	    	touch=0;
 	    }
 
-	    if (touch>20){
+	    if (touch>50){
 	    	timer = 0;
 	    	WM_ShowWindow (InfoWindow);
+	    	WM_SetStayOnTop(InfoWindow, 1);
+		    WM_Invalidate(InfoWindow);
+		    WM_SendMessageNoPara(InfoWindow, WM_Paint);
 	    	touch = 0;
 	    }
 
 
-	    wait++;
+
 	    timer++;
 
 	    if (timer>20){
@@ -276,6 +280,7 @@ void GRAPHICS_MainTask(void) {
 
 
 
+	    GUI_Delay(1);
 
 
 
@@ -307,6 +312,45 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 }
 */
 
+void BSP_Pointer_Update(void) {
+  GUI_PID_STATE TS_State;               /* Structure that reports the touch state to STemWin */
+  static TS_StateTypeDef prev_state;    /* Previous touch state from the touch sensor used from BSP package */
+  //TS_StateTypeDef ts;                   /* Actual touch state from the touch sensor used from BSP package */
+  uint16_t xDiff, yDiff;                /* Difference in postitions between touch states*/
+  BSP_TS_GetState(&ts);                 /* Read the touch state from touch sensor (BSP API)*/
+  TS_State.Pressed = ts.touchDetected;  /* Store pressed state to STemWin structure*/
+
+
+  TouchXCoordinate = ts.touchX[0];
+  TouchYCoordinate = ts.touchY[0];
+  TouchDetected = ts.touchDetected;
+
+
+  /* Compute x variation */
+  xDiff = (prev_state.touchX[0] > ts.touchX[0]) ? (prev_state.touchX[0] - ts.touchX[0]) : (ts.touchX[0] - prev_state.touchX[0]);
+
+  /* Compute y variation */
+  yDiff = (prev_state.touchY[0] > ts.touchY[0]) ? (prev_state.touchY[0] - ts.touchY[0]) : (ts.touchY[0] - prev_state.touchY[0]);
+
+  /* Check if the touch is pressed */
+  if ((prev_state.touchDetected != ts.touchDetected) || (xDiff > 3)|| (yDiff > 3))
+  {
+    prev_state.touchDetected = ts.touchDetected;
+    /* Check touch variations */
+    if ((ts.touchX[0] != 0) && (ts.touchY[0] != 0))
+    {
+      prev_state.touchX[0] = ts.touchX[0];
+      prev_state.touchY[0] = ts.touchY[0];
+    }
+    TS_State.Layer = 0;
+    TS_State.x = prev_state.touchX[0];
+    TS_State.y = prev_state.touchY[0];
+
+    /* Send touch state to STemWin */
+    GUI_TOUCH_StoreStateEx(&TS_State);
+  }
+}
+
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 
@@ -330,10 +374,8 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 	    	 count=3;
 	     	 break;
 	    case 3:
-	    	BSP_TS_GetState(&TS_State);
-	     	TouchXCoordinate = TS_State.touchX[0];
-	     	TouchYCoordinate = TS_State.touchY[0];
-	     	TouchDetected = TS_State.touchDetected;
+	    	BSP_Pointer_Update();
+
 	     	count=1;
 	        break;
 	    }
@@ -397,7 +439,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 				max_rightIN = rightIN;
 			}
 
-			for(int i=0; i<100; i++){
+			for(int i=0; i<50; i++){
 				if (spectrum_max[i]<UARTDATA[i+50]){
 					spectrum_max[i] = UARTDATA[i+50];
 				}
@@ -440,6 +482,12 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 		maxValueRightOUT = 0;
 		max_leftIN = -130.0;
 		max_rightIN = -130.0;
+/*
+		for(int i=0; i<50; i++){
+		spectrum_max[i]=0;
+			}
+*/
+
 
 
 
@@ -447,6 +495,38 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 		reset = 0;
 
 	}
+
+	/*
+	 for(int i=0; i<50;i++){
+		 int diff = spectrum_max[i]-spectrum_smooth[i];
+
+		 if (diff<0){
+			 spectrum_smooth[i] = spectrum_smooth[i]+(0.01*diff);
+		 }
+		 else{
+			 spectrum_smooth[i] = spectrum_smooth[i]+(1*diff);
+
+		 }
+		 spectrum_smoothDB[i] = 93+72+(30*(log(spectrum_smooth[i]/250.0)));
+	 }
+	 */
+
+/*
+	  for(int i=0; i<50;i++){
+		float value = spectrum_smooth[i];
+		float value2 = 93+72+(30*(log(value/250.0)));
+
+		float valueB = spectrum_smooth[i+50];
+		float valueB2 = 93+72+(30*(log(valueB/250.0)));
+		drawBar((i*7)+420,50,value2,value2,"");
+		drawBar((i*7)+30,50,valueB2,valueB2,"");
+	  }
+*/
+
+
+
+
+
 
 
 	   int val 	= adc1;

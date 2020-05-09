@@ -286,13 +286,14 @@ int adc2;
 int adc3;
 int adc4;
 
-
-
+float spectrum_max[100];
+float spectrum_smooth[50];
+float spectrum_smoothDB[50];
 float val2buffered;
 float val1buffered;
 float val2MAXbuffered;
 float val1MAXbuffered;
-
+int Button_okState;
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

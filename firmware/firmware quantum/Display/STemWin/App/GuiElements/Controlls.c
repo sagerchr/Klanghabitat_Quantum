@@ -97,7 +97,7 @@ void ArcControl(int pos_x, int pos_y, float val,const char * s){
 
 	  int x0 = pos_x;
 	  int y0 = pos_y;
-	  static int radius = 60;
+	  static int radius = 50;
 
 
 	  GUI_DrawArc(x0, y0, radius, radius, -0, 260);

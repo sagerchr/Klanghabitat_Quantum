@@ -228,6 +228,7 @@ char UART_IN[10];
 
 		 //=========================================================================//
 		 //=================CONTROL RELAIS VIA OSC MEASSAGE=========================//
+		 /*
 		 if (match("/MotherEngine/Relais/bypassLeft") && OSC_SIGNEDINTEGER ==  1){
 			 BypassLeft(bypass);}
 		 if (match("/MotherEngine/Relais/bypassLeft") && OSC_SIGNEDINTEGER == 0){
@@ -237,6 +238,16 @@ char UART_IN[10];
 			 BypassRight(bypass);}
 		 if (match("/MotherEngine/Relais/bypassRight") && OSC_SIGNEDINTEGER == 0){
 			 BypassRight(activate);}
+		 */
+
+		  if (UART_reciveCorrected[10]){
+			  BypassRight(bypass);BypassLeft(bypass);}
+		  else{
+			  BypassRight(activate);BypassLeft(activate);
+		  }
+
+
+
 
 		 if (match("/MotherEngine/Relais/K5") && OSC_SIGNEDINTEGER == 1){
 			 HAL_GPIO_WritePin(GPIOG, Relais3_Pin,GPIO_PIN_SET);}
@@ -390,13 +401,13 @@ char UART_IN[10];
 		  UART_transmit[18]=b;
 		  UART_transmit[19]=a;
 		  resetMax=1;
-		  /*
-		  for(int i=100; i<150; i++){
 
-			  UART_transmit[i-50]= FFT_result[i-100]/2;
-			  UART_transmit[i]= FFT_result2[i-100]/2;
+		  for(int i=50; i<100; i++){
+
+			  //UART_transmit[i-50]= FFT_result[i-100]/2;
+			  UART_transmit[i]= FFT_result2[i-50]/2;
 		  }
-*/
+
 
 //############# RESMUE the DMA to output the data#########//
 		  HAL_UART_DMAResume(&huart6);

@@ -241,7 +241,7 @@ typedef struct {
 #define WM_PID_STATE_CHANGED        17      /* Pointer input device state has changed */
 
 #define WM_GET_INSIDE_RECT          20      /* get inside rectangle: client rectangle minus pixels lost to effect */
-#define WM_GET_ID                   21      /* Get id of widget */
+#define WM_GET_ID                   21      /*  id of widget */
 #define WM_SET_ID                   22      /* Set id of widget */
 #define WM_GET_CLIENT_WINDOW        23      /* Get window handle of client window. Default is the same as window */
 #define WM_CAPTURE_RELEASED         24      /* Let window know that mouse capture is over */
