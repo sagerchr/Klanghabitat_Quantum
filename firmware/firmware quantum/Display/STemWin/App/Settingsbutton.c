@@ -1,31 +1,5 @@
-/*********************************************************************
-*                    SEGGER Microcontroller GmbH                     *
-*        Solutions for real time microcontroller applications        *
-**********************************************************************
-*                                                                    *
-*        (c) 1996 - 2020  SEGGER Microcontroller GmbH                *
-*                                                                    *
-*        Internet: www.segger.com    Support:  support@segger.com    *
-*                                                                    *
-**********************************************************************
 
-** emWin V6.10 - Graphical user interface for embedded applications **
-emWin is protected by international copyright laws.   Knowledge of the
-source code may not be used to write a similar product.  This file may
-only  be used  in accordance  with  a license  and should  not be  re-
-distributed in any way. We appreciate your understanding and fairness.
-----------------------------------------------------------------------
-File        : BUTTON_Usage.c
-Purpose     : Sample that demonstrates the usage of a BUTTON widget.
-Requirements: WindowManager - (x)
-              MemoryDevices - ( )
-              AntiAliasing  - ( )
-              VNC-Server    - ( )
-              PNG-Library   - ( )
-              TrueTypeFonts - ( )
----------------------------END-OF-HEADER------------------------------
-*/
-
+#include "main.h"
 #include "DIALOG.h"
 #include <stdio.h>
 #include "recources/buttons/menu.h"
@@ -35,26 +9,14 @@ Requirements: WindowManager - (x)
 *
 **********************************************************************
 */
-#define ID_BUTTON  1
-/*********************************************************************
-*
-*       Static data
-*
-**********************************************************************
-*/
-
-/*********************************************************************
-*
-*       Static code
-*
-**********************************************************************
-*/
+#define ID_SettingsButton  1
 
 
-WM_HWIN ButtonWindow;
-extern	WM_HWIN CreateDialog(WM_HWIN parent);
-WM_HWIN Dialog;
-int buttStatus=0;
+
+
+extern	WM_HWIN CreateSettingsDialog();
+
+int SettingsButtonState=0;
 
 
 
@@ -66,13 +28,13 @@ static void _cbButton_spectrum(WM_MESSAGE * pMsg)
   {
     /* Component repaint message */
     case WM_PAINT:
-    	if(buttStatus == 0){
-    		GUI_SetColor( GUI_GRAY );
-    	}
-    	else{
+    	if(SettingsButtonState == 1){
     		GUI_SetColor( GUI_ORANGE );
     	}
-      GUI_DrawBitmap(&bmmenu, 0, 0);
+    	else{
+    		GUI_SetColor( GUI_GRAY );
+    	}
+      GUI_DrawBitmap(&bmmenu, 35, 35);
       break;
     /* Default callback message */
     default:
@@ -81,81 +43,75 @@ static void _cbButton_spectrum(WM_MESSAGE * pMsg)
 }
 
 
+BUTTON_Handle hButton;
+static void _cbSettingsButtonDialog(WM_MESSAGE * pMsg) {
+  int           Id, NotificationCode;
 
-static void _cbDialog(WM_MESSAGE * pMsg) {
-  int           Id, NCode;
-  BUTTON_Handle hButton;
 
   switch(pMsg->MsgId) {
+//////////////////////////////////////////////////////////////////
   case WM_CREATE:
-    //
-    // Create a button as child of this window.
-    //
-    hButton = BUTTON_CreateEx(0, 0, 80, 80, pMsg->hWin, WM_CF_SHOW, 0, ID_BUTTON);
-    BUTTON_SetText(hButton, "Click me");
+    hButton = BUTTON_CreateEx(0, 0, 150, 150, pMsg->hWin, WM_CF_SHOW, 0, ID_SettingsButton);
     WM_SetCallback(hButton, _cbButton_spectrum);
     break;
+//////////////////////////////////////////////////////////////////
   case WM_PAINT:
     GUI_SetBkColor(GUI_DARKGRAY);
     GUI_Clear();
     break;
+//////////////////////////////////////////////////////////////////
   case WM_NOTIFY_PARENT:
-    //
-    // Since the button is a child of this window, reacts on the button
-    // are sent to its parent window.
-    //
+    //The Button will notify parent when it was clicked
     Id    = WM_GetId(pMsg->hWinSrc);
-    NCode = pMsg->Data.v;
-    //
+    NotificationCode = pMsg->Data.v;
     // Check if notification was sent from the button.
-    //
     switch(Id) {
-    case ID_BUTTON:
-      //
+    case ID_SettingsButton:
       // Check for the correct notification code.
-      //
-      switch(NCode) {
+      switch(NotificationCode) {
       case WM_NOTIFICATION_CLICKED:
-    	buttStatus = !buttStatus;
-    	if(buttStatus){
-    		Dialog = CreateDialog(ButtonWindow);
-    	}
-    	else{
-    		WM_DeleteWindow(Dialog);
-    	}
+    	  SettingsButtonState = !SettingsButtonState;
+
+    	  if(SettingsButtonState){
+    	      SettingsDialog = CreateSettingsDialog();
+    	      BUTTON_SetState(hButton, 1);
+    	    }
+    	  else{
+    	      WM_DeleteWindow(SettingsDialog);
+    	      BUTTON_SetState(hButton, 0);
+    	    }
         break;
       case WM_NOTIFICATION_RELEASED:
+
         break;
       }
       break;
     }
     break;
+//////////////////////////////////////////////////////////////////
+    case WM_USER:
+    	//NotificationCode = pMsg->Data.v;
+    	WM_DeleteWindow(SettingsDialog);
+    	SettingsButtonState = !SettingsButtonState;
+    	if(SettingsButtonState){SettingsDialog = CreateSettingsDialog();}
+    	BUTTON_SetState(hButton, SettingsButtonState);
 
+    break;
+/////////////////////////////////////////////////////////////////
    default:
     WM_DefaultProc(pMsg);
   }
 
 }
 
-/*********************************************************************
-*
-*       Public code
-*
-**********************************************************************
-*/
-/*********************************************************************
-*
-*       MainTask
-*/
-
 
 WM_HWIN CreateSettingsButtonWindow(void) {
 
 
 
-  ButtonWindow = WM_CreateWindow(50, 350, 80, 80, WM_CF_SHOW, _cbDialog, 0);
+  SettingsButtonWindow = WM_CreateWindow(15, 315, 150, 150, WM_CF_HIDE, _cbSettingsButtonDialog, 0);
 
   WM_MULTIBUF_Enable(1);
 
-  return ButtonWindow;
+  return SettingsButtonWindow;
 }

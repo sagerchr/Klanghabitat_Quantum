@@ -102,6 +102,7 @@ void Encoder_Init(void);
 uint8_t i2c[17];
 uint16_t EncoderAdr[6] = {0,8,16,32,64,128};
 
+
 /* USER CODE END 0 */
 
 /**
@@ -598,7 +599,7 @@ static void MX_TIM4_Init(void)
 
   /* USER CODE END TIM4_Init 1 */
   htim4.Instance = TIM4;
-  htim4.Init.Prescaler = 100000;
+  htim4.Init.Prescaler = 10000;
   htim4.Init.CounterMode = TIM_COUNTERMODE_UP;
   htim4.Init.Period = 100000;
   htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
@@ -881,6 +882,10 @@ void Encoder_Init(){
 	}
 
 }
+
+
+
+
 /* USER CODE END 4 */
 
 /* USER CODE BEGIN Header_StartDefaultTask */
@@ -921,6 +926,9 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   /* USER CODE END Callback 0 */
   if (htim->Instance == TIM6) {
     HAL_IncTick();
+  }
+  if (htim->Instance == TIM4) {
+
   }
   /* USER CODE BEGIN Callback 1 */
 

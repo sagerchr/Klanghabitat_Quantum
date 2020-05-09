@@ -39,7 +39,7 @@ extern "C" {
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "stm32469i_discovery_ts.h"
-
+#include "DIALOG.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -294,7 +294,24 @@ float val1buffered;
 float val2MAXbuffered;
 float val1MAXbuffered;
 int Button_okState;
+
+
+///////ALL WINDOW HANDLES///////////
+WM_HWIN MainWindow;
+
+WM_HWIN InfoWindow;
+
+WM_HWIN SettingsWindow;
+
+
+WM_HWIN SettingsButtonWindow;
+WM_HWIN SettingsDialog;
+
 /* USER CODE END Private defines */
+
+
+
+
 
 #ifdef __cplusplus
 }

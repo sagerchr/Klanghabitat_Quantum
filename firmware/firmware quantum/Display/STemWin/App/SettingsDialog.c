@@ -72,11 +72,11 @@
 static const GUI_WIDGET_CREATE_INFO _aDialogCreate[] = {
   { WINDOW_CreateIndirect, "Window", ID_WINDOW_0, 100, 120, 600,240, 0, 0x0, 0 },
 
-  { BUTTON_CreateIndirect, "SpectrumButton", ID_SpectrumButton, 35, 80, 80, 80, 0, 0x0, 0 },
-  { BUTTON_CreateIndirect, "NetworkButton", ID_NetworkButton, 185, 80, 80, 80, 0, 0x0, 0 },
+  { BUTTON_CreateIndirect, "SpectrumButton", ID_SpectrumButton, 0, 80, 150, 150, 0, 0x0, 0 },
+  { BUTTON_CreateIndirect, "NetworkButton", ID_NetworkButton, 150, 80, 150, 150, 0, 0x0, 0 },
 
-  { BUTTON_CreateIndirect, "addButton", ID_addButton, 335, 80, 80, 80, 0, 0x0, 0 },
-  { BUTTON_CreateIndirect, "okButton", ID_okButton, 485, 80, 80, 80, 0, 0x0, 0 },
+  { BUTTON_CreateIndirect, "addButton", ID_addButton, 300, 80, 150, 150, 0, 0x0, 0 },
+  { BUTTON_CreateIndirect, "okButton", ID_okButton, 450, 80, 150, 150, 0, 0x0, 0 },
 
   {TEXT_CreateIndirect, "Text", ID_TEXT_0, 0,20,600, 50, 0, 0x64, 0},
 
@@ -118,7 +118,7 @@ static void _cbButton_spectrum(WM_MESSAGE * pMsg)
     	else{
     		GUI_SetColor( GUI_ORANGE );
     	}
-      GUI_DrawBitmap(&bmspectrum, 0, 0);
+      GUI_DrawBitmap(&bmspectrum, 35, 0);
       break;
     /* Default callback message */
     default:
@@ -139,7 +139,7 @@ static void _cbButtonNetwork(WM_MESSAGE * pMsg)
     	else{
     		GUI_SetColor( GUI_ORANGE );
     	}
-      GUI_DrawBitmap(&bmnetwork, 0, 0);
+      GUI_DrawBitmap(&bmnetwork, 35, 0);
       break;
     /* Default callback message */
     default:
@@ -160,7 +160,7 @@ static void _cbButton_add(WM_MESSAGE * pMsg)
     	else{
     		GUI_SetColor( GUI_ORANGE );
     	}
-      GUI_DrawBitmap(&bmadd, 0, 0);
+      GUI_DrawBitmap(&bmadd, 35, 0);
       break;
     /* Default callback message */
     default:
@@ -180,8 +180,9 @@ static void _cbButton_ok(WM_MESSAGE * pMsg)
     	}
     	else{
     		GUI_SetColor( GUI_ORANGE );
+
     	}
-      GUI_DrawBitmap(&bmOK, 0, 0);
+      GUI_DrawBitmap(&bmOK, 35, 0);
       break;
     /* Default callback message */
     default:
@@ -196,14 +197,17 @@ static void _cbButton_ok(WM_MESSAGE * pMsg)
 *       _cbDialog
 */
 
-WM_HWIN parent;
+WM_HWIN SettingsButtonParent; //This is the reference to the calling Window
+
+
+
+
+
 static void _cbDialog(WM_MESSAGE * pMsg) {
 
   WM_HWIN      hItem;
   int          NCode;
   int          Id;
-  // USER START (Optionally insert additional variables)
-  // USER END
 
   switch (pMsg->MsgId) {
   case WM_INIT_DIALOG:
@@ -224,127 +228,110 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
     TEXT_SetText(hItem, "MODE");
     TEXT_SetTextAlign(hItem, GUI_TA_VCENTER|GUI_TA_HCENTER);
     TEXT_SetFont(hItem, GUI_FONT_32B_1);
-    TEXT_SetTextColor(hItem, GUI_LIGHTGRAY);
+    TEXT_SetTextColor(hItem,GUI_LIGHTGRAY);
 
     hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_1);
     TEXT_SetText(hItem, "M/S");
     TEXT_SetTextAlign(hItem, GUI_TA_VCENTER|GUI_TA_HCENTER);
     TEXT_SetFont(hItem, GUI_FONT_32B_1);
-    TEXT_SetTextColor(hItem, GUI_LIGHTGRAY);
+ 	 if (Button_spectrumState){TEXT_SetTextColor(hItem,GUI_ORANGE);}
+ 	 else{TEXT_SetTextColor(hItem,GUI_LIGHTGRAY);}
 
     hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_2);
     TEXT_SetText(hItem, "Stereo");
     TEXT_SetTextAlign(hItem, GUI_TA_VCENTER|GUI_TA_HCENTER);
     TEXT_SetFont(hItem, GUI_FONT_32B_1);
-    TEXT_SetTextColor(hItem, GUI_LIGHTGRAY);;
+ 	 if (Button_NetworkState){TEXT_SetTextColor(hItem,GUI_ORANGE);}
+ 	 else{TEXT_SetTextColor(hItem,GUI_LIGHTGRAY);}
 
     hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_3);
     TEXT_SetText(hItem, "DualMono");
     TEXT_SetTextAlign(hItem, GUI_TA_VCENTER|GUI_TA_HCENTER);
     TEXT_SetFont(hItem, GUI_FONT_32B_1);
-    TEXT_SetTextColor(hItem, GUI_LIGHTGRAY);
+  	 if (Button_addState){TEXT_SetTextColor(hItem,GUI_ORANGE);}
+  	 else{TEXT_SetTextColor(hItem,GUI_LIGHTGRAY);}
 
     hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_4);
     TEXT_SetText(hItem, "Bypass");
     TEXT_SetTextAlign(hItem, GUI_TA_VCENTER|GUI_TA_HCENTER);
     TEXT_SetFont(hItem, GUI_FONT_32B_1);
-    TEXT_SetTextColor(hItem, GUI_LIGHTGRAY);
-    // USER START (Optionally insert additional code for further widget initialization)
-    // USER END
+ 	 if (Button_okState){TEXT_SetTextColor(hItem,GUI_ORANGE);}
+ 	 else{TEXT_SetTextColor(hItem,GUI_LIGHTGRAY);}
+
     break;
+
+///////////////////////////////////////////////////////////////////
   case WM_PAINT:
 		GUI_SetBkColor(GUI_DARKGRAY);
 		GUI_Clear();
 	break;
 
+///////////////////////////////////////////////////////////////////
   case WM_NOTIFY_PARENT:
     Id    = WM_GetId(pMsg->hWinSrc);
     NCode = pMsg->Data.v;
     switch(Id) {
-    case ID_SpectrumButton: // Notifications sent by 'Button'
+///////////////////////////////////////////////////////////////////
+    case ID_SpectrumButton:
       switch(NCode) {
       case WM_NOTIFICATION_CLICKED:
-        // USER START (Optionally insert code for reacting on notification message)
-        // USER END
     	  Button_spectrumState = !Button_spectrumState;
+
+    	  if (Button_spectrumState){TEXT_SetTextColor(WM_GetDialogItem(pMsg->hWin, ID_TEXT_1),GUI_ORANGE);}
+          else{TEXT_SetTextColor(WM_GetDialogItem(pMsg->hWin, ID_TEXT_1),GUI_LIGHTGRAY);}
         break;
       case WM_NOTIFICATION_RELEASED:
-        // USER START (Optionally insert code for reacting on notification message)
-
-    	  //buttonState= 0;
-    	// USER END
         break;
-      case WM_NOTIFICATION_MOVED_OUT:
-        // USER START (Optionally insert code for reacting on notification message)
-
-    	  //buttonState= 0;
-    	// USER END
-        break;
-      // USER START (Optionally insert additional code for further notification handling)
-      // USER END
       }
       break;
-    case ID_NetworkButton: // Notifications sent by 'Button'
+///////////////////////////////////////////////////////////////////
+    case ID_NetworkButton:
       switch(NCode) {
       case WM_NOTIFICATION_CLICKED:
-        // USER START (Optionally insert code for reacting on notification message)
     	  Button_NetworkState = !Button_NetworkState;
-        // USER END
+
+    	  if (Button_NetworkState){TEXT_SetTextColor(WM_GetDialogItem(pMsg->hWin, ID_TEXT_2),GUI_ORANGE);}
+          else{TEXT_SetTextColor(WM_GetDialogItem(pMsg->hWin, ID_TEXT_2),GUI_LIGHTGRAY);}
         break;
       case WM_NOTIFICATION_RELEASED:
-        // USER START (Optionally insert code for reacting on notification message)
-    	  HAL_Delay(10);
-        // USER END
         break;
-      // USER START (Optionally insert additional code for further notification handling)
-      // USER END
       }
       break;
-    case ID_addButton: // Notifications sent by 'Button'
+///////////////////////////////////////////////////////////////////
+    case ID_addButton:
       switch(NCode) {
       case WM_NOTIFICATION_CLICKED:
-        // USER START (Optionally insert code for reacting on notification message)
-
     	  Button_addState = !Button_addState;
-    	  /*
-    	  hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_0);
-    	  TEXT_SetFont(hItem, GUI_FONT_32B_1);
-    	  TEXT_SetTextColor(hItem,GUI_WHITE);
-    	  TEXT_SetText(hItem, "New string");
-    	  */
-    	  // USER END
+        //Have to change color of text here not in Button CallBack
+    	  if (Button_addState){TEXT_SetTextColor(WM_GetDialogItem(pMsg->hWin, ID_TEXT_3),GUI_ORANGE);}
+          else{TEXT_SetTextColor(WM_GetDialogItem(pMsg->hWin, ID_TEXT_3),GUI_LIGHTGRAY);}
+    	 //////////////////////////////////////////////////////////
         break;
       case WM_NOTIFICATION_RELEASED:
-        // USER START (Optionally insert code for reacting on notification message)
-    	  HAL_Delay(10);
-        // USER END
         break;
-      // USER START (Optionally insert additional code for further notification handling)
-      // USER END
       }
       break;
-    case ID_okButton: // Notifications sent by 'Button'
+///////////////////////////////////////////////////////////////////
+    case ID_okButton:
       switch(NCode) {
       case WM_NOTIFICATION_CLICKED:
-        // USER START (Optionally insert code for reacting on notification message)
-    	  Button_okState =!Button_okState;
-        // USER END
+       	  Button_okState =!Button_okState;
+
+      	 if (Button_okState){TEXT_SetTextColor(WM_GetDialogItem(pMsg->hWin, ID_TEXT_4),GUI_ORANGE);}
+         else{TEXT_SetTextColor(WM_GetDialogItem(pMsg->hWin, ID_TEXT_4),GUI_LIGHTGRAY);}
+
+       	  pMsg->Data.v = 5; //Payload: Maybe used to select right Widget
+       	  pMsg->MsgId = WM_USER; //Message
+       	  WM_SendMessage (SettingsButtonWindow, pMsg);
+
         break;
       case WM_NOTIFICATION_RELEASED:
-        // USER START (Optionally insert code for reacting on notification message)
-
-        // USER END
         break;
-      // USER START (Optionally insert additional code for further notification handling)
-      // USER END
       }
       break;
-    // USER START (Optionally insert additional code for further Ids)
-    // USER END
+//////////////////////////////////////////////////////////////////
     }
     break;
-  // USER START (Optionally insert additional message handling)
-  // USER END
   default:
     WM_DefaultProc(pMsg);
     break;
@@ -362,14 +349,14 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 *       CreateWindow
 */
 
-WM_HWIN CreateDialog(WM_HWIN parentRef) {
-	parent = parentRef;
-	WM_HWIN hWin;
+
+
+
+WM_HWIN CreateSettingsDialog(void) {
+  //SettingsButtonParent = parentRef;
+  WM_HWIN hWin;
 
   hWin = GUI_CreateDialogBox(_aDialogCreate, GUI_COUNTOF(_aDialogCreate), _cbDialog, WM_HBKWIN, 0, 0);
-
-  //DIALOG_SetBkColor(GUI_INVALID_COLOR);
-
 
   WM_Paint(hWin);
   return hWin;
@@ -379,3 +366,6 @@ WM_HWIN CreateDialog(WM_HWIN parentRef) {
 // USER END
 
 /*************************** End of file ****************************/
+
+
+
