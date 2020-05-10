@@ -7,39 +7,45 @@
 #include "GuiElements/AudioMeter.h"
 #include "GuiElements/Controlls.h"
 #include "../tasks/SerialHandleTask/UART_IO.h"
+#include "valueTable.h"
+int counterArray[100];
+int counter=0;
+int sum = 0;
 
 
+int toggle=1;
+
+int x2=345;
+int x1=455;
+int y=-348;
 
 static void _cbDialog(WM_MESSAGE * pMsg) {
-
+	  GUI_DCACHE_Clear(1);
+	  GUI_Clear();
+	  GUI_SetColor( GUI_LIGHTGRAY );
   switch (pMsg->MsgId) {
   case WM_PAINT:
+
 	  break;
   default:
     WM_DefaultProc(pMsg);
 
   }
+  GUI_SetColor(GUI_BLACK);
+  GUI_DrawRect   (200, 52, 600, 450);
+  //////////////////////////DRAWING WAVEFORM////////////////////////
+   	 for(int i=200; i<400;i++){
 
-  	  GUI_DCACHE_Clear(0);
-	  GUI_Clear();
-	  GUI_SetColor( GUI_LIGHTGRAY );
-
-//////////////////////////DRAWING WAVEFORM////////////////////////
-  int x1=345;
-  int x=465;
-  int y=-348;
-
-  	  for(int i=200; i<400;i++){
-
-		   GUI_SetColor( GUI_GRAY );
-		   GUI_DrawHLine(y+(i*2),x1-RightStream[599-i], x1);
-
-		   GUI_SetColor( GUI_GRAY );
-		   GUI_DrawHLine(y+(i*2),x, x+LeftStream[599-i]);
-
-		}
-//////////////////////////////////////////////////////////////////
-
+   		 	 GUI_SetColor( GUI_GRAY );
+  			 GUI_DrawHLine(y+(i*2),x1, x1+inputRightStream[599-i]);
+   		 	 GUI_DrawHLine(y+(i*2),x2-inputLeftStream[599-i], x2);
+/*
+  			 GUI_SetColor( GUI_GRAY_AA);
+  			 GUI_DrawHLine(y+(i*2),x1, x1+outputRightStream[599-i]);
+  			 GUI_DrawHLine(y+(i*2),x2-outputLeftStream[599-i], x2);
+*/
+  	}
+  //////////////////////////////////////////////////////////////////
 	    GUI_SetColor(GUI_LIGHTGRAY);
 	    GUI_SetFont(&GUI_Font24B_1);
 		GUI_GotoXY(10,10);
@@ -50,14 +56,45 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 	    GUI_GotoXY(200,10);
 	    GUI_DispStringAt("Y:", 180, 10);
 	    GUI_DispFloatMin(TouchYCoordinate, 1);
+  /////////////////////////////////////////////////////////////////
+
+
+	    GUI_SetFont(&GUI_Font24B_1);
+		GUI_GotoXY(360,25);
+		if(f_outputLeft_DB_MAXbufferd>0){
+			GUI_SetColor(GUI_LIGHTRED);
+		}else{
+			GUI_SetColor(GUI_GRAY);
+		}
+		GUI_DispFloatMin(f_outputLeft_DB_MAXbufferd, 1);
+		GUI_GotoXY(410,25);
+		if(f_outputRight_DB_MAXbufferd>0){
+			GUI_SetColor(GUI_LIGHTRED);
+		}else{
+			GUI_SetColor(GUI_GRAY);
+		}
+		GUI_DispFloatMin(f_outputRight_DB_MAXbufferd, 1);
+
+		GUI_SetColor(GUI_GRAY);
+		GUI_SetFont(&GUI_Font24B_1);
+		GUI_GotoXY(700,40);
+		GUI_DispFloatMin(pots[1], 1);
+		GUI_GotoXY(700,60);
+		GUI_DispFloatMin(pots[2], 1);
+		GUI_GotoXY(700,80);
+		GUI_DispFloatMin(pots[3], 1);
+		GUI_GotoXY(700,100);
+		GUI_DispFloatMin(pots[4], 1);
 
 
 
 
+ drawBarDottedVertical (368, 30,i_inputLeft_Indicator_MAXbufferd,i_inputLeft_Indicator_bufferd,GUI_GRAY_AA,30);
+ drawBarDottedVertical (402, 30,i_inputRight_Indicator_MAXbufferd,i_inputRight_Indicator_bufferd,GUI_GRAY_AA,30);
 
- drawBarDottedVertical (350, 30,val1MAXbuffered/1,val1buffered/1);
- drawBarDottedVertical (410, 30,val2MAXbuffered/1,val2buffered/1);
-
+ drawBarDottedVertical (349, 30,i_outputLeft_Indicator_MAXbufferd,i_outputLeft_Indicator_bufferd,GUI_GRAY_AA,15);
+ drawBarDottedVertical (436, 30,i_outputRight_Indicator_MAXbufferd,i_outputRight_Indicator_bufferd,GUI_GRAY_AA,15);
+/*
  ArcControl(80,100,pots[1],"Attack");
  ArcControl(80,260,pots[2],"Ratio");
 
@@ -81,7 +118,7 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
  GUI_DrawArc(-280, 240, radius, radius, -24, 24);
  GUI_SetColor(GUI_ORANGE);
  GUI_DrawArc(-280, 240, radius, radius, -24+(250-pots[2]), 24);
-
+*/
  BSP_LED_Toggle(LED3); //Toggle LED to check Performance
 
 }

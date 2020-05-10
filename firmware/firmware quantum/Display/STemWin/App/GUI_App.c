@@ -48,17 +48,16 @@
 #include "DIALOG.h"
 #include "main.h"
 #include "../tasks/SerialHandleTask/UART_IO.h"
+#include "valueTable.h"
+#include "SerialServer.h"
 
 extern  WM_HWIN CreateMainWindow(void);
-//extern  WM_HWIN CreateSettingsWindow(void);
 extern  WM_HWIN CreateInfoWindow(void);
 extern  WM_HWIN CreateSettingsButtonWindow(void);
 extern void TOUCHUPDATE();
 
 UART_HandleTypeDef huart6;
-
 TIM_HandleTypeDef htim4;
-
 TS_StateTypeDef ts;
 
 
@@ -122,7 +121,9 @@ float leftIN = 0.0;
 float rightIN = 0.0;
 
 int trans;
+TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim4;
+
 GUI_RECT pRect = {200,0,600,480};
 int done = 0;
 
@@ -151,6 +152,7 @@ void GRAPHICS_MainTask(void) {
 
 	int timer = 0;
 
+	HAL_TIM_Base_Start(&htim1);
 	HAL_TIM_Base_Start(&htim4);
 
   while(1)
@@ -198,170 +200,133 @@ void GRAPHICS_MainTask(void) {
 	   WM_Invalidate(MainWindow);
 	   WM_SendMessageNoPara(MainWindow, WM_Paint);
 	   GUI_Delay(1);
+	   GUI_SetTimeSlice(1);
 ///////////////////////////////////////////////////////////////////
 	   BSP_LED_Toggle(LED1);
 	}
 }
 
 
+
+
+int val1;
+int val2;
+
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 
 	TOUCHUPDATE(); //Recive Data from Touchpanel and Encoder
 	UARTRECIVER(); //Recive Data from UART --> UARTDATA
 
-    upcounter = UARTDATA[4];
+    upcounter = UARTDATA[4]; //Watchdog coming from the MotherEngine is used to identify new Value
 
-	newValueLeft = UARTDATA[6];
-	newValueRight = UARTDATA[7];
-	newValueLeftOUT = UARTDATA[10];
-	newValueRightOUT = UARTDATA[11];
-
-	if(maxValueLeft < newValueLeft){
-		maxValueLeft = newValueLeft;
-	}
-
-	if(maxValueRight < newValueRight){
-		maxValueRight = newValueRight;
-	}
-
-	if(maxValueLeftOUT < newValueLeftOUT){
-		maxValueLeftOUT = newValueLeftOUT;
-	}
-
-	if(maxValueRightOUT < newValueRightOUT){
-		maxValueRightOUT = newValueRightOUT;
-	}
+	if(reset||(upcounter != upcounterLast)){
+	//************************NEW VALUES CAME IN**********************************//
+	//***********Everything in this IF CASE should be done for new Values*********//
 
 
-	int32_t INT;
+	//*******************!!!UPDATE  of all Float value!!!*************************//
+	//****************************************************************************//
 
-		   /************Input Data to float**************/
-		   INT = UARTDATA[15] 	|
-		   		(UARTDATA[14] << 8) 	|
-		   		(UARTDATA[13] << 16) 	|
-		   		(UARTDATA[12] << 24);
+		f_inputLeft_DB = createFloat(12);
+		f_inputRight_DB = createFloat(16);
 
-		   memcpy(&test, &INT, sizeof(test));
-		   leftIN = test;
-		   /*********************************************/
+		f_VCALeft_DB = createFloat(12); //Array Address needs to be defined/changed
+		f_VCARight_DB = createFloat(16);
 
-		   /************Input Data to float**************/
-		   INT = UARTDATA[19] 	|
-		   		(UARTDATA[18] << 8) 	|
-		   		(UARTDATA[17] << 16) 	|
-		   		(UARTDATA[16] << 24);
-		   memcpy(&test, &INT, sizeof(test));
-		   rightIN = test;
-		   /*********************************************/
-			if(max_leftIN < leftIN){
-				max_leftIN = leftIN;
-			}
-			if(max_rightIN < rightIN){
-				max_rightIN = rightIN;
-			}
+		f_outputLeft_DB = createFloat(12); //Array Address needs to be defined/changed
+		f_outputRight_DB = createFloat(16);
 
-			for(int i=0; i<50; i++){
-				if (spectrum_max[i]<UARTDATA[i+50]){
-					spectrum_max[i] = UARTDATA[i+50];
-				}
-			}
+	//****************************************************************************//
+	//*******************!!!UPDATE Waveform!!!************************************//
+	//****************************************************************************//
+		i_inputLeft_Waveform = UARTDATA[6];
+		i_inputRight_Waveform = UARTDATA[7];
+		i_VCALeft_Waveform = UARTDATA[8];
+		i_VCALeft_Waveform = UARTDATA[9];
+		i_outputLeft_Waveform = UARTDATA[10];
+		i_outputRight_Waveform = UARTDATA[11];
 
+		inputLeftStream[399] = i_inputLeft_Waveform;
+		for(int i=0; i<399;i++){inputLeftStream[i] = inputLeftStream[i+1];}
 
+		inputRightStream[399] = i_inputRight_Waveform;
+		for(int i=0; i<399;i++){inputRightStream[i] = inputRightStream[i+1];}
 
-	if(reset == 1 || (upcounter != upcounterLast)){
+		VCALeftStream[399] = i_VCALeft_Waveform;
+		for(int i=0; i<399;i++){VCALeftStream[i] = VCALeftStream[i+1];}
 
-		rightDB = max_rightIN;
-		leftDB =  max_leftIN;
+		VCARightStream[399] = i_VCALeft_Waveform;
+		for(int i=0; i<399;i++){VCARightStream[i] = VCARightStream[i+1];}
 
-		if(maxValueLeft==0){
-		adc1 = 1;
-		}
-		else{
-		adc1 = maxValueLeft;
-		}
-		if(maxValueRight==0){
-		adc2 = 1;
-		}
-		else{
-		adc2 = maxValueRight;
-		}
-		if(maxValueLeftOUT==0){
-		adc3 = 1;
-		}
-		else{
-		adc3 = maxValueLeftOUT;
-		}
-		if(maxValueRightOUT==0){
-		adc4 = 1;
-		}
-		else{
-		adc4 = maxValueRightOUT;
-		}
-		maxValueLeft = 0;
-		maxValueRight = 0;
-		maxValueLeftOUT = 0;
-		maxValueRightOUT = 0;
-		max_leftIN = -130.0;
-		max_rightIN = -130.0;
+		outputLeftStream[399] = i_outputLeft_Waveform;
+		for(int i=0; i<399;i++){outputLeftStream[i] = outputLeftStream[i+1];}
 
+		outputRightStream[399] = i_outputRight_Waveform;
+		for(int i=0; i<399;i++){outputRightStream[i] = outputRightStream[i+1];}
 
-		reset = 0;
+	//****************************************************************************//
+	//*******************!!!UPDATE INDICATOR!!!***********************************//
+	//****************************************************************************//
+
+		i_inputLeft_Indicator = UARTDATA[6];
+		i_inputRight_Indicator = UARTDATA[7];
+		i_VCALeft_Indicator = UARTDATA[8];
+		i_VCARight_Indicator = UARTDATA[9];
+		i_outputLeft_Indicator = 2*UARTDATA[10];
+		i_outputRight_Indicator = 2*UARTDATA[11];
+
+	reset = 0;
+	upcounterLast = upcounter;
 
 	}
 
 
-	   int val 	= adc1;
-	   int val2 =adc2;
+	  if (i_inputLeft_Indicator > i_inputLeft_Indicator_bufferd){i_inputLeft_Indicator_bufferd = i_inputLeft_Indicator;}
+	  else {i_inputLeft_Indicator_bufferd -=0.005*(i_inputLeft_Indicator_bufferd-i_inputLeft_Indicator);}
+
+	  if (i_inputLeft_Waveform > i_inputLeft_Indicator_MAXbufferd){i_inputLeft_Indicator_MAXbufferd = i_inputLeft_Indicator;}
+	  else {i_inputLeft_Indicator_MAXbufferd -=0.001*(i_inputLeft_Indicator_MAXbufferd-i_inputLeft_Indicator);}
 
 
-	  if (val2 > val2buffered){
-		  val2buffered = val2;
-	  }
-	  else {
-		  val2buffered -=0.005*(val2buffered-val2);
-	  }
+	  if (i_inputRight_Indicator > i_inputRight_Indicator_bufferd){i_inputRight_Indicator_bufferd = i_inputRight_Indicator;}
+	  else {i_inputRight_Indicator_bufferd -=0.005*(i_inputRight_Indicator_bufferd-i_inputRight_Indicator);}
 
-	  if (val > val1buffered){
-		  val1buffered = val;
-	  }
-	  else {
-		  val1buffered -=0.005*(val1buffered-val);
-	  }
+	  if (i_inputRight_Indicator > i_inputRight_Indicator_MAXbufferd){i_inputRight_Indicator_MAXbufferd = i_inputRight_Indicator;}
+	  else {i_inputRight_Indicator_MAXbufferd -=0.001*(i_inputRight_Indicator_MAXbufferd-i_inputRight_Indicator);}
 
 
-	  if (val2 > val2MAXbuffered){
-		  val2MAXbuffered = val2;
-	  }
-	  else {
-		  val2MAXbuffered -=0.001*(val2MAXbuffered-val2);
-	  }
+	  if (i_outputLeft_Indicator > i_outputLeft_Indicator_bufferd){i_outputLeft_Indicator_bufferd = i_outputLeft_Indicator;}
+	  else {i_outputLeft_Indicator_bufferd -=0.005*(i_outputLeft_Indicator_bufferd-i_outputLeft_Indicator);}
 
-	  if (val > val1MAXbuffered){
-		  val1MAXbuffered = val;
-	  }
-	  else {
-		  val1MAXbuffered -=0.001*(val1MAXbuffered-val);
-	  }
+	  if (i_outputLeft_Indicator> i_outputLeft_Indicator_MAXbufferd){i_outputLeft_Indicator_MAXbufferd = i_outputLeft_Indicator;}
+	  else {i_outputLeft_Indicator_MAXbufferd -=0.001*(i_outputLeft_Indicator_MAXbufferd-i_outputLeft_Indicator);}
+
+
+	  if (i_outputRight_Indicator > i_outputRight_Indicator_bufferd){i_outputRight_Indicator_bufferd = i_outputRight_Indicator;}
+	  else {i_outputRight_Indicator_bufferd -=0.005*(i_outputRight_Indicator_bufferd-i_outputRight_Indicator);}
+
+	  if (i_outputRight_Indicator > i_outputRight_Indicator_MAXbufferd){i_outputRight_Indicator_MAXbufferd = i_outputRight_Indicator;}
+	  else {i_outputRight_Indicator_MAXbufferd -=0.001*(i_outputRight_Indicator_MAXbufferd-i_outputRight_Indicator);}
 
 
 
 
-if(upcounter != upcounterLast){
-	LeftStream[399] = adc2;
+	  if (f_inputLeft_DB > f_inputLeft_DB_bufferd){f_inputLeft_DB_bufferd = f_inputLeft_DB;}
+	  else {f_inputLeft_DB_bufferd -=0.005*(f_inputLeft_DB_bufferd-f_inputLeft_DB);}
 
-	for(int i=0; i<399;i++)
-	{
-		LeftStream[i] = LeftStream[i+1];
-	}
+	  if (f_inputRight_DB > f_inputRight_DB_bufferd){f_inputRight_DB_bufferd = f_inputRight_DB;}
+	  else {f_inputRight_DB_bufferd -=0.005*(f_inputRight_DB_bufferd-f_inputRight_DB);}
 
-	RightStream[399] = adc1;
 
-	for(int i=0; i<399;i++)
-	{
-		RightStream[i] = RightStream[i+1];
-	}
-	upcounterLast=upcounter;
-}
+
+	  if (f_inputLeft_DB > f_outputLeft_DB_bufferd){f_outputLeft_DB_MAXbufferd = f_inputLeft_DB;}
+	  else {f_outputLeft_DB_MAXbufferd -=0.0005*(f_outputLeft_DB_MAXbufferd-f_inputLeft_DB);}
+
+	  if (f_inputRight_DB > f_outputRight_DB_bufferd){f_outputRight_DB_MAXbufferd = f_inputRight_DB;}
+	  else {f_outputRight_DB_MAXbufferd -=0.0005*(f_outputRight_DB_MAXbufferd-f_inputRight_DB);}
+
+
+
 
 
 

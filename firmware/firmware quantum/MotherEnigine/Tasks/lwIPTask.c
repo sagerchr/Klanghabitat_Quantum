@@ -36,6 +36,7 @@ char IP4_client[3];
 uint8_t IP_client_number[4];
 uint8_t upcounter;
 
+
 void lwIPTask(void const * argument){
 /*
 	MY_FLASH_SetSectorAddrs(11, 0x081C0000);

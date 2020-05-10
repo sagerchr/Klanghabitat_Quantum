@@ -167,12 +167,12 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   //#####################Reset the Display###############
-  HAL_GPIO_WritePin(GPIOD, DEBUG2_Pin, GPIO_PIN_SET);
-  HAL_Delay(10);
-  HAL_GPIO_WritePin(GPIOD, DEBUG2_Pin, GPIO_PIN_RESET);
-  HAL_Delay(100);
-  HAL_GPIO_WritePin(GPIOD, DEBUG2_Pin, GPIO_PIN_SET);
-  HAL_Delay(100);
+  //HAL_GPIO_WritePin(GPIOD, DEBUG2_Pin, GPIO_PIN_SET);
+  //HAL_Delay(10);
+  //HAL_GPIO_WritePin(GPIOD, DEBUG2_Pin, GPIO_PIN_RESET);
+  //HAL_Delay(100);
+  //HAL_GPIO_WritePin(GPIOD, DEBUG2_Pin, GPIO_PIN_SET);
+  //HAL_Delay(100);
   //####################################################
   MX_DMA_Init();
   MX_DAC_Init();
