@@ -320,10 +320,10 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 
 
 	  if (f_inputLeft_DB > f_outputLeft_DB_bufferd){f_outputLeft_DB_MAXbufferd = f_inputLeft_DB;}
-	  else {f_outputLeft_DB_MAXbufferd -=0.0005*(f_outputLeft_DB_MAXbufferd-f_inputLeft_DB);}
+	  else {f_outputLeft_DB_MAXbufferd -=0.05*(f_outputLeft_DB_MAXbufferd-f_inputLeft_DB);}
 
 	  if (f_inputRight_DB > f_outputRight_DB_bufferd){f_outputRight_DB_MAXbufferd = f_inputRight_DB;}
-	  else {f_outputRight_DB_MAXbufferd -=0.0005*(f_outputRight_DB_MAXbufferd-f_inputRight_DB);}
+	  else {f_outputRight_DB_MAXbufferd -=0.05*(f_outputRight_DB_MAXbufferd-f_inputRight_DB);}
 
 
 

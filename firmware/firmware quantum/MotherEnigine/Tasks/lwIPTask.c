@@ -383,12 +383,12 @@ char UART_IN[10];
 		  UART_transmit[3]='a';
 		  UART_transmit[4]=upcounter;//3
 		  UART_transmit[5]=0x02;//2
-		  UART_transmit[6]=voltageIn1MAX*30;//3
-		  UART_transmit[7]=voltageIn2MAX*30;//4
-		  UART_transmit[8]=0x10;//5
-		  UART_transmit[9]=0x10;//6
-		  UART_transmit[10]=voltageIn5MAX*30;//7
-		  UART_transmit[11]=voltageIn6MAX*30;//8
+		  UART_transmit[6]=voltageIn1MAX*100;//3
+		  UART_transmit[7]=voltageIn2MAX*100;//4
+		  UART_transmit[8]=voltageIn3MAX*100;//7
+		  UART_transmit[9]=voltageIn4MAX*100;//7
+		  UART_transmit[10]=voltageIn5MAX*100;//7
+		  UART_transmit[11]=voltageIn6MAX*100;//8
 		  memcpy(data, &dbuMAX[0], sizeof &dbuMAX[0]);    // send data
 		  a = data[0]; b = data[1];c = data[2];d = data[3];
 		  UART_transmit[12]=d;

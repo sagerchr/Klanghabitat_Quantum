@@ -58,7 +58,7 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 	    GUI_DispFloatMin(TouchYCoordinate, 1);
   /////////////////////////////////////////////////////////////////
 
-
+/*
 	    GUI_SetFont(&GUI_Font24B_1);
 		GUI_GotoXY(360,25);
 		if(f_outputLeft_DB_MAXbufferd>0){
@@ -74,6 +74,19 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 			GUI_SetColor(GUI_GRAY);
 		}
 		GUI_DispFloatMin(f_outputRight_DB_MAXbufferd, 1);
+*/
+
+
+	    GUI_SetColor(GUI_GRAY);
+
+	    GUI_SetFont(&GUI_Font32B_1);
+	    GUI_DispStringAt("Voltage:", 620, 200);
+	    GUI_GotoXY(730,200);
+	    GUI_DispFloatMin(f_outputRight_DB_MAXbufferd, 2);
+	    GUI_DispStringAt("decibel:", 620, 240);
+	    GUI_GotoXY(730,240);
+	    GUI_DispFloatMin(f_outputLeft_DB_MAXbufferd, 2);
+
 
 		GUI_SetColor(GUI_GRAY);
 		GUI_SetFont(&GUI_Font24B_1);

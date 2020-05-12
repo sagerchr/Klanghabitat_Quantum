@@ -26,7 +26,9 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "math.h"
+#include "stdlib.h"
 #include "UART_correction.h"
+#include "../Tasks/Functions/dBu.h"
 /* USER CODE END Includes */
   
 /* Private typedef -----------------------------------------------------------*/
@@ -45,7 +47,7 @@
 int16_t analogINSigned[8];
 float volt;
 float voltageRMStemp[8];
-
+int channel=0;
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -222,6 +224,9 @@ void TIM6_DAC_IRQHandler(void)
   /* USER CODE END TIM6_DAC_IRQn 1 */
 }
 
+
+/* compute natural logarithm, maximum error 0.85756 ulps */
+
 /**
   * @brief This function handles TIM7 global interrupt.
   */
@@ -263,31 +268,26 @@ void TIM7_IRQHandler(void)
       analogIN[i] = GPIOE->IDR;
   }
 
-  //HAL_GPIO_WritePin(GPIOD, CS_Pin,GPIO_PIN_SET);
-  //HAL_GPIO_WritePin(GPIOD, RD_Pin,GPIO_PIN_SET);
-  //************************************************************//
-  //HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R, analogIN[0]); //Update ADC1
-  //HAL_DAC_SetValue(&hdac, DAC_CHANNEL_2, DAC_ALIGN_12B_R, analogIN[1]); //Update ADC2
-
-  HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R,UART_reciveCorrected[7]+150); //Update ADC1
-  HAL_DAC_SetValue(&hdac, DAC_CHANNEL_2, DAC_ALIGN_12B_R,UART_reciveCorrected[9]+171); //Update ADC2
-  //HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R,150); //Update ADC1
-  //HAL_DAC_SetValue(&hdac, DAC_CHANNEL_2, DAC_ALIGN_12B_R,155); //Update ADC2
 
 
+ HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R,UART_reciveCorrected[7]+150); //Update ADC1
+ HAL_DAC_SetValue(&hdac, DAC_CHANNEL_2, DAC_ALIGN_12B_R,UART_reciveCorrected[9]+171); //Update ADC2
 
-  //µsec in total
-  RingIn1[indexer] = analogIN[0];
-  voltRingIn1[indexer] = RingIn1[indexer]*(10.0/32767);
+
+  HAL_GPIO_TogglePin(GPIOF, DEBUG1_Pin);
+
+  voltRingIn1[indexer] = (int16_t)analogIN[0]*(10.0/32767);
   if (voltRingIn1[indexer]<0){volt = voltRingIn1[indexer]*(-1.0);}
-  else {volt = voltRingIn1[indexer];}
+  else {volt = voltRingIn1[indexer];} //make the voltage value always positive
+  if (voltageIn1MAX < volt){voltageIn1MAX=volt;}//Collect Maximum value if bigger then the actual
 
-  if (voltageIn1MAX < volt){voltageIn1MAX=volt;}
-    dbuRingIn1[indexer]  = 20*log(volt/1.735); //1.5 µsec!!!
+  dbuRingIn1[indexer]  = 20*log10(voltageIn1MAX/1.095); //1.5 µsec!!!
+  if (dbuMAX[0]<dbuRingIn1[indexer]){dbuMAX[0]=dbuRingIn1[indexer];}
 
-  if (dbuMAX[0]<dbuRingIn1[indexer]){
-	  dbuMAX[0]=dbuRingIn1[indexer];
-  }
+  HAL_GPIO_TogglePin(GPIOF, DEBUG1_Pin);
+
+
+
 
 
   RingIn2[indexer] = analogIN[1];
@@ -296,7 +296,7 @@ void TIM7_IRQHandler(void)
   else {volt = voltRingIn2[indexer];}
 
   if (voltageIn2MAX < volt){voltageIn2MAX=volt;}
-  dbuRingIn2[indexer]  = 20*log(volt/1.735);
+  dbuRingIn2[indexer]  = volt;
 
   if (dbuMAX[1]<dbuRingIn2[indexer]){
 	  dbuMAX[1]=dbuRingIn2[indexer];
@@ -386,7 +386,7 @@ void TIM7_IRQHandler(void)
   		dbuMAX[i] = -130.0;
   	}
 
-  	HAL_GPIO_TogglePin(GPIOF, DEBUG1_Pin);
+
 
 
 }

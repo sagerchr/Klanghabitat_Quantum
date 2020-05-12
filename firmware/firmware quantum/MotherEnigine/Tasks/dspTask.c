@@ -11,7 +11,7 @@
 #include "stm32f7xx.h"
 #include "arm_math.h"
 #include "arm_const_structs.h"
-
+#include "UART_correction.h"
 TIM_HandleTypeDef htim6;
 TIM_HandleTypeDef htim7;
 DAC_HandleTypeDef hdac;
@@ -64,9 +64,30 @@ void dspTask(void const * argument){
 
 		int toggle = 0;
 
+
+
+
+
+
+
+
+
 	for(;;){
 
 
+
+
+
+
+
+
+
+
+
+
+///////////////////////CALCULATE FFT/////////////////////////////////////////
+
+		//////////////PREPARE "IN"-ARRAY consumed by the FFT calculation////
 		if (toggle == 0){
 			toggle = 1;
 			for(int i=0; i<512; i+=2){
@@ -81,34 +102,28 @@ void dspTask(void const * argument){
 				IN[i+1]=0.0;
 				}
 		}
-
+		/////////////////CALCULATE FFT FOR Left/Right Channel////////////////
 			if(toggle == 0){
-
 				arm_cfft_radix4_init_f32(&S, 256, 0, 1);
 				arm_cfft_radix4_f32(&S, IN);
 				arm_cmplx_mag_f32(IN, Output, 256);
-
 				for (int i=0; i<100;i++){
 				FFT_result[i] = Output[i];
 				}
-
 			}
-
 			if(toggle == 1){
-
 				arm_cfft_radix4_init_f32(&S, 256, 0, 1);
 				arm_cfft_radix4_f32(&S, IN);
 				arm_cmplx_mag_f32(IN, Output, 256);
-
 				for (int i=0; i<100;i++){
 				FFT_result2[i] = Output[i];
 				}
 
 			}
+			//https://stm32f4-discovery.net/2014/10/stm32f4-fft-example/
+///////////////////////////////////////////////////////////////////////////
 
 
-
-		//https://stm32f4-discovery.net/2014/10/stm32f4-fft-example/
 
 
 
