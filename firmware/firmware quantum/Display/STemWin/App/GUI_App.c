@@ -230,11 +230,11 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 		f_inputLeft_DB = createFloat(12);
 		f_inputRight_DB = createFloat(16);
 
-		f_VCALeft_DB = createFloat(12); //Array Address needs to be defined/changed
-		f_VCARight_DB = createFloat(16);
+		f_VCALeft_DB = createFloat(20); //Array Address needs to be defined/changed
+		f_VCARight_DB = createFloat(24);
 
-		f_outputLeft_DB = createFloat(12); //Array Address needs to be defined/changed
-		f_outputRight_DB = createFloat(16);
+		f_outputLeft_DB = createFloat(28); //Array Address needs to be defined/changed
+		f_outputRight_DB = createFloat(32);
 
 	//****************************************************************************//
 	//*******************!!!UPDATE Waveform!!!************************************//
@@ -272,8 +272,8 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 		i_inputRight_Indicator = UARTDATA[7];
 		i_VCALeft_Indicator = UARTDATA[8];
 		i_VCARight_Indicator = UARTDATA[9];
-		i_outputLeft_Indicator = 2*UARTDATA[10];
-		i_outputRight_Indicator = 2*UARTDATA[11];
+		i_outputLeft_Indicator = UARTDATA[10];
+		i_outputRight_Indicator = UARTDATA[11];
 
 	reset = 0;
 	upcounterLast = upcounter;
@@ -310,21 +310,44 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 
 
 
-
+/////////INPUT LEFT
 	  if (f_inputLeft_DB > f_inputLeft_DB_bufferd){f_inputLeft_DB_bufferd = f_inputLeft_DB;}
-	  else {f_inputLeft_DB_bufferd -=0.005*(f_inputLeft_DB_bufferd-f_inputLeft_DB);}
+	  else {f_inputLeft_DB_bufferd -=0.01*(f_inputLeft_DB_bufferd-f_inputLeft_DB);}
 
+	  if (f_inputLeft_DB > f_outputLeft_DB_bufferd){f_inputLeft_DB_MAXbufferd = f_inputLeft_DB;}
+	  else {f_inputLeft_DB_MAXbufferd -=0.005*(f_inputLeft_DB_MAXbufferd-f_inputLeft_DB);}
+/////////INPUT RIGHT
 	  if (f_inputRight_DB > f_inputRight_DB_bufferd){f_inputRight_DB_bufferd = f_inputRight_DB;}
-	  else {f_inputRight_DB_bufferd -=0.005*(f_inputRight_DB_bufferd-f_inputRight_DB);}
+	  else {f_inputRight_DB_bufferd -=0.01*(f_inputRight_DB_bufferd-f_inputRight_DB);}
 
+	  if (f_inputRight_DB > f_inputRight_DB_bufferd){f_inputRight_DB_MAXbufferd = f_inputRight_DB;}
+	  else {f_inputRight_DB_MAXbufferd -=0.005*(f_inputRight_DB_MAXbufferd-f_inputRight_DB);}
 
+/////////VCA LEFT
+	  if (f_VCALeft_DB > f_VCALeft_DB_bufferd){f_VCALeft_DB_bufferd = f_VCALeft_DB;}
+	  else {f_VCALeft_DB_bufferd -=0.01*(f_VCALeft_DB_bufferd-f_VCALeft_DB);}
 
-	  if (f_inputLeft_DB > f_outputLeft_DB_bufferd){f_outputLeft_DB_MAXbufferd = f_inputLeft_DB;}
-	  else {f_outputLeft_DB_MAXbufferd -=0.05*(f_outputLeft_DB_MAXbufferd-f_inputLeft_DB);}
+	  if (f_VCALeft_DB > f_VCALeft_DB_bufferd){f_VCALeft_DB_MAXbufferd = f_VCALeft_DB;}
+	  else {f_VCALeft_DB_MAXbufferd -=0.005*(f_VCALeft_DB_MAXbufferd-f_VCALeft_DB);}
+/////////VCA RIGHT
+	  if (f_VCARight_DB > f_VCARight_DB_bufferd){f_VCARight_DB_bufferd = f_VCARight_DB;}
+	  else {f_VCARight_DB_bufferd -=0.01*(f_VCARight_DB_bufferd-f_VCARight_DB);}
 
-	  if (f_inputRight_DB > f_outputRight_DB_bufferd){f_outputRight_DB_MAXbufferd = f_inputRight_DB;}
-	  else {f_outputRight_DB_MAXbufferd -=0.05*(f_outputRight_DB_MAXbufferd-f_inputRight_DB);}
+	  if (f_VCARight_DB > f_VCARight_DB_bufferd){f_VCARight_DB_MAXbufferd = f_VCARight_DB;}
+	  else {f_VCARight_DB_MAXbufferd -=0.005*(f_VCARight_DB_MAXbufferd-f_VCARight_DB);}
 
+/////////OUTPUT LEFT
+	  if (f_outputLeft_DB > f_outputLeft_DB_bufferd){f_outputLeft_DB_bufferd = f_outputLeft_DB;}
+	  else {f_inputLeft_DB_bufferd -=0.001*(f_inputLeft_DB_bufferd-f_inputLeft_DB);}
+
+	  if (f_outputLeft_DB > f_outputLeft_DB_bufferd){f_outputLeft_DB_MAXbufferd = f_outputLeft_DB;}
+	  else {f_outputLeft_DB_MAXbufferd -=0.005*(f_outputLeft_DB_MAXbufferd-f_outputLeft_DB);}
+/////////OUTPUT RIGHT
+	  if (f_outputRight_DB > f_outputRight_DB_bufferd){f_outputRight_DB_bufferd = f_outputRight_DB;}
+	  else {f_outputRight_DB_bufferd -=0.01*(f_outputRight_DB_bufferd-f_outputRight_DB);}
+
+	  if (f_outputRight_DB > f_outputRight_DB_bufferd){f_outputRight_DB_MAXbufferd = f_outputRight_DB;}
+	  else {f_outputRight_DB_MAXbufferd -=0.005*(f_outputRight_DB_MAXbufferd-f_outputRight_DB);}
 
 
 

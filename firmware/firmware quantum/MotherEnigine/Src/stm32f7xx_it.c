@@ -29,6 +29,7 @@
 #include "stdlib.h"
 #include "UART_correction.h"
 #include "../Tasks/Functions/dBu.h"
+#include "ValueTableMotherEngine.h"
 /* USER CODE END Includes */
   
 /* Private typedef -----------------------------------------------------------*/
@@ -47,7 +48,6 @@
 int16_t analogINSigned[8];
 float volt;
 float voltageRMStemp[8];
-int channel=0;
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -273,105 +273,182 @@ void TIM7_IRQHandler(void)
  HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R,UART_reciveCorrected[7]+150); //Update ADC1
  HAL_DAC_SetValue(&hdac, DAC_CHANNEL_2, DAC_ALIGN_12B_R,UART_reciveCorrected[9]+171); //Update ADC2
 
+ HAL_GPIO_TogglePin(GPIOF, DEBUG1_Pin);
 
-  HAL_GPIO_TogglePin(GPIOF, DEBUG1_Pin);
+/////Get all 6 Channels from the ADC converted to voltage and put to voltageCHn Array///
+////////////////////////////////////////////////////////////////////////////////////////
 
-  voltRingIn1[indexer] = (int16_t)analogIN[0]*(10.0/32767);
-  if (voltRingIn1[indexer]<0){volt = voltRingIn1[indexer]*(-1.0);}
-  else {volt = voltRingIn1[indexer];} //make the voltage value always positive
-  if (voltageIn1MAX < volt){voltageIn1MAX=volt;}//Collect Maximum value if bigger then the actual
+  voltageCH1[indexing]=(int16_t)analogIN[0]*(10.0/32767);
+  if (voltageCH1[indexing]<0){voltageCH1[indexing] = voltageCH1[indexing]*(-1.0);}
 
-  dbuRingIn1[indexer]  = 20*log10(voltageIn1MAX/1.095); //1.5 µsec!!!
-  if (dbuMAX[0]<dbuRingIn1[indexer]){dbuMAX[0]=dbuRingIn1[indexer];}
+  voltageCH2[indexing]=(int16_t)analogIN[1]*(10.0/32767);
+  if (voltageCH2[indexing]<0){voltageCH2[indexing] = voltageCH2[indexing]*(-1.0);}
 
-  HAL_GPIO_TogglePin(GPIOF, DEBUG1_Pin);
+  voltageCH3[indexing]=(int16_t)analogIN[2]*(10.0/32767);
+  if (voltageCH3[indexing]<0){voltageCH3[indexing] = voltageCH3[indexing]*(-1.0);}
 
+  voltageCH4[indexing]=(int16_t)analogIN[3]*(10.0/32767);
+  if (voltageCH4[indexing]<0){voltageCH4[indexing] = voltageCH4[indexing]*(-1.0);}
 
+  voltageCH5[indexing]=(int16_t)analogIN[4]*(10.0/32767);
+  if (voltageCH5[indexing]<0){voltageCH5[indexing] = voltageCH5[indexing]*(-1.0);}
 
+  voltageCH6[indexing]=(int16_t)analogIN[5]*(10.0/32767);
+  if (voltageCH6[indexing]<0){voltageCH6[indexing] = voltageCH6[indexing]*(-1.0);}
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+    switch (channel){
+  case 1:
 
+	  MaxCH1=0.0;
 
-  RingIn2[indexer] = analogIN[1];
-  voltRingIn2[indexer] = RingIn2[indexer]*10.0/32767;
-  if (voltRingIn2[indexer]<0){volt = voltRingIn2[indexer]*(-1.0);}
-  else {volt = voltRingIn2[indexer];}
+	  for (int i=0; i<6;i++){
+//Exception on overflow when indexing is exact 0 for Channel1//////////////////////////
 
-  if (voltageIn2MAX < volt){voltageIn2MAX=volt;}
-  dbuRingIn2[indexer]  = volt;
+			if(MaxCH1 < voltageCH1[indexing-6+i]){MaxCH1 = voltageCH1[indexing-6+i];}
 
-  if (dbuMAX[1]<dbuRingIn2[indexer]){
-	  dbuMAX[1]=dbuRingIn2[indexer];
-  }
-/*
-  RingIn3[indexer] = analogIN[2];
-  voltRingIn3[indexer] = RingIn3[indexer]*10.0/32767;
-  if (voltRingIn3[indexer]<0){volt = voltRingIn3[indexer]*(-1.0);}
-  else {volt = voltRingIn3[indexer];}
-  if (voltageIn3MAX < volt){voltageIn3MAX=volt;}
-  dbuRingIn3[indexer]  = 20*log(volt/0.775);
-
-  RingIn4[indexer] = analogIN[3];
-  voltRingIn4[indexer] = RingIn4[indexer]*10.0/32767;
-  if (voltRingIn4[indexer]<0){volt = voltRingIn4[indexer]*(-1.0);}
-  else {volt = voltRingIn4[indexer];}
-  if (voltageIn4MAX < volt){voltageIn4MAX=volt;}
-  dbuRingIn4[indexer]  = 20*log(volt/0.775);
-*/
-  RingIn5[indexer] = analogIN[4];
-  voltRingIn5[indexer] = RingIn5[indexer]*10.0/32767;
-  if (voltRingIn5[indexer]<0){
-	  volt = voltRingIn5[indexer]*(-1.0);}
-  else {volt = voltRingIn5[indexer];}
-  if (voltageIn5MAX < volt){voltageIn5MAX=volt;}
-  dbuRingIn5[indexer]  = 20*log(volt/1.735);//+4dBu
-
-  RingIn6[indexer] = analogIN[5];
-  voltRingIn6[indexer] = RingIn6[indexer]*10.0/32767;
-  if (voltRingIn6[indexer]<0){volt = voltRingIn6[indexer]*(-1.0);}
-  else {volt = voltRingIn6[indexer];}
-  if (voltageIn6MAX < volt){voltageIn6MAX=volt;}
-  dbuRingIn6[indexer]  = 20*log(volt/1.735);//+4dBu
-
-
-
-
-  voltageRMStemp[0] = voltageRMStemp[0] + (voltRingIn1[indexer]*voltRingIn1[indexer]);
-  voltageRMStemp[1] = voltageRMStemp[1] + (voltRingIn2[indexer]*voltRingIn2[indexer]);
-  voltageRMStemp[2] = voltageRMStemp[2] + (voltRingIn3[indexer]*voltRingIn3[indexer]);
-  voltageRMStemp[3] = voltageRMStemp[3] + (voltRingIn4[indexer]*voltRingIn4[indexer]);
-  voltageRMStemp[4] = voltageRMStemp[4] + (voltRingIn5[indexer]*voltRingIn5[indexer]);
-  voltageRMStemp[5] = voltageRMStemp[5] + (voltRingIn6[indexer]*voltRingIn6[indexer]);
-  indexer++;
-
-
-
-  if (indexer == SAMPLES){
-
-	  indexer = 0;
-
-
-
-	  voltageRMS[0]=voltageRMStemp[0];
-	  voltageRMS[1]=voltageRMStemp[1];
-	  voltageRMS[2]=voltageRMStemp[2];
-	  voltageRMS[3]=voltageRMStemp[3];
-	  voltageRMS[4]=voltageRMStemp[4];
-	  voltageRMS[5]=voltageRMStemp[5];
-	  for(int i=0;i<6;i++){
-		  voltageRMS[i] = voltageRMS[i]/samples;
-		  voltageRMS[i] = sqrt(voltageRMS[i]);
-		  dbuRMS[i]= 20*log(voltageRMS[i]/1.227); //+4dBu
 	  }
 
-	  voltageRMStemp[0]=0;
-	  voltageRMStemp[1]=0;
-	  voltageRMStemp[2]=0;
-	  voltageRMStemp[3]=0;
-	  voltageRMStemp[4]=0;
-	  voltageRMStemp[5]=0;
+	  tmp_decibelMaxCH1  = 20*log10(MaxCH1/1.095); //1.5 µsec!!!
 
 
+	  channel=2;
 
+	  break;
+  case 2:
+	  MaxCH2=0.0;
+	  for (int i=0; i<6;i++){
+//Exception on overflow when indexing is exact 0 for Channel2//////////////////////////
+		if(indexing == 0){
+				if(i<1){
+					if(MaxCH2 < voltageCH2[i]){MaxCH1 = voltageCH2[i];}
+				}else{
+					if(MaxCH2 < voltageCH2[1200-i]){MaxCH2 = voltageCH2[1200-i];}
+				}
+			}
+///////////////////////////////////////////////////////////////////////////////////////
+			else {
+				if(MaxCH2 < voltageCH2[indexing-6+i]){MaxCH2 = voltageCH2[indexing-6+i];}
+			}
+		}
+
+	  tmp_decibelMaxCH2  = 20*log10(MaxCH2/1.095); //1.5 µsec!!!
+
+
+	  channel=3;
+
+	  break;
+  case 3:
+	  MaxCH3=0.0;
+	  for (int i=0; i<6;i++){
+//Exception on overflow when indexing is exact 1 for Channel3//////////////////////////
+		if(indexing == 1){
+				if(i<2){
+					if(MaxCH3 < voltageCH3[i]){MaxCH3 = voltageCH3[i];}
+				}else{
+					if(MaxCH3 < voltageCH3[1201-i]){MaxCH3 = voltageCH3[1201-i];}
+				}
+			}
+///////////////////////////////////////////////////////////////////////////////////////
+			else {
+				if(MaxCH3 < voltageCH3[indexing-6+i]){MaxCH3 = voltageCH3[indexing-6+i];}
+			}
+		}
+
+	  tmp_decibelMaxCH3  = 20*log10(MaxCH3/1.095); //1.5 µsec!!!
+
+
+	  channel=4;
+
+	  break;
+  case 4:
+	  MaxCH4=0.0;
+	  for (int i=0; i<6;i++){
+//Exception on overflow when indexing is exact 2 for Channel4//////////////////////////
+		if(indexing == 2){
+				if(i<3){
+					if(MaxCH4 < voltageCH4[i]){MaxCH4 = voltageCH4[i];}
+				}else{
+					if(MaxCH4 < voltageCH4[1202-i]){MaxCH4 = voltageCH4[1202-i];}
+				}
+			}
+///////////////////////////////////////////////////////////////////////////////////////
+			else {
+				if(MaxCH4 < voltageCH4[indexing-6+i]){MaxCH4 = voltageCH4[indexing-6+i];}
+			}
+		}
+
+
+	  tmp_decibelMaxCH4  = 20*log10(MaxCH4/1.095); //1.5 µsec!!!
+
+
+	  channel=5;
+
+	  break;
+  case 5:
+	  MaxCH5=0.0;
+	  for (int i=0; i<6;i++){
+//Exception on overflow when indexing is exact 3 for Channel5//////////////////////////
+		if(indexing == 3){
+				if(i<4){
+					if(MaxCH5 < voltageCH5[i]){MaxCH5 = voltageCH5[i];}
+				}else{
+					if(MaxCH5 < voltageCH5[1203-i]){MaxCH5 = voltageCH5[1203-i];}
+				}
+			}
+///////////////////////////////////////////////////////////////////////////////////////
+			else {
+				if(MaxCH5 < voltageCH5[indexing-6+i]){MaxCH5 = voltageCH5[indexing-6+i];}
+			}
+		}
+
+	  tmp_decibelMaxCH5  = 20*log10(MaxCH5/1.095); //1.5 µsec!!!
+
+
+	  channel=6;
+	  break;
+  case 6:
+	  MaxCH6=0.0;
+	  for (int i=0; i<6;i++){
+//Exception on overflow when indexing is exact 4 for Channel6//////////////////////////
+		if(indexing == 4){
+				if(i<5){
+					if(MaxCH6 < voltageCH6[i]){MaxCH6 = voltageCH6[i];}
+				}else{
+					if(MaxCH6 < voltageCH6[1204-i]){MaxCH6 = voltageCH6[1204-i];}
+				}
+			}
+///////////////////////////////////////////////////////////////////////////////////////
+			else {
+				if(MaxCH6 < voltageCH6[indexing-6+i]){MaxCH6 = voltageCH6[indexing-6+i];}
+			}
+		}
+
+	  tmp_decibelMaxCH6  = 20*log10(MaxCH6/1.095); //1.5 µsec!!!
+
+	  if (voltageIn1MAX < MaxCH1){voltageIn1MAX=MaxCH1;}
+	  if (voltageIn2MAX < MaxCH2){voltageIn2MAX=MaxCH2;}
+	  if (voltageIn3MAX < MaxCH3){voltageIn3MAX=MaxCH3;}
+	  if (voltageIn4MAX < MaxCH4){voltageIn4MAX=MaxCH4;}
+	  if (voltageIn5MAX < MaxCH5){voltageIn5MAX=MaxCH5;}
+	  if (voltageIn6MAX < MaxCH6){voltageIn6MAX=MaxCH6;}
+
+	  if (dbuMAX[0]<tmp_decibelMaxCH1){dbuMAX[0]=tmp_decibelMaxCH1;}
+	  if (dbuMAX[1]<tmp_decibelMaxCH2){dbuMAX[1]=tmp_decibelMaxCH2;}
+	  if (dbuMAX[2]<tmp_decibelMaxCH3){dbuMAX[2]=tmp_decibelMaxCH3;}
+	  if (dbuMAX[3]<tmp_decibelMaxCH4){dbuMAX[3]=tmp_decibelMaxCH4;}
+	  if (dbuMAX[4]<tmp_decibelMaxCH5){dbuMAX[4]=tmp_decibelMaxCH5;}
+	  if (dbuMAX[5]<tmp_decibelMaxCH6){dbuMAX[5]=tmp_decibelMaxCH6;}
+	  channel=1;
+	  break;
   }
+
+  indexing++;
+  if (indexing > 1199) {
+	  indexing = 0;
+  }
+
+  HAL_GPIO_TogglePin(GPIOF, DEBUG1_Pin);
 
 
   if (resetMax==1){

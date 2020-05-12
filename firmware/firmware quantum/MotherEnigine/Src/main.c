@@ -30,6 +30,7 @@
 #include "lwIPTask.h"
 #include "MY_FLASH.h"
 #include "DAC_Control.h"
+#include "ValueTableMotherEngine.h"
 
 /* USER CODE END Includes */
 
@@ -222,6 +223,10 @@ int main(void)
 	  IP_READ_FLASH[1]=168;
 	  IP_READ_FLASH[2]=1;
 	  IP_READ_FLASH[3]=205;
+
+	  channel = 2;
+	  indexing = 0;
+
 
   /* USER CODE END 2 */
 

@@ -271,8 +271,8 @@ char UART_IN[10];
 			 HAL_GPIO_WritePin(GPIOG, Relais6_Pin,GPIO_PIN_RESET);}
 		 //=========================================================================//
 
-		  DAC_Control(3,2,250); //offset VCA1
-		  DAC_Control(4,2,250); //offset VCA2
+		  //DAC_Control(3,2,250); //offset VCA1
+		  //DAC_Control(4,2,250); //offset VCA2
 
 		  //DAC_Control(1,1,UART_reciveCorrected[6]); //SYM1 adjust
 		  //DAC_Control(2,1,UART_reciveCorrected[7]); //SYM2 adjust
@@ -281,8 +281,15 @@ char UART_IN[10];
 
 
 		//OSCmessageINTSend("/VALUE/Level/CH1/RMS",  20, voltageRMS[0]*30);
-		  OSCmessageINTSend("/VALUE/Level/CH1/RMS",  20, voltageIn1MAX*30);
-		  OSCmessageINTSend("/VALUE/Level/CH2/RMS",  20, voltageIn2MAX*30);
+		  int volt1;
+		  if(voltageIn1MAX*100>250){
+			  volt1 = 250;
+		  }
+		  else{
+			  volt1 = voltageIn1MAX*100;
+		  }
+		  OSCmessageINTSend("/VALUE/Level/CH1/RMS",  20, volt1);
+		  OSCmessageINTSend("/VALUE/Level/CH2/RMS",  20, voltageIn2MAX*100);
 
 
 
@@ -389,18 +396,51 @@ char UART_IN[10];
 		  UART_transmit[9]=voltageIn4MAX*100;//7
 		  UART_transmit[10]=voltageIn5MAX*100;//7
 		  UART_transmit[11]=voltageIn6MAX*100;//8
+
 		  memcpy(data, &dbuMAX[0], sizeof &dbuMAX[0]);    // send data
 		  a = data[0]; b = data[1];c = data[2];d = data[3];
 		  UART_transmit[12]=d;
 		  UART_transmit[13]=c;
 		  UART_transmit[14]=b;
 		  UART_transmit[15]=a;
+
 		  memcpy(data, &dbuMAX[1], sizeof &dbuMAX[1]);    // send data
 		  a = data[0]; b = data[1];c = data[2];d = data[3];
 		  UART_transmit[16]=d;
 		  UART_transmit[17]=c;
 		  UART_transmit[18]=b;
 		  UART_transmit[19]=a;
+
+		  memcpy(data, &dbuMAX[2], sizeof &dbuMAX[2]);    // send data
+		  a = data[0]; b = data[1];c = data[2];d = data[3];
+		  UART_transmit[20]=d;
+		  UART_transmit[21]=c;
+		  UART_transmit[22]=b;
+		  UART_transmit[23]=a;
+
+		  memcpy(data, &dbuMAX[3], sizeof &dbuMAX[3]);    // send data
+		  a = data[0]; b = data[1];c = data[2];d = data[3];
+		  UART_transmit[24]=d;
+		  UART_transmit[25]=c;
+		  UART_transmit[26]=b;
+		  UART_transmit[27]=a;
+
+		  memcpy(data, &dbuMAX[4], sizeof &dbuMAX[4]);    // send data
+		  a = data[0]; b = data[1];c = data[2];d = data[3];
+		  UART_transmit[28]=d;
+		  UART_transmit[29]=c;
+		  UART_transmit[30]=b;
+		  UART_transmit[32]=a;
+
+		  memcpy(data, &dbuMAX[5], sizeof &dbuMAX[5]);    // send data
+		  a = data[0]; b = data[1];c = data[2];d = data[3];
+		  UART_transmit[32]=d;
+		  UART_transmit[33]=c;
+		  UART_transmit[34]=b;
+		  UART_transmit[35]=a;
+
+
+
 		  resetMax=1;
 
 		  for(int i=50; i<100; i++){

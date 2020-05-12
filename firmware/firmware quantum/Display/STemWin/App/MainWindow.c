@@ -77,26 +77,51 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 */
 
 
-	    GUI_SetColor(GUI_GRAY);
 
+
+
+
+
+
+
+
+
+
+	    GUI_SetColor(GUI_GRAY);
 	    GUI_SetFont(&GUI_Font32B_1);
-	    GUI_DispStringAt("Voltage:", 620, 200);
-	    GUI_GotoXY(730,200);
-	    GUI_DispFloatMin(f_outputRight_DB_MAXbufferd, 2);
-	    GUI_DispStringAt("decibel:", 620, 240);
-	    GUI_GotoXY(730,240);
+
+	    GUI_DispStringAt("inputLeft:", 620, 20);
+	    GUI_GotoXY(620,50);
+	    GUI_DispFloatMin(f_inputLeft_DB_MAXbufferd, 2);
+	    GUI_DispStringAt("inputRight:", 620, 80);
+	    GUI_GotoXY(620,110);
+	    GUI_DispFloatMin(f_inputRight_DB_MAXbufferd, 2);
+
+	    GUI_DispStringAt("VCALeft:", 620, 140);
+	    GUI_GotoXY(620,170);
+	    GUI_DispFloatMin(f_VCALeft_DB_MAXbufferd, 2);
+	    GUI_DispStringAt("VCARight:", 620, 200);
+	    GUI_GotoXY(620,230);
+	    GUI_DispFloatMin(f_VCARight_DB_MAXbufferd, 2);
+
+	    GUI_DispStringAt("outputLeft:", 620, 260);
+	    GUI_GotoXY(620,290);
 	    GUI_DispFloatMin(f_outputLeft_DB_MAXbufferd, 2);
+	    GUI_DispStringAt("outputRight:", 620, 320);
+	    GUI_GotoXY(620,350);
+	    GUI_DispFloatMin(f_outputRight_DB_MAXbufferd, 2);
+
 
 
 		GUI_SetColor(GUI_GRAY);
 		GUI_SetFont(&GUI_Font24B_1);
-		GUI_GotoXY(700,40);
+		GUI_GotoXY(100,40);
 		GUI_DispFloatMin(pots[1], 1);
-		GUI_GotoXY(700,60);
+		GUI_GotoXY(100,60);
 		GUI_DispFloatMin(pots[2], 1);
-		GUI_GotoXY(700,80);
+		GUI_GotoXY(100,80);
 		GUI_DispFloatMin(pots[3], 1);
-		GUI_GotoXY(700,100);
+		GUI_GotoXY(100,100);
 		GUI_DispFloatMin(pots[4], 1);
 
 
