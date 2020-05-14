@@ -265,8 +265,12 @@ void Error_Handler(void);
 #define D10_GPIO_Port GPIOE
 #define STLK_TX_Pin GPIO_PIN_11
 #define STLK_TX_GPIO_Port GPIOB
+
 /* USER CODE BEGIN Private defines */
-char UART_RECIVE[100];
+#define RX_IN_SIZE 150
+
+
+char UART_RECIVE[RX_IN_SIZE];
 char UART_TRANSFER[150];
 
 int TouchXCoordinate;

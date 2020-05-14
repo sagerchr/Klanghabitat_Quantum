@@ -15,6 +15,12 @@
 #include "RelaisControl.h"
 #include "OSC_Lib.h"
 #include "UART_correction.h"
+#include "arm_math.h"
+#include "arm_const_structs.h"
+#include "stm32f7xx.h"
+#include "ValueTableMotherEngine.h"
+
+
 
 
 DAC_HandleTypeDef hdac;
@@ -271,8 +277,8 @@ char UART_IN[10];
 			 HAL_GPIO_WritePin(GPIOG, Relais6_Pin,GPIO_PIN_RESET);}
 		 //=========================================================================//
 
-		  //DAC_Control(3,2,250); //offset VCA1
-		  //DAC_Control(4,2,250); //offset VCA2
+		  DAC_Control(3,2,250); //offset VCA1
+		  DAC_Control(4,2,250); //offset VCA2
 
 		  //DAC_Control(1,1,UART_reciveCorrected[6]); //SYM1 adjust
 		  //DAC_Control(2,1,UART_reciveCorrected[7]); //SYM2 adjust
@@ -439,15 +445,50 @@ char UART_IN[10];
 		  UART_transmit[34]=b;
 		  UART_transmit[35]=a;
 
+		  memcpy(data, &RMS_CH1, sizeof &RMS_CH1);    // send data
+		  a = data[0]; b = data[1];c = data[2];d = data[3];
+		  UART_transmit[36]=d;
+		  UART_transmit[37]=c;
+		  UART_transmit[38]=b;
+		  UART_transmit[39]=a;
+
+		  memcpy(data, &RMS_CH2, sizeof &RMS_CH2);    // send data
+		  a = data[0]; b = data[1];c = data[2];d = data[3];
+		  UART_transmit[40]=d;
+		  UART_transmit[41]=c;
+		  UART_transmit[42]=b;
+		  UART_transmit[43]=a;
+
+		  memcpy(data, &RMS_CH3, sizeof &RMS_CH3);    // send data
+		  a = data[0]; b = data[1];c = data[2];d = data[3];
+		  UART_transmit[44]=d;
+		  UART_transmit[45]=c;
+		  UART_transmit[46]=b;
+		  UART_transmit[47]=a;
+
+		  memcpy(data, &RMS_CH4, sizeof &RMS_CH4);    // send data
+		  a = data[0]; b = data[1];c = data[2];d = data[3];
+		  UART_transmit[48]=d;
+		  UART_transmit[49]=c;
+		  UART_transmit[50]=b;
+		  UART_transmit[51]=a;
+
+		  memcpy(data, &RMS_CH5, sizeof &RMS_CH5);    // send data
+		  a = data[0]; b = data[1];c = data[2];d = data[3];
+		  UART_transmit[52]=d;
+		  UART_transmit[53]=c;
+		  UART_transmit[54]=b;
+		  UART_transmit[55]=a;
+
+		  memcpy(data, &RMS_CH5, sizeof &RMS_CH5);    // send data
+		  a = data[0]; b = data[1];c = data[2];d = data[3];
+		  UART_transmit[56]=d;
+		  UART_transmit[57]=c;
+		  UART_transmit[58]=b;
+		  UART_transmit[59]=a;
 
 
 		  resetMax=1;
-
-		  for(int i=50; i<100; i++){
-
-			  //UART_transmit[i-50]= FFT_result[i-100]/2;
-			  UART_transmit[i]= FFT_result2[i-50]/2;
-		  }
 
 
 //############# RESMUE the DMA to output the data#########//
@@ -455,6 +496,8 @@ char UART_IN[10];
 //#######################################################//
 
 		   HAL_Delay(5);
+
+
 //***********************************************************************//
 	  }
 

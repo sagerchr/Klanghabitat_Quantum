@@ -236,6 +236,17 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 		f_outputLeft_DB = createFloat(28); //Array Address needs to be defined/changed
 		f_outputRight_DB = createFloat(32);
 
+		f_inputLeft_DB_RMS = createFloat(36);
+		f_inputRight_DB_RMS = createFloat(40);
+
+		f_VCALeft_DB_RMS = createFloat(44); //Array Address needs to be defined/changed
+		f_VCARight_DB_RMS = createFloat(48);
+
+		f_outputLeft_DB_RMS = createFloat(52); //Array Address needs to be defined/changed
+		f_outputRight_DB_RMS = createFloat(56);
+
+
+
 	//****************************************************************************//
 	//*******************!!!UPDATE Waveform!!!************************************//
 	//****************************************************************************//
@@ -282,28 +293,28 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 
 
 	  if (i_inputLeft_Indicator > i_inputLeft_Indicator_bufferd){i_inputLeft_Indicator_bufferd = i_inputLeft_Indicator;}
-	  else {i_inputLeft_Indicator_bufferd -=0.005*(i_inputLeft_Indicator_bufferd-i_inputLeft_Indicator);}
+	  else {i_inputLeft_Indicator_bufferd -=0.01*(i_inputLeft_Indicator_bufferd-i_inputLeft_Indicator);}
 
 	  if (i_inputLeft_Waveform > i_inputLeft_Indicator_MAXbufferd){i_inputLeft_Indicator_MAXbufferd = i_inputLeft_Indicator;}
 	  else {i_inputLeft_Indicator_MAXbufferd -=0.001*(i_inputLeft_Indicator_MAXbufferd-i_inputLeft_Indicator);}
 
 
 	  if (i_inputRight_Indicator > i_inputRight_Indicator_bufferd){i_inputRight_Indicator_bufferd = i_inputRight_Indicator;}
-	  else {i_inputRight_Indicator_bufferd -=0.005*(i_inputRight_Indicator_bufferd-i_inputRight_Indicator);}
+	  else {i_inputRight_Indicator_bufferd -=0.01*(i_inputRight_Indicator_bufferd-i_inputRight_Indicator);}
 
 	  if (i_inputRight_Indicator > i_inputRight_Indicator_MAXbufferd){i_inputRight_Indicator_MAXbufferd = i_inputRight_Indicator;}
 	  else {i_inputRight_Indicator_MAXbufferd -=0.001*(i_inputRight_Indicator_MAXbufferd-i_inputRight_Indicator);}
 
 
 	  if (i_outputLeft_Indicator > i_outputLeft_Indicator_bufferd){i_outputLeft_Indicator_bufferd = i_outputLeft_Indicator;}
-	  else {i_outputLeft_Indicator_bufferd -=0.005*(i_outputLeft_Indicator_bufferd-i_outputLeft_Indicator);}
+	  else {i_outputLeft_Indicator_bufferd -=0.01*(i_outputLeft_Indicator_bufferd-i_outputLeft_Indicator);}
 
 	  if (i_outputLeft_Indicator> i_outputLeft_Indicator_MAXbufferd){i_outputLeft_Indicator_MAXbufferd = i_outputLeft_Indicator;}
 	  else {i_outputLeft_Indicator_MAXbufferd -=0.001*(i_outputLeft_Indicator_MAXbufferd-i_outputLeft_Indicator);}
 
 
 	  if (i_outputRight_Indicator > i_outputRight_Indicator_bufferd){i_outputRight_Indicator_bufferd = i_outputRight_Indicator;}
-	  else {i_outputRight_Indicator_bufferd -=0.005*(i_outputRight_Indicator_bufferd-i_outputRight_Indicator);}
+	  else {i_outputRight_Indicator_bufferd -=0.01*(i_outputRight_Indicator_bufferd-i_outputRight_Indicator);}
 
 	  if (i_outputRight_Indicator > i_outputRight_Indicator_MAXbufferd){i_outputRight_Indicator_MAXbufferd = i_outputRight_Indicator;}
 	  else {i_outputRight_Indicator_MAXbufferd -=0.001*(i_outputRight_Indicator_MAXbufferd-i_outputRight_Indicator);}
@@ -311,17 +322,29 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 
 
 /////////INPUT LEFT
+	  float diff=0;
+
+	  diff = (f_inputLeft_DB_bufferd-f_inputLeft_DB);
+	  if(diff<0){diff=(-1)*diff;}
 	  if (f_inputLeft_DB > f_inputLeft_DB_bufferd){f_inputLeft_DB_bufferd = f_inputLeft_DB;}
-	  else {f_inputLeft_DB_bufferd -=0.01*(f_inputLeft_DB_bufferd-f_inputLeft_DB);}
+	  else {f_inputLeft_DB_bufferd -=0.01*diff;}
 
-	  if (f_inputLeft_DB > f_outputLeft_DB_bufferd){f_inputLeft_DB_MAXbufferd = f_inputLeft_DB;}
-	  else {f_inputLeft_DB_MAXbufferd -=0.005*(f_inputLeft_DB_MAXbufferd-f_inputLeft_DB);}
+	  diff=0;
+ 	  diff = (f_inputLeft_DB_MAXbufferd-f_inputLeft_DB);
+	  if(diff<0){diff=(-1)*diff;}
+	  if (f_inputLeft_DB > f_inputLeft_DB_MAXbufferd){f_inputLeft_DB_MAXbufferd = f_inputLeft_DB;}
+	  else {f_inputLeft_DB_MAXbufferd -=0.005*diff;}
 /////////INPUT RIGHT
+	  diff = (f_inputRight_DB_bufferd-f_inputRight_DB);
+	  if(diff<0){diff=(-1)*diff;}
 	  if (f_inputRight_DB > f_inputRight_DB_bufferd){f_inputRight_DB_bufferd = f_inputRight_DB;}
-	  else {f_inputRight_DB_bufferd -=0.01*(f_inputRight_DB_bufferd-f_inputRight_DB);}
+	  else {f_inputRight_DB_bufferd -=0.01*diff;}
 
-	  if (f_inputRight_DB > f_inputRight_DB_bufferd){f_inputRight_DB_MAXbufferd = f_inputRight_DB;}
-	  else {f_inputRight_DB_MAXbufferd -=0.005*(f_inputRight_DB_MAXbufferd-f_inputRight_DB);}
+	  diff=0;
+ 	  diff = (f_inputRight_DB_MAXbufferd-f_inputRight_DB);
+	  if(diff<0){diff=(-1)*diff;}
+	  if (f_inputRight_DB > f_inputRight_DB_MAXbufferd){f_inputRight_DB_MAXbufferd = f_inputRight_DB;}
+	  else {f_inputRight_DB_MAXbufferd -=0.005*diff;}
 
 /////////VCA LEFT
 	  if (f_VCALeft_DB > f_VCALeft_DB_bufferd){f_VCALeft_DB_bufferd = f_VCALeft_DB;}
@@ -351,6 +374,10 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 
 
 
+		for(int i=0; i<50; i++){
+			if (f_spectrumLeft_bufferd[i]<UARTDATA[i+50]){f_spectrumLeft_bufferd[i] = UARTDATA[i+50];}
+			else {f_spectrumLeft_bufferd[i] -=0.01*(f_spectrumLeft_bufferd[i]-UARTDATA[i+50]);}
+		}
 
 
 }

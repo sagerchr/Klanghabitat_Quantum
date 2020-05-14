@@ -209,25 +209,7 @@ void drawBarDotted (int pos_x, int pos_y, float PeakVal,float AvVal){
 
 void drawBarDottedVertical (int pos_x, int pos_y, float PeakVal,float AvVal, GUI_COLOR color, int width){
 
-	int val=0;
-	int max=0;
-	for (int i=0; i < 100; i++){
-
-		if(AvVal>i){
-			GUI_SetColor(color);
-		}
-		else{
-			GUI_SetColor(GUI_GRAY);
-
-			if(max==0 && PeakVal<i){
-				GUI_SetColor(GUI_LIGHTRED);
-				max=1;
-			}
-		}
-
-
-		GUI_FillRect(pos_x,480-(pos_y+(i*4)+2),pos_x+width,480-(pos_y+(i*4)));
-	}
+	GUI_DrawGradientV(pos_x,pos_y-AvVal,pos_x+width,pos_y, GUI_GRAY,GUI_GRAY);
 
 }
 

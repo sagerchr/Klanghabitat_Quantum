@@ -12,6 +12,7 @@
 #include "arm_math.h"
 #include "arm_const_structs.h"
 #include "UART_correction.h"
+#include "ValueTableMotherEngine.h"
 TIM_HandleTypeDef htim6;
 TIM_HandleTypeDef htim7;
 DAC_HandleTypeDef hdac;
@@ -58,8 +59,8 @@ void dspTask(void const * argument){
 		HAL_TIM_Base_Start(&htim6);
 		HAL_TIM_Base_Start_IT(&htim7);
 
- 		float32_t Output[256];
-		float32_t IN[512];
+ 		float32_t Output[600];
+		float32_t IN[1200];
 		 arm_cfft_radix4_instance_f32 S;
 
 		int toggle = 0;
@@ -74,31 +75,20 @@ void dspTask(void const * argument){
 
 	for(;;){
 
-
-
-
-
-
-
-
-
-
-
-
 ///////////////////////CALCULATE FFT/////////////////////////////////////////
 
 		//////////////PREPARE "IN"-ARRAY consumed by the FFT calculation////
 		if (toggle == 0){
 			toggle = 1;
-			for(int i=0; i<512; i+=2){
-				IN[i]=voltRingIn1[i];
+			for(int i=0; i<600; i+=2){
+				IN[i]=voltageCH1[i];
 				IN[i+1]=0.0;
 				}
 		}
 		else {
 			toggle = 0;
-			for(int i=0; i<512; i+=2){
-				IN[i]=voltRingIn2[i];
+			for(int i=0; i<600; i+=2){
+				IN[i]=voltageCH2[i];
 				IN[i+1]=0.0;
 				}
 		}
@@ -122,10 +112,6 @@ void dspTask(void const * argument){
 			}
 			//https://stm32f4-discovery.net/2014/10/stm32f4-fft-example/
 ///////////////////////////////////////////////////////////////////////////
-
-
-
-
 
 		HAL_Delay(10);
 		HAL_GPIO_TogglePin(GPIOB, LD1_Pin); //grüne LED an

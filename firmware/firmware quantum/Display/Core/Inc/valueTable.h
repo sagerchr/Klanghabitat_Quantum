@@ -12,16 +12,24 @@
 
 #endif /* SRC_VALUETABLE_H_ */
 
+float f_spectrumLeft_bufferd[50];
+float f_spectrumRight_bufferd[50];
+
 //Main Float StreamValues//
 float f_inputLeft_DB;
 float f_inputRight_DB;
+float f_inputLeft_DB_RMS;
+float f_inputRight_DB_RMS;
 
 float f_VCALeft_DB;
 float f_VCARight_DB;
+float f_VCALeft_DB_RMS;
+float f_VCARight_DB_RMS;
 
 float f_outputLeft_DB;
 float f_outputRight_DB;
-
+float f_outputLeft_DB_RMS;
+float f_outputRight_DB_RMS;
 //////////////////////
 float f_inputLeft_DB_bufferd;
 float f_inputRight_DB_bufferd;
@@ -69,8 +77,6 @@ int i_VCARight_Indicator;
 int i_outputLeft_Indicator;
 int i_outputRight_Indicator;
 
-
-
 float i_inputLeft_Indicator_bufferd;
 float i_inputRight_Indicator_bufferd;
 
@@ -80,9 +86,6 @@ float i_VCARight_Indicator_bufferd;
 float i_outputLeft_Indicator_bufferd;
 float i_outputRight_Indicator_bufferd;
 
-
-
-
 float i_inputLeft_Indicator_MAXbufferd;
 float i_inputRight_Indicator_MAXbufferd;
 
@@ -91,6 +94,8 @@ float i_VCARight_Indicator_MAXbufferd;
 
 float i_outputLeft_Indicator_MAXbufferd;
 float i_outputRight_Indicator_MAXbufferd;
+
+
 
 
 

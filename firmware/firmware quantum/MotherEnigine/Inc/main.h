@@ -185,13 +185,14 @@ void Error_Handler(void);
 /* USER CODE BEGIN Private defines */
 #define SAMPLES                    (512)         /* 256 real party and 256 imaginary parts */
 #define FFT_SIZE                (SAMPLES / 2) /* FFT size is always the same size as we have samples, so 256 in our case */
+#define TX_OUT_SIZE 150
 
 #define ARM_MATH_CM7
 uint32_t ADC1_RAW[2];
 uint32_t ADC1_MAX[2];
 uint32_t ADC2_RAW[2];
 uint32_t ADC2_MAX[2];
-char UART_transmit[100];
+char UART_transmit[TX_OUT_SIZE];
 char UART_recive[150];
 uint16_t analogIN[8];
 

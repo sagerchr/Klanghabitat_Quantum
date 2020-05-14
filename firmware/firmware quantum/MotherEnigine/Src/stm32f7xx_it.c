@@ -30,6 +30,9 @@
 #include "UART_correction.h"
 #include "../Tasks/Functions/dBu.h"
 #include "ValueTableMotherEngine.h"
+#include "stm32f7xx.h"
+#include "arm_math.h"
+#include "arm_const_structs.h"
 /* USER CODE END Includes */
   
 /* Private typedef -----------------------------------------------------------*/
@@ -48,6 +51,7 @@
 int16_t analogINSigned[8];
 float volt;
 float voltageRMStemp[8];
+
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -225,8 +229,6 @@ void TIM6_DAC_IRQHandler(void)
 }
 
 
-/* compute natural logarithm, maximum error 0.85756 ulps */
-
 /**
   * @brief This function handles TIM7 global interrupt.
   */
@@ -240,6 +242,7 @@ void TIM7_IRQHandler(void)
 
 	//__HAL_TIM_SET_COUNTER(&htim7 , 0);
 
+  HAL_GPIO_TogglePin(GPIOF, DEBUG1_Pin);
 
   //***********************Start Measurement*********************//
   HAL_GPIO_WritePin(GPIOC, CV_A_B_Pin,GPIO_PIN_RESET);
@@ -263,9 +266,13 @@ void TIM7_IRQHandler(void)
 
       HAL_GPIO_WritePin(GPIOD, RD_Pin,GPIO_PIN_RESET);
       HAL_GPIO_WritePin(GPIOD, CS_Pin,GPIO_PIN_RESET);
+
+
       microDelay(0);
        //At least something... to get Ports updated
+
       analogIN[i] = GPIOE->IDR;
+
   }
 
 
@@ -273,31 +280,42 @@ void TIM7_IRQHandler(void)
  HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R,UART_reciveCorrected[7]+150); //Update ADC1
  HAL_DAC_SetValue(&hdac, DAC_CHANNEL_2, DAC_ALIGN_12B_R,UART_reciveCorrected[9]+171); //Update ADC2
 
- HAL_GPIO_TogglePin(GPIOF, DEBUG1_Pin);
+
+
 
 /////Get all 6 Channels from the ADC converted to voltage and put to voltageCHn Array///
 ////////////////////////////////////////////////////////////////////////////////////////
 
   voltageCH1[indexing]=(int16_t)analogIN[0]*(10.0/32767);
   if (voltageCH1[indexing]<0){voltageCH1[indexing] = voltageCH1[indexing]*(-1.0);}
+  sum_CH1 = sum_CH1 + (voltageCH1[indexing]*voltageCH1[indexing]);
 
   voltageCH2[indexing]=(int16_t)analogIN[1]*(10.0/32767);
   if (voltageCH2[indexing]<0){voltageCH2[indexing] = voltageCH2[indexing]*(-1.0);}
+  sum_CH2 = sum_CH2 + (voltageCH2[indexing]*voltageCH2[indexing]);
 
   voltageCH3[indexing]=(int16_t)analogIN[2]*(10.0/32767);
   if (voltageCH3[indexing]<0){voltageCH3[indexing] = voltageCH3[indexing]*(-1.0);}
+  sum_CH3 = sum_CH3 + (voltageCH3[indexing]*voltageCH3[indexing]);
 
   voltageCH4[indexing]=(int16_t)analogIN[3]*(10.0/32767);
   if (voltageCH4[indexing]<0){voltageCH4[indexing] = voltageCH4[indexing]*(-1.0);}
+  sum_CH4 = sum_CH4 + (voltageCH4[indexing]*voltageCH4[indexing]);
 
   voltageCH5[indexing]=(int16_t)analogIN[4]*(10.0/32767);
   if (voltageCH5[indexing]<0){voltageCH5[indexing] = voltageCH5[indexing]*(-1.0);}
+  sum_CH5 = sum_CH5 + (voltageCH5[indexing]*voltageCH5[indexing]);
 
   voltageCH6[indexing]=(int16_t)analogIN[5]*(10.0/32767);
   if (voltageCH6[indexing]<0){voltageCH6[indexing] = voltageCH6[indexing]*(-1.0);}
+  sum_CH6 = sum_CH6 + (voltageCH6[indexing]*voltageCH6[indexing]);
+
 ////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////
-    switch (channel){
+
+
+
+  	  switch (channel){
   case 1:
 
 	  MaxCH1=0.0;
@@ -305,13 +323,27 @@ void TIM7_IRQHandler(void)
 	  for (int i=0; i<6;i++){
 //Exception on overflow when indexing is exact 0 for Channel1//////////////////////////
 
-			if(MaxCH1 < voltageCH1[indexing-6+i]){MaxCH1 = voltageCH1[indexing-6+i];}
+
+			  if(MaxCH1 < voltageCH1[indexing-5+i]){MaxCH1 = voltageCH1[indexing-5+i];}
+
 
 	  }
 
 	  tmp_decibelMaxCH1  = 20*log10(MaxCH1/1.095); //1.5 µsec!!!
 
+	  if (voltageIn1MAX < MaxCH1){voltageIn1MAX=MaxCH1;}
+	  if (voltageIn2MAX < MaxCH2){voltageIn2MAX=MaxCH2;}
+	  if (voltageIn3MAX < MaxCH3){voltageIn3MAX=MaxCH3;}
+	  if (voltageIn4MAX < MaxCH4){voltageIn4MAX=MaxCH4;}
+	  if (voltageIn5MAX < MaxCH5){voltageIn5MAX=MaxCH5;}
+	  if (voltageIn6MAX < MaxCH6){voltageIn6MAX=MaxCH6;}
 
+	  if (dbuMAX[0]<tmp_decibelMaxCH1){dbuMAX[0]=tmp_decibelMaxCH1;}
+	  if (dbuMAX[1]<tmp_decibelMaxCH2){dbuMAX[1]=tmp_decibelMaxCH2;}
+	  if (dbuMAX[2]<tmp_decibelMaxCH3){dbuMAX[2]=tmp_decibelMaxCH3;}
+	  if (dbuMAX[3]<tmp_decibelMaxCH4){dbuMAX[3]=tmp_decibelMaxCH4;}
+	  if (dbuMAX[4]<tmp_decibelMaxCH5){dbuMAX[4]=tmp_decibelMaxCH5;}
+	  if (dbuMAX[5]<tmp_decibelMaxCH6){dbuMAX[5]=tmp_decibelMaxCH6;}
 	  channel=2;
 
 	  break;
@@ -426,19 +458,9 @@ void TIM7_IRQHandler(void)
 
 	  tmp_decibelMaxCH6  = 20*log10(MaxCH6/1.095); //1.5 µsec!!!
 
-	  if (voltageIn1MAX < MaxCH1){voltageIn1MAX=MaxCH1;}
-	  if (voltageIn2MAX < MaxCH2){voltageIn2MAX=MaxCH2;}
-	  if (voltageIn3MAX < MaxCH3){voltageIn3MAX=MaxCH3;}
-	  if (voltageIn4MAX < MaxCH4){voltageIn4MAX=MaxCH4;}
-	  if (voltageIn5MAX < MaxCH5){voltageIn5MAX=MaxCH5;}
-	  if (voltageIn6MAX < MaxCH6){voltageIn6MAX=MaxCH6;}
 
-	  if (dbuMAX[0]<tmp_decibelMaxCH1){dbuMAX[0]=tmp_decibelMaxCH1;}
-	  if (dbuMAX[1]<tmp_decibelMaxCH2){dbuMAX[1]=tmp_decibelMaxCH2;}
-	  if (dbuMAX[2]<tmp_decibelMaxCH3){dbuMAX[2]=tmp_decibelMaxCH3;}
-	  if (dbuMAX[3]<tmp_decibelMaxCH4){dbuMAX[3]=tmp_decibelMaxCH4;}
-	  if (dbuMAX[4]<tmp_decibelMaxCH5){dbuMAX[4]=tmp_decibelMaxCH5;}
-	  if (dbuMAX[5]<tmp_decibelMaxCH6){dbuMAX[5]=tmp_decibelMaxCH6;}
+
+
 	  channel=1;
 	  break;
   }
@@ -446,9 +468,24 @@ void TIM7_IRQHandler(void)
   indexing++;
   if (indexing > 1199) {
 	  indexing = 0;
+	  RMS_CH1 = (20*log10((sqrt (sum_CH1/1200))/1.095))+3;
+	  RMS_CH2 = (20*log10((sqrt (sum_CH2/1200))/1.095))+3;
+	  RMS_CH3 = (20*log10((sqrt (sum_CH3/1200))/1.095))+3;
+	  RMS_CH4 = (20*log10((sqrt (sum_CH4/1200))/1.095))+3;
+	  RMS_CH5 = (20*log10((sqrt (sum_CH5/1200))/1.095))+3;
+	  RMS_CH6 = (20*log10((sqrt (sum_CH6/1200))/1.095))+3;
+
+	  sum_CH1=0.0;
+	  sum_CH2=0.0;
+	  sum_CH3=0.0;
+	  sum_CH4=0.0;
+	  sum_CH5=0.0;
+	  sum_CH6=0.0;
+
   }
 
-  HAL_GPIO_TogglePin(GPIOF, DEBUG1_Pin);
+
+
 
 
   if (resetMax==1){
@@ -464,12 +501,9 @@ void TIM7_IRQHandler(void)
   	}
 
 
-
-
 }
 
-
-
+  HAL_GPIO_TogglePin(GPIOF, DEBUG1_Pin);
 
 
 

@@ -29,10 +29,23 @@ float act_decibelMaxCH4;
 float act_decibelMaxCH5;
 float act_decibelMaxCH6;
 
-
 float MaxCH1;
 float MaxCH2;
 float MaxCH3;
 float MaxCH4;
 float MaxCH5;
 float MaxCH6;
+
+float sum_CH1;
+float sum_CH2;
+float sum_CH3;
+float sum_CH4;
+float sum_CH5;
+float sum_CH6;
+
+float RMS_CH1;
+float RMS_CH2;
+float RMS_CH3;
+float RMS_CH4;
+float RMS_CH5;
+float RMS_CH6;

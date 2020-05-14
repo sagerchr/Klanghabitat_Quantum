@@ -110,7 +110,7 @@ uint16_t EncoderAdr[6] = {0,8,16,32,64,128};
   * @retval int
   */
 int main(void)
-   {
+{
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -167,7 +167,7 @@ int main(void)
   /* add mutexes, ... */
 
   BSP_TS_Init(800, 480);
-  HAL_UART_Receive_DMA(&huart6, UART_RECIVE,100);
+  HAL_UART_Receive_DMA(&huart6, UART_RECIVE,RX_IN_SIZE);
   HAL_UART_Transmit_DMA(&huart6, UART_TRANSFER,150);
   /* USER CODE END RTOS_MUTEX */
 
