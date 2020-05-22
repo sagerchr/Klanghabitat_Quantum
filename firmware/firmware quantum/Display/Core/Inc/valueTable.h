@@ -33,21 +33,34 @@ float f_outputRight_DB_RMS;
 //////////////////////
 float f_inputLeft_DB_bufferd;
 float f_inputRight_DB_bufferd;
+float f_inputLeft_DB_RMS_bufferd;
+float f_inputRight_DB_RMS_bufferd;
 
 float f_VCALeft_DB_bufferd;
 float f_VCARight_DB_bufferd;
+float f_VCALeft_DB_RMS_bufferd;
+float f_VCARight_DB_RMS_bufferd;
+
 
 float f_outputLeft_DB_bufferd;
 float f_outputRight_DB_bufferd;
+float f_outputLeft_DB_RMS_bufferd;
+float f_outputRight_DB_RMS_bufferd;
 //////////////////////
 float f_inputLeft_DB_MAXbufferd;
 float f_inputRight_DB_MAXbufferd;
+float f_inputLeft_DB_RMS_MAXbufferd;
+float f_inputRight_DB_RMS_MAXbufferd;
 
 float f_VCALeft_DB_MAXbufferd;
 float f_VCARight_DB_MAXbufferd;
+float f_VCALeft_DB_RMS_MAXbufferd;
+float f_VCARight_DB_RMS_MAXbufferd;
 
 float f_outputLeft_DB_MAXbufferd;
 float f_outputRight_DB_MAXbufferd;
+float f_outputLeft_DB_RMS_MAXbufferd;
+float f_outputRight_DB_RMS_MAXbufferd;
 //MainWaveform StreamValues//
 int i_inputLeft_Waveform;
 int i_inputRight_Waveform;

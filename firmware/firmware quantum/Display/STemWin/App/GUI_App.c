@@ -50,86 +50,25 @@
 #include "../tasks/SerialHandleTask/UART_IO.h"
 #include "valueTable.h"
 #include "SerialServer.h"
+#include "BUFFERVALUE.h"
+
 
 extern  WM_HWIN CreateMainWindow(void);
 extern  WM_HWIN CreateInfoWindow(void);
 extern  WM_HWIN CreateSettingsButtonWindow(void);
+extern  WM_HWIN CreateIndicatorWindow1(void);
+extern  WM_HWIN CreateIndicatorWindow2(void);
+extern  WM_HWIN CreateIndicatorWindow3(void);
+
 extern void TOUCHUPDATE();
 
 UART_HandleTypeDef huart6;
-TIM_HandleTypeDef htim4;
-TS_StateTypeDef ts;
-
-
-
-
-
-int pass = 0;
-
-int maxValueLeft = 0;
-int newValueLeft = 0;
-int maxValueRight = 0;
-int newValueRight = 0;
-
-int maxValueLeftOUT = 0;
-int newValueLeftOUT = 0;
-int maxValueRightOUT = 0;
-int newValueRightOUT = 0;
-
-float rightDB = -130.0;
-float leftDB = -130.0;
-
-float max_leftIN = 0.0;
-float max_rightIN = 0.0;
-
-float test = 0.0;
-
-
-float adc1_ist = 0.0;
-float adc1_volt = 0.0;
-float adc1_db = 0.0;
-float smooth1= 0.0;
-float peaksmooth1= 0.0;
-float diff1 = 0.0;
-
-
-int adc2 = 0.0;
-float adc2_ist = 0.0;
-float adc2_volt = 0.0;
-float adc2_db = 0.0;
-float smooth2= 0.0;
-float peaksmooth2= 0.0;
-float diff2 = 0.0;
-
-int adc3 = 0.0;
-float adc3_ist = 0.0;
-float adc3_volt = 0.0;
-float adc3_db = 0.0;
-float smooth3= 0.0;
-float peaksmooth3= 0.0;
-float diff3 = 0.0;
-
-int adc4 = 0.0;
-float adc4_ist = 0.0;
-float adc4_volt = 0.0;
-float adc4_db = 0.0;
-float smooth4= 0.0;
-float peaksmooth4= 0.0;
-float diff4 = 0.0;
-
-float leftIN = 0.0;
-float rightIN = 0.0;
-
-int trans;
 TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim4;
 
-GUI_RECT pRect = {200,0,600,480};
-int done = 0;
 
-
-GUI_HMEM hSpline;
-
+char checksum;
+int CheckSumOK = 0;
 
 
 void GRAPHICS_MainTask(void) {
@@ -142,8 +81,10 @@ void GRAPHICS_MainTask(void) {
 ////////CREATION OF ALL WINDOWS//////////////////////////////////////////
 	InfoWindow = CreateInfoWindow();
 	SettingsButtonWindow = CreateSettingsButtonWindow();
+	IndicatorWindow1 = CreateIndicatorWindow1();
+	IndicatorWindow2 = CreateIndicatorWindow2();
+	IndicatorWindow3 = CreateIndicatorWindow3();
 	MainWindow = CreateMainWindow();
-
 
 ////////////////////////////////////////////////////////////////////////
 ///////////Show InfoWindow on Startup///////////////////////////////////
@@ -181,7 +122,9 @@ void GRAPHICS_MainTask(void) {
 	    else{touch=0;}
 
 	    if (touch>50){
-
+	    	WM_HideWindow (IndicatorWindow1);
+	    	WM_HideWindow (IndicatorWindow2);
+	    	WM_HideWindow (IndicatorWindow3);
 	    	WM_HideWindow (SettingsButtonWindow);
 	    	WM_ShowWindow (InfoWindow);
 	    	touch = 0;
@@ -191,35 +134,60 @@ void GRAPHICS_MainTask(void) {
 	    if (timer>20){
 	    	WM_HideWindow (InfoWindow);
 	    	WM_ShowWindow(SettingsButtonWindow);
+	    	WM_ShowWindow(IndicatorWindow1);
+	    	WM_ShowWindow(IndicatorWindow2);
+	    	WM_ShowWindow(IndicatorWindow3);
 	    }
 	    timer++;
 ///////////////////////////////////////////////////////////////////
-
+	    p_Bufferd = 0.01;
+	    p_MAXBufferd = 0.001;
 
 ///////////////////ALWAYS Update Main Window///////////////////////
 	   WM_Invalidate(MainWindow);
 	   WM_SendMessageNoPara(MainWindow, WM_Paint);
 	   GUI_Delay(1);
+	   HAL_UART_DMAResume(&huart6);
 	   GUI_SetTimeSlice(1);
 ///////////////////////////////////////////////////////////////////
-	   BSP_LED_Toggle(LED1);
+
 	}
 }
 
 
 
 
-int val1;
-int val2;
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 
-	TOUCHUPDATE(); //Recive Data from Touchpanel and Encoder
+
+
 	UARTRECIVER(); //Recive Data from UART --> UARTDATA
+	BSP_LED_Toggle(LED1);
+	TOUCHUPDATE(); //Recive Data from Touchpanel and Encoder
+	BUFFERVALUEUPDATE(); //create Buffered Values
 
     upcounter = UARTDATA[4]; //Watchdog coming from the MotherEngine is used to identify new Value
 
-	if(reset||(upcounter != upcounterLast)){
+    //CheckSum check
+    checksum = 0;
+    CheckSumOK = 0;
+
+    for(int i = 0; i < 99; i++) {
+    	checksum += UARTDATA[i];
+    }
+
+    if(checksum == UARTDATA[99]){
+    	CheckSumOK = 1;
+    }
+    else{
+    	CheckSumOK = 0;
+
+    }
+
+
+
+	if((upcounter != upcounterLast)&&CheckSumOK){
 	//************************NEW VALUES CAME IN**********************************//
 	//***********Everything in this IF CASE should be done for new Values*********//
 
@@ -227,25 +195,19 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 	//*******************!!!UPDATE  of all Float value!!!*************************//
 	//****************************************************************************//
 
-		f_inputLeft_DB = createFloat(12);
-		f_inputRight_DB = createFloat(16);
 
-		f_VCALeft_DB = createFloat(20); //Array Address needs to be defined/changed
-		f_VCARight_DB = createFloat(24);
-
-		f_outputLeft_DB = createFloat(28); //Array Address needs to be defined/changed
-		f_outputRight_DB = createFloat(32);
-
-		f_inputLeft_DB_RMS = createFloat(36);
-		f_inputRight_DB_RMS = createFloat(40);
-
-		f_VCALeft_DB_RMS = createFloat(44); //Array Address needs to be defined/changed
-		f_VCARight_DB_RMS = createFloat(48);
-
-		f_outputLeft_DB_RMS = createFloat(52); //Array Address needs to be defined/changed
-		f_outputRight_DB_RMS = createFloat(56);
-
-
+       	 	f_inputLeft_DB = createFloat(12);
+			f_inputRight_DB = createFloat(16);
+			f_VCALeft_DB = createFloat(20);
+			f_VCARight_DB = createFloat(24);
+			f_outputLeft_DB = createFloat(28);
+			f_outputRight_DB = createFloat(32);
+			f_inputLeft_DB_RMS = createFloat(36);
+			f_inputRight_DB_RMS = createFloat(40);
+			f_VCALeft_DB_RMS = createFloat(44);
+			f_VCARight_DB_RMS = createFloat(48);
+			f_outputLeft_DB_RMS = createFloat(52);
+			f_outputRight_DB_RMS = createFloat(56);
 
 	//****************************************************************************//
 	//*******************!!!UPDATE Waveform!!!************************************//
@@ -262,7 +224,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 
 		inputRightStream[399] = i_inputRight_Waveform;
 		for(int i=0; i<399;i++){inputRightStream[i] = inputRightStream[i+1];}
-
+/*
 		VCALeftStream[399] = i_VCALeft_Waveform;
 		for(int i=0; i<399;i++){VCALeftStream[i] = VCALeftStream[i+1];}
 
@@ -274,7 +236,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 
 		outputRightStream[399] = i_outputRight_Waveform;
 		for(int i=0; i<399;i++){outputRightStream[i] = outputRightStream[i+1];}
-
+*/
 	//****************************************************************************//
 	//*******************!!!UPDATE INDICATOR!!!***********************************//
 	//****************************************************************************//
@@ -292,92 +254,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 	}
 
 
-	  if (i_inputLeft_Indicator > i_inputLeft_Indicator_bufferd){i_inputLeft_Indicator_bufferd = i_inputLeft_Indicator;}
-	  else {i_inputLeft_Indicator_bufferd -=0.01*(i_inputLeft_Indicator_bufferd-i_inputLeft_Indicator);}
 
-	  if (i_inputLeft_Waveform > i_inputLeft_Indicator_MAXbufferd){i_inputLeft_Indicator_MAXbufferd = i_inputLeft_Indicator;}
-	  else {i_inputLeft_Indicator_MAXbufferd -=0.001*(i_inputLeft_Indicator_MAXbufferd-i_inputLeft_Indicator);}
-
-
-	  if (i_inputRight_Indicator > i_inputRight_Indicator_bufferd){i_inputRight_Indicator_bufferd = i_inputRight_Indicator;}
-	  else {i_inputRight_Indicator_bufferd -=0.01*(i_inputRight_Indicator_bufferd-i_inputRight_Indicator);}
-
-	  if (i_inputRight_Indicator > i_inputRight_Indicator_MAXbufferd){i_inputRight_Indicator_MAXbufferd = i_inputRight_Indicator;}
-	  else {i_inputRight_Indicator_MAXbufferd -=0.001*(i_inputRight_Indicator_MAXbufferd-i_inputRight_Indicator);}
-
-
-	  if (i_outputLeft_Indicator > i_outputLeft_Indicator_bufferd){i_outputLeft_Indicator_bufferd = i_outputLeft_Indicator;}
-	  else {i_outputLeft_Indicator_bufferd -=0.01*(i_outputLeft_Indicator_bufferd-i_outputLeft_Indicator);}
-
-	  if (i_outputLeft_Indicator> i_outputLeft_Indicator_MAXbufferd){i_outputLeft_Indicator_MAXbufferd = i_outputLeft_Indicator;}
-	  else {i_outputLeft_Indicator_MAXbufferd -=0.001*(i_outputLeft_Indicator_MAXbufferd-i_outputLeft_Indicator);}
-
-
-	  if (i_outputRight_Indicator > i_outputRight_Indicator_bufferd){i_outputRight_Indicator_bufferd = i_outputRight_Indicator;}
-	  else {i_outputRight_Indicator_bufferd -=0.01*(i_outputRight_Indicator_bufferd-i_outputRight_Indicator);}
-
-	  if (i_outputRight_Indicator > i_outputRight_Indicator_MAXbufferd){i_outputRight_Indicator_MAXbufferd = i_outputRight_Indicator;}
-	  else {i_outputRight_Indicator_MAXbufferd -=0.001*(i_outputRight_Indicator_MAXbufferd-i_outputRight_Indicator);}
-
-
-
-/////////INPUT LEFT
-	  float diff=0;
-
-	  diff = (f_inputLeft_DB_bufferd-f_inputLeft_DB);
-	  if(diff<0){diff=(-1)*diff;}
-	  if (f_inputLeft_DB > f_inputLeft_DB_bufferd){f_inputLeft_DB_bufferd = f_inputLeft_DB;}
-	  else {f_inputLeft_DB_bufferd -=0.01*diff;}
-
-	  diff=0;
- 	  diff = (f_inputLeft_DB_MAXbufferd-f_inputLeft_DB);
-	  if(diff<0){diff=(-1)*diff;}
-	  if (f_inputLeft_DB > f_inputLeft_DB_MAXbufferd){f_inputLeft_DB_MAXbufferd = f_inputLeft_DB;}
-	  else {f_inputLeft_DB_MAXbufferd -=0.005*diff;}
-/////////INPUT RIGHT
-	  diff = (f_inputRight_DB_bufferd-f_inputRight_DB);
-	  if(diff<0){diff=(-1)*diff;}
-	  if (f_inputRight_DB > f_inputRight_DB_bufferd){f_inputRight_DB_bufferd = f_inputRight_DB;}
-	  else {f_inputRight_DB_bufferd -=0.01*diff;}
-
-	  diff=0;
- 	  diff = (f_inputRight_DB_MAXbufferd-f_inputRight_DB);
-	  if(diff<0){diff=(-1)*diff;}
-	  if (f_inputRight_DB > f_inputRight_DB_MAXbufferd){f_inputRight_DB_MAXbufferd = f_inputRight_DB;}
-	  else {f_inputRight_DB_MAXbufferd -=0.005*diff;}
-
-/////////VCA LEFT
-	  if (f_VCALeft_DB > f_VCALeft_DB_bufferd){f_VCALeft_DB_bufferd = f_VCALeft_DB;}
-	  else {f_VCALeft_DB_bufferd -=0.01*(f_VCALeft_DB_bufferd-f_VCALeft_DB);}
-
-	  if (f_VCALeft_DB > f_VCALeft_DB_bufferd){f_VCALeft_DB_MAXbufferd = f_VCALeft_DB;}
-	  else {f_VCALeft_DB_MAXbufferd -=0.005*(f_VCALeft_DB_MAXbufferd-f_VCALeft_DB);}
-/////////VCA RIGHT
-	  if (f_VCARight_DB > f_VCARight_DB_bufferd){f_VCARight_DB_bufferd = f_VCARight_DB;}
-	  else {f_VCARight_DB_bufferd -=0.01*(f_VCARight_DB_bufferd-f_VCARight_DB);}
-
-	  if (f_VCARight_DB > f_VCARight_DB_bufferd){f_VCARight_DB_MAXbufferd = f_VCARight_DB;}
-	  else {f_VCARight_DB_MAXbufferd -=0.005*(f_VCARight_DB_MAXbufferd-f_VCARight_DB);}
-
-/////////OUTPUT LEFT
-	  if (f_outputLeft_DB > f_outputLeft_DB_bufferd){f_outputLeft_DB_bufferd = f_outputLeft_DB;}
-	  else {f_inputLeft_DB_bufferd -=0.001*(f_inputLeft_DB_bufferd-f_inputLeft_DB);}
-
-	  if (f_outputLeft_DB > f_outputLeft_DB_bufferd){f_outputLeft_DB_MAXbufferd = f_outputLeft_DB;}
-	  else {f_outputLeft_DB_MAXbufferd -=0.005*(f_outputLeft_DB_MAXbufferd-f_outputLeft_DB);}
-/////////OUTPUT RIGHT
-	  if (f_outputRight_DB > f_outputRight_DB_bufferd){f_outputRight_DB_bufferd = f_outputRight_DB;}
-	  else {f_outputRight_DB_bufferd -=0.01*(f_outputRight_DB_bufferd-f_outputRight_DB);}
-
-	  if (f_outputRight_DB > f_outputRight_DB_bufferd){f_outputRight_DB_MAXbufferd = f_outputRight_DB;}
-	  else {f_outputRight_DB_MAXbufferd -=0.005*(f_outputRight_DB_MAXbufferd-f_outputRight_DB);}
-
-
-
-		for(int i=0; i<50; i++){
-			if (f_spectrumLeft_bufferd[i]<UARTDATA[i+50]){f_spectrumLeft_bufferd[i] = UARTDATA[i+50];}
-			else {f_spectrumLeft_bufferd[i] -=0.01*(f_spectrumLeft_bufferd[i]-UARTDATA[i+50]);}
-		}
 
 
 }

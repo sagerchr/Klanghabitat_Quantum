@@ -51,7 +51,7 @@
 int16_t analogINSigned[8];
 float volt;
 float voltageRMStemp[8];
-
+int RMS_index=0;
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -278,7 +278,7 @@ void TIM7_IRQHandler(void)
 
 
  HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R,UART_reciveCorrected[7]+150); //Update ADC1
- HAL_DAC_SetValue(&hdac, DAC_CHANNEL_2, DAC_ALIGN_12B_R,UART_reciveCorrected[9]+171); //Update ADC2
+ HAL_DAC_SetValue(&hdac, DAC_CHANNEL_2, DAC_ALIGN_12B_R,UART_reciveCorrected[9]+171); //Update ADC2 +171
 
 
 
@@ -475,12 +475,55 @@ void TIM7_IRQHandler(void)
 	  RMS_CH5 = (20*log10((sqrt (sum_CH5/1200))/1.095))+3;
 	  RMS_CH6 = (20*log10((sqrt (sum_CH6/1200))/1.095))+3;
 
+	  sum_CH1_RMS_long[3]=RMS_CH1;
+	  sum_CH2_RMS_long[3]=RMS_CH2;
+	  sum_CH3_RMS_long[3]=RMS_CH3;
+	  sum_CH4_RMS_long[3]=RMS_CH4;
+	  sum_CH5_RMS_long[3]=RMS_CH5;
+	  sum_CH6_RMS_long[3]=RMS_CH6;
+
+	  for(int i=0;i<3;i++){
+		  sum_CH1_RMS_long[i] = sum_CH1_RMS_long[i+1];
+		  sum_CH1_RMS = sum_CH1_RMS + sum_CH1_RMS_long[i];
+
+		  sum_CH2_RMS_long[i] = sum_CH2_RMS_long[i+1];
+		  sum_CH2_RMS = sum_CH2_RMS + sum_CH2_RMS_long[i];
+
+		  sum_CH3_RMS_long[i] = sum_CH3_RMS_long[i+1];
+		  sum_CH3_RMS = sum_CH3_RMS + sum_CH3_RMS_long[i];
+
+		  sum_CH4_RMS_long[i] = sum_CH4_RMS_long[i+1];
+		  sum_CH4_RMS = sum_CH4_RMS + sum_CH4_RMS_long[i];
+
+		  sum_CH5_RMS_long[i] = sum_CH5_RMS_long[i+1];
+		  sum_CH5_RMS = sum_CH5_RMS + sum_CH5_RMS_long[i];
+
+		  sum_CH6_RMS_long[i] = sum_CH6_RMS_long[i+1];
+		  sum_CH6_RMS = sum_CH6_RMS + sum_CH6_RMS_long[i];
+
+	  }
+	  RMS_CH1_long=sum_CH1_RMS/3;
+	  RMS_CH2_long=sum_CH2_RMS/3;
+	  RMS_CH3_long=sum_CH3_RMS/3;
+	  RMS_CH4_long=sum_CH4_RMS/3;
+	  RMS_CH5_long=sum_CH5_RMS/3;
+	  RMS_CH6_long=sum_CH6_RMS/3;
+
 	  sum_CH1=0.0;
 	  sum_CH2=0.0;
 	  sum_CH3=0.0;
 	  sum_CH4=0.0;
 	  sum_CH5=0.0;
 	  sum_CH6=0.0;
+
+	  sum_CH1_RMS=0.0;
+	  sum_CH2_RMS=0.0;
+	  sum_CH3_RMS=0.0;
+	  sum_CH4_RMS=0.0;
+	  sum_CH5_RMS=0.0;
+	  sum_CH6_RMS=0.0;
+
+
 
   }
 

@@ -34,7 +34,7 @@ static void _cbButton_spectrum(WM_MESSAGE * pMsg)
     	else{
     		GUI_SetColor( GUI_GRAY );
     	}
-      GUI_DrawBitmap(&bmmenu, 35, 35);
+      GUI_DrawBitmap(&bmmenu, 0, 0);
       break;
     /* Default callback message */
     default:
@@ -51,7 +51,7 @@ static void _cbSettingsButtonDialog(WM_MESSAGE * pMsg) {
   switch(pMsg->MsgId) {
 //////////////////////////////////////////////////////////////////
   case WM_CREATE:
-    hButton = BUTTON_CreateEx(0, 0, 150, 150, pMsg->hWin, WM_CF_SHOW, 0, ID_SettingsButton);
+    hButton = BUTTON_CreateEx(0, 0, 80, 80, pMsg->hWin, WM_CF_SHOW, 0, ID_SettingsButton);
     WM_SetCallback(hButton, _cbButton_spectrum);
     break;
 //////////////////////////////////////////////////////////////////
@@ -109,7 +109,7 @@ WM_HWIN CreateSettingsButtonWindow(void) {
 
 
 
-  SettingsButtonWindow = WM_CreateWindow(15, 315, 150, 150, WM_CF_HIDE, _cbSettingsButtonDialog, 0);
+  SettingsButtonWindow = WM_CreateWindow(100, 370, 80, 80, WM_CF_HIDE, _cbSettingsButtonDialog, 0);
 
   WM_MULTIBUF_Enable(1);
 

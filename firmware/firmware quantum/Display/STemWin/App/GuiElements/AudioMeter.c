@@ -209,7 +209,8 @@ void drawBarDotted (int pos_x, int pos_y, float PeakVal,float AvVal){
 
 void drawBarDottedVertical (int pos_x, int pos_y, float PeakVal,float AvVal, GUI_COLOR color, int width){
 
-	GUI_DrawGradientV(pos_x,pos_y-AvVal,pos_x+width,pos_y, GUI_GRAY,GUI_GRAY);
+	GUI_DrawGradientV(pos_x,pos_y-AvVal,pos_x+width,pos_y, color,color);
+
 
 }
 

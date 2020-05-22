@@ -267,7 +267,14 @@ void Error_Handler(void);
 #define STLK_TX_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
-#define RX_IN_SIZE 150
+#define RX_IN_SIZE 200
+
+
+
+float p_Bufferd;
+float p_MAXBufferd;
+
+int ERROR_RX;
 
 
 char UART_RECIVE[RX_IN_SIZE];
@@ -280,8 +287,8 @@ int touch;
 int Waveform;
 int pots[6];
 
-int upcounter;
-int upcounterLast;
+uint8_t upcounter;
+uint8_t upcounterLast;
 uint8_t LeftStream[400];
 uint8_t RightStream[400];
 int reset;
@@ -302,6 +309,10 @@ int Button_okState;
 
 ///////ALL WINDOW HANDLES///////////
 WM_HWIN MainWindow;
+
+WM_HWIN IndicatorWindow1;
+WM_HWIN IndicatorWindow2;
+WM_HWIN IndicatorWindow3;
 
 WM_HWIN InfoWindow;
 

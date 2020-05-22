@@ -18,7 +18,7 @@ int toggle=1;
 int x2=345;
 int x1=455;
 int y=-348;
-
+//int y=-52;
 
 
 
@@ -39,9 +39,9 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
   //////////////////////////DRAWING WAVEFORM////////////////////////
    	 for(int i=200; i<400;i++){
 
-   		 	 GUI_SetColor( GUI_GRAY );
-  			 GUI_DrawHLine(y+(i*2),x1, x1+inputRightStream[599-i]);
-   		 	 GUI_DrawHLine(y+(i*2),x2-inputLeftStream[599-i], x2);
+   		 	 //GUI_SetColor( GUI_LIGHTGRAY );
+  			 //GUI_DrawHLine(y+(i*2),x1, x1+inputRightStream[599-i]);
+   		 	 //GUI_DrawHLine(y+(i*2),x2-inputLeftStream[599-i], x2);
 /*
   			 GUI_SetColor( GUI_GRAY_AA);
   			 GUI_DrawHLine(y+(i*2),x1, x1+outputRightStream[599-i]);
@@ -59,6 +59,9 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 	    GUI_GotoXY(200,10);
 	    GUI_DispStringAt("Y:", 180, 10);
 	    GUI_DispFloatMin(TouchYCoordinate, 1);
+	    GUI_GotoXY(300,10);
+	    GUI_DispStringAt("ERROR_RX:", 260, 10);
+	    GUI_DispFloatMin(ERROR_RX, 1);
   /////////////////////////////////////////////////////////////////
 
 /*
@@ -88,7 +91,7 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 
 
 
-
+/*
 
 	    GUI_SetColor(GUI_GRAY);
 	    GUI_SetFont(&GUI_Font32B_1);
@@ -140,11 +143,11 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 	    GUI_DispStringAt("outputRight(RMS):", 550, 320);
 	    GUI_GotoXY(620,350);
 	    GUI_DispFloatMin(f_outputRight_DB_RMS, 2);
+*/
 
 
 
-
-
+/*
 		GUI_SetColor(GUI_GRAY);
 		GUI_SetFont(&GUI_Font24B_1);
 		GUI_GotoXY(100,40);
@@ -156,12 +159,76 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 		GUI_GotoXY(100,100);
 		GUI_DispFloatMin(pots[4], 1);
 
+*/
 
- drawBarDottedVertical (368, 440,(f_inputLeft_DB_MAXbufferd+40)*10,(f_inputLeft_DB_bufferd+40)*10,GUI_GRAY_AA,30);
- drawBarDottedVertical (402, 440,(f_inputRight_DB_MAXbufferd+40)*10,(f_inputRight_DB_bufferd+40)*10,GUI_GRAY_AA,30);
+GUI_SetColor(GUI_GRAY);
+GUI_SetFont(&GUI_Font16_1);
 
- drawBarDottedVertical (349, 440,i_outputLeft_Indicator_MAXbufferd,i_outputLeft_Indicator_bufferd,GUI_GRAY_AA,15);
- drawBarDottedVertical (436, 440,i_outputRight_Indicator_MAXbufferd,i_outputRight_Indicator_bufferd,GUI_GRAY_AA,15);
+GUI_DispStringAt("input", 232, 20);
+
+GUI_DispStringAt("peak:", 180, 40);
+GUI_GotoXY(220,40);
+GUI_DispFloatMin(f_inputLeft_DB_MAXbufferd, 1);
+GUI_GotoXY(260,40);
+GUI_DispFloatMin(f_inputRight_DB_MAXbufferd, 1);
+
+GUI_SetColor(GUI_LIGHTGRAY);
+GUI_DispStringAt("RMS:", 180, 60);
+GUI_GotoXY(220,60);
+GUI_DispFloatMin(f_inputLeft_DB_RMS_MAXbufferd, 1);
+GUI_GotoXY(260,60);
+GUI_DispFloatMin(f_inputRight_DB_RMS_MAXbufferd, 1);
+
+
+drawBarDottedVertical (232, 440,(f_inputLeft_DB_MAXbufferd+30)*10,(f_inputLeft_DB_bufferd+30)*10,GUI_GRAY_AA,30);
+drawBarDottedVertical (266, 440,(f_inputRight_DB_MAXbufferd+30)*10,(f_inputRight_DB_bufferd+30)*10,GUI_GRAY_AA,30);
+
+drawBarDottedVertical (232, 440,(f_inputLeft_DB_RMS_MAXbufferd+30)*10,(f_inputLeft_DB_RMS_bufferd+30)*10,GUI_LIGHTGRAY,30);
+drawBarDottedVertical (266, 440,(f_inputRight_DB_RMS_MAXbufferd+30)*10,(f_inputRight_DB_RMS_bufferd+30)*10,GUI_LIGHTGRAY,30);
+
+
+ drawBarDottedVertical (368, 440,(f_VCALeft_DB_MAXbufferd+30)*10,(f_VCALeft_DB_bufferd+30)*10,GUI_GRAY_AA,30);
+ drawBarDottedVertical (402, 440,(f_VCARight_DB_MAXbufferd+30)*10,(f_VCARight_DB_bufferd+30)*10,GUI_GRAY_AA,30);
+
+ drawBarDottedVertical (368, 440,(f_VCALeft_DB_RMS_MAXbufferd+30)*10,(f_VCALeft_DB_RMS_bufferd+30)*10,GUI_LIGHTGRAY,30);
+ drawBarDottedVertical (402, 440,(f_VCARight_DB_RMS_MAXbufferd+30)*10,(f_VCARight_DB_RMS_bufferd+30)*10,GUI_LIGHTGRAY,30);
+
+
+ drawBarDottedVertical (500, 440,(f_outputLeft_DB_MAXbufferd+30)*10,(f_outputLeft_DB_bufferd+30)*10,GUI_GRAY_AA,30);
+ drawBarDottedVertical (534, 440,(f_outputRight_DB_MAXbufferd+30)*10,(f_outputRight_DB_bufferd+30)*10,GUI_GRAY_AA,30);
+
+ drawBarDottedVertical (500, 440,(f_outputLeft_DB_RMS_MAXbufferd+30)*10,(f_outputLeft_DB_RMS_bufferd+30)*10,GUI_LIGHTGRAY,30);
+ drawBarDottedVertical (534, 440,(f_outputRight_DB_RMS_MAXbufferd+30)*10,(f_outputRight_DB_RMS_bufferd+30)*10,GUI_LIGHTGRAY,30);
+
+
+
+
+
+
+
+
+
+
+
+
+ GUI_SetColor(GUI_GRAY);
+ GUI_SetFont(&GUI_Font16_1);
+
+
+
+
+
+ GUI_DispStringAt("p_Bufferd:", 20,200);
+ GUI_GotoXY(100,200);
+ GUI_DispFloatMin(p_Bufferd, 5);
+ GUI_DispStringAt("p_MAXBufferd:", 20,220);
+ GUI_GotoXY(100,220);
+ GUI_DispFloatMin(p_MAXBufferd, 5);
+
+ /*
+ drawBarDottedVertical (349, 440,(f_inputLeft_DB_RMS_MAXbufferd+40)*10,(f_inputLeft_DB_RMS_bufferd+40)*10,GUI_GRAY_AA,30);
+ drawBarDottedVertical (436, 440,(f_inputRight_DB_RMS_MAXbufferd+40)*10,(f_inputRight_DB_RMS_bufferd+40)*10,GUI_GRAY_AA,30);
+*/
 /*
  ArcControl(80,100,pots[1],"Attack");
  ArcControl(80,260,pots[2],"Ratio");

@@ -42,7 +42,7 @@ char IP4_client[3];
 uint8_t IP_client_number[4];
 uint8_t upcounter;
 
-
+uint8_t checksum;
 void lwIPTask(void const * argument){
 /*
 	MY_FLASH_SetSectorAddrs(11, 0x081C0000);
@@ -287,14 +287,8 @@ char UART_IN[10];
 
 
 		//OSCmessageINTSend("/VALUE/Level/CH1/RMS",  20, voltageRMS[0]*30);
-		  int volt1;
-		  if(voltageIn1MAX*100>250){
-			  volt1 = 250;
-		  }
-		  else{
-			  volt1 = voltageIn1MAX*100;
-		  }
-		  OSCmessageINTSend("/VALUE/Level/CH1/RMS",  20, volt1);
+
+		  OSCmessageINTSend("/VALUE/Level/CH1/RMS",  20, voltageIn1MAX*100);
 		  OSCmessageINTSend("/VALUE/Level/CH2/RMS",  20, voltageIn2MAX*100);
 
 
@@ -302,14 +296,14 @@ char UART_IN[10];
 
 
 
-		OSCmessageINTSend("/help/Level/devider",  19, 146);
+//		OSCmessageINTSend("/help/Level/devider",  19, 146);
 
 
 		  char data[sizeof(float)];
 		  float f = -1.236;
 		  char a = data[0];char b = data[1];char c = data[2];char d = data[3];
 
-
+/*
 
 		  memcpy(data, &dbuRMS[1], sizeof &dbuRMS[0]);    // send data
 		  a = data[0]; b = data[1];c = data[2];d = data[3];
@@ -341,9 +335,10 @@ char UART_IN[10];
 		  a = data[0]; b = data[1];c = data[2];d = data[3];
 		  OSCmessageFLOATSend("/VALUE/Level/CH1/FLOAT",  22, a,b,c,d);
 
-/*****************************************************************************/
 		  char p = 48;
 		  char k = 48;
+
+*/
 /*
 		  char FFT_String[12] = {'/','F','F','T','/','L','E','F','T','/','0','0'};
 
@@ -388,13 +383,16 @@ char UART_IN[10];
 			UART_transmit[i] = 0x00;
 		}
 
-			upcounter++;
+		upcounter++;
+
+
 
 		  UART_transmit[0]='#';
 		  UART_transmit[1]='s';
 		  UART_transmit[2]='t';
 		  UART_transmit[3]='a';
 		  UART_transmit[4]=upcounter;//3
+
 		  UART_transmit[5]=0x02;//2
 		  UART_transmit[6]=voltageIn1MAX*100;//3
 		  UART_transmit[7]=voltageIn2MAX*100;//4
@@ -445,48 +443,64 @@ char UART_IN[10];
 		  UART_transmit[34]=b;
 		  UART_transmit[35]=a;
 
-		  memcpy(data, &RMS_CH1, sizeof &RMS_CH1);    // send data
+		  memcpy(data, &RMS_CH1_long, sizeof &RMS_CH1_long);    // send data
 		  a = data[0]; b = data[1];c = data[2];d = data[3];
 		  UART_transmit[36]=d;
 		  UART_transmit[37]=c;
 		  UART_transmit[38]=b;
 		  UART_transmit[39]=a;
 
-		  memcpy(data, &RMS_CH2, sizeof &RMS_CH2);    // send data
+		  memcpy(data, &RMS_CH2_long, sizeof &RMS_CH2_long);    // send data
 		  a = data[0]; b = data[1];c = data[2];d = data[3];
 		  UART_transmit[40]=d;
 		  UART_transmit[41]=c;
 		  UART_transmit[42]=b;
 		  UART_transmit[43]=a;
 
-		  memcpy(data, &RMS_CH3, sizeof &RMS_CH3);    // send data
+		  memcpy(data, &RMS_CH3_long, sizeof &RMS_CH3_long);    // send data
 		  a = data[0]; b = data[1];c = data[2];d = data[3];
 		  UART_transmit[44]=d;
 		  UART_transmit[45]=c;
 		  UART_transmit[46]=b;
 		  UART_transmit[47]=a;
 
-		  memcpy(data, &RMS_CH4, sizeof &RMS_CH4);    // send data
+		  memcpy(data, &RMS_CH4_long, sizeof &RMS_CH4_long);    // send data
 		  a = data[0]; b = data[1];c = data[2];d = data[3];
 		  UART_transmit[48]=d;
 		  UART_transmit[49]=c;
 		  UART_transmit[50]=b;
 		  UART_transmit[51]=a;
 
-		  memcpy(data, &RMS_CH5, sizeof &RMS_CH5);    // send data
+		  memcpy(data, &RMS_CH5_long, sizeof &RMS_CH5_long);    // send data
 		  a = data[0]; b = data[1];c = data[2];d = data[3];
 		  UART_transmit[52]=d;
 		  UART_transmit[53]=c;
 		  UART_transmit[54]=b;
 		  UART_transmit[55]=a;
 
-		  memcpy(data, &RMS_CH5, sizeof &RMS_CH5);    // send data
+		  memcpy(data, &RMS_CH6_long, sizeof &RMS_CH6_long);    // send data
 		  a = data[0]; b = data[1];c = data[2];d = data[3];
 		  UART_transmit[56]=d;
 		  UART_transmit[57]=c;
 		  UART_transmit[58]=b;
 		  UART_transmit[59]=a;
 
+/*
+			for(int i = 4; i < 100; i++) {
+				UART_transmit[i] = 0x00;
+			  }
+			UART_transmit[4]=upcounter;
+			UART_transmit[98]=upcounter;
+
+
+
+
+*/
+		  checksum = 0;
+		for(int i = 0; i < 99; i++) {
+				checksum += UART_transmit[i];
+			  }
+		  UART_transmit[99]=checksum;
 
 		  resetMax=1;
 
@@ -494,8 +508,8 @@ char UART_IN[10];
 //############# RESMUE the DMA to output the data#########//
 		  HAL_UART_DMAResume(&huart6);
 //#######################################################//
-
-		   HAL_Delay(5);
+//Changed Define of MEM_USE_POOLS_TRY_BIGGER_POOL  to 1 (2020.05.20) Better Performance???
+		   HAL_Delay(10);
 
 
 //***********************************************************************//

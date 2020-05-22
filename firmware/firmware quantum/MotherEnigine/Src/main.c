@@ -252,9 +252,11 @@ int main(void)
   //defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
-  osThreadDef(lwIPTask, lwIPTask, osPriorityNormal, 0, 1200);
+  osThreadDef(lwIPTask, lwIPTask, osPriorityNormal, 0,1000);
   lwIPTaskHandle = osThreadCreate(osThread(lwIPTask), NULL);
 
+
+	//HAL_TIM_Base_Start_IT(&htim7);
   osThreadDef(dspTask, dspTask, osPriorityNormal, 0, 1000);
   dspTaskHandle = osThreadCreate(osThread(dspTask), NULL);
 
@@ -639,7 +641,7 @@ static void MX_USART6_UART_Init(void)
 
   /* USER CODE END USART6_Init 1 */
   huart6.Instance = USART6;
-  huart6.Init.BaudRate = 300000;
+  huart6.Init.BaudRate = 500000;
   huart6.Init.WordLength = UART_WORDLENGTH_8B;
   huart6.Init.StopBits = UART_STOPBITS_1;
   huart6.Init.Parity = UART_PARITY_NONE;

@@ -292,7 +292,7 @@
  * bigger pool - WARNING: THIS MIGHT WASTE MEMORY but it can make a system more
  * reliable. */
 #if !defined MEM_USE_POOLS_TRY_BIGGER_POOL || defined __DOXYGEN__
-#define MEM_USE_POOLS_TRY_BIGGER_POOL   0
+#define MEM_USE_POOLS_TRY_BIGGER_POOL   1
 #endif
 
 /**
