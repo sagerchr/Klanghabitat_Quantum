@@ -40,6 +40,7 @@ extern "C" {
 /* USER CODE BEGIN Includes */
 #include "stm32469i_discovery_ts.h"
 #include "DIALOG.h"
+#include "PluginSharedVariables.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -307,20 +308,35 @@ float val1MAXbuffered;
 int Button_okState;
 
 
-///////ALL WINDOW HANDLES///////////
+///////ALL WINDOW HANDLES////////////
 WM_HWIN MainWindow;
 
+WM_HWIN InfoWindow;
+/////////////////////////////////////
+
+//////////INDICATOR VU///////////////
 WM_HWIN IndicatorWindow1;
 WM_HWIN IndicatorWindow2;
 WM_HWIN IndicatorWindow3;
+/////////////////////////////////////
 
-WM_HWIN InfoWindow;
-
+//////////SETTINGS WINDOW////////////
 WM_HWIN SettingsWindow;
-
 
 WM_HWIN SettingsButtonWindow;
 WM_HWIN SettingsDialog;
+/////////////////////////////////////
+
+///////ALL ENCODER HANDLES///////////
+WM_HWIN Enc_InputWindow;
+WM_HWIN Enc_OutputWindow;
+WM_HWIN Enc_RatioWindow;
+WM_HWIN Enc_AttackWindow;
+WM_HWIN Enc_MakeUpGainWindow;
+WM_HWIN Enc_ReleaseWindow;
+WM_HWIN Enc_DistortionWindow;
+/////////////////////////////////////
+
 
 /* USER CODE END Private defines */
 

@@ -410,6 +410,7 @@ struct WM_MESSAGE {
     GUI_COLOR Color;
     void (* pFunc)(void);
   } Data;
+  float encodervalue;
 };
 
 struct WM_Obj {

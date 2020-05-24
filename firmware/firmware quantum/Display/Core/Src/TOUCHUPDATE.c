@@ -56,18 +56,59 @@ void TOUCHUPDATE(){
 		    switch (count) {
 
 		    case 1:
+
+		    	if 		(Encoder3.Color == GUI_LIGHTGRAY)	{aTxBuffer[1] = 0;}
+		    	else if (Encoder3.Color == GUI_MAGENTA)		{aTxBuffer[1] = 1;}
+		    	else if (Encoder3.Color == GUI_ORANGE)		{aTxBuffer[1] = 2;}
+		    	else if (Encoder3.Color == GUI_CYAN)		{aTxBuffer[1] = 3;}
+		    	else if (Encoder3.Color == GUI_LIGHTYELLOW)	{aTxBuffer[1] = 4;}
+		    	else if (Encoder3.Color == GUI_LIGHTGREEN)	{aTxBuffer[1] = 5;}
+		    	else if (Encoder3.Color == GUI_LIGHTBLUE)	{aTxBuffer[1] = 6;}
+		    	else								    	{aTxBuffer[1] = 10;}
+
+		    	if 		(Encoder4.Color == GUI_LIGHTGRAY)	{aTxBuffer[2] = 0;}
+		    	else if (Encoder4.Color == GUI_MAGENTA)		{aTxBuffer[2] = 1;}
+		    	else if (Encoder4.Color == GUI_ORANGE)		{aTxBuffer[2] = 2;}
+		    	else if (Encoder4.Color == GUI_CYAN)		{aTxBuffer[2] = 3;}
+		    	else if (Encoder4.Color == GUI_LIGHTYELLOW)	{aTxBuffer[2] = 4;}
+		    	else if (Encoder4.Color == GUI_LIGHTGREEN)	{aTxBuffer[2] = 5;}
+		    	else if (Encoder4.Color == GUI_LIGHTBLUE)	{aTxBuffer[2] = 6;}
+		    	else								    	{aTxBuffer[2] = 10;}
+
+
 				 HAL_I2C_Master_Transmit(&hi2c1, 40, aTxBuffer,10,10);
 				 HAL_I2C_Master_Receive(&hi2c1, 40, aRxBuffer,10,10);
-				 if(aRxBuffer[8]!=255) {pots[4]=aRxBuffer[7];}
-				 if(aRxBuffer[9]!=255) {pots[3]=aRxBuffer[9];}
+				 if(aRxBuffer[8]!=255) {Encoder3.value=aRxBuffer[7];}
+				 if(aRxBuffer[9]!=255) {Encoder4.value=aRxBuffer[9];}
 				 if(aRxBuffer[6]!=255) {buttonstateRight=aRxBuffer[6];}
 		    	 count =2;
 		     	 break;
 		    case 2:
+
+
+		    	if 		(Encoder1.Color == GUI_LIGHTGRAY)	{aTxBuffer[2] = 0;}
+		    	else if (Encoder1.Color == GUI_MAGENTA)		{aTxBuffer[2] = 1;}
+		    	else if (Encoder1.Color == GUI_ORANGE)		{aTxBuffer[2] = 2;}
+		    	else if (Encoder1.Color == GUI_CYAN)		{aTxBuffer[2] = 3;}
+		    	else if (Encoder1.Color == GUI_LIGHTYELLOW)	{aTxBuffer[2] = 4;}
+		    	else if (Encoder1.Color == GUI_LIGHTGREEN)	{aTxBuffer[2] = 5;}
+		    	else if (Encoder1.Color == GUI_LIGHTBLUE)	{aTxBuffer[2] = 6;}
+		    	else								    	{aTxBuffer[2] = 10;}
+
+		    	if 		(Encoder2.Color == GUI_LIGHTGRAY)	{aTxBuffer[1] = 0;}
+		    	else if (Encoder2.Color == GUI_MAGENTA)		{aTxBuffer[1] = 1;}
+		    	else if (Encoder2.Color == GUI_ORANGE)		{aTxBuffer[1] = 2;}
+		    	else if (Encoder2.Color == GUI_CYAN)		{aTxBuffer[1] = 3;}
+		    	else if (Encoder2.Color == GUI_LIGHTYELLOW)	{aTxBuffer[1] = 4;}
+		    	else if (Encoder2.Color == GUI_LIGHTGREEN)	{aTxBuffer[1] = 5;}
+		    	else if (Encoder2.Color == GUI_LIGHTBLUE)	{aTxBuffer[1] = 6;}
+		    	else								    	{aTxBuffer[1] = 10;}
+
+
 				 HAL_I2C_Master_Transmit(&hi2c1, 30, aTxBuffer,10,10);
 				 HAL_I2C_Master_Receive(&hi2c1, 30, aRxBuffer,10,10);
-				 if(aRxBuffer[8]!=255) {pots[2]=aRxBuffer[7];}
-				 if(aRxBuffer[9]!=255) {pots[1]=aRxBuffer[9];}
+				 if(aRxBuffer[8]!=255) {Encoder1.value=aRxBuffer[7];}
+				 if(aRxBuffer[9]!=255) {Encoder2.value=aRxBuffer[9];}
 				 if(aRxBuffer[6]!=255) {buttonstateLeft=aRxBuffer[6];}
 		    	 count=3;
 		     	 break;

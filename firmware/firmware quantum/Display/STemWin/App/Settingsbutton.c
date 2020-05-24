@@ -109,7 +109,7 @@ WM_HWIN CreateSettingsButtonWindow(void) {
 
 
 
-  SettingsButtonWindow = WM_CreateWindow(100, 370, 80, 80, WM_CF_HIDE, _cbSettingsButtonDialog, 0);
+  SettingsButtonWindow = WM_CreateWindow(50, 350, 80, 80, WM_CF_HIDE, _cbSettingsButtonDialog, 0);
 
   WM_MULTIBUF_Enable(1);
 

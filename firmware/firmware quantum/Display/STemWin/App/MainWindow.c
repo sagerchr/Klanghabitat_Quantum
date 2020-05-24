@@ -23,19 +23,79 @@ int y=-348;
 
 
 static void _cbDialog(WM_MESSAGE * pMsg) {
+
+if(Enc_AttackSelected+
+	Enc_ReleaseSelected+
+	Enc_InputSelected+
+	Enc_DistortionSelected+
+	Enc_MakeUpGainSelected+
+	Enc_OutputSelected+
+	Enc_RatioSelected == 0){
+	nothingSelected = 1;
+}else{
+	nothingSelected = 0;
+}
+
+
+//############################################################//
+	WM_Invalidate(Enc_InputWindow);
+	WM_Invalidate(Enc_AttackWindow);
+	WM_Invalidate(Enc_OutputWindow);
+	WM_Invalidate(Enc_DistortionWindow);
+	WM_Invalidate(Enc_MakeUpGainWindow);
+	WM_Invalidate(Enc_RatioWindow);
+	WM_Invalidate(Enc_ReleaseWindow);
+//############################################################//
+	pMsg->MsgId = WM_USER;
+	pMsg->Data.v = 0; //MEANS update color & value
+ 	WM_SendMessage (Enc_InputWindow, pMsg);
+//############################################################//
+ 	pMsg->MsgId = WM_USER;
+ 	pMsg->Data.v = 0; //MEANS update color & value
+ 	WM_SendMessage (Enc_AttackWindow, pMsg);
+//############################################################//
+ 	pMsg->MsgId = WM_USER;
+ 	pMsg->Data.v = 0; //MEANS update color & value
+ 	WM_SendMessage (Enc_OutputWindow, pMsg);
+//############################################################//
+ 	pMsg->MsgId = WM_USER;
+ 	pMsg->Data.v = 0; //MEANS update color & value
+ 	WM_SendMessage (Enc_DistortionWindow, pMsg);
+//############################################################//
+ 	pMsg->MsgId = WM_USER;
+ 	pMsg->Data.v = 0; //MEANS update color & value
+ 	WM_SendMessage (Enc_MakeUpGainWindow, pMsg);
+//############################################################//
+ 	pMsg->MsgId = WM_USER;
+ 	pMsg->Data.v = 0; //MEANS update color & value
+ 	WM_SendMessage (Enc_RatioWindow, pMsg);
+//############################################################//
+ 	pMsg->MsgId = WM_USER;
+ 	pMsg->Data.v = 0; //MEANS update color & value
+ 	WM_SendMessage (Enc_ReleaseWindow, pMsg);
+//############################################################//
+
 	  GUI_DCACHE_Clear(1);
 	  GUI_Clear();
 	  GUI_SetColor( GUI_LIGHTGRAY );
-  switch (pMsg->MsgId) {
-  case WM_PAINT:
 
-	  break;
-  default:
-    WM_DefaultProc(pMsg);
+
+
+	  switch (pMsg->MsgId) {
+	  	  case WM_PAINT:
+
+	  		  break;
+	  	  default:
+
+	  		  WM_DefaultProc(pMsg);
 
   }
-  GUI_SetColor(GUI_BLACK);
-  GUI_DrawRect   (200, 52, 600, 450);
+
+
+
+
+
+
   //////////////////////////DRAWING WAVEFORM////////////////////////
    	 for(int i=200; i<400;i++){
 
@@ -48,212 +108,91 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
   			 GUI_DrawHLine(y+(i*2),x2-outputLeftStream[599-i], x2);
 */
   	}
-  //////////////////////////////////////////////////////////////////
-	    GUI_SetColor(GUI_LIGHTGRAY);
-	    GUI_SetFont(&GUI_Font24B_1);
-		GUI_GotoXY(10,10);
-		GUI_DispFloatMin(TIM4->CNT, 1);
-	    GUI_DispStringAt("X:", 80, 10);
-	    GUI_GotoXY(100,10);
-	    GUI_DispFloatMin(TouchXCoordinate, 1);
-	    GUI_GotoXY(200,10);
-	    GUI_DispStringAt("Y:", 180, 10);
-	    GUI_DispFloatMin(TouchYCoordinate, 1);
-	    GUI_GotoXY(300,10);
-	    GUI_DispStringAt("ERROR_RX:", 260, 10);
-	    GUI_DispFloatMin(ERROR_RX, 1);
-  /////////////////////////////////////////////////////////////////
-
-/*
-	    GUI_SetFont(&GUI_Font24B_1);
-		GUI_GotoXY(360,25);
-		if(f_outputLeft_DB_MAXbufferd>0){
-			GUI_SetColor(GUI_LIGHTRED);
-		}else{
-			GUI_SetColor(GUI_GRAY);
-		}
-		GUI_DispFloatMin(f_outputLeft_DB_MAXbufferd, 1);
-		GUI_GotoXY(410,25);
-		if(f_outputRight_DB_MAXbufferd>0){
-			GUI_SetColor(GUI_LIGHTRED);
-		}else{
-			GUI_SetColor(GUI_GRAY);
-		}
-		GUI_DispFloatMin(f_outputRight_DB_MAXbufferd, 1);
-*/
 
 
 
 
 
+//INPUT INDICATOR///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+GUI_SetColor(GUI_LIGHTGRAY);
+GUI_SetFont(&GUI_Font32_1);
+GUI_DispStringAt("input", 222, 440);
 
-
-
-
-
-/*
-
-	    GUI_SetColor(GUI_GRAY);
-	    GUI_SetFont(&GUI_Font32B_1);
-
-	    GUI_DispStringAt("inputLeft(peak):", 50, 20);
-	    GUI_GotoXY(50,50);
-	    GUI_DispFloatMin(f_inputLeft_DB_MAXbufferd, 2);
-	    GUI_DispStringAt("inputRight(peak):", 50, 80);
-	    GUI_GotoXY(50,110);
-	    GUI_DispFloatMin(f_inputRight_DB_MAXbufferd, 2);
-
-	    GUI_DispStringAt("VCALeft(peak):", 50, 140);
-	    GUI_GotoXY(50,170);
-	    GUI_DispFloatMin(f_VCALeft_DB_MAXbufferd, 2);
-	    GUI_DispStringAt("VCARight(peak):", 50, 200);
-	    GUI_GotoXY(50,230);
-	    GUI_DispFloatMin(f_VCARight_DB_MAXbufferd, 2);
-
-	    GUI_DispStringAt("outputLeft(peak):", 50, 260);
-	    GUI_GotoXY(50,290);
-	    GUI_DispFloatMin(f_outputLeft_DB_MAXbufferd, 2);
-	    GUI_DispStringAt("outputRight(peak):", 50, 320);
-	    GUI_GotoXY(50,350);
-	    GUI_DispFloatMin(f_outputRight_DB_MAXbufferd, 2);
-
-
-
-
-	    GUI_SetColor(GUI_GRAY);
-	    GUI_SetFont(&GUI_Font32B_1);
-
-	    GUI_DispStringAt("inputLeft(RMS):", 550, 20);
-	    GUI_GotoXY(620,50);
-	    GUI_DispFloatMin(f_inputLeft_DB_RMS, 2);
-	    GUI_DispStringAt("inputRight(RMS):", 550, 80);
-	    GUI_GotoXY(620,110);
-	    GUI_DispFloatMin(f_inputRight_DB_RMS, 2);
-
-	    GUI_DispStringAt("VCALeft(RMS):", 550, 140);
-	    GUI_GotoXY(620,170);
-	    GUI_DispFloatMin(f_VCALeft_DB_RMS, 2);
-	    GUI_DispStringAt("VCARight(RMS):", 550, 200);
-	    GUI_GotoXY(620,230);
-	    GUI_DispFloatMin(f_VCARight_DB_RMS, 2);
-
-	    GUI_DispStringAt("outputLeft(RMS):", 550, 260);
-	    GUI_GotoXY(620,290);
-	    GUI_DispFloatMin(f_outputLeft_DB_RMS, 2);
-	    GUI_DispStringAt("outputRight(RMS):", 550, 320);
-	    GUI_GotoXY(620,350);
-	    GUI_DispFloatMin(f_outputRight_DB_RMS, 2);
-*/
-
-
-
-/*
-		GUI_SetColor(GUI_GRAY);
-		GUI_SetFont(&GUI_Font24B_1);
-		GUI_GotoXY(100,40);
-		GUI_DispFloatMin(pots[1], 1);
-		GUI_GotoXY(100,60);
-		GUI_DispFloatMin(pots[2], 1);
-		GUI_GotoXY(100,80);
-		GUI_DispFloatMin(pots[3], 1);
-		GUI_GotoXY(100,100);
-		GUI_DispFloatMin(pots[4], 1);
-
-*/
+GUI_SetFont(&GUI_Font20_1);
 
 GUI_SetColor(GUI_GRAY);
-GUI_SetFont(&GUI_Font16_1);
-
-GUI_DispStringAt("input", 232, 20);
-
-GUI_DispStringAt("peak:", 180, 40);
-GUI_GotoXY(220,40);
+GUI_GotoXY(210,20);
 GUI_DispFloatMin(f_inputLeft_DB_MAXbufferd, 1);
-GUI_GotoXY(260,40);
+GUI_GotoXY(260,20);
 GUI_DispFloatMin(f_inputRight_DB_MAXbufferd, 1);
 
 GUI_SetColor(GUI_LIGHTGRAY);
-GUI_DispStringAt("RMS:", 180, 60);
-GUI_GotoXY(220,60);
+GUI_GotoXY(210,40);
 GUI_DispFloatMin(f_inputLeft_DB_RMS_MAXbufferd, 1);
-GUI_GotoXY(260,60);
+GUI_GotoXY(260,40);
 GUI_DispFloatMin(f_inputRight_DB_RMS_MAXbufferd, 1);
 
 
-drawBarDottedVertical (232, 440,(f_inputLeft_DB_MAXbufferd+30)*10,(f_inputLeft_DB_bufferd+30)*10,GUI_GRAY_AA,30);
-drawBarDottedVertical (266, 440,(f_inputRight_DB_MAXbufferd+30)*10,(f_inputRight_DB_bufferd+30)*10,GUI_GRAY_AA,30);
+drawBarDottedVertical (222, 440,(f_inputLeft_DB_MAXbufferd+30)*10,(f_inputLeft_DB_bufferd+30)*10,GUI_GRAY_AA,30);
+drawBarDottedVertical (256, 440,(f_inputRight_DB_MAXbufferd+30)*10,(f_inputRight_DB_bufferd+30)*10,GUI_GRAY_AA,30);
 
-drawBarDottedVertical (232, 440,(f_inputLeft_DB_RMS_MAXbufferd+30)*10,(f_inputLeft_DB_RMS_bufferd+30)*10,GUI_LIGHTGRAY,30);
-drawBarDottedVertical (266, 440,(f_inputRight_DB_RMS_MAXbufferd+30)*10,(f_inputRight_DB_RMS_bufferd+30)*10,GUI_LIGHTGRAY,30);
+drawBarDottedVertical (222, 440,(f_inputLeft_DB_RMS_MAXbufferd+30)*10,(f_inputLeft_DB_RMS_bufferd+30)*10,GUI_LIGHTGRAY,30);
+drawBarDottedVertical (256, 440,(f_inputRight_DB_RMS_MAXbufferd+30)*10,(f_inputRight_DB_RMS_bufferd+30)*10,GUI_LIGHTGRAY,30);
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//AFTER VCA INDICATOR/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+GUI_SetColor(GUI_LIGHTGRAY);
+GUI_SetFont(&GUI_Font32_1);
+GUI_DispStringAt("VCA", 348, 440);
 
- drawBarDottedVertical (368, 440,(f_VCALeft_DB_MAXbufferd+30)*10,(f_VCALeft_DB_bufferd+30)*10,GUI_GRAY_AA,30);
- drawBarDottedVertical (402, 440,(f_VCARight_DB_MAXbufferd+30)*10,(f_VCARight_DB_bufferd+30)*10,GUI_GRAY_AA,30);
+GUI_SetFont(&GUI_Font20_1);
 
- drawBarDottedVertical (368, 440,(f_VCALeft_DB_RMS_MAXbufferd+30)*10,(f_VCALeft_DB_RMS_bufferd+30)*10,GUI_LIGHTGRAY,30);
- drawBarDottedVertical (402, 440,(f_VCARight_DB_RMS_MAXbufferd+30)*10,(f_VCARight_DB_RMS_bufferd+30)*10,GUI_LIGHTGRAY,30);
+GUI_SetColor(GUI_GRAY);
+GUI_GotoXY(336,20);
+GUI_DispFloatMin(f_VCALeft_DB_MAXbufferd, 1);
+GUI_GotoXY(386,20);
+GUI_DispFloatMin(f_VCARight_DB_MAXbufferd, 1);
 
+GUI_SetColor(GUI_LIGHTGRAY);
+GUI_GotoXY(336,40);
+GUI_DispFloatMin(f_VCALeft_DB_RMS_MAXbufferd, 1);
+GUI_GotoXY(386,40);
+GUI_DispFloatMin(f_VCARight_DB_RMS_MAXbufferd, 1);
 
- drawBarDottedVertical (500, 440,(f_outputLeft_DB_MAXbufferd+30)*10,(f_outputLeft_DB_bufferd+30)*10,GUI_GRAY_AA,30);
- drawBarDottedVertical (534, 440,(f_outputRight_DB_MAXbufferd+30)*10,(f_outputRight_DB_bufferd+30)*10,GUI_GRAY_AA,30);
+ drawBarDottedVertical (348, 440,(f_VCALeft_DB_MAXbufferd+30)*10,(f_VCALeft_DB_bufferd+30)*10,GUI_GRAY_AA,30);
+ drawBarDottedVertical (382, 440,(f_VCARight_DB_MAXbufferd+30)*10,(f_VCARight_DB_bufferd+30)*10,GUI_GRAY_AA,30);
 
- drawBarDottedVertical (500, 440,(f_outputLeft_DB_RMS_MAXbufferd+30)*10,(f_outputLeft_DB_RMS_bufferd+30)*10,GUI_LIGHTGRAY,30);
- drawBarDottedVertical (534, 440,(f_outputRight_DB_RMS_MAXbufferd+30)*10,(f_outputRight_DB_RMS_bufferd+30)*10,GUI_LIGHTGRAY,30);
+ drawBarDottedVertical (348, 440,(f_VCALeft_DB_RMS_MAXbufferd+30)*10,(f_VCALeft_DB_RMS_bufferd+30)*10,GUI_LIGHTGRAY,30);
+ drawBarDottedVertical (382, 440,(f_VCARight_DB_RMS_MAXbufferd+30)*10,(f_VCARight_DB_RMS_bufferd+30)*10,GUI_LIGHTGRAY,30);
+ ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//OUTPUT INDICATOR///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ GUI_SetColor(GUI_LIGHTGRAY);
+ GUI_SetFont(&GUI_Font32_1);
+ GUI_DispStringAt("output", 480, 440);
 
-
-
-
-
-
-
-
-
-
-
- GUI_SetColor(GUI_GRAY);
- GUI_SetFont(&GUI_Font16_1);
-
-
-
-
-
- GUI_DispStringAt("p_Bufferd:", 20,200);
- GUI_GotoXY(100,200);
- GUI_DispFloatMin(p_Bufferd, 5);
- GUI_DispStringAt("p_MAXBufferd:", 20,220);
- GUI_GotoXY(100,220);
- GUI_DispFloatMin(p_MAXBufferd, 5);
-
- /*
- drawBarDottedVertical (349, 440,(f_inputLeft_DB_RMS_MAXbufferd+40)*10,(f_inputLeft_DB_RMS_bufferd+40)*10,GUI_GRAY_AA,30);
- drawBarDottedVertical (436, 440,(f_inputRight_DB_RMS_MAXbufferd+40)*10,(f_inputRight_DB_RMS_bufferd+40)*10,GUI_GRAY_AA,30);
-*/
-/*
- ArcControl(80,100,pots[1],"Attack");
- ArcControl(80,260,pots[2],"Ratio");
-
- ArcControl(720,100,pots[4],"Volume");
- ArcControl(720,260,pots[3],"Thresh");
-
-
- GUI_SetPenSize(30);
- GUI_SetColor(GUI_GRAY);
-
- static int radius = 500;
-
- GUI_SetPenSize(20);
- GUI_SetColor(GUI_GRAY);
- GUI_DrawArc(1080, 240, radius, radius, 156, 204);
-
- GUI_SetColor(GUI_ORANGE);
- GUI_DrawArc(1080, 240, radius, radius, 156+(250-pots[4]), 204);
+ GUI_SetFont(&GUI_Font20_1);
 
  GUI_SetColor(GUI_GRAY);
- GUI_DrawArc(-280, 240, radius, radius, -24, 24);
- GUI_SetColor(GUI_ORANGE);
- GUI_DrawArc(-280, 240, radius, radius, -24+(250-pots[2]), 24);
-*/
+ GUI_GotoXY(468,20);
+ GUI_DispFloatMin(f_outputLeft_DB_MAXbufferd, 1);
+ GUI_GotoXY(518,20);
+ GUI_DispFloatMin(f_outputRight_DB_MAXbufferd, 1);
+
+ GUI_SetColor(GUI_LIGHTGRAY);
+ GUI_GotoXY(468,40);
+ GUI_DispFloatMin(f_outputLeft_DB_RMS_MAXbufferd, 1);
+ GUI_GotoXY(518,40);
+ GUI_DispFloatMin(f_outputRight_DB_RMS_MAXbufferd, 1);
+
+ drawBarDottedVertical (480, 440,(f_outputLeft_DB_MAXbufferd+30)*10,(f_outputLeft_DB_bufferd+30)*10,GUI_GRAY_AA,30);
+ drawBarDottedVertical (514, 440,(f_outputRight_DB_MAXbufferd+30)*10,(f_outputRight_DB_bufferd+30)*10,GUI_GRAY_AA,30);
+
+ drawBarDottedVertical (480, 440,(f_outputLeft_DB_RMS_MAXbufferd+30)*10,(f_outputLeft_DB_RMS_bufferd+30)*10,GUI_LIGHTGRAY,30);
+ drawBarDottedVertical (514, 440,(f_outputRight_DB_RMS_MAXbufferd+30)*10,(f_outputRight_DB_RMS_bufferd+30)*10,GUI_LIGHTGRAY,30);
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
  BSP_LED_Toggle(LED3); //Toggle LED to check Performance
 
 }

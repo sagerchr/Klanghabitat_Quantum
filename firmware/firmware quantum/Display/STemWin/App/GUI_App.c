@@ -60,7 +60,16 @@ extern  WM_HWIN CreateIndicatorWindow1(void);
 extern  WM_HWIN CreateIndicatorWindow2(void);
 extern  WM_HWIN CreateIndicatorWindow3(void);
 
+extern  WM_HWIN CreateEnc_InputWindow(void);
+extern  WM_HWIN CreateEnc_AttackWindow(void);
+extern  WM_HWIN CreateEnc_OutputWindow(void);
+extern  WM_HWIN CreateEnc_DistortionWindow(void);
+extern  WM_HWIN CreateEnc_RatioWindow(void);
+extern  WM_HWIN CreateEnc_MakeUpGainWindow(void);
+extern  WM_HWIN CreateEnc_ReleaseWindow(void);
+
 extern void TOUCHUPDATE();
+
 
 UART_HandleTypeDef huart6;
 TIM_HandleTypeDef htim1;
@@ -84,6 +93,15 @@ void GRAPHICS_MainTask(void) {
 	IndicatorWindow1 = CreateIndicatorWindow1();
 	IndicatorWindow2 = CreateIndicatorWindow2();
 	IndicatorWindow3 = CreateIndicatorWindow3();
+
+	Enc_InputWindow = CreateEnc_InputWindow();
+	Enc_AttackWindow = CreateEnc_AttackWindow();
+	Enc_OutputWindow = CreateEnc_OutputWindow();
+	Enc_DistortionWindow = CreateEnc_DistortionWindow();
+	Enc_MakeUpGainWindow = CreateEnc_MakeUpGainWindow();
+	Enc_RatioWindow = CreateEnc_RatioWindow();
+	Enc_ReleaseWindow = CreateEnc_ReleaseWindow();
+
 	MainWindow = CreateMainWindow();
 
 ////////////////////////////////////////////////////////////////////////
@@ -95,6 +113,53 @@ void GRAPHICS_MainTask(void) {
 
 	HAL_TIM_Base_Start(&htim1);
 	HAL_TIM_Base_Start(&htim4);
+
+	strcpy( gain.name, "input");
+	input.value = 0;
+	input.Color = GUI_LIGHTGREEN;
+	input.assignedPot = 1;
+	Encoder1.Color = GUI_LIGHTGREEN;
+
+	strcpy( attack.name, "attack");
+	attack.value = 0;
+	attack.Color = GUI_LIGHTGRAY;
+	attack.assignedPot = 0;
+
+	strcpy( makeUpGain.name, "makeUpGain");
+	makeUpGain.value = 0;
+	makeUpGain.Color = GUI_MAGENTA;
+	makeUpGain.assignedPot = 3 ;
+	Encoder3.Color = GUI_MAGENTA;
+
+	strcpy( release.name, "release");
+	release.value = 0;
+	release.Color = GUI_CYAN;
+	release.assignedPot = 2;
+	Encoder2.Color = GUI_CYAN;
+
+	strcpy( ratio.name, "ratio");
+	ratio.value = 0;
+	ratio.Color = GUI_ORANGE;
+	ratio.assignedPot = 4;
+	Encoder4.Color = GUI_ORANGE;
+
+	strcpy( distortion.name, "distortion");
+	distortion.value = 0;
+	distortion.Color = GUI_LIGHTGRAY;
+	distortion.assignedPot = 0;
+
+	strcpy( threshold.name, "threshold");
+	threshold.value = 0;
+	threshold.Color = GUI_LIGHTGRAY;
+	threshold.assignedPot = 0;
+
+	strcpy( outputgain.name, "outgain");
+	outputgain.value = 0;
+	outputgain.Color = GUI_LIGHTGRAY;
+	outputgain.assignedPot = 0;
+
+
+
 
   while(1)
   	  {
@@ -121,22 +186,45 @@ void GRAPHICS_MainTask(void) {
 	    if(TouchDetected){touch++;}
 	    else{touch=0;}
 
+
+
+
 	    if (touch>50){
 	    	WM_HideWindow (IndicatorWindow1);
 	    	WM_HideWindow (IndicatorWindow2);
 	    	WM_HideWindow (IndicatorWindow3);
 	    	WM_HideWindow (SettingsButtonWindow);
+
+	    	WM_HideWindow(Enc_InputWindow);
+	    	WM_HideWindow(Enc_AttackWindow);
+	    	WM_HideWindow(Enc_ReleaseWindow);
+
+	    	WM_HideWindow(Enc_OutputWindow);
+	    	WM_HideWindow(Enc_DistortionWindow);
+	    	WM_HideWindow(Enc_MakeUpGainWindow);
+	    	WM_HideWindow(Enc_RatioWindow);
+
 	    	WM_ShowWindow (InfoWindow);
 	    	touch = 0;
 	    	timer = 0;
 	    }
 
-	    if (timer>20){
+	    if (timer==20){
 	    	WM_HideWindow (InfoWindow);
+
 	    	WM_ShowWindow(SettingsButtonWindow);
 	    	WM_ShowWindow(IndicatorWindow1);
 	    	WM_ShowWindow(IndicatorWindow2);
 	    	WM_ShowWindow(IndicatorWindow3);
+
+	    	WM_ShowWindow(Enc_InputWindow);
+	    	WM_ShowWindow(Enc_AttackWindow);
+	    	WM_ShowWindow(Enc_OutputWindow);
+	    	WM_ShowWindow(Enc_DistortionWindow);
+	    	WM_ShowWindow(Enc_MakeUpGainWindow);
+	    	WM_ShowWindow(Enc_RatioWindow);
+	    	WM_ShowWindow(Enc_ReleaseWindow);
+
 	    }
 	    timer++;
 ///////////////////////////////////////////////////////////////////
@@ -146,6 +234,9 @@ void GRAPHICS_MainTask(void) {
 ///////////////////ALWAYS Update Main Window///////////////////////
 	   WM_Invalidate(MainWindow);
 	   WM_SendMessageNoPara(MainWindow, WM_Paint);
+
+
+
 	   GUI_Delay(1);
 	   HAL_UART_DMAResume(&huart6);
 	   GUI_SetTimeSlice(1);
@@ -161,11 +252,38 @@ void GRAPHICS_MainTask(void) {
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 
 
-
 	UARTRECIVER(); //Recive Data from UART --> UARTDATA
 	BSP_LED_Toggle(LED1);
 	TOUCHUPDATE(); //Recive Data from Touchpanel and Encoder
 	BUFFERVALUEUPDATE(); //create Buffered Values
+
+
+	//Temporary assign pot to variabale
+
+
+
+
+
+	input.value = Encoder1.value;
+	attack.value = 0;
+	release.value = Encoder2.value;
+
+	distortion.value = 0;
+	makeUpGain.value = Encoder3.value;
+	ratio.value = Encoder4.value;
+	outputgain.value = 0;
+
+
+
+	gain.value = 0;
+	threshold.value = 0;
+
+
+
+
+
+
+
 
     upcounter = UARTDATA[4]; //Watchdog coming from the MotherEngine is used to identify new Value
 

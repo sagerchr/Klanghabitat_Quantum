@@ -590,26 +590,29 @@ static void MX_GPIO_Init(void)
 void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *hi2c)
 {
 
-	HAL_I2C_Slave_Transmit(&hi2c1,aTxBuffer,10,100);
-
-	 R_ENC1 = 100;
-	 R_ENC2 = 0;
-	 R_ENC3 = 100;
+	HAL_I2C_Slave_Transmit(&hi2c1,aTxBuffer,10,100); //Transmit after completed the READ
 
 
-	 G_ENC1 = 100;
-	 G_ENC2 = 0;
-	 G_ENC3 = 100;
+	if (aRxBuffer[1]==0){R_ENC1 = 50;	G_ENC1 = 100;	B_ENC1 = 100;}   //LIGHTGRAY
+	if (aRxBuffer[1]==1){R_ENC1 = 100;	G_ENC1 = 0;		B_ENC1 = 50;}    //MAGENTA
+	if (aRxBuffer[1]==2){R_ENC1 = 100;	G_ENC1 = 50;	B_ENC1 = 00;}    //ORANGE
+	if (aRxBuffer[1]==3){R_ENC1 = 0;	G_ENC1 = 50;	B_ENC1 = 100;}	 //CYAN
+	if (aRxBuffer[1]==4){R_ENC1 = 50;	G_ENC1 = 100;	B_ENC1 = 0;} 	 //LGHTYELLOW
+	if (aRxBuffer[1]==5){R_ENC1 = 10;	G_ENC1 = 100;	B_ENC1 = 10;} 	 //LIGHTGREEN
+	if (aRxBuffer[1]==6){R_ENC1 = 0;	G_ENC1 = 10;	B_ENC1 = 100;}   //LIGHTBLUE
+	if (aRxBuffer[1]==10){R_ENC1 = 0;	G_ENC1 = 0;		B_ENC1 = 0;}     //OFF
+
+	if (aRxBuffer[2]==0){R_ENC3 = 50;	G_ENC3 = 100;	B_ENC3 = 100;}   //White
+	if (aRxBuffer[2]==1){R_ENC3 = 100;	G_ENC3 = 0;		B_ENC3 = 50;}    //MAGENTA
+	if (aRxBuffer[2]==2){R_ENC3 = 100;	G_ENC3 = 50;	B_ENC3 = 00;}    //Orange
+	if (aRxBuffer[2]==3){R_ENC3 = 0;	G_ENC3 = 50;	B_ENC3 = 100;}	 //CYAN
+	if (aRxBuffer[2]==4){R_ENC3 = 50;	G_ENC3 = 100;	B_ENC3 = 0;} 	 //Yellow
+	if (aRxBuffer[2]==5){R_ENC3 = 10;	G_ENC3 = 100;	B_ENC3 = 10;} 	 //Green
+	if (aRxBuffer[2]==6){R_ENC3 = 0;	G_ENC3 = 10;	B_ENC3 = 100;}   //BLUE
+	if (aRxBuffer[2]==10){R_ENC3 = 0;	G_ENC3 = 0;		B_ENC3 = 0;}     //OFF
 
 
-	 if(R_ENC1 >= 100){R_ENC1=100;}
-	 else {R_ENC1++;}
 
-	 //if(R_ENC2 >= 100){R_ENC2=100;}
-	 ///else {R_ENC2++;}
-
-	 if(R_ENC3 >= 100){R_ENC3=100;}
-	 else {R_ENC3++;}
 
 
 }
@@ -675,14 +678,8 @@ void ENCODER_TASK(void const * argument)
 	else{HAL_GPIO_WritePin(GPIOA, G_ENC1_Pin,GPIO_PIN_SET);}
 	if (count < B_ENC1){HAL_GPIO_WritePin(GPIOA, B_ENC1_Pin,GPIO_PIN_RESET);}
 	else{HAL_GPIO_WritePin(GPIOA, B_ENC1_Pin,GPIO_PIN_SET);}
-/*
-	if (count < R_ENC2){HAL_GPIO_WritePin(GPIOA, R_ENC2_Pin,GPIO_PIN_RESET);}
-	else{HAL_GPIO_WritePin(GPIOA, R_ENC2_Pin,GPIO_PIN_SET);}
-	if (count < G_ENC2){HAL_GPIO_WritePin(GPIOA, G_ENC2_Pin,GPIO_PIN_RESET);}
-	else{HAL_GPIO_WritePin(GPIOA, G_ENC2_Pin,GPIO_PIN_SET);}
-	if (count < B_ENC2){HAL_GPIO_WritePin(GPIOB, B_ENC2_Pin,GPIO_PIN_RESET);}
-	else{HAL_GPIO_WritePin(GPIOB, B_ENC2_Pin,GPIO_PIN_SET);}
-*/
+
+
 	if (count < R_ENC3){HAL_GPIO_WritePin(GPIOB, R_ENC3_Pin,GPIO_PIN_RESET);}
 	else{HAL_GPIO_WritePin(GPIOB, R_ENC3_Pin,GPIO_PIN_SET);}
 	if (count < G_ENC3){HAL_GPIO_WritePin(GPIOB, G_ENC3_Pin,GPIO_PIN_RESET);}
