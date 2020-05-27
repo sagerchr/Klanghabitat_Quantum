@@ -277,8 +277,11 @@ void TIM7_IRQHandler(void)
 
 
 
- HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R,UART_reciveCorrected[7]+150); //Update ADC1
- HAL_DAC_SetValue(&hdac, DAC_CHANNEL_2, DAC_ALIGN_12B_R,UART_reciveCorrected[9]+171); //Update ADC2 +171
+ //HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R,UART_reciveCorrected[7]+150); //Update ADC1
+ //HAL_DAC_SetValue(&hdac, DAC_CHANNEL_2, DAC_ALIGN_12B_R,UART_reciveCorrected[9]+171); //Update ADC2 +171
+
+  HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R,UART_IN[7]+150); //Update ADC1
+  HAL_DAC_SetValue(&hdac, DAC_CHANNEL_2, DAC_ALIGN_12B_R,UART_IN[9]+171); //Update ADC2 +171
 
 
 

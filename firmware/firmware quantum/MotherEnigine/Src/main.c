@@ -191,7 +191,7 @@ int main(void)
   HAL_DAC_Start(&hdac, DAC_CHANNEL_1);
   HAL_DAC_Start(&hdac, DAC_CHANNEL_2);
   HAL_UART_Transmit_DMA(&huart6, UART_transmit,TX_OUT_SIZE);
-  HAL_UART_Receive_DMA(&huart6, UART_recive,150);
+  HAL_UART_Receive_DMA(&huart6, UART_RECIVE,RX_IN_SIZE);
 
 
   //###### PUT the RESET to Output so Display can be reseted by its own again###
@@ -215,8 +215,8 @@ int main(void)
 
 	  DAC_Control(1,2,50);
 	  DAC_Control(2,2,50);
-	  DAC_Control(3,2,128); //offset VCA1
-	  DAC_Control(4,2,128); //offset VCA2
+	  DAC_Control(3,2,128);
+	  DAC_Control(4,2,128);
 
 
 	  IP_READ_FLASH[0]=192;
@@ -809,6 +809,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 
 
    	UART_correction(); //Recive Data from UART --> UARTDATA
+   	HAL_UART_DMAResume(&huart6);
 }
 
 

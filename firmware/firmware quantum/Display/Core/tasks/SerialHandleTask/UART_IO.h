@@ -11,6 +11,7 @@
 #define APP_UART_IO_H_
 
 UARTRECIVER();
+UARTSENDER();
 char UARTDATA[RX_IN_SIZE];
 char UARTDATA_legacy[RX_IN_SIZE];
 char UART_RECIVE_temp[RX_IN_SIZE];

@@ -222,7 +222,7 @@ void lwIPTask(void const * argument){
 
 
 
-char UART_IN[10];
+
 //char FFT_String[12] = {'/','F','F','T','/','L','E','F','T','/','0','0'};
 	  /* Infinite loop */
 	  for(;;)
@@ -247,7 +247,7 @@ char UART_IN[10];
 			 BypassRight(activate);}
 		 */
 
-		  if (UART_reciveCorrected[10]){
+		  if (UART_IN[10]){
 			  BypassRight(bypass);BypassLeft(bypass);}
 		  else{
 			  BypassRight(activate);BypassLeft(activate);
@@ -277,8 +277,12 @@ char UART_IN[10];
 			 HAL_GPIO_WritePin(GPIOG, Relais6_Pin,GPIO_PIN_RESET);}
 		 //=========================================================================//
 
-		  DAC_Control(3,2,250); //offset VCA1
-		  DAC_Control(4,2,250); //offset VCA2
+
+		  //DAC_Control(1,2,UART_reciveCorrected[6]); //offset VCA1
+		  //DAC_Control(2,2,UART_reciveCorrected[8]); //offset VCA2
+
+		  DAC_Control(3,2,250);
+		  DAC_Control(4,2,250);
 
 		  //DAC_Control(1,1,UART_reciveCorrected[6]); //SYM1 adjust
 		  //DAC_Control(2,1,UART_reciveCorrected[7]); //SYM2 adjust
@@ -543,7 +547,7 @@ void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
 	errors = errors+1;
 
   /* Prevent unused argument(s) compilation warning */
-	  HAL_UART_Receive_DMA(&huart6, UART_recive,150);
+	  HAL_UART_Receive_DMA(&huart6, UART_RECIVE,RX_IN_SIZE);
   /* NOTE : This function should not be modified, when the callback is needed,
             the HAL_UART_ErrorCallback can be implemented in the user file.
    */

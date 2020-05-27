@@ -45,6 +45,25 @@ UARTRECIVER(){
 	   	    	    		UARTDATA[i] = UART_RECIVE_temp[i+start];
 	   	    	    	 }
 
+}
 
+
+UARTSENDER(){
+	HAL_UART_DMAPause(&huart6);
+
+
+
+	uint8_t checksum = 0;
+	for(int i = 0; i < 99; i++) {
+			checksum += UART_TRANSFER[i];
+		  }
+
+	UART_TRANSFER[99]=checksum;
+
+
+	HAL_UART_DMAResume(&huart6);
 
 }
+
+
+

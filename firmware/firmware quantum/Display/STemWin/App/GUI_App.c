@@ -167,6 +167,11 @@ void GRAPHICS_MainTask(void) {
 
 	  reset = 1; //Reset Input Buffer collection
 
+	  for (int i=0; i<100;i++){
+		  UART_TRANSFER[i]=0x00;
+	  }
+
+
       UART_TRANSFER[0]='#';
       UART_TRANSFER[1]='s';
       UART_TRANSFER[2]='t';
@@ -235,7 +240,7 @@ void GRAPHICS_MainTask(void) {
 	   WM_Invalidate(MainWindow);
 	   WM_SendMessageNoPara(MainWindow, WM_Paint);
 
-
+	   UARTSENDER();
 
 	   GUI_Delay(1);
 	   HAL_UART_DMAResume(&huart6);
@@ -253,6 +258,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 
 
 	UARTRECIVER(); //Recive Data from UART --> UARTDATA
+
 	BSP_LED_Toggle(LED1);
 	TOUCHUPDATE(); //Recive Data from Touchpanel and Encoder
 	BUFFERVALUEUPDATE(); //create Buffered Values
@@ -260,7 +266,10 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 
 	//Temporary assign pot to variabale
 
-
+	pots[1] = Encoder1.value;
+	pots[2] = Encoder2.value;
+	pots[3] = Encoder3.value;
+	pots[4] = Encoder4.value;
 
 
 

@@ -45,6 +45,7 @@ if(Enc_AttackSelected+
 	WM_Invalidate(Enc_MakeUpGainWindow);
 	WM_Invalidate(Enc_RatioWindow);
 	WM_Invalidate(Enc_ReleaseWindow);
+	WM_Invalidate(SettingsButtonWindow);
 //############################################################//
 	pMsg->MsgId = WM_USER;
 	pMsg->Data.v = 0; //MEANS update color & value
