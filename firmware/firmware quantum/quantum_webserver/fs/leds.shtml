@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>quantum configuration page</title>
+</head>
+
+<body>
+<body style="background-color:#061415;">
+<h1 style="color:darkgrey; text-align:center">On this side leds could be toggled.</p>
+	
+<img src="images/logo.png">
+
+
+<p>try it here.</p>
+<br>
+
+<form method="get" action="/leds.cgi">
+<input value="1" name="led" type="checkbox">LED1<br>
+<input value="2" name="led" type="checkbox">LED2<br>
+<input value="update leds"  type="submit"  style="width: 105px;"> </form>
+
+<p>text for tag1: <!--#tag1--></p> 
+<p>text for tag2: <!--#tag2--></p>
+
+<p>IP adress</p>
+
+<form method="get" action="/IP.cgi">
+<input  name="IP1" type="number" value="192" style="width: 45px;"/> 
+<input  name="IP2" type="number" value="168" style="width: 45px;"/> 
+<input  name="IP3" type="number"   value="1" style="width: 45px;"/> 
+<input  name="IP4" type="number"   value="1" style="width: 45px;"/> 
+<br>
+<input value="change ip adress"  type="submit"  style="width: 120px; height: 40px"> </form>
+
+<a href="index.html" ; style="color:orange">startpage</a>
+
+
+
+
+</body>
+
+</html>
+
+
