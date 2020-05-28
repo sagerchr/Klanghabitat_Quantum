@@ -50,6 +50,29 @@ void BSP_Pointer_Update(void) {
 
 int count = 1;
 
+//HelperVariables for DoubleClick Sense//
+//+++++++++++++++++++++++++++++++++++++//
+int DoubleClick1Event = 0;
+int DoubleClick1 = 0;
+int intervall1 = 0;
+int high1 = 0;
+//++++++++++++++++++++++++++++++++++++//
+int DoubleClick2Event = 0;
+int DoubleClick2 = 0;
+int intervall2 = 0;
+int high2 = 0;
+//++++++++++++++++++++++++++++++++++++//
+int DoubleClick3Event = 0;
+int DoubleClick3 = 0;
+int intervall3 = 0;
+int high3 = 0;
+//++++++++++++++++++++++++++++++++++++//
+int DoubleClick4Event = 0;
+int DoubleClick4 = 0;
+int intervall4 = 0;
+int high4 = 0;
+//++++++++++++++++++++++++++++++++++++//
+
 void TOUCHUPDATE(){
 	if(TIM4->CNT>100){
 		BSP_LED_Toggle(LED1);
@@ -76,11 +99,76 @@ void TOUCHUPDATE(){
 		    	else								    	{aTxBuffer[2] = 10;}
 
 
-				 HAL_I2C_Master_Transmit(&hi2c1, 40, aTxBuffer,10,10);
+
+		    	 HAL_I2C_Master_Transmit(&hi2c1, 40, aTxBuffer,10,10);
 				 HAL_I2C_Master_Receive(&hi2c1, 40, aRxBuffer,10,10);
-				 if(aRxBuffer[8]!=255) {Encoder3.value=aRxBuffer[7];}
-				 if(aRxBuffer[9]!=255) {Encoder4.value=aRxBuffer[9];}
+
 				 if(aRxBuffer[6]!=255) {buttonstateRight=aRxBuffer[6];}
+
+				 if(aRxBuffer[7]!=255) {
+					 Encoder3.value=aRxBuffer[7];
+				 }
+				 if(aRxBuffer[9]!=255){
+					 Encoder4.value=aRxBuffer[9];
+				 }
+
+				 Encoder3.buttonState =	!(aRxBuffer[6] & 0x01);
+				 Encoder4.buttonState = !((aRxBuffer[6]>>2) & 0x01);
+
+				 //+++++++++++++++ENCODER 3 DOUBLECLICK SENSE++++++++++++++//
+				 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+				 if(Encoder3.buttonState&&DoubleClick3<2&&!high3){
+					 DoubleClick3 = DoubleClick3+1;
+					 high3 = 1;
+					 intervall3 = 0;
+				 }
+
+				 if(!Encoder3.buttonState){
+					 high3 = 0;
+				 }
+
+				 if (DoubleClick3 == 2 && intervall3 < 20){
+					 DoubleClick3 = 0;
+					 Encoder3.doubleclickEvent = 1;
+					 intervall3=0;
+				 }
+				 if (Encoder3.doubleclickEvent && intervall3 == 20){
+					 Encoder3.doubleclickEvent = 0;
+				 }
+
+				 intervall3++;
+				 if(intervall3 >= 20){intervall3 = 20;DoubleClick3 = 0;}
+				 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+				 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+
+				 //+++++++++++++++ENCODER 4 DOUBLECLICK SENSE++++++++++++++//
+				 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+				 if(Encoder4.buttonState&&DoubleClick4<2&&!high4){
+					 DoubleClick4 = DoubleClick4+1;
+					 high4 = 1;
+					 intervall4 = 0;
+				 }
+
+				 if(!Encoder4.buttonState){
+					 high4 = 0;
+				 }
+
+				 if (DoubleClick4 == 2 && intervall4 < 20){
+					 DoubleClick4 = 0;
+					 Encoder4.doubleclickEvent = 1;
+					 intervall4=0;
+				 }
+				 if (Encoder4.doubleclickEvent && intervall4 == 20){
+					 Encoder4.doubleclickEvent = 0;
+				 }
+
+				 intervall4++;
+				 if(intervall4 >= 20){intervall4 = 20;DoubleClick4 = 0;}
+				 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+				 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+
+
+
 		    	 count =2;
 		     	 break;
 		    case 2:
@@ -105,11 +193,77 @@ void TOUCHUPDATE(){
 		    	else								    	{aTxBuffer[1] = 10;}
 
 
+
 				 HAL_I2C_Master_Transmit(&hi2c1, 30, aTxBuffer,10,10);
 				 HAL_I2C_Master_Receive(&hi2c1, 30, aRxBuffer,10,10);
-				 if(aRxBuffer[8]!=255) {Encoder1.value=aRxBuffer[7];}
-				 if(aRxBuffer[9]!=255) {Encoder2.value=aRxBuffer[9];}
+
 				 if(aRxBuffer[6]!=255) {buttonstateLeft=aRxBuffer[6];}
+
+				 if(aRxBuffer[7]!=255){
+					 Encoder1.value=aRxBuffer[7];
+				 }
+				 if(aRxBuffer[9]!=255){
+					 Encoder2.value=aRxBuffer[9];
+				 }
+
+				 Encoder1.buttonState= !((aRxBuffer[6]>>2) & 0x01);
+				 Encoder2.buttonState= !(aRxBuffer[6] & 0x01);
+
+				 //+++++++++++++++ENCODER 1 DOUBLECLICK SENSE++++++++++++++//
+				 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+				 if(Encoder1.buttonState&&DoubleClick1<2&&!high1){
+					 DoubleClick1 = DoubleClick1+1;
+					 high1 = 1;
+					 intervall1 = 0;
+				 }
+
+				 if(!Encoder1.buttonState){
+					 high1 = 0;
+				 }
+
+				 if (DoubleClick1 == 2 && intervall1 < 20){
+					 DoubleClick1 = 0;
+					 Encoder1.doubleclickEvent = 1;
+					 intervall1=0;
+				 }
+				 if (Encoder1.doubleclickEvent && intervall1 == 20){
+					 Encoder1.doubleclickEvent = 0;
+				 }
+
+				 intervall1++;
+				 if(intervall1 >= 20){intervall1 = 20;DoubleClick1 = 0;}
+				 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+				 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+
+				 //+++++++++++++++ENCODER 2 DOUBLECLICK SENSE++++++++++++++//
+				 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+				 if(Encoder2.buttonState&&DoubleClick2<2&&!high2){
+					 DoubleClick2 = DoubleClick2+1;
+					 high2 = 1;
+					 intervall2 = 0;
+				 }
+
+				 if(!Encoder2.buttonState){
+					 high2 = 0;
+				 }
+
+				 if (DoubleClick2 == 2 && intervall2 < 20){
+					 DoubleClick2 = 0;
+					 Encoder2.doubleclickEvent = 1;
+					 intervall2=0;
+				 }
+				 if (Encoder2.doubleclickEvent && intervall2 == 20){
+					 Encoder2.doubleclickEvent = 0;
+				 }
+
+				 intervall2++;
+				 if(intervall2 >= 20){intervall2 = 20;DoubleClick2 = 0;}
+				 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+				 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+
+
+
+
 		    	 count=3;
 		     	 break;
 		    case 3:

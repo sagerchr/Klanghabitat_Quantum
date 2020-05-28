@@ -12,6 +12,7 @@ struct Encoder {
   float value;
   int assignedControl;
   int buttonState;
+  int doubleclickEvent;
   GUI_COLOR Color;
 };
 

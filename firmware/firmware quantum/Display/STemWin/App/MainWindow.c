@@ -37,7 +37,9 @@ if(Enc_AttackSelected+
 }
 
 
+
 //############################################################//
+
 	WM_Invalidate(Enc_InputWindow);
 	WM_Invalidate(Enc_AttackWindow);
 	WM_Invalidate(Enc_OutputWindow);
@@ -45,7 +47,7 @@ if(Enc_AttackSelected+
 	WM_Invalidate(Enc_MakeUpGainWindow);
 	WM_Invalidate(Enc_RatioWindow);
 	WM_Invalidate(Enc_ReleaseWindow);
-	WM_Invalidate(SettingsButtonWindow);
+
 //############################################################//
 	pMsg->MsgId = WM_USER;
 	pMsg->Data.v = 0; //MEANS update color & value
@@ -96,6 +98,24 @@ if(Enc_AttackSelected+
 
 
 
+	  	GUI_SetPenSize   (25);
+	  	GUI_SetColor(Encoder1.Color);
+	  	if(Encoder1.buttonState){GUI_DrawPoint(50, 440);}
+	  	GUI_SetColor(Encoder2.Color);
+	  	if(Encoder2.buttonState){GUI_DrawPoint(80, 440);}
+	  	GUI_SetColor(Encoder3.Color);
+	  	if(Encoder3.buttonState){GUI_DrawPoint(110, 440);}
+	  	GUI_SetColor(Encoder4.Color);
+	  	if(Encoder4.buttonState){GUI_DrawPoint(140, 440);}
+
+	  	GUI_SetColor(Encoder1.Color);
+	  	if(Encoder1.doubleclickEvent){GUI_DrawPoint(650, 450);}
+	  	GUI_SetColor(Encoder2.Color);
+	  	if(Encoder2.doubleclickEvent){GUI_DrawPoint(680, 450);}
+		GUI_SetColor(Encoder3.Color);
+		if(Encoder3.doubleclickEvent){GUI_DrawPoint(710, 450);}
+	  	GUI_SetColor(Encoder4.Color);
+	  	if(Encoder4.doubleclickEvent){GUI_DrawPoint(740, 450);}
 
   //////////////////////////DRAWING WAVEFORM////////////////////////
    	 for(int i=200; i<400;i++){

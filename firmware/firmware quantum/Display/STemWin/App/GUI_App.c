@@ -209,13 +209,13 @@ void GRAPHICS_MainTask(void) {
 	    	WM_HideWindow(Enc_MakeUpGainWindow);
 	    	WM_HideWindow(Enc_RatioWindow);
 
-	    	WM_ShowWindow (InfoWindow);
+	    	WM_ShowWindow(InfoWindow);
 	    	touch = 0;
 	    	timer = 0;
 	    }
 
 	    if (timer==20){
-	    	WM_HideWindow (InfoWindow);
+	    	WM_HideWindow(InfoWindow);
 
 	    	WM_ShowWindow(SettingsButtonWindow);
 	    	WM_ShowWindow(IndicatorWindow1);

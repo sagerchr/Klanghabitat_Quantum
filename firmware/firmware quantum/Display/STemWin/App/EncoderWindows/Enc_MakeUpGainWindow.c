@@ -10,6 +10,7 @@ static GUI_COLOR COLOR;
 static GUI_COLOR TEXTCOLOR;
 BUTTON_Handle hButton;
 static int value;
+static uint8_t radius;
 Enc_MakeUpGainSelected=0;
 
 static void _cbENC_Button(WM_MESSAGE * pMsg)
@@ -56,12 +57,16 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
   	GUI_SetBkColor(COLOR);
   	GUI_Clear();
 
+
+
     GUI_SetColor(TEXTCOLOR);
     GUI_SetFont(&GUI_Font32B_1);
     GUI_DispStringAt("make up gain", 0, 0);
     GUI_SetFont(&GUI_FontD36x48);
     GUI_GotoXY(0,30);
     GUI_DispFloatMin(value, 1);
+
+
 
     break;
 //////////////////////////////////////////////////////////////////

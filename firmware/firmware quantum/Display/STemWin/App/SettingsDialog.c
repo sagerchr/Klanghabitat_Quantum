@@ -323,7 +323,7 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
        	  pMsg->Data.v = 5; //Payload: Maybe used to select right Widget
        	  pMsg->MsgId = WM_USER; //Message
        	  WM_SendMessage (SettingsButtonWindow, pMsg);
-
+       	  WM_Invalidate(SettingsButtonWindow);
         break;
       case WM_NOTIFICATION_RELEASED:
         break;
