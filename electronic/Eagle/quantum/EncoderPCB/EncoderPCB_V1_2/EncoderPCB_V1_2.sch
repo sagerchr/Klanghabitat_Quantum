@@ -762,6 +762,35 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/STM32F031K6T6
 <wire x1="-5.5" y1="6.35" x2="-6.2" y2="6.35" width="0.1" layer="21"/>
 <wire x1="-6.2" y1="6.35" x2="-6.2" y2="2.75" width="0.1" layer="21"/>
 </package>
+<package name="686104183422" urn="urn:adsk.eagle:footprint:18115752/2" library_version="48">
+<description>&lt;b&gt;686104183422-2&lt;/b&gt;&lt;br&gt;
+</description>
+<smd name="1" x="-1.5" y="1.9" dx="1" dy="0.3" layer="1" rot="R90"/>
+<smd name="2" x="-0.5" y="1.9" dx="1" dy="0.3" layer="1" rot="R90"/>
+<smd name="3" x="0.5" y="1.9" dx="1" dy="0.3" layer="1" rot="R90"/>
+<smd name="4" x="1.5" y="1.9" dx="1" dy="0.3" layer="1" rot="R90"/>
+<smd name="5" x="-4.275" y="0" dx="1.65" dy="1.3" layer="1"/>
+<smd name="6" x="4.275" y="0" dx="1.65" dy="1.3" layer="1"/>
+<text x="0" y="0" size="1.27" layer="25" align="center">&gt;NAME</text>
+<text x="0" y="0" size="1.27" layer="27" align="center">&gt;VALUE</text>
+<wire x1="-5.1" y1="1.4" x2="5.1" y2="1.4" width="0.2" layer="51"/>
+<wire x1="5.1" y1="1.4" x2="5.1" y2="-3.67" width="0.2" layer="51"/>
+<wire x1="5.1" y1="-3.67" x2="-5.1" y2="-3.67" width="0.2" layer="51"/>
+<wire x1="-5.1" y1="-3.67" x2="-5.1" y2="1.4" width="0.2" layer="51"/>
+<wire x1="-6.1" y1="3.4" x2="6.1" y2="3.4" width="0.1" layer="51"/>
+<wire x1="6.1" y1="3.4" x2="6.1" y2="-4.67" width="0.1" layer="51"/>
+<wire x1="6.1" y1="-4.67" x2="-6.1" y2="-4.67" width="0.1" layer="51"/>
+<wire x1="-6.1" y1="-4.67" x2="-6.1" y2="3.4" width="0.1" layer="51"/>
+<wire x1="-5.1" y1="0.8" x2="-5.1" y2="1.4" width="0.1" layer="21"/>
+<wire x1="-5.1" y1="1.4" x2="-1.8" y2="1.4" width="0.1" layer="21"/>
+<wire x1="-5.1" y1="-0.8" x2="-5.1" y2="-3.67" width="0.1" layer="21"/>
+<wire x1="-5.1" y1="-3.67" x2="5.1" y2="-3.67" width="0.1" layer="21"/>
+<wire x1="5.1" y1="-3.67" x2="5.1" y2="-0.8" width="0.1" layer="21"/>
+<wire x1="1.8" y1="1.4" x2="5.1" y2="1.4" width="0.1" layer="21"/>
+<wire x1="5.1" y1="1.4" x2="5.1" y2="0.8" width="0.1" layer="21"/>
+<wire x1="-1.6" y1="2.9" x2="-1.4" y2="2.9" width="0.2" layer="21" curve="180"/>
+<wire x1="-1.4" y1="2.9" x2="-1.6" y2="2.9" width="0.2" layer="21" curve="180"/>
+</package>
 </packages>
 <packages3d>
 <package3d name="MOLEX_90814-0204" urn="urn:adsk.eagle:package:16762552/4" type="model" library_version="47">
@@ -774,6 +803,12 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/STM32F031K6T6
 <description>&lt;b&gt;PEL12T-4225S-S1024-2&lt;/b&gt;&lt;br&gt;</description>
 <packageinstances>
 <packageinstance name="PEL12T4225SS1024"/>
+</packageinstances>
+</package3d>
+<package3d name="686104183422" urn="urn:adsk.eagle:package:18115753/3" type="model" library_version="48">
+<description>&lt;b&gt;686104183422-2&lt;/b&gt;&lt;br&gt;</description>
+<packageinstances>
+<packageinstance name="686104183422"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -807,6 +842,20 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/STM32F031K6T6
 <pin name="C1" x="25.4" y="-5.08" length="middle" rot="R180"/>
 <pin name="MH1" x="25.4" y="-7.62" length="middle" rot="R180"/>
 <pin name="MH2" x="25.4" y="-10.16" length="middle" rot="R180"/>
+</symbol>
+<symbol name="686104183422" urn="urn:adsk.eagle:symbol:18115751/1" library_version="48">
+<wire x1="5.08" y1="2.54" x2="15.24" y2="2.54" width="0.254" layer="94"/>
+<wire x1="15.24" y1="-10.16" x2="15.24" y2="2.54" width="0.254" layer="94"/>
+<wire x1="15.24" y1="-10.16" x2="5.08" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="5.08" y1="2.54" x2="5.08" y2="-10.16" width="0.254" layer="94"/>
+<text x="16.51" y="7.62" size="1.778" layer="95" align="center-left">&gt;NAME</text>
+<text x="16.51" y="5.08" size="1.778" layer="96" align="center-left">&gt;VALUE</text>
+<pin name="1" x="20.32" y="0" length="middle" rot="R180"/>
+<pin name="2" x="20.32" y="-2.54" length="middle" rot="R180"/>
+<pin name="3" x="20.32" y="-5.08" length="middle" rot="R180"/>
+<pin name="4" x="20.32" y="-7.62" length="middle" rot="R180"/>
+<pin name="5" x="0" y="0" length="middle"/>
+<pin name="6" x="0" y="-2.54" length="middle"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -876,6 +925,38 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/PEL12T-4225S-
 </device>
 </devices>
 </deviceset>
+<deviceset name="686104183422" urn="urn:adsk.eagle:component:18115754/2" prefix="J" library_version="48">
+<description>&lt;b&gt;Wurth Elektronik WR-FPC Series 1mm Pitch 4 Way Horizontal SMT Female FPC Connector, Top Contact&lt;/b&gt;&lt;p&gt;
+Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/686104183422.pdf"&gt; Datasheet &lt;/a&gt;</description>
+<gates>
+<gate name="G$1" symbol="686104183422" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="686104183422">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+<connect gate="G$1" pin="3" pad="3"/>
+<connect gate="G$1" pin="4" pad="4"/>
+<connect gate="G$1" pin="5" pad="5"/>
+<connect gate="G$1" pin="6" pad="6"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:18115753/3"/>
+</package3dinstances>
+<technologies>
+<technology name="">
+<attribute name="DESCRIPTION" value="Wurth Elektronik WR-FPC Series 1mm Pitch 4 Way Horizontal SMT Female FPC Connector, Top Contact" constant="no"/>
+<attribute name="HEIGHT" value="1.3mm" constant="no"/>
+<attribute name="MANUFACTURER_NAME" value="Wurth Elektronik" constant="no"/>
+<attribute name="MANUFACTURER_PART_NUMBER" value="686104183422" constant="no"/>
+<attribute name="MOUSER_PART_NUMBER" value="710-686104183422" constant="no"/>
+<attribute name="MOUSER_PRICE-STOCK" value="https://www.mouser.com/Search/Refine.aspx?Keyword=710-686104183422" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 </libraries>
@@ -914,11 +995,11 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/PEL12T-4225S-
 <part name="C1" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="CAPACITOR" device="&quot;" package3d_urn="urn:adsk.eagle:package:576738/3" value="100nF"/>
 <part name="C2" library="C_Sager_Bibliothek" library_urn="urn:adsk.eagle:library:560098" deviceset="CAPACITOR" device="&quot;" package3d_urn="urn:adsk.eagle:package:576738/3" value="100nF"/>
 <part name="C4" library="passive components" library_urn="urn:adsk.eagle:library:16365137" deviceset="CAPACITOR" device="_1206" package3d_urn="urn:adsk.eagle:package:16431717/2" value="10 uF"/>
-<part name="I2C-CONN" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" deviceset="90814-0204" device="" package3d_urn="urn:adsk.eagle:package:16762552/4"/>
 <part name="GND1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="+3V4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+3V3" device=""/>
 <part name="PRG-CONN" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" deviceset="90814-0204" device="" package3d_urn="urn:adsk.eagle:package:16762552/4"/>
 <part name="GND2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="J1" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" deviceset="686104183422" device="" package3d_urn="urn:adsk.eagle:package:18115753/3"/>
 </parts>
 <sheets>
 <sheet>
@@ -1018,15 +1099,11 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/PEL12T-4225S-
 <attribute name="NAME" x="110.744" y="84.201" size="1.778" layer="95"/>
 <attribute name="VALUE" x="110.744" y="79.121" size="1.778" layer="96"/>
 </instance>
-<instance part="I2C-CONN" gate="G$1" x="226.06" y="132.08" smashed="yes">
-<attribute name="NAME" x="229.87" y="139.7" size="1.778" layer="95" align="center-left"/>
-<attribute name="VALUE" x="229.87" y="137.16" size="1.778" layer="96" align="center-left"/>
+<instance part="GND1" gate="1" x="228.6" y="142.24" smashed="yes">
+<attribute name="VALUE" x="226.06" y="139.7" size="1.778" layer="96"/>
 </instance>
-<instance part="GND1" gate="1" x="248.92" y="124.46" smashed="yes">
-<attribute name="VALUE" x="246.38" y="121.92" size="1.778" layer="96"/>
-</instance>
-<instance part="+3V4" gate="G$1" x="248.92" y="139.7" smashed="yes">
-<attribute name="VALUE" x="246.38" y="134.62" size="1.778" layer="96" rot="R90"/>
+<instance part="+3V4" gate="G$1" x="228.6" y="160.02" smashed="yes">
+<attribute name="VALUE" x="226.06" y="154.94" size="1.778" layer="96" rot="R90"/>
 </instance>
 <instance part="PRG-CONN" gate="G$1" x="226.06" y="114.3" smashed="yes">
 <attribute name="NAME" x="229.87" y="121.92" size="1.778" layer="95" align="center-left"/>
@@ -1034,6 +1111,10 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/PEL12T-4225S-
 </instance>
 <instance part="GND2" gate="1" x="248.92" y="106.68" smashed="yes">
 <attribute name="VALUE" x="246.38" y="104.14" size="1.778" layer="96"/>
+</instance>
+<instance part="J1" gate="G$1" x="187.96" y="154.94" smashed="yes">
+<attribute name="NAME" x="204.47" y="162.56" size="1.778" layer="95" align="center-left"/>
+<attribute name="VALUE" x="204.47" y="160.02" size="1.778" layer="96" align="center-left"/>
 </instance>
 </instances>
 <busses>
@@ -1091,9 +1172,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/PEL12T-4225S-
 </segment>
 <segment>
 <pinref part="GND1" gate="1" pin="GND"/>
-<wire x1="248.92" y1="127" x2="248.92" y2="129.54" width="0.1524" layer="91"/>
-<pinref part="I2C-CONN" gate="G$1" pin="4"/>
-<wire x1="248.92" y1="129.54" x2="246.38" y2="129.54" width="0.1524" layer="91"/>
+<pinref part="J1" gate="G$1" pin="4"/>
+<wire x1="228.6" y1="144.78" x2="228.6" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="228.6" y1="147.32" x2="208.28" y2="147.32" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND2" gate="1" pin="GND"/>
@@ -1153,9 +1234,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/PEL12T-4225S-
 </segment>
 <segment>
 <pinref part="+3V4" gate="G$1" pin="+3V3"/>
-<wire x1="248.92" y1="137.16" x2="248.92" y2="132.08" width="0.1524" layer="91"/>
-<pinref part="I2C-CONN" gate="G$1" pin="3"/>
-<wire x1="248.92" y1="132.08" x2="246.38" y2="132.08" width="0.1524" layer="91"/>
+<pinref part="J1" gate="G$1" pin="3"/>
+<wire x1="228.6" y1="157.48" x2="228.6" y2="149.86" width="0.1524" layer="91"/>
+<wire x1="228.6" y1="149.86" x2="208.28" y2="149.86" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="NRST" class="0">
@@ -1191,9 +1272,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/PEL12T-4225S-
 <label x="218.44" y="88.9" size="1.016" layer="95" xref="yes"/>
 </segment>
 <segment>
-<pinref part="I2C-CONN" gate="G$1" pin="1"/>
-<wire x1="226.06" y1="132.08" x2="223.52" y2="132.08" width="0.1524" layer="91"/>
-<label x="223.52" y="132.08" size="1.016" layer="95" rot="R180" xref="yes"/>
+<label x="210.82" y="154.94" size="1.016" layer="95" rot="MR180" xref="yes"/>
+<pinref part="J1" gate="G$1" pin="1"/>
+<wire x1="208.28" y1="154.94" x2="210.82" y2="154.94" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="I2C1_SCL" class="0">
@@ -1203,9 +1284,9 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/PEL12T-4225S-
 <label x="177.8" y="134.62" size="1.016" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
-<pinref part="I2C-CONN" gate="G$1" pin="2"/>
-<wire x1="226.06" y1="129.54" x2="223.52" y2="129.54" width="0.1524" layer="91"/>
-<label x="223.52" y="129.54" size="1.016" layer="95" rot="R180" xref="yes"/>
+<label x="210.82" y="152.4" size="1.016" layer="95" rot="MR180" xref="yes"/>
+<pinref part="J1" gate="G$1" pin="2"/>
+<wire x1="210.82" y1="152.4" x2="208.28" y2="152.4" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="SWDIO" class="0">
