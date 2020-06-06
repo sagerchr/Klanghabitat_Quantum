@@ -1,4 +1,6 @@
 #include "main.h"
+#include "valueTable.h"
+
 TS_StateTypeDef ts;
   uint8_t level = 0;
   uint8_t aTxBuffer[] = "          ";
@@ -76,6 +78,10 @@ int high4 = 0;
 void TOUCHUPDATE(){
 	if(TIM4->CNT>100){
 		BSP_LED_Toggle(LED1);
+		aTxBuffer[9] = i_inputLeft_Indicator*10;
+
+
+
 		    switch (count) {
 
 		    case 1:
@@ -98,7 +104,8 @@ void TOUCHUPDATE(){
 		    	else if (Encoder4.Color == GUI_LIGHTBLUE)	{aTxBuffer[2] = 6;}
 		    	else								    	{aTxBuffer[2] = 10;}
 
-
+		    	aTxBuffer[8]= Encoder1.value;
+		    	HAL_I2C_Master_Transmit(&hi2c1, 50, aTxBuffer,10,10); //Send to LOGO WS2812
 
 		    	 HAL_I2C_Master_Transmit(&hi2c1, 40, aTxBuffer,10,10);
 				 HAL_I2C_Master_Receive(&hi2c1, 40, aRxBuffer,10,10);
@@ -193,6 +200,8 @@ void TOUCHUPDATE(){
 		    	else								    	{aTxBuffer[1] = 10;}
 
 
+		    	 HAL_I2C_Master_Transmit(&hi2c1, 50, aTxBuffer,10,10); //Send to LOGO WS2812
+
 
 				 HAL_I2C_Master_Transmit(&hi2c1, 30, aTxBuffer,10,10);
 				 HAL_I2C_Master_Receive(&hi2c1, 30, aRxBuffer,10,10);
@@ -267,6 +276,8 @@ void TOUCHUPDATE(){
 		    	 count=3;
 		     	 break;
 		    case 3:
+		    	HAL_I2C_Master_Transmit(&hi2c1, 50, aTxBuffer,10,10); //Send to LOGO WS2812
+
 		    	BSP_Pointer_Update();
 
 		     	count=1;
