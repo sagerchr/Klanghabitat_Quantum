@@ -237,10 +237,10 @@ Includes mounting holes, and holes for ICSP header
 <text x="34.29" y="3.81" size="0.8128" layer="51" font="vector" ratio="15" rot="R90" align="top-center">5V</text>
 <text x="0" y="-27.94" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;VALUE</text>
 </package>
-<package name="MOLEX_90814-0204" urn="urn:adsk.eagle:footprint:16762550/2" library_version="19">
+<package name="MOLEX_90814-0204" urn="urn:adsk.eagle:footprint:16762550/3" library_version="49">
 <description>&lt;b&gt;MOLEX_90814-0204&lt;/b&gt;&lt;br&gt;
 </description>
-<smd name="1" x="0.127" y="0" dx="2.0066" dy="1.1938" layer="1" rot="R90"/>
+<smd name="1" x="0.254" y="0" dx="2.0066" dy="1.1938" layer="1" rot="R90"/>
 <smd name="2" x="1.27" y="5.9944" dx="2.0066" dy="1.1938" layer="1" rot="R90"/>
 <smd name="3" x="2.54" y="0" dx="2.0066" dy="1.1938" layer="1" rot="R90"/>
 <smd name="4" x="3.81" y="5.9944" dx="2.0066" dy="1.1938" layer="1" rot="R90"/>
@@ -295,7 +295,7 @@ Includes mounting holes, and holes for ICSP header
 </package>
 </packages>
 <packages3d>
-<package3d name="ARDUINO_R3" urn="urn:adsk.eagle:package:17310799/2" type="box" library_version="19">
+<package3d name="ARDUINO_R3" urn="urn:adsk.eagle:package:17310799/4" type="model" library_version="49">
 <description>&lt;h3&gt;Arduino Uno R3 Footprint&lt;/h3&gt;
 Includes mounting holes, and holes for ICSP header
 &lt;p&gt;Specifications:
@@ -310,7 +310,7 @@ Includes mounting holes, and holes for ICSP header
 <packageinstance name="ARDUINO_R3"/>
 </packageinstances>
 </package3d>
-<package3d name="MOLEX_90814-0204" urn="urn:adsk.eagle:package:16762552/3" type="model" library_version="19">
+<package3d name="MOLEX_90814-0204" urn="urn:adsk.eagle:package:16762552/4" type="model" library_version="49">
 <description>&lt;b&gt;MOLEX_90814-0204&lt;/b&gt;&lt;br&gt;</description>
 <packageinstances>
 <packageinstance name="MOLEX_90814-0204"/>
@@ -399,7 +399,7 @@ Includes mounting holes, and holes for ICSP header
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="ARDUINO_UNO_R3" urn="urn:adsk.eagle:component:17310800/2" prefix="B" library_version="19">
+<deviceset name="ARDUINO_UNO_R3" urn="urn:adsk.eagle:component:17310800/4" prefix="B" library_version="49">
 <description>&lt;h3&gt;Arduino R3 Footprint with SPI header&lt;/h3&gt;
 
 Arduino Uno R3 Compatible Footprint. Matches PCB size of the original board. 
@@ -454,7 +454,7 @@ Arduino Uno R3 Compatible Footprint. Matches PCB size of the original board.
 <connect gate="G$1" pin="VIN" pad="VIN"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:17310799/2"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:17310799/4"/>
 </package3dinstances>
 <technologies>
 <technology name=""/>
@@ -462,7 +462,7 @@ Arduino Uno R3 Compatible Footprint. Matches PCB size of the original board.
 </device>
 </devices>
 </deviceset>
-<deviceset name="90814-0204" urn="urn:adsk.eagle:component:16762553/3" prefix="J" library_version="19">
+<deviceset name="90814-0204" urn="urn:adsk.eagle:component:16762553/4" prefix="J" library_version="49">
 <description>&lt;b&gt;CONN HEADER 4POS 1.27MM SMD TIN&lt;/b&gt;&lt;p&gt;
 Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/90814-0204.pdf"&gt; Datasheet &lt;/a&gt;</description>
 <gates>
@@ -477,7 +477,7 @@ Source: &lt;a href="https://componentsearchengine.com/Datasheets/1/90814-0204.pd
 <connect gate="G$1" pin="4" pad="4"/>
 </connects>
 <package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:16762552/3"/>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:16762552/4"/>
 </package3dinstances>
 <technologies>
 <technology name="">
@@ -571,13 +571,14 @@ In this library the device names are the same as the pin names of the symbols, t
 </class>
 </classes>
 <parts>
-<part name="B1" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" deviceset="ARDUINO_UNO_R3" device="" package3d_urn="urn:adsk.eagle:package:17310799/2"/>
-<part name="DISPLAY" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" deviceset="90814-0204" device="" package3d_urn="urn:adsk.eagle:package:16762552/3"/>
+<part name="B1" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" deviceset="ARDUINO_UNO_R3" device="" package3d_urn="urn:adsk.eagle:package:17310799/4"/>
+<part name="DISPLAY" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" deviceset="90814-0204" device="" package3d_urn="urn:adsk.eagle:package:16762552/4"/>
 <part name="SUPPLY1" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="SUPPLY2" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="SUPPLY3" library="supply2" library_urn="urn:adsk.eagle:library:372" deviceset="GND" device=""/>
 <part name="J1" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" deviceset="686104183422" device="" package3d_urn="urn:adsk.eagle:package:18115753/3"/>
 <part name="J2" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" deviceset="686104183422" device="" package3d_urn="urn:adsk.eagle:package:18115753/3"/>
+<part name="J3" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" deviceset="686104183422" device="" package3d_urn="urn:adsk.eagle:package:18115753/3"/>
 </parts>
 <sheets>
 <sheet>
@@ -608,6 +609,10 @@ In this library the device names are the same as the pin names of the symbols, t
 <instance part="J2" gate="G$1" x="40.64" y="88.9" smashed="yes">
 <attribute name="NAME" x="57.15" y="96.52" size="1.778" layer="95" align="center-left"/>
 <attribute name="VALUE" x="57.15" y="93.98" size="1.778" layer="96" align="center-left"/>
+</instance>
+<instance part="J3" gate="G$1" x="40.64" y="127" smashed="yes">
+<attribute name="NAME" x="57.15" y="134.62" size="1.778" layer="95" align="center-left"/>
+<attribute name="VALUE" x="57.15" y="132.08" size="1.778" layer="96" align="center-left"/>
 </instance>
 </instances>
 <busses>
@@ -654,6 +659,10 @@ In this library the device names are the same as the pin names of the symbols, t
 <pinref part="J2" gate="G$1" pin="1"/>
 <wire x1="60.96" y1="88.9" x2="78.74" y2="88.9" width="0.1524" layer="91"/>
 <junction x="78.74" y="88.9"/>
+<pinref part="J3" gate="G$1" pin="1"/>
+<wire x1="78.74" y1="127" x2="60.96" y2="127" width="0.1524" layer="91"/>
+<wire x1="78.74" y1="106.68" x2="78.74" y2="127" width="0.1524" layer="91"/>
+<junction x="78.74" y="106.68"/>
 </segment>
 </net>
 <net name="USART6_TX" class="0">
@@ -680,20 +689,6 @@ In this library the device names are the same as the pin names of the symbols, t
 <label x="121.92" y="76.2" size="1.016" layer="95" xref="yes"/>
 </segment>
 </net>
-<net name="3V3" class="0">
-<segment>
-<pinref part="B1" gate="G$1" pin="3.3V"/>
-<wire x1="91.44" y1="50.8" x2="83.82" y2="50.8" width="0.1524" layer="91"/>
-<wire x1="83.82" y1="50.8" x2="83.82" y2="86.36" width="0.1524" layer="91"/>
-<label x="83.82" y="104.14" size="1.778" layer="95"/>
-<pinref part="J1" gate="G$1" pin="2"/>
-<wire x1="83.82" y1="86.36" x2="83.82" y2="104.14" width="0.1524" layer="91"/>
-<wire x1="83.82" y1="104.14" x2="60.96" y2="104.14" width="0.1524" layer="91"/>
-<pinref part="J2" gate="G$1" pin="2"/>
-<wire x1="60.96" y1="86.36" x2="83.82" y2="86.36" width="0.1524" layer="91"/>
-<junction x="83.82" y="86.36"/>
-</segment>
-</net>
 <net name="SDA" class="0">
 <segment>
 <pinref part="B1" gate="G$1" pin="SDA"/>
@@ -709,6 +704,11 @@ In this library the device names are the same as the pin names of the symbols, t
 <label x="63.5" y="81.28" size="1.016" layer="95" rot="MR180" xref="yes"/>
 <wire x1="60.96" y1="81.28" x2="63.5" y2="81.28" width="0.1524" layer="91"/>
 <pinref part="J2" gate="G$1" pin="4"/>
+</segment>
+<segment>
+<label x="68.58" y="119.38" size="1.016" layer="95" rot="MR180" xref="yes"/>
+<pinref part="J3" gate="G$1" pin="4"/>
+<wire x1="60.96" y1="119.38" x2="68.58" y2="119.38" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="SCL" class="0">
@@ -726,6 +726,29 @@ In this library the device names are the same as the pin names of the symbols, t
 <label x="63.5" y="83.82" size="1.016" layer="95" rot="MR180" xref="yes"/>
 <wire x1="63.5" y1="83.82" x2="60.96" y2="83.82" width="0.1524" layer="91"/>
 <pinref part="J2" gate="G$1" pin="3"/>
+</segment>
+<segment>
+<label x="68.58" y="121.92" size="1.016" layer="95" rot="MR180" xref="yes"/>
+<pinref part="J3" gate="G$1" pin="3"/>
+<wire x1="68.58" y1="121.92" x2="60.96" y2="121.92" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="3V3" class="0">
+<segment>
+<pinref part="J3" gate="G$1" pin="2"/>
+<wire x1="83.82" y1="124.46" x2="60.96" y2="124.46" width="0.1524" layer="91"/>
+<pinref part="B1" gate="G$1" pin="3.3V"/>
+<wire x1="91.44" y1="50.8" x2="83.82" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="50.8" x2="83.82" y2="86.36" width="0.1524" layer="91"/>
+<label x="83.82" y="104.14" size="1.778" layer="95"/>
+<pinref part="J1" gate="G$1" pin="2"/>
+<wire x1="83.82" y1="86.36" x2="83.82" y2="104.14" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="104.14" x2="60.96" y2="104.14" width="0.1524" layer="91"/>
+<pinref part="J2" gate="G$1" pin="2"/>
+<wire x1="60.96" y1="86.36" x2="83.82" y2="86.36" width="0.1524" layer="91"/>
+<junction x="83.82" y="86.36"/>
+<wire x1="83.82" y1="124.46" x2="83.82" y2="104.14" width="0.1524" layer="91"/>
+<junction x="83.82" y="104.14"/>
 </segment>
 </net>
 </nets>
