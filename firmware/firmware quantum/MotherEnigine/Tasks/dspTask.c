@@ -113,7 +113,7 @@ void dspTask(void const * argument){
 			//https://stm32f4-discovery.net/2014/10/stm32f4-fft-example/
 ///////////////////////////////////////////////////////////////////////////
 */
-		HAL_Delay(10);
+		osDelay(10);
 		HAL_GPIO_TogglePin(GPIOB, LD1_Pin); //grüne LED an
 
 

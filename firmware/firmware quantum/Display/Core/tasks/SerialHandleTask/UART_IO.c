@@ -54,11 +54,14 @@ UARTSENDER(){
 
 
 	uint8_t checksum = 0;
-	for(int i = 0; i < 99; i++) {
+	uint16_t checksum16 = 0;
+	for(int i = 0; i < 98; i++) {
 			checksum += UART_TRANSFER[i];
+			checksum16 += UART_TRANSFER[i];
 		  }
+	  UART_TRANSFER[98]=checksum16 & 0x00FF; //low byte
+	  UART_TRANSFER[99]=checksum16 >> 8; //high byte
 
-	UART_TRANSFER[99]=checksum;
 
 
 	HAL_UART_DMAResume(&huart6);

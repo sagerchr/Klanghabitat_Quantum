@@ -77,6 +77,7 @@ TIM_HandleTypeDef htim4;
 
 
 char checksum;
+uint16_t checksum16;
 int CheckSumOK = 0;
 
 
@@ -298,13 +299,15 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 
     //CheckSum check
     checksum = 0;
+    checksum16 = 0;
     CheckSumOK = 0;
 
-    for(int i = 0; i < 99; i++) {
+    for(int i = 0; i < 98; i++) {
     	checksum += UARTDATA[i];
+    	checksum16 += UARTDATA[i];
     }
 
-    if(checksum == UARTDATA[99]){
+    if(((checksum16 & 0x00FF) == UARTDATA[98]) && ((checksum16 >> 8) == UARTDATA[99])){
     	CheckSumOK = 1;
     }
     else{
@@ -313,7 +316,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
     }
 
 
-
+    //if((upcounter != upcounterLast)){
 	if((upcounter != upcounterLast)&&CheckSumOK){
 	//************************NEW VALUES CAME IN**********************************//
 	//***********Everything in this IF CASE should be done for new Values*********//

@@ -47,10 +47,12 @@ void UART_correction(){
 	   	}
 
 	   	uint8_t checksum = 0;
-	   	for(int i = 0; i < 99; i++) {
+	   	uint16_t checksum16 = 0;
+	   	for(int i = 0; i < 98; i++) {
 	   	 	 checksum += UART_reciveCorrected[i];
+	   	 	checksum += UART_reciveCorrected[i];
 	   	 }
-	   if (checksum == UART_reciveCorrected[99]){
+	   if (((checksum16 & 0x00FF) == UART_reciveCorrected[98]) && ((checksum16 >> 8) == UART_reciveCorrected[99])){
 		   	  for (int i = 0; i< 100;i++){
 		   	 	UART_IN[i] = UART_reciveCorrected[i];
 		   	 }

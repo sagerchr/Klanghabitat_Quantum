@@ -43,6 +43,7 @@ uint8_t IP_client_number[4];
 uint8_t upcounter;
 
 uint8_t checksum;
+uint16_t checksum16;
 void lwIPTask(void const * argument){
 /*
 	MY_FLASH_SetSectorAddrs(11, 0x081C0000);
@@ -493,18 +494,23 @@ void lwIPTask(void const * argument){
 			for(int i = 4; i < 100; i++) {
 				UART_transmit[i] = 0x00;
 			  }
-			UART_transmit[4]=upcounter;
-			UART_transmit[98]=upcounter;
-
-
-
+			//UART_transmit[4]=upcounter;
+			//UART_transmit[98]=upcounter;
 
 */
+
+
+
 		  checksum = 0;
-		for(int i = 0; i < 99; i++) {
+		  checksum16 = 0;
+		for(int i = 0; i < 98; i++) {
 				checksum += UART_transmit[i];
+				checksum16 += UART_transmit[i];
 			  }
-		  UART_transmit[99]=checksum;
+
+
+		  UART_transmit[98]=checksum16 & 0x00FF; //low byte
+		  UART_transmit[99]=checksum16 >> 8; //high byte
 
 		  resetMax=1;
 
@@ -513,7 +519,7 @@ void lwIPTask(void const * argument){
 		  HAL_UART_DMAResume(&huart6);
 //#######################################################//
 //Changed Define of MEM_USE_POOLS_TRY_BIGGER_POOL  to 1 (2020.05.20) Better Performance???
-		   HAL_Delay(10);
+		  osDelay(10);
 
 
 //***********************************************************************//
