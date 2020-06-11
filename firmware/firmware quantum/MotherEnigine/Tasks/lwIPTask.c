@@ -162,7 +162,7 @@ void lwIPTask(void const * argument){
 
 		IP_client_number[0] =  atoi(IP1_client);
 		IP_client_number[1] =  atoi(IP2_client);
-		IP_client_number[2] =  atoi(IP3_client);
+		IP_client_number[2] =  1;
 		IP_client_number[3] =  atoi(IP4_client);
 
 		if (match("/connection")){UDP_init(IP_client_number[0],IP_client_number[1],IP_client_number[2],IP_client_number[3]);}

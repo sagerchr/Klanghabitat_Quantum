@@ -74,37 +74,40 @@ void dspTask(void const * argument){
 
 
 	for(;;){
+
+			vTaskSuspend(NULL);
+			HAL_GPIO_TogglePin(GPIOD, DEBUG2_Pin);
 		/*
 ///////////////////////CALCULATE FFT/////////////////////////////////////////
 
 		//////////////PREPARE "IN"-ARRAY consumed by the FFT calculation////
 		if (toggle == 0){
 			toggle = 1;
-			for(int i=0; i<600; i+=2){
+			for(int i=0; i<1200; i+=2){
 				IN[i]=voltageCH1[i];
 				IN[i+1]=0.0;
 				}
 		}
 		else {
 			toggle = 0;
-			for(int i=0; i<600; i+=2){
+			for(int i=0; i<1200; i+=2){
 				IN[i]=voltageCH2[i];
 				IN[i+1]=0.0;
 				}
 		}
 		/////////////////CALCULATE FFT FOR Left/Right Channel////////////////
 			if(toggle == 0){
-				arm_cfft_radix4_init_f32(&S, 256, 0, 1);
+				arm_cfft_radix4_init_f32(&S, 512, 0, 1);
 				arm_cfft_radix4_f32(&S, IN);
-				arm_cmplx_mag_f32(IN, Output, 256);
+				arm_cmplx_mag_f32(IN, Output, 512);
 				for (int i=0; i<100;i++){
 				FFT_result[i] = Output[i];
 				}
 			}
 			if(toggle == 1){
-				arm_cfft_radix4_init_f32(&S, 256, 0, 1);
+				arm_cfft_radix4_init_f32(&S, 512, 0, 1);
 				arm_cfft_radix4_f32(&S, IN);
-				arm_cmplx_mag_f32(IN, Output, 256);
+				arm_cmplx_mag_f32(IN, Output, 512);
 				for (int i=0; i<100;i++){
 				FFT_result2[i] = Output[i];
 				}
@@ -113,7 +116,9 @@ void dspTask(void const * argument){
 			//https://stm32f4-discovery.net/2014/10/stm32f4-fft-example/
 ///////////////////////////////////////////////////////////////////////////
 */
-		osDelay(10);
+		osDelay(1);
+		//HAL_GPIO_WritePin(GPIOD, DEBUG2_Pin, GPIO_PIN_RESET);
+
 		HAL_GPIO_TogglePin(GPIOB, LD1_Pin); //grüne LED an
 
 

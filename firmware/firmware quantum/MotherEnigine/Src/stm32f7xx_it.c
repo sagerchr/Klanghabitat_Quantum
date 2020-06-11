@@ -23,6 +23,11 @@
 #include "stm32f7xx_it.h"
 #include "FreeRTOS.h"
 #include "task.h"
+
+
+
+#include "cmsis_os.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "math.h"
@@ -33,6 +38,7 @@
 #include "stm32f7xx.h"
 #include "arm_math.h"
 #include "arm_const_structs.h"
+#include "dspTask.h"
 /* USER CODE END Includes */
   
 /* Private typedef -----------------------------------------------------------*/
@@ -52,6 +58,7 @@ int16_t analogINSigned[8];
 float volt;
 float voltageRMStemp[8];
 int RMS_index=0;
+
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -63,7 +70,7 @@ int RMS_index=0;
 /* USER CODE BEGIN PFP */
 
 uint8_t DSProundtrip = 10; //Defines the RoundTrip time of the DSP
-
+extern osThreadId dspTaskHandle;
 
 /* USER CODE END PFP */
 
@@ -86,6 +93,7 @@ extern TIM_HandleTypeDef htim1;
 
 /* USER CODE BEGIN EV */
 SPI_HandleTypeDef hspi2;
+
 /* USER CODE END EV */
 
 /******************************************************************************/
@@ -236,13 +244,13 @@ void TIM7_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM7_IRQn 0 */
 
+
   /* USER CODE END TIM7_IRQn 0 */
   HAL_TIM_IRQHandler(&htim7);
   /* USER CODE BEGIN TIM7_IRQn 1 */
 
 	//__HAL_TIM_SET_COUNTER(&htim7 , 0);
-
-  HAL_GPIO_TogglePin(GPIOF, DEBUG1_Pin);
+  HAL_GPIO_WritePin(GPIOF, DEBUG1_Pin, GPIO_PIN_SET);
 
   //***********************Start Measurement*********************//
   HAL_GPIO_WritePin(GPIOC, CV_A_B_Pin,GPIO_PIN_RESET);
@@ -262,7 +270,7 @@ void TIM7_IRQHandler(void)
 	//*******************this takes around 5µSec*******************//
   for (int i = 0; i<6; i++){
   	HAL_GPIO_WritePin(GPIOD, RD_Pin,GPIO_PIN_SET);
-    HAL_GPIO_WritePin(GPIOD, CS_Pin,GPIO_PIN_SET);
+
 
       HAL_GPIO_WritePin(GPIOD, RD_Pin,GPIO_PIN_RESET);
       HAL_GPIO_WritePin(GPIOD, CS_Pin,GPIO_PIN_RESET);
@@ -276,6 +284,14 @@ void TIM7_IRQHandler(void)
   }
 
 
+  HAL_GPIO_WritePin(GPIOD, CS_Pin,GPIO_PIN_SET);
+
+  HAL_GPIO_WritePin(GPIOF, DEBUG1_Pin, GPIO_PIN_RESET);
+
+
+
+
+
 
  //HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R,UART_reciveCorrected[7]+150); //Update ADC1
  //HAL_DAC_SetValue(&hdac, DAC_CHANNEL_2, DAC_ALIGN_12B_R,UART_reciveCorrected[9]+171); //Update ADC2 +171
@@ -284,10 +300,14 @@ void TIM7_IRQHandler(void)
   HAL_DAC_SetValue(&hdac, DAC_CHANNEL_2, DAC_ALIGN_12B_R,UART_IN[9]+171); //Update ADC2 +171
 
 
-
+  //This will push to the dspTASK
+    BaseType_t checkIfYieldRequired;
+    checkIfYieldRequired = xTaskResumeFromISR(dspTaskHandle);
+    portYIELD_FROM_ISR(checkIfYieldRequired);
+  //
 
 /////Get all 6 Channels from the ADC converted to voltage and put to voltageCHn Array///
-////////////////////////////////////////////////////////////////////////////////////////
+
 
   voltageCH1[indexing]=(int16_t)analogIN[0]*(10.0/32767);
   if (voltageCH1[indexing]<0){voltageCH1[indexing] = voltageCH1[indexing]*(-1.0);}
@@ -549,7 +569,6 @@ void TIM7_IRQHandler(void)
 
 }
 
-  HAL_GPIO_TogglePin(GPIOF, DEBUG1_Pin);
 
 
 

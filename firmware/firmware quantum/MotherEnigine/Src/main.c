@@ -19,10 +19,10 @@
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
+
 #include "cmsis_os.h"
 #include "lwip.h"
-
+#include "main.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "UART_correction.h"
@@ -195,12 +195,14 @@ int main(void)
 
 
   //###### PUT the RESET to Output so Display can be reseted by its own again###
+  /*
   GPIO_InitTypeDef GPIO_InitStruct = {0};
   GPIO_InitStruct.Pin = DEBUG2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+  */
   //############################################################################
   indexer = 0;
   samples = 512;
@@ -252,12 +254,12 @@ int main(void)
   //defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
-  osThreadDef(lwIPTask, lwIPTask, osPriorityNormal, 0,1000);
+  osThreadDef(lwIPTask, lwIPTask, osPriorityNormal, 0,2000);
   lwIPTaskHandle = osThreadCreate(osThread(lwIPTask), NULL);
 
 
 	//HAL_TIM_Base_Start_IT(&htim7);
-  osThreadDef(dspTask, dspTask, osPriorityNormal, 0, 1000);
+  osThreadDef(dspTask, dspTask, osPriorityNormal, 0, 2000);
   dspTaskHandle = osThreadCreate(osThread(dspTask), NULL);
 
 
