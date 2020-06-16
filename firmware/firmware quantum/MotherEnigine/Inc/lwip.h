@@ -46,7 +46,8 @@
 /* Global Variables ----------------------------------------------------------*/
 extern ETH_HandleTypeDef heth;
 
-/* LWIP init function */	
+/* LWIP init function */
+void PHY_Init();
 void MX_LWIP_Init(uint8_t IP1,uint8_t IP2, uint8_t IP3, uint8_t IP4);
 
 #if !WITH_RTOS

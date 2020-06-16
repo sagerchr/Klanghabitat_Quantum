@@ -52,7 +52,7 @@ osc_message osc;
 	void UDP_deinit(){
 
 	     if(udpPcb != NULL){
-	     	 udpPcb = udp_remove();
+	     	udp_remove(&udpPcb);
 	    }
 	}
 
@@ -77,6 +77,7 @@ osc_message osc;
        udpErr = udp_bind(udpPcb, &ownIPaddr, 9001); //Definition of
        udp_recv(udpPcb, udp_recive, NULL);
        if (udpErr ==ERR_OK){
+    	   HAL_Delay(1);
        }
      }
      //udp_recv(udpPcb, udp_recive, NULL);//Create udp_recive callback

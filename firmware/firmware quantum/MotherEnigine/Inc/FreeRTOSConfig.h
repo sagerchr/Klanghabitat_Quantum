@@ -61,7 +61,7 @@
 #define configMAX_PRIORITIES                     ( 7 )
 #define configMINIMAL_STACK_SIZE                 ((uint16_t)128)
 //#define configTOTAL_HEAP_SIZE                    ((size_t)15360)
-#define configTOTAL_HEAP_SIZE                    ((size_t)25360)
+#define configTOTAL_HEAP_SIZE                    ((size_t)35360)
 #define configMAX_TASK_NAME_LEN                  ( 16 )
 #define configUSE_16_BIT_TICKS                   0
 #define configUSE_MUTEXES                        1

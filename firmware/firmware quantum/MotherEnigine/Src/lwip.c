@@ -44,9 +44,11 @@ ip4_addr_t gw;
 uint8_t IP_ADDRESS[4];
 uint8_t NETMASK_ADDRESS[4];
 uint8_t GATEWAY_ADDRESS[4];
-
+uint32_t phyreg = 0;
 /* USER CODE BEGIN 2 */
+void PHY_Init(){
 
+}
 /* USER CODE END 2 */
 
 /**
@@ -54,6 +56,7 @@ uint8_t GATEWAY_ADDRESS[4];
   */
 void MX_LWIP_Init(uint8_t IP1,uint8_t IP2, uint8_t IP3, uint8_t IP4)
 {
+
   /* IP addresses initialization */
   IP_ADDRESS[0] = IP1;
   IP_ADDRESS[1] = IP2;
@@ -67,7 +70,7 @@ void MX_LWIP_Init(uint8_t IP1,uint8_t IP2, uint8_t IP3, uint8_t IP4)
   GATEWAY_ADDRESS[1] = 168;
   GATEWAY_ADDRESS[2] = 1;
   GATEWAY_ADDRESS[3] = 1;
-  
+
   /* Initilialize the LwIP stack with RTOS */
   tcpip_init( NULL, NULL );
 

@@ -31,7 +31,7 @@
 #include "MY_FLASH.h"
 #include "DAC_Control.h"
 #include "ValueTableMotherEngine.h"
-
+#include "ParameterTableMotherEngine.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -137,7 +137,7 @@ void StartDefaultTask(void const * argument);
   */
 int main(void)
 
- {
+{
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
@@ -193,7 +193,7 @@ int main(void)
   HAL_UART_Transmit_DMA(&huart6, UART_transmit,TX_OUT_SIZE);
   HAL_UART_Receive_DMA(&huart6, UART_RECIVE,RX_IN_SIZE);
 
-
+  MY_FLASH_SetSectorAddrs(11, 0x081C0000);
   //###### PUT the RESET to Output so Display can be reseted by its own again###
   /*
   GPIO_InitTypeDef GPIO_InitStruct = {0};
@@ -254,12 +254,12 @@ int main(void)
   //defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
-  osThreadDef(lwIPTask, lwIPTask, osPriorityNormal, 0,2000);
+  osThreadDef(lwIPTask, lwIPTask, osPriorityNormal, 0,5000);
   lwIPTaskHandle = osThreadCreate(osThread(lwIPTask), NULL);
 
 
 	//HAL_TIM_Base_Start_IT(&htim7);
-  osThreadDef(dspTask, dspTask, osPriorityNormal, 0, 2000);
+  osThreadDef(dspTask, dspTask, osPriorityRealtime , 0, 2000);
   dspTaskHandle = osThreadCreate(osThread(dspTask), NULL);
 
 
@@ -529,7 +529,7 @@ static void MX_TIM7_Init(void)
   htim7.Instance = TIM7;
   htim7.Init.Prescaler = 107;//107
   htim7.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim7.Init.Period = 20; //20
+  htim7.Init.Period = 19; //20
   htim7.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim7) != HAL_OK)
   {
@@ -673,10 +673,10 @@ static void MX_DMA_Init(void)
 
   /* DMA interrupt init */
   /* DMA2_Stream1_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA2_Stream1_IRQn, 1, 0);
+  HAL_NVIC_SetPriority(DMA2_Stream1_IRQn, 5, 10);
   HAL_NVIC_EnableIRQ(DMA2_Stream1_IRQn);
   /* DMA2_Stream6_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA2_Stream6_IRQn, 1, 0);
+  HAL_NVIC_SetPriority(DMA2_Stream6_IRQn, 5, 10);
   HAL_NVIC_EnableIRQ(DMA2_Stream6_IRQn);
 
 }

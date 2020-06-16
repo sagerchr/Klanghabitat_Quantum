@@ -13,12 +13,12 @@
 #include "arm_const_structs.h"
 #include "UART_correction.h"
 #include "ValueTableMotherEngine.h"
+TIM_HandleTypeDef htim5;
 TIM_HandleTypeDef htim6;
 TIM_HandleTypeDef htim7;
 DAC_HandleTypeDef hdac;
 SPI_HandleTypeDef hspi2;
 
-//uint8_t DSProundtrip = 10; //Defines the RoundTrip time of the DSP
 int errorcount;
 
 void dspTask(void const * argument){
@@ -55,72 +55,22 @@ void dspTask(void const * argument){
 	  HAL_Delay(10);
 
 	  //**************************************************//
-
+	  	HAL_TIM_Base_Start(&htim5);
 		HAL_TIM_Base_Start(&htim6);
 		HAL_TIM_Base_Start_IT(&htim7);
 
- 		float32_t Output[600];
-		float32_t IN[1200];
-		 arm_cfft_radix4_instance_f32 S;
-
 		int toggle = 0;
-
-
-
-
-
-
-
-
 
 	for(;;){
 
 			vTaskSuspend(NULL);
-			HAL_GPIO_TogglePin(GPIOD, DEBUG2_Pin);
-		/*
-///////////////////////CALCULATE FFT/////////////////////////////////////////
+			HAL_GPIO_WritePin(GPIOD, DEBUG2_Pin,GPIO_PIN_SET);
 
-		//////////////PREPARE "IN"-ARRAY consumed by the FFT calculation////
-		if (toggle == 0){
-			toggle = 1;
-			for(int i=0; i<1200; i+=2){
-				IN[i]=voltageCH1[i];
-				IN[i+1]=0.0;
-				}
-		}
-		else {
-			toggle = 0;
-			for(int i=0; i<1200; i+=2){
-				IN[i]=voltageCH2[i];
-				IN[i+1]=0.0;
-				}
-		}
-		/////////////////CALCULATE FFT FOR Left/Right Channel////////////////
-			if(toggle == 0){
-				arm_cfft_radix4_init_f32(&S, 512, 0, 1);
-				arm_cfft_radix4_f32(&S, IN);
-				arm_cmplx_mag_f32(IN, Output, 512);
-				for (int i=0; i<100;i++){
-				FFT_result[i] = Output[i];
-				}
-			}
-			if(toggle == 1){
-				arm_cfft_radix4_init_f32(&S, 512, 0, 1);
-				arm_cfft_radix4_f32(&S, IN);
-				arm_cmplx_mag_f32(IN, Output, 512);
-				for (int i=0; i<100;i++){
-				FFT_result2[i] = Output[i];
-				}
+			calculateDB();
 
-			}
-			//https://stm32f4-discovery.net/2014/10/stm32f4-fft-example/
-///////////////////////////////////////////////////////////////////////////
-*/
-		osDelay(1);
-		//HAL_GPIO_WritePin(GPIOD, DEBUG2_Pin, GPIO_PIN_RESET);
 
-		HAL_GPIO_TogglePin(GPIOB, LD1_Pin); //grüne LED an
-
+			HAL_GPIO_TogglePin(GPIOB, LD1_Pin); //grüne LED an
+			HAL_GPIO_WritePin(GPIOD, DEBUG2_Pin,GPIO_PIN_RESET);
 
 	}
 

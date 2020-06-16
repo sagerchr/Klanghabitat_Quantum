@@ -5,6 +5,9 @@
  *      Author: christiansager
  */
 
+void calculateDB();
+
+
 int indexing;
 int channel;
 
@@ -70,3 +73,6 @@ float sum_CH3_RMS_long[11];
 float sum_CH4_RMS_long[11];
 float sum_CH5_RMS_long[11];
 float sum_CH6_RMS_long[11];
+
+int DAC_LEFT;
+int DAC_RIGHT;

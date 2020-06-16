@@ -21,8 +21,6 @@
 #include "ValueTableMotherEngine.h"
 
 
-
-
 DAC_HandleTypeDef hdac;
 UART_HandleTypeDef huart6;
 static struct udp_pcb *Broadcaster;
@@ -44,22 +42,25 @@ uint8_t upcounter;
 
 uint8_t checksum;
 uint16_t checksum16;
+int OK = 0;
+
+uint8_t IP_READ[4];
+
 void lwIPTask(void const * argument){
-/*
-	MY_FLASH_SetSectorAddrs(11, 0x081C0000);
+
+
 	MY_FLASH_ReadN(0,IP_READ,4,DATA_TYPE_8);
-*/
-	//==========CREATE & START all lwIP Services========//
+
+
+		//==========CREATE & START all lwIP Services========//
+
+
+
+
 	 MX_LWIP_Init(IP_READ_FLASH[0], IP_READ_FLASH[1], IP_READ_FLASH[2], IP_READ_FLASH[3]); //SetUp with IP ADRESS read from Flash
-	//UDP_init(192,168,1,43); //INIT the UDP Session (Partner IP ADRESS)
 	 httpd_init();//start the web Server
 	 myCGIinit();//initialize the CGI handlers
 	 mySSIinit();//initialize the SSI handlers
-	//============================================================================================================//
-
-
-
-
 
 
 
@@ -165,8 +166,20 @@ void lwIPTask(void const * argument){
 		IP_client_number[2] =  1;
 		IP_client_number[3] =  atoi(IP4_client);
 
-		if (match("/connection")){UDP_init(IP_client_number[0],IP_client_number[1],IP_client_number[2],IP_client_number[3]);}
-		if (match("/Disconnection")){UDP_init(10,0,0,0);}
+		if (match("/connection")){
+			UDP_init(IP_client_number[0],IP_client_number[1],IP_client_number[2],IP_client_number[3]);
+
+		}
+
+		if (match("/Disconnection")){
+			//UDP_deinit();
+
+			UDP_init(192,168,1,1);
+
+			 httpd_init();//start the web Server
+			 myCGIinit();//initialize the CGI handlers
+			 mySSIinit();//initialize the SSI handlers
+		}
 
 		//UDP_init(IP_client_number[0],IP_client_number[1],IP_client_number[2],IP_client_number[3]);
 
@@ -222,16 +235,19 @@ void lwIPTask(void const * argument){
 
 
 
-
-
 //char FFT_String[12] = {'/','F','F','T','/','L','E','F','T','/','0','0'};
 	  /* Infinite loop */
 	  for(;;)
 	  {
 
+
+
 		  l++;
-		  if (l == 0){BroadcastDeviceInfo(l);}
-		  OSCmessageINTSend("/Watchdog",  9, l);
+		  if (l == 0){
+			  BroadcastDeviceInfo(l);
+
+		  }
+			  OSCmessageINTSend("/Watchdog",  9, l);
 		  //OSCmessageStringSend("/klanghabitat", 13, "Device: Test; IP: 127.1.1.2",27);
 
 		 //=========================================================================//
@@ -253,9 +269,6 @@ void lwIPTask(void const * argument){
 		  else{
 			  BypassRight(activate);BypassLeft(activate);
 		  }
-
-
-
 
 		 if (match("/MotherEngine/Relais/K5") && OSC_SIGNEDINTEGER == 1){
 			 HAL_GPIO_WritePin(GPIOG, Relais3_Pin,GPIO_PIN_SET);}
