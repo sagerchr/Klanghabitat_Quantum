@@ -84,8 +84,8 @@ int CheckSumOK = 0;
 void GRAPHICS_MainTask(void) {
 
 
-	GUI_Clear();
-	GUI_SetBkColor(GUI_DARKGRAY);
+	//GUI_Clear();
+	//GUI_SetBkColor(GUI_DARKGRAY);
 
 /////////////////////////////////////////////////////////////////////////
 ////////CREATION OF ALL WINDOWS//////////////////////////////////////////
@@ -196,6 +196,8 @@ void GRAPHICS_MainTask(void) {
 
 
 	    if (touch>50){
+	    	GUI_Clear();
+	    	GUI_SetBkColor(GUI_WHITE);
 	    	WM_HideWindow (IndicatorWindow1);
 	    	WM_HideWindow (IndicatorWindow2);
 	    	WM_HideWindow (IndicatorWindow3);
@@ -215,8 +217,9 @@ void GRAPHICS_MainTask(void) {
 	    	timer = 0;
 	    }
 
-	    if (timer==20){
-	    	WM_HideWindow(InfoWindow);
+	    if (timer==50){
+	    	GUI_Clear();
+	    	GUI_SetBkColor(GUI_DARKGRAY);
 
 	    	WM_ShowWindow(SettingsButtonWindow);
 	    	WM_ShowWindow(IndicatorWindow1);
@@ -231,8 +234,17 @@ void GRAPHICS_MainTask(void) {
 	    	WM_ShowWindow(Enc_RatioWindow);
 	    	WM_ShowWindow(Enc_ReleaseWindow);
 
+	    	WM_HideWindow(InfoWindow);
+
+
 	    }
+
 	    timer++;
+
+
+
+
+
 ///////////////////////////////////////////////////////////////////
 	    p_Bufferd = 0.01;
 	    p_MAXBufferd = 0.001;

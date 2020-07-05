@@ -41,7 +41,13 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#ifdef __GNUC__
+  /* With GCC, small printf (option LD Linker->Libraries->Small printf
+     set to 'Yes') calls __io_putchar() */
+  #define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
+#else
+  #define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
+#endif /* __GNUC__ */
 //************************************
 //===============PinOut===============
 //************************************
@@ -210,10 +216,10 @@ int main(void)
 
 
 
-	  DAC_Control(1,1,119); //SYM1 adjust
-	  DAC_Control(2,1,115); //SYM2 adjust
-	  DAC_Control(3,1,246); //SYM3 adjust
-	  DAC_Control(4,1,254); //SYM4 adjust
+	  DAC_Control(1,1,26); //SYM1 adjust
+	  DAC_Control(2,1,148); //SYM2 adjust
+	  DAC_Control(3,1,90); //SYM3 adjust
+	  DAC_Control(4,1,91); //SYM4 adjust
 
 	  DAC_Control(1,2,50);
 	  DAC_Control(2,2,50);
@@ -225,6 +231,11 @@ int main(void)
 	  IP_READ_FLASH[1]=168;
 	  IP_READ_FLASH[2]=1;
 	  IP_READ_FLASH[3]=205;
+
+	  SUBNET_READ_FLASH[0]=255;
+	  SUBNET_READ_FLASH[1]=255;
+	  SUBNET_READ_FLASH[2]=255;
+	  SUBNET_READ_FLASH[3]=0;
 
 	  channel = 2;
 	  indexing = 0;
@@ -266,7 +277,7 @@ int main(void)
 
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
-
+  printf("os Kernel started\r\n");
   /* Start scheduler */
   osKernelStart();
   
@@ -822,7 +833,14 @@ HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart){
 
 }
 
+PUTCHAR_PROTOTYPE
+{
+  /* Place your implementation of fputc here */
+  /* e.g. write a character to the EVAL_COM1 and Loop until the end of transmission */
+  HAL_UART_Transmit(&huart3, (uint8_t *)&ch, 1, 0xFFFF);
 
+  return ch;
+}
 
 /* USER CODE END 4 */
 

@@ -51,6 +51,21 @@ void lwIPTask(void const * argument){
 
 	MY_FLASH_ReadN(0,IP_READ,4,DATA_TYPE_8);
 
+for (int i=0; i<175;i++){
+	DAC_Control(1,1,i); //SYM1 adjust
+}
+for (int i=0; i<176;i++){
+	DAC_Control(2,1,i); //SYM2 adjust
+}
+for (int i=0; i<91;i++){
+	DAC_Control(3,1,i); //SYM3 adjust
+}
+for (int i=0; i<86;i++){
+	DAC_Control(4,1,i); //SYM4 adjust
+}
+
+
+
 
 		//==========CREATE & START all lwIP Services========//
 
@@ -312,8 +327,6 @@ void lwIPTask(void const * argument){
 
 
 
-
-
 //		OSCmessageINTSend("/help/Level/devider",  19, 146);
 
 
@@ -511,8 +524,16 @@ void lwIPTask(void const * argument){
 			//UART_transmit[98]=upcounter;
 
 */
+		  char pcIpAddrString[60];
+		  char pcBuffer[60];
 
+		  for (int i=0; i<60; i++){
+		  		pcBuffer[i] = 0;
+		  		pcIpAddrString[i] = 0;
+		  	}
 
+		  sprintf(pcBuffer, "This is Value of Watchdog %d \r\n",  l);
+		  printf(pcBuffer);
 
 		  checksum = 0;
 		  checksum16 = 0;

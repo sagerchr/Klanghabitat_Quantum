@@ -3,17 +3,44 @@
 
 <head>
 	<title>Quantum Start Page</title>
+	<link rel="stylesheet" type="text/css" href ="global.css">
 </head>
 
 <body>
-<body style="background-color:#061415;">
-<h1 style="color:darkgrey; text-align:center">Welcome to Klanghabitat Quantum Configuration Interface</p>
-<img src="images/logo.png">
 
-<div style="text-align:center">
-	<a href="leds.shtml" style="color:orange">configure</a>
-</div>
+	
+<body style="background-color:#FFFFFF;">
+<h1 style="color:darkgrey; text-align:center"></p>
+<img src="images/logo.png">
+	
+<p></p></br>
+
+<div class = "form-container">	
+		<form name="login" class="list">
+				<li> <h2>login</h2></li> 
+           	 	<li>Username<input type="text" name="userid"/></li> 
+	        	<li>Password<input type="password" name="pswrd"/></li> 
+            	<li><input class="btn success" type="button" onclick="check(this.form)" value="Login"/></li> 
+            	<li><input class="btn danger"  type="reset" value="Cancel"/></li> 
+		</form>
+</div>		
+		
+<script language="javascript">
+            function check(form) { /*function to check userid & password*/
+                /*the following code checkes whether the entered userid and password are matching*/
+                if(form.userid.value == "admin" && form.pswrd.value == "admin") {
+                    window.open('main.shtml',"_self")/*opens the target page while Id & password matches*/
+                }
+                else {
+                    alert("Error Password or Username")/*displays error message*/
+                }
+            }
+  </script>		
+
 
 </body>
 
 </html>
+
+
+

@@ -29,6 +29,7 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f7xx_hal.h"
+#include <stdio.h>
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -240,7 +241,7 @@ float  dbuRingIn5[512];
 float  dbuRingIn6[512];
 
 uint8_t IP_READ_FLASH[4];
-
+uint8_t SUBNET_READ_FLASH[4];
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

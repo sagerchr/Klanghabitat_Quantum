@@ -131,6 +131,7 @@ char IP1_str_temp[5],IP2_str_temp[5],IP3_str_temp[5],IP4_str_temp[5];
 
 	     void myCGIinit(void)
 	     {
+	     printf("run: myCGIinit()\r\n");
 	     //add LED control CGI to the table
 	     theCGItable[0] = LedCGI;
 	     theCGItable[1] = IPCGI;
@@ -142,8 +143,8 @@ char IP1_str_temp[5],IP2_str_temp[5],IP3_str_temp[5],IP4_str_temp[5];
 	    //==================================SSI Implementation===================================//
 		//array of tags for the SSI handler
 		//these are the tags <!--#tag1--> contained in the shtml file
-		#define numSSItags 2
-		char const *theSSItags[numSSItags] = {"tag1","tag2"};
+		#define numSSItags 7
+		char const *theSSItags[numSSItags] = {"IP1","IP2","IP3","IP4","IP_FLASH","SUB", "NAME"};
 		int k = 0;
 		/**** SSI handler ****/
 		// This function is called each time the HTTPD server detects a tag of the form
@@ -153,23 +154,121 @@ char IP1_str_temp[5],IP2_str_temp[5],IP3_str_temp[5],IP4_str_temp[5];
 		{
 		k++;
 		// see which tag in the array theSSItags to handle
-		if (iIndex == 0) //is “tag1”
-		{
-		char myStr1[] = "hello#1!"; //string to be displayed on web page
-		myStr1[5] = k;
-		//copy the string to be displayed to pcInsert
-		strcpy(pcInsert, myStr1);
-		//return number of characters that need to be inserted in html
-		return strlen(myStr1);
-		}
-		else if (iIndex == 1) //is “tag2”
-		{
-		char myStr2[] = "hello#2!"; //string to be displayed on web page
-		//copy string to be displayed
-		strcpy(pcInsert, myStr2);
-		//return number of characters that need to be inserted in html
-		return strlen(myStr2);
-		}
+		if (iIndex == 0) //is "IP1"
+			{
+			int someInt = IP_READ_FLASH[0];
+			char str[4];
+			sprintf(str, "%d", someInt);
+			strcpy(pcInsert, str);
+			//return number of characters that need to be inserted in html
+			return strlen(str);
+			}
+		else if (iIndex == 1) //is "IP2"
+			{
+			int someInt = IP_READ_FLASH[1];
+			char str[4];
+			sprintf(str, "%d", someInt);
+			strcpy(pcInsert, str);
+			//return number of characters that need to be inserted in html
+			return strlen(str);
+			}
+		else if (iIndex == 2) //is "IP3"
+			{
+			int someInt = IP_READ_FLASH[2];
+			char str[4];
+			sprintf(str, "%d", someInt);
+			strcpy(pcInsert, str);
+			//return number of characters that need to be inserted in html
+			return strlen(str);
+			}
+		else if (iIndex == 3) //is "IP4"
+			{
+			int someInt = IP_READ_FLASH[3];
+			char str[4];
+			sprintf(str, "%d", someInt);
+			strcpy(pcInsert, str);
+			//return number of characters that need to be inserted in html
+			return strlen(str);
+			}
+		else if (iIndex == 4) //is "IP4"
+			{
+
+			char pcIpAddrString[60];
+			char pcBuffer[60];
+
+			for (int i=0; i<60; i++){
+				pcBuffer[i] = 0;
+				pcIpAddrString[i] = 0;
+			}
+			char *dot = ".";
+
+			char str[3];
+			sprintf(str, "%d", IP_READ_FLASH[0]);
+			strcat(pcIpAddrString, str);
+			strcat(pcIpAddrString, dot);
+			sprintf(str, "%d", IP_READ_FLASH[1]);
+			strcat(pcIpAddrString, str);
+			strcat(pcIpAddrString, dot);
+			sprintf(str, "%d", IP_READ_FLASH[2]);
+			strcat(pcIpAddrString, str);
+			strcat(pcIpAddrString, dot);
+			sprintf(str, "%d", IP_READ_FLASH[3]);
+			strcat(pcIpAddrString, str);
+
+			sprintf(pcBuffer, "<input type=\"text\" value=\"%s\" name=\"ipaddr\">", pcIpAddrString);
+			strcpy(pcInsert, pcBuffer);
+			//return number of characters that need to be inserted in html
+			return strlen(pcBuffer);
+			}
+		else if (iIndex == 5) //is "IP4"
+			{
+
+			char pcIpAddrString[60];
+			char pcBuffer[60];
+
+			for (int i=0; i<60; i++){
+				pcBuffer[i] = 0;
+				pcIpAddrString[i] = 0;
+			}
+			char *dot = ".";
+
+			char str[3];
+			sprintf(str, "%d", SUBNET_READ_FLASH[0]);
+			strcat(pcIpAddrString, str);
+			strcat(pcIpAddrString, dot);
+			sprintf(str, "%d", SUBNET_READ_FLASH[1]);
+			strcat(pcIpAddrString, str);
+			strcat(pcIpAddrString, dot);
+			sprintf(str, "%d", SUBNET_READ_FLASH[2]);
+			strcat(pcIpAddrString, str);
+			strcat(pcIpAddrString, dot);
+			sprintf(str, "%d", SUBNET_READ_FLASH[3]);
+			strcat(pcIpAddrString, str);
+
+			sprintf(pcBuffer, "<input type=\"text\" value=\"%s\" name=\"sub\">", pcIpAddrString);
+			strcpy(pcInsert, pcBuffer);
+			//return number of characters that need to be inserted in html
+			return strlen(pcBuffer);
+			}
+
+		else if (iIndex == 6) //is "IP4"
+			{
+
+			char pcIpAddrString[60];
+			char pcBuffer[60];
+
+			for (int i=0; i<60; i++){
+				pcBuffer[i] = 0;
+				pcIpAddrString[i] = 0;
+			}
+
+			sprintf(pcIpAddrString, "TestDevice");
+
+			sprintf(pcBuffer, "<input type=\"text\" value=\"%s\" name=\"sub\">", pcIpAddrString);
+			strcpy(pcInsert, pcBuffer);
+			//return number of characters that need to be inserted in html
+			return strlen(pcBuffer);
+			}
 		return 0;
 		} //mySSIHandler
 
@@ -178,6 +277,7 @@ char IP1_str_temp[5],IP2_str_temp[5],IP3_str_temp[5],IP4_str_temp[5];
 
 		void mySSIinit(void)
 		{
+		printf("run: mySSIinit()\r\n");
 		//configure SSI handler function
 		//theSSItags is an array of SSI tag strings to search for in SSI-enabled files
 			http_set_ssi_handler(mySSIHandler, (char const **)theSSItags, numSSItags);
