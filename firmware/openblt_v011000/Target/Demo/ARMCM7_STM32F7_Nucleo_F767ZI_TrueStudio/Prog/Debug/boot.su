@@ -1,0 +1,6 @@
+boot.c:115:13:BootComRs232Init	8	static
+boot.c:208:22:Rs232ReceiveByte	8	static
+boot.c:49:6:BootComInit	8	static
+boot.c:76:6:BootActivate	0	static,ignoring_inline_asm
+boot.c:139:13:BootComRs232CheckActivationRequest	8	static
+boot.c:63:6:BootComCheckActivationRequest	8	static
