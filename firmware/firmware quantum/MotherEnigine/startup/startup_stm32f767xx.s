@@ -268,7 +268,7 @@ g_pfnVectors:
   .word     CAN3_SCE_IRQHandler               /* CAN3 SCE                     */
   .word     JPEG_IRQHandler                   /* JPEG                         */
   .word     MDIOS_IRQHandler                  /* MDIOS                        */
-  
+
 /*******************************************************************************
 *
 * Provide weak aliases for each Exception handler to the Default_Handler. 

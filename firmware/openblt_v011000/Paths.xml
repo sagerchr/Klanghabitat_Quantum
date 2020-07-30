@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cdtprojectproperties>
+<section name="org.eclipse.cdt.internal.ui.wizards.settingswizards.IncludePaths">
+<language name="s,S">
+
+</language>
+<language name="C Source File">
+<includepath>${ProjDirPath}</includepath>
+<includepath>${ProjDirPath}/lib</includepath>
+<includepath>${ProjDirPath}/lib/CMSIS/Include</includepath>
+<includepath>${ProjDirPath}/lib/CMSIS/Device/ST/STM32F7xx/Include</includepath>
+<includepath>${ProjDirPath}/lib/STM32F7xx_HAL_Driver/Inc</includepath>
+<includepath>${ProjDirPath}/lib/STM32F7xx_HAL_Driver/Inc/Legacy</includepath>
+<includepath>${ProjDirPath}/lib/uip</includepath>
+<includepath>../Source</includepath>
+<includepath>../Source/ARMCM7_STM32F7</includepath>
+<includepath>../Source/third_party/uip/uip</includepath>
+<includepath>../Source/third_party/uip/apps/dhcpc</includepath>
+<includepath>/Users/christiansager/klanghabitat_quantum/firmware/openblt_v011000/Target/Source</includepath>
+<includepath>/Users/christiansager/klanghabitat_quantum/firmware/openblt_v011000/Target/Source/ARMCM7_STM32F7</includepath>
+<includepath>/Users/christiansager/klanghabitat_quantum/firmware/openblt_v011000/Target/Source/third_party/uip/uip</includepath>
+<includepath>/Users/christiansager/klanghabitat_quantum/firmware/openblt_v011000/Target/Source/third_party/uip/apps/dhcpc</includepath>
+
+</language>
+<language name="Object File">
+
+</language>
+</section>
+</cdtprojectproperties>
