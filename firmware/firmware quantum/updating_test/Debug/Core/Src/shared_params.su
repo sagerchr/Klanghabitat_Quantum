@@ -1,0 +1,7 @@
+shared_params.c:131:6:SharedParamsInit	16	static
+shared_params.c:167:6:SharedParamsReadByIndex	24	static
+shared_params.c:193:6:SharedParamsWriteByIndex	24	static
+shared_params.c:219:13:SharedParamsValidateBuffer	16	static
+shared_params.c:240:13:SharedParamsWriteChecksum	8	static
+shared_params.c:253:13:SharedParamsVerifyChecksum	16	static
+shared_params.c:276:17:SharedParamsCalculateChecksum	16	static
