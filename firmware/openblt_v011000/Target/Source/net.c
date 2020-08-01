@@ -48,7 +48,7 @@
  * Note that adding this configuration macro to blt_conf.h overrides the value here.
  */
 #ifndef BOOT_COM_NET_BACKDOOR_EXTENSION_MS
-#define BOOT_COM_NET_BACKDOOR_EXTENSION_MS   (10000)
+#define BOOT_COM_NET_BACKDOOR_EXTENSION_MS   (20000)
 #endif
 
 

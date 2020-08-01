@@ -268,6 +268,7 @@ g_pfnVectors:
   .word     CAN3_SCE_IRQHandler               /* CAN3 SCE                     */
   .word     JPEG_IRQHandler                   /* JPEG                         */
   .word     MDIOS_IRQHandler                  /* MDIOS                        */
+  .word     0x55AA11EE                        /* Reserved for OpenBLT checksum*/
 
 /*******************************************************************************
 *

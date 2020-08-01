@@ -78,7 +78,7 @@
 /** \brief Configure the port that the TCP/IP server listens on */
 #define BOOT_COM_NET_PORT                 (1000)
 /** \brief Enable/disable DHCP client for automatically obtaining an IP address. */
-#define BOOT_COM_NET_DHCP_ENABLE          (1)
+#define BOOT_COM_NET_DHCP_ENABLE          (0)
 /** \brief Configure the 1st byte of the IP address */
 #define BOOT_COM_NET_IPADDR0              (192)
 /** \brief Configure the 2nd byte of the IP address */
@@ -86,7 +86,7 @@
 /** \brief Configure the 3rd byte of the IP address */
 #define BOOT_COM_NET_IPADDR2              (1)
 /** \brief Configure the 4th byte of the IP address */
-#define BOOT_COM_NET_IPADDR3              (71)
+#define BOOT_COM_NET_IPADDR3              (70)
 /** \brief Configure the 1st byte of the network mask */
 #define BOOT_COM_NET_NETMASK0             (255)
 /** \brief Configure the 2nd byte of the network mask */
