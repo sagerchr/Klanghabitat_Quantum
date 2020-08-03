@@ -61,9 +61,10 @@ _Min_Stack_Size = 0x400; /* required amount of stack */
 /* Specify the memory areas */
 MEMORY
 {
-RAM (xrw)      : ORIGIN = 0x20000000, LENGTH = 320K
+SHARED (xrw)    : ORIGIN = 0x20000000, LENGTH = 64
+RAM (xrw)      : ORIGIN = 0x20000040, LENGTH = 320K - 64
 CCMRAM (rw)      : ORIGIN = 0x10000000, LENGTH = 64K
-FLASH (rx)      : ORIGIN = 0x8000000, LENGTH = 2048K
+FLASH (rx)      : ORIGIN = 0x08008000, LENGTH = 2048K-32K
 }
 
 /* Define output sections */

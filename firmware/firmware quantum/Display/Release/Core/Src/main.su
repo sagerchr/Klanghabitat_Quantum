@@ -1,4 +1,5 @@
 main.c:465:13:MX_SDIO_SD_Init	0	static
+main.c:885:13:VectorBase_Config	0	static
 main.c:721:13:MX_GPIO_Init	104	static
 main.c:700:13:MX_DMA_Init	16	static
 main.c:286:13:MX_CRC_Init	8	static
@@ -11,9 +12,9 @@ main.c:539:13:MX_TIM3_Init	24	static
 main.c:588:13:MX_TIM4_Init	40	static
 main.c:636:13:MX_USART3_UART_Init	8	static
 main.c:669:13:MX_USART6_UART_Init	8	static
-main.c:898:6:StartDefaultTask	8	static
+main.c:907:6:StartDefaultTask	8	static
 main.c:221:6:SystemClock_Config	168	static
 main.c:851:6:Encoder_Init	16	static
 main.c:112:5:main	40	static
-main.c:922:6:HAL_TIM_PeriodElapsedCallback	8	static
-main.c:942:6:Error_Handler	0	static
+main.c:931:6:HAL_TIM_PeriodElapsedCallback	8	static
+main.c:951:6:Error_Handler	0	static

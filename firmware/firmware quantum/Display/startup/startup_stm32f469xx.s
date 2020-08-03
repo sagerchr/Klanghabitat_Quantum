@@ -250,7 +250,7 @@ Infinite_Loop:
   .word     DMA2D_IRQHandler                  /* DMA2D                        */
   .word     QUADSPI_IRQHandler                /* QUADSPI             	      */
   .word     DSI_IRQHandler                    /* DSI                          */  
-  
+  .word     0x55AA11EE                        /* Reserved for OpenBLT checksum*/
  
 /*******************************************************************************
 *

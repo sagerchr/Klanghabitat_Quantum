@@ -135,10 +135,5 @@ uint32_t HAL_GetTick(void)
 ** \return    none.
 **
 ****************************************************************************************/
-void SysTick_Handler(void)
-{
-  /* Nothing to do here. */
-} /*** end of SysTick_Handler ***/
-
 
 /*********************************** end of timer.c ************************************/

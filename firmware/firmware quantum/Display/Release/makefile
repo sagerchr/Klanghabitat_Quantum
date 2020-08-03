@@ -60,6 +60,9 @@ Display.list \
 OBJCOPY_HEX += \
 Display.hex \
 
+OBJCOPY_SREC += \
+Display.srec \
+
 
 # All Target
 all: Display.elf secondary-outputs
@@ -85,12 +88,17 @@ Display.hex: $(EXECUTABLES)
 	@echo 'Finished building: $@'
 	@echo ' '
 
+Display.srec: $(EXECUTABLES)
+	arm-none-eabi-objcopy  -O srec $(EXECUTABLES) "Display.srec"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
 	-$(RM) *
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX) $(OBJCOPY_SREC)
 
 .PHONY: all clean dependents
 .SECONDARY:

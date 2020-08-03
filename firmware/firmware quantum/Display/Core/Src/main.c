@@ -92,7 +92,7 @@ extern void GRAPHICS_HW_Init(void);
 extern void GRAPHICS_Init(void);
 extern void GRAPHICS_MainTask(void);
 void StartDefaultTask(void const * argument);
-
+static void VectorBase_Config(void);
 /* USER CODE BEGIN PFP */
 void Encoder_Init(void);
 /* USER CODE END PFP */
@@ -112,7 +112,7 @@ uint16_t EncoderAdr[6] = {0,8,16,32,64,128};
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+	VectorBase_Config();
   /* USER CODE END 1 */
   
 
@@ -882,7 +882,16 @@ void Encoder_Init(){
 	}
 
 }
+static void VectorBase_Config(void)
+{
+  /* The constant array with vectors of the vector table is declared externally in the
+   * c-startup code.
+   */
+  extern const unsigned long g_pfnVectors[];
 
+  /* Remap the vector table to where the vector table is located for this program. */
+  SCB->VTOR = (unsigned long)&g_pfnVectors[0];
+}
 
 
 
