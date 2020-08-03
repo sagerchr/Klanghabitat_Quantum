@@ -10,9 +10,18 @@
 		<Property Name="server.vi.callsEnabled" Type="Bool">true</Property>
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
-		<Item Name="SimpleUDP_readOut.vi" Type="VI" URL="../SimpleUDP_readOut.vi"/>
-		<Item Name="SimpleUDP_send.vi" Type="VI" URL="../SimpleUDP_send.vi"/>
-		<Item Name="WaveFormGraph.vi" Type="VI" URL="../WaveFormGraph.vi"/>
+		<Item Name="BootLoader" Type="Folder" URL="../BootLoader">
+			<Property Name="NI.DISK" Type="Bool">true</Property>
+		</Item>
+		<Item Name="diverse" Type="Folder" URL="../diverse">
+			<Property Name="NI.DISK" Type="Bool">true</Property>
+		</Item>
+		<Item Name="TCP_IP" Type="Folder" URL="../TCP_IP">
+			<Property Name="NI.DISK" Type="Bool">true</Property>
+		</Item>
+		<Item Name="UDP" Type="Folder" URL="../UDP">
+			<Property Name="NI.DISK" Type="Bool">true</Property>
+		</Item>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="NI_OSC.lvlib" Type="Library" URL="/&lt;vilib&gt;/NIOSC/NI_OSC.lvlib"/>

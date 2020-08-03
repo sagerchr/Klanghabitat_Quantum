@@ -77,6 +77,7 @@ int main(void)
    * a firmware update to proceed. the code here reads out this flag and performs the
    * TCP/IP network stack initialization when requested.
    */
+  //ComDeferredInit();
   SharedParamsReadByIndex(0, &deferredInitRequestFlag);
   if (deferredInitRequestFlag == 1)
   {
