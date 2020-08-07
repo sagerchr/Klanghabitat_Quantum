@@ -1,0 +1,5 @@
+tcp_echo_example.c:55:1:echo_init	16	static
+tcp_echo_example.c:81:1:echo_accept	32	static
+tcp_echo_example.c:115:1:echo_recv	80	dynamic
+tcp_echo_example.c:172:1:echo_error	24	static
+tcp_echo_example.c:188:1:echo_close	16	static

@@ -92,8 +92,9 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Middlewares/Third_Party/LwIP/src/include/lwip/prot/ip.h \
  ../Middlewares/Third_Party/LwIP/src/include/lwip/icmp.h \
  ../Middlewares/Third_Party/LwIP/src/include/lwip/prot/icmp.h \
- ../Core/Src/tcp_echo_example.h ../Core/Src/header.h \
- ../Core/Src/blt_conf.h ../Core/Src/boot.h ../Core/Src/shared_params.h
+ ../Core/Src/tcp_echo_example.h ../Core/Src/../Functions/MY_FLASH.h \
+ ../Core/Src/header.h ../Core/Src/blt_conf.h ../Core/Src/boot.h \
+ ../Core/Src/shared_params.h
 
 ../Core/Inc/main.h:
 
@@ -284,6 +285,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Middlewares/Third_Party/LwIP/src/include/lwip/prot/icmp.h:
 
 ../Core/Src/tcp_echo_example.h:
+
+../Core/Src/../Functions/MY_FLASH.h:
 
 ../Core/Src/header.h:
 

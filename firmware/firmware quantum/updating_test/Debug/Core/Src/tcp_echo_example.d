@@ -62,7 +62,7 @@ Core/Src/tcp_echo_example.o: ../Core/Src/tcp_echo_example.c \
  ../Middlewares/Third_Party/LwIP/src/include/lwip/prot/ip.h \
  ../Middlewares/Third_Party/LwIP/src/include/lwip/icmp.h \
  ../Middlewares/Third_Party/LwIP/src/include/lwip/prot/icmp.h \
- ../Core/Src/tcp_echo_example.h
+ ../Core/Src/tcp_echo_example.h ../Core/Src/../Functions/MY_FLASH.h
 
 ../Middlewares/Third_Party/LwIP/src/include/lwip/debug.h:
 
@@ -193,3 +193,5 @@ Core/Src/tcp_echo_example.o: ../Core/Src/tcp_echo_example.c \
 ../Middlewares/Third_Party/LwIP/src/include/lwip/prot/icmp.h:
 
 ../Core/Src/tcp_echo_example.h:
+
+../Core/Src/../Functions/MY_FLASH.h:

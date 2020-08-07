@@ -129,8 +129,8 @@
 /** \brief Configure number of bytes in the host->target data packet. */
 #define BOOT_COM_RS232_RX_MAX_DATA       (64)
 /** \brief Select the desired UART peripheral as a zero based index. */
-#define BOOT_COM_RS232_CHANNEL_INDEX     (2)
-
+//#define BOOT_COM_RS232_CHANNEL_INDEX     (2)
+#define BOOT_COM_RS232_CHANNEL_INDEX     (5)
 
 /****************************************************************************************
 *   B A C K D O O R   E N T R Y   C O N F I G U R A T I O N

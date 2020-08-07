@@ -509,7 +509,7 @@ static void DisplayProgramUsage(void)
   printf("  -t5=[timeout]    Program memory and target reset timeout in milli-\n");
   printf("                   seconds as a 16-bit value (Default = 1000 ms).\n");
   printf("  -t6=[timeout]    Connect response timeout in milliseconds as a 16-bit\n");
-  printf("                   value (Default = 50 ms).\n");
+  printf("                   value (Default = 500 ms).\n");
   printf("  -t7=[timeout]    Busy wait timer timeout in milliseconds as a 16-bit\n");
   printf("                   value (Default = 2000 ms).\n");
   printf("  -sk=[file]       Seed/key algorithm library filename (Optional).\n");
@@ -945,7 +945,7 @@ static void * ExtractSessionSettingsFromCommandLine(int argc, char const * const
           xcpSettings->timeoutT3 = 2000;
           xcpSettings->timeoutT4 = 10000;
           xcpSettings->timeoutT5 = 1000;
-          xcpSettings->timeoutT6 = 50;
+          xcpSettings->timeoutT6 = 500;
           xcpSettings->timeoutT7 = 2000;
           xcpSettings->seedKeyFile = NULL;
           xcpSettings->connectMode = 0;

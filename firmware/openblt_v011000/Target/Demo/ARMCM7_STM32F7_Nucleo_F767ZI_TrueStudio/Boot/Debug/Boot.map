@@ -6980,7 +6980,7 @@ OUTPUT(openblt_stm32f767.elf elf32-littlearm)
  .debug_line    0x00000000000137ce      0x21a lib/uip/clock-arch.o
  .debug_line    0x00000000000139e8      0xf7f lib/uip/netdev.o
 
-.debug_str      0x0000000000000000    0xfc987
+.debug_str      0x0000000000000000    0xfc986
  .debug_str     0x0000000000000000     0x3c98 core/ARMCM7_STM32F7/GCC/cpu_comp.o
                                        0x3cfc (size before relaxing)
  .debug_str     0x0000000000003c98    0xe6fcf core/ARMCM7_STM32F7/cpu.o
@@ -6995,61 +6995,61 @@ OUTPUT(openblt_stm32f767.elf elf32-littlearm)
                                       0xead8b (size before relaxing)
  .debug_str     0x00000000000ec458       0x64 core/assert.o
                                        0x3d03 (size before relaxing)
- .debug_str     0x00000000000ec4bc      0x12d core/backdoor.o
-                                       0x3dcf (size before relaxing)
- .debug_str     0x00000000000ec5e9       0x83 core/boot.o
+ .debug_str     0x00000000000ec4bc      0x12c core/backdoor.o
+                                       0x3dce (size before relaxing)
+ .debug_str     0x00000000000ec5e8       0x83 core/boot.o
                                        0x3d40 (size before relaxing)
- .debug_str     0x00000000000ec66c      0x1a5 core/com.o
+ .debug_str     0x00000000000ec66b      0x1a5 core/com.o
                                        0x3ecd (size before relaxing)
- .debug_str     0x00000000000ec811       0x73 core/cop.o
+ .debug_str     0x00000000000ec810       0x73 core/cop.o
                                        0x3cf7 (size before relaxing)
- .debug_str     0x00000000000ec884     0x1dfb core/net.o
+ .debug_str     0x00000000000ec883     0x1dfb core/net.o
                                        0x5b8a (size before relaxing)
- .debug_str     0x00000000000ee67f      0x213 core/xcp.o
+ .debug_str     0x00000000000ee67e      0x213 core/xcp.o
                                        0x3fab (size before relaxing)
- .debug_str     0x00000000000ee892      0x7f8 core/third_party/uip/apps/dhcpc/dhcpc.o
+ .debug_str     0x00000000000ee891      0x7f8 core/third_party/uip/apps/dhcpc/dhcpc.o
                                        0xa8dd (size before relaxing)
- .debug_str     0x00000000000ef08a      0x571 core/third_party/uip/uip/uip.o
+ .debug_str     0x00000000000ef089      0x571 core/third_party/uip/uip/uip.o
                                        0x93e8 (size before relaxing)
- .debug_str     0x00000000000ef5fb      0x1af core/third_party/uip/uip/uip_arp.o
+ .debug_str     0x00000000000ef5fa      0x1af core/third_party/uip/uip/uip_arp.o
                                        0x915b (size before relaxing)
- .debug_str     0x00000000000ef7aa       0x97 core/third_party/uip/uip/uip_timer.o
+ .debug_str     0x00000000000ef7a9       0x97 core/third_party/uip/uip/uip_timer.o
                                        0x2eab (size before relaxing)
- .debug_str     0x00000000000ef841       0xa3 hooks.o
+ .debug_str     0x00000000000ef840       0xa3 hooks.o
                                       0xead88 (size before relaxing)
- .debug_str     0x00000000000ef8e4       0x4f led.o
+ .debug_str     0x00000000000ef8e3       0x4f led.o
                                       0xeada7 (size before relaxing)
- .debug_str     0x00000000000ef933      0x39b main.o
+ .debug_str     0x00000000000ef932      0x39b main.o
                                       0xeb16f (size before relaxing)
- .debug_str     0x00000000000efcce      0x111 shared_params.o
+ .debug_str     0x00000000000efccd      0x111 shared_params.o
                                        0x41a1 (size before relaxing)
- .debug_str     0x00000000000efddf       0x27 startup_stm32f767xx.o
+ .debug_str     0x00000000000efdde       0x27 startup_stm32f767xx.o
                                          0xaa (size before relaxing)
- .debug_str     0x00000000000efe06      0xa65 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal.o
+ .debug_str     0x00000000000efe05      0xa65 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal.o
                                       0xeaae2 (size before relaxing)
- .debug_str     0x00000000000f086b      0x341 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cortex.o
+ .debug_str     0x00000000000f086a      0x341 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cortex.o
                                       0xeaa85 (size before relaxing)
- .debug_str     0x00000000000f0bac      0xbb1 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_eth.o
+ .debug_str     0x00000000000f0bab      0xbb1 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_eth.o
                                       0xeabd6 (size before relaxing)
- .debug_str     0x00000000000f175d      0x2d1 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash.o
+ .debug_str     0x00000000000f175c      0x2d1 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash.o
                                       0xea1d4 (size before relaxing)
- .debug_str     0x00000000000f1a2e      0x28d lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash_ex.o
+ .debug_str     0x00000000000f1a2d      0x28d lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash_ex.o
                                       0xea28b (size before relaxing)
- .debug_str     0x00000000000f1cbb      0x1ff lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_gpio.o
+ .debug_str     0x00000000000f1cba      0x1ff lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_gpio.o
                                       0xea276 (size before relaxing)
- .debug_str     0x00000000000f1eba      0x1d1 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr_ex.o
+ .debug_str     0x00000000000f1eb9      0x1d1 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr_ex.o
                                       0xea332 (size before relaxing)
- .debug_str     0x00000000000f208b      0x20a lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc.o
+ .debug_str     0x00000000000f208a      0x20a lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc.o
                                       0xea3f0 (size before relaxing)
- .debug_str     0x00000000000f2295     0x8c3d lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_rcc.o
+ .debug_str     0x00000000000f2294     0x8c3d lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_rcc.o
                                       0xf2b79 (size before relaxing)
- .debug_str     0x00000000000faed2     0x18f8 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_usart.o
+ .debug_str     0x00000000000faed1     0x18f8 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_usart.o
                                       0xf4657 (size before relaxing)
- .debug_str     0x00000000000fc7ca       0x50 lib/system_stm32f7xx.o
+ .debug_str     0x00000000000fc7c9       0x50 lib/system_stm32f7xx.o
                                       0xea09f (size before relaxing)
- .debug_str     0x00000000000fc81a       0x18 lib/uip/clock-arch.o
+ .debug_str     0x00000000000fc819       0x18 lib/uip/clock-arch.o
                                        0x3cd3 (size before relaxing)
- .debug_str     0x00000000000fc832      0x155 lib/uip/netdev.o
+ .debug_str     0x00000000000fc831      0x155 lib/uip/netdev.o
                                       0xed280 (size before relaxing)
 
 .comment        0x0000000000000000       0x7b

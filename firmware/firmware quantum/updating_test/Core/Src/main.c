@@ -24,6 +24,7 @@
 #include "lwip/tcp.h"
 #include <string.h>
 #include "tcp_echo_example.h"
+#include "../Functions/MY_FLASH.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "header.h"
@@ -106,7 +107,7 @@ int main(void)
   MX_USB_OTG_FS_PCD_Init();
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
-
+  MY_FLASH_SetSectorAddrs(5, 0x08040000);
   /* USER CODE END 2 */
 
   /* USER CODE BEGIN RTOS_MUTEX */
@@ -464,6 +465,11 @@ void StartDefaultTask(void const * argument)
   tcp_arg(pcb,NULL);
   pcb = tcp_listen(pcb);
   tcp_accept(pcb, accept_callback);
+
+  //uint8_t test[5] = {0x01,0x01,0x01,0x01,0x01};
+
+  //MY_FLASH_WriteN(0,test,5,DATA_TYPE_8);
+
 
   /* Infinite loop */
   for(;;)

@@ -41,9 +41,9 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  18 .debug_line   0000c740  00000000  00000000  00059416  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .debug_str    000fd88a  00000000  00000000  00065b56  2**0
+ 19 .debug_str    000fd889  00000000  00000000  00065b56  2**0
                   CONTENTS, READONLY, DEBUGGING
- 20 .comment      0000007b  00000000  00000000  001633e0  2**0
+ 20 .comment      0000007b  00000000  00000000  001633df  2**0
                   CONTENTS, READONLY
  21 .debug_frame  00002f48  00000000  00000000  0016345c  2**2
                   CONTENTS, READONLY, DEBUGGING
@@ -2006,7 +2006,7 @@ void Rs232Init(void)
  8000cfa:	3720      	adds	r7, #32
  8000cfc:	46bd      	mov	sp, r7
  8000cfe:	bd80      	pop	{r7, pc}
- 8000d00:	40004800 	.word	0x40004800
+ 8000d00:	40011400 	.word	0x40011400
 
 08000d04 <Rs232TransmitPacket>:
 ** \param     len  Number of bytes that are to be transmitted.
@@ -2270,7 +2270,7 @@ static blt_bool Rs232ReceiveByte(blt_int8u *data)
  8000e52:	3708      	adds	r7, #8
  8000e54:	46bd      	mov	sp, r7
  8000e56:	bd80      	pop	{r7, pc}
- 8000e58:	40004800 	.word	0x40004800
+ 8000e58:	40011400 	.word	0x40011400
 
 08000e5c <Rs232TransmitByte>:
 ** \param     data Value of byte that is to be transmitted.
@@ -2331,7 +2331,7 @@ static void Rs232TransmitByte(blt_int8u data)
  8000e9e:	3710      	adds	r7, #16
  8000ea0:	46bd      	mov	sp, r7
  8000ea2:	bd80      	pop	{r7, pc}
- 8000ea4:	40004800 	.word	0x40004800
+ 8000ea4:	40011400 	.word	0x40011400
 
 08000ea8 <TimerInit>:
 ** \brief     Initializes the polling based millisecond timer driver.
@@ -2557,7 +2557,7 @@ void BackDoorCheck(void)
  8000f8c:	4b09      	ldr	r3, [pc, #36]	; (8000fb4 <BackDoorCheck+0x48>)
  8000f8e:	681b      	ldr	r3, [r3, #0]
  8000f90:	4413      	add	r3, r2
- 8000f92:	f503 63fa 	add.w	r3, r3, #2000	; 0x7d0
+ 8000f92:	f503 73fa 	add.w	r3, r3, #500	; 0x1f4
  8000f96:	4299      	cmp	r1, r3
  8000f98:	d306      	bcc.n	8000fa8 <BackDoorCheck+0x3c>
     {
@@ -5062,17 +5062,18 @@ void HAL_MspInit(void)
 
 #if (BOOT_COM_RS232_ENABLE > 0)
   /* UART clock enable. */
-  __HAL_RCC_USART3_CLK_ENABLE();
+  //__HAL_RCC_USART3_CLK_ENABLE();
+  __HAL_RCC_USART6_CLK_ENABLE();
  8001bf6:	2300      	movs	r3, #0
  8001bf8:	603b      	str	r3, [r7, #0]
  8001bfa:	4b20      	ldr	r3, [pc, #128]	; (8001c7c <HAL_MspInit+0x16c>)
- 8001bfc:	6c1b      	ldr	r3, [r3, #64]	; 0x40
+ 8001bfc:	6c5b      	ldr	r3, [r3, #68]	; 0x44
  8001bfe:	4a1f      	ldr	r2, [pc, #124]	; (8001c7c <HAL_MspInit+0x16c>)
- 8001c00:	f443 2380 	orr.w	r3, r3, #262144	; 0x40000
- 8001c04:	6413      	str	r3, [r2, #64]	; 0x40
+ 8001c00:	f043 0320 	orr.w	r3, r3, #32
+ 8001c04:	6453      	str	r3, [r2, #68]	; 0x44
  8001c06:	4b1d      	ldr	r3, [pc, #116]	; (8001c7c <HAL_MspInit+0x16c>)
- 8001c08:	6c1b      	ldr	r3, [r3, #64]	; 0x40
- 8001c0a:	f403 2380 	and.w	r3, r3, #262144	; 0x40000
+ 8001c08:	6c5b      	ldr	r3, [r3, #68]	; 0x44
+ 8001c0a:	f003 0320 	and.w	r3, r3, #32
  8001c0e:	603b      	str	r3, [r7, #0]
  8001c10:	683b      	ldr	r3, [r7, #0]
 #endif
@@ -5118,8 +5119,9 @@ void HAL_MspInit(void)
  8001c4e:	f000 fdd1 	bl	80027f4 <HAL_GPIO_Init>
 #if (BOOT_COM_RS232_ENABLE > 0)
   /* UART TX and RX GPIO pin configuration. */
-  GPIO_InitStruct.Pin = GPIO_PIN_10 | GPIO_PIN_11;
- 8001c52:	f44f 6340 	mov.w	r3, #3072	; 0xc00
+  //GPIO_InitStruct.Pin = GPIO_PIN_10 | GPIO_PIN_11;
+  GPIO_InitStruct.Pin = GPIO_PIN_14 | GPIO_PIN_9;
+ 8001c52:	f44f 4384 	mov.w	r3, #16896	; 0x4200
  8001c56:	627b      	str	r3, [r7, #36]	; 0x24
   GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
  8001c58:	2302      	movs	r3, #2
@@ -5130,10 +5132,12 @@ void HAL_MspInit(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
  8001c60:	2303      	movs	r3, #3
  8001c62:	633b      	str	r3, [r7, #48]	; 0x30
-  GPIO_InitStruct.Alternate = GPIO_AF7_USART3;
- 8001c64:	2307      	movs	r3, #7
+  //GPIO_InitStruct.Alternate = GPIO_AF7_USART3;
+  GPIO_InitStruct.Alternate = GPIO_AF8_USART6;
+ 8001c64:	2308      	movs	r3, #8
  8001c66:	637b      	str	r3, [r7, #52]	; 0x34
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+  //HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);
  8001c68:	f107 0324 	add.w	r3, r7, #36	; 0x24
  8001c6c:	4619      	mov	r1, r3
  8001c6e:	4806      	ldr	r0, [pc, #24]	; (8001c88 <HAL_MspInit+0x178>)
@@ -5147,7 +5151,7 @@ void HAL_MspInit(void)
  8001c7c:	40023800 	.word	0x40023800
  8001c80:	40022800 	.word	0x40022800
  8001c84:	40020800 	.word	0x40020800
- 8001c88:	40020400 	.word	0x40020400
+ 8001c88:	40021800 	.word	0x40021800
 
 08001c8c <Error_Handler>:
 /**

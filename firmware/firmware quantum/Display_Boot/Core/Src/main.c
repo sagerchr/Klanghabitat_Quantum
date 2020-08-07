@@ -220,7 +220,8 @@ void HAL_MspInit(void)
 
 #if (BOOT_COM_RS232_ENABLE > 0)
   /* UART clock enable. */
-  __HAL_RCC_USART3_CLK_ENABLE();
+  //__HAL_RCC_USART3_CLK_ENABLE();
+  __HAL_RCC_USART6_CLK_ENABLE();
 #endif
 
   /* Configure GPIO pin for the LED. */
@@ -238,12 +239,15 @@ void HAL_MspInit(void)
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 #if (BOOT_COM_RS232_ENABLE > 0)
   /* UART TX and RX GPIO pin configuration. */
-  GPIO_InitStruct.Pin = GPIO_PIN_10 | GPIO_PIN_11;
+  //GPIO_InitStruct.Pin = GPIO_PIN_10 | GPIO_PIN_11;
+  GPIO_InitStruct.Pin = GPIO_PIN_14 | GPIO_PIN_9;
   GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-  GPIO_InitStruct.Alternate = GPIO_AF7_USART3;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+  //GPIO_InitStruct.Alternate = GPIO_AF7_USART3;
+  GPIO_InitStruct.Alternate = GPIO_AF8_USART6;
+  //HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+  HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);
 #endif
 } /*** end of HAL_MspInit ***/
 
