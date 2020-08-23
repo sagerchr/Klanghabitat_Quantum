@@ -53,9 +53,16 @@
 
 extern UART_HandleTypeDef huart1;
 
+
+
+
 void
 echo_init(void)
 {
+
+
+
+
   echo_pcb = tcp_new();
   if (echo_pcb != NULL)
   {
@@ -140,19 +147,30 @@ echo_recv(void *arg, struct tcp_pcb *tpcb, struct pbuf *p, err_t err)
     pbuf_free(p);
     //MY_FLASH_WriteN(count, p->payload, p->len, DATA_TYPE_8);
     count = count + p->len;
-    uint8_t byteCount=5;
-    char reciveData1[]= {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
-    char reciveData2[]= {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
+
+    for(int i=0;i<100;i++){
+    	pData[i]=0x00;
+    }
+    HAL_UART_DMAStop(&huart1);
+    huart1.hdmarx->Instance->NDTR = 100;
+    HAL_UART_Receive_DMA(&huart1, pData, 100);
+
+
     HAL_UART_Transmit(&huart1, p->payload, p->len, 10);
+    char cmd[p->len];
+    memcpy(cmd, p->payload,p->len);
 
+    if((cmd[1] == 0xD1)||(cmd[1] == 0xD0)||(cmd[1] == 0xF6)){
+        while(pData[1] == 0x00){
 
-    //HAL_UART_Receive(&huart1, byteCount, 5, 10000);
+        }
+    }
+    else
+    {
+    	HAL_Delay(10);
+    }
 
-    HAL_UART_Receive(&huart1,reciveData1 , 9, 10000);
-
-   // HAL_UART_Receive(&huart1,reciveData2, reciveData1[0], 10000);
-
-   // tcp_write(tpcb, reciveData, byteCount, 1);
+   tcp_write(tpcb, pData, pData[0]+1, 1);
 
 
 

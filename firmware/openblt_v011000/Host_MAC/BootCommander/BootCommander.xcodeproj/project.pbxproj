@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		89C629B724DDCE9500C59A3A /* serialport.c in Sources */ = {isa = PBXBuildFile; fileRef = 89C629B624DDCE9500C59A3A /* serialport.c */; };
+		89C629BA24DDCEE000C59A3A /* xcptpuart.c in Sources */ = {isa = PBXBuildFile; fileRef = 89C629B924DDCEE000C59A3A /* xcptpuart.c */; };
 		89D997E724D3550B0051439B /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 89D997E624D3550B0051439B /* main.c */; };
 		89D9980424D355480051439B /* timeutil.c in Sources */ = {isa = PBXBuildFile; fileRef = 89D997EE24D355470051439B /* timeutil.c */; };
 		89D9980524D355480051439B /* critutil.c in Sources */ = {isa = PBXBuildFile; fileRef = 89D997EF24D355470051439B /* critutil.c */; };
@@ -36,6 +38,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		89C629B624DDCE9500C59A3A /* serialport.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = serialport.c; sourceTree = "<group>"; };
+		89C629B824DDCEE000C59A3A /* xcptpuart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xcptpuart.h; sourceTree = "<group>"; };
+		89C629B924DDCEE000C59A3A /* xcptpuart.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = xcptpuart.c; sourceTree = "<group>"; };
+		89C629BB24DDCEF800C59A3A /* serialport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = serialport.h; path = ../../../Host/Source/LibOpenBLT/serialport.h; sourceTree = "<group>"; };
+		89C629BC24DDCF0B00C59A3A /* serialport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = serialport.h; sourceTree = "<group>"; };
 		89D997E324D3550B0051439B /* BootCommander */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BootCommander; sourceTree = BUILT_PRODUCTS_DIR; };
 		89D997E624D3550B0051439B /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		89D997ED24D355470051439B /* srecparser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = srecparser.h; sourceTree = "<group>"; };
@@ -99,6 +106,8 @@
 				89D997FA24D355470051439B /* firmware.c */,
 				89D997F324D355470051439B /* firmware.h */,
 				89D997FF24D355480051439B /* main.c */,
+				89C629B624DDCE9500C59A3A /* serialport.c */,
+				89C629BC24DDCF0B00C59A3A /* serialport.h */,
 				89D997F724D355470051439B /* netaccess.c */,
 				89D997F624D355470051439B /* netaccess.h */,
 				89D9980124D355480051439B /* openblt.c */,
@@ -112,6 +121,9 @@
 				89D997FD24D355480051439B /* util.h */,
 				89D9980024D355480051439B /* xcploader.c */,
 				89D997F224D355470051439B /* xcploader.h */,
+				89C629BB24DDCEF800C59A3A /* serialport.h */,
+				89C629B924DDCEE000C59A3A /* xcptpuart.c */,
+				89C629B824DDCEE000C59A3A /* xcptpuart.h */,
 				89D997F524D355470051439B /* xcpprotect.c */,
 				89D997FB24D355470051439B /* xcpprotect.h */,
 				89D997FC24D355480051439B /* xcptpnet.c */,
@@ -178,12 +190,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89C629B724DDCE9500C59A3A /* serialport.c in Sources */,
 				89D9980F24D355480051439B /* aes256.c in Sources */,
 				89D9980C24D355480051439B /* main.c in Sources */,
 				89D9980A24D355480051439B /* firmware.c in Sources */,
 				89D9980B24D355480051439B /* xcptpnet.c in Sources */,
 				89D9980424D355480051439B /* timeutil.c in Sources */,
 				89D9980524D355480051439B /* critutil.c in Sources */,
+				89C629BA24DDCEE000C59A3A /* xcptpuart.c in Sources */,
 				89D9980924D355480051439B /* util.c in Sources */,
 				89D9980D24D355480051439B /* xcploader.c in Sources */,
 				89D9980624D355480051439B /* session.c in Sources */,

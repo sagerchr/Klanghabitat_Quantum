@@ -16,7 +16,7 @@
 #include "session.h"                        /* Communication session module            */
 #include "xcploader.h"                      /* XCP loader module                       */
 #include "xcptpnet.h"                       /* XCP TCP/IP transport layer              */
-
+#include "xcptpuart.h"                       /* XCP TCP/IP transport layer              */
 
 
 
@@ -140,13 +140,13 @@ LIBOPENBLT_EXPORT void BltSessionInit(uint32_t sessionType,
            * layer. It was made static to make sure it doesn't get out of scope when
            * used in xcpLoaderSettings.
            */
-          //static tXcpTpUartSettings xcpTpUartSettings;
-          //xcpTpUartSettings.baudrate = bltTransportSettingsXcpV10Rs232Ptr->baudrate;
-          //xcpTpUartSettings.portname = bltTransportSettingsXcpV10Rs232Ptr->portName;
+          static tXcpTpUartSettings xcpTpUartSettings;
+          xcpTpUartSettings.baudrate = bltTransportSettingsXcpV10Rs232Ptr->baudrate;
+          xcpTpUartSettings.portname = bltTransportSettingsXcpV10Rs232Ptr->portName;
           /* Store transport layer settings in the XCP loader settings. */
-          //xcpLoaderSettings.transportSettings = &xcpTpUartSettings;
+          xcpLoaderSettings.transportSettings = &xcpTpUartSettings;
           /* Link the transport layer to the XCP loader settings. */
-          //xcpLoaderSettings.transport = XcpTpUartGetTransport();
+          xcpLoaderSettings.transport = XcpTpUartGetTransport();
         }
       }
       else if (transportType == BLT_TRANSPORT_XCP_V10_CAN)

@@ -3,7 +3,7 @@
 <eagle version="9.6.2">
 <drawing>
 <settings>
-<setting alwaysvectorfont="yes"/>
+<setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="0.1" unitdist="mm" unit="mm" style="lines" multiple="1" display="no" altdistance="5" altunitdist="mil" altunit="mil"/>
@@ -146,7 +146,7 @@
 <layer number="255" name="routoute" color="7" fill="1" visible="yes" active="yes"/>
 </layers>
 <board>
-<fusionsync huburn="a.cGVyc29uYWw6dWUyYWQzYTA1" projecturn="a.cGVyc29uYWw6dWUyYWQzYTA1IzIwMTkxMTEwMjM2NzAyNzAx" f3durn="urn:adsk.wipprod:dm.lineage:jSI7DsfASh-GffiHfVI5Hg" pcbguid="5db1c9d5-c753-4ee2-930c-6d6f3112ed6c" lastpulledtime="" lastsyncedchangeguid="4edbf765-5883-d9b9-a755-3ab696df77a4" latestrevisionid="" lastsyncedrevisionid="" lastboardhashguid="" lastpushedtime="" linktopcb3d="false"/>
+<fusionsync huburn="a.cGVyc29uYWw6dWUyYWQzYTA1" projecturn="a.cGVyc29uYWw6dWUyYWQzYTA1IzIwMTkxMTEwMjM2NzAyNzAx" f3durn="urn:adsk.wipprod:dm.lineage:w6AnM5tFQviI3Qj8uuvTHQ" pcbguid="e44c9a42-0813-4b2b-b68d-0ec63ebcc1d3" lastpulledtime="" lastsyncedchangeguid="4edbf765-5883-d9b9-a755-3ab696df77a4" latestrevisionid="bf2c3566-69a7-41f1-bea0-bf1592bff39e" lastsyncedrevisionid="bf2c3566-69a7-41f1-bea0-bf1592bff39e" lastboardhashguid="e08b7cf0-7409-4728-82bd-0fbdbe10460e" lastpushedtime="2020-06-03T10:13:30Z" linktopcb3d="true"/>
 <plain>
 <wire x1="0" y1="0" x2="165" y2="0" width="0" layer="20"/>
 <wire x1="165" y1="0" x2="165" y2="85" width="0" layer="20"/>
@@ -263,7 +263,7 @@
 <text x="-1.778" y="2.54" size="1.27" layer="25" ratio="10">&gt;NAME</text>
 <text x="-1.778" y="-3.81" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
 </package>
-<package name="DIODE_THT_STANDING" urn="urn:adsk.eagle:footprint:2094189/3" locally_modified="yes" library_version="24" library_locally_modified="yes">
+<package name="DIODE_THT_STANDING" urn="urn:adsk.eagle:footprint:2094189/4" library_version="28">
 <description>&lt;b&gt;DIODE&lt;/b&gt;</description>
 <pad name="A" x="0" y="0" drill="1" diameter="1.778" shape="octagon"/>
 <pad name="C" x="-2.54" y="0" drill="1" diameter="1.778" shape="octagon"/>
@@ -380,7 +380,7 @@
 <packageinstance name="C5MM"/>
 </packageinstances>
 </package3d>
-<package3d name="D-5" urn="urn:adsk.eagle:package:2094195/5" type="model" library_version="24" library_locally_modified="yes">
+<package3d name="D-5" urn="urn:adsk.eagle:package:2094195/6" type="model" library_version="28">
 <description>&lt;b&gt;DIODE&lt;/b&gt;</description>
 <packageinstances>
 <packageinstance name="DIODE_THT_STANDING"/>
@@ -392,12 +392,12 @@
 <packageinstance name="78XXS_"/>
 </packageinstances>
 </package3d>
-<package3d name="LP_SIZE_6" urn="urn:adsk.eagle:package:17233030/2" type="model" library_version="22">
+<package3d name="LP_SIZE_6" urn="urn:adsk.eagle:package:17233030/3" type="model" library_version="28">
 <packageinstances>
 <packageinstance name="LP_SIZE_6"/>
 </packageinstances>
 </package3d>
-<package3d name="LP_SIZE_24" urn="urn:adsk.eagle:package:20714206/2" type="model" library_version="27">
+<package3d name="LP_SIZE_24" urn="urn:adsk.eagle:package:20714206/3" type="model" library_version="28">
 <packageinstances>
 <packageinstance name="LP_SIZE_24"/>
 </packageinstances>
@@ -433,7 +433,7 @@
 <wire x1="0.3048" y1="-1.9304" x2="-0.4572" y2="-1.9304" width="0.508" layer="51" curve="-180"/>
 <wire x1="-0.4572" y1="-1.9304" x2="0.3048" y2="-1.9304" width="0.508" layer="51" curve="-180"/>
 </package>
-<package name="PF0030PC" urn="urn:adsk.eagle:footprint:16991589/1" locally_modified="yes" library_version="43" library_locally_modified="yes">
+<package name="PF0030PC" urn="urn:adsk.eagle:footprint:16991589/2" library_version="48">
 <description>&lt;b&gt;PF0030/PC-2&lt;/b&gt;&lt;br&gt;
 </description>
 <pad name="1" x="0" y="0" drill="1.7" diameter="2.55"/>
@@ -505,7 +505,7 @@
 <packageinstance name="MOLEX_90814-0204"/>
 </packageinstances>
 </package3d>
-<package3d name="PF0030PC" urn="urn:adsk.eagle:package:16991597/2" type="model" library_version="43" library_locally_modified="yes">
+<package3d name="PF0030PC" urn="urn:adsk.eagle:package:16991597/3" type="model" library_version="48">
 <description>&lt;b&gt;PF0030/PC-2&lt;/b&gt;&lt;br&gt;</description>
 <packageinstances>
 <packageinstance name="PF0030PC"/>
@@ -747,7 +747,7 @@ design rules under a new name.</description>
 <attribute name="NAME" x="19.971" y="34.021" size="1.27" layer="25" ratio="10" rot="R180"/>
 <attribute name="VALUE" x="28.353" y="31.862" size="1.27" layer="27" ratio="10" rot="R90"/>
 </element>
-<element name="D1" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="DIODE_THT_STANDING" package3d_urn="urn:adsk.eagle:package:2094195/5" value="4148" x="11" y="35.64" smashed="yes" rot="R180">
+<element name="D1" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="DIODE_THT_STANDING" package3d_urn="urn:adsk.eagle:package:2094195/6" value="4148" x="11" y="35.64" smashed="yes" rot="R180">
 <attribute name="MOUSER_PART_NUMBER" value="..." x="-108.38" y="207.09" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="12.985" y="34.275" size="1.27" layer="25" ratio="10" rot="R180"/>
 <attribute name="VALUE" x="12.905" y="38.18" size="1.27" layer="27" ratio="10" rot="R180"/>
@@ -755,12 +755,12 @@ design rules under a new name.</description>
 <element name="C3" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="ELECTROLYTIC_16MM" package3d_urn="urn:adsk.eagle:package:1899458/5" value="4700 uF/25 V" x="70.59" y="69.79" smashed="yes" rot="R90">
 <attribute name="NAME" x="69.352" y="70.027" size="1.27" layer="21" rot="R180"/>
 </element>
-<element name="TRANSFORMATOR1" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="LP_SIZE_24" package3d_urn="urn:adsk.eagle:package:20714206/2" value="PRINTTRAFO2X15@1.6A_SIZE24" x="40.4" y="1.58" smashed="yes">
+<element name="TRANSFORMATOR1" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="LP_SIZE_24" package3d_urn="urn:adsk.eagle:package:20714206/3" value="PRINTTRAFO2X15@1.6A_SIZE24" x="40.4" y="1.58" smashed="yes">
 <attribute name="MOUSER_PART_NUMBER" value="530-LP-30-800" x="169.94" y="-18.74" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="62.369" y="24.913" size="2.54" layer="25"/>
 <attribute name="VALUE" x="41.67" y="11.74" size="2.54" layer="27"/>
 </element>
-<element name="TRANSFORMATOR2" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="LP_SIZE_6" package3d_urn="urn:adsk.eagle:package:17233030/2" value="PRINTTRAFO2X15@0.4A_SIZE6" x="154.36" y="5.53" smashed="yes" rot="R90">
+<element name="TRANSFORMATOR2" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="LP_SIZE_6" package3d_urn="urn:adsk.eagle:package:17233030/3" value="PRINTTRAFO2X15@0.4A_SIZE6" x="154.36" y="5.53" smashed="yes" rot="R90">
 <attribute name="MOUSER_PART_NUMBER" value="530-LP-30-200" x="247.07" y="135.07" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="157.909" y="12.482" size="2.54" layer="25" rot="R90"/>
 <attribute name="VALUE" x="144.2" y="6.8" size="2.54" layer="27" rot="R90"/>
@@ -773,7 +773,7 @@ design rules under a new name.</description>
 <attribute name="NAME" x="11.334" y="49.746" size="1.27" layer="25" ratio="10"/>
 <attribute name="VALUE" x="9.222" y="48.19" size="1.27" layer="27" ratio="10"/>
 </element>
-<element name="D2" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="DIODE_THT_STANDING" package3d_urn="urn:adsk.eagle:package:2094195/5" value="4148" x="10" y="56" smashed="yes" rot="R180">
+<element name="D2" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="DIODE_THT_STANDING" package3d_urn="urn:adsk.eagle:package:2094195/6" value="4148" x="10" y="56" smashed="yes" rot="R180">
 <attribute name="MOUSER_PART_NUMBER" value="..." x="-101.76" y="227.45" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="17.001" y="56.365" size="1.27" layer="25" ratio="10" rot="R180"/>
 <attribute name="VALUE" x="11.905" y="58.54" size="1.27" layer="27" ratio="10" rot="R180"/>
@@ -805,7 +805,7 @@ design rules under a new name.</description>
 <attribute name="NAME" x="17.0402" y="72.3678" size="1.27" layer="25" rot="R270" align="center"/>
 <attribute name="VALUE" x="4.9498" y="74.0696" size="1.27" layer="27" rot="R270" align="center"/>
 </element>
-<element name="J3" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" package="PF0030PC" package3d_urn="urn:adsk.eagle:package:16991597/2" value="PF0030_PC" x="120.34" y="57.27" smashed="yes">
+<element name="J3" library="electro_mechanical" library_urn="urn:adsk.eagle:library:16388331" package="PF0030PC" package3d_urn="urn:adsk.eagle:package:16991597/3" value="PF0030_PC" x="120.34" y="57.27" smashed="yes">
 <attribute name="DESCRIPTION" value="Bulgin C14 Right Angle Through Hole IEC Plug Male, 10A, 250 V ac" x="120.34" y="57.27" size="1.778" layer="27" display="off"/>
 <attribute name="HEIGHT" value="35.8mm" x="120.34" y="57.27" size="1.778" layer="27" display="off"/>
 <attribute name="MANUFACTURER_NAME" value="Bulgin" x="120.34" y="57.27" size="1.778" layer="27" display="off"/>
@@ -823,7 +823,7 @@ design rules under a new name.</description>
 <attribute name="NAME" x="47.699" y="65.666" size="1.27" layer="25" ratio="10" rot="R270"/>
 <attribute name="VALUE" x="44.27" y="72.778" size="1.27" layer="27" ratio="10" rot="R270"/>
 </element>
-<element name="D4" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="DIODE_THT_STANDING" package3d_urn="urn:adsk.eagle:package:2094195/5" value="4148" x="52.81" y="71" smashed="yes" rot="R90">
+<element name="D4" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="DIODE_THT_STANDING" package3d_urn="urn:adsk.eagle:package:2094195/6" value="4148" x="52.81" y="71" smashed="yes" rot="R90">
 <attribute name="MOUSER_PART_NUMBER" value="..." x="31.22" y="54.49" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="53.445" y="64.015" size="1.27" layer="25" ratio="10" rot="R90"/>
 <attribute name="VALUE" x="55.35" y="69.095" size="1.27" layer="27" ratio="10" rot="R90"/>
@@ -840,7 +840,7 @@ design rules under a new name.</description>
 <attribute name="NAME" x="20.534" y="72.934" size="1.27" layer="25" ratio="10" rot="R90"/>
 <attribute name="VALUE" x="24.09" y="65.822" size="1.27" layer="27" ratio="10" rot="R90"/>
 </element>
-<element name="D5" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="DIODE_THT_STANDING" package3d_urn="urn:adsk.eagle:package:2094195/5" value="4148" x="24.81" y="71" smashed="yes" rot="R90">
+<element name="D5" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="DIODE_THT_STANDING" package3d_urn="urn:adsk.eagle:package:2094195/6" value="4148" x="24.81" y="71" smashed="yes" rot="R90">
 <attribute name="MOUSER_PART_NUMBER" value="..." x="17.19" y="62.11" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="25.572" y="64.269" size="1.27" layer="25" ratio="10" rot="R90"/>
 <attribute name="VALUE" x="27.35" y="69.095" size="1.27" layer="27" ratio="10" rot="R90"/>

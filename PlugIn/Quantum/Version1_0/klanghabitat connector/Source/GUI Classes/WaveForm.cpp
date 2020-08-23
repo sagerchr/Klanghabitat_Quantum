@@ -33,7 +33,7 @@ void Waveform::paint (Graphics& g){
         int middlepoint=50;
         int xPosition = 0;
            
-    g.fillAll (Colours::sager);
+    g.fillAll (Colours::grey);
 
     g.setColour (Colours::orange);
         for(int i = 0; i<1000; i++){

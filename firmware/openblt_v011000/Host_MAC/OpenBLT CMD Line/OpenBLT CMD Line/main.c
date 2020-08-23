@@ -18,7 +18,7 @@ int main(int argc, const char * argv[]) {
     
     BltFirmwareInit(BLT_FIRMWARE_PARSER_SRECORD);
     tBltSessionSettingsXcpV10 Sessionsettings;
-    tBltTransportSettingsXcpV10Net TransportSettings;
+    tBltTransportSettingsXcpV10Rs232 TransportSettings;
 
     
     Sessionsettings.timeoutT1 = 1000;
@@ -29,11 +29,11 @@ int main(int argc, const char * argv[]) {
     Sessionsettings.timeoutT7 = 2000;
     Sessionsettings.connectMode = 0;
     
-    TransportSettings.address = "192.168.1.70";
-    TransportSettings.port = 1000;
+    TransportSettings.portName = "/dev/cu.usbmodem142503";
+    TransportSettings.baudrate = 57600;
 
 
-    BltSessionInit(BLT_SESSION_XCP_V10, &Sessionsettings, BLT_TRANSPORT_XCP_V10_NET,&TransportSettings);
+    BltSessionInit(BLT_SESSION_XCP_V10, &Sessionsettings, BLT_TRANSPORT_XCP_V10_RS232,&TransportSettings);
     BltUtilTimeGetSystemTime();
     
     
