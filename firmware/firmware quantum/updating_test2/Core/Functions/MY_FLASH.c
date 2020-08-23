@@ -34,6 +34,7 @@ static void MY_FLASH_EraseSector(void)
 	FLASH_Erase_Sector(MY_SectorNum, FLASH_VOLTAGE_RANGE_3);
 	FLASH_Erase_Sector(MY_SectorNum+1, FLASH_VOLTAGE_RANGE_3);
 	FLASH_Erase_Sector(MY_SectorNum+2, FLASH_VOLTAGE_RANGE_3);
+	FLASH_Erase_Sector(MY_SectorNum+3, FLASH_VOLTAGE_RANGE_3);
 	HAL_FLASH_Lock();
 }
 

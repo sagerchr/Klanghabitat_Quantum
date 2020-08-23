@@ -51,6 +51,8 @@
 #define FLASH_STORAGE 0x08040000
 #define page_size 0x800
 
+extern UART_HandleTypeDef huart1;
+
 void
 echo_init(void)
 {
@@ -107,7 +109,7 @@ echo_accept(void *arg, struct tcp_pcb *newpcb, err_t err)
   {
     ret_err = ERR_MEM;
   }
-  MY_FLASH_SetSectorAddrs(5, 0x08040000);
+  //MY_FLASH_SetSectorAddrs(5, 0x08040000);
   return ret_err;
 }
 
@@ -128,17 +130,33 @@ echo_recv(void *arg, struct tcp_pcb *tpcb, struct pbuf *p, err_t err)
 	char buffer2[p->len];
     /* indicate that the packet has been received */
     tcp_recved(tpcb, p->len);
-    memcpy(buffer, p->payload,p->len);
+    //memcpy(buffer, p->payload,p->len);
     /* echo back the payload */
     /* in this case, we assume that the payload is < TCP_SND_BUF */
 
     //err = tcp_write(tpcb, p->payload, p->len, 1);
     /* free the received pbuf */
+
     pbuf_free(p);
-
-    MY_FLASH_WriteN(count, buffer, p->len, DATA_TYPE_8);
+    //MY_FLASH_WriteN(count, p->payload, p->len, DATA_TYPE_8);
     count = count + p->len;
+    uint8_t byteCount=5;
+    char reciveData1[]= {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
+    char reciveData2[]= {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
+    HAL_UART_Transmit(&huart1, p->payload, p->len, 10);
 
+
+    //HAL_UART_Receive(&huart1, byteCount, 5, 10000);
+
+    HAL_UART_Receive(&huart1,reciveData1 , 9, 10000);
+
+   // HAL_UART_Receive(&huart1,reciveData2, reciveData1[0], 10000);
+
+   // tcp_write(tpcb, reciveData, byteCount, 1);
+
+
+
+    /*
     if(count<100){
     		char str[3];
     		sprintf(str, "%d;", count);
@@ -164,7 +182,7 @@ echo_recv(void *arg, struct tcp_pcb *tpcb, struct pbuf *p, err_t err)
        		sprintf(str, "%d;", count);
        		tcp_write(tpcb, str, 7, 1);
     	}
-
+*/
     return ERR_OK;
 }
 
