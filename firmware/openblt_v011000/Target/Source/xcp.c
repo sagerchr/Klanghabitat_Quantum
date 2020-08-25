@@ -30,7 +30,7 @@
 * Include files
 ****************************************************************************************/
 #include "boot.h"                                /* bootloader generic header          */
-
+#include "Display.h"
 
 #if (BOOT_COM_ENABLE > 0)
 /****************************************************************************************
@@ -217,13 +217,21 @@ void XcpPacketReceived(blt_int8u *data, blt_int8u len)
   /* was this a connect command? */
   if (data[0] == XCP_CMD_CONNECT)
   {
-    /* process the connect command */
+
+
+	  /* process the connect command */
     XcpCmdConnect(data);
+
+   	  BSP_LCD_DisplayStringAt(0, BSP_LCD_GetYSize()/2 - 27, (uint8_t*)"BootLoaderConected", CENTER_MODE);
   }
   /* only continue if connected */
   else if (xcpInfo.connected == 1)
   {
-    switch (data[0])
+
+
+
+
+	switch (data[0])
     {
       case XCP_CMD_UPLOAD:
         XcpCmdUpload(data);

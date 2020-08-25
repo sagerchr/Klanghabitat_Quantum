@@ -57,14 +57,13 @@ _estack = 0x20050000;    /* end of RAM */
 /* Generate a link error if heap and stack don't fit into RAM */
 _Min_Heap_Size = 0x200;      /* required amount of heap  */
 _Min_Stack_Size = 0x400; /* required amount of stack */
-
 /* Specify the memory areas */
 MEMORY
 {
 SHARED (xrw)    : ORIGIN = 0x20000000, LENGTH = 64
 RAM (xrw)      : ORIGIN = 0x20000040, LENGTH = 320K - 64
 CCMRAM (rw)      : ORIGIN = 0x10000000, LENGTH = 64K
-FLASH (rx)      : ORIGIN = 0x08008000, LENGTH = 2048K-32K
+FLASH (rx)      : ORIGIN = 0x08010000, LENGTH = 2048K-64K
 }
 
 /* Define output sections */

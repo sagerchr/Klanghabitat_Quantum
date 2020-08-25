@@ -21,9 +21,18 @@
 #include "boot.h"                                /* bootloader generic header          */
 #include "stm32f4xx_hal.h"                       /* STM32 CPU and HAL header           */
 #include "shared_params.h"                       /* Shared parameters header           */
+#include "Display.h"
 
 
+/* Imported globals ----------------------------------------------------------*/
+extern TS_StateTypeDef  TS_State;
 
+/* Exported macro ------------------------------------------------------------*/
+/* Exported functions ------------------------------------------------------- */
+uint8_t  Touchscreen_Calibration(void);
+uint16_t TouchScreen_Get_Calibrated_X(uint16_t x);
+uint16_t TouchScreen_Get_Calibrated_Y(uint16_t y);
+uint8_t  TouchScreen_IsCalibrationDone(void);
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -78,11 +87,22 @@ static void MX_USART6_UART_Init(void);
   */
 int main(void)
 {
+
+
   blt_int8u deferredInitRequestFlag = 0;
 
   /* initialize the microcontroller */
   Init();
   /* initialize the shared parameters module */
+  BSP_SDRAM_Init();
+  BSP_LCD_Init() ;
+  BSP_LCD_InitEx(LCD_ORIENTATION_LANDSCAPE);
+  BSP_LCD_LayerDefaultInit(LTDC_ACTIVE_LAYER_BACKGROUND, LCD_FB_START_ADDRESS);
+  BSP_LCD_Clear(LCD_COLOR_BLACK);
+  BSP_LCD_SetTextColor(LCD_COLOR_WHITE);
+  BSP_LCD_SetBackColor(LCD_COLOR_BLACK);
+  BSP_LCD_SetFont(&Font24);
+  BSP_LCD_DisplayStringAt(0, BSP_LCD_GetYSize()/2 - 27, (uint8_t*)"StartUp", CENTER_MODE);
   SharedParamsInit();
   /* initialize the bootloader */
   BootInit();
@@ -142,56 +162,66 @@ static void Init(void)
 } /*** end of Init ***/
 
 
-
-
-
-
-
 void SystemClock_Config(void)
 {
-  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
-  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+  RCC_ClkInitTypeDef RCC_ClkInitStruct;
+  RCC_OscInitTypeDef RCC_OscInitStruct;
+  HAL_StatusTypeDef ret = HAL_OK;
 
-  /** Configure the main internal regulator output voltage
-  */
+  /* Enable Power Control clock */
   __HAL_RCC_PWR_CLK_ENABLE();
+
+  /* The voltage scaling allows optimizing the power consumption when the device is
+     clocked below the maximum system frequency, to update the voltage scaling value
+     regarding system frequency refer to product datasheet.  */
   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
-  /** Initializes the RCC Oscillators according to the specified parameters
-  * in the RCC_OscInitTypeDef structure.
-  */
+
+  /* Enable HSE Oscillator and activate PLL with HSE as source */
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
-  RCC_OscInitStruct.PLL.PLLM = 4;
-  RCC_OscInitStruct.PLL.PLLN = 180;
+#if defined(USE_STM32469I_DISCO_REVA)
+  RCC_OscInitStruct.PLL.PLLM = 25;
+#else
+  RCC_OscInitStruct.PLL.PLLM = 8;
+#endif /* USE_STM32469I_DISCO_REVA */
+  RCC_OscInitStruct.PLL.PLLN = 360;
   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
-  RCC_OscInitStruct.PLL.PLLQ = 6;
+  RCC_OscInitStruct.PLL.PLLQ = 7;
   RCC_OscInitStruct.PLL.PLLR = 6;
-  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+
+  ret = HAL_RCC_OscConfig(&RCC_OscInitStruct);
+  if(ret != HAL_OK)
   {
-    Error_Handler();
+    while(1) { ; }
   }
-  /** Activate the Over-Drive mode
-  */
-  if (HAL_PWREx_EnableOverDrive() != HAL_OK)
+
+  /* Activate the OverDrive to reach the 180 MHz Frequency */
+  ret = HAL_PWREx_EnableOverDrive();
+  if(ret != HAL_OK)
   {
-    Error_Handler();
+    while(1) { ; }
   }
-  /** Initializes the CPU, AHB and APB buses clocks
-  */
-  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
-                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+
+  /* Select PLL as system clock source and configure the HCLK, PCLK1 and PCLK2 clocks dividers */
+  RCC_ClkInitStruct.ClockType = (RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2);
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK)
+  ret = HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5);
+  if(ret != HAL_OK)
   {
-    Error_Handler();
+    while(1) { ; }
   }
 }
+
+
+
+
+
 
 /**
   * @brief CRC Initialization Function
