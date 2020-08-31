@@ -53,9 +53,6 @@
 
 extern UART_HandleTypeDef huart1;
 
-
-
-
 void
 UartBridge_init(void)
 {
@@ -127,33 +124,26 @@ echo_recv(void *arg, struct tcp_pcb *tpcb, struct pbuf *p, err_t err)
         return ERR_OK;
     }
 
-
-	char buffer[p->len];
-	char buffer2[p->len];
     /* indicate that the packet has been received */
     tcp_recved(tpcb, p->len);
-    //memcpy(buffer, p->payload,p->len);
-    /* echo back the payload */
-    /* in this case, we assume that the payload is < TCP_SND_BUF */
-
-    //err = tcp_write(tpcb, p->payload, p->len, 1);
-    /* free the received pbuf */
 
     pbuf_free(p);
-    //MY_FLASH_WriteN(count, p->payload, p->len, DATA_TYPE_8);
+
     count = count + p->len;
 
     for(int i=0;i<100;i++){
     	pData[i]=0x00;
     }
-    HAL_UART_DMAStop(&huart1);
-    huart1.hdmarx->Instance->NDTR = 100;
-    HAL_UART_Receive_DMA(&huart1, pData, 100);
 
+    HAL_UART_DMAStop(&huart1); //Stop the HUART
+    huart1.hdmarx->Instance->NDTR = 100; //Set DMA counter back to Strat posotion
+    HAL_UART_Receive_DMA(&huart1, pData, 100); //Init the DMA to Recive data
 
-    HAL_UART_Transmit(&huart1, p->payload, p->len, 10);
-    char cmd[p->len];
-    memcpy(cmd, p->payload,p->len);
+    HAL_UART_Transmit(&huart1, p->payload, p->len, 10); //Send data to Display recived via Ethernet
+
+    char cmd[p->len]; //Identify the CMD
+
+    memcpy(cmd, p->payload,p->len); //Save the CMD to variable
 
     if((cmd[1] == 0xD1)||(cmd[1] == 0xD0)||(cmd[1] == 0xF6)||(cmd[1] == 0x0F)){
         while(pData[1] == 0x00){
@@ -162,12 +152,10 @@ echo_recv(void *arg, struct tcp_pcb *tpcb, struct pbuf *p, err_t err)
     }
     else
     {
-
         	HAL_Delay(10);
-
     }
 
-   tcp_write(tpcb, pData, pData[0]+1, 1);
+   tcp_write(tpcb, pData, pData[0]+1, 1); //Write back answer to HOST Software
 
     return ERR_OK;
 }

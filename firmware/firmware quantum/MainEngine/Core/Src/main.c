@@ -46,11 +46,16 @@
 
 /* Private variables ---------------------------------------------------------*/
 
+SPI_HandleTypeDef hspi2;
+
 TIM_HandleTypeDef htim3;
 
 UART_HandleTypeDef huart1;
 UART_HandleTypeDef huart3;
+UART_HandleTypeDef huart6;
 DMA_HandleTypeDef hdma_usart1_rx;
+DMA_HandleTypeDef hdma_usart6_rx;
+DMA_HandleTypeDef hdma_usart6_tx;
 
 PCD_HandleTypeDef hpcd_USB_OTG_FS;
 
@@ -67,6 +72,8 @@ static void MX_USART3_UART_Init(void);
 static void MX_USB_OTG_FS_PCD_Init(void);
 static void MX_TIM3_Init(void);
 static void MX_USART1_UART_Init(void);
+static void MX_SPI2_Init(void);
+static void MX_USART6_UART_Init(void);
 void StartDefaultTask(void const * argument);
 
 /* USER CODE BEGIN PFP */
@@ -112,6 +119,8 @@ int main(void)
   MX_USB_OTG_FS_PCD_Init();
   MX_TIM3_Init();
   MX_USART1_UART_Init();
+  MX_SPI2_Init();
+  MX_USART6_UART_Init();
   /* USER CODE BEGIN 2 */
   SharedParamsWriteByIndex(0, 0);
   /* USER CODE END 2 */
@@ -220,14 +229,55 @@ void SystemClock_Config(void)
     Error_Handler();
   }
   PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_USART1|RCC_PERIPHCLK_USART3
-                              |RCC_PERIPHCLK_CLK48;
+                              |RCC_PERIPHCLK_USART6|RCC_PERIPHCLK_CLK48;
   PeriphClkInitStruct.Usart1ClockSelection = RCC_USART1CLKSOURCE_PCLK2;
   PeriphClkInitStruct.Usart3ClockSelection = RCC_USART3CLKSOURCE_PCLK1;
+  PeriphClkInitStruct.Usart6ClockSelection = RCC_USART6CLKSOURCE_PCLK2;
   PeriphClkInitStruct.Clk48ClockSelection = RCC_CLK48SOURCE_PLL;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
   {
     Error_Handler();
   }
+}
+
+/**
+  * @brief SPI2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_SPI2_Init(void)
+{
+
+  /* USER CODE BEGIN SPI2_Init 0 */
+
+  /* USER CODE END SPI2_Init 0 */
+
+  /* USER CODE BEGIN SPI2_Init 1 */
+
+  /* USER CODE END SPI2_Init 1 */
+  /* SPI2 parameter configuration*/
+  hspi2.Instance = SPI2;
+  hspi2.Init.Mode = SPI_MODE_MASTER;
+  hspi2.Init.Direction = SPI_DIRECTION_2LINES;
+  hspi2.Init.DataSize = SPI_DATASIZE_4BIT;
+  hspi2.Init.CLKPolarity = SPI_POLARITY_LOW;
+  hspi2.Init.CLKPhase = SPI_PHASE_1EDGE;
+  hspi2.Init.NSS = SPI_NSS_SOFT;
+  hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
+  hspi2.Init.FirstBit = SPI_FIRSTBIT_MSB;
+  hspi2.Init.TIMode = SPI_TIMODE_DISABLE;
+  hspi2.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+  hspi2.Init.CRCPolynomial = 7;
+  hspi2.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
+  hspi2.Init.NSSPMode = SPI_NSS_PULSE_ENABLE;
+  if (HAL_SPI_Init(&hspi2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN SPI2_Init 2 */
+
+  /* USER CODE END SPI2_Init 2 */
+
 }
 
 /**
@@ -291,7 +341,7 @@ static void MX_USART1_UART_Init(void)
 
   /* USER CODE END USART1_Init 1 */
   huart1.Instance = USART1;
-  huart1.Init.BaudRate = 57600;
+  huart1.Init.BaudRate = 115600;
   huart1.Init.WordLength = UART_WORDLENGTH_8B;
   huart1.Init.StopBits = UART_STOPBITS_1;
   huart1.Init.Parity = UART_PARITY_NONE;
@@ -346,6 +396,41 @@ static void MX_USART3_UART_Init(void)
 }
 
 /**
+  * @brief USART6 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART6_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART6_Init 0 */
+
+  /* USER CODE END USART6_Init 0 */
+
+  /* USER CODE BEGIN USART6_Init 1 */
+
+  /* USER CODE END USART6_Init 1 */
+  huart6.Instance = USART6;
+  huart6.Init.BaudRate = 115200;
+  huart6.Init.WordLength = UART_WORDLENGTH_8B;
+  huart6.Init.StopBits = UART_STOPBITS_1;
+  huart6.Init.Parity = UART_PARITY_NONE;
+  huart6.Init.Mode = UART_MODE_TX_RX;
+  huart6.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart6.Init.OverSampling = UART_OVERSAMPLING_16;
+  huart6.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  huart6.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&huart6) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART6_Init 2 */
+
+  /* USER CODE END USART6_Init 2 */
+
+}
+
+/**
   * @brief USB_OTG_FS Initialization Function
   * @param None
   * @retval None
@@ -390,9 +475,15 @@ static void MX_DMA_Init(void)
   __HAL_RCC_DMA2_CLK_ENABLE();
 
   /* DMA interrupt init */
+  /* DMA2_Stream1_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA2_Stream1_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA2_Stream1_IRQn);
   /* DMA2_Stream2_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA2_Stream2_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA2_Stream2_IRQn);
+  /* DMA2_Stream6_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA2_Stream6_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA2_Stream6_IRQn);
 
 }
 
@@ -458,6 +549,8 @@ static void VectorBase_Config(void)
   /* Remap the vector table to where the vector table is located for this program. */
   SCB->VTOR = (unsigned long)&g_pfnVectors[0];
 }
+
+
 /* USER CODE END 4 */
 
 /* USER CODE BEGIN Header_StartDefaultTask */
@@ -467,31 +560,26 @@ static void VectorBase_Config(void)
   * @retval None
   */
 
-
+//##################################################################################//
+//###################Callbacks for Bootloader activation############################//
+//##################################################################################//
 
 //https://www.xilinx.com/video/soc/networking-with-lwip-focused-free-rtos.html
 //When we recive something we come here to accept the connection wish or not
+
 err_t err;
 
 err_t
 recv_callback(void *arg, struct tcp_pcb *tpcb, struct pbuf *p, err_t err){
 
 	char recived[50];
-
 	tcp_recved(tpcb, p->len);
-
 	memcpy(recived, p -> payload, p -> len); //put the incoming udp data to UDP_RECIVE
-
 	pbuf_free(p);
 }
 
-
-
-
 err_t
 accept_callback(void *arg, struct tcp_pcb *newpcb, err_t err){
-
-
 	tcp_arg(newpcb,NULL);
 	tcp_recv(newpcb, recv_callback);
 
@@ -500,7 +588,7 @@ accept_callback(void *arg, struct tcp_pcb *newpcb, err_t err){
 	BootActivate();
 }
 
-
+//##################################################################################//
 
 
 /* USER CODE END Header_StartDefaultTask */
@@ -510,9 +598,13 @@ void StartDefaultTask(void const * argument)
   MX_LWIP_Init();
   /* USER CODE BEGIN 5 */
   httpd_init();
+
+
   HAL_TIM_Base_Start_IT(&htim3);
 
   UartBridge_init();
+
+  //########create pcb for firmware  upgrade on port 1000#########//
   static struct tcp_pcb *pcb;
   err_t err;
   pcb = tcp_new();
@@ -520,11 +612,7 @@ void StartDefaultTask(void const * argument)
   tcp_arg(pcb,NULL);
   pcb = tcp_listen(pcb);
   tcp_accept(pcb, accept_callback);
-
-  //uint8_t test[5] = {0x01,0x01,0x01,0x01,0x01};
-
-  //MY_FLASH_WriteN(0,test,5,DATA_TYPE_8);
-
+  //###############################################################//
 
   /* Infinite loop */
   for(;;)
@@ -543,9 +631,6 @@ void StartDefaultTask(void const * argument)
 	  }
 
   }
-
-
-
 
   /* USER CODE END 5 */
 }
