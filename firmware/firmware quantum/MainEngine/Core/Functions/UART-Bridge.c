@@ -50,8 +50,6 @@
 #include "UART-Bridge.h"
 #if LWIP_TCP
 
-#define FLASH_STORAGE 0x08040000
-#define page_size 0x800
 
 extern UART_HandleTypeDef huart1;
 
@@ -59,12 +57,8 @@ extern UART_HandleTypeDef huart1;
 
 
 void
-echo_init(void)
+UartBridge_init(void)
 {
-
-
-
-
   echo_pcb = tcp_new();
   if (echo_pcb != NULL)
   {
@@ -118,7 +112,6 @@ echo_accept(void *arg, struct tcp_pcb *newpcb, err_t err)
   {
     ret_err = ERR_MEM;
   }
-  //MY_FLASH_SetSectorAddrs(5, 0x08040000);
   return ret_err;
 }
 
@@ -172,41 +165,10 @@ echo_recv(void *arg, struct tcp_pcb *tpcb, struct pbuf *p, err_t err)
 
         	HAL_Delay(10);
 
-
-
     }
 
    tcp_write(tpcb, pData, pData[0]+1, 1);
 
-
-
-    /*
-    if(count<100){
-    		char str[3];
-    		sprintf(str, "%d;", count);
-    		tcp_write(tpcb, str, 3, 1);
-    	}
-    else if(count<1000){
-    		char str[4];
-    		sprintf(str, "%d;", count);
-    		tcp_write(tpcb, str, 4, 1);
-    	}
-    else if(count<10000){
-        	char str[5];
-        	sprintf(str, "%d;", count);
-        	tcp_write(tpcb, str, 5, 1);
-        }
-    else if(count<100000){
-           	char str[6];
-           	sprintf(str, "%d;", count);
-           	tcp_write(tpcb, str, 6, 1);
-        }
-    else {
-       		char str[7];
-       		sprintf(str, "%d;", count);
-       		tcp_write(tpcb, str, 7, 1);
-    	}
-*/
     return ERR_OK;
 }
 

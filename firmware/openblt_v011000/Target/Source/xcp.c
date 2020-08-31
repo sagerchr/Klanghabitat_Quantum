@@ -104,6 +104,7 @@ static void XcpCmdProgramPrepare(blt_int8u *data);
 
 #if (Display ==1 )
 static void progress (blt_int8u *data);
+int clear = 0;
 #endif
 /****************************************************************************************
 * Hook functions
@@ -291,9 +292,12 @@ void XcpPacketReceived(blt_int8u *data, blt_int8u len)
         break;
       case XCP_CMD_PROGRAM_CLEAR:
 	#if (Display == 1)
-    	  BSP_LCD_Clear(LCD_COLOR_BLACK);
-    	  BSP_LCD_Clear(LCD_COLOR_BLACK);
-    	  BSP_LCD_DisplayStringAt(0, BSP_LCD_GetYSize()/2 - 27, "clearing memory ...", CENTER_MODE);
+    	  if(clear == 0){
+        	  BSP_LCD_Clear(LCD_COLOR_BLACK);
+        	  BSP_LCD_Clear(LCD_COLOR_BLACK);
+        	  BSP_LCD_DisplayStringAt(0, BSP_LCD_GetYSize()/2 - 27, "clearing memory ...", CENTER_MODE);
+        	  clear = 1;
+    	  }
 	#endif
         XcpCmdProgramClear(data);
         break;

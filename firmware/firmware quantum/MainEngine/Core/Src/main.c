@@ -113,7 +113,7 @@ int main(void)
   MX_TIM3_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-  MY_FLASH_SetSectorAddrs(5, 0x08040000);
+  SharedParamsWriteByIndex(0, 0);
   /* USER CODE END 2 */
 
   /* USER CODE BEGIN RTOS_MUTEX */
@@ -512,7 +512,7 @@ void StartDefaultTask(void const * argument)
   httpd_init();
   HAL_TIM_Base_Start_IT(&htim3);
 
-  echo_init();
+  UartBridge_init();
   static struct tcp_pcb *pcb;
   err_t err;
   pcb = tcp_new();
