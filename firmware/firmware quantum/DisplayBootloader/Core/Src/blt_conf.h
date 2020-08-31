@@ -123,7 +123,7 @@
 /** \brief Enable/disable UART transport layer. */
 #define BOOT_COM_RS232_ENABLE            (1)
 /** \brief Configure the desired communication speed. */
-#define BOOT_COM_RS232_BAUDRATE          (115600)
+#define BOOT_COM_RS232_BAUDRATE          (2000000)
 /** \brief Configure number of bytes in the target->host data packet. */
 #define BOOT_COM_RS232_TX_MAX_DATA       (64)
 /** \brief Configure number of bytes in the host->target data packet. */

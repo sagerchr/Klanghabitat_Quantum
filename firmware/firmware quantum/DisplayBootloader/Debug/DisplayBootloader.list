@@ -41,11 +41,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  18 .debug_line   0001898b  00000000  00000000  0007235a  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .debug_str    00115cbc  00000000  00000000  0008ace5  2**0
+ 19 .debug_str    00115cbd  00000000  00000000  0008ace5  2**0
                   CONTENTS, READONLY, DEBUGGING
- 20 .comment      0000007b  00000000  00000000  001a09a1  2**0
+ 20 .comment      0000007b  00000000  00000000  001a09a2  2**0
                   CONTENTS, READONLY
- 21 .debug_frame  00005a20  00000000  00000000  001a0a1c  2**2
+ 21 .debug_frame  00005a20  00000000  00000000  001a0a20  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -2019,7 +2019,7 @@ void Rs232Init(void)
  8000d16:	46bd      	mov	sp, r7
  8000d18:	bd80      	pop	{r7, pc}
  8000d1a:	bf00      	nop
- 8000d1c:	0001c390 	.word	0x0001c390
+ 8000d1c:	001e8480 	.word	0x001e8480
  8000d20:	40011400 	.word	0x40011400
 
 08000d24 <Rs232TransmitPacket>:
