@@ -30,7 +30,9 @@
 * Include files
 ****************************************************************************************/
 #include "boot.h"                                /* bootloader generic header          */
-
+#if (Display == 1)
+#include "Display.h"
+#endif
 
 /****************************************************************************************
 * Macro definitions
@@ -147,6 +149,17 @@ void BackDoorCheck(void)
   /* when the backdoor is still open, check if it's time to close it */
   if (backdoorOpen == BLT_TRUE)
   {
+	  #if (Display == 1)
+	    int time = BOOT_BACKDOOR_ENTRY_TIMEOUT_MS + backdoorExtensionTime + backdoorOpenTime;
+
+	    int perc = TimerGet()*100/time;
+
+	  	BSP_LCD_DrawHLine(200, 300, 4*perc);
+		BSP_LCD_DrawHLine(200, 301, 4*perc);
+		BSP_LCD_DrawHLine(200, 302, 4*perc);
+
+
+	#endif
     /* check if the backdoor entry time window elapsed */
     if (TimerGet() >= (BOOT_BACKDOOR_ENTRY_TIMEOUT_MS + backdoorExtensionTime + backdoorOpenTime))
     {
@@ -163,7 +176,9 @@ void BackDoorCheck(void)
         /* no firmware update requests detected, so attempt to start the user program.
          * this function does not return if a valid user program is present.
          */
-        CpuStartUserProgram();
+
+
+   		CpuStartUserProgram();
       }
     }
   }

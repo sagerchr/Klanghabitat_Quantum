@@ -1,0 +1,10 @@
+stm32f4xx_ll_usart.h:409:22:LL_USART_Enable	16	static
+stm32f4xx_ll_usart.h:1791:26:LL_USART_IsActiveFlag_RXNE	16	static
+stm32f4xx_ll_usart.h:1813:26:LL_USART_IsActiveFlag_TXE	16	static
+stm32f4xx_ll_usart.h:2402:25:LL_USART_ReceiveData8	16	static
+stm32f4xx_ll_usart.h:2425:22:LL_USART_TransmitData8	16	static
+rs232.c:81:6:Rs232Init	40	static
+rs232.c:116:6:Rs232TransmitPacket	24	static
+rs232.c:144:10:Rs232ReceivePacket	16	static
+rs232.c:213:17:Rs232ReceiveByte	16	static
+rs232.c:233:13:Rs232TransmitByte	24	static

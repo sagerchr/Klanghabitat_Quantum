@@ -1,0 +1,15 @@
+dhcpc.c:104:1:add_msg_type	0	static
+dhcpc.c:113:1:add_server_id	0	static
+dhcpc.c:122:1:add_req_ipaddr	0	static
+dhcpc.c:131:1:add_req_options	0	static
+dhcpc.c:142:1:add_end	0	static
+dhcpc.c:205:1:parse_options	4	static
+dhcpc.c:432:1:dhcpc_configured	0	static
+dhcpc.c:149:1:create_msg	24	static
+dhcpc.c:174:1:send_discover	16	static
+dhcpc.c:189:1:send_request	16	static
+dhcpc.c:242:1:parse_msg	8	static
+dhcpc.c:399:1:dhcpc_init	16	static
+dhcpc.c:423:1:dhcpc_request	0	static
+dhcpc.c:257:1:handle_dhcp	16	static
+dhcpc.c:417:1:dhcpc_appcall	8	static

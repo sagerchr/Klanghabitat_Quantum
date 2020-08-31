@@ -31,7 +31,9 @@
 ****************************************************************************************/
 #include "boot.h"                                /* bootloader generic header          */
 #include "stm32f4xx.h"                           /* STM32 registers and drivers        */
-
+#if (Display == 1)
+#include "Display.h"
+#endif
 
 /****************************************************************************************
 * Macro definitions
@@ -85,6 +87,7 @@ void CpuStartUserProgram(void)
      * will be possible.
      */
     ComDeferredInit();
+    BSP_LCD_DisplayStringAt(0, BSP_LCD_GetYSize()/2 - 27, (uint8_t*)"no valid firmware installed", CENTER_MODE);
 #endif
     /* not a valid user program so it cannot be started */
     return;

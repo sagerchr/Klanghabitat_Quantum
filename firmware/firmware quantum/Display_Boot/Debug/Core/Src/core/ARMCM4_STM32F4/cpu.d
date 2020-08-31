@@ -57,7 +57,18 @@ Core/Src/core/ARMCM4_STM32F4/cpu.o: \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dsi.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_qspi.h
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_qspi.h \
+ /Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/Display_Boot/Core/Src/Display.h \
+ /Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/Display_Boot/Core/Src/stm32469i_discovery.h \
+ /Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/Display_Boot/Core/Src/stm32469i_discovery_lcd.h \
+ /Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/Display_Boot/Core/Src/otm8009a.h \
+ /Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/Display_Boot/Core/Src/stm32469i_discovery_sdram.h \
+ /Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/Display_Boot/Fonts/../Fonts/fonts.h \
+ /Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/Display_Boot/BSP/STM32469I-Discovery/stm32469i_discovery_ts.h \
+ /Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/Display_Boot/Core/Src/stm32469i_discovery.h \
+ /Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/Display_Boot/Core/Src/stm32469i_discovery_lcd.h \
+ /Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/Display_Boot/BSP/STM32469I-Discovery/../Components/ft6x06/ft6x06.h \
+ /Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/Display_Boot/BSP/Components/../Components/ts.h
 
 /Users/christiansager/klanghabitat_quantum/firmware/openblt_v011000/Target/Source/boot.h:
 
@@ -174,3 +185,25 @@ Core/Src/core/ARMCM4_STM32F4/cpu.o: \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dsi.h:
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_qspi.h:
+
+/Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/Display_Boot/Core/Src/Display.h:
+
+/Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/Display_Boot/Core/Src/stm32469i_discovery.h:
+
+/Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/Display_Boot/Core/Src/stm32469i_discovery_lcd.h:
+
+/Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/Display_Boot/Core/Src/otm8009a.h:
+
+/Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/Display_Boot/Core/Src/stm32469i_discovery_sdram.h:
+
+/Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/Display_Boot/Fonts/../Fonts/fonts.h:
+
+/Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/Display_Boot/BSP/STM32469I-Discovery/stm32469i_discovery_ts.h:
+
+/Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/Display_Boot/Core/Src/stm32469i_discovery.h:
+
+/Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/Display_Boot/Core/Src/stm32469i_discovery_lcd.h:
+
+/Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/Display_Boot/BSP/STM32469I-Discovery/../Components/ft6x06/ft6x06.h:
+
+/Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/Display_Boot/BSP/Components/../Components/ts.h:

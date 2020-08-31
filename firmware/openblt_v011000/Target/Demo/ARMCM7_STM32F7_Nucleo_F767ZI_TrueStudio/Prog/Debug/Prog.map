@@ -201,7 +201,7 @@ Discarded input sections
  .data          0x0000000000000000        0x0 led.o
  .bss           0x0000000000000000        0x0 led.o
  .debug_macro   0x0000000000000000      0xa60 led.o
- .debug_macro   0x0000000000000000       0xe0 led.o
+ .debug_macro   0x0000000000000000       0xe6 led.o
  .debug_macro   0x0000000000000000       0x2e led.o
  .debug_macro   0x0000000000000000       0x3b led.o
  .debug_macro   0x0000000000000000       0x22 led.o
@@ -340,7 +340,7 @@ Discarded input sections
  .text.HAL_MspDeInit
                 0x0000000000000000       0x70 main.o
  .debug_macro   0x0000000000000000      0xa60 main.o
- .debug_macro   0x0000000000000000       0xe0 main.o
+ .debug_macro   0x0000000000000000       0xe6 main.o
  .debug_macro   0x0000000000000000       0x2e main.o
  .debug_macro   0x0000000000000000       0x3b main.o
  .debug_macro   0x0000000000000000       0x22 main.o
@@ -485,7 +485,7 @@ Discarded input sections
  .data          0x0000000000000000        0x0 net.o
  .bss           0x0000000000000000        0x0 net.o
  .debug_macro   0x0000000000000000      0xa60 net.o
- .debug_macro   0x0000000000000000       0xe0 net.o
+ .debug_macro   0x0000000000000000       0xe6 net.o
  .debug_macro   0x0000000000000000       0x2e net.o
  .debug_macro   0x0000000000000000       0x3b net.o
  .debug_macro   0x0000000000000000       0x22 net.o
@@ -647,7 +647,7 @@ Discarded input sections
  .data          0x0000000000000000        0x0 timer.o
  .bss           0x0000000000000000        0x0 timer.o
  .debug_macro   0x0000000000000000      0xa60 timer.o
- .debug_macro   0x0000000000000000       0xe0 timer.o
+ .debug_macro   0x0000000000000000       0xe6 timer.o
  .debug_macro   0x0000000000000000       0x2e timer.o
  .debug_macro   0x0000000000000000       0x3b timer.o
  .debug_macro   0x0000000000000000       0x22 timer.o
@@ -3820,7 +3820,7 @@ Discarded input sections
  .data          0x0000000000000000        0x0 lib/uip/clock-arch.o
  .bss           0x0000000000000000        0x0 lib/uip/clock-arch.o
  .debug_macro   0x0000000000000000      0xa60 lib/uip/clock-arch.o
- .debug_macro   0x0000000000000000       0xe0 lib/uip/clock-arch.o
+ .debug_macro   0x0000000000000000       0xe6 lib/uip/clock-arch.o
  .debug_macro   0x0000000000000000       0x2e lib/uip/clock-arch.o
  .debug_macro   0x0000000000000000       0x3b lib/uip/clock-arch.o
  .debug_macro   0x0000000000000000       0x22 lib/uip/clock-arch.o
@@ -3983,7 +3983,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x20 lib/uip/netdev.o
  .debug_macro   0x0000000000000000      0x1a3 lib/uip/netdev.o
  .debug_macro   0x0000000000000000      0x330 lib/uip/netdev.o
- .debug_macro   0x0000000000000000       0xe0 lib/uip/netdev.o
+ .debug_macro   0x0000000000000000       0xe6 lib/uip/netdev.o
  .debug_macro   0x0000000000000000       0x2e lib/uip/netdev.o
  .debug_macro   0x0000000000000000       0x3b lib/uip/netdev.o
  .debug_macro   0x0000000000000000       0xef lib/uip/netdev.o
@@ -4159,7 +4159,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x20 third_party/uip/apps/dhcpc/dhcpc.o
  .debug_macro   0x0000000000000000       0x16 third_party/uip/apps/dhcpc/dhcpc.o
  .debug_macro   0x0000000000000000       0x43 third_party/uip/apps/dhcpc/dhcpc.o
- .debug_macro   0x0000000000000000       0xe0 third_party/uip/apps/dhcpc/dhcpc.o
+ .debug_macro   0x0000000000000000       0xe6 third_party/uip/apps/dhcpc/dhcpc.o
  .debug_macro   0x0000000000000000       0x2e third_party/uip/apps/dhcpc/dhcpc.o
  .debug_macro   0x0000000000000000       0x3b third_party/uip/apps/dhcpc/dhcpc.o
  .debug_macro   0x0000000000000000       0xef third_party/uip/apps/dhcpc/dhcpc.o
@@ -4294,7 +4294,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0xa60 third_party/uip/uip/uip.o
  .debug_macro   0x0000000000000000       0x16 third_party/uip/uip/uip.o
  .debug_macro   0x0000000000000000       0x43 third_party/uip/uip/uip.o
- .debug_macro   0x0000000000000000       0xe0 third_party/uip/uip/uip.o
+ .debug_macro   0x0000000000000000       0xe6 third_party/uip/uip/uip.o
  .debug_macro   0x0000000000000000       0x2e third_party/uip/uip/uip.o
  .debug_macro   0x0000000000000000       0x3b third_party/uip/uip/uip.o
  .debug_macro   0x0000000000000000       0x22 third_party/uip/uip/uip.o
@@ -4454,7 +4454,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0xa60 third_party/uip/uip/uip_arp.o
  .debug_macro   0x0000000000000000       0x16 third_party/uip/uip/uip_arp.o
  .debug_macro   0x0000000000000000       0x43 third_party/uip/uip/uip_arp.o
- .debug_macro   0x0000000000000000       0xe0 third_party/uip/uip/uip_arp.o
+ .debug_macro   0x0000000000000000       0xe6 third_party/uip/uip/uip_arp.o
  .debug_macro   0x0000000000000000       0x2e third_party/uip/uip/uip_arp.o
  .debug_macro   0x0000000000000000       0x3b third_party/uip/uip/uip_arp.o
  .debug_macro   0x0000000000000000       0x22 third_party/uip/uip/uip_arp.o
@@ -4629,7 +4629,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0xa60 third_party/uip/uip/uiplib.o
  .debug_macro   0x0000000000000000       0x16 third_party/uip/uip/uiplib.o
  .debug_macro   0x0000000000000000       0x43 third_party/uip/uip/uiplib.o
- .debug_macro   0x0000000000000000       0xe0 third_party/uip/uip/uiplib.o
+ .debug_macro   0x0000000000000000       0xe6 third_party/uip/uip/uiplib.o
  .debug_macro   0x0000000000000000       0x2e third_party/uip/uip/uiplib.o
  .debug_macro   0x0000000000000000       0x3b third_party/uip/uip/uiplib.o
  .debug_macro   0x0000000000000000       0x22 third_party/uip/uip/uiplib.o
@@ -4701,7 +4701,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0xc5 third_party/uip/uip/uiplib.o
  .debug_macro   0x0000000000000000      0x240 third_party/uip/uip/uiplib.o
  .debug_line    0x0000000000000000      0xe58 third_party/uip/uip/uiplib.o
- .debug_str     0x0000000000000000    0xf0279 third_party/uip/uip/uiplib.o
+ .debug_str     0x0000000000000000    0xf0285 third_party/uip/uip/uiplib.o
  .comment       0x0000000000000000       0x7c third_party/uip/uip/uiplib.o
  .debug_frame   0x0000000000000000       0x34 third_party/uip/uip/uiplib.o
  .ARM.attributes
@@ -5665,113 +5665,113 @@ OUTPUT(demoprog_stm32f767.elf elf32-littlearm)
  .debug_ranges  0x0000000000000858       0x30 third_party/uip/uip/uip_arp.o
  .debug_ranges  0x0000000000000888       0x28 third_party/uip/uip/uip_timer.o
 
-.debug_macro    0x0000000000000000    0x29892
+.debug_macro    0x0000000000000000    0x29898
  .debug_macro   0x0000000000000000      0x378 boot.o
  .debug_macro   0x0000000000000378      0xa60 boot.o
- .debug_macro   0x0000000000000dd8       0xe0 boot.o
- .debug_macro   0x0000000000000eb8       0x2e boot.o
- .debug_macro   0x0000000000000ee6       0x3b boot.o
- .debug_macro   0x0000000000000f21       0x22 boot.o
- .debug_macro   0x0000000000000f43       0x8e boot.o
- .debug_macro   0x0000000000000fd1       0x51 boot.o
- .debug_macro   0x0000000000001022       0xef boot.o
- .debug_macro   0x0000000000001111       0x6a boot.o
- .debug_macro   0x000000000000117b      0x1df boot.o
- .debug_macro   0x000000000000135a       0x35 boot.o
- .debug_macro   0x000000000000138f       0x50 boot.o
- .debug_macro   0x00000000000013df     0x1114 boot.o
- .debug_macro   0x00000000000024f3    0x19f38 boot.o
- .debug_macro   0x000000000001c42b       0x43 boot.o
- .debug_macro   0x000000000001c46e      0x193 boot.o
- .debug_macro   0x000000000001c601     0x35cf boot.o
- .debug_macro   0x000000000001fbd0       0x46 boot.o
- .debug_macro   0x000000000001fc16       0x18 boot.o
- .debug_macro   0x000000000001fc2e       0x3c boot.o
- .debug_macro   0x000000000001fc6a       0x34 boot.o
- .debug_macro   0x000000000001fc9e       0x16 boot.o
- .debug_macro   0x000000000001fcb4       0x97 boot.o
- .debug_macro   0x000000000001fd4b      0x330 boot.o
- .debug_macro   0x000000000002007b       0xfd boot.o
- .debug_macro   0x0000000000020178       0x10 boot.o
- .debug_macro   0x0000000000020188       0x52 boot.o
- .debug_macro   0x00000000000201da       0x1f boot.o
- .debug_macro   0x00000000000201f9       0x43 boot.o
- .debug_macro   0x000000000002023c       0x20 boot.o
- .debug_macro   0x000000000002025c      0x1a3 boot.o
- .debug_macro   0x00000000000203ff       0x10 boot.o
- .debug_macro   0x000000000002040f       0x1c boot.o
- .debug_macro   0x000000000002042b       0x52 boot.o
- .debug_macro   0x000000000002047d       0x40 boot.o
- .debug_macro   0x00000000000204bd       0x10 boot.o
- .debug_macro   0x00000000000204cd       0x40 boot.o
- .debug_macro   0x000000000002050d       0xd7 boot.o
- .debug_macro   0x00000000000205e4       0x1c boot.o
- .debug_macro   0x0000000000020600       0x3d boot.o
- .debug_macro   0x000000000002063d       0x16 boot.o
- .debug_macro   0x0000000000020653      0x145 boot.o
- .debug_macro   0x0000000000020798       0x57 boot.o
- .debug_macro   0x00000000000207ef     0x1add boot.o
- .debug_macro   0x00000000000222cc      0x6ca boot.o
- .debug_macro   0x0000000000022996      0x11e boot.o
- .debug_macro   0x0000000000022ab4      0x277 boot.o
- .debug_macro   0x0000000000022d2b       0x27 boot.o
- .debug_macro   0x0000000000022d52      0x24f boot.o
- .debug_macro   0x0000000000022fa1       0x71 boot.o
- .debug_macro   0x0000000000023012       0x58 boot.o
- .debug_macro   0x000000000002306a      0x23a boot.o
- .debug_macro   0x00000000000232a4      0xcd5 boot.o
- .debug_macro   0x0000000000023f79      0x156 boot.o
- .debug_macro   0x00000000000240cf      0x3de boot.o
- .debug_macro   0x00000000000244ad       0x12 boot.o
- .debug_macro   0x00000000000244bf      0x209 boot.o
- .debug_macro   0x00000000000246c8       0x61 boot.o
- .debug_macro   0x0000000000024729       0x90 boot.o
- .debug_macro   0x00000000000247b9      0x132 boot.o
- .debug_macro   0x00000000000248eb      0x10c boot.o
- .debug_macro   0x00000000000249f7       0x35 boot.o
- .debug_macro   0x0000000000024a2c      0x4e8 boot.o
- .debug_macro   0x0000000000024f14       0x47 boot.o
- .debug_macro   0x0000000000024f5b      0x16c boot.o
- .debug_macro   0x00000000000250c7       0x10 boot.o
- .debug_macro   0x00000000000250d7       0x22 boot.o
- .debug_macro   0x00000000000250f9      0x378 led.o
- .debug_macro   0x0000000000025471      0x372 main.o
- .debug_macro   0x00000000000257e3      0x427 net.o
- .debug_macro   0x0000000000025c0a       0x16 net.o
- .debug_macro   0x0000000000025c20       0x43 net.o
- .debug_macro   0x0000000000025c63       0x10 net.o
- .debug_macro   0x0000000000025c73       0x22 net.o
- .debug_macro   0x0000000000025c95       0x74 net.o
- .debug_macro   0x0000000000025d09       0xc5 net.o
- .debug_macro   0x0000000000025dce      0x240 net.o
- .debug_macro   0x000000000002600e       0x23 net.o
- .debug_macro   0x0000000000026031       0x8b shared_params.o
- .debug_macro   0x00000000000260bc      0x174 shared_params.o
- .debug_macro   0x0000000000026230      0x372 timer.o
- .debug_macro   0x00000000000265a2      0x343 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal.o
- .debug_macro   0x00000000000268e5      0x31f lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cortex.o
- .debug_macro   0x0000000000026c04      0x331 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_eth.o
- .debug_macro   0x0000000000026f35      0x357 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_gpio.o
- .debug_macro   0x000000000002728c      0x337 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr_ex.o
- .debug_macro   0x00000000000275c3      0x343 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc.o
- .debug_macro   0x0000000000027906      0x327 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_uart.o
- .debug_macro   0x0000000000027c2d      0x325 lib/system_stm32f7xx.o
- .debug_macro   0x0000000000027f52      0x37b lib/uip/clock-arch.o
- .debug_macro   0x00000000000282cd      0x45a lib/uip/netdev.o
- .debug_macro   0x0000000000028727       0x40 lib/uip/netdev.o
- .debug_macro   0x0000000000028767       0x94 lib/uip/netdev.o
- .debug_macro   0x00000000000287fb       0x57 lib/uip/netdev.o
- .debug_macro   0x0000000000028852       0x10 lib/uip/netdev.o
- .debug_macro   0x0000000000028862       0x35 lib/uip/netdev.o
- .debug_macro   0x0000000000028897       0x20 lib/uip/netdev.o
- .debug_macro   0x00000000000288b7       0x1c lib/uip/netdev.o
- .debug_macro   0x00000000000288d3      0x4f7 third_party/uip/apps/dhcpc/dhcpc.o
- .debug_macro   0x0000000000028dca       0x16 third_party/uip/apps/dhcpc/dhcpc.o
- .debug_macro   0x0000000000028de0       0x2b third_party/uip/apps/dhcpc/dhcpc.o
- .debug_macro   0x0000000000028e0b      0x118 third_party/uip/apps/dhcpc/dhcpc.o
- .debug_macro   0x0000000000028f23      0x4ea third_party/uip/uip/uip.o
- .debug_macro   0x000000000002940d      0x451 third_party/uip/uip/uip_arp.o
- .debug_macro   0x000000000002985e       0x34 third_party/uip/uip/uip_timer.o
+ .debug_macro   0x0000000000000dd8       0xe6 boot.o
+ .debug_macro   0x0000000000000ebe       0x2e boot.o
+ .debug_macro   0x0000000000000eec       0x3b boot.o
+ .debug_macro   0x0000000000000f27       0x22 boot.o
+ .debug_macro   0x0000000000000f49       0x8e boot.o
+ .debug_macro   0x0000000000000fd7       0x51 boot.o
+ .debug_macro   0x0000000000001028       0xef boot.o
+ .debug_macro   0x0000000000001117       0x6a boot.o
+ .debug_macro   0x0000000000001181      0x1df boot.o
+ .debug_macro   0x0000000000001360       0x35 boot.o
+ .debug_macro   0x0000000000001395       0x50 boot.o
+ .debug_macro   0x00000000000013e5     0x1114 boot.o
+ .debug_macro   0x00000000000024f9    0x19f38 boot.o
+ .debug_macro   0x000000000001c431       0x43 boot.o
+ .debug_macro   0x000000000001c474      0x193 boot.o
+ .debug_macro   0x000000000001c607     0x35cf boot.o
+ .debug_macro   0x000000000001fbd6       0x46 boot.o
+ .debug_macro   0x000000000001fc1c       0x18 boot.o
+ .debug_macro   0x000000000001fc34       0x3c boot.o
+ .debug_macro   0x000000000001fc70       0x34 boot.o
+ .debug_macro   0x000000000001fca4       0x16 boot.o
+ .debug_macro   0x000000000001fcba       0x97 boot.o
+ .debug_macro   0x000000000001fd51      0x330 boot.o
+ .debug_macro   0x0000000000020081       0xfd boot.o
+ .debug_macro   0x000000000002017e       0x10 boot.o
+ .debug_macro   0x000000000002018e       0x52 boot.o
+ .debug_macro   0x00000000000201e0       0x1f boot.o
+ .debug_macro   0x00000000000201ff       0x43 boot.o
+ .debug_macro   0x0000000000020242       0x20 boot.o
+ .debug_macro   0x0000000000020262      0x1a3 boot.o
+ .debug_macro   0x0000000000020405       0x10 boot.o
+ .debug_macro   0x0000000000020415       0x1c boot.o
+ .debug_macro   0x0000000000020431       0x52 boot.o
+ .debug_macro   0x0000000000020483       0x40 boot.o
+ .debug_macro   0x00000000000204c3       0x10 boot.o
+ .debug_macro   0x00000000000204d3       0x40 boot.o
+ .debug_macro   0x0000000000020513       0xd7 boot.o
+ .debug_macro   0x00000000000205ea       0x1c boot.o
+ .debug_macro   0x0000000000020606       0x3d boot.o
+ .debug_macro   0x0000000000020643       0x16 boot.o
+ .debug_macro   0x0000000000020659      0x145 boot.o
+ .debug_macro   0x000000000002079e       0x57 boot.o
+ .debug_macro   0x00000000000207f5     0x1add boot.o
+ .debug_macro   0x00000000000222d2      0x6ca boot.o
+ .debug_macro   0x000000000002299c      0x11e boot.o
+ .debug_macro   0x0000000000022aba      0x277 boot.o
+ .debug_macro   0x0000000000022d31       0x27 boot.o
+ .debug_macro   0x0000000000022d58      0x24f boot.o
+ .debug_macro   0x0000000000022fa7       0x71 boot.o
+ .debug_macro   0x0000000000023018       0x58 boot.o
+ .debug_macro   0x0000000000023070      0x23a boot.o
+ .debug_macro   0x00000000000232aa      0xcd5 boot.o
+ .debug_macro   0x0000000000023f7f      0x156 boot.o
+ .debug_macro   0x00000000000240d5      0x3de boot.o
+ .debug_macro   0x00000000000244b3       0x12 boot.o
+ .debug_macro   0x00000000000244c5      0x209 boot.o
+ .debug_macro   0x00000000000246ce       0x61 boot.o
+ .debug_macro   0x000000000002472f       0x90 boot.o
+ .debug_macro   0x00000000000247bf      0x132 boot.o
+ .debug_macro   0x00000000000248f1      0x10c boot.o
+ .debug_macro   0x00000000000249fd       0x35 boot.o
+ .debug_macro   0x0000000000024a32      0x4e8 boot.o
+ .debug_macro   0x0000000000024f1a       0x47 boot.o
+ .debug_macro   0x0000000000024f61      0x16c boot.o
+ .debug_macro   0x00000000000250cd       0x10 boot.o
+ .debug_macro   0x00000000000250dd       0x22 boot.o
+ .debug_macro   0x00000000000250ff      0x378 led.o
+ .debug_macro   0x0000000000025477      0x372 main.o
+ .debug_macro   0x00000000000257e9      0x427 net.o
+ .debug_macro   0x0000000000025c10       0x16 net.o
+ .debug_macro   0x0000000000025c26       0x43 net.o
+ .debug_macro   0x0000000000025c69       0x10 net.o
+ .debug_macro   0x0000000000025c79       0x22 net.o
+ .debug_macro   0x0000000000025c9b       0x74 net.o
+ .debug_macro   0x0000000000025d0f       0xc5 net.o
+ .debug_macro   0x0000000000025dd4      0x240 net.o
+ .debug_macro   0x0000000000026014       0x23 net.o
+ .debug_macro   0x0000000000026037       0x8b shared_params.o
+ .debug_macro   0x00000000000260c2      0x174 shared_params.o
+ .debug_macro   0x0000000000026236      0x372 timer.o
+ .debug_macro   0x00000000000265a8      0x343 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal.o
+ .debug_macro   0x00000000000268eb      0x31f lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cortex.o
+ .debug_macro   0x0000000000026c0a      0x331 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_eth.o
+ .debug_macro   0x0000000000026f3b      0x357 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_gpio.o
+ .debug_macro   0x0000000000027292      0x337 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr_ex.o
+ .debug_macro   0x00000000000275c9      0x343 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc.o
+ .debug_macro   0x000000000002790c      0x327 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_uart.o
+ .debug_macro   0x0000000000027c33      0x325 lib/system_stm32f7xx.o
+ .debug_macro   0x0000000000027f58      0x37b lib/uip/clock-arch.o
+ .debug_macro   0x00000000000282d3      0x45a lib/uip/netdev.o
+ .debug_macro   0x000000000002872d       0x40 lib/uip/netdev.o
+ .debug_macro   0x000000000002876d       0x94 lib/uip/netdev.o
+ .debug_macro   0x0000000000028801       0x57 lib/uip/netdev.o
+ .debug_macro   0x0000000000028858       0x10 lib/uip/netdev.o
+ .debug_macro   0x0000000000028868       0x35 lib/uip/netdev.o
+ .debug_macro   0x000000000002889d       0x20 lib/uip/netdev.o
+ .debug_macro   0x00000000000288bd       0x1c lib/uip/netdev.o
+ .debug_macro   0x00000000000288d9      0x4f7 third_party/uip/apps/dhcpc/dhcpc.o
+ .debug_macro   0x0000000000028dd0       0x16 third_party/uip/apps/dhcpc/dhcpc.o
+ .debug_macro   0x0000000000028de6       0x2b third_party/uip/apps/dhcpc/dhcpc.o
+ .debug_macro   0x0000000000028e11      0x118 third_party/uip/apps/dhcpc/dhcpc.o
+ .debug_macro   0x0000000000028f29      0x4ea third_party/uip/uip/uip.o
+ .debug_macro   0x0000000000029413      0x451 third_party/uip/uip/uip_arp.o
+ .debug_macro   0x0000000000029864       0x34 third_party/uip/uip/uip_timer.o
 
 .debug_line     0x0000000000000000    0x10760
  .debug_line    0x0000000000000000      0xbf3 boot.o
@@ -5796,48 +5796,48 @@ OUTPUT(demoprog_stm32f767.elf elf32-littlearm)
  .debug_line    0x000000000000f62c      0xfaa third_party/uip/uip/uip_arp.o
  .debug_line    0x00000000000105d6      0x18a third_party/uip/uip/uip_timer.o
 
-.debug_str      0x0000000000000000    0xf44e4
- .debug_str     0x0000000000000000    0xeeb96 boot.o
-                                      0xeef12 (size before relaxing)
- .debug_str     0x00000000000eeb96       0xc6 led.o
-                                      0xee854 (size before relaxing)
- .debug_str     0x00000000000eec5c      0x98b main.o
-                                      0xef364 (size before relaxing)
- .debug_str     0x00000000000ef5e7     0x1d15 net.o
-                                      0xf051e (size before relaxing)
- .debug_str     0x00000000000f12fc      0x119 shared_params.o
+.debug_str      0x0000000000000000    0xf44f0
+ .debug_str     0x0000000000000000    0xeeba2 boot.o
+                                      0xeef1e (size before relaxing)
+ .debug_str     0x00000000000eeba2       0xc6 led.o
+                                      0xee860 (size before relaxing)
+ .debug_str     0x00000000000eec68      0x98b main.o
+                                      0xef370 (size before relaxing)
+ .debug_str     0x00000000000ef5f3     0x1d15 net.o
+                                      0xf052a (size before relaxing)
+ .debug_str     0x00000000000f1308      0x119 shared_params.o
                                        0x418c (size before relaxing)
- .debug_str     0x00000000000f1415       0x27 startup_stm32f767xx.o
+ .debug_str     0x00000000000f1421       0x27 startup_stm32f767xx.o
                                          0xaa (size before relaxing)
- .debug_str     0x00000000000f143c       0x71 timer.o
-                                      0xeee65 (size before relaxing)
- .debug_str     0x00000000000f14ad      0x3f6 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal.o
+ .debug_str     0x00000000000f1448       0x71 timer.o
+                                      0xeee71 (size before relaxing)
+ .debug_str     0x00000000000f14b9      0x3f6 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal.o
                                       0xeefa3 (size before relaxing)
- .debug_str     0x00000000000f18a3      0x31e lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cortex.o
+ .debug_str     0x00000000000f18af      0x31e lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cortex.o
                                       0xeef46 (size before relaxing)
- .debug_str     0x00000000000f1bc1      0xb71 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_eth.o
+ .debug_str     0x00000000000f1bcd      0xb71 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_eth.o
                                       0xef097 (size before relaxing)
- .debug_str     0x00000000000f2732      0x210 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_gpio.o
+ .debug_str     0x00000000000f273e      0x210 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_gpio.o
                                       0xee737 (size before relaxing)
- .debug_str     0x00000000000f2942      0x1d1 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr_ex.o
+ .debug_str     0x00000000000f294e      0x1d1 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr_ex.o
                                       0xee7f3 (size before relaxing)
- .debug_str     0x00000000000f2b13      0x247 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc.o
+ .debug_str     0x00000000000f2b1f      0x247 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc.o
                                       0xee8b1 (size before relaxing)
- .debug_str     0x00000000000f2d5a      0x5f7 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_uart.o
+ .debug_str     0x00000000000f2d66      0x5f7 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_uart.o
                                       0xeefa5 (size before relaxing)
- .debug_str     0x00000000000f3351       0x5a lib/system_stm32f7xx.o
+ .debug_str     0x00000000000f335d       0x5a lib/system_stm32f7xx.o
                                       0xee560 (size before relaxing)
- .debug_str     0x00000000000f33ab       0x23 lib/uip/clock-arch.o
-                                      0xee7d3 (size before relaxing)
- .debug_str     0x00000000000f33ce      0x1ef lib/uip/netdev.o
-                                      0xf0cd3 (size before relaxing)
- .debug_str     0x00000000000f35bd      0x77b third_party/uip/apps/dhcpc/dhcpc.o
-                                      0xf0a79 (size before relaxing)
- .debug_str     0x00000000000f3d38      0x571 third_party/uip/uip/uip.o
-                                      0xf0893 (size before relaxing)
- .debug_str     0x00000000000f42a9      0x1af third_party/uip/uip/uip_arp.o
-                                      0xf0606 (size before relaxing)
- .debug_str     0x00000000000f4458       0x8c third_party/uip/uip/uip_timer.o
+ .debug_str     0x00000000000f33b7       0x23 lib/uip/clock-arch.o
+                                      0xee7df (size before relaxing)
+ .debug_str     0x00000000000f33da      0x1ef lib/uip/netdev.o
+                                      0xf0cdf (size before relaxing)
+ .debug_str     0x00000000000f35c9      0x77b third_party/uip/apps/dhcpc/dhcpc.o
+                                      0xf0a85 (size before relaxing)
+ .debug_str     0x00000000000f3d44      0x571 third_party/uip/uip/uip.o
+                                      0xf089f (size before relaxing)
+ .debug_str     0x00000000000f42b5      0x1af third_party/uip/uip/uip_arp.o
+                                      0xf0612 (size before relaxing)
+ .debug_str     0x00000000000f4464       0x8c third_party/uip/uip/uip_timer.o
                                        0x2e96 (size before relaxing)
 
 .comment        0x0000000000000000       0x7b

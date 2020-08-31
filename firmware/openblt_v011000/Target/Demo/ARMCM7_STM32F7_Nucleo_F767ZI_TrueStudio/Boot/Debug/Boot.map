@@ -93,13 +93,13 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1c core/ARMCM7_STM32F7/can.o
  .debug_macro   0x0000000000000000       0x1c core/ARMCM7_STM32F7/can.o
  .debug_macro   0x0000000000000000       0x22 core/ARMCM7_STM32F7/can.o
- .debug_macro   0x0000000000000000       0xe0 core/ARMCM7_STM32F7/can.o
+ .debug_macro   0x0000000000000000       0xe6 core/ARMCM7_STM32F7/can.o
  .debug_macro   0x0000000000000000       0x67 core/ARMCM7_STM32F7/can.o
  .debug_macro   0x0000000000000000       0x1c core/ARMCM7_STM32F7/can.o
- .debug_macro   0x0000000000000000      0x1aa core/ARMCM7_STM32F7/can.o
+ .debug_macro   0x0000000000000000      0x1b1 core/ARMCM7_STM32F7/can.o
  .debug_macro   0x0000000000000000       0x28 core/ARMCM7_STM32F7/can.o
  .debug_line    0x0000000000000000      0x1e7 core/ARMCM7_STM32F7/can.o
- .debug_str     0x0000000000000000     0x3cd8 core/ARMCM7_STM32F7/can.o
+ .debug_str     0x0000000000000000     0x3cf4 core/ARMCM7_STM32F7/can.o
  .comment       0x0000000000000000       0x7c core/ARMCM7_STM32F7/can.o
  .ARM.attributes
                 0x0000000000000000       0x39 core/ARMCM7_STM32F7/can.o
@@ -182,10 +182,10 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1c core/ARMCM7_STM32F7/cpu.o
  .debug_macro   0x0000000000000000       0x1c core/ARMCM7_STM32F7/cpu.o
  .debug_macro   0x0000000000000000       0x22 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x0000000000000000       0xe0 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x0000000000000000       0xe6 core/ARMCM7_STM32F7/cpu.o
  .debug_macro   0x0000000000000000       0x67 core/ARMCM7_STM32F7/cpu.o
  .debug_macro   0x0000000000000000       0x1c core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x0000000000000000      0x1aa core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x0000000000000000      0x1b1 core/ARMCM7_STM32F7/cpu.o
  .debug_macro   0x0000000000000000       0x28 core/ARMCM7_STM32F7/cpu.o
  .group         0x0000000000000000        0xc core/ARMCM7_STM32F7/flash.o
  .group         0x0000000000000000        0xc core/ARMCM7_STM32F7/flash.o
@@ -266,10 +266,10 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1c core/ARMCM7_STM32F7/flash.o
  .debug_macro   0x0000000000000000       0x1c core/ARMCM7_STM32F7/flash.o
  .debug_macro   0x0000000000000000       0x22 core/ARMCM7_STM32F7/flash.o
- .debug_macro   0x0000000000000000       0xe0 core/ARMCM7_STM32F7/flash.o
+ .debug_macro   0x0000000000000000       0xe6 core/ARMCM7_STM32F7/flash.o
  .debug_macro   0x0000000000000000       0x67 core/ARMCM7_STM32F7/flash.o
  .debug_macro   0x0000000000000000       0x1c core/ARMCM7_STM32F7/flash.o
- .debug_macro   0x0000000000000000      0x1aa core/ARMCM7_STM32F7/flash.o
+ .debug_macro   0x0000000000000000      0x1b1 core/ARMCM7_STM32F7/flash.o
  .debug_macro   0x0000000000000000       0x28 core/ARMCM7_STM32F7/flash.o
  .debug_macro   0x0000000000000000       0x2e core/ARMCM7_STM32F7/flash.o
  .debug_macro   0x0000000000000000       0x3b core/ARMCM7_STM32F7/flash.o
@@ -350,10 +350,10 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1c core/ARMCM7_STM32F7/nvm.o
  .debug_macro   0x0000000000000000       0x1c core/ARMCM7_STM32F7/nvm.o
  .debug_macro   0x0000000000000000       0x22 core/ARMCM7_STM32F7/nvm.o
- .debug_macro   0x0000000000000000       0xe0 core/ARMCM7_STM32F7/nvm.o
+ .debug_macro   0x0000000000000000       0xe6 core/ARMCM7_STM32F7/nvm.o
  .debug_macro   0x0000000000000000       0x67 core/ARMCM7_STM32F7/nvm.o
  .debug_macro   0x0000000000000000       0x1c core/ARMCM7_STM32F7/nvm.o
- .debug_macro   0x0000000000000000      0x1aa core/ARMCM7_STM32F7/nvm.o
+ .debug_macro   0x0000000000000000      0x1b1 core/ARMCM7_STM32F7/nvm.o
  .debug_macro   0x0000000000000000       0x28 core/ARMCM7_STM32F7/nvm.o
  .group         0x0000000000000000        0xc core/ARMCM7_STM32F7/rs232.o
  .group         0x0000000000000000        0xc core/ARMCM7_STM32F7/rs232.o
@@ -433,10 +433,10 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1c core/ARMCM7_STM32F7/rs232.o
  .debug_macro   0x0000000000000000       0x1c core/ARMCM7_STM32F7/rs232.o
  .debug_macro   0x0000000000000000       0x22 core/ARMCM7_STM32F7/rs232.o
- .debug_macro   0x0000000000000000       0xe0 core/ARMCM7_STM32F7/rs232.o
+ .debug_macro   0x0000000000000000       0xe6 core/ARMCM7_STM32F7/rs232.o
  .debug_macro   0x0000000000000000       0x67 core/ARMCM7_STM32F7/rs232.o
  .debug_macro   0x0000000000000000       0x1c core/ARMCM7_STM32F7/rs232.o
- .debug_macro   0x0000000000000000      0x1aa core/ARMCM7_STM32F7/rs232.o
+ .debug_macro   0x0000000000000000      0x1b1 core/ARMCM7_STM32F7/rs232.o
  .debug_macro   0x0000000000000000       0x28 core/ARMCM7_STM32F7/rs232.o
  .debug_macro   0x0000000000000000       0x2e core/ARMCM7_STM32F7/rs232.o
  .debug_macro   0x0000000000000000       0x3b core/ARMCM7_STM32F7/rs232.o
@@ -576,10 +576,10 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1c core/ARMCM7_STM32F7/timer.o
  .debug_macro   0x0000000000000000       0x1c core/ARMCM7_STM32F7/timer.o
  .debug_macro   0x0000000000000000       0x22 core/ARMCM7_STM32F7/timer.o
- .debug_macro   0x0000000000000000       0xe0 core/ARMCM7_STM32F7/timer.o
+ .debug_macro   0x0000000000000000       0xe6 core/ARMCM7_STM32F7/timer.o
  .debug_macro   0x0000000000000000       0x67 core/ARMCM7_STM32F7/timer.o
  .debug_macro   0x0000000000000000       0x1c core/ARMCM7_STM32F7/timer.o
- .debug_macro   0x0000000000000000      0x1aa core/ARMCM7_STM32F7/timer.o
+ .debug_macro   0x0000000000000000      0x1b1 core/ARMCM7_STM32F7/timer.o
  .debug_macro   0x0000000000000000       0x28 core/ARMCM7_STM32F7/timer.o
  .debug_macro   0x0000000000000000       0x2e core/ARMCM7_STM32F7/timer.o
  .debug_macro   0x0000000000000000       0x3b core/ARMCM7_STM32F7/timer.o
@@ -663,13 +663,13 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1c core/ARMCM7_STM32F7/usb.o
  .debug_macro   0x0000000000000000       0x1c core/ARMCM7_STM32F7/usb.o
  .debug_macro   0x0000000000000000       0x22 core/ARMCM7_STM32F7/usb.o
- .debug_macro   0x0000000000000000       0xe0 core/ARMCM7_STM32F7/usb.o
+ .debug_macro   0x0000000000000000       0xe6 core/ARMCM7_STM32F7/usb.o
  .debug_macro   0x0000000000000000       0x67 core/ARMCM7_STM32F7/usb.o
  .debug_macro   0x0000000000000000       0x1c core/ARMCM7_STM32F7/usb.o
- .debug_macro   0x0000000000000000      0x1aa core/ARMCM7_STM32F7/usb.o
+ .debug_macro   0x0000000000000000      0x1b1 core/ARMCM7_STM32F7/usb.o
  .debug_macro   0x0000000000000000       0x28 core/ARMCM7_STM32F7/usb.o
  .debug_line    0x0000000000000000      0x1e7 core/ARMCM7_STM32F7/usb.o
- .debug_str     0x0000000000000000     0x3cd8 core/ARMCM7_STM32F7/usb.o
+ .debug_str     0x0000000000000000     0x3cf4 core/ARMCM7_STM32F7/usb.o
  .comment       0x0000000000000000       0x7c core/ARMCM7_STM32F7/usb.o
  .ARM.attributes
                 0x0000000000000000       0x39 core/ARMCM7_STM32F7/usb.o
@@ -689,10 +689,10 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1c core/assert.o
  .debug_macro   0x0000000000000000       0x1c core/assert.o
  .debug_macro   0x0000000000000000       0x22 core/assert.o
- .debug_macro   0x0000000000000000       0xe0 core/assert.o
+ .debug_macro   0x0000000000000000       0xe6 core/assert.o
  .debug_macro   0x0000000000000000       0x67 core/assert.o
  .debug_macro   0x0000000000000000       0x1c core/assert.o
- .debug_macro   0x0000000000000000      0x1aa core/assert.o
+ .debug_macro   0x0000000000000000      0x1b1 core/assert.o
  .debug_macro   0x0000000000000000       0x28 core/assert.o
  .group         0x0000000000000000        0xc core/backdoor.o
  .group         0x0000000000000000        0xc core/backdoor.o
@@ -710,10 +710,10 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1c core/backdoor.o
  .debug_macro   0x0000000000000000       0x1c core/backdoor.o
  .debug_macro   0x0000000000000000       0x22 core/backdoor.o
- .debug_macro   0x0000000000000000       0xe0 core/backdoor.o
+ .debug_macro   0x0000000000000000       0xe6 core/backdoor.o
  .debug_macro   0x0000000000000000       0x67 core/backdoor.o
  .debug_macro   0x0000000000000000       0x1c core/backdoor.o
- .debug_macro   0x0000000000000000      0x1aa core/backdoor.o
+ .debug_macro   0x0000000000000000      0x1b1 core/backdoor.o
  .debug_macro   0x0000000000000000       0x28 core/backdoor.o
  .group         0x0000000000000000        0xc core/boot.o
  .group         0x0000000000000000        0xc core/boot.o
@@ -731,10 +731,10 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1c core/boot.o
  .debug_macro   0x0000000000000000       0x1c core/boot.o
  .debug_macro   0x0000000000000000       0x22 core/boot.o
- .debug_macro   0x0000000000000000       0xe0 core/boot.o
+ .debug_macro   0x0000000000000000       0xe6 core/boot.o
  .debug_macro   0x0000000000000000       0x67 core/boot.o
  .debug_macro   0x0000000000000000       0x1c core/boot.o
- .debug_macro   0x0000000000000000      0x1aa core/boot.o
+ .debug_macro   0x0000000000000000      0x1b1 core/boot.o
  .debug_macro   0x0000000000000000       0x28 core/boot.o
  .group         0x0000000000000000        0xc core/com.o
  .group         0x0000000000000000        0xc core/com.o
@@ -753,10 +753,10 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1c core/com.o
  .debug_macro   0x0000000000000000       0x1c core/com.o
  .debug_macro   0x0000000000000000       0x22 core/com.o
- .debug_macro   0x0000000000000000       0xe0 core/com.o
+ .debug_macro   0x0000000000000000       0xe6 core/com.o
  .debug_macro   0x0000000000000000       0x67 core/com.o
  .debug_macro   0x0000000000000000       0x1c core/com.o
- .debug_macro   0x0000000000000000      0x1aa core/com.o
+ .debug_macro   0x0000000000000000      0x1b1 core/com.o
  .debug_macro   0x0000000000000000       0x28 core/com.o
  .group         0x0000000000000000        0xc core/cop.o
  .group         0x0000000000000000        0xc core/cop.o
@@ -774,10 +774,10 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1c core/cop.o
  .debug_macro   0x0000000000000000       0x1c core/cop.o
  .debug_macro   0x0000000000000000       0x22 core/cop.o
- .debug_macro   0x0000000000000000       0xe0 core/cop.o
+ .debug_macro   0x0000000000000000       0xe6 core/cop.o
  .debug_macro   0x0000000000000000       0x67 core/cop.o
  .debug_macro   0x0000000000000000       0x1c core/cop.o
- .debug_macro   0x0000000000000000      0x1aa core/cop.o
+ .debug_macro   0x0000000000000000      0x1b1 core/cop.o
  .debug_macro   0x0000000000000000       0x28 core/cop.o
  .group         0x0000000000000000        0xc core/file.o
  .group         0x0000000000000000        0xc core/file.o
@@ -818,10 +818,10 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1c core/file.o
  .debug_macro   0x0000000000000000       0x1c core/file.o
  .debug_macro   0x0000000000000000       0x22 core/file.o
- .debug_macro   0x0000000000000000       0xe0 core/file.o
+ .debug_macro   0x0000000000000000       0xe6 core/file.o
  .debug_macro   0x0000000000000000       0x67 core/file.o
  .debug_macro   0x0000000000000000       0x1c core/file.o
- .debug_macro   0x0000000000000000      0x1aa core/file.o
+ .debug_macro   0x0000000000000000      0x1b1 core/file.o
  .debug_macro   0x0000000000000000       0x28 core/file.o
  .debug_macro   0x0000000000000000       0x22 core/file.o
  .debug_macro   0x0000000000000000       0x40 core/file.o
@@ -842,7 +842,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x20 core/file.o
  .debug_macro   0x0000000000000000      0x111 core/file.o
  .debug_line    0x0000000000000000      0x69c core/file.o
- .debug_str     0x0000000000000000     0x7b33 core/file.o
+ .debug_str     0x0000000000000000     0x7b4f core/file.o
  .comment       0x0000000000000000       0x7c core/file.o
  .ARM.attributes
                 0x0000000000000000       0x39 core/file.o
@@ -871,10 +871,10 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1c core/net.o
  .debug_macro   0x0000000000000000       0x1c core/net.o
  .debug_macro   0x0000000000000000       0x22 core/net.o
- .debug_macro   0x0000000000000000       0xe0 core/net.o
+ .debug_macro   0x0000000000000000       0xe6 core/net.o
  .debug_macro   0x0000000000000000       0x67 core/net.o
  .debug_macro   0x0000000000000000       0x1c core/net.o
- .debug_macro   0x0000000000000000      0x1aa core/net.o
+ .debug_macro   0x0000000000000000      0x1b1 core/net.o
  .debug_macro   0x0000000000000000       0x28 core/net.o
  .debug_macro   0x0000000000000000       0x10 core/net.o
  .group         0x0000000000000000        0xc core/xcp.o
@@ -893,10 +893,10 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1c core/xcp.o
  .debug_macro   0x0000000000000000       0x1c core/xcp.o
  .debug_macro   0x0000000000000000       0x22 core/xcp.o
- .debug_macro   0x0000000000000000       0xe0 core/xcp.o
+ .debug_macro   0x0000000000000000       0xe6 core/xcp.o
  .debug_macro   0x0000000000000000       0x67 core/xcp.o
  .debug_macro   0x0000000000000000       0x1c core/xcp.o
- .debug_macro   0x0000000000000000      0x1aa core/xcp.o
+ .debug_macro   0x0000000000000000      0x1b1 core/xcp.o
  .debug_macro   0x0000000000000000       0x28 core/xcp.o
  .group         0x0000000000000000        0xc core/third_party/uip/apps/dhcpc/dhcpc.o
  .group         0x0000000000000000        0xc core/third_party/uip/apps/dhcpc/dhcpc.o
@@ -991,10 +991,10 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1c core/third_party/uip/apps/dhcpc/dhcpc.o
  .debug_macro   0x0000000000000000       0x1c core/third_party/uip/apps/dhcpc/dhcpc.o
  .debug_macro   0x0000000000000000       0x22 core/third_party/uip/apps/dhcpc/dhcpc.o
- .debug_macro   0x0000000000000000       0xe0 core/third_party/uip/apps/dhcpc/dhcpc.o
+ .debug_macro   0x0000000000000000       0xe6 core/third_party/uip/apps/dhcpc/dhcpc.o
  .debug_macro   0x0000000000000000       0x67 core/third_party/uip/apps/dhcpc/dhcpc.o
  .debug_macro   0x0000000000000000       0x1c core/third_party/uip/apps/dhcpc/dhcpc.o
- .debug_macro   0x0000000000000000      0x1aa core/third_party/uip/apps/dhcpc/dhcpc.o
+ .debug_macro   0x0000000000000000      0x1b1 core/third_party/uip/apps/dhcpc/dhcpc.o
  .debug_macro   0x0000000000000000       0x28 core/third_party/uip/apps/dhcpc/dhcpc.o
  .debug_macro   0x0000000000000000       0x10 core/third_party/uip/apps/dhcpc/dhcpc.o
  .debug_macro   0x0000000000000000       0x10 core/third_party/uip/apps/dhcpc/dhcpc.o
@@ -1055,10 +1055,10 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1c core/third_party/uip/uip/uip.o
  .debug_macro   0x0000000000000000       0x1c core/third_party/uip/uip/uip.o
  .debug_macro   0x0000000000000000       0x22 core/third_party/uip/uip/uip.o
- .debug_macro   0x0000000000000000       0xe0 core/third_party/uip/uip/uip.o
+ .debug_macro   0x0000000000000000       0xe6 core/third_party/uip/uip/uip.o
  .debug_macro   0x0000000000000000       0x67 core/third_party/uip/uip/uip.o
  .debug_macro   0x0000000000000000       0x1c core/third_party/uip/uip/uip.o
- .debug_macro   0x0000000000000000      0x1aa core/third_party/uip/uip/uip.o
+ .debug_macro   0x0000000000000000      0x1b1 core/third_party/uip/uip/uip.o
  .debug_macro   0x0000000000000000       0x28 core/third_party/uip/uip/uip.o
  .debug_macro   0x0000000000000000       0x10 core/third_party/uip/uip/uip.o
  .debug_macro   0x0000000000000000       0x10 core/third_party/uip/uip/uip.o
@@ -1129,10 +1129,10 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1c core/third_party/uip/uip/uip_arp.o
  .debug_macro   0x0000000000000000       0x1c core/third_party/uip/uip/uip_arp.o
  .debug_macro   0x0000000000000000       0x22 core/third_party/uip/uip/uip_arp.o
- .debug_macro   0x0000000000000000       0xe0 core/third_party/uip/uip/uip_arp.o
+ .debug_macro   0x0000000000000000       0xe6 core/third_party/uip/uip/uip_arp.o
  .debug_macro   0x0000000000000000       0x67 core/third_party/uip/uip/uip_arp.o
  .debug_macro   0x0000000000000000       0x1c core/third_party/uip/uip/uip_arp.o
- .debug_macro   0x0000000000000000      0x1aa core/third_party/uip/uip/uip_arp.o
+ .debug_macro   0x0000000000000000      0x1b1 core/third_party/uip/uip/uip_arp.o
  .debug_macro   0x0000000000000000       0x28 core/third_party/uip/uip/uip_arp.o
  .debug_macro   0x0000000000000000       0x10 core/third_party/uip/uip/uip_arp.o
  .debug_macro   0x0000000000000000       0x10 core/third_party/uip/uip/uip_arp.o
@@ -1204,10 +1204,10 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1c core/third_party/uip/uip/uiplib.o
  .debug_macro   0x0000000000000000       0x1c core/third_party/uip/uip/uiplib.o
  .debug_macro   0x0000000000000000       0x22 core/third_party/uip/uip/uiplib.o
- .debug_macro   0x0000000000000000       0xe0 core/third_party/uip/uip/uiplib.o
+ .debug_macro   0x0000000000000000       0xe6 core/third_party/uip/uip/uiplib.o
  .debug_macro   0x0000000000000000       0x67 core/third_party/uip/uip/uiplib.o
  .debug_macro   0x0000000000000000       0x1c core/third_party/uip/uip/uiplib.o
- .debug_macro   0x0000000000000000      0x1aa core/third_party/uip/uip/uiplib.o
+ .debug_macro   0x0000000000000000      0x1b1 core/third_party/uip/uip/uiplib.o
  .debug_macro   0x0000000000000000       0x28 core/third_party/uip/uip/uiplib.o
  .debug_macro   0x0000000000000000       0x10 core/third_party/uip/uip/uiplib.o
  .debug_macro   0x0000000000000000       0x10 core/third_party/uip/uip/uiplib.o
@@ -1216,7 +1216,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0xc5 core/third_party/uip/uip/uiplib.o
  .debug_macro   0x0000000000000000      0x240 core/third_party/uip/uip/uiplib.o
  .debug_line    0x0000000000000000      0x406 core/third_party/uip/uip/uiplib.o
- .debug_str     0x0000000000000000     0x57ec core/third_party/uip/uip/uiplib.o
+ .debug_str     0x0000000000000000     0x5808 core/third_party/uip/uip/uiplib.o
  .comment       0x0000000000000000       0x7c core/third_party/uip/uip/uiplib.o
  .debug_frame   0x0000000000000000       0x34 core/third_party/uip/uip/uiplib.o
  .ARM.attributes
@@ -1298,10 +1298,10 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1c hooks.o
  .debug_macro   0x0000000000000000       0x1c hooks.o
  .debug_macro   0x0000000000000000       0x22 hooks.o
- .debug_macro   0x0000000000000000       0xe0 hooks.o
+ .debug_macro   0x0000000000000000       0xe6 hooks.o
  .debug_macro   0x0000000000000000       0x67 hooks.o
  .debug_macro   0x0000000000000000       0x1c hooks.o
- .debug_macro   0x0000000000000000      0x1aa hooks.o
+ .debug_macro   0x0000000000000000      0x1b1 hooks.o
  .debug_macro   0x0000000000000000       0x28 hooks.o
  .debug_macro   0x0000000000000000       0x2e hooks.o
  .debug_macro   0x0000000000000000       0x3b hooks.o
@@ -1441,10 +1441,10 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1c led.o
  .debug_macro   0x0000000000000000       0x1c led.o
  .debug_macro   0x0000000000000000       0x22 led.o
- .debug_macro   0x0000000000000000       0xe0 led.o
+ .debug_macro   0x0000000000000000       0xe6 led.o
  .debug_macro   0x0000000000000000       0x67 led.o
  .debug_macro   0x0000000000000000       0x1c led.o
- .debug_macro   0x0000000000000000      0x1aa led.o
+ .debug_macro   0x0000000000000000      0x1b1 led.o
  .debug_macro   0x0000000000000000       0x28 led.o
  .debug_macro   0x0000000000000000       0x2e led.o
  .debug_macro   0x0000000000000000       0x3b led.o
@@ -1585,10 +1585,10 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1c main.o
  .debug_macro   0x0000000000000000       0x1c main.o
  .debug_macro   0x0000000000000000       0x22 main.o
- .debug_macro   0x0000000000000000       0xe0 main.o
+ .debug_macro   0x0000000000000000       0xe6 main.o
  .debug_macro   0x0000000000000000       0x67 main.o
  .debug_macro   0x0000000000000000       0x1c main.o
- .debug_macro   0x0000000000000000      0x1aa main.o
+ .debug_macro   0x0000000000000000      0x1b1 main.o
  .debug_macro   0x0000000000000000       0x28 main.o
  .debug_macro   0x0000000000000000       0x2e main.o
  .debug_macro   0x0000000000000000       0x3b main.o
@@ -5334,10 +5334,10 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1c lib/uip/clock-arch.o
  .debug_macro   0x0000000000000000       0x1c lib/uip/clock-arch.o
  .debug_macro   0x0000000000000000       0x22 lib/uip/clock-arch.o
- .debug_macro   0x0000000000000000       0xe0 lib/uip/clock-arch.o
+ .debug_macro   0x0000000000000000       0xe6 lib/uip/clock-arch.o
  .debug_macro   0x0000000000000000       0x67 lib/uip/clock-arch.o
  .debug_macro   0x0000000000000000       0x1c lib/uip/clock-arch.o
- .debug_macro   0x0000000000000000      0x1aa lib/uip/clock-arch.o
+ .debug_macro   0x0000000000000000      0x1b1 lib/uip/clock-arch.o
  .debug_macro   0x0000000000000000       0x28 lib/uip/clock-arch.o
  .group         0x0000000000000000        0xc lib/uip/netdev.o
  .group         0x0000000000000000        0xc lib/uip/netdev.o
@@ -5450,10 +5450,10 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1c lib/uip/netdev.o
  .debug_macro   0x0000000000000000       0x1c lib/uip/netdev.o
  .debug_macro   0x0000000000000000       0x22 lib/uip/netdev.o
- .debug_macro   0x0000000000000000       0xe0 lib/uip/netdev.o
+ .debug_macro   0x0000000000000000       0xe6 lib/uip/netdev.o
  .debug_macro   0x0000000000000000       0x67 lib/uip/netdev.o
  .debug_macro   0x0000000000000000       0x1c lib/uip/netdev.o
- .debug_macro   0x0000000000000000      0x1aa lib/uip/netdev.o
+ .debug_macro   0x0000000000000000      0x1b1 lib/uip/netdev.o
  .debug_macro   0x0000000000000000       0x28 lib/uip/netdev.o
  .debug_macro   0x0000000000000000       0x10 lib/uip/netdev.o
  .debug_macro   0x0000000000000000       0x10 lib/uip/netdev.o
@@ -6636,7 +6636,7 @@ LOAD /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.id
                 0x0000000000000951       0x22 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.macos64_1.4.0.202007081208/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
 OUTPUT(openblt_stm32f767.elf elf32-littlearm)
 
-.debug_info     0x0000000000000000    0x1c2f3
+.debug_info     0x0000000000000000    0x1c2f7
  .debug_info    0x0000000000000000       0x84 core/ARMCM7_STM32F7/GCC/cpu_comp.o
  .debug_info    0x0000000000000084      0xea9 core/ARMCM7_STM32F7/cpu.o
  .debug_info    0x0000000000000f2d     0x106c core/ARMCM7_STM32F7/flash.o
@@ -6646,34 +6646,34 @@ OUTPUT(openblt_stm32f767.elf elf32-littlearm)
  .debug_info    0x0000000000003a0c       0xc6 core/assert.o
  .debug_info    0x0000000000003ad2      0x17c core/backdoor.o
  .debug_info    0x0000000000003c4e      0x156 core/boot.o
- .debug_info    0x0000000000003da4      0x333 core/com.o
- .debug_info    0x00000000000040d7       0xb6 core/cop.o
- .debug_info    0x000000000000418d      0xa2a core/net.o
- .debug_info    0x0000000000004bb7      0x7f9 core/xcp.o
- .debug_info    0x00000000000053b0     0x1562 core/third_party/uip/apps/dhcpc/dhcpc.o
- .debug_info    0x0000000000006912     0x1950 core/third_party/uip/uip/uip.o
- .debug_info    0x0000000000008262     0x1188 core/third_party/uip/uip/uip_arp.o
- .debug_info    0x00000000000093ea      0x12a core/third_party/uip/uip/uip_timer.o
- .debug_info    0x0000000000009514      0xabe hooks.o
- .debug_info    0x0000000000009fd2      0xb2a led.o
- .debug_info    0x000000000000aafc     0x1206 main.o
- .debug_info    0x000000000000bd02      0x2bd shared_params.o
- .debug_info    0x000000000000bfbf       0x22 startup_stm32f767xx.o
- .debug_info    0x000000000000bfe1     0x12df lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal.o
- .debug_info    0x000000000000d2c0     0x19a9 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cortex.o
- .debug_info    0x000000000000ec69     0x20fd lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_eth.o
- .debug_info    0x0000000000010d66      0xf64 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash.o
- .debug_info    0x0000000000011cca     0x1115 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash_ex.o
- .debug_info    0x0000000000012ddf      0xfb7 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_gpio.o
- .debug_info    0x0000000000013d96     0x123b lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr_ex.o
- .debug_info    0x0000000000014fd1     0x135a lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc.o
- .debug_info    0x000000000001632b     0x202c lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_rcc.o
- .debug_info    0x0000000000018357     0x12a2 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_usart.o
- .debug_info    0x00000000000195f9      0xf02 lib/system_stm32f7xx.o
- .debug_info    0x000000000001a4fb       0x9b lib/uip/clock-arch.o
- .debug_info    0x000000000001a596     0x1d5d lib/uip/netdev.o
+ .debug_info    0x0000000000003da4      0x336 core/com.o
+ .debug_info    0x00000000000040da       0xb6 core/cop.o
+ .debug_info    0x0000000000004190      0xa2b core/net.o
+ .debug_info    0x0000000000004bbb      0x7f9 core/xcp.o
+ .debug_info    0x00000000000053b4     0x1562 core/third_party/uip/apps/dhcpc/dhcpc.o
+ .debug_info    0x0000000000006916     0x1950 core/third_party/uip/uip/uip.o
+ .debug_info    0x0000000000008266     0x1188 core/third_party/uip/uip/uip_arp.o
+ .debug_info    0x00000000000093ee      0x12a core/third_party/uip/uip/uip_timer.o
+ .debug_info    0x0000000000009518      0xabe hooks.o
+ .debug_info    0x0000000000009fd6      0xb2a led.o
+ .debug_info    0x000000000000ab00     0x1206 main.o
+ .debug_info    0x000000000000bd06      0x2bd shared_params.o
+ .debug_info    0x000000000000bfc3       0x22 startup_stm32f767xx.o
+ .debug_info    0x000000000000bfe5     0x12df lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal.o
+ .debug_info    0x000000000000d2c4     0x19a9 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cortex.o
+ .debug_info    0x000000000000ec6d     0x20fd lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_eth.o
+ .debug_info    0x0000000000010d6a      0xf64 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash.o
+ .debug_info    0x0000000000011cce     0x1115 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash_ex.o
+ .debug_info    0x0000000000012de3      0xfb7 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_gpio.o
+ .debug_info    0x0000000000013d9a     0x123b lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr_ex.o
+ .debug_info    0x0000000000014fd5     0x135a lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc.o
+ .debug_info    0x000000000001632f     0x202c lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_rcc.o
+ .debug_info    0x000000000001835b     0x12a2 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_usart.o
+ .debug_info    0x00000000000195fd      0xf02 lib/system_stm32f7xx.o
+ .debug_info    0x000000000001a4ff       0x9b lib/uip/clock-arch.o
+ .debug_info    0x000000000001a59a     0x1d5d lib/uip/netdev.o
 
-.debug_abbrev   0x0000000000000000     0x4667
+.debug_abbrev   0x0000000000000000     0x4678
  .debug_abbrev  0x0000000000000000       0x45 core/ARMCM7_STM32F7/GCC/cpu_comp.o
  .debug_abbrev  0x0000000000000045      0x1fd core/ARMCM7_STM32F7/cpu.o
  .debug_abbrev  0x0000000000000242      0x2ef core/ARMCM7_STM32F7/flash.o
@@ -6683,32 +6683,32 @@ OUTPUT(openblt_stm32f767.elf elf32-littlearm)
  .debug_abbrev  0x0000000000000a90       0x88 core/assert.o
  .debug_abbrev  0x0000000000000b18       0xa8 core/backdoor.o
  .debug_abbrev  0x0000000000000bc0       0x63 core/boot.o
- .debug_abbrev  0x0000000000000c23      0x16f core/com.o
- .debug_abbrev  0x0000000000000d92       0x63 core/cop.o
- .debug_abbrev  0x0000000000000df5      0x240 core/net.o
- .debug_abbrev  0x0000000000001035      0x1d3 core/xcp.o
- .debug_abbrev  0x0000000000001208      0x31d core/third_party/uip/apps/dhcpc/dhcpc.o
- .debug_abbrev  0x0000000000001525      0x33b core/third_party/uip/uip/uip.o
- .debug_abbrev  0x0000000000001860      0x277 core/third_party/uip/uip/uip_arp.o
- .debug_abbrev  0x0000000000001ad7       0xd5 core/third_party/uip/uip/uip_timer.o
- .debug_abbrev  0x0000000000001bac      0x200 hooks.o
- .debug_abbrev  0x0000000000001dac      0x202 led.o
- .debug_abbrev  0x0000000000001fae      0x243 main.o
- .debug_abbrev  0x00000000000021f1      0x149 shared_params.o
- .debug_abbrev  0x000000000000233a       0x12 startup_stm32f767xx.o
- .debug_abbrev  0x000000000000234c      0x2ad lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal.o
- .debug_abbrev  0x00000000000025f9      0x3ad lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cortex.o
- .debug_abbrev  0x00000000000029a6      0x332 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_eth.o
- .debug_abbrev  0x0000000000002cd8      0x307 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash.o
- .debug_abbrev  0x0000000000002fdf      0x2cf lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash_ex.o
- .debug_abbrev  0x00000000000032ae      0x26f lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_gpio.o
- .debug_abbrev  0x000000000000351d      0x2b2 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr_ex.o
- .debug_abbrev  0x00000000000037cf      0x31e lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc.o
- .debug_abbrev  0x0000000000003aed      0x2ea lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_rcc.o
- .debug_abbrev  0x0000000000003dd7      0x31c lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_usart.o
- .debug_abbrev  0x00000000000040f3      0x1e9 lib/system_stm32f7xx.o
- .debug_abbrev  0x00000000000042dc       0x72 lib/uip/clock-arch.o
- .debug_abbrev  0x000000000000434e      0x319 lib/uip/netdev.o
+ .debug_abbrev  0x0000000000000c23      0x180 core/com.o
+ .debug_abbrev  0x0000000000000da3       0x63 core/cop.o
+ .debug_abbrev  0x0000000000000e06      0x240 core/net.o
+ .debug_abbrev  0x0000000000001046      0x1d3 core/xcp.o
+ .debug_abbrev  0x0000000000001219      0x31d core/third_party/uip/apps/dhcpc/dhcpc.o
+ .debug_abbrev  0x0000000000001536      0x33b core/third_party/uip/uip/uip.o
+ .debug_abbrev  0x0000000000001871      0x277 core/third_party/uip/uip/uip_arp.o
+ .debug_abbrev  0x0000000000001ae8       0xd5 core/third_party/uip/uip/uip_timer.o
+ .debug_abbrev  0x0000000000001bbd      0x200 hooks.o
+ .debug_abbrev  0x0000000000001dbd      0x202 led.o
+ .debug_abbrev  0x0000000000001fbf      0x243 main.o
+ .debug_abbrev  0x0000000000002202      0x149 shared_params.o
+ .debug_abbrev  0x000000000000234b       0x12 startup_stm32f767xx.o
+ .debug_abbrev  0x000000000000235d      0x2ad lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal.o
+ .debug_abbrev  0x000000000000260a      0x3ad lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cortex.o
+ .debug_abbrev  0x00000000000029b7      0x332 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_eth.o
+ .debug_abbrev  0x0000000000002ce9      0x307 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash.o
+ .debug_abbrev  0x0000000000002ff0      0x2cf lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash_ex.o
+ .debug_abbrev  0x00000000000032bf      0x26f lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_gpio.o
+ .debug_abbrev  0x000000000000352e      0x2b2 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr_ex.o
+ .debug_abbrev  0x00000000000037e0      0x31e lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc.o
+ .debug_abbrev  0x0000000000003afe      0x2ea lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_rcc.o
+ .debug_abbrev  0x0000000000003de8      0x31c lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_usart.o
+ .debug_abbrev  0x0000000000004104      0x1e9 lib/system_stm32f7xx.o
+ .debug_abbrev  0x00000000000042ed       0x72 lib/uip/clock-arch.o
+ .debug_abbrev  0x000000000000435f      0x319 lib/uip/netdev.o
 
 .debug_aranges  0x0000000000000000      0xdd0
  .debug_aranges
@@ -6819,131 +6819,131 @@ OUTPUT(openblt_stm32f767.elf elf32-littlearm)
  .debug_ranges  0x0000000000000be8       0x10 lib/uip/clock-arch.o
  .debug_ranges  0x0000000000000bf8       0x40 lib/uip/netdev.o
 
-.debug_macro    0x0000000000000000    0x2bec4
+.debug_macro    0x0000000000000000    0x2bed1
  .debug_macro   0x0000000000000000       0x91 core/ARMCM7_STM32F7/GCC/cpu_comp.o
  .debug_macro   0x0000000000000091      0xa66 core/ARMCM7_STM32F7/GCC/cpu_comp.o
  .debug_macro   0x0000000000000af7       0x1c core/ARMCM7_STM32F7/GCC/cpu_comp.o
  .debug_macro   0x0000000000000b13       0x1c core/ARMCM7_STM32F7/GCC/cpu_comp.o
  .debug_macro   0x0000000000000b2f       0x22 core/ARMCM7_STM32F7/GCC/cpu_comp.o
- .debug_macro   0x0000000000000b51       0xe0 core/ARMCM7_STM32F7/GCC/cpu_comp.o
- .debug_macro   0x0000000000000c31       0x67 core/ARMCM7_STM32F7/GCC/cpu_comp.o
- .debug_macro   0x0000000000000c98       0x1c core/ARMCM7_STM32F7/GCC/cpu_comp.o
- .debug_macro   0x0000000000000cb4      0x1aa core/ARMCM7_STM32F7/GCC/cpu_comp.o
- .debug_macro   0x0000000000000e5e       0x28 core/ARMCM7_STM32F7/GCC/cpu_comp.o
- .debug_macro   0x0000000000000e86      0x397 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x000000000000121d       0x2e core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x000000000000124b       0x3b core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x0000000000001286       0x22 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x00000000000012a8       0x8e core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x0000000000001336       0x51 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x0000000000001387       0xef core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x0000000000001476       0x6a core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x00000000000014e0      0x1df core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x00000000000016bf       0x35 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x00000000000016f4       0x50 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x0000000000001744     0x1114 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x0000000000002858    0x19f38 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x000000000001c790       0x43 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x000000000001c7d3      0x18d core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x000000000001c960     0x35cf core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x000000000001ff2f       0x46 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x000000000001ff75       0x18 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x000000000001ff8d       0x3c core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x000000000001ffc9       0x34 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x000000000001fffd       0x16 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x0000000000020013       0x97 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x00000000000200aa      0x330 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x00000000000203da       0xfd core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x00000000000204d7       0x10 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x00000000000204e7       0x52 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x0000000000020539       0x1f core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x0000000000020558       0x43 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x000000000002059b       0x20 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x00000000000205bb      0x1a3 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x000000000002075e       0x10 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x000000000002076e       0x1c core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x000000000002078a       0x52 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x00000000000207dc       0x40 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x000000000002081c       0x10 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x000000000002082c       0x40 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x000000000002086c       0xd7 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x0000000000020943       0x1c core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x000000000002095f       0x3d core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x000000000002099c       0x16 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x00000000000209b2      0x145 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x0000000000020af7       0x57 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x0000000000020b4e     0x1add core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x000000000002262b      0x6ca core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x0000000000022cf5      0x11e core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x0000000000022e13      0x277 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x000000000002308a       0x27 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x00000000000230b1      0x24f core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x0000000000023300       0x71 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x0000000000023371       0x58 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x00000000000233c9      0x23a core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x0000000000023603      0xcd5 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x00000000000242d8      0x156 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x000000000002442e      0x3de core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x000000000002480c       0x12 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x000000000002481e      0x209 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x0000000000024a27       0x61 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x0000000000024a88       0x90 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x0000000000024b18      0x132 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x0000000000024c4a      0x10c core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x0000000000024d56       0x35 core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x0000000000024d8b      0x16c core/ARMCM7_STM32F7/cpu.o
- .debug_macro   0x0000000000024ef7      0x3af core/ARMCM7_STM32F7/flash.o
- .debug_macro   0x00000000000252a6       0x9b core/ARMCM7_STM32F7/nvm.o
- .debug_macro   0x0000000000025341      0x3a6 core/ARMCM7_STM32F7/rs232.o
- .debug_macro   0x00000000000256e7      0x2c6 core/ARMCM7_STM32F7/rs232.o
- .debug_macro   0x00000000000259ad      0x38b core/ARMCM7_STM32F7/timer.o
- .debug_macro   0x0000000000025d38       0x91 core/assert.o
- .debug_macro   0x0000000000025dc9       0x97 core/backdoor.o
- .debug_macro   0x0000000000025e60       0x91 core/boot.o
- .debug_macro   0x0000000000025ef1       0xa4 core/com.o
- .debug_macro   0x0000000000025f95       0x10 core/com.o
- .debug_macro   0x0000000000025fa5       0x91 core/cop.o
- .debug_macro   0x0000000000026036      0x151 core/net.o
- .debug_macro   0x0000000000026187       0x16 core/net.o
- .debug_macro   0x000000000002619d       0x43 core/net.o
- .debug_macro   0x00000000000261e0       0x10 core/net.o
- .debug_macro   0x00000000000261f0       0x22 core/net.o
- .debug_macro   0x0000000000026212       0x74 core/net.o
- .debug_macro   0x0000000000026286       0xc5 core/net.o
- .debug_macro   0x000000000002634b      0x240 core/net.o
- .debug_macro   0x000000000002658b       0x23 core/net.o
- .debug_macro   0x00000000000265ae       0x91 core/xcp.o
- .debug_macro   0x000000000002663f      0x3a6 core/third_party/uip/apps/dhcpc/dhcpc.o
- .debug_macro   0x00000000000269e5       0x16 core/third_party/uip/apps/dhcpc/dhcpc.o
- .debug_macro   0x00000000000269fb       0x2b core/third_party/uip/apps/dhcpc/dhcpc.o
- .debug_macro   0x0000000000026a26      0x118 core/third_party/uip/apps/dhcpc/dhcpc.o
- .debug_macro   0x0000000000026b3e      0x2c5 core/third_party/uip/uip/uip.o
- .debug_macro   0x0000000000026e03      0x22c core/third_party/uip/uip/uip_arp.o
- .debug_macro   0x000000000002702f       0x34 core/third_party/uip/uip/uip_timer.o
- .debug_macro   0x0000000000027063      0x395 hooks.o
- .debug_macro   0x00000000000273f8      0x395 led.o
- .debug_macro   0x000000000002778d      0x3a4 main.o
- .debug_macro   0x0000000000027b31       0x22 main.o
- .debug_macro   0x0000000000027b53       0x8b shared_params.o
- .debug_macro   0x0000000000027bde      0x32f lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal.o
- .debug_macro   0x0000000000027f0d      0x30b lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cortex.o
- .debug_macro   0x0000000000028218      0x31d lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_eth.o
- .debug_macro   0x0000000000028535      0x317 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash.o
- .debug_macro   0x000000000002884c      0x317 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash_ex.o
- .debug_macro   0x0000000000028b63      0x343 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_gpio.o
- .debug_macro   0x0000000000028ea6      0x323 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr_ex.o
- .debug_macro   0x00000000000291c9      0x32f lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc.o
- .debug_macro   0x00000000000294f8      0x374 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_rcc.o
- .debug_macro   0x000000000002986c      0xbe9 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_rcc.o
- .debug_macro   0x000000000002a455      0x380 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_usart.o
- .debug_macro   0x000000000002a7d5      0x2c0 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_usart.o
- .debug_macro   0x000000000002aa95      0xbef lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_usart.o
- .debug_macro   0x000000000002b684      0x311 lib/system_stm32f7xx.o
- .debug_macro   0x000000000002b995       0x9a lib/uip/clock-arch.o
- .debug_macro   0x000000000002ba2f      0x479 lib/uip/netdev.o
- .debug_macro   0x000000000002bea8       0x1c lib/uip/netdev.o
+ .debug_macro   0x0000000000000b51       0xe6 core/ARMCM7_STM32F7/GCC/cpu_comp.o
+ .debug_macro   0x0000000000000c37       0x67 core/ARMCM7_STM32F7/GCC/cpu_comp.o
+ .debug_macro   0x0000000000000c9e       0x1c core/ARMCM7_STM32F7/GCC/cpu_comp.o
+ .debug_macro   0x0000000000000cba      0x1b1 core/ARMCM7_STM32F7/GCC/cpu_comp.o
+ .debug_macro   0x0000000000000e6b       0x28 core/ARMCM7_STM32F7/GCC/cpu_comp.o
+ .debug_macro   0x0000000000000e93      0x397 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x000000000000122a       0x2e core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x0000000000001258       0x3b core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x0000000000001293       0x22 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x00000000000012b5       0x8e core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x0000000000001343       0x51 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x0000000000001394       0xef core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x0000000000001483       0x6a core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x00000000000014ed      0x1df core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x00000000000016cc       0x35 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x0000000000001701       0x50 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x0000000000001751     0x1114 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x0000000000002865    0x19f38 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x000000000001c79d       0x43 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x000000000001c7e0      0x18d core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x000000000001c96d     0x35cf core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x000000000001ff3c       0x46 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x000000000001ff82       0x18 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x000000000001ff9a       0x3c core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x000000000001ffd6       0x34 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x000000000002000a       0x16 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x0000000000020020       0x97 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x00000000000200b7      0x330 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x00000000000203e7       0xfd core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x00000000000204e4       0x10 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x00000000000204f4       0x52 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x0000000000020546       0x1f core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x0000000000020565       0x43 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x00000000000205a8       0x20 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x00000000000205c8      0x1a3 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x000000000002076b       0x10 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x000000000002077b       0x1c core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x0000000000020797       0x52 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x00000000000207e9       0x40 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x0000000000020829       0x10 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x0000000000020839       0x40 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x0000000000020879       0xd7 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x0000000000020950       0x1c core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x000000000002096c       0x3d core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x00000000000209a9       0x16 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x00000000000209bf      0x145 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x0000000000020b04       0x57 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x0000000000020b5b     0x1add core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x0000000000022638      0x6ca core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x0000000000022d02      0x11e core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x0000000000022e20      0x277 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x0000000000023097       0x27 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x00000000000230be      0x24f core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x000000000002330d       0x71 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x000000000002337e       0x58 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x00000000000233d6      0x23a core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x0000000000023610      0xcd5 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x00000000000242e5      0x156 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x000000000002443b      0x3de core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x0000000000024819       0x12 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x000000000002482b      0x209 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x0000000000024a34       0x61 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x0000000000024a95       0x90 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x0000000000024b25      0x132 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x0000000000024c57      0x10c core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x0000000000024d63       0x35 core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x0000000000024d98      0x16c core/ARMCM7_STM32F7/cpu.o
+ .debug_macro   0x0000000000024f04      0x3af core/ARMCM7_STM32F7/flash.o
+ .debug_macro   0x00000000000252b3       0x9b core/ARMCM7_STM32F7/nvm.o
+ .debug_macro   0x000000000002534e      0x3a6 core/ARMCM7_STM32F7/rs232.o
+ .debug_macro   0x00000000000256f4      0x2c6 core/ARMCM7_STM32F7/rs232.o
+ .debug_macro   0x00000000000259ba      0x38b core/ARMCM7_STM32F7/timer.o
+ .debug_macro   0x0000000000025d45       0x91 core/assert.o
+ .debug_macro   0x0000000000025dd6       0x97 core/backdoor.o
+ .debug_macro   0x0000000000025e6d       0x91 core/boot.o
+ .debug_macro   0x0000000000025efe       0xa4 core/com.o
+ .debug_macro   0x0000000000025fa2       0x10 core/com.o
+ .debug_macro   0x0000000000025fb2       0x91 core/cop.o
+ .debug_macro   0x0000000000026043      0x151 core/net.o
+ .debug_macro   0x0000000000026194       0x16 core/net.o
+ .debug_macro   0x00000000000261aa       0x43 core/net.o
+ .debug_macro   0x00000000000261ed       0x10 core/net.o
+ .debug_macro   0x00000000000261fd       0x22 core/net.o
+ .debug_macro   0x000000000002621f       0x74 core/net.o
+ .debug_macro   0x0000000000026293       0xc5 core/net.o
+ .debug_macro   0x0000000000026358      0x240 core/net.o
+ .debug_macro   0x0000000000026598       0x23 core/net.o
+ .debug_macro   0x00000000000265bb       0x91 core/xcp.o
+ .debug_macro   0x000000000002664c      0x3a6 core/third_party/uip/apps/dhcpc/dhcpc.o
+ .debug_macro   0x00000000000269f2       0x16 core/third_party/uip/apps/dhcpc/dhcpc.o
+ .debug_macro   0x0000000000026a08       0x2b core/third_party/uip/apps/dhcpc/dhcpc.o
+ .debug_macro   0x0000000000026a33      0x118 core/third_party/uip/apps/dhcpc/dhcpc.o
+ .debug_macro   0x0000000000026b4b      0x2c5 core/third_party/uip/uip/uip.o
+ .debug_macro   0x0000000000026e10      0x22c core/third_party/uip/uip/uip_arp.o
+ .debug_macro   0x000000000002703c       0x34 core/third_party/uip/uip/uip_timer.o
+ .debug_macro   0x0000000000027070      0x395 hooks.o
+ .debug_macro   0x0000000000027405      0x395 led.o
+ .debug_macro   0x000000000002779a      0x3a4 main.o
+ .debug_macro   0x0000000000027b3e       0x22 main.o
+ .debug_macro   0x0000000000027b60       0x8b shared_params.o
+ .debug_macro   0x0000000000027beb      0x32f lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal.o
+ .debug_macro   0x0000000000027f1a      0x30b lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cortex.o
+ .debug_macro   0x0000000000028225      0x31d lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_eth.o
+ .debug_macro   0x0000000000028542      0x317 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash.o
+ .debug_macro   0x0000000000028859      0x317 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash_ex.o
+ .debug_macro   0x0000000000028b70      0x343 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_gpio.o
+ .debug_macro   0x0000000000028eb3      0x323 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr_ex.o
+ .debug_macro   0x00000000000291d6      0x32f lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc.o
+ .debug_macro   0x0000000000029505      0x374 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_rcc.o
+ .debug_macro   0x0000000000029879      0xbe9 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_rcc.o
+ .debug_macro   0x000000000002a462      0x380 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_usart.o
+ .debug_macro   0x000000000002a7e2      0x2c0 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_usart.o
+ .debug_macro   0x000000000002aaa2      0xbef lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_usart.o
+ .debug_macro   0x000000000002b691      0x311 lib/system_stm32f7xx.o
+ .debug_macro   0x000000000002b9a2       0x9a lib/uip/clock-arch.o
+ .debug_macro   0x000000000002ba3c      0x479 lib/uip/netdev.o
+ .debug_macro   0x000000000002beb5       0x1c lib/uip/netdev.o
 
-.debug_line     0x0000000000000000    0x14967
+.debug_line     0x0000000000000000    0x14969
  .debug_line    0x0000000000000000      0x273 core/ARMCM7_STM32F7/GCC/cpu_comp.o
  .debug_line    0x0000000000000273      0xcd2 core/ARMCM7_STM32F7/cpu.o
  .debug_line    0x0000000000000f45      0xe66 core/ARMCM7_STM32F7/flash.o
@@ -6956,101 +6956,101 @@ OUTPUT(openblt_stm32f767.elf elf32-littlearm)
  .debug_line    0x00000000000040cb      0x2b6 core/com.o
  .debug_line    0x0000000000004381      0x209 core/cop.o
  .debug_line    0x000000000000458a      0x50a core/net.o
- .debug_line    0x0000000000004a94      0x441 core/xcp.o
- .debug_line    0x0000000000004ed5      0xc3c core/third_party/uip/apps/dhcpc/dhcpc.o
- .debug_line    0x0000000000005b11      0xde2 core/third_party/uip/uip/uip.o
- .debug_line    0x00000000000068f3      0x9cf core/third_party/uip/uip/uip_arp.o
- .debug_line    0x00000000000072c2      0x18a core/third_party/uip/uip/uip_timer.o
- .debug_line    0x000000000000744c      0xcb5 hooks.o
- .debug_line    0x0000000000008101      0xcb5 led.o
- .debug_line    0x0000000000008db6      0xd4a main.o
- .debug_line    0x0000000000009b00      0x496 shared_params.o
- .debug_line    0x0000000000009f96       0x77 startup_stm32f767xx.o
- .debug_line    0x000000000000a00d      0xd20 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal.o
- .debug_line    0x000000000000ad2d      0xd15 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cortex.o
- .debug_line    0x000000000000ba42     0x1164 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_eth.o
- .debug_line    0x000000000000cba6      0xd1a lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash.o
- .debug_line    0x000000000000d8c0      0xcfc lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash_ex.o
- .debug_line    0x000000000000e5bc      0xc65 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_gpio.o
- .debug_line    0x000000000000f221      0xc22 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr_ex.o
- .debug_line    0x000000000000fe43      0xd9e lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc.o
- .debug_line    0x0000000000010be1     0x144b lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_rcc.o
- .debug_line    0x000000000001202c      0xc9f lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_usart.o
- .debug_line    0x0000000000012ccb      0xb03 lib/system_stm32f7xx.o
- .debug_line    0x00000000000137ce      0x21a lib/uip/clock-arch.o
- .debug_line    0x00000000000139e8      0xf7f lib/uip/netdev.o
+ .debug_line    0x0000000000004a94      0x443 core/xcp.o
+ .debug_line    0x0000000000004ed7      0xc3c core/third_party/uip/apps/dhcpc/dhcpc.o
+ .debug_line    0x0000000000005b13      0xde2 core/third_party/uip/uip/uip.o
+ .debug_line    0x00000000000068f5      0x9cf core/third_party/uip/uip/uip_arp.o
+ .debug_line    0x00000000000072c4      0x18a core/third_party/uip/uip/uip_timer.o
+ .debug_line    0x000000000000744e      0xcb5 hooks.o
+ .debug_line    0x0000000000008103      0xcb5 led.o
+ .debug_line    0x0000000000008db8      0xd4a main.o
+ .debug_line    0x0000000000009b02      0x496 shared_params.o
+ .debug_line    0x0000000000009f98       0x77 startup_stm32f767xx.o
+ .debug_line    0x000000000000a00f      0xd20 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal.o
+ .debug_line    0x000000000000ad2f      0xd15 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cortex.o
+ .debug_line    0x000000000000ba44     0x1164 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_eth.o
+ .debug_line    0x000000000000cba8      0xd1a lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash.o
+ .debug_line    0x000000000000d8c2      0xcfc lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash_ex.o
+ .debug_line    0x000000000000e5be      0xc65 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_gpio.o
+ .debug_line    0x000000000000f223      0xc22 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr_ex.o
+ .debug_line    0x000000000000fe45      0xd9e lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc.o
+ .debug_line    0x0000000000010be3     0x144b lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_rcc.o
+ .debug_line    0x000000000001202e      0xc9f lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_usart.o
+ .debug_line    0x0000000000012ccd      0xb03 lib/system_stm32f7xx.o
+ .debug_line    0x00000000000137d0      0x21a lib/uip/clock-arch.o
+ .debug_line    0x00000000000139ea      0xf7f lib/uip/netdev.o
 
-.debug_str      0x0000000000000000    0xfc987
- .debug_str     0x0000000000000000     0x3c98 core/ARMCM7_STM32F7/GCC/cpu_comp.o
-                                       0x3cfc (size before relaxing)
- .debug_str     0x0000000000003c98    0xe6fcf core/ARMCM7_STM32F7/cpu.o
-                                      0xeb00b (size before relaxing)
- .debug_str     0x00000000000eac67      0x41b core/ARMCM7_STM32F7/flash.o
-                                      0xeb11e (size before relaxing)
- .debug_str     0x00000000000eb082       0x93 core/ARMCM7_STM32F7/nvm.o
-                                       0x3de3 (size before relaxing)
- .debug_str     0x00000000000eb115     0x1281 core/ARMCM7_STM32F7/rs232.o
-                                      0xebf74 (size before relaxing)
- .debug_str     0x00000000000ec396       0xc2 core/ARMCM7_STM32F7/timer.o
-                                      0xead8b (size before relaxing)
- .debug_str     0x00000000000ec458       0x64 core/assert.o
-                                       0x3d03 (size before relaxing)
- .debug_str     0x00000000000ec4bc      0x12d core/backdoor.o
-                                       0x3dcf (size before relaxing)
- .debug_str     0x00000000000ec5e9       0x83 core/boot.o
-                                       0x3d40 (size before relaxing)
- .debug_str     0x00000000000ec66c      0x1a5 core/com.o
-                                       0x3ecd (size before relaxing)
- .debug_str     0x00000000000ec811       0x73 core/cop.o
-                                       0x3cf7 (size before relaxing)
- .debug_str     0x00000000000ec884     0x1dfb core/net.o
-                                       0x5b8a (size before relaxing)
- .debug_str     0x00000000000ee67f      0x213 core/xcp.o
-                                       0x3fab (size before relaxing)
- .debug_str     0x00000000000ee892      0x7f8 core/third_party/uip/apps/dhcpc/dhcpc.o
-                                       0xa8dd (size before relaxing)
- .debug_str     0x00000000000ef08a      0x571 core/third_party/uip/uip/uip.o
-                                       0x93e8 (size before relaxing)
- .debug_str     0x00000000000ef5fb      0x1af core/third_party/uip/uip/uip_arp.o
-                                       0x915b (size before relaxing)
- .debug_str     0x00000000000ef7aa       0x97 core/third_party/uip/uip/uip_timer.o
-                                       0x2eab (size before relaxing)
- .debug_str     0x00000000000ef841       0xa3 hooks.o
-                                      0xead88 (size before relaxing)
- .debug_str     0x00000000000ef8e4       0x4f led.o
+.debug_str      0x0000000000000000    0xfc9a3
+ .debug_str     0x0000000000000000     0x3cb4 core/ARMCM7_STM32F7/GCC/cpu_comp.o
+                                       0x3d18 (size before relaxing)
+ .debug_str     0x0000000000003cb4    0xe6fcf core/ARMCM7_STM32F7/cpu.o
+                                      0xeb027 (size before relaxing)
+ .debug_str     0x00000000000eac83      0x41b core/ARMCM7_STM32F7/flash.o
+                                      0xeb13a (size before relaxing)
+ .debug_str     0x00000000000eb09e       0x93 core/ARMCM7_STM32F7/nvm.o
+                                       0x3dff (size before relaxing)
+ .debug_str     0x00000000000eb131     0x1281 core/ARMCM7_STM32F7/rs232.o
+                                      0xebf90 (size before relaxing)
+ .debug_str     0x00000000000ec3b2       0xc2 core/ARMCM7_STM32F7/timer.o
                                       0xeada7 (size before relaxing)
- .debug_str     0x00000000000ef933      0x39b main.o
-                                      0xeb16f (size before relaxing)
- .debug_str     0x00000000000efcce      0x111 shared_params.o
+ .debug_str     0x00000000000ec474       0x64 core/assert.o
+                                       0x3d1f (size before relaxing)
+ .debug_str     0x00000000000ec4d8      0x12d core/backdoor.o
+                                       0x3deb (size before relaxing)
+ .debug_str     0x00000000000ec605       0x83 core/boot.o
+                                       0x3d5c (size before relaxing)
+ .debug_str     0x00000000000ec688      0x1a5 core/com.o
+                                       0x3ee9 (size before relaxing)
+ .debug_str     0x00000000000ec82d       0x73 core/cop.o
+                                       0x3d13 (size before relaxing)
+ .debug_str     0x00000000000ec8a0     0x1dfb core/net.o
+                                       0x5ba6 (size before relaxing)
+ .debug_str     0x00000000000ee69b      0x213 core/xcp.o
+                                       0x3fc7 (size before relaxing)
+ .debug_str     0x00000000000ee8ae      0x7f8 core/third_party/uip/apps/dhcpc/dhcpc.o
+                                       0xa8f9 (size before relaxing)
+ .debug_str     0x00000000000ef0a6      0x571 core/third_party/uip/uip/uip.o
+                                       0x9404 (size before relaxing)
+ .debug_str     0x00000000000ef617      0x1af core/third_party/uip/uip/uip_arp.o
+                                       0x9177 (size before relaxing)
+ .debug_str     0x00000000000ef7c6       0x97 core/third_party/uip/uip/uip_timer.o
+                                       0x2eab (size before relaxing)
+ .debug_str     0x00000000000ef85d       0xa3 hooks.o
+                                      0xeada4 (size before relaxing)
+ .debug_str     0x00000000000ef900       0x4f led.o
+                                      0xeadc3 (size before relaxing)
+ .debug_str     0x00000000000ef94f      0x39b main.o
+                                      0xeb18b (size before relaxing)
+ .debug_str     0x00000000000efcea      0x111 shared_params.o
                                        0x41a1 (size before relaxing)
- .debug_str     0x00000000000efddf       0x27 startup_stm32f767xx.o
+ .debug_str     0x00000000000efdfb       0x27 startup_stm32f767xx.o
                                          0xaa (size before relaxing)
- .debug_str     0x00000000000efe06      0xa65 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal.o
+ .debug_str     0x00000000000efe22      0xa65 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal.o
                                       0xeaae2 (size before relaxing)
- .debug_str     0x00000000000f086b      0x341 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cortex.o
+ .debug_str     0x00000000000f0887      0x341 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cortex.o
                                       0xeaa85 (size before relaxing)
- .debug_str     0x00000000000f0bac      0xbb1 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_eth.o
+ .debug_str     0x00000000000f0bc8      0xbb1 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_eth.o
                                       0xeabd6 (size before relaxing)
- .debug_str     0x00000000000f175d      0x2d1 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash.o
+ .debug_str     0x00000000000f1779      0x2d1 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash.o
                                       0xea1d4 (size before relaxing)
- .debug_str     0x00000000000f1a2e      0x28d lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash_ex.o
+ .debug_str     0x00000000000f1a4a      0x28d lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash_ex.o
                                       0xea28b (size before relaxing)
- .debug_str     0x00000000000f1cbb      0x1ff lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_gpio.o
+ .debug_str     0x00000000000f1cd7      0x1ff lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_gpio.o
                                       0xea276 (size before relaxing)
- .debug_str     0x00000000000f1eba      0x1d1 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr_ex.o
+ .debug_str     0x00000000000f1ed6      0x1d1 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr_ex.o
                                       0xea332 (size before relaxing)
- .debug_str     0x00000000000f208b      0x20a lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc.o
+ .debug_str     0x00000000000f20a7      0x20a lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc.o
                                       0xea3f0 (size before relaxing)
- .debug_str     0x00000000000f2295     0x8c3d lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_rcc.o
+ .debug_str     0x00000000000f22b1     0x8c3d lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_rcc.o
                                       0xf2b79 (size before relaxing)
- .debug_str     0x00000000000faed2     0x18f8 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_usart.o
+ .debug_str     0x00000000000faeee     0x18f8 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_usart.o
                                       0xf4657 (size before relaxing)
- .debug_str     0x00000000000fc7ca       0x50 lib/system_stm32f7xx.o
+ .debug_str     0x00000000000fc7e6       0x50 lib/system_stm32f7xx.o
                                       0xea09f (size before relaxing)
- .debug_str     0x00000000000fc81a       0x18 lib/uip/clock-arch.o
-                                       0x3cd3 (size before relaxing)
- .debug_str     0x00000000000fc832      0x155 lib/uip/netdev.o
-                                      0xed280 (size before relaxing)
+ .debug_str     0x00000000000fc836       0x18 lib/uip/clock-arch.o
+                                       0x3cef (size before relaxing)
+ .debug_str     0x00000000000fc84e      0x155 lib/uip/netdev.o
+                                      0xed29c (size before relaxing)
 
 .comment        0x0000000000000000       0x7b
  .comment       0x0000000000000000       0x7b core/ARMCM7_STM32F7/GCC/cpu_comp.o

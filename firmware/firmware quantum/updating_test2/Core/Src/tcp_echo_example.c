@@ -160,14 +160,18 @@ echo_recv(void *arg, struct tcp_pcb *tpcb, struct pbuf *p, err_t err)
     char cmd[p->len];
     memcpy(cmd, p->payload,p->len);
 
-    if((cmd[1] == 0xD1)||(cmd[1] == 0xD0)||(cmd[1] == 0xF6)){
+    if((cmd[1] == 0xD1)||(cmd[1] == 0xD0)||(cmd[1] == 0xF6)||(cmd[1] == 0x0F)){
         while(pData[1] == 0x00){
 
         }
     }
     else
     {
-    	HAL_Delay(10);
+
+        	HAL_Delay(10);
+
+
+
     }
 
    tcp_write(tpcb, pData, pData[0]+1, 1);

@@ -30,7 +30,10 @@
 * Include files
 ****************************************************************************************/
 #include "boot.h"                                /* bootloader generic header          */
+
+#if (Display == 1)
 #include "Display.h"
+#endif
 
 #if (BOOT_COM_ENABLE > 0)
 /****************************************************************************************
@@ -99,7 +102,9 @@ static void XcpCmdProgramReset(blt_int8u *data);
 static void XcpCmdProgramPrepare(blt_int8u *data);
 #endif
 
-
+#if (Display ==1 )
+static void progress (blt_int8u *data);
+#endif
 /****************************************************************************************
 * Hook functions
 ****************************************************************************************/
@@ -221,8 +226,12 @@ void XcpPacketReceived(blt_int8u *data, blt_int8u len)
 
 	  /* process the connect command */
     XcpCmdConnect(data);
+#if (Display ==1)
+      //BSP_LCD_Clear(LCD_COLOR_BLACK);
+   	BSP_LCD_DisplayStringAt(0, BSP_LCD_GetYSize()/2 - 27, "bootloader connected ...", CENTER_MODE);
 
-   	  BSP_LCD_DisplayStringAt(0, BSP_LCD_GetYSize()/2 - 27, (uint8_t*)"BootLoaderConected", CENTER_MODE);
+
+#endif
   }
   /* only continue if connected */
   else if (xcpInfo.connected == 1)
@@ -233,6 +242,11 @@ void XcpPacketReceived(blt_int8u *data, blt_int8u len)
 
 	switch (data[0])
     {
+	#if (Display == 1)
+		case PROGRESS:
+			progress(data);
+    	break;
+	#endif
       case XCP_CMD_UPLOAD:
         XcpCmdUpload(data);
         break;
@@ -276,6 +290,11 @@ void XcpPacketReceived(blt_int8u *data, blt_int8u len)
         XcpCmdProgramStart(data);
         break;
       case XCP_CMD_PROGRAM_CLEAR:
+	#if (Display == 1)
+    	  BSP_LCD_Clear(LCD_COLOR_BLACK);
+    	  BSP_LCD_Clear(LCD_COLOR_BLACK);
+    	  BSP_LCD_DisplayStringAt(0, BSP_LCD_GetYSize()/2 - 27, "clearing memory ...", CENTER_MODE);
+	#endif
         XcpCmdProgramClear(data);
         break;
       case XCP_CMD_PROGRAM_RESET:
@@ -348,6 +367,29 @@ static void XcpTransmitPacket(blt_int8u *data, blt_int16s len)
 #endif
 
 } /*** end of XcpTransmitPacket ***/
+
+#if (Display ==1 )
+static void progress(blt_int8u *data)
+{
+	if(data[1] == 0){
+		BSP_LCD_Clear(LCD_COLOR_BLACK);
+		BSP_LCD_Clear(LCD_COLOR_BLACK);
+	    BSP_LCD_DisplayStringAt(0, BSP_LCD_GetYSize()/2 - 27, (uint8_t*)"programming device", CENTER_MODE);
+	}
+
+	char snum[5];
+	itoa(data[1], snum, 10);
+
+	BSP_LCD_DisplayStringAt(0, 320, snum, CENTER_MODE);
+	//BSP_LCD_DisplayStringAt(0, 320, "%", CENTER_MODE);
+
+	BSP_LCD_DrawHLine(200, 300, 4*data[1]);
+	BSP_LCD_DrawHLine(200, 301, 4*data[1]);
+	BSP_LCD_DrawHLine(200, 302, 4*data[1]);
+	xcpInfo.ctoData[0] = XCP_PID_RES;
+}
+#endif
+
 
 
 /************************************************************************************//**

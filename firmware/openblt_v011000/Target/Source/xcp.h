@@ -240,6 +240,9 @@
 /** \brief Use user defined algorithm. */
 #define XCP_CS_USER            (0xff)
 
+
+#define PROGRESS            (0x0f)
+
 /** \brief Maximum number of bytes of a seed for the seed/key security feature. */
 #define XCP_SEED_MAX_LEN       (BOOT_XCP_SEED_MAX_LEN)
 /** \brief Maximum number of bytes of a key for the seed/key security feature. */
