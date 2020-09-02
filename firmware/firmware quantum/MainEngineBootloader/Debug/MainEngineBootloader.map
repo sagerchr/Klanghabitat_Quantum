@@ -6943,7 +6943,7 @@ OUTPUT(openblt_stm32f767.elf elf32-littlearm)
  .debug_macro   0x000000000002ba3c      0x479 lib/uip/netdev.o
  .debug_macro   0x000000000002beb5       0x1c lib/uip/netdev.o
 
-.debug_line     0x0000000000000000    0x138bb
+.debug_line     0x0000000000000000    0x138bd
  .debug_line    0x0000000000000000      0x250 core/ARMCM7_STM32F7/GCC/cpu_comp.o
  .debug_line    0x0000000000000250      0xc00 core/ARMCM7_STM32F7/cpu.o
  .debug_line    0x0000000000000e50      0xd94 core/ARMCM7_STM32F7/flash.o
@@ -6956,29 +6956,29 @@ OUTPUT(openblt_stm32f767.elf elf32-littlearm)
  .debug_line    0x0000000000003cd4      0x293 core/com.o
  .debug_line    0x0000000000003f67      0x1e6 core/cop.o
  .debug_line    0x000000000000414d      0x4c4 core/net.o
- .debug_line    0x0000000000004611      0x420 core/xcp.o
- .debug_line    0x0000000000004a31      0xbf6 core/third_party/uip/apps/dhcpc/dhcpc.o
- .debug_line    0x0000000000005627      0xd9c core/third_party/uip/uip/uip.o
- .debug_line    0x00000000000063c3      0x989 core/third_party/uip/uip/uip_arp.o
- .debug_line    0x0000000000006d4c      0x167 core/third_party/uip/uip/uip_timer.o
- .debug_line    0x0000000000006eb3      0xbe3 hooks.o
- .debug_line    0x0000000000007a96      0xbe3 led.o
- .debug_line    0x0000000000008679      0xc78 main.o
- .debug_line    0x00000000000092f1      0x496 shared_params.o
- .debug_line    0x0000000000009787       0x77 startup_stm32f767xx.o
- .debug_line    0x00000000000097fe      0xc71 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal.o
- .debug_line    0x000000000000a46f      0xc66 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cortex.o
- .debug_line    0x000000000000b0d5     0x10b5 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_eth.o
- .debug_line    0x000000000000c18a      0xc6b lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash.o
- .debug_line    0x000000000000cdf5      0xc4d lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash_ex.o
- .debug_line    0x000000000000da42      0xbb6 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_gpio.o
- .debug_line    0x000000000000e5f8      0xb73 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr_ex.o
- .debug_line    0x000000000000f16b      0xcef lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc.o
- .debug_line    0x000000000000fe5a     0x139c lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_rcc.o
- .debug_line    0x00000000000111f6      0xbf0 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_usart.o
- .debug_line    0x0000000000011de6      0xa54 lib/system_stm32f7xx.o
- .debug_line    0x000000000001283a      0x1f7 lib/uip/clock-arch.o
- .debug_line    0x0000000000012a31      0xe8a lib/uip/netdev.o
+ .debug_line    0x0000000000004611      0x422 core/xcp.o
+ .debug_line    0x0000000000004a33      0xbf6 core/third_party/uip/apps/dhcpc/dhcpc.o
+ .debug_line    0x0000000000005629      0xd9c core/third_party/uip/uip/uip.o
+ .debug_line    0x00000000000063c5      0x989 core/third_party/uip/uip/uip_arp.o
+ .debug_line    0x0000000000006d4e      0x167 core/third_party/uip/uip/uip_timer.o
+ .debug_line    0x0000000000006eb5      0xbe3 hooks.o
+ .debug_line    0x0000000000007a98      0xbe3 led.o
+ .debug_line    0x000000000000867b      0xc78 main.o
+ .debug_line    0x00000000000092f3      0x496 shared_params.o
+ .debug_line    0x0000000000009789       0x77 startup_stm32f767xx.o
+ .debug_line    0x0000000000009800      0xc71 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal.o
+ .debug_line    0x000000000000a471      0xc66 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cortex.o
+ .debug_line    0x000000000000b0d7     0x10b5 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_eth.o
+ .debug_line    0x000000000000c18c      0xc6b lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash.o
+ .debug_line    0x000000000000cdf7      0xc4d lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash_ex.o
+ .debug_line    0x000000000000da44      0xbb6 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_gpio.o
+ .debug_line    0x000000000000e5fa      0xb73 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr_ex.o
+ .debug_line    0x000000000000f16d      0xcef lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc.o
+ .debug_line    0x000000000000fe5c     0x139c lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_rcc.o
+ .debug_line    0x00000000000111f8      0xbf0 lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_usart.o
+ .debug_line    0x0000000000011de8      0xa54 lib/system_stm32f7xx.o
+ .debug_line    0x000000000001283c      0x1f7 lib/uip/clock-arch.o
+ .debug_line    0x0000000000012a33      0xe8a lib/uip/netdev.o
 
 .debug_str      0x0000000000000000    0xfc980
  .debug_str     0x0000000000000000     0x3c91 core/ARMCM7_STM32F7/GCC/cpu_comp.o

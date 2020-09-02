@@ -27,7 +27,8 @@
 #include "lwip/tcp.h"
 #include "header.h"
 #include <string.h>
-#include "../Functions/UART-Bridge.h"
+#include "UART-Bridge.h"
+#include "dspTask.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -67,7 +68,7 @@ PCD_HandleTypeDef hpcd_USB_OTG_FS;
 
 osThreadId defaultTaskHandle;
 /* USER CODE BEGIN PV */
-
+osThreadId dspTaskHandle;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -163,6 +164,10 @@ int main(void)
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
+
+  osThreadDef(dspTask, dspTask, osPriorityNormal , 0, 2000);
+  dspTaskHandle = osThreadCreate(osThread(dspTask), NULL);
+
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
 
@@ -488,7 +493,7 @@ static void MX_TIM7_Init(void)
   htim7.Instance = TIM7;
   htim7.Init.Prescaler = 107;
   htim7.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim7.Init.Period = 65535;
+  htim7.Init.Period = 19;
   htim7.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim7) != HAL_OK)
   {
@@ -567,7 +572,7 @@ static void MX_USART1_UART_Init(void)
 
   /* USER CODE END USART1_Init 1 */
   huart1.Instance = USART1;
-  huart1.Init.BaudRate = 2000000;
+  huart1.Init.BaudRate = 115600;
   huart1.Init.WordLength = UART_WORDLENGTH_8B;
   huart1.Init.StopBits = UART_STOPBITS_1;
   huart1.Init.Parity = UART_PARITY_NONE;
@@ -914,7 +919,6 @@ void StartDefaultTask(void const * argument)
     /* USER CODE BEGIN 3 */
 	  for(int i= 0; i <10 ; i++){
 		  HAL_GPIO_TogglePin(GPIOB, LD1_Pin);
-		  HAL_GPIO_TogglePin(GPIOB, LD2_Pin);
 		  HAL_Delay(50);
 	  }
 

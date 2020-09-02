@@ -46,7 +46,19 @@ Core/Src/stm32f7xx_it.o: ../Core/Src/stm32f7xx_it.c ../Core/Inc/main.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1/portmacro.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
+ /Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/MainEngine/Core/Functions/inc/UART_correction.h \
+ /Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/MainEngine/Core/Functions/inc/dBu.h \
+ /Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/MainEngine/Core/Functions/inc/ValueTableMotherEngine.h \
+ /Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/MainEngine/Core/Tasks/Inc/dspTask.h
 
 ../Core/Inc/main.h:
 
@@ -145,3 +157,27 @@ Core/Src/stm32f7xx_it.o: ../Core/Src/stm32f7xx_it.c ../Core/Inc/main.h \
 ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
 
 ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h:
+
+/Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/MainEngine/Core/Functions/inc/UART_correction.h:
+
+/Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/MainEngine/Core/Functions/inc/dBu.h:
+
+/Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/MainEngine/Core/Functions/inc/ValueTableMotherEngine.h:
+
+/Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/MainEngine/Core/Tasks/Inc/dspTask.h:

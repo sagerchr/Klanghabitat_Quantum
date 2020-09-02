@@ -46,13 +46,12 @@
 #include "lwip/debug.h"
 #include "lwip/stats.h"
 #include "lwip/tcp.h"
-#include "../Functions/MY_FLASH.h"
 #include "UART-Bridge.h"
 #if LWIP_TCP
 
 
 extern UART_HandleTypeDef huart1;
-
+extern TIM_HandleTypeDef htim7;
 void
 UartBridge_init(void)
 {
@@ -104,6 +103,8 @@ echo_accept(void *arg, struct tcp_pcb *newpcb, err_t err)
     count = 0;
     ret_err = ERR_OK;
 
+    HAL_TIM_Base_Stop_IT(&htim7);
+
   }
   else
   {
@@ -120,7 +121,7 @@ echo_recv(void *arg, struct tcp_pcb *tpcb, struct pbuf *p, err_t err)
 	if (!p) {
         tcp_close(tpcb);
         tcp_recv(tpcb, NULL);
-        HAL_FLASH_Lock();
+        //HAL_TIM_Base_Start_IT(&htim7);
         return ERR_OK;
     }
 

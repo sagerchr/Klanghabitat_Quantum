@@ -20,9 +20,10 @@ OBJCOPY_BIN :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
-Core/Functions \
+Core/Functions/Src \
 Core/Src \
 Core/Startup \
+Core/Tasks/Src \
 Drivers/STM32F7xx_HAL_Driver/Src \
 LWIP/App \
 LWIP/Target \

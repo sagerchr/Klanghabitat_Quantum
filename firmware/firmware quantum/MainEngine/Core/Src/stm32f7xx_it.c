@@ -25,6 +25,13 @@
 #include "task.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "cmsis_os.h"
+#include "stdlib.h"
+#include "UART_correction.h"
+#include "dBu.h"
+#include "ValueTableMotherEngine.h"
+#include "stm32f7xx.h"
+#include "dspTask.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -49,7 +56,7 @@
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN PFP */
-
+extern osThreadId dspTaskHandle;
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -273,6 +280,70 @@ void TIM7_IRQHandler(void)
   HAL_TIM_IRQHandler(&htim7);
   /* USER CODE BEGIN TIM7_IRQn 1 */
 
+	//__HAL_TIM_SET_COUNTER(&htim7 , 0);
+
+  HAL_GPIO_WritePin(GPIOF, DEBUG1_Pin, GPIO_PIN_SET);
+//***********************Start Measurement*********************//
+HAL_GPIO_WritePin(GPIOC, CV_A_B_Pin,GPIO_PIN_RESET);
+microDelay(0);
+HAL_GPIO_WritePin(GPIOC, CV_A_B_Pin,GPIO_PIN_SET);
+//***************************ÜUpdate DACs**********************//
+
+
+
+//*******************GET NEW DATA FROM ADC*********************//
+//***Wait Time to be sure new data is ready to grab from ADC***//
+//microDelay(5);
+//If just 6 Channels are selected for READ then it is possible to read while Aquiering
+
+
+//*******************Get new samples from ADC******************//
+	//*******************this takes around 5µSec*******************//
+for (int i = 0; i<6; i++){
+	HAL_GPIO_WritePin(GPIOD, RD_Pin,GPIO_PIN_SET);
+
+
+    HAL_GPIO_WritePin(GPIOD, RD_Pin,GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(GPIOD, CS_Pin,GPIO_PIN_RESET);
+
+
+    microDelay(0);
+     //At least something... to get Ports updated
+
+    analogIN[i] = GPIOE->IDR;
+
+}
+
+HAL_GPIO_WritePin(GPIOD, CS_Pin,GPIO_PIN_SET);
+
+HAL_GPIO_WritePin(GPIOF, DEBUG1_Pin, GPIO_PIN_RESET);
+
+//HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R,UART_reciveCorrected[7]+150); //Update ADC1
+//HAL_DAC_SetValue(&hdac, DAC_CHANNEL_2, DAC_ALIGN_12B_R,UART_reciveCorrected[9]+171); //Update ADC2 +171
+
+HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R,UART_IN[7]+109); //Update ADC1
+HAL_DAC_SetValue(&hdac, DAC_CHANNEL_2, DAC_ALIGN_12B_R,UART_IN[9]+99); //Update ADC2 +171
+
+//HAL_DAC_SetValue(&hdac, DAC_CHANNEL_1,DAC_ALIGN_12B_R,109); //Update ADC1
+//HAL_DAC_SetValue(&hdac, DAC_CHANNEL_2,DAC_ALIGN_12B_R, 99); //Update ADC2 +171
+
+//This will push to the dspTASK
+  /*
+  BaseType_t checkIfYieldRequired;
+  checkIfYieldRequired = xTaskResumeFromISR(dspTaskHandle);
+  portYIELD_FROM_ISR(checkIfYieldRequired);
+*/
+
+
+  //
+
+/////Get all 6 Channels from the ADC converted to voltage and put to voltageCHn Array///
+
+
+
+
+
+/* USER CODE END TIM7_IRQn 1 */
   /* USER CODE END TIM7_IRQn 1 */
 }
 
@@ -333,6 +404,12 @@ void DMA2_Stream6_IRQHandler(void)
 }
 
 /* USER CODE BEGIN 1 */
+void microDelay (int time){
 
+	 while (__HAL_TIM_GET_COUNTER(&htim6) < time){
+
+	  }
+	__HAL_TIM_SET_COUNTER(&htim6 , 0);
+}
 /* USER CODE END 1 */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
