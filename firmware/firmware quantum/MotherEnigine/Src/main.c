@@ -129,6 +129,7 @@ void StartDefaultTask(void const * argument);
 
 /* USER CODE BEGIN PFP */
 
+static void VectorBase_Config(void);
 
 /* USER CODE END PFP */
 
@@ -145,7 +146,7 @@ int main(void)
 
 {
   /* USER CODE BEGIN 1 */
-
+	VectorBase_Config();
   /* USER CODE END 1 */
   
 
@@ -198,7 +199,7 @@ int main(void)
   HAL_DAC_Start(&hdac, DAC_CHANNEL_2);
   HAL_UART_Transmit_DMA(&huart6, UART_transmit,TX_OUT_SIZE);
   HAL_UART_Receive_DMA(&huart6, UART_RECIVE,RX_IN_SIZE);
-
+  SharedParamsWriteByIndex(0, 0);
   MY_FLASH_SetSectorAddrs(11, 0x081C0000);
   //###### PUT the RESET to Output so Display can be reseted by its own again###
   /*
@@ -230,7 +231,7 @@ int main(void)
 	  IP_READ_FLASH[0]=192;
 	  IP_READ_FLASH[1]=168;
 	  IP_READ_FLASH[2]=1;
-	  IP_READ_FLASH[3]=205;
+	  IP_READ_FLASH[3]=70;
 
 	  SUBNET_READ_FLASH[0]=255;
 	  SUBNET_READ_FLASH[1]=255;
@@ -817,6 +818,16 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+static void VectorBase_Config(void)
+{
+  /* The constant array with vectors of the vector table is declared externally in the
+   * c-startup code.
+   */
+  extern const unsigned long g_pfnVectors[];
+
+  /* Remap the vector table to where the vector table is located for this program. */
+  SCB->VTOR = (unsigned long)&g_pfnVectors[0];
+}
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 

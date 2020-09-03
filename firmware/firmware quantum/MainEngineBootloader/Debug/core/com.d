@@ -13,7 +13,6 @@ core/com.o: \
  /Users/christiansager/klanghabitat_quantum/firmware/openblt_v011000/Target/Source/file.h \
  /Users/christiansager/klanghabitat_quantum/firmware/openblt_v011000/Target/Source/com.h \
  /Users/christiansager/klanghabitat_quantum/firmware/openblt_v011000/Target/Source/xcp.h \
- /Users/christiansager/klanghabitat_quantum/firmware/openblt_v011000/Target/Source/rs232.h \
  /Users/christiansager/klanghabitat_quantum/firmware/openblt_v011000/Target/Source/net.h
 
 /Users/christiansager/klanghabitat_quantum/firmware/openblt_v011000/Target/Source/boot.h:
@@ -41,7 +40,5 @@ core/com.o: \
 /Users/christiansager/klanghabitat_quantum/firmware/openblt_v011000/Target/Source/com.h:
 
 /Users/christiansager/klanghabitat_quantum/firmware/openblt_v011000/Target/Source/xcp.h:
-
-/Users/christiansager/klanghabitat_quantum/firmware/openblt_v011000/Target/Source/rs232.h:
 
 /Users/christiansager/klanghabitat_quantum/firmware/openblt_v011000/Target/Source/net.h:

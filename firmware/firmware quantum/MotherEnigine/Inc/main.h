@@ -243,7 +243,7 @@ float  dbuRingIn6[512];
 uint8_t IP_READ_FLASH[4];
 uint8_t SUBNET_READ_FLASH[4];
 /* USER CODE END Private defines */
-
+char  pData[100];
 #ifdef __cplusplus
 }
 #endif

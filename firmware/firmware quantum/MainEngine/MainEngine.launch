@@ -4,8 +4,8 @@
 <booleanAttribute key="com.st.stm32cube.ide.mcu.debug.launch.enable_swv" value="false"/>
 <intAttribute key="com.st.stm32cube.ide.mcu.debug.launch.formatVersion" value="2"/>
 <stringAttribute key="com.st.stm32cube.ide.mcu.debug.launch.ip_address_local" value="localhost"/>
-<stringAttribute key="com.st.stm32cube.ide.mcu.debug.launch.loadList" value="{&quot;fItems&quot;:[{&quot;fIsFromMainTab&quot;:true,&quot;fPath&quot;:&quot;Debug/MainEngine.elf&quot;,&quot;fProjectName&quot;:&quot;MainEngine&quot;,&quot;fPerformBuild&quot;:true,&quot;fDownload&quot;:false,&quot;fLoadSymbols&quot;:true}]}"/>
-<stringAttribute key="com.st.stm32cube.ide.mcu.debug.launch.override_start_address_mode" value="pc"/>
+<stringAttribute key="com.st.stm32cube.ide.mcu.debug.launch.loadList" value="{&quot;fItems&quot;:[{&quot;fIsFromMainTab&quot;:true,&quot;fPath&quot;:&quot;Debug/MainEngine.elf&quot;,&quot;fProjectName&quot;:&quot;MainEngine&quot;,&quot;fPerformBuild&quot;:true,&quot;fDownload&quot;:true,&quot;fLoadSymbols&quot;:true}]}"/>
+<stringAttribute key="com.st.stm32cube.ide.mcu.debug.launch.override_start_address_mode" value="vector_table"/>
 <stringAttribute key="com.st.stm32cube.ide.mcu.debug.launch.remoteCommand" value="target remote"/>
 <booleanAttribute key="com.st.stm32cube.ide.mcu.debug.launch.startServer" value="true"/>
 <booleanAttribute key="com.st.stm32cube.ide.mcu.debug.launch.startuptab.exception.divby0" value="true"/>
@@ -57,7 +57,7 @@
 <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.pcRegister" value="08002004"/>
 <intAttribute key="org.eclipse.cdt.debug.gdbjtag.core.portNumber" value="3333"/>
 <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.runCommands" value=""/>
-<booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.setPcRegister" value="true"/>
+<booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.setPcRegister" value="false"/>
 <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.setResume" value="true"/>
 <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.setStopAt" value="true"/>
 <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.stopAt" value="main"/>

@@ -19,7 +19,7 @@
 #include "arm_const_structs.h"
 #include "stm32f7xx.h"
 #include "ValueTableMotherEngine.h"
-
+#include "lwip/tcp.h"
 
 DAC_HandleTypeDef hdac;
 UART_HandleTypeDef huart6;
@@ -45,6 +45,32 @@ uint16_t checksum16;
 int OK = 0;
 
 uint8_t IP_READ[4];
+
+
+err_t err;
+
+err_t
+recv_callback(void *arg, struct tcp_pcb *tpcb, struct pbuf *p, err_t err){
+
+	char recived[50];
+	tcp_recved(tpcb, p->len);
+	memcpy(recived, p -> payload, p -> len); //put the incoming udp data to UDP_RECIVE
+	pbuf_free(p);
+}
+
+err_t
+accept_callback(void *arg, struct tcp_pcb *newpcb, err_t err){
+	tcp_arg(newpcb,NULL);
+	tcp_recv(newpcb, recv_callback);
+
+	//Fire the Bootloader
+	SharedParamsWriteByIndex(0, 1);
+	BootActivate();
+}
+
+
+
+
 
 void lwIPTask(void const * argument){
 
@@ -77,6 +103,17 @@ for (int i=0; i<86;i++){
 	 myCGIinit();//initialize the CGI handlers
 	 mySSIinit();//initialize the SSI handlers
 
+	  UartBridge_init();
+
+	  //########create pcb for firmware  upgrade on port 1000#########//
+	  static struct tcp_pcb *pcb;
+	  err_t err;
+	  pcb = tcp_new();
+	  err = tcp_bind(pcb, IP_ADDR_ANY, 1000);
+	  tcp_arg(pcb,NULL);
+	  pcb = tcp_listen(pcb);
+	  tcp_accept(pcb, accept_callback);
+	  //###############################################################//
 
 
 	//============================================================================================================//
@@ -578,7 +615,6 @@ int match(char *matchString){
 	if (OK == 1) return 1;
 	else if (OK == 0) return 0;
 }
-
 
 
 

@@ -125,7 +125,10 @@ void CpuStartUserProgram(void)
    * explicitly disables these for security reasons. Enable them here again, so it does 
    * not have to be done by the user program.
    */
+#if (Display == 1)
   CpuIrqEnable();
+  #endif
+  //
   /* start the user program by activating its reset interrupt service routine */
   pProgResetHandler();
 #if (BOOT_COM_DEFERRED_INIT_ENABLE > 0) && (BOOT_COM_ENABLE > 0)
