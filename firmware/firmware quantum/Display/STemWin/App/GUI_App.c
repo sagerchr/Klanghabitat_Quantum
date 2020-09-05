@@ -243,7 +243,12 @@ void GRAPHICS_MainTask(void) {
 
 
 
+	    if (UARTDATA[70] == 1){
 
+	    	NVIC_SystemReset();
+	    	HAL_Delay(1);
+
+	    }
 
 ///////////////////////////////////////////////////////////////////
 	    p_Bufferd = 0.01;

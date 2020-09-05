@@ -445,7 +445,10 @@ for (int i=0; i<86;i++){
 //
 
 //#############PAUSE the DMA to be able to write data#######//
-		//HAL_UART_DMAPause(&huart6);
+
+		if(DisplayUpdate == 0){
+		HAL_UART_DMAPause(&huart6);
+		}
 //##########################################################//
 		for (int i= 0; i<150;i++){
 			UART_transmit[i] = 0x00;
@@ -561,6 +564,9 @@ for (int i=0; i<86;i++){
 			//UART_transmit[98]=upcounter;
 
 */
+
+		  UART_transmit[70]=DisplayReset;
+
 		  char pcIpAddrString[60];
 		  char pcBuffer[60];
 
@@ -587,7 +593,9 @@ for (int i=0; i<86;i++){
 
 
 //############# RESMUE the DMA to output the data#########//
-		  //HAL_UART_DMAResume(&huart6);
+		  if(DisplayUpdate == 0){
+		  HAL_UART_DMAResume(&huart6);
+		  }
 //#######################################################//
 //Changed Define of MEM_USE_POOLS_TRY_BIGGER_POOL  to 1 (2020.05.20) Better Performance???
 		  osDelay(10);

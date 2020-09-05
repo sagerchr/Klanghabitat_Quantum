@@ -47,6 +47,7 @@
 #include "lwip/stats.h"
 #include "lwip/tcp.h"
 #include "UART-Bridge.h"
+#include "stm32_hal_legacy.h"
 #if LWIP_TCP
 
 
@@ -103,6 +104,23 @@ echo_accept(void *arg, struct tcp_pcb *newpcb, err_t err)
     count = 0;
     ret_err = ERR_OK;
     HAL_TIM_Base_Stop(&htim7);
+
+    DisplayReset = 1;
+    osDelay(100);
+
+
+
+    DisplayUpdate =1;
+    HAL_UART_DMAStop(&huart6); //Stop the HUART
+
+
+	USART6 -> CR1 &= ~(USART_CR1_UE);
+	USART6 -> BRR = 0x3AA; //This will give Baudrate 115200
+	USART6 -> CR1 |= USART_CR1_UE;
+
+
+    DisplayReset = 0;
+
 
   }
   else
@@ -196,6 +214,11 @@ echo_recv(void *arg, struct tcp_pcb *tpcb, struct pbuf *p, err_t err)
    }
 
    tcp_write(tpcb, pData, pData[0]+1, 1); //Write back answer to HOST Software
+
+   if (cmd[1] == 0xCF){
+   	NVIC_SystemReset();
+   	HAL_Delay(1);
+   }
 
     return ERR_OK;
 }

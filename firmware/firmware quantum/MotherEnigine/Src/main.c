@@ -191,8 +191,8 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_DAC_Start(&hdac, DAC_CHANNEL_1);
   HAL_DAC_Start(&hdac, DAC_CHANNEL_2);
-  //HAL_UART_Transmit_DMA(&huart6, UART_transmit,TX_OUT_SIZE);
-  //HAL_UART_Receive_DMA(&huart6, UART_RECIVE,RX_IN_SIZE);
+  HAL_UART_Transmit_DMA(&huart6, UART_transmit,TX_OUT_SIZE);
+  HAL_UART_Receive_DMA(&huart6, UART_RECIVE,RX_IN_SIZE);
   SharedParamsWriteByIndex(0, 0);
   MY_FLASH_SetSectorAddrs(11, 0x081C0000);
   //###### PUT the RESET to Output so Display can be reseted by its own again###
@@ -235,7 +235,8 @@ int main(void)
 	  channel = 2;
 	  indexing = 0;
 
-
+	  DisplayReset = 0;
+	  DisplayUpdate = 0;
   /* USER CODE END 2 */
 
   /* USER CODE BEGIN RTOS_MUTEX */
@@ -649,8 +650,8 @@ static void MX_USART6_UART_Init(void)
 
   /* USER CODE END USART6_Init 1 */
   huart6.Instance = USART6;
-  //huart6.Init.BaudRate = 500000;
-  huart6.Init.BaudRate = 115200;
+  huart6.Init.BaudRate = 500000;
+  //huart6.Init.BaudRate = 115200;
   huart6.Init.WordLength = UART_WORDLENGTH_8B;
   huart6.Init.StopBits = UART_STOPBITS_1;
   huart6.Init.Parity = UART_PARITY_NONE;
@@ -825,6 +826,13 @@ static void VectorBase_Config(void)
 }
 
 
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	if(DisplayUpdate == 0){
+		UART_correction(); //Recive Data from UART --> UARTDATA
+		HAL_UART_DMAResume(&huart6);
+	}
+}
 
 
 /* USER CODE END 4 */
