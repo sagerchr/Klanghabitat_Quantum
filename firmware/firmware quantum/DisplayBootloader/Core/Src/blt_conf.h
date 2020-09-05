@@ -50,7 +50,7 @@
 /** \brief Motorola or Intel style byte ordering. */
 #define BOOT_CPU_BYTE_ORDER_MOTOROLA     (0)
 /** \brief Enable/disable hook function call right before user program start. */
-#define BOOT_CPU_USER_PROGRAM_START_HOOK (1)
+#define BOOT_CPU_USER_PROGRAM_START_HOOK (0)
 
 #define Display (1)
 /****************************************************************************************
@@ -123,7 +123,7 @@
 /** \brief Enable/disable UART transport layer. */
 #define BOOT_COM_RS232_ENABLE            (1)
 /** \brief Configure the desired communication speed. */
-#define BOOT_COM_RS232_BAUDRATE          (115600)
+#define BOOT_COM_RS232_BAUDRATE          (115200)
 /** \brief Configure number of bytes in the target->host data packet. */
 #define BOOT_COM_RS232_TX_MAX_DATA       (64)
 /** \brief Configure number of bytes in the host->target data packet. */

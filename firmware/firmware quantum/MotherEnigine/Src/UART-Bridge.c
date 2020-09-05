@@ -88,7 +88,7 @@ echo_accept(void *arg, struct tcp_pcb *newpcb, err_t err)
   LWIP_UNUSED_ARG(err);
 
   /* commonly observed practive to call tcp_setprio(), why? */
-  tcp_setprio(newpcb, TCP_PRIO_MIN);
+  tcp_setprio(newpcb, TCP_PRIO_MAX);
 
   es = (struct echo_state *)mem_malloc(sizeof(struct echo_state));
   if (es != NULL)
@@ -102,8 +102,7 @@ echo_accept(void *arg, struct tcp_pcb *newpcb, err_t err)
     tcp_recv(newpcb, echo_recv);
     count = 0;
     ret_err = ERR_OK;
-
-    HAL_TIM_Base_Stop_IT(&htim7);
+    HAL_TIM_Base_Stop(&htim7);
 
   }
   else
@@ -113,6 +112,8 @@ echo_accept(void *arg, struct tcp_pcb *newpcb, err_t err)
   return ret_err;
 }
 
+
+
 err_t
 echo_recv(void *arg, struct tcp_pcb *tpcb, struct pbuf *p, err_t err)
 {
@@ -121,40 +122,78 @@ echo_recv(void *arg, struct tcp_pcb *tpcb, struct pbuf *p, err_t err)
 	if (!p) {
         tcp_close(tpcb);
         tcp_recv(tpcb, NULL);
-        //HAL_TIM_Base_Start_IT(&htim7);
+        HAL_TIM_Base_Start_IT(&htim7);
         return ERR_OK;
     }
 
     /* indicate that the packet has been received */
     tcp_recved(tpcb, p->len);
 
-    pbuf_free(p);
 
-    count = count + p->len;
 
+    //count = count + p->len;
+    HAL_UART_DMAStop(&huart6); //Stop the HUART
     for(int i=0;i<100;i++){
     	pData[i]=0x00;
     }
 
-    HAL_UART_DMAStop(&huart6); //Stop the HUART
+
     huart6.hdmarx->Instance->NDTR = 100; //Set DMA counter back to Strat posotion
+
     HAL_UART_Receive_DMA(&huart6, pData, 100); //Init the DMA to Recive data
 
-    HAL_UART_Transmit(&huart6, p->payload, p->len, 10); //Send data to Display recived via Ethernet
+    char send[19];
+
+
 
     char cmd[p->len]; //Identify the CMD
 
     memcpy(cmd, p->payload,p->len); //Save the CMD to variable
+/*
+    if(cmd[1]==0xD0){
+
+    	send[0]=0x12;
+    	send[1]=0xD0;
+    	send[2]=0x00;
+    	send[3]=0x01;
+    	send[4]=0x02;
+    	send[5]=0x03;
+    	send[6]=0x04;
+    	send[7]=0x05;
+    	send[8]=0x06;
+    	send[9]=0x07;
+    	send[10]=0x08;
+    	send[11]=0x09;
+    	send[12]=0x10;
+    	send[13]=0x0A;
+    	send[14]=0x0B;
+    	send[15]=0x0C;
+    	send[16]=0x0D;
+    	send[17]=0x0E;
+    	send[18]=0x0F;
+
+    	 HAL_UART_Transmit(&huart6, send, 19, 1000); //Send data to Display recived via Ethernet
+    }
+    else{
+
+    	HAL_UART_Transmit(&huart6, p->payload, p->len, 1000); //Send data to Display recived via Ethernet
+    }
+
+*/
+    HAL_UART_Transmit(&huart6, p->payload, p->len, 10); //Send data to Display recived via Ethernet
+    pbuf_free(p);
+
 
     if((cmd[1] == 0xD1)||(cmd[1] == 0xD0)||(cmd[1] == 0xF6)||(cmd[1] == 0x0F)){
-        while(pData[1] == 0x00){
+        while(pData[1] == 0x00)
+        {
 
         }
-    }
-    else
-    {
-        	HAL_Delay(10);
-    }
+   }
+   else
+   {
+        	HAL_Delay(20);
+   }
 
    tcp_write(tpcb, pData, pData[0]+1, 1); //Write back answer to HOST Software
 

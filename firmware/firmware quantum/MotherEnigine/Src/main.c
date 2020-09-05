@@ -41,13 +41,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#ifdef __GNUC__
-  /* With GCC, small printf (option LD Linker->Libraries->Small printf
-     set to 'Yes') calls __io_putchar() */
-  #define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
-#else
-  #define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
-#endif /* __GNUC__ */
+
 //************************************
 //===============PinOut===============
 //************************************
@@ -197,8 +191,8 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_DAC_Start(&hdac, DAC_CHANNEL_1);
   HAL_DAC_Start(&hdac, DAC_CHANNEL_2);
-  HAL_UART_Transmit_DMA(&huart6, UART_transmit,TX_OUT_SIZE);
-  HAL_UART_Receive_DMA(&huart6, UART_RECIVE,RX_IN_SIZE);
+  //HAL_UART_Transmit_DMA(&huart6, UART_transmit,TX_OUT_SIZE);
+  //HAL_UART_Receive_DMA(&huart6, UART_RECIVE,RX_IN_SIZE);
   SharedParamsWriteByIndex(0, 0);
   MY_FLASH_SetSectorAddrs(11, 0x081C0000);
   //###### PUT the RESET to Output so Display can be reseted by its own again###
@@ -655,7 +649,8 @@ static void MX_USART6_UART_Init(void)
 
   /* USER CODE END USART6_Init 1 */
   huart6.Instance = USART6;
-  huart6.Init.BaudRate = 500000;
+  //huart6.Init.BaudRate = 500000;
+  huart6.Init.BaudRate = 115200;
   huart6.Init.WordLength = UART_WORDLENGTH_8B;
   huart6.Init.StopBits = UART_STOPBITS_1;
   huart6.Init.Parity = UART_PARITY_NONE;
@@ -829,29 +824,8 @@ static void VectorBase_Config(void)
   SCB->VTOR = (unsigned long)&g_pfnVectors[0];
 }
 
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
 
 
-   	UART_correction(); //Recive Data from UART --> UARTDATA
-   	HAL_UART_DMAResume(&huart6);
-}
-
-
-HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart){
-	if (huart->Instance == USART6) {
-	}
-
-
-}
-
-PUTCHAR_PROTOTYPE
-{
-  /* Place your implementation of fputc here */
-  /* e.g. write a character to the EVAL_COM1 and Loop until the end of transmission */
-  HAL_UART_Transmit(&huart3, (uint8_t *)&ch, 1, 0xFFFF);
-
-  return ch;
-}
 
 /* USER CODE END 4 */
 
