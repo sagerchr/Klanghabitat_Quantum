@@ -253,7 +253,7 @@
  * a lot of data that needs to be copied, this should be set high.
  */
 #if !defined MEM_SIZE || defined __DOXYGEN__
-#define MEM_SIZE                        5000
+#define MEM_SIZE                        1600
 #endif
 
 /**
@@ -292,7 +292,7 @@
  * bigger pool - WARNING: THIS MIGHT WASTE MEMORY but it can make a system more
  * reliable. */
 #if !defined MEM_USE_POOLS_TRY_BIGGER_POOL || defined __DOXYGEN__
-#define MEM_USE_POOLS_TRY_BIGGER_POOL   1
+#define MEM_USE_POOLS_TRY_BIGGER_POOL   0
 #endif
 
 /**
@@ -1414,7 +1414,7 @@
  * whenever the link changes (i.e., link down)
  */
 #if !defined LWIP_NETIF_LINK_CALLBACK || defined __DOXYGEN__
-#define LWIP_NETIF_LINK_CALLBACK        1
+#define LWIP_NETIF_LINK_CALLBACK        0
 #endif
 
 /**

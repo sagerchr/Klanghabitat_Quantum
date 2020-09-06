@@ -19,10 +19,10 @@
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
-
+#include "main.h"
 #include "cmsis_os.h"
 #include "lwip.h"
-#include "main.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "UART_correction.h"
@@ -137,12 +137,10 @@ static void VectorBase_Config(void);
   * @retval int
   */
 int main(void)
-
 {
   /* USER CODE BEGIN 1 */
 	VectorBase_Config();
   /* USER CODE END 1 */
-  
 
   /* Enable I-Cache---------------------------------------------------------*/
   SCB_EnableICache();
@@ -168,14 +166,6 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  //#####################Reset the Display###############
-  //HAL_GPIO_WritePin(GPIOD, DEBUG2_Pin, GPIO_PIN_SET);
-  //HAL_Delay(10);
-  //HAL_GPIO_WritePin(GPIOD, DEBUG2_Pin, GPIO_PIN_RESET);
-  //HAL_Delay(100);
-  //HAL_GPIO_WritePin(GPIOD, DEBUG2_Pin, GPIO_PIN_SET);
-  //HAL_Delay(100);
-  //####################################################
   MX_DMA_Init();
   MX_DAC_Init();
   MX_USART3_UART_Init();
@@ -185,9 +175,6 @@ int main(void)
   MX_TIM6_Init();
   MX_TIM7_Init();
   MX_TIM10_Init();
-
-
-
   /* USER CODE BEGIN 2 */
   HAL_DAC_Start(&hdac, DAC_CHANNEL_1);
   HAL_DAC_Start(&hdac, DAC_CHANNEL_2);
@@ -273,10 +260,10 @@ int main(void)
 
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
-  printf("os Kernel started\r\n");
+
   /* Start scheduler */
   osKernelStart();
-  
+
   /* We should never get here as control is now taken by the scheduler */
 
   /* Infinite loop */
@@ -300,17 +287,17 @@ void SystemClock_Config(void)
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
   RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {0};
 
-  /** Configure LSE Drive Capability 
+  /** Configure LSE Drive Capability
   */
   HAL_PWR_EnableBkUpAccess();
-  /** Configure the main internal regulator output voltage 
+  /** Configure the main internal regulator output voltage
   */
   __HAL_RCC_PWR_CLK_ENABLE();
   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
-  /** Initializes the CPU, AHB and APB busses clocks 
+  /** Initializes the CPU, AHB and APB busses clocks
   */
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
-  RCC_OscInitStruct.HSEState = RCC_HSE_ON ;
+  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
   RCC_OscInitStruct.PLL.PLLM = 4;
@@ -321,13 +308,13 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  /** Activate the Over-Drive mode 
+  /** Activate the Over-Drive mode
   */
   if (HAL_PWREx_EnableOverDrive() != HAL_OK)
   {
     Error_Handler();
   }
-  /** Initializes the CPU, AHB and APB busses clocks 
+  /** Initializes the CPU, AHB and APB busses clocks
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
@@ -366,14 +353,14 @@ static void MX_DAC_Init(void)
   /* USER CODE BEGIN DAC_Init 1 */
 
   /* USER CODE END DAC_Init 1 */
-  /** DAC Initialization 
+  /** DAC Initialization
   */
   hdac.Instance = DAC;
   if (HAL_DAC_Init(&hdac) != HAL_OK)
   {
     Error_Handler();
   }
-  /** DAC channel OUT1 config 
+  /** DAC channel OUT1 config
   */
   sConfig.DAC_Trigger = DAC_TRIGGER_NONE;
   sConfig.DAC_OutputBuffer = DAC_OUTPUTBUFFER_ENABLE;
@@ -381,7 +368,7 @@ static void MX_DAC_Init(void)
   {
     Error_Handler();
   }
-  /** DAC channel OUT2 config 
+  /** DAC channel OUT2 config
   */
   if (HAL_DAC_ConfigChannel(&hdac, &sConfig, DAC_CHANNEL_2) != HAL_OK)
   {
@@ -534,9 +521,9 @@ static void MX_TIM7_Init(void)
 
   /* USER CODE END TIM7_Init 1 */
   htim7.Instance = TIM7;
-  htim7.Init.Prescaler = 107;//107
+  htim7.Init.Prescaler = 107;
   htim7.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim7.Init.Period = 19; //20
+  htim7.Init.Period = 19;
   htim7.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim7) != HAL_OK)
   {
@@ -651,7 +638,6 @@ static void MX_USART6_UART_Init(void)
   /* USER CODE END USART6_Init 1 */
   huart6.Instance = USART6;
   huart6.Init.BaudRate = 500000;
-  //huart6.Init.BaudRate = 115200;
   huart6.Init.WordLength = UART_WORDLENGTH_8B;
   huart6.Init.StopBits = UART_STOPBITS_1;
   huart6.Init.Parity = UART_PARITY_NONE;
@@ -670,10 +656,10 @@ static void MX_USART6_UART_Init(void)
 
 }
 
-/** 
+/**
   * Enable DMA controller clock
   */
-static void MX_DMA_Init(void) 
+static void MX_DMA_Init(void)
 {
 
   /* DMA controller clock enable */
@@ -681,10 +667,10 @@ static void MX_DMA_Init(void)
 
   /* DMA interrupt init */
   /* DMA2_Stream1_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA2_Stream1_IRQn, 5, 10);
+  HAL_NVIC_SetPriority(DMA2_Stream1_IRQn, 5, 0);
   HAL_NVIC_EnableIRQ(DMA2_Stream1_IRQn);
   /* DMA2_Stream6_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA2_Stream6_IRQn, 5, 10);
+  HAL_NVIC_SetPriority(DMA2_Stream6_IRQn, 5, 0);
   HAL_NVIC_EnableIRQ(DMA2_Stream6_IRQn);
 
 }
@@ -712,27 +698,27 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(DEBUG1_GPIO_Port, DEBUG1_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, LD1_Pin|LD3_Pin|CS_DAC1_Pin|CS_DAC2_Pin 
+  HAL_GPIO_WritePin(GPIOB, LD1_Pin|LD3_Pin|CS_DAC1_Pin|CS_DAC2_Pin
                           |LD2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOG, Relais2_Pin|Relais1_Pin|RESET_Pin|USB_PowerSwitchOn_Pin 
+  HAL_GPIO_WritePin(GPIOG, Relais2_Pin|Relais1_Pin|RESET_Pin|USB_PowerSwitchOn_Pin
                           |Relais6_Pin|Relais4_Pin|Relais5_Pin|Relais3_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, OS0_Pin|OS1_Pin|OS2_Pin|RANGE_Pin 
+  HAL_GPIO_WritePin(GPIOC, OS0_Pin|OS1_Pin|OS2_Pin|RANGE_Pin
                           |CV_A_B_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOD, DEBUG2_Pin|RD_Pin|CS_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : DB2_Pin DB3_Pin DB4_Pin DB5_Pin 
-                           DB6_Pin DB7_Pin DB8_Pin DB9_Pin 
-                           DB10_Pin DB11_Pin DB12_Pin DB13_Pin 
+  /*Configure GPIO pins : DB2_Pin DB3_Pin DB4_Pin DB5_Pin
+                           DB6_Pin DB7_Pin DB8_Pin DB9_Pin
+                           DB10_Pin DB11_Pin DB12_Pin DB13_Pin
                            DB14_Pin DB15_Pin DB0_Pin DB1_Pin */
-  GPIO_InitStruct.Pin = DB2_Pin|DB3_Pin|DB4_Pin|DB5_Pin 
-                          |DB6_Pin|DB7_Pin|DB8_Pin|DB9_Pin 
-                          |DB10_Pin|DB11_Pin|DB12_Pin|DB13_Pin 
+  GPIO_InitStruct.Pin = DB2_Pin|DB3_Pin|DB4_Pin|DB5_Pin
+                          |DB6_Pin|DB7_Pin|DB8_Pin|DB9_Pin
+                          |DB10_Pin|DB11_Pin|DB12_Pin|DB13_Pin
                           |DB14_Pin|DB15_Pin|DB0_Pin|DB1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
@@ -751,18 +737,18 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(DEBUG1_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : LD1_Pin LD3_Pin CS_DAC1_Pin CS_DAC2_Pin 
+  /*Configure GPIO pins : LD1_Pin LD3_Pin CS_DAC1_Pin CS_DAC2_Pin
                            LD2_Pin */
-  GPIO_InitStruct.Pin = LD1_Pin|LD3_Pin|CS_DAC1_Pin|CS_DAC2_Pin 
+  GPIO_InitStruct.Pin = LD1_Pin|LD3_Pin|CS_DAC1_Pin|CS_DAC2_Pin
                           |LD2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : Relais2_Pin Relais1_Pin RESET_Pin USB_PowerSwitchOn_Pin 
+  /*Configure GPIO pins : Relais2_Pin Relais1_Pin RESET_Pin USB_PowerSwitchOn_Pin
                            Relais6_Pin Relais4_Pin Relais5_Pin Relais3_Pin */
-  GPIO_InitStruct.Pin = Relais2_Pin|Relais1_Pin|RESET_Pin|USB_PowerSwitchOn_Pin 
+  GPIO_InitStruct.Pin = Relais2_Pin|Relais1_Pin|RESET_Pin|USB_PowerSwitchOn_Pin
                           |Relais6_Pin|Relais4_Pin|Relais5_Pin|Relais3_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
@@ -775,9 +761,9 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : OS0_Pin OS1_Pin OS2_Pin RANGE_Pin 
+  /*Configure GPIO pins : OS0_Pin OS1_Pin OS2_Pin RANGE_Pin
                            CV_A_B_Pin */
-  GPIO_InitStruct.Pin = OS0_Pin|OS1_Pin|OS2_Pin|RANGE_Pin 
+  GPIO_InitStruct.Pin = OS0_Pin|OS1_Pin|OS2_Pin|RANGE_Pin
                           |CV_A_B_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
@@ -858,7 +844,7 @@ void StartDefaultTask(void const * argument)
 
     osDelay(1000);
   }
-  /* USER CODE END 5 */ 
+  /* USER CODE END 5 */
 }
 
 /**
@@ -903,7 +889,7 @@ void Error_Handler(void)
   * @retval None
   */
 void assert_failed(uint8_t *file, uint32_t line)
-{ 
+{
   /* USER CODE BEGIN 6 */
   /* User can add his own implementation to report the file name and line number,
      tex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */

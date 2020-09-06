@@ -1461,18 +1461,16 @@ HAL_StatusTypeDef HAL_UART_DMAPause(UART_HandleTypeDef *huart)
     /* Disable the UART DMA Tx request */
     CLEAR_BIT(huart->Instance->CR3, USART_CR3_DMAT);
   }
-
-  /*
   if ((HAL_IS_BIT_SET(huart->Instance->CR3, USART_CR3_DMAR)) &&
       (rxstate == HAL_UART_STATE_BUSY_RX))
-  //	  {
+  {
     /* Disable PE and ERR (Frame error, noise error, overrun error) interrupts */
-   // CLEAR_BIT(huart->Instance->CR1, USART_CR1_PEIE);
-   // CLEAR_BIT(huart->Instance->CR3, USART_CR3_EIE);
+    CLEAR_BIT(huart->Instance->CR1, USART_CR1_PEIE);
+    CLEAR_BIT(huart->Instance->CR3, USART_CR3_EIE);
 
     /* Disable the UART DMA Rx request */
-  //  CLEAR_BIT(huart->Instance->CR3, USART_CR3_DMAR);
-  //}
+    CLEAR_BIT(huart->Instance->CR3, USART_CR3_DMAR);
+  }
 
   /* Process Unlocked */
   __HAL_UNLOCK(huart);
@@ -2883,7 +2881,7 @@ HAL_StatusTypeDef UART_CheckIdleState(UART_HandleTypeDef *huart)
 HAL_StatusTypeDef UART_WaitOnFlagUntilTimeout(UART_HandleTypeDef *huart, uint32_t Flag, FlagStatus Status, uint32_t Tickstart, uint32_t Timeout)
 {
   /* Wait until flag is set */
-   while ((__HAL_UART_GET_FLAG(huart, Flag) ? SET : RESET) == Status)
+  while ((__HAL_UART_GET_FLAG(huart, Flag) ? SET : RESET) == Status)
   {
     /* Check for the Timeout */
     if (Timeout != HAL_MAX_DELAY)

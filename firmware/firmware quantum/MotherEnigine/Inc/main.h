@@ -29,7 +29,7 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f7xx_hal.h"
-#include <stdio.h>
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -246,8 +246,9 @@ uint8_t SUBNET_READ_FLASH[4];
 
 uint8_t DisplayUpdate;
 uint8_t DisplayReset;
-/* USER CODE END Private defines */
 char  pData[100];
+/* USER CODE END Private defines */
+
 #ifdef __cplusplus
 }
 #endif

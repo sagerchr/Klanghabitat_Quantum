@@ -23,13 +23,9 @@
 #include "stm32f7xx_it.h"
 #include "FreeRTOS.h"
 #include "task.h"
-
-
-
-#include "cmsis_os.h"
-
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "cmsis_os.h"
 #include "math.h"
 #include "stdlib.h"
 #include "UART_correction.h"
@@ -40,7 +36,7 @@
 #include "arm_const_structs.h"
 #include "dspTask.h"
 /* USER CODE END Includes */
-  
+
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN TD */
 
@@ -97,7 +93,7 @@ SPI_HandleTypeDef hspi2;
 /* USER CODE END EV */
 
 /******************************************************************************/
-/*           Cortex-M7 Processor Interruption and Exception Handlers          */ 
+/*           Cortex-M7 Processor Interruption and Exception Handlers          */
 /******************************************************************************/
 /**
   * @brief This function handles Non maskable interrupt.
@@ -236,7 +232,6 @@ void TIM6_DAC_IRQHandler(void)
   /* USER CODE END TIM6_DAC_IRQn 1 */
 }
 
-
 /**
   * @brief This function handles TIM7 global interrupt.
   */
@@ -357,7 +352,6 @@ void DMA2_Stream6_IRQHandler(void)
   /* USER CODE BEGIN DMA2_Stream6_IRQn 1 */
   HAL_UART_GetError(&huart6);
   /* USER CODE END DMA2_Stream6_IRQn 1 */
-
 }
 
 /**
@@ -369,7 +363,9 @@ void USART6_IRQHandler(void)
 
   /* USER CODE END USART6_IRQn 0 */
   HAL_UART_IRQHandler(&huart6);
+  /* USER CODE BEGIN USART6_IRQn 1 */
 
+  /* USER CODE END USART6_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */
