@@ -110,6 +110,8 @@ void Error_Handler(void);
 #define DB14_GPIO_Port GPIOE
 #define DB15_Pin GPIO_PIN_15
 #define DB15_GPIO_Port GPIOE
+#define PB12_Pin GPIO_PIN_12
+#define PB12_GPIO_Port GPIOB
 #define RMII_TXD1_Pin GPIO_PIN_13
 #define RMII_TXD1_GPIO_Port GPIOB
 #define LD3_Pin GPIO_PIN_14
@@ -118,6 +120,10 @@ void Error_Handler(void);
 #define STLK_RX_GPIO_Port GPIOD
 #define STLK_TX_Pin GPIO_PIN_9
 #define STLK_TX_GPIO_Port GPIOD
+#define MUTE_POTI_Pin GPIO_PIN_10
+#define MUTE_POTI_GPIO_Port GPIOD
+#define ZCEN_Pin GPIO_PIN_11
+#define ZCEN_GPIO_Port GPIOD
 #define RESET_Pin GPIO_PIN_2
 #define RESET_GPIO_Port GPIOG
 #define BUSY_Pin GPIO_PIN_3
@@ -174,8 +180,8 @@ void Error_Handler(void);
 #define SWO_GPIO_Port GPIOB
 #define CS_DAC1_Pin GPIO_PIN_4
 #define CS_DAC1_GPIO_Port GPIOB
-#define CS_DAC2_Pin GPIO_PIN_5
-#define CS_DAC2_GPIO_Port GPIOB
+#define CS_POTI_Pin GPIO_PIN_5
+#define CS_POTI_GPIO_Port GPIOB
 #define LD2_Pin GPIO_PIN_7
 #define LD2_GPIO_Port GPIOB
 #define DB0_Pin GPIO_PIN_0

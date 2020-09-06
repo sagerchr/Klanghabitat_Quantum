@@ -12,7 +12,7 @@ SPI_HandleTypeDef hspi2;
 
 void DAC_Control(uint8_t DACselect, uint8_t DeviceAdr, uint8_t value){
 	HAL_GPIO_WritePin(GPIOB, CS_DAC1_Pin, GPIO_PIN_SET);
-	HAL_GPIO_WritePin(GPIOB, CS_DAC2_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(GPIOB, CS_POTI_Pin, GPIO_PIN_SET);
 
 	uint16_t payload;
 	uint8_t payloadUpper;
@@ -46,7 +46,7 @@ void DAC_Control(uint8_t DACselect, uint8_t DeviceAdr, uint8_t value){
 	HAL_GPIO_WritePin(GPIOB, CS_DAC1_Pin, GPIO_PIN_RESET);
 	}
 	if(DeviceAdr == 2){
-	HAL_GPIO_WritePin(GPIOB, CS_DAC2_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOB, CS_POTI_Pin, GPIO_PIN_RESET);
 	}
 
 	HAL_SPI_Transmit(&hspi2, (uint8_t *)message, strlen(message), 10000);
@@ -54,7 +54,7 @@ void DAC_Control(uint8_t DACselect, uint8_t DeviceAdr, uint8_t value){
 	HAL_GPIO_WritePin(GPIOB, CS_DAC1_Pin, GPIO_PIN_SET);
 	}
 	if(DeviceAdr == 2){
-	HAL_GPIO_WritePin(GPIOB, CS_DAC2_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(GPIOB, CS_POTI_Pin, GPIO_PIN_SET);
 	}
 }
 

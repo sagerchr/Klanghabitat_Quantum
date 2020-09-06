@@ -170,6 +170,7 @@ int main(void)
   MX_DAC_Init();
   MX_USART3_UART_Init();
   MX_USART6_UART_Init();
+
   MX_TIM5_Init();
   MX_SPI2_Init();
   MX_TIM6_Init();
@@ -698,19 +699,20 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(DEBUG1_GPIO_Port, DEBUG1_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, LD1_Pin|LD3_Pin|CS_DAC1_Pin|CS_DAC2_Pin
-                          |LD2_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, LD1_Pin|PB12_Pin|LD3_Pin|CS_DAC1_Pin
+                          |CS_POTI_Pin|LD2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOG, Relais2_Pin|Relais1_Pin|RESET_Pin|USB_PowerSwitchOn_Pin
                           |Relais6_Pin|Relais4_Pin|Relais5_Pin|Relais3_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, OS0_Pin|OS1_Pin|OS2_Pin|RANGE_Pin
-                          |CV_A_B_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOD, MUTE_POTI_Pin|ZCEN_Pin|DEBUG2_Pin|RD_Pin
+                          |CS_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOD, DEBUG2_Pin|RD_Pin|CS_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, OS0_Pin|OS1_Pin|OS2_Pin|RANGE_Pin
+                          |CV_A_B_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : DB2_Pin DB3_Pin DB4_Pin DB5_Pin
                            DB6_Pin DB7_Pin DB8_Pin DB9_Pin
@@ -737,10 +739,10 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(DEBUG1_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : LD1_Pin LD3_Pin CS_DAC1_Pin CS_DAC2_Pin
-                           LD2_Pin */
-  GPIO_InitStruct.Pin = LD1_Pin|LD3_Pin|CS_DAC1_Pin|CS_DAC2_Pin
-                          |LD2_Pin;
+  /*Configure GPIO pins : LD1_Pin PB12_Pin LD3_Pin CS_DAC1_Pin
+                           CS_POTI_Pin LD2_Pin */
+  GPIO_InitStruct.Pin = LD1_Pin|PB12_Pin|LD3_Pin|CS_DAC1_Pin
+                          |CS_POTI_Pin|LD2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -754,6 +756,15 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : MUTE_POTI_Pin ZCEN_Pin DEBUG2_Pin RD_Pin
+                           CS_Pin */
+  GPIO_InitStruct.Pin = MUTE_POTI_Pin|ZCEN_Pin|DEBUG2_Pin|RD_Pin
+                          |CS_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
   /*Configure GPIO pins : BUSY_Pin USB_OverCurrent_Pin */
   GPIO_InitStruct.Pin = BUSY_Pin|USB_OverCurrent_Pin;
@@ -783,13 +794,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(USB_VBUS_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : DEBUG2_Pin RD_Pin CS_Pin */
-  GPIO_InitStruct.Pin = DEBUG2_Pin|RD_Pin|CS_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
 
   /*Configure GPIO pin : FRST_Pin */
   GPIO_InitStruct.Pin = FRST_Pin;
