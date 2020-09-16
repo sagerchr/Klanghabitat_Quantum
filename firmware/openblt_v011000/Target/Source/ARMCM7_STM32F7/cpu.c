@@ -111,9 +111,10 @@ void CpuStartUserProgram(void)
   ComFree();
 #endif
   /* reset the timer */
-  TimerReset();
+
   /* reset the HAL */
   HAL_DeInit();
+  TimerReset();
   /* remap user program's vector table */
   SCB->VTOR = CPU_USER_PROGRAM_VECTABLE_OFFSET & (blt_int32u)0x1FFFFF80;
   /* set the address where the bootloader needs to jump to. this is the address of
@@ -128,7 +129,7 @@ void CpuStartUserProgram(void)
 #if (Display == 1)
   CpuIrqEnable();
   #endif
-  //
+  CpuIrqEnable();
   /* start the user program by activating its reset interrupt service routine */
   pProgResetHandler();
 #if (BOOT_COM_DEFERRED_INIT_ENABLE > 0) && (BOOT_COM_ENABLE > 0)
