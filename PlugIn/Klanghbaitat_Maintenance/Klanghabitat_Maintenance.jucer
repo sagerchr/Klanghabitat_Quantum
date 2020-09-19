@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="fQ5qag" name="Klanghabitat_Maintenance" projectType="guiapp"
+              useAppConfig="0" addUsingNamespaceToJuceHeader="0" displaySplashScreen="1"
+              jucerFormatVersion="1">
+  <MAINGROUP id="AQMm4s" name="Klanghabitat_Maintenance">
+    <GROUP id="{760417A8-AFC6-E9CB-C37B-3843910ADBB6}" name="Asset">
+      <FILE id="xlnGos" name="AURORA.png" compile="0" resource="1" file="Asset/AURORA.png"/>
+    </GROUP>
+    <GROUP id="{B27D7B11-8805-2F19-2EC0-4373C15AA400}" name="classes">
+      <FILE id="iH5S71" name="Comunication.cpp" compile="1" resource="0"
+            file="Source/Comunication.cpp"/>
+      <FILE id="xkBY38" name="Comunication.h" compile="0" resource="0" file="Source/Comunication.h"/>
+      <FILE id="rOb9zn" name="SrecConverter.cpp" compile="1" resource="0"
+            file="Source/SrecConverter.cpp"/>
+      <FILE id="jzJXKn" name="SrecConverter.h" compile="0" resource="0" file="Source/SrecConverter.h"/>
+    </GROUP>
+    <GROUP id="{111D84AF-823B-FE9C-F457-EA25F3EF3B7B}" name="Source">
+      <FILE id="WY34XQ" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+      <FILE id="OoX1Lm" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
+      <FILE id="EcHuL4" name="MainComponent.cpp" compile="1" resource="0"
+            file="Source/MainComponent.cpp"/>
+    </GROUP>
+  </MAINGROUP>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1"/>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="NewProject"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="NewProject"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../../../../Documents/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../../Documents/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../../Documents/JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../../Documents/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../../Documents/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../../Documents/JUCE/modules"/>
+        <MODULEPATH id="juce_osc" path="../../../../Documents/JUCE/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_osc" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+  <LIVE_SETTINGS>
+    <OSX/>
+  </LIVE_SETTINGS>
+</JUCERPROJECT>
