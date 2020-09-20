@@ -37,6 +37,10 @@
 			isa = PBXBuildFile;
 			fileRef = 4D9C541EBCB372651743ECA0;
 		};
+		B97D604E663BA756C2E716E8 = {
+			isa = PBXBuildFile;
+			fileRef = F1A13B0306E59310C668CC93;
+		};
 		3771B200891B930A5B6C787B = {
 			isa = PBXBuildFile;
 			fileRef = C6CDE2570BBBF87D3E18C8C5;
@@ -239,7 +243,7 @@
 			isa = PBXFileReference;
 			explicitFileType = wrapper.application;
 			includeInIndex = 0;
-			path = NewProject.app;
+			path = "Klanghabitat_Maintenance.app";
 			sourceTree = "BUILT_PRODUCTS_DIR";
 		};
 		B2CD8B4FA3D4166B28BF342C = {
@@ -305,6 +309,20 @@
 			path = ../../JuceLibraryCode/BinaryData.h;
 			sourceTree = "SOURCE_ROOT";
 		};
+		E593102BDC1216B2B003F881 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.c.h;
+			name = "SRC_ListBox.h";
+			path = "../../Source/SRC_ListBox.h";
+			sourceTree = "SOURCE_ROOT";
+		};
+		F1A13B0306E59310C668CC93 = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.cpp.cpp;
+			name = "SRC_ListBox.cpp";
+			path = "../../Source/SRC_ListBox.cpp";
+			sourceTree = "SOURCE_ROOT";
+		};
 		F262DEEBF590996F0F69B5C5 = {
 			isa = PBXFileReference;
 			lastKnownFileType = file;
@@ -325,6 +343,8 @@
 			children = (
 				4D9C541EBCB372651743ECA0,
 				775B3F8E2CDD58A8F67E2268,
+				F1A13B0306E59310C668CC93,
+				E593102BDC1216B2B003F881,
 				C6CDE2570BBBF87D3E18C8C5,
 				4A5BDD7BB3FBB43ACFCAA189,
 			);
@@ -475,7 +495,7 @@
 				INSTALL_PATH = "$(HOME)/Applications";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Klanghabitat_Maintenance;
-				PRODUCT_NAME = "NewProject";
+				PRODUCT_NAME = "Klanghabitat_Maintenance";
 				USE_HEADERMAP = NO;
 			};
 			name = Debug;
@@ -532,7 +552,7 @@
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.Klanghabitat_Maintenance;
-				PRODUCT_NAME = "NewProject";
+				PRODUCT_NAME = "Klanghabitat_Maintenance";
 				USE_HEADERMAP = NO;
 			};
 			name = Release;
@@ -579,7 +599,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = "NewProject";
+				PRODUCT_NAME = "Klanghabitat_Maintenance";
 				SDKROOT = macosx;
 				WARNING_CFLAGS = "-Wreorder";
 				ZERO_LINK = NO;
@@ -627,7 +647,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				PRODUCT_NAME = "NewProject";
+				PRODUCT_NAME = "Klanghabitat_Maintenance";
 				SDKROOT = macosx;
 				WARNING_CFLAGS = "-Wreorder";
 				ZERO_LINK = NO;
@@ -665,6 +685,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				47089E2394ED503DC09C4B99,
+				B97D604E663BA756C2E716E8,
 				3771B200891B930A5B6C787B,
 				C21A4D077DFCCD4AEE992638,
 				88F5F8B19C41F1768385929C,

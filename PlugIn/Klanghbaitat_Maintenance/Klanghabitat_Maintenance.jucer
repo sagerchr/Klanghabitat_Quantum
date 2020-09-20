@@ -11,6 +11,8 @@
       <FILE id="iH5S71" name="Comunication.cpp" compile="1" resource="0"
             file="Source/Comunication.cpp"/>
       <FILE id="xkBY38" name="Comunication.h" compile="0" resource="0" file="Source/Comunication.h"/>
+      <FILE id="vkESfm" name="SRC_ListBox.cpp" compile="1" resource="0" file="Source/SRC_ListBox.cpp"/>
+      <FILE id="tkNI9d" name="SRC_ListBox.h" compile="0" resource="0" file="Source/SRC_ListBox.h"/>
       <FILE id="rOb9zn" name="SrecConverter.cpp" compile="1" resource="0"
             file="Source/SrecConverter.cpp"/>
       <FILE id="jzJXKn" name="SrecConverter.h" compile="0" resource="0" file="Source/SrecConverter.h"/>
@@ -26,8 +28,8 @@
   <EXPORTFORMATS>
     <XCODE_MAC targetFolder="Builds/MacOSX">
       <CONFIGURATIONS>
-        <CONFIGURATION isDebug="1" name="Debug" targetName="NewProject"/>
-        <CONFIGURATION isDebug="0" name="Release" targetName="NewProject"/>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="Klanghabitat_Maintenance"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="Klanghabitat_Maintenance"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../../../../Documents/JUCE/modules"/>
