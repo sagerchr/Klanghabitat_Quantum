@@ -1,5 +1,6 @@
 #include "MainComponent.h"
 #include "SrecConverter.h"
+
 //==============================================================================
 MainComponent::MainComponent()
 {
@@ -14,6 +15,8 @@ MainComponent::MainComponent()
     
     
     addAndMakeVisible (SRC_ListBox_Display);
+    addAndMakeVisible (SRC_ListBox_MainEngine);
+    
     
     addAndMakeVisible (updateButton);
     addAndMakeVisible(progressBar);
@@ -21,9 +24,11 @@ MainComponent::MainComponent()
     addAndMakeVisible(TextLabel);
     addAndMakeVisible(showString);
     
+    addAndMakeVisible(DisplayLabel);
+    addAndMakeVisible(MainEngineLabel);
+
     
-    
-    setSize (600, 800);
+    setSize (800, 700);
 }
 
 MainComponent::~MainComponent()
@@ -33,10 +38,10 @@ SrecConverter *DisplaySrec = nullptr;
 SrecConverter *MainEngineSrec = nullptr;
 
 juce::URL fileUrlDisplaySrec("https://www.klanghabitat.com/firmware/Display_.srec");
-juce::URL fileUrlMotherEngineSrec("https://www.klanghabitat.com/firmware/MotherEnigine.srec");
+juce::URL fileUrlMotherEngineSrec("https://www.klanghabitat.com/firmware/MotherEnigine_.srec");
 
 juce::File DisplayLocalPath ("/Users/christiansager/klanghabitat_quantum/PlugIn/download/Display_.srec");
-juce::File MainEngineLocalPath ("/Users/christiansager/klanghabitat_quantum/PlugIn/download/MotherEngine.srec");
+juce::File MainEngineLocalPath ("/Users/christiansager/klanghabitat_quantum/PlugIn/download/MotherEngine_.srec");
 //==============================================================================
 void MainComponent::paint (juce::Graphics& g)
 {
@@ -55,7 +60,14 @@ void MainComponent::resized()
     showString.setBounds(10, 300, getWidth() - 20, 30);
     
     SRC_ListBox_Display.setColour(juce::Label::textColourId,juce::Colours::black);
-    SRC_ListBox_Display.setBounds(10, 350, getWidth() - 20, 300);
+    
+    DisplayLabel.setColour(juce::Label::textColourId,juce::Colours::black);
+    MainEngineLabel.setColour(juce::Label::textColourId,juce::Colours::black);
+    DisplayLabel.setBounds(10, 350, 100, 20);
+    MainEngineLabel.setBounds(410, 350, 100, 20);
+    
+    SRC_ListBox_Display.setBounds(10, 370, 380, 300);
+    SRC_ListBox_MainEngine.setBounds(410, 370, 380, 300);
     // This is called when the MainComponent is resized.
     // If you add any child components, this is where you should
     // update their positions.
@@ -75,7 +87,8 @@ void MainComponent::finished (juce::URL::DownloadTask* task, bool success)
      if((percentage)==0.02){
         
          DisplayData = DisplaySrec->readFile(DisplayLocalPath);
-         MainEngineSrec->readFile(MainEngineLocalPath);
+         MainEngineData = MainEngineSrec->readFile(MainEngineLocalPath);
+         
      }
      
  }
@@ -93,28 +106,14 @@ void MainComponent::buttonClicked (juce::Button* button)
      
      if (button == &showString){
              
-         juce::StringArray StringArray;
-         juce::String line;
-         juce::String Adress;
-         juce::String Payload;
-         juce::String count;
-         juce::String checksum;
-         juce::StringArray StringArray_manipulated;
-         StringArray.addLines (DisplayData);
+        juce::String IPAddressTarget = (juce::String)(deviceList.getItemText(deviceList.getSelectedId()-1).substring(0, 15));
+        
+         CallBootloader.ConnectToBootloader(IPAddressTarget);
+         CallBootloader.restart();
+         CallBootloader.disconnect();
          
-          for (int i=0; i<StringArray.size(); i++)
-            {
-                line = StringArray[i].substring(0, StringArray[i].length());
-                count = line.substring(2,4);
-                Adress = line.substring(4, 12);
-                Payload = line.substring(12, (count.getHexValue32()*2)+2);
-                checksum = line.substring((count.getHexValue32()*2)+2);
-                
-                StringArray_manipulated.insert(i, count + "*" + Adress + "*" + Payload + "*" + checksum);
-            }
-         
-         SRC_ListBox_Display.addArray (StringArray_manipulated);
-         
+        SRC_ListBox_Display.addArray (parseSrec(DisplayData));
+        SRC_ListBox_MainEngine.addArray (parseSrec(MainEngineData));
          
      }
  }
@@ -140,3 +139,26 @@ void MainComponent::oscMessageReceived (const juce::OSCMessage& message){
         }
     }
 
+juce::StringArray MainComponent::parseSrec(juce::String data){
+    
+            juce::StringArray StringArray;
+            juce::String line;
+            juce::String Adress;
+            juce::String Payload;
+            juce::String count;
+            juce::String checksum;
+            juce::StringArray StringArray_manipulated;
+            StringArray.addLines (data);
+            
+             for (int i=0; i<StringArray.size(); i++)
+               {
+                   line = StringArray[i].substring(0, StringArray[i].length());
+                   count = line.substring(2,4);
+                   Adress = line.substring(4, 12);
+                   Payload = line.substring(12, (count.getHexValue32()*2)+2);
+                   checksum = line.substring((count.getHexValue32()*2)+2);
+                   
+                   StringArray_manipulated.insert(i, count + "*" + Adress + "*" + Payload + "*" + checksum);
+               }
+    return StringArray_manipulated;
+}
