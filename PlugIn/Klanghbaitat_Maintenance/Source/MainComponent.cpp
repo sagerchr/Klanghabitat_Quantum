@@ -7,16 +7,14 @@ MainComponent::MainComponent()
     oscReceiver.addListener(this);
     oscReceiver.connect (9010); //connect here the Reciver so it will listen to the incumming DeviceInfo from Target
    
-    updateButton.setButtonText ("update from web");
+    updateButton.setButtonText ("download frimware from web");
     updateButton.addListener (this);
     
-    showString.setButtonText ("update String");
+    showString.setButtonText ("update device");
     showString.addListener (this);
-    
-    
+        
     addAndMakeVisible (SRC_ListBox_Display);
     addAndMakeVisible (SRC_ListBox_MainEngine);
-    
     
     addAndMakeVisible (updateButton);
     addAndMakeVisible(progressBar);
@@ -33,6 +31,7 @@ MainComponent::MainComponent()
 
 MainComponent::~MainComponent()
 {
+    Bootloader.disconnect();
 }
 SrecConverter *DisplaySrec = nullptr;
 SrecConverter *MainEngineSrec = nullptr;
@@ -86,8 +85,7 @@ void MainComponent::finished (juce::URL::DownloadTask* task, bool success)
      
      if((percentage)==0.02){
         
-         DisplayData = DisplaySrec->readFile(DisplayLocalPath);
-         MainEngineData = MainEngineSrec->readFile(MainEngineLocalPath);
+        
          
      }
      
@@ -108,13 +106,50 @@ void MainComponent::buttonClicked (juce::Button* button)
              
         juce::String IPAddressTarget = (juce::String)(deviceList.getItemText(deviceList.getSelectedId()-1).substring(0, 15));
         
-         CallBootloader.ConnectToBootloader(IPAddressTarget);
-         CallBootloader.restart();
-         CallBootloader.disconnect();
+         //SRC_ListBox_Display.addArray (parseSrec(DisplayData));
+         //SRC_ListBox_MainEngine.addArray (parseSrec(MainEngineData));
+         DisplayData = DisplaySrec->readFile(DisplayLocalPath);
+         MainEngineData = MainEngineSrec->readFile(MainEngineLocalPath);
          
-        SRC_ListBox_Display.addArray (parseSrec(DisplayData));
-        SRC_ListBox_MainEngine.addArray (parseSrec(MainEngineData));
+         Bootloader.ConnectToBootloader(IPAddressTarget);
          
+         Bootloader.programStart();
+         
+         Bootloader.cleanProgram("08008000", "00008000");
+         Bootloader.cleanProgram("08010000", "00008000");
+         Bootloader.cleanProgram("08018000", "00008000");
+         Bootloader.cleanProgram("08020000", "00008000");
+         Bootloader.cleanProgram("08028000", "00008000");
+         Bootloader.cleanProgram("08030000", "00008000");
+         Bootloader.cleanProgram("08038000", "00008000");
+         Bootloader.cleanProgram("08038000", "00008000");
+         Bootloader.cleanProgram("08040000", "00008000");
+         Bootloader.cleanProgram("08048000", "00008000");
+         Bootloader.cleanProgram("08050000", "00008000");
+         Bootloader.cleanProgram("08058000", "00008000");
+         
+         juce::String line;
+         juce::String adress;
+         juce::String payload;
+         juce::String length;
+         juce::String checksum;
+         juce::StringArray StringArray;
+         StringArray.addLines (MainEngineData);
+         
+        for (int i=1; i<StringArray.size(); i++)
+         {
+             line = StringArray[i].substring(0, StringArray[i].length());
+             length = line.substring(2,4);
+             adress = line.substring(4, 12);
+             payload = line.substring(12, (length.getHexValue32()*2)+2);
+             checksum = line.substring((length.getHexValue32()*2)+2);
+             Bootloader.program(adress, payload, length);
+         }
+         
+         Bootloader.restart();
+         
+         //Bootloader.disconnect();
+        
      }
  }
 

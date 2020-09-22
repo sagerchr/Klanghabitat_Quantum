@@ -29,7 +29,7 @@ private:
     // Your private member variables go here...
    
   
-    Comunication CallBootloader;
+    Comunication Bootloader;
     double percentage=0.0;
     double *progress=&percentage;
     juce::URL::DownloadTask::Listener* listen1;
