@@ -7,7 +7,7 @@ MainComponent::MainComponent()
     oscReceiver.addListener(this);
     oscReceiver.connect (9010); //connect here the Reciver so it will listen to the incumming DeviceInfo from Target
    
-    updateButton.setButtonText ("download frimware from web");
+    updateButton.setButtonText ("download frimware and update device");
     updateButton.addListener (this);
     
     showString.setButtonText ("update device");
@@ -19,14 +19,14 @@ MainComponent::MainComponent()
     addAndMakeVisible (updateButton);
     addAndMakeVisible(progressBar);
     addAndMakeVisible(deviceList);
-    addAndMakeVisible(TextLabel);
-    addAndMakeVisible(showString);
+    //addAndMakeVisible(TextLabel);
+    //addAndMakeVisible(showString);
     
-    addAndMakeVisible(DisplayLabel);
-    addAndMakeVisible(MainEngineLabel);
+    //addAndMakeVisible(DisplayLabel);
+    //addAndMakeVisible(MainEngineLabel);
 
     
-    setSize (800, 700);
+    setSize (570, 250);
 }
 
 MainComponent::~MainComponent()
@@ -53,9 +53,13 @@ void MainComponent::paint (juce::Graphics& g)
 
 void MainComponent::resized()
 {
-    deviceList.setBounds (10, 150, getWidth() - 20, 30);
-    updateButton.setBounds (10, 200, getWidth() - 20, 30);
-    progressBar.setBounds(10, 250, getWidth() - 20, 30);
+    
+    
+    progressBar.setBounds(10, 150, getWidth() - 20, 30);
+    deviceList.setBounds (10, 200, (getWidth()/2) - 20, 30);
+    updateButton.setBounds ((getWidth()/2)+10, 200, (getWidth()/2) - 20, 30);
+    
+    
     showString.setBounds(10, 300, getWidth() - 20, 30);
     
     SRC_ListBox_Display.setColour(juce::Label::textColourId,juce::Colours::black);
@@ -80,11 +84,79 @@ void MainComponent::filenameComponentChanged (juce::FilenameComponent* fileCompo
 
 void MainComponent::finished (juce::URL::DownloadTask* task, bool success)
  {
+     if(percentage >0.9){
+            percentage = 0;
+        }
+   
      percentage += 0.01;
      progress = &percentage;
      
      if((percentage)==0.02){
-        
+        //juce::String IPAddressTarget = (juce::String)(deviceList.getItemText(deviceList.getSelectedId()-1).substring(0, 15));
+         juce::String IPAddressTarget = "192.168.1.70";
+
+         DisplayData = DisplaySrec->readFile(DisplayLocalPath);
+         
+         MainEngineData = MainEngineSrec->readFile(MainEngineLocalPath);
+         percentage += 0.01;
+         Bootloader.ConnectToBootloader(IPAddressTarget);
+         percentage += 0.01;
+         Bootloader.programStart();
+         percentage += 0.01;
+         Bootloader.cleanProgram("08008000", "00008000");
+         percentage += 0.01;
+         Bootloader.cleanProgram("08010000", "00008000");
+         percentage += 0.01;
+         Bootloader.cleanProgram("08018000", "00008000");
+         percentage += 0.01;
+         Bootloader.cleanProgram("08020000", "00008000");
+         percentage += 0.01;
+         Bootloader.cleanProgram("08028000", "00008000");
+         percentage += 0.01;
+         Bootloader.cleanProgram("08030000", "00008000");
+         percentage += 0.01;
+         Bootloader.cleanProgram("08038000", "00008000");
+         percentage += 0.01;
+         Bootloader.cleanProgram("08038000", "00008000");
+         percentage += 0.01;
+         Bootloader.cleanProgram("08040000", "00008000");
+         percentage += 0.01;
+         Bootloader.cleanProgram("08048000", "00008000");
+         percentage += 0.01;
+         Bootloader.cleanProgram("08050000", "00008000");
+         percentage += 0.01;
+         Bootloader.cleanProgram("08058000", "00008000");
+         percentage += 0.01;
+         
+         juce::String line;
+         juce::String adress;
+         juce::String payload;
+         juce::String length;
+         juce::String checksum;
+         juce::StringArray StringArray;
+         StringArray.addLines (MainEngineData);
+         percentage = 0.0;
+         
+         double size = StringArray.size();
+         
+        for (int i=1; i<StringArray.size(); i++)
+         {
+             percentage = i/size;
+            
+             line = StringArray[i].substring(0, StringArray[i].length());
+             length = line.substring(2,4);
+             adress = line.substring(4, 12);
+             payload = line.substring(12, (length.getHexValue32()*2)+2);
+             checksum = line.substring((length.getHexValue32()*2)+2);
+             Bootloader.program(adress, payload, length);
+         }
+         
+         Bootloader.restart();
+         
+         
+
+         
+         //Bootloader.disconnect();
         
          
      }
@@ -104,51 +176,7 @@ void MainComponent::buttonClicked (juce::Button* button)
      
      if (button == &showString){
              
-        juce::String IPAddressTarget = (juce::String)(deviceList.getItemText(deviceList.getSelectedId()-1).substring(0, 15));
         
-         //SRC_ListBox_Display.addArray (parseSrec(DisplayData));
-         //SRC_ListBox_MainEngine.addArray (parseSrec(MainEngineData));
-         DisplayData = DisplaySrec->readFile(DisplayLocalPath);
-         MainEngineData = MainEngineSrec->readFile(MainEngineLocalPath);
-         
-         Bootloader.ConnectToBootloader(IPAddressTarget);
-         
-         Bootloader.programStart();
-         
-         Bootloader.cleanProgram("08008000", "00008000");
-         Bootloader.cleanProgram("08010000", "00008000");
-         Bootloader.cleanProgram("08018000", "00008000");
-         Bootloader.cleanProgram("08020000", "00008000");
-         Bootloader.cleanProgram("08028000", "00008000");
-         Bootloader.cleanProgram("08030000", "00008000");
-         Bootloader.cleanProgram("08038000", "00008000");
-         Bootloader.cleanProgram("08038000", "00008000");
-         Bootloader.cleanProgram("08040000", "00008000");
-         Bootloader.cleanProgram("08048000", "00008000");
-         Bootloader.cleanProgram("08050000", "00008000");
-         Bootloader.cleanProgram("08058000", "00008000");
-         
-         juce::String line;
-         juce::String adress;
-         juce::String payload;
-         juce::String length;
-         juce::String checksum;
-         juce::StringArray StringArray;
-         StringArray.addLines (MainEngineData);
-         
-        for (int i=1; i<StringArray.size(); i++)
-         {
-             line = StringArray[i].substring(0, StringArray[i].length());
-             length = line.substring(2,4);
-             adress = line.substring(4, 12);
-             payload = line.substring(12, (length.getHexValue32()*2)+2);
-             checksum = line.substring((length.getHexValue32()*2)+2);
-             Bootloader.program(adress, payload, length);
-         }
-         
-         Bootloader.restart();
-         
-         //Bootloader.disconnect();
         
      }
  }
