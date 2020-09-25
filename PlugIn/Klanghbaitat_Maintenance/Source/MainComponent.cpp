@@ -19,7 +19,7 @@ MainComponent::MainComponent()
     addAndMakeVisible (updateButton);
     addAndMakeVisible(progressBar);
     addAndMakeVisible(deviceList);
-    //addAndMakeVisible(TextLabel);
+    addAndMakeVisible(progressLabel);
     //addAndMakeVisible(showString);
     
     //addAndMakeVisible(DisplayLabel);
@@ -54,7 +54,7 @@ void MainComponent::paint (juce::Graphics& g)
 void MainComponent::resized()
 {
     
-    
+    progressLabel.setBounds(10, 120, getWidth() - 20, 30);
     progressBar.setBounds(10, 150, getWidth() - 20, 30);
     deviceList.setBounds (10, 200, (getWidth()/2) - 20, 30);
     updateButton.setBounds ((getWidth()/2)+10, 200, (getWidth()/2) - 20, 30);
@@ -69,6 +69,7 @@ void MainComponent::resized()
     DisplayLabel.setBounds(10, 350, 100, 20);
     MainEngineLabel.setBounds(410, 350, 100, 20);
     
+    
     SRC_ListBox_Display.setBounds(10, 370, 380, 300);
     SRC_ListBox_MainEngine.setBounds(410, 370, 380, 300);
     // This is called when the MainComponent is resized.
@@ -82,26 +83,35 @@ void MainComponent::filenameComponentChanged (juce::FilenameComponent* fileCompo
  }
 
 
+
 void MainComponent::finished (juce::URL::DownloadTask* task, bool success)
  {
+     
      if(percentage >0.9){
             percentage = 0;
         }
    
+     actuelTask ="download firmware";
      percentage += 0.01;
      progress = &percentage;
      
      if((percentage)==0.02){
         //juce::String IPAddressTarget = (juce::String)(deviceList.getItemText(deviceList.getSelectedId()-1).substring(0, 15));
          juce::String IPAddressTarget = "192.168.1.70";
-
+         
+         
          DisplayData = DisplaySrec->readFile(DisplayLocalPath);
          
+         actuelTask ="reading File";
          MainEngineData = MainEngineSrec->readFile(MainEngineLocalPath);
+        
          percentage += 0.01;
+         actuelTask ="connecting to target: " + IPAddressTarget;
+         
          Bootloader.ConnectToBootloader(IPAddressTarget);
          percentage += 0.01;
          Bootloader.programStart();
+         actuelTask ="delete program";
          percentage += 0.01;
          Bootloader.cleanProgram("08008000", "00008000");
          percentage += 0.01;
@@ -148,13 +158,15 @@ void MainComponent::finished (juce::URL::DownloadTask* task, bool success)
              adress = line.substring(4, 12);
              payload = line.substring(12, (length.getHexValue32()*2)+2);
              checksum = line.substring((length.getHexValue32()*2)+2);
+             actuelTask ="programming: " + adress + "  " + payload;
              Bootloader.program(adress, payload, length);
+             
          }
          
          Bootloader.restart();
          
+         actuelTask ="";
          
-
          
          //Bootloader.disconnect();
         
@@ -164,10 +176,20 @@ void MainComponent::finished (juce::URL::DownloadTask* task, bool success)
  }
 
 
+void MainComponent::timerCallback()
+{
+    progressLabel.setColour (juce::Label::textColourId, juce::Colours::black);
+    progressLabel.setText(actuelTask, dontSendNotification);
+}
+
+
+
+
 void MainComponent::buttonClicked (juce::Button* button)
  {
      if (button == &updateButton)
      {
+         startTimer(10);
     //###########################Download Srec Files from Server#########################################//
         downladDisplaySrec = fileUrlDisplaySrec.downloadToFile(DisplayLocalPath,"",this, false);
         downladMotherEngineSrec = fileUrlMotherEngineSrec.downloadToFile(MainEngineLocalPath,"",this, false);

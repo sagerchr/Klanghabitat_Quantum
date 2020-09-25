@@ -9,7 +9,7 @@
     This component lives inside our window, and this is where you should put all
     your controls and content.
 */
-class MainComponent  : public juce::Component,public juce::Button::Listener, public juce::FilenameComponentListener, public juce::URL::DownloadTask::Listener,  public juce::OSCReceiver::Listener<juce::OSCReceiver::MessageLoopCallback>
+class MainComponent  : public juce::Component,public juce::Button::Listener, public juce::FilenameComponentListener, public juce::URL::DownloadTask::Listener,  public juce::OSCReceiver::Listener<juce::OSCReceiver::MessageLoopCallback>, public juce::Timer
 {
 public:
     //==============================================================================
@@ -24,6 +24,7 @@ public:
     void filenameComponentChanged (juce::FilenameComponent* fileComponentThatHasChanged) override;
     void oscMessageReceived (const juce::OSCMessage& message) override;
     juce::StringArray parseSrec(juce::String DisplayData);
+    void timerCallback() override;
 private:
     //==============================================================================
     // Your private member variables go here...
@@ -51,7 +52,7 @@ private:
     juce::String Device_IPAdress;
     juce::String TargetIP;
     
-    juce::Label TextLabel{ {}, "Hello" };
+    juce::Label progressLabel{ {}, "" };
     juce::Label DisplayLabel{ {}, "Display parsed" };
     juce::Label MainEngineLabel{ {}, "MainEngine parsed" };
     
@@ -62,6 +63,6 @@ private:
     juce::String DisplayData;
     juce::String MainEngineData;
     
-    
+     juce::String actuelTask;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)
 };
