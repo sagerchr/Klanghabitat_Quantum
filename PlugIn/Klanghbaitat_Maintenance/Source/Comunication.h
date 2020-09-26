@@ -23,6 +23,14 @@ public:
     void cleanProgram(juce::String Adress, juce::String length);
     void programStart();
     void program(juce::String Adress, juce::String payload, juce::String length);
+    
+    
+    void restartDisplay(juce::String IP);
+    uint8_t pingIntoBootloaderSeriel(juce::String IP);
+    void programStartSeriel(juce::String IP);
+    void cleanProgramSeriel(juce::String IP,juce::String Adress, juce::String length);
+    void programSeriel(juce::String IP,juce::String Adress, juce::String payload, juce::String length);
+    void resetDisplay(juce::String IP);
     //==============================================================================
     private:
     //==============================================================================
@@ -34,5 +42,6 @@ public:
     char write[100];
     uint8_t recive[100];
     juce::StreamingSocket *socket = new juce::StreamingSocket();
+    juce::StreamingSocket *Dispalysocket = new juce::StreamingSocket();
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Comunication);
 };

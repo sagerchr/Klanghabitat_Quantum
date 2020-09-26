@@ -64,5 +64,8 @@ private:
     juce::String MainEngineData;
     
      juce::String actuelTask;
+    
+    uint64_t timerCounter;
+    
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)
 };
