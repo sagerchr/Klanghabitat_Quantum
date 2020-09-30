@@ -41,8 +41,11 @@ SrecConverter *MainEngineSrec = nullptr;
 juce::URL fileUrlDisplaySrec("https://www.klanghabitat.com/firmware/Display_.srec");
 juce::URL fileUrlMotherEngineSrec("https://www.klanghabitat.com/firmware/MotherEnigine_.srec");
 
-juce::File DisplayLocalPath ("/Users/christiansager/klanghabitat_quantum/PlugIn/download/Display_.srec");
-juce::File MainEngineLocalPath ("/Users/christiansager/klanghabitat_quantum/PlugIn/download/MotherEngine_.srec");
+const String pathToDisplay = File::getSpecialLocation(File::currentApplicationFile).getChildFile("Display_.srec").getFullPathName();
+const String pathToMainEngine = File::getSpecialLocation(File::currentApplicationFile).getChildFile("MotherEngine_.srec").getFullPathName();
+
+juce::File DisplayLocalPath (pathToDisplay);
+juce::File MainEngineLocalPath (pathToMainEngine);
 //==============================================================================
 void MainComponent::paint (juce::Graphics& g)
 {
@@ -261,7 +264,7 @@ void MainComponent::finished (juce::URL::DownloadTask* task, bool success)
              //actuelTask ="programming Display: " + adress2 + "  " + payload2;
              Bootloader.programSeriel(IPAddressTarget,adress2, payload2, length2);
          }
-         actuelTask ="resart Display and finish process...";
+         actuelTask ="restart Display and finish process...";
          Bootloader.resetDisplay(IPAddressTarget);
      }
      
