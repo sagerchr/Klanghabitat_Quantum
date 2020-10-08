@@ -31,6 +31,8 @@ public:
     void cleanProgramSeriel(juce::String IP,juce::String Adress, juce::String length);
     void programSeriel(juce::String IP,juce::String Adress, juce::String payload, juce::String length);
     void resetDisplay(juce::String IP);
+    
+    void finish();
     //==============================================================================
     private:
     //==============================================================================

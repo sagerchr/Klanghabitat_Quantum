@@ -176,6 +176,12 @@ void Comunication::disconnect(){
     //socket->~StreamingSocket();
 }
 
+void Comunication::finish(){
+
+    socket->~StreamingSocket();
+    Dispalysocket->~StreamingSocket();
+}
+
 void Comunication::restart(){
     CMD = 0xCF;
     write[0] = 0x12;

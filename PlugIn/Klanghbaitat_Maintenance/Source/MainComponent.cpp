@@ -34,6 +34,7 @@ MainComponent::MainComponent()
 MainComponent::~MainComponent()
 {
     Bootloader.disconnect();
+    Bootloader.finish();
 }
 SrecConverter *DisplaySrec = nullptr;
 SrecConverter *MainEngineSrec = nullptr;
@@ -41,8 +42,8 @@ SrecConverter *MainEngineSrec = nullptr;
 juce::URL fileUrlDisplaySrec("https://www.klanghabitat.com/firmware/Display_.srec");
 juce::URL fileUrlMotherEngineSrec("https://www.klanghabitat.com/firmware/MotherEnigine_.srec");
 
-const String pathToDisplay = File::getSpecialLocation(File::currentApplicationFile).getChildFile("Display_.srec").getFullPathName();
-const String pathToMainEngine = File::getSpecialLocation(File::currentApplicationFile).getChildFile("MotherEngine_.srec").getFullPathName();
+const String pathToDisplay = File::getSpecialLocation(File::commonDocumentsDirectory).getChildFile("Display_.srec").getFullPathName();
+const String pathToMainEngine = File::getSpecialLocation(File::commonDocumentsDirectory).getChildFile("MotherEngine_.srec").getFullPathName();
 
 juce::File DisplayLocalPath (pathToDisplay);
 juce::File MainEngineLocalPath (pathToMainEngine);
@@ -266,6 +267,13 @@ void MainComponent::finished (juce::URL::DownloadTask* task, bool success)
          }
          actuelTask ="restart Display and finish process...";
          Bootloader.resetDisplay(IPAddressTarget);
+     
+         DisplayLocalPath.deleteFile();
+         MainEngineLocalPath.deleteFile();
+         
+         
+         
+         
      }
      
  }
