@@ -173,7 +173,6 @@ void Comunication::program(juce::String Adress, juce::String payload, juce::Stri
 
 void Comunication::disconnect(){
     socket->close();
-    //socket->~StreamingSocket();
 }
 
 void Comunication::finish(){
@@ -264,13 +263,7 @@ void Comunication::programStartSeriel(juce::String IP){
 }
 
 void Comunication::cleanProgramSeriel(juce::String IP, juce::String Adress, juce::String length){
-    //***********Connect to the device*****//
-    //socket->bindToPort(7);
-    //socket->connect(IP, 7, 20000);
-    //socket->waitUntilReady(false, -1);
-    //#####################################//
 
-    
     Comunication::reciveClear();
     
     juce::String Adresscorrected = Comunication::Adressinversion(Adress);
@@ -389,4 +382,17 @@ void Comunication::resetDisplay(juce::String IP){
     Dispalysocket->write(write, 2);
     
     Dispalysocket->close();
+}
+
+
+void Comunication::statusDisplay(int StatusDisplay){
+
+    CMD = 0xF;
+    write[0] = 0x2;
+    write[1] = CMD;
+    write[2] = StatusDisplay;
+    
+    Dispalysocket->write(write, 3);
+    
+    Dispalysocket->read(recive, 2, true);
 }

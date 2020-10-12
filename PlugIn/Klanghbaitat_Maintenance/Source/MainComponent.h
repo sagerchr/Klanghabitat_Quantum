@@ -32,6 +32,8 @@ private:
   
     Comunication Bootloader;
     double percentage=0.0;
+    int statusDisplay= 0;
+    int statusDisplayLast = 0;
     double *progress=&percentage;
     juce::URL::DownloadTask::Listener* listen1;
     juce::URL::DownloadTask::Listener* listen2;

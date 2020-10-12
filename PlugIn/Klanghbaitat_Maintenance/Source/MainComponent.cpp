@@ -251,12 +251,18 @@ void MainComponent::finished (juce::URL::DownloadTask* task, bool success)
          StringArray2.addLines (DisplayData);
          double size2 = StringArray2.size();
          percentage = 0.0;
-         
+         statusDisplay = 0;
+         statusDisplayLast = 0;
          actuelTask ="programming Display: " + adress2 + "  " + payload2;
         for (int i=1; i<StringArray2.size(); i++)
          {
              percentage = i/size2;
-            
+             statusDisplay = i/size2*100;
+             
+             if(statusDisplay > statusDisplayLast){
+                 statusDisplayLast = statusDisplay;
+                 Bootloader.statusDisplay(statusDisplay);
+             }
              line2 = StringArray2[i].substring(0, StringArray2[i].length());
              length2 = line2.substring(2,4);
              adress2 = line2.substring(4, 12);
