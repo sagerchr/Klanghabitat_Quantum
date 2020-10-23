@@ -25,6 +25,10 @@ public:
     void oscMessageReceived (const juce::OSCMessage& message) override;
     juce::StringArray parseSrec(juce::String DisplayData);
     void timerCallback() override;
+    
+    void updateToggleState (juce::Button* button, juce::String name);
+
+
 private:
     //==============================================================================
     // Your private member variables go here...
@@ -67,7 +71,23 @@ private:
     
      juce::String actuelTask;
     
+    std::unique_ptr<juce::FilenameComponent> fileComp;
+    std::unique_ptr<juce::TextEditor>        textContent;
+    
     uint64_t timerCounter;
+
+    bool SourceWeb = true;
+    
+    juce::ToggleButton webButton   { "update from web" },
+                       localButton { "update from local" };
+    
+    enum RadioButtonIds
+    {
+        SourceButtons = 1001
+    };
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)
+    
+    
+
 };

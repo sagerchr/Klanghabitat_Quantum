@@ -1,13 +1,16 @@
 #include "MainComponent.h"
 #include "SrecConverter.h"
 
+
+
+
 //==============================================================================
 MainComponent::MainComponent()
 {
     oscReceiver.addListener(this);
     oscReceiver.connect (9010); //connect here the Reciver so it will listen to the incumming DeviceInfo from Target
    
-    updateButton.setButtonText ("download frimware and update device");
+    updateButton.setButtonText ("update");
     updateButton.addListener (this);
     
     progressLabel.setColour (juce::Label::textColourId, juce::Colours::black);
@@ -22,14 +25,40 @@ MainComponent::MainComponent()
     addAndMakeVisible(progressBar);
     addAndMakeVisible(deviceList);
     addAndMakeVisible(progressLabel);
+    
+    
+    addAndMakeVisible (webButton);
+    addAndMakeVisible (localButton);
+    webButton  .onClick = [this] { updateToggleState (&webButton,   "web");   };
+    localButton.onClick = [this] { updateToggleState (&localButton, "local"); };
+    webButton.setToggleState(true,dontSendNotification);
+    
+    
+    webButton  .setRadioGroupId (SourceButtons);
+    localButton.setRadioGroupId (SourceButtons);
+    
+            fileComp.reset (new juce::FilenameComponent ("fileComp",
+                                                     {},                       // current file
+                                                     false,                    // can edit file name,
+                                                     false,                    // is directory,
+                                                     false,                    // is for saving,
+                                                     {},                       // browser wildcard suffix,
+                                                     {},                       // enforced suffix,
+                                                     "Select file to open"));  // text when nothing selected
+        addAndMakeVisible (fileComp.get());
+        fileComp->addListener (this);
+    
     //addAndMakeVisible(showString);
     
     //addAndMakeVisible(DisplayLabel);
     //addAndMakeVisible(MainEngineLabel);
 
     
-    setSize (570, 250);
+    setSize (570, 290);
 }
+
+
+
 
 MainComponent::~MainComponent()
 {
@@ -60,10 +89,10 @@ void MainComponent::paint (juce::Graphics& g)
 void MainComponent::resized()
 {
     
-    progressLabel.setBounds(10, 120, getWidth() - 20, 30);
-    progressBar.setBounds(10, 150, getWidth() - 20, 30);
-    deviceList.setBounds (10, 200, (getWidth()/2) - 20, 30);
-    updateButton.setBounds ((getWidth()/2)+10, 200, (getWidth()/2) - 20, 30);
+    progressLabel.setBounds(10, 225, getWidth() - 20, 30);
+    progressBar.setBounds(10, 250, getWidth() - 20, 30);
+    deviceList.setBounds (10, 160, 400 , 30);
+    updateButton.setBounds (420, 160,  140, 30);
     
     
     showString.setBounds(10, 300, getWidth() - 20, 30);
@@ -76,8 +105,24 @@ void MainComponent::resized()
     MainEngineLabel.setBounds(410, 350, 100, 20);
     
     
+    webButton.setColour(juce::ToggleButton::textColourId,juce::Colours::black);
+    webButton.setColour(juce::ToggleButton::tickColourId,juce::Colours::black);
+    webButton.setColour(juce::ToggleButton::tickDisabledColourId,juce::Colours::black);
+    webButton.setBounds(10, 130, 150, 20);
+    
+    localButton.setColour(juce::ToggleButton::textColourId,juce::Colours::black);
+    localButton.setColour(juce::ToggleButton::tickColourId,juce::Colours::black);
+    localButton.setColour(juce::ToggleButton::tickDisabledColourId,juce::Colours::black);
+    localButton.setBounds(150, 130, 150, 20);
+    
+    
     SRC_ListBox_Display.setBounds(10, 370, 380, 300);
     SRC_ListBox_MainEngine.setBounds(410, 370, 380, 300);
+    
+    
+     fileComp->setBounds    (10, 200, getWidth() - 20, 30);
+ 
+    
     // This is called when the MainComponent is resized.
     // If you add any child components, this is where you should
     // update their positions.
@@ -113,7 +158,7 @@ void MainComponent::finished (juce::URL::DownloadTask* task, bool success)
          juce::StringArray StringArray;
          double size;
          
-         actuelTask ="reading File";
+         actuelTask ="extracting File";
          MainEngineData = MainEngineSrec->readFile(MainEngineLocalPath);
          DisplayData = DisplaySrec->readFile(DisplayLocalPath);
          
@@ -157,7 +202,7 @@ void MainComponent::finished (juce::URL::DownloadTask* task, bool success)
          StringArray.size();
          
          size = StringArray.size();
-         actuelTask ="programming: ";
+         actuelTask ="programming MainEngine";
         for (int i=1; i<StringArray.size(); i++)
          {
              percentage = i/size;
@@ -253,7 +298,7 @@ void MainComponent::finished (juce::URL::DownloadTask* task, bool success)
          percentage = 0.0;
          statusDisplay = 0;
          statusDisplayLast = 0;
-         actuelTask ="programming Display: " + adress2 + "  " + payload2;
+         actuelTask ="programming Display" + adress2 + "  " + payload2;
         for (int i=1; i<StringArray2.size(); i++)
          {
              percentage = i/size2;
@@ -357,4 +402,12 @@ juce::StringArray MainComponent::parseSrec(juce::String data){
                    StringArray_manipulated.insert(i, count + "*" + Adress + "*" + Payload + "*" + checksum);
                }
     return StringArray_manipulated;
+}
+
+void MainComponent::updateToggleState (juce::Button* button, juce::String name)
+{
+    auto state = button->getToggleState();
+    juce::String stateString = state ? "ON" : "OFF";
+    SourceWeb = !SourceWeb;
+    juce::Logger::outputDebugString (name + " Button changed to " + stateString);
 }
