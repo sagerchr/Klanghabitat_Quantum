@@ -387,9 +387,14 @@ static void progress(blt_int8u *data)
 	BSP_LCD_DisplayStringAt(0, 320, snum, CENTER_MODE);
 	//BSP_LCD_DisplayStringAt(0, 320, "%", CENTER_MODE);
 
+
+	BSP_LCD_DrawHLine(200, 298, 4*data[1]);
+	BSP_LCD_DrawHLine(200, 299, 4*data[1]);
 	BSP_LCD_DrawHLine(200, 300, 4*data[1]);
 	BSP_LCD_DrawHLine(200, 301, 4*data[1]);
 	BSP_LCD_DrawHLine(200, 302, 4*data[1]);
+	BSP_LCD_DrawHLine(200, 303, 4*data[1]);
+	BSP_LCD_DrawHLine(200, 304, 4*data[1]);
 	xcpInfo.ctoData[0] = XCP_PID_RES;
 }
 #endif

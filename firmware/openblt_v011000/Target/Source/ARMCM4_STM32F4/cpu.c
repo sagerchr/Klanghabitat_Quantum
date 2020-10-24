@@ -86,8 +86,9 @@ void CpuStartUserProgram(void)
      * this is needed to make sure firmware updates via these communication interfaces
      * will be possible.
      */
-    ComDeferredInit();
+
     BSP_LCD_DisplayStringAt(0, BSP_LCD_GetYSize()/2 - 27, (uint8_t*)"no valid firmware installed", CENTER_MODE);
+    ComDeferredInit();
 #endif
     /* not a valid user program so it cannot be started */
     return;

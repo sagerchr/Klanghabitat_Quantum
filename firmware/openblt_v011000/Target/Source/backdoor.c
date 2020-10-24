@@ -154,10 +154,13 @@ void BackDoorCheck(void)
 
 	    int perc = TimerGet()*100/time;
 
+		BSP_LCD_DrawHLine(200, 298, 4*perc);
+	    BSP_LCD_DrawHLine(200, 299, 4*perc);
 	  	BSP_LCD_DrawHLine(200, 300, 4*perc);
 		BSP_LCD_DrawHLine(200, 301, 4*perc);
 		BSP_LCD_DrawHLine(200, 302, 4*perc);
-
+		BSP_LCD_DrawHLine(200, 303, 4*perc);
+		BSP_LCD_DrawHLine(200, 304, 4*perc);
 
 	#endif
     /* check if the backdoor entry time window elapsed */

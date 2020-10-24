@@ -94,6 +94,7 @@ int main(void)
   /* initialize the microcontroller */
   Init();
   /* initialize the shared parameters module */
+#if(Display==1)
   BSP_SDRAM_Init();
   BSP_LCD_Init() ;
   BSP_LCD_InitEx(LCD_ORIENTATION_LANDSCAPE);
@@ -103,6 +104,7 @@ int main(void)
   BSP_LCD_SetBackColor(LCD_COLOR_BLACK);
   BSP_LCD_SetFont(&Font24);
   BSP_LCD_DisplayStringAt(0, BSP_LCD_GetYSize()/2 - 27, (uint8_t*)"StartUp", CENTER_MODE);
+#endif
   SharedParamsInit();
   /* initialize the bootloader */
   BootInit();

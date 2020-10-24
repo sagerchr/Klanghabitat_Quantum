@@ -197,7 +197,7 @@ int main(void)
   samples = 512;
   resetMax=0;
 
-
+/*
 
 	  DAC_Control(1,1,26); //SYM1 adjust
 	  DAC_Control(2,1,148); //SYM2 adjust
@@ -208,7 +208,7 @@ int main(void)
 	  DAC_Control(2,2,50);
 	  DAC_Control(3,2,128);
 	  DAC_Control(4,2,128);
-
+*/
 
 	  IP_READ_FLASH[0]=192;
 	  IP_READ_FLASH[1]=168;

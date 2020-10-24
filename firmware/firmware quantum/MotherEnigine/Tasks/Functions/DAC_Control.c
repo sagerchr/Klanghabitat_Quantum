@@ -50,6 +50,8 @@ void DAC_Control(uint8_t DACselect, uint8_t DeviceAdr, uint8_t value){
 	}
 
 	HAL_SPI_Transmit(&hspi2, (uint8_t *)message, strlen(message), 10000);
+	HAL_Delay(1);
+
 	if(DeviceAdr == 1){
 	HAL_GPIO_WritePin(GPIOB, CS_DAC1_Pin, GPIO_PIN_SET);
 	}

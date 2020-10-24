@@ -83,10 +83,10 @@ for (int i=0; i<175;i++){
 for (int i=0; i<176;i++){
 	DAC_Control(2,1,i); //SYM2 adjust
 }
-for (int i=0; i<91;i++){
+for (int i=0; i<10;i++){
 	DAC_Control(3,1,i); //SYM3 adjust
 }
-for (int i=0; i<86;i++){
+for (int i=0; i<10;i++){
 	DAC_Control(4,1,i); //SYM4 adjust
 }
 
@@ -347,8 +347,7 @@ for (int i=0; i<86;i++){
 		  //DAC_Control(1,2,UART_reciveCorrected[6]); //offset VCA1
 		  //DAC_Control(2,2,UART_reciveCorrected[8]); //offset VCA2
 
-		  DAC_Control(3,2,250);
-		  DAC_Control(4,2,250);
+
 
 		  //DAC_Control(1,1,UART_reciveCorrected[6]); //SYM1 adjust
 		  //DAC_Control(2,1,UART_reciveCorrected[7]); //SYM2 adjust
