@@ -4,8 +4,8 @@
 <booleanAttribute key="com.st.stm32cube.ide.mcu.debug.launch.enable_swv" value="false"/>
 <intAttribute key="com.st.stm32cube.ide.mcu.debug.launch.formatVersion" value="2"/>
 <stringAttribute key="com.st.stm32cube.ide.mcu.debug.launch.ip_address_local" value="localhost"/>
-<stringAttribute key="com.st.stm32cube.ide.mcu.debug.launch.loadList" value="{&quot;fItems&quot;:[{&quot;fIsFromMainTab&quot;:true,&quot;fPath&quot;:&quot;Debug/openblt_stm32f767.elf&quot;,&quot;fProjectName&quot;:&quot;MainEngineBootloader&quot;,&quot;fPerformBuild&quot;:true,&quot;fDownload&quot;:true,&quot;fLoadSymbols&quot;:true}]}"/>
-<stringAttribute key="com.st.stm32cube.ide.mcu.debug.launch.override_start_address_mode" value="default"/>
+<stringAttribute key="com.st.stm32cube.ide.mcu.debug.launch.loadList" value="{&quot;fItems&quot;:[{&quot;fIsFromMainTab&quot;:true,&quot;fPath&quot;:&quot;Debug/MainEngine.elf&quot;,&quot;fProjectName&quot;:&quot;MainEngine&quot;,&quot;fPerformBuild&quot;:true,&quot;fDownload&quot;:true,&quot;fLoadSymbols&quot;:true}]}"/>
+<stringAttribute key="com.st.stm32cube.ide.mcu.debug.launch.override_start_address_mode" value="vector_table"/>
 <stringAttribute key="com.st.stm32cube.ide.mcu.debug.launch.remoteCommand" value="target remote"/>
 <booleanAttribute key="com.st.stm32cube.ide.mcu.debug.launch.startServer" value="true"/>
 <booleanAttribute key="com.st.stm32cube.ide.mcu.debug.launch.startuptab.exception.divby0" value="true"/>
@@ -29,7 +29,7 @@
 <stringAttribute key="com.st.stm32cube.ide.mcu.debug.openocd.OPENOCD_NAME" value="&quot;${stm32cubeide_openocd_path}/openocd&quot;"/>
 <stringAttribute key="com.st.stm32cube.ide.mcu.debug.openocd.OPENOCD_OTHER_OPTIONS" value=""/>
 <stringAttribute key="com.st.stm32cube.ide.mcu.debug.openocd.OPENOCD_RESTART_CONFIGURATIONS" value="{&quot;fItems&quot;:[{&quot;fDisplayName&quot;:&quot;Reset halt&quot;,&quot;fIsSuppressible&quot;:false,&quot;fResetAttribute&quot;:&quot;Reset halt&quot;,&quot;fResetStrategies&quot;:[{&quot;fDisplayName&quot;:&quot;Reset&quot;,&quot;fLaunchAttribute&quot;:&quot;monitor reset&quot;,&quot;fGdbCommands&quot;:[&quot;monitor reset&quot;],&quot;fCmdOptions&quot;:[]},{&quot;fDisplayName&quot;:&quot;Reset halt&quot;,&quot;fLaunchAttribute&quot;:&quot;monitor reset halt&quot;,&quot;fGdbCommands&quot;:[&quot;monitor reset halt&quot;],&quot;fCmdOptions&quot;:[]},{&quot;fDisplayName&quot;:&quot;Reset init&quot;,&quot;fLaunchAttribute&quot;:&quot;monitor reset init&quot;,&quot;fGdbCommands&quot;:[&quot;monitor reset init&quot;],&quot;fCmdOptions&quot;:[]},{&quot;fDisplayName&quot;:&quot;None&quot;,&quot;fLaunchAttribute&quot;:&quot;&quot;,&quot;fGdbCommands&quot;:[],&quot;fCmdOptions&quot;:[]}],&quot;fGdbCommandGroup&quot;:{&quot;name&quot;:&quot;Additional commands&quot;,&quot;commands&quot;:[]}},{&quot;fDisplayName&quot;:&quot;Reset&quot;,&quot;fIsSuppressible&quot;:false,&quot;fResetAttribute&quot;:&quot;Reset&quot;,&quot;fResetStrategies&quot;:[{&quot;fDisplayName&quot;:&quot;Reset&quot;,&quot;fLaunchAttribute&quot;:&quot;monitor reset&quot;,&quot;fGdbCommands&quot;:[&quot;monitor reset&quot;],&quot;fCmdOptions&quot;:[]},{&quot;fDisplayName&quot;:&quot;Reset halt&quot;,&quot;fLaunchAttribute&quot;:&quot;monitor reset halt&quot;,&quot;fGdbCommands&quot;:[&quot;monitor reset halt&quot;],&quot;fCmdOptions&quot;:[]},{&quot;fDisplayName&quot;:&quot;Reset init&quot;,&quot;fLaunchAttribute&quot;:&quot;monitor reset init&quot;,&quot;fGdbCommands&quot;:[&quot;monitor reset init&quot;],&quot;fCmdOptions&quot;:[]},{&quot;fDisplayName&quot;:&quot;None&quot;,&quot;fLaunchAttribute&quot;:&quot;&quot;,&quot;fGdbCommands&quot;:[],&quot;fCmdOptions&quot;:[]}],&quot;fGdbCommandGroup&quot;:{&quot;name&quot;:&quot;Additional commands&quot;,&quot;commands&quot;:[]}},{&quot;fDisplayName&quot;:&quot;Reset init&quot;,&quot;fIsSuppressible&quot;:false,&quot;fResetAttribute&quot;:&quot;Reset init&quot;,&quot;fResetStrategies&quot;:[{&quot;fDisplayName&quot;:&quot;Reset&quot;,&quot;fLaunchAttribute&quot;:&quot;monitor reset&quot;,&quot;fGdbCommands&quot;:[&quot;monitor reset&quot;],&quot;fCmdOptions&quot;:[]},{&quot;fDisplayName&quot;:&quot;Reset halt&quot;,&quot;fLaunchAttribute&quot;:&quot;monitor reset halt&quot;,&quot;fGdbCommands&quot;:[&quot;monitor reset halt&quot;],&quot;fCmdOptions&quot;:[]},{&quot;fDisplayName&quot;:&quot;Reset init&quot;,&quot;fLaunchAttribute&quot;:&quot;monitor reset init&quot;,&quot;fGdbCommands&quot;:[&quot;monitor reset init&quot;],&quot;fCmdOptions&quot;:[]},{&quot;fDisplayName&quot;:&quot;None&quot;,&quot;fLaunchAttribute&quot;:&quot;&quot;,&quot;fGdbCommands&quot;:[],&quot;fCmdOptions&quot;:[]}],&quot;fGdbCommandGroup&quot;:{&quot;name&quot;:&quot;Additional commands&quot;,&quot;commands&quot;:[]}}]}"/>
-<stringAttribute key="com.st.stm32cube.ide.mcu.debug.openocd.OPENOCD_SCRIPT" value="${ProjDirPath}/MainEngineBootloader.cfg"/>
+<stringAttribute key="com.st.stm32cube.ide.mcu.debug.openocd.OPENOCD_SCRIPT" value="${ProjDirPath}/MainEngine(green).cfg"/>
 <stringAttribute key="com.st.stm32cube.ide.mcu.debug.openocd.OPENOCD_SCRIPT_CHOICE" value="automated"/>
 <stringAttribute key="com.st.stm32cube.ide.mcu.debug.openocd.ST-LINK" value="066AFF505256656767192313"/>
 <booleanAttribute key="com.st.stm32cube.ide.mcu.debug.stlink.cti_allow_halt" value="false"/>
@@ -42,7 +42,7 @@
 <booleanAttribute key="com.st.stm32cube.ide.mcu.debug.stlink.external_loader_init" value="false"/>
 <stringAttribute key="com.st.stm32cube.ide.mcu.debug.stlink.frequency" value="0"/>
 <booleanAttribute key="com.st.stm32cube.ide.mcu.debug.stlink.halt_all_on_reset" value="false"/>
-<stringAttribute key="com.st.stm32cube.ide.mcu.debug.stlink.log_file" value="/Users/christiansager/klanghabitat_quantum/firmware/firmware quantum/MainEngineBootloader/Debug/st-link_gdbserver_log.txt"/>
+<stringAttribute key="com.st.stm32cube.ide.mcu.debug.stlink.log_file" value="/Users/christiansager/klanghabitat_quantum/firmware/firmware quantum/MainEngine/Debug/st-link_gdbserver_log.txt"/>
 <stringAttribute key="com.st.stm32cube.ide.mcu.debug.stlink.low_power_debug" value="enable"/>
 <stringAttribute key="com.st.stm32cube.ide.mcu.debug.stlink.max_halt_delay" value="2"/>
 <stringAttribute key="com.st.stm32cube.ide.mcu.debug.stlink.reset_strategy" value="connect_under_reset"/>
@@ -54,7 +54,7 @@
 <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.initCommands" value=""/>
 <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.ipAddress" value="localhost"/>
 <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.jtagDevice" value="ST-LINK (OpenOCD)"/>
-<stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.pcRegister" value=""/>
+<stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.pcRegister" value="08002004"/>
 <intAttribute key="org.eclipse.cdt.debug.gdbjtag.core.portNumber" value="3333"/>
 <stringAttribute key="org.eclipse.cdt.debug.gdbjtag.core.runCommands" value=""/>
 <booleanAttribute key="org.eclipse.cdt.debug.gdbjtag.core.setPcRegister" value="false"/>
@@ -69,12 +69,12 @@
 <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_START_MODE" value="remote"/>
 <booleanAttribute key="org.eclipse.cdt.launch.DEBUGGER_STOP_AT_MAIN" value="true"/>
 <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_STOP_AT_MAIN_SYMBOL" value="main"/>
-<stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="Debug/openblt_stm32f767.elf"/>
-<stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="MainEngineBootloader"/>
+<stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="Debug/MainEngine.elf"/>
+<stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="MainEngine"/>
 <booleanAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_AUTO_ATTR" value="true"/>
-<stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.1697749388"/>
+<stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.669195279"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/MainEngineBootloader"/>
+<listEntry value="/MainEngine"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="4"/>

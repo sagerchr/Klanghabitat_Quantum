@@ -71,11 +71,14 @@ SrecConverter *MainEngineSrec = nullptr;
 juce::URL fileUrlDisplaySrec("https://www.klanghabitat.com/firmware/Display_.srec");
 juce::URL fileUrlMotherEngineSrec("https://www.klanghabitat.com/firmware/MotherEnigine_.srec");
 
-const String pathToDisplay = File::getSpecialLocation(File::commonDocumentsDirectory).getChildFile("Display_.srec").getFullPathName();
-const String pathToMainEngine = File::getSpecialLocation(File::commonDocumentsDirectory).getChildFile("MotherEngine_.srec").getFullPathName();
+String pathToDisplay = File::getSpecialLocation(File::commonDocumentsDirectory).getChildFile("Display_.srec").getFullPathName();
+String pathToMainEngine = File::getSpecialLocation(File::commonDocumentsDirectory).getChildFile("MotherEngine_.srec").getFullPathName();
 
 juce::File DisplayLocalPath (pathToDisplay);
 juce::File MainEngineLocalPath (pathToMainEngine);
+
+juce::File DisplayLocalPath2(pathToDisplay);
+juce::File MainEngineLocalPath2(pathToMainEngine);
 //==============================================================================
 void MainComponent::paint (juce::Graphics& g)
 {
@@ -133,7 +136,202 @@ void MainComponent::filenameComponentChanged (juce::FilenameComponent* fileCompo
 
  }
 
+void MainComponent::updateProcedure(){
+    
+       //juce::String IPAddressTarget = (juce::String)(deviceList.getItemText(deviceList.getSelectedId()-1).substring(0, 15));
+        juce::String IPAddressTarget = "192.168.1.70";
+    if(!SourceWeb){
+     MainEngineLocalPath2 = "/Users/christiansager/klanghabitat_quantum/firmware/firmware quantum/MotherEnigine/Debug/MotherEnigine.srec";
+      DisplayLocalPath2 = "/Users/christiansager/klanghabitat_quantum/firmware/firmware quantum/Display/Debug/Display.srec";
+        MainEngineData = MainEngineSrec->readFile(MainEngineLocalPath2);
+        DisplayData = DisplaySrec->readFile(DisplayLocalPath2);
+        
+    }
+    else{
+        MainEngineData = MainEngineSrec->readFile(MainEngineLocalPath);
+        DisplayData = DisplaySrec->readFile(DisplayLocalPath);
+    }
 
+    
+        juce::String line;
+        juce::String adress;
+        juce::String payload;
+        juce::String length;
+        juce::String checksum;
+        juce::StringArray StringArray;
+        double size;
+        
+        actuelTask ="extracting File";
+    
+    
+    
+        
+        
+        percentage += 0.01;
+         
+        actuelTask ="connecting to target: " + IPAddressTarget;
+       
+        Bootloader.ConnectToBootloader(IPAddressTarget);
+        percentage += 0.01;
+        Bootloader.programStart();
+        actuelTask ="erase program";
+        percentage += 0.01;
+        Bootloader.cleanProgram("08008000", "00008000");
+        percentage += 0.01;
+        Bootloader.cleanProgram("08010000", "00008000");
+        percentage += 0.01;
+        Bootloader.cleanProgram("08018000", "00008000");
+        percentage += 0.01;
+        Bootloader.cleanProgram("08020000", "00008000");
+        percentage += 0.01;
+        Bootloader.cleanProgram("08028000", "00008000");
+        percentage += 0.01;
+        Bootloader.cleanProgram("08030000", "00008000");
+        percentage += 0.01;
+        Bootloader.cleanProgram("08038000", "00008000");
+        percentage += 0.01;
+        Bootloader.cleanProgram("08038000", "00008000");
+        percentage += 0.01;
+        Bootloader.cleanProgram("08040000", "00008000");
+        percentage += 0.01;
+        Bootloader.cleanProgram("08048000", "00008000");
+        percentage += 0.01;
+        Bootloader.cleanProgram("08050000", "00008000");
+        percentage += 0.01;
+        Bootloader.cleanProgram("08058000", "00008000");
+        percentage += 0.01;
+        
+        percentage = 0.0;
+        
+        StringArray.addLines (MainEngineData);
+        StringArray.size();
+        
+        size = StringArray.size();
+        actuelTask ="programming MainEngine";
+       for (int i=1; i<StringArray.size(); i++)
+        {
+            percentage = i/size;
+           
+            line = StringArray[i].substring(0, StringArray[i].length());
+            length = line.substring(2,4);
+            adress = line.substring(4, 12);
+            payload = line.substring(12, (length.getHexValue32()*2)+2);
+            checksum = line.substring((length.getHexValue32()*2)+2);
+            //actuelTask ="programming: " + adress + "  " + payload;
+            Bootloader.program(adress, payload, length);
+            
+        }
+        
+        actuelTask ="restart MainEngine";
+        Bootloader.restart();
+        Bootloader.disconnect();
+         percentage = 0.0;
+        
+        
+        //##########-----WAIT FOR 2 SECONDS-----############//
+        uint64_t count=timerCounter;
+        while(timerCounter-count < 200){
+            //This makes a wait for 2 secs.
+        }
+        //##################################################//
+        
+        actuelTask ="Connecting to Display";
+        Bootloader.restartDisplay(IPAddressTarget);
+        
+        //##########-----WAIT FOR 1 SECOND-----############//
+        count=timerCounter;
+        while(timerCounter-count < 100){
+            //This makes a wait for 1 secs.
+        }
+        //##################################################//
+        
+        for (int i=0;i<10;i++){
+            
+            Bootloader.pingIntoBootloaderSeriel(IPAddressTarget);
+            count=timerCounter;
+            
+            while(timerCounter-count < 10){
+                //This makes a wait for 0,1 secs.
+            }
+            
+        }
+        percentage = 0.0;
+        
+        actuelTask ="Display connected";
+        
+        Bootloader.programStartSeriel(IPAddressTarget);
+        
+        
+        
+        actuelTask ="erase program Display";
+        percentage += 0.01;
+        Bootloader.cleanProgramSeriel(IPAddressTarget,"08010000", "00008000");
+        percentage += 0.01;
+        Bootloader.cleanProgramSeriel(IPAddressTarget,"08018000", "00008000");
+        percentage += 0.01;
+        Bootloader.cleanProgramSeriel(IPAddressTarget,"08020000", "00008000");
+        percentage += 0.01;
+        Bootloader.cleanProgramSeriel(IPAddressTarget,"08028000", "00008000");
+        percentage += 0.01;
+        Bootloader.cleanProgramSeriel(IPAddressTarget,"08030000", "00008000");
+        percentage += 0.01;
+        Bootloader.cleanProgramSeriel(IPAddressTarget,"08038000", "00008000");
+        percentage += 0.01;
+        Bootloader.cleanProgramSeriel(IPAddressTarget,"08038000", "00008000");
+        percentage += 0.01;
+        Bootloader.cleanProgramSeriel(IPAddressTarget,"08040000", "00008000");
+        percentage += 0.01;
+        Bootloader.cleanProgramSeriel(IPAddressTarget,"08048000", "00008000");
+        percentage += 0.01;
+        Bootloader.cleanProgramSeriel(IPAddressTarget,"08050000", "00008000");
+        percentage += 0.01;
+        Bootloader.cleanProgramSeriel(IPAddressTarget,"08058000", "00008000");
+        percentage += 0.01;
+        Bootloader.cleanProgramSeriel(IPAddressTarget,"0806000", "00008000");
+        percentage += 0.01;
+        actuelTask ="program Display";
+        
+        
+        
+        juce::String line2;
+        juce::String adress2;
+        juce::String payload2;
+        juce::String length2;
+        juce::String checksum2;
+        juce::StringArray StringArray2;
+         
+        StringArray2.addLines (DisplayData);
+        double size2 = StringArray2.size();
+        percentage = 0.0;
+        statusDisplay = 0;
+        statusDisplayLast = 0;
+        actuelTask ="programming Display" + adress2 + "  " + payload2;
+       for (int i=1; i<StringArray2.size(); i++)
+        {
+            percentage = i/size2;
+            statusDisplay = i/size2*100;
+            
+            if(statusDisplay > statusDisplayLast){
+                statusDisplayLast = statusDisplay;
+                Bootloader.statusDisplay(statusDisplay);
+            }
+            line2 = StringArray2[i].substring(0, StringArray2[i].length());
+            length2 = line2.substring(2,4);
+            adress2 = line2.substring(4, 12);
+            payload2 = line2.substring(12, (length2.getHexValue32()*2)+2);
+            checksum2 = line2.substring((length2.getHexValue32()*2)+2);
+            //actuelTask ="programming Display: " + adress2 + "  " + payload2;
+            Bootloader.programSeriel(IPAddressTarget,adress2, payload2, length2);
+        }
+        actuelTask ="restart Display and finish process...";
+        Bootloader.resetDisplay(IPAddressTarget);
+    
+     if(SourceWeb){
+        DisplayLocalPath.deleteFile();
+        MainEngineLocalPath.deleteFile();
+     }
+        
+}
 
 void MainComponent::finished (juce::URL::DownloadTask* task, bool success)
  {
@@ -147,184 +345,7 @@ void MainComponent::finished (juce::URL::DownloadTask* task, bool success)
      progress = &percentage;
      
      if((percentage)==0.02){
-        //juce::String IPAddressTarget = (juce::String)(deviceList.getItemText(deviceList.getSelectedId()-1).substring(0, 15));
-         juce::String IPAddressTarget = "192.168.1.70";
-         
-         juce::String line;
-         juce::String adress;
-         juce::String payload;
-         juce::String length;
-         juce::String checksum;
-         juce::StringArray StringArray;
-         double size;
-         
-         actuelTask ="extracting File";
-         MainEngineData = MainEngineSrec->readFile(MainEngineLocalPath);
-         DisplayData = DisplaySrec->readFile(DisplayLocalPath);
-         
-         percentage += 0.01;
-          
-         actuelTask ="connecting to target: " + IPAddressTarget;
-        
-         Bootloader.ConnectToBootloader(IPAddressTarget);
-         percentage += 0.01;
-         Bootloader.programStart();
-         actuelTask ="erase program";
-         percentage += 0.01;
-         Bootloader.cleanProgram("08008000", "00008000");
-         percentage += 0.01;
-         Bootloader.cleanProgram("08010000", "00008000");
-         percentage += 0.01;
-         Bootloader.cleanProgram("08018000", "00008000");
-         percentage += 0.01;
-         Bootloader.cleanProgram("08020000", "00008000");
-         percentage += 0.01;
-         Bootloader.cleanProgram("08028000", "00008000");
-         percentage += 0.01;
-         Bootloader.cleanProgram("08030000", "00008000");
-         percentage += 0.01;
-         Bootloader.cleanProgram("08038000", "00008000");
-         percentage += 0.01;
-         Bootloader.cleanProgram("08038000", "00008000");
-         percentage += 0.01;
-         Bootloader.cleanProgram("08040000", "00008000");
-         percentage += 0.01;
-         Bootloader.cleanProgram("08048000", "00008000");
-         percentage += 0.01;
-         Bootloader.cleanProgram("08050000", "00008000");
-         percentage += 0.01;
-         Bootloader.cleanProgram("08058000", "00008000");
-         percentage += 0.01;
-         
-         percentage = 0.0;
-         
-         StringArray.addLines (MainEngineData);
-         StringArray.size();
-         
-         size = StringArray.size();
-         actuelTask ="programming MainEngine";
-        for (int i=1; i<StringArray.size(); i++)
-         {
-             percentage = i/size;
-            
-             line = StringArray[i].substring(0, StringArray[i].length());
-             length = line.substring(2,4);
-             adress = line.substring(4, 12);
-             payload = line.substring(12, (length.getHexValue32()*2)+2);
-             checksum = line.substring((length.getHexValue32()*2)+2);
-             //actuelTask ="programming: " + adress + "  " + payload;
-             Bootloader.program(adress, payload, length);
-             
-         }
-         
-         actuelTask ="restart MainEngine";
-         Bootloader.restart();
-         Bootloader.disconnect();
-          percentage = 0.0;
-         
-         
-         //##########-----WAIT FOR 2 SECONDS-----############//
-         uint64_t count=timerCounter;
-         while(timerCounter-count < 200){
-             //This makes a wait for 2 secs.
-         }
-         //##################################################//
-         
-         actuelTask ="Connecting to Display";
-         Bootloader.restartDisplay(IPAddressTarget);
-         
-         //##########-----WAIT FOR 1 SECOND-----############//
-         count=timerCounter;
-         while(timerCounter-count < 100){
-             //This makes a wait for 1 secs.
-         }
-         //##################################################//
-         
-         for (int i=0;i<10;i++){
-             
-             Bootloader.pingIntoBootloaderSeriel(IPAddressTarget);
-             count=timerCounter;
-             while(timerCounter-count < 10){
-                 //This makes a wait for 0,1 secs.
-             }
-         }
-         percentage = 0.0;
-         
-         actuelTask ="Display connected";
-         
-         Bootloader.programStartSeriel(IPAddressTarget);
-         
-         
-         
-         actuelTask ="erase program Display";
-         percentage += 0.01;
-         Bootloader.cleanProgramSeriel(IPAddressTarget,"08010000", "00008000");
-         percentage += 0.01;
-         Bootloader.cleanProgramSeriel(IPAddressTarget,"08018000", "00008000");
-         percentage += 0.01;
-         Bootloader.cleanProgramSeriel(IPAddressTarget,"08020000", "00008000");
-         percentage += 0.01;
-         Bootloader.cleanProgramSeriel(IPAddressTarget,"08028000", "00008000");
-         percentage += 0.01;
-         Bootloader.cleanProgramSeriel(IPAddressTarget,"08030000", "00008000");
-         percentage += 0.01;
-         Bootloader.cleanProgramSeriel(IPAddressTarget,"08038000", "00008000");
-         percentage += 0.01;
-         Bootloader.cleanProgramSeriel(IPAddressTarget,"08038000", "00008000");
-         percentage += 0.01;
-         Bootloader.cleanProgramSeriel(IPAddressTarget,"08040000", "00008000");
-         percentage += 0.01;
-         Bootloader.cleanProgramSeriel(IPAddressTarget,"08048000", "00008000");
-         percentage += 0.01;
-         Bootloader.cleanProgramSeriel(IPAddressTarget,"08050000", "00008000");
-         percentage += 0.01;
-         Bootloader.cleanProgramSeriel(IPAddressTarget,"08058000", "00008000");
-         percentage += 0.01;
-         Bootloader.cleanProgramSeriel(IPAddressTarget,"0806000", "00008000");
-         percentage += 0.01;
-         actuelTask ="program Display";
-         
-         
-         
-         juce::String line2;
-         juce::String adress2;
-         juce::String payload2;
-         juce::String length2;
-         juce::String checksum2;
-         juce::StringArray StringArray2;
-          
-         StringArray2.addLines (DisplayData);
-         double size2 = StringArray2.size();
-         percentage = 0.0;
-         statusDisplay = 0;
-         statusDisplayLast = 0;
-         actuelTask ="programming Display" + adress2 + "  " + payload2;
-        for (int i=1; i<StringArray2.size(); i++)
-         {
-             percentage = i/size2;
-             statusDisplay = i/size2*100;
-             
-             if(statusDisplay > statusDisplayLast){
-                 statusDisplayLast = statusDisplay;
-                 Bootloader.statusDisplay(statusDisplay);
-             }
-             line2 = StringArray2[i].substring(0, StringArray2[i].length());
-             length2 = line2.substring(2,4);
-             adress2 = line2.substring(4, 12);
-             payload2 = line2.substring(12, (length2.getHexValue32()*2)+2);
-             checksum2 = line2.substring((length2.getHexValue32()*2)+2);
-             //actuelTask ="programming Display: " + adress2 + "  " + payload2;
-             Bootloader.programSeriel(IPAddressTarget,adress2, payload2, length2);
-         }
-         actuelTask ="restart Display and finish process...";
-         Bootloader.resetDisplay(IPAddressTarget);
-     
-         DisplayLocalPath.deleteFile();
-         MainEngineLocalPath.deleteFile();
-         
-         
-         
-         
+         MainComponent::updateProcedure();
      }
      
  }
@@ -346,10 +367,23 @@ void MainComponent::buttonClicked (juce::Button* button)
      {
          startTimer(10);
          timerCounter = 0;
-    //###########################Download Srec Files from Server#########################################//
-        downladDisplaySrec = fileUrlDisplaySrec.downloadToFile(DisplayLocalPath,"",this, false);
-        downladMotherEngineSrec = fileUrlMotherEngineSrec.downloadToFile(MainEngineLocalPath,"",this, false);
-    //###################################################################################################//
+         if(webButton.getToggleStateValue().getValue()){
+             //###########################Download Srec Files from Server#########################################//
+                 downladDisplaySrec = fileUrlDisplaySrec.downloadToFile(DisplayLocalPath,"",this, false);
+                 downladMotherEngineSrec = fileUrlMotherEngineSrec.downloadToFile(MainEngineLocalPath,"",this, false);
+             //###################################################################################################//
+             
+             SourceWeb = true;
+         }else{
+            downladDisplaySrec = fileUrlDisplaySrec.downloadToFile(DisplayLocalPath,"",this, false);
+            downladMotherEngineSrec = fileUrlMotherEngineSrec.downloadToFile(MainEngineLocalPath,"",this, false);
+             
+
+             SourceWeb = false;
+             
+         }
+         
+
      }
      
      if (button == &showString){
@@ -408,6 +442,6 @@ void MainComponent::updateToggleState (juce::Button* button, juce::String name)
 {
     auto state = button->getToggleState();
     juce::String stateString = state ? "ON" : "OFF";
-    SourceWeb = !SourceWeb;
+    
     juce::Logger::outputDebugString (name + " Button changed to " + stateString);
 }

@@ -27,7 +27,7 @@ public:
     void timerCallback() override;
     
     void updateToggleState (juce::Button* button, juce::String name);
-
+    void updateProcedure();
 
 private:
     //==============================================================================
