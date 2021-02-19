@@ -13,6 +13,7 @@
 #include "arm_const_structs.h"
 #include "UART_correction.h"
 #include "ValueTableMotherEngine.h"
+#include "CompressorEngine.h"
 TIM_HandleTypeDef htim5;
 TIM_HandleTypeDef htim6;
 TIM_HandleTypeDef htim7;
@@ -61,12 +62,18 @@ void dspTask(void const * argument){
 
 		int toggle = 0;
 
+		int value;
+
 	for(;;){
 
 			vTaskSuspend(NULL);
 			HAL_GPIO_WritePin(GPIOD, DEBUG2_Pin,GPIO_PIN_SET);
 
 			calculateDB();
+
+			value = UART_IN[8]; //Value from make up gain
+			reductLeft = DoCompressor(dbuMAX[0],value);
+			reductRight = reductLeft;
 
 
 			HAL_GPIO_TogglePin(GPIOB, LD1_Pin); //grüne LED an

@@ -32,7 +32,7 @@ struct valueType outputgain;
 int Enc_AttackSelected;
 int Enc_ReleaseSelected;
 int Enc_InputSelected;
-int Enc_DistortionSelected;
+int Enc_ThresholdSelected;
 int Enc_MakeUpGainSelected;
 int Enc_OutputSelected;
 int Enc_RatioSelected;

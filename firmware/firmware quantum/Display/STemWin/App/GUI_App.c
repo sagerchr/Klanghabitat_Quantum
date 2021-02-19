@@ -63,7 +63,7 @@ extern  WM_HWIN CreateIndicatorWindow3(void);
 extern  WM_HWIN CreateEnc_InputWindow(void);
 extern  WM_HWIN CreateEnc_AttackWindow(void);
 extern  WM_HWIN CreateEnc_OutputWindow(void);
-extern  WM_HWIN CreateEnc_DistortionWindow(void);
+extern  WM_HWIN CreateEnc_ThresholdWindow(void);
 extern  WM_HWIN CreateEnc_RatioWindow(void);
 extern  WM_HWIN CreateEnc_MakeUpGainWindow(void);
 extern  WM_HWIN CreateEnc_ReleaseWindow(void);
@@ -98,7 +98,7 @@ void GRAPHICS_MainTask(void) {
 	Enc_InputWindow = CreateEnc_InputWindow();
 	Enc_AttackWindow = CreateEnc_AttackWindow();
 	Enc_OutputWindow = CreateEnc_OutputWindow();
-	Enc_DistortionWindow = CreateEnc_DistortionWindow();
+	Enc_ThresholdWindow = CreateEnc_ThresholdWindow();
 	Enc_MakeUpGainWindow = CreateEnc_MakeUpGainWindow();
 	Enc_RatioWindow = CreateEnc_RatioWindow();
 	Enc_ReleaseWindow = CreateEnc_ReleaseWindow();
@@ -117,20 +117,19 @@ void GRAPHICS_MainTask(void) {
 
 	strcpy( gain.name, "input");
 	input.value = 0;
-	input.Color = GUI_LIGHTGREEN;
-	input.assignedPot = 1;
-	Encoder1.Color = GUI_LIGHTGREEN;
+	input.Color = GUI_LIGHTGRAY;
+	input.assignedPot = 0;
 
 	strcpy( attack.name, "attack");
 	attack.value = 0;
-	attack.Color = GUI_LIGHTGRAY;
-	attack.assignedPot = 0;
+	attack.Color = GUI_LIGHTGREEN;
+	attack.assignedPot = 1;
+	Encoder1.Color = GUI_LIGHTGREEN;
 
 	strcpy( makeUpGain.name, "makeUpGain");
 	makeUpGain.value = 0;
-	makeUpGain.Color = GUI_MAGENTA;
-	makeUpGain.assignedPot = 3 ;
-	Encoder3.Color = GUI_MAGENTA;
+	makeUpGain.Color = GUI_LIGHTGRAY;
+	makeUpGain.assignedPot = 0 ;
 
 	strcpy( release.name, "release");
 	release.value = 0;
@@ -151,8 +150,9 @@ void GRAPHICS_MainTask(void) {
 
 	strcpy( threshold.name, "threshold");
 	threshold.value = 0;
-	threshold.Color = GUI_LIGHTGRAY;
-	threshold.assignedPot = 0;
+	threshold.Color = GUI_MAGENTA;
+	threshold.assignedPot = 3;
+	Encoder3.Color = GUI_MAGENTA;
 
 	strcpy( outputgain.name, "outgain");
 	outputgain.value = 0;
@@ -208,7 +208,7 @@ void GRAPHICS_MainTask(void) {
 	    	WM_HideWindow(Enc_ReleaseWindow);
 
 	    	WM_HideWindow(Enc_OutputWindow);
-	    	WM_HideWindow(Enc_DistortionWindow);
+	    	WM_HideWindow(Enc_ThresholdWindow);
 	    	WM_HideWindow(Enc_MakeUpGainWindow);
 	    	WM_HideWindow(Enc_RatioWindow);
 
@@ -219,7 +219,8 @@ void GRAPHICS_MainTask(void) {
 
 	    if (timer==50){
 	    	GUI_Clear();
-	    	GUI_SetBkColor(GUI_DARKGRAY);
+	    	//GUI_SetBkColor(GUI_DARKGRAY);
+	    	GUI_SetBkColor(GUI_BLACK);
 
 	    	WM_ShowWindow(SettingsButtonWindow);
 	    	WM_ShowWindow(IndicatorWindow1);
@@ -229,7 +230,7 @@ void GRAPHICS_MainTask(void) {
 	    	WM_ShowWindow(Enc_InputWindow);
 	    	WM_ShowWindow(Enc_AttackWindow);
 	    	WM_ShowWindow(Enc_OutputWindow);
-	    	WM_ShowWindow(Enc_DistortionWindow);
+	    	WM_ShowWindow(Enc_ThresholdWindow);
 	    	WM_ShowWindow(Enc_MakeUpGainWindow);
 	    	WM_ShowWindow(Enc_RatioWindow);
 	    	WM_ShowWindow(Enc_ReleaseWindow);
@@ -270,7 +271,7 @@ void GRAPHICS_MainTask(void) {
 
 
 
-
+int cnt=0;
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 
@@ -291,19 +292,15 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 
 
 
-	input.value = Encoder1.value;
-	attack.value = 0;
+	input.value = 0;
+	attack.value = Encoder1.value;
 	release.value = Encoder2.value;
-
 	distortion.value = 0;
-	makeUpGain.value = Encoder3.value;
+	makeUpGain.value = 0;
 	ratio.value = Encoder4.value;
 	outputgain.value = 0;
-
-
-
 	gain.value = 0;
-	threshold.value = 0;
+	threshold.value = Encoder3.value;
 
 
 

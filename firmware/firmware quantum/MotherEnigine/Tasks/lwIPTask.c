@@ -321,7 +321,7 @@ for (int i=0; i<10;i++){
 		  else{
 			  BypassRight(activate);BypassLeft(activate);
 		  }
-
+/*
 		 if (match("/MotherEngine/Relais/K5") && OSC_SIGNEDINTEGER == 1){
 			 HAL_GPIO_WritePin(GPIOG, Relais3_Pin,GPIO_PIN_SET);}
 		 if (match("/MotherEngine/Relais/K5") && OSC_SIGNEDINTEGER == 0){
@@ -341,6 +341,7 @@ for (int i=0; i<10;i++){
 			 HAL_GPIO_WritePin(GPIOG, Relais6_Pin,GPIO_PIN_SET);}
 		 if (match("/MotherEngine/Relais/K8") && OSC_SIGNEDINTEGER == 0){
 			 HAL_GPIO_WritePin(GPIOG, Relais6_Pin,GPIO_PIN_RESET);}
+*/
 		 //=========================================================================//
 
 
@@ -554,6 +555,10 @@ for (int i=0; i<10;i++){
 		  UART_transmit[57]=c;
 		  UART_transmit[58]=b;
 		  UART_transmit[59]=a;
+
+
+		  UART_transmit[60]=reductLeft;
+		  UART_transmit[61]=reductRight;
 
 /*
 			for(int i = 4; i < 100; i++) {

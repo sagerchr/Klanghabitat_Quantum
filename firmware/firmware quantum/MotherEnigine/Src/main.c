@@ -137,7 +137,7 @@ static void VectorBase_Config(void);
   * @retval int
   */
 int main(void)
-{
+  {
   /* USER CODE BEGIN 1 */
 	VectorBase_Config();
   /* USER CODE END 1 */

@@ -161,7 +161,7 @@
 <text x="114.3" y="2.4" size="1.27" layer="25">GND</text>
 <text x="99.7" y="10.3" size="1.27" layer="25">GND</text>
 <text x="126.3" y="32.6" size="1.27" layer="25">STAR GND</text>
-<text x="12" y="3.8" size="1.27" layer="25">GND</text>
+<text x="11.4" y="4.4" size="1.27" layer="25">GND</text>
 <text x="128.3" y="65.6" size="1.27" layer="25">GND</text>
 <text x="188.5" y="15.7" size="1.27" layer="25">GND</text>
 <wire x1="169.95" y1="60.7" x2="173.15" y2="60.5" width="0.1524" layer="20" curve="-180"/>
@@ -2133,23 +2133,23 @@ design rules under a new name.</description>
 <attribute name="NAME" x="195.865" y="15.965" size="0.6096" layer="25" rot="R90"/>
 <attribute name="VALUE" x="198.205" y="16.265" size="1.016" layer="27" rot="R90"/>
 </element>
-<element name="R97" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="680 R" x="29.8" y="2.9" smashed="yes" rot="R180">
-<attribute name="NAME" x="30.535" y="4.065" size="0.6096" layer="25" rot="R180"/>
-<attribute name="VALUE" x="30.435" y="4.805" size="1.27" layer="27" rot="R180"/>
+<element name="R97" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="680 R" x="30" y="2.7" smashed="yes" rot="R180">
+<attribute name="NAME" x="30.735" y="3.865" size="0.6096" layer="25" rot="R180"/>
+<attribute name="VALUE" x="30.635" y="4.605" size="1.27" layer="27" rot="R180"/>
 </element>
-<element name="R98" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="680 R" x="22.5" y="2.9" smashed="yes">
-<attribute name="NAME" x="21.765" y="3.435" size="0.6096" layer="25"/>
-<attribute name="VALUE" x="21.865" y="0.995" size="1.27" layer="27"/>
+<element name="R98" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="R0603" package3d_urn="urn:adsk.eagle:package:2453259/2" value="680 R" x="22.7" y="2.7" smashed="yes">
+<attribute name="NAME" x="21.965" y="3.235" size="0.6096" layer="25"/>
+<attribute name="VALUE" x="22.065" y="0.795" size="1.27" layer="27"/>
 </element>
-<element name="-15V_OK" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="WL-SMCW_0603" package3d_urn="urn:adsk.eagle:package:576430/2" value="LED_GREEN_SMD" x="26.7" y="2.9" smashed="yes">
-<attribute name="MOUSER_PART_NUMBER" value="..." x="26.7" y="2.9" size="1.778" layer="27" display="off"/>
-<attribute name="NAME" x="26.53" y="1.27" size="0.6096" layer="25" align="bottom-center"/>
-<attribute name="VALUE" x="25.86" y="1.86" size="0.3048" layer="27"/>
+<element name="-15V_OK" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="WL-SMCW_0603" package3d_urn="urn:adsk.eagle:package:576430/2" value="LED_GREEN_SMD" x="26.9" y="2.7" smashed="yes">
+<attribute name="MOUSER_PART_NUMBER" value="..." x="26.9" y="2.7" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="28.63" y="4.67" size="1.016" layer="25" align="bottom-center"/>
+<attribute name="VALUE" x="26.06" y="1.66" size="0.3048" layer="27"/>
 </element>
-<element name="+15V_OK" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="WL-SMCW_0603" package3d_urn="urn:adsk.eagle:package:576430/2" value="LED_GREEN_SMD" x="19.4" y="2.9" smashed="yes">
-<attribute name="MOUSER_PART_NUMBER" value="..." x="19.4" y="2.9" size="1.778" layer="27" display="off"/>
-<attribute name="NAME" x="19.43" y="1.57" size="0.6096" layer="25" align="bottom-center"/>
-<attribute name="VALUE" x="18.56" y="1.86" size="0.3048" layer="27"/>
+<element name="+15V_OK" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="WL-SMCW_0603" package3d_urn="urn:adsk.eagle:package:576430/2" value="LED_GREEN_SMD" x="19.6" y="2.7" smashed="yes">
+<attribute name="MOUSER_PART_NUMBER" value="..." x="19.6" y="2.7" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="20.53" y="4.57" size="1.016" layer="25" align="bottom-center"/>
+<attribute name="VALUE" x="18.76" y="1.66" size="0.3048" layer="27"/>
 </element>
 <element name="+3V3_OK" library="passive components" library_urn="urn:adsk.eagle:library:16365137" package="WL-SMCW_0603" package3d_urn="urn:adsk.eagle:package:576430/2" value="LED_GREEN_SMD" x="153" y="2.3" smashed="yes">
 <attribute name="MOUSER_PART_NUMBER" value="..." x="153" y="2.3" size="1.778" layer="27" display="off"/>
@@ -2979,8 +2979,8 @@ design rules under a new name.</description>
 <via x="17.4" y="14.4" extent="1-16" drill="0.35"/>
 <wire x1="67.65" y1="13.5" x2="66.5" y2="13.5" width="0.508" layer="1"/>
 <via x="66.5" y="13.5" extent="1-16" drill="0.35"/>
-<wire x1="30.65" y1="2.9" x2="31.8" y2="2.9" width="0.508" layer="1"/>
-<via x="31.8" y="2.9" extent="1-16" drill="0.35"/>
+<wire x1="30.85" y1="2.7" x2="32" y2="2.7" width="0.508" layer="1"/>
+<via x="32" y="2.7" extent="1-16" drill="0.35"/>
 <wire x1="92.95" y1="13.6" x2="92.85" y2="13.7" width="0.508" layer="1"/>
 <wire x1="92.85" y1="13.7" x2="92.1" y2="13.7" width="0.508" layer="1"/>
 <via x="92.1" y="13.7" extent="1-16" drill="0.35"/>
@@ -3579,10 +3579,10 @@ design rules under a new name.</description>
 <wire x1="74.7" y1="26.25" x2="75.85" y2="26.25" width="0.508" layer="1"/>
 <wire x1="75.85" y1="26.25" x2="75.9" y2="26.3" width="0.508" layer="1"/>
 <via x="75.9" y="26.3" extent="1-16" drill="0.35"/>
-<wire x1="18.6" y1="2.9" x2="17.1" y2="2.9" width="0.508" layer="1"/>
-<via x="17.1" y="2.9" extent="1-16" drill="0.35"/>
-<wire x1="27.5" y1="2.9" x2="27.5" y2="1.9" width="0.508" layer="1"/>
-<via x="27.5" y="1.9" extent="1-16" drill="0.35"/>
+<wire x1="18.8" y1="2.7" x2="17.3" y2="2.7" width="0.508" layer="1"/>
+<via x="17.3" y="2.7" extent="1-16" drill="0.35"/>
+<wire x1="27.7" y1="2.7" x2="27.7" y2="1.7" width="0.508" layer="1"/>
+<via x="27.7" y="1.7" extent="1-16" drill="0.35"/>
 <wire x1="151.262" y1="37.75" x2="153.35" y2="37.75" width="0.2" layer="1"/>
 <wire x1="153.35" y1="37.75" x2="153.4" y2="37.7" width="0.2" layer="1"/>
 <via x="153.4" y="37.7" extent="1-16" drill="0.35"/>
@@ -6481,7 +6481,7 @@ design rules under a new name.</description>
 <signal name="N$82">
 <contactref element="R98" pad="1"/>
 <contactref element="+15V_OK" pad="2"/>
-<wire x1="20.2" y1="2.9" x2="21.65" y2="2.9" width="0.508" layer="1"/>
+<wire x1="20.4" y1="2.7" x2="21.85" y2="2.7" width="0.508" layer="1"/>
 </signal>
 <signal name="N$83">
 <contactref element="+3V3_OK" pad="2"/>
@@ -6661,10 +6661,10 @@ design rules under a new name.</description>
 <signal name="N$76">
 <contactref element="-15V_OK" pad="1"/>
 <contactref element="R97" pad="2"/>
-<wire x1="25.9" y1="2.9" x2="26.9" y2="3.9" width="0.508" layer="1"/>
-<wire x1="26.9" y1="3.9" x2="28.5" y2="3.9" width="0.508" layer="1"/>
-<wire x1="28.5" y1="3.9" x2="28.95" y2="3.45" width="0.508" layer="1"/>
-<wire x1="28.95" y1="3.45" x2="28.95" y2="2.9" width="0.508" layer="1"/>
+<wire x1="26.1" y1="2.7" x2="27.1" y2="3.7" width="0.508" layer="1"/>
+<wire x1="27.1" y1="3.7" x2="28.7" y2="3.7" width="0.508" layer="1"/>
+<wire x1="28.7" y1="3.7" x2="29.15" y2="3.25" width="0.508" layer="1"/>
+<wire x1="29.15" y1="3.25" x2="29.15" y2="2.7" width="0.508" layer="1"/>
 </signal>
 <signal name="CHASSIS">
 <contactref element="C107" pad="2"/>

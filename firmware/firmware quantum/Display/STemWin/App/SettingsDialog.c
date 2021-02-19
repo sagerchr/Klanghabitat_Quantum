@@ -262,7 +262,7 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 
 ///////////////////////////////////////////////////////////////////
   case WM_PAINT:
-		GUI_SetBkColor(GUI_DARKGRAY);
+		GUI_SetBkColor(GUI_BLACK);
 		GUI_Clear();
 	break;
 

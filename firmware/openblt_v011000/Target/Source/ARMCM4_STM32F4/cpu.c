@@ -86,8 +86,9 @@ void CpuStartUserProgram(void)
      * this is needed to make sure firmware updates via these communication interfaces
      * will be possible.
      */
-
+#if(Display==1)
     BSP_LCD_DisplayStringAt(0, BSP_LCD_GetYSize()/2 - 27, (uint8_t*)"no valid firmware installed", CENTER_MODE);
+#endif
     ComDeferredInit();
 #endif
     /* not a valid user program so it cannot be started */
@@ -129,6 +130,7 @@ void CpuStartUserProgram(void)
    * not have to be done by the user program.
    */
   CpuIrqEnable();
+
   /* start the user program by activating its reset interrupt service routine */
   pProgResetHandler();
 #if (BOOT_COM_DEFERRED_INIT_ENABLE > 0) && (BOOT_COM_ENABLE > 0)
@@ -138,6 +140,9 @@ void CpuStartUserProgram(void)
    * firmware updates can be started.
    */
   ComDeferredInit();
+
+
+
 #endif
 } /*** end of CpuStartUserProgram ***/
 

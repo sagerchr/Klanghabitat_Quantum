@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2020-08-01" view-index="0" gantt-divider-location="530" resource-divider-location="300" version="2.8.11" locale="de_DE">
+    <description/>
+    <view zooming-state="default:9" id="gantt-chart">
+        <field id="tpd3" name="Vorgang" width="253" order="0"/>
+        <field id="tpd4" name="Anfang" width="128" order="1"/>
+        <field id="tpd5" name="Ende" width="128" order="2"/>
+        <option id="taskLabelUp" value="name"/>
+        <option id="color.recent">
+            <![CDATA[#cc0000]]>
+        </option>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Ressource" width="209" order="0"/>
+        <field id="1" name="Rolle" width="85" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="false"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="0" name="Analog Hardware" meeting="false" start="2020-10-29" duration="67" complete="0" expand="true">
+            <task id="36" name="Design AnalougeEngineV6_1" meeting="false" start="2020-10-29" duration="12" complete="0" expand="true"/>
+            <task id="38" name="Design PSU V3_0" meeting="false" start="2020-10-29" duration="12" complete="0" expand="true"/>
+            <task id="137" name="Manufacturing" meeting="false" start="2020-11-16" duration="10" complete="0" expand="true"/>
+            <task id="157" name="Debugging/Testing" meeting="false" start="2020-11-30" duration="10" complete="0" expand="true"/>
+            <task id="1045" name="Design AnalougeEngineV7_0" meeting="false" start="2021-01-04" duration="12" complete="0" expand="true"/>
+            <task id="1086" name="Debugging/Testing" meeting="false" start="2021-01-18" duration="10" complete="0" expand="true"/>
+        </task>
+        <task id="1" name="HOST Software" meeting="false" start="2020-11-16" duration="65" complete="0" expand="true">
+            <task id="4" name="Maintenance" color="#8cb6ce" meeting="false" start="2020-11-16" duration="10" complete="0" thirdDate="2020-10-29" thirdDate-constraint="0" expand="true"/>
+            <task id="7" name="Connector" meeting="false" start="2020-12-14" duration="45" complete="0" expand="true"/>
+        </task>
+        <task id="2" name="MotherEngine Firmware" meeting="false" start="2020-11-02" duration="94" complete="0" expand="true">
+            <task id="194" name="MainBootloader" meeting="false" start="2020-11-02" duration="10" complete="0" expand="true">
+                <depend id="4" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="25" name="DSP-Task" meeting="false" start="2021-01-25" duration="34" complete="0" expand="true">
+                <task id="26" name="Compressor Modelling" meeting="false" start="2021-02-08" duration="24" complete="0" expand="true"/>
+                <task id="27" name="FFT" meeting="false" start="2021-02-15" duration="19" complete="0" expand="true"/>
+                <task id="189" name="DSP Core" meeting="false" start="2021-01-25" duration="34" complete="0" expand="true"/>
+            </task>
+            <task id="28" name="WEB-Server-Task" meeting="false" start="2020-11-30" duration="30" complete="0" expand="true">
+                <task id="29" name="OSC-Interface" meeting="false" start="2020-11-30" duration="10" complete="0" expand="true">
+                    <depend id="7" type="2" difference="0" hardness="Strong"/>
+                </task>
+                <task id="40" name="Display Communication" meeting="false" start="2020-11-30" duration="15" complete="0" expand="true"/>
+                <task id="796" name="WEB-Server" meeting="false" start="2020-12-14" duration="20" complete="0" expand="true"/>
+            </task>
+            <task id="30" name="OperatingSystemArchitecture" color="#8cb6ce" meeting="false" start="2020-12-28" duration="20" complete="0" thirdDate="2020-10-29" thirdDate-constraint="0" expand="true">
+                <depend id="25" type="2" difference="0" hardness="Strong"/>
+            </task>
+        </task>
+        <task id="22" name="Display-Firmware" meeting="false" start="2020-11-02" duration="129" complete="0" expand="true">
+            <task id="32" name="Display Communication" meeting="false" start="2020-11-30" duration="14" complete="0" expand="true"/>
+            <task id="736" name="Display Bootloader" meeting="false" start="2020-11-02" duration="10" complete="0" expand="true">
+                <depend id="4" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="1102" name="constant Display integration" meeting="false" start="2020-12-21" duration="94" complete="0" expand="true"/>
+        </task>
+        <task id="33" name="Other Tasks" meeting="false" start="2021-03-15" duration="15" complete="0" expand="true">
+            <task id="34" name="Website" meeting="false" start="2021-03-15" duration="15" complete="0" expand="true"/>
+        </task>
+        <task id="968" name="Beta Testing" color="#cc0000" meeting="false" start="2021-03-01" duration="44" complete="0" thirdDate="2021-03-01" thirdDate-constraint="0" expand="true"/>
+    </tasks>
+    <resources/>
+    <allocations/>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+</project>

@@ -1,2 +1,5 @@
 backdoor.c:87:6:BackDoorInit	8	static
-backdoor.c:126:6:BackDoorCheck	4	static
+backdoor.c:126:6:BackDoorCheck	16	static
+backdoor.c:200:6:BackDoorSetExtension	16	static
+backdoor.c:213:12:BackDoorGetExtension	4	static
+backdoor.c:228:6:BackDoorRestartTimer	8	static

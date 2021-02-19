@@ -17,5 +17,6 @@ void drawWaveForm();
 void drawWaveFormUartLeft(int x,int y, int adc, int clear);
 void drawWaveFormUartRight(int x,int y, int adc, int clear);
 void clearBuffer();
+void GainReduct (int pos_x, int pos_y, float PeakVal,float AvVal, GUI_COLOR color, int width);
 
 #endif /* APP_GUIELEMENTS_AUDIOMETER_H_ */

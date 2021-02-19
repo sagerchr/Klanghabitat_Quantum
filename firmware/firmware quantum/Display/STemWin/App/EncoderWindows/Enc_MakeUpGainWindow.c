@@ -24,7 +24,7 @@ static void _cbENC_Button(WM_MESSAGE * pMsg)
     			COLOR = GUI_GRAY;
     	    	}
     	    	else{
-    	    	COLOR = GUI_DARKGRAY;
+    	    	COLOR = GUI_BLACK;
     	    	}
 
 
@@ -83,7 +83,7 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 
 	  	  //###########################KILL OTHER WINDOW SELCETION FIRST IF ONE IS SELCTED######################################//
 		  if 	  (Enc_AttackSelected)		{pMsg->Data.v = 1; pMsg->MsgId = WM_USER;  WM_SendMessage (Enc_AttackWindow, pMsg);}
-		  else if (Enc_DistortionSelected)	{pMsg->Data.v = 1; pMsg->MsgId = WM_USER;  WM_SendMessage (Enc_DistortionWindow, pMsg);}
+		  else if (Enc_ThresholdSelected)	{pMsg->Data.v = 1; pMsg->MsgId = WM_USER;  WM_SendMessage (Enc_ThresholdWindow, pMsg);}
 		  //else if (Enc_MakeUpGainSelected)	{pMsg->Data.v = 1; pMsg->MsgId = WM_USER;  WM_SendMessage (Enc_MakeUpGainWindow, pMsg);}
 		  else if (Enc_OutputSelected)		{pMsg->Data.v = 1; pMsg->MsgId = WM_USER;  WM_SendMessage (Enc_OutputWindow, pMsg);}
 		  else if (Enc_RatioSelected)		{pMsg->Data.v = 1; pMsg->MsgId = WM_USER;  WM_SendMessage (Enc_RatioWindow, pMsg);}
@@ -138,7 +138,7 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 
 WM_HWIN CreateEnc_MakeUpGainWindow(void) {
 
-	Enc_MakeUpGainWindow = WM_CreateWindow(600, 130, 180, 100, WM_CF_HIDE, _cbDialog, 0);
+	Enc_MakeUpGainWindow = WM_CreateWindow(600, 20, 180, 100, WM_CF_HIDE, _cbDialog, 0);
 
   WM_MULTIBUF_Enable(1);
 

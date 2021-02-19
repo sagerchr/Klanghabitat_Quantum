@@ -334,7 +334,7 @@ WM_HWIN Enc_RatioWindow;
 WM_HWIN Enc_AttackWindow;
 WM_HWIN Enc_MakeUpGainWindow;
 WM_HWIN Enc_ReleaseWindow;
-WM_HWIN Enc_DistortionWindow;
+WM_HWIN Enc_ThresholdWindow;
 /////////////////////////////////////
 
 

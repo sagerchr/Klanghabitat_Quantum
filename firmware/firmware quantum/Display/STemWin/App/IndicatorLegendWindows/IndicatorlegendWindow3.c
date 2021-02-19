@@ -12,7 +12,7 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 
     break;
   case WM_PAINT:
-	  GUI_SetBkColor(GUI_DARKGRAY);
+	  GUI_SetBkColor(GUI_BLACK);
 
 	  GUI_Clear();
 	  		for(int i=0; i<400;i++){

@@ -214,3 +214,10 @@ void drawBarDottedVertical (int pos_x, int pos_y, float PeakVal,float AvVal, GUI
 
 }
 
+void GainReduct (int pos_x, int pos_y, float PeakVal,float AvVal, GUI_COLOR color, int width){
+
+	GUI_DrawGradientV(pos_x,pos_y,pos_x+width,pos_y+AvVal, color,color);
+
+
+}
+

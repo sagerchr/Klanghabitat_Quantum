@@ -253,6 +253,11 @@ uint8_t SUBNET_READ_FLASH[4];
 uint8_t DisplayUpdate;
 uint8_t DisplayReset;
 char  pData[100];
+
+uint8_t reductLeft;
+uint8_t reductRight;
+
+
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

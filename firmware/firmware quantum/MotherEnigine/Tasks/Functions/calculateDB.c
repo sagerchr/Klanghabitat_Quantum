@@ -89,7 +89,6 @@ calculateDB(){
 
 		  tmp_decibelMaxCH2  = 20*log10(MaxCH2/1.095); //1.5 µsec!!!
 
-
 		  channel=3;
 
 		  break;
@@ -192,6 +191,7 @@ calculateDB(){
 
 	  if (indexing > 1199) {
 		  indexing = 0;
+
 		 RMS_CH1 = (20*log10((sqrt (sum_CH1/1200))/1.095))+3;
 		 RMS_CH2 = (20*log10((sqrt (sum_CH2/1200))/1.095))+3;
 		 RMS_CH3 = (20*log10((sqrt (sum_CH3/1200))/1.095))+3;
@@ -246,8 +246,6 @@ calculateDB(){
 		  sum_CH4_RMS=0.0;
 		  sum_CH5_RMS=0.0;
 		  sum_CH6_RMS=0.0;
-
-
 
 	  }
 
