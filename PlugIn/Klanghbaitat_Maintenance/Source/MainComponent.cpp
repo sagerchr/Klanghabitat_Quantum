@@ -138,8 +138,8 @@ void MainComponent::filenameComponentChanged (juce::FilenameComponent* fileCompo
 
 void MainComponent::updateProcedure(){
     
-       //juce::String IPAddressTarget = (juce::String)(deviceList.getItemText(deviceList.getSelectedId()-1).substring(0, 15));
-        juce::String IPAddressTarget = "192.168.1.70";
+       juce::String IPAddressTarget = (juce::String)(deviceList.getItemText(deviceList.getSelectedId()-1).substring(0, 15));
+    //juce::String IPAddressTarget = "192.168.1.70";
     if(!SourceWeb){
      MainEngineLocalPath2 = "/Users/christiansager/klanghabitat_quantum/firmware/firmware quantum/MotherEnigine/Debug/MotherEnigine.srec";
       DisplayLocalPath2 = "/Users/christiansager/klanghabitat_quantum/firmware/firmware quantum/Display/Debug/Display.srec";
