@@ -32,7 +32,7 @@
 #include "boot.h"                                /* bootloader generic header          */
 #include "stm32f7xx.h"                           /* STM32 CPU and HAL header           */
 #include "shared_params.h"                       /* Shared parameters header           */
-
+#include "MY_FLASH.h"                       /* Shared parameters header           */
 
 /****************************************************************************************
 * Function prototypes
@@ -55,6 +55,9 @@ blt_int8u deferredInitRequestFlag = 0;
   Init();
   /* initialize the shared parameters module */
   SharedParamsInit();
+  MY_FLASH_SetSectorAddrs(11, 0x081C0000);
+  MY_FLASH_ReadN(0,MAC_ADRESSE,10,DATA_TYPE_8);
+
   /* initialize the bootloader */
   BootInit();
 #if (BOOT_COM_DEFERRED_INIT_ENABLE == 1)
@@ -87,12 +90,12 @@ blt_int8u deferredInitRequestFlag = 0;
     ComDeferredInit();
   }
 #endif
-  
+
   /* start the infinite program loop */
   while (1)
   {
     /* run the bootloader task */
-    BootTask();
+     BootTask();
   }
 
   /* program should never get here */

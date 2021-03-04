@@ -75,7 +75,7 @@ accept_callback(void *arg, struct tcp_pcb *newpcb, err_t err){
 void lwIPTask(void const * argument){
 
 
-	MY_FLASH_ReadN(0,IP_READ,4,DATA_TYPE_8);
+
 
 for (int i=0; i<175;i++){
 	DAC_Control(1,1,i); //SYM1 adjust
@@ -97,7 +97,7 @@ for (int i=0; i<10;i++){
 
 
 
-
+	MY_FLASH_ReadN(0,IP_READ_FLASH,4,DATA_TYPE_8);
 	 MX_LWIP_Init(IP_READ_FLASH[0], IP_READ_FLASH[1], IP_READ_FLASH[2], IP_READ_FLASH[3]); //SetUp with IP ADRESS read from Flash
 	 httpd_init();//start the web Server
 	 myCGIinit();//initialize the CGI handlers
@@ -321,7 +321,7 @@ for (int i=0; i<10;i++){
 		  else{
 			  BypassRight(activate);BypassLeft(activate);
 		  }
-/*
+
 		 if (match("/MotherEngine/Relais/K5") && OSC_SIGNEDINTEGER == 1){
 			 HAL_GPIO_WritePin(GPIOG, Relais3_Pin,GPIO_PIN_SET);}
 		 if (match("/MotherEngine/Relais/K5") && OSC_SIGNEDINTEGER == 0){
@@ -341,7 +341,7 @@ for (int i=0; i<10;i++){
 			 HAL_GPIO_WritePin(GPIOG, Relais6_Pin,GPIO_PIN_SET);}
 		 if (match("/MotherEngine/Relais/K8") && OSC_SIGNEDINTEGER == 0){
 			 HAL_GPIO_WritePin(GPIOG, Relais6_Pin,GPIO_PIN_RESET);}
-*/
+
 		 //=========================================================================//
 
 

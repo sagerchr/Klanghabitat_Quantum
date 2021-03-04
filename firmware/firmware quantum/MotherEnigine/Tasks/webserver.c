@@ -93,7 +93,7 @@ char IP1_str_temp[5],IP2_str_temp[5],IP3_str_temp[5],IP4_str_temp[5];
 	     {
 	     // turn off the LEDs
 	    	 HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_RESET);
-	    	 BypassLeft(bypass);
+	    	 //BypassLeft(bypass);
 
 	     // Check the cgi parameters, e.g., GET /leds.cgi?led=1&led=2
 			 for (i=0; i<iNumParams; i++)
@@ -106,7 +106,7 @@ char IP1_str_temp[5],IP2_str_temp[5],IP3_str_temp[5],IP4_str_temp[5];
 					 {
 					 // switch led 1 ON if 1
 						 HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_SET);
-						 BypassLeft(activate);
+						 //BypassLeft(activate);
 					 }
 					 //see if checkbox for LED 2 has been set
 					 else if(strcmp(pcValue[i], "2") == 0)

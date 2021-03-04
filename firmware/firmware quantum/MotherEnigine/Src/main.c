@@ -210,10 +210,22 @@ int main(void)
 	  DAC_Control(4,2,128);
 */
 
-	  IP_READ_FLASH[0]=192;
-	  IP_READ_FLASH[1]=168;
-	  IP_READ_FLASH[2]=1;
-	  IP_READ_FLASH[3]=70;
+
+  	  MY_FLASH_ReadN(0,MAC_ADRESSE,10,DATA_TYPE_8);
+
+  	  uint8_t IP[10];
+	  IP[0]=192;
+	  IP[1]=168;
+	  IP[2]=1;
+	  IP[3]=75;
+  	  IP[4] = 0x80;
+  	  IP[5] = 0x80;
+  	  IP[6] = 0xE1;
+  	  IP[7] = 0x00;
+  	  IP[8] = 0x00;
+  	  IP[9] = 0x80;
+
+	  //MY_FLASH_WriteN(0,IP,10,DATA_TYPE_8);
 
 	  SUBNET_READ_FLASH[0]=255;
 	  SUBNET_READ_FLASH[1]=255;

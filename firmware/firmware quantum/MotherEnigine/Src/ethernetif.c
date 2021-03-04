@@ -28,6 +28,7 @@
 #include "ethernetif.h"
 #include <string.h>
 #include "cmsis_os.h"
+#include "MY_FLASH.h"
 /* Within 'USER CODE' section, code will be kept by default at each generation */
 /* USER CODE BEGIN 0 */
 
@@ -214,16 +215,17 @@ static void low_level_init(struct netif *netif)
 
 /* Init ETH */
 
+
    uint8_t MACAddr[6] ;
   heth.Instance = ETH;
   heth.Init.AutoNegotiation = ETH_AUTONEGOTIATION_ENABLE;
   heth.Init.PhyAddress = LAN8742A_PHY_ADDRESS;
-  MACAddr[0] = 0x00;
-  MACAddr[1] = 0x80;
-  MACAddr[2] = 0xE1;
-  MACAddr[3] = 0x00;
-  MACAddr[4] = 0x00;
-  MACAddr[5] = 0x00;
+  MACAddr[0] = MAC_ADRESSE[4];
+  MACAddr[1] = MAC_ADRESSE[5];
+  MACAddr[2] = MAC_ADRESSE[6];
+  MACAddr[3] = MAC_ADRESSE[7];
+  MACAddr[4] = MAC_ADRESSE[8];
+  MACAddr[5] = MAC_ADRESSE[9];
   heth.Init.MACAddr = &MACAddr[0];
   heth.Init.RxMode = ETH_RXINTERRUPT_MODE;
   heth.Init.ChecksumMode = ETH_CHECKSUM_BY_HARDWARE;

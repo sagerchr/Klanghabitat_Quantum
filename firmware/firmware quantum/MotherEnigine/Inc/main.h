@@ -257,7 +257,7 @@ char  pData[100];
 uint8_t reductLeft;
 uint8_t reductRight;
 
-
+uint8_t MAC_ADRESSE [10];
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

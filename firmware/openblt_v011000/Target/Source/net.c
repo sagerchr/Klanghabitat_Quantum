@@ -34,6 +34,9 @@
 #include "netdev.h"
 #include "uip.h"
 #include "uip_arp.h"
+#include "stdint.h"
+#include "inttypes.h"
+#include "MY_FLASH.h"
 #endif
 
 
@@ -117,8 +120,13 @@ void NetInit(void)
     uip_init();
 #if (BOOT_COM_NET_DHCP_ENABLE == 0)
     /* set the IP address */
-    uip_ipaddr(ipaddr, BOOT_COM_NET_IPADDR0, BOOT_COM_NET_IPADDR1, BOOT_COM_NET_IPADDR2,
+    //uint8_t IP_READ[4];
+
+    /*uip_ipaddr(ipaddr, BOOT_COM_NET_IPADDR0, BOOT_COM_NET_IPADDR1, BOOT_COM_NET_IPADDR2,
                BOOT_COM_NET_IPADDR3);
+               */
+    uip_ipaddr(ipaddr, MAC_ADRESSE[0], MAC_ADRESSE[1], MAC_ADRESSE[2], MAC_ADRESSE[3]);
+
     uip_sethostaddr(ipaddr);
     /* set the network mask */
     uip_ipaddr(ipaddr, BOOT_COM_NET_NETMASK0, BOOT_COM_NET_NETMASK1, BOOT_COM_NET_NETMASK2,

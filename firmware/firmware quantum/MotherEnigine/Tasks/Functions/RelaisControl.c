@@ -107,4 +107,3 @@ void VCAOutput(Output Out, Convert Conv ){
 			break;
 	}
 }
-

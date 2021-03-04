@@ -20,12 +20,12 @@ OBJCOPY_BIN :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+. \
 core/ARMCM7_STM32F7/GCC \
 core/ARMCM7_STM32F7 \
 core \
 core/third_party/uip/apps/dhcpc \
 core/third_party/uip/uip \
-. \
 lib/STM32F7xx_HAL_Driver/Src \
 lib \
 lib/uip \

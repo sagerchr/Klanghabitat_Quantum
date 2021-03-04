@@ -44,12 +44,12 @@
 
 
 /*---------------------------------------------------------------------------*/
-#define NETDEV_DEFAULT_MACADDR0           (0x00)//0x08
+#define NETDEV_DEFAULT_MACADDR0           (0x80)//0x08
 #define NETDEV_DEFAULT_MACADDR1           (0x80)//0x00
 #define NETDEV_DEFAULT_MACADDR2           (0xE1)//0x27
 #define NETDEV_DEFAULT_MACADDR3           (0x00)//0x69
 #define NETDEV_DEFAULT_MACADDR4           (0x00)//0x5B
-#define NETDEV_DEFAULT_MACADDR5           (0x00)//0x45
+#define NETDEV_DEFAULT_MACADDR5           (0x80)//0x45
 
 /* Timeout time for transmitting a packet. */
 #define NETDEV_TX_PACKET_TIMEOUT_MS       (250u)
