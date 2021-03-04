@@ -7,43 +7,43 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
   1 .isr_vector   000001f8  08000000  08000000  00010000  2**0
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  2 .text         000046c0  080001f8  080001f8  000101f8  2**2
+  2 .text         000046d0  080001f8  080001f8  000101f8  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  3 .rodata       000000b8  080048b8  080048b8  000148b8  2**2
+  3 .rodata       000000b8  080048c8  080048c8  000148c8  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  4 .ARM          00000008  08004970  08004970  00014970  2**2
+  4 .ARM          00000008  08004980  08004980  00014980  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  5 .init_array   00000004  08004978  08004978  00014978  2**2
+  5 .init_array   00000004  08004988  08004988  00014988  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  6 .fini_array   00000004  0800497c  0800497c  0001497c  2**2
+  6 .fini_array   00000004  0800498c  0800498c  0001498c  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  7 .data         0000000c  20000040  08004980  00020040  2**2
+  7 .data         0000000c  20000040  08004990  00020040  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  8 .bss          00003dc0  2000004c  0800498c  0002004c  2**2
+  8 .bss          00003dc0  2000004c  0800499c  0002004c  2**2
                   ALLOC
-  9 ._user_heap_stack 00000600  20003e0c  0800498c  00023e0c  2**0
+  9 ._user_heap_stack 00000600  20003e0c  0800499c  00023e0c  2**0
                   ALLOC
  10 .ARM.attributes 00000030  00000000  00000000  0002004c  2**0
                   CONTENTS, READONLY
- 11 .debug_info   00019583  00000000  00000000  0002007c  2**0
+ 11 .debug_info   000195a4  00000000  00000000  0002007c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_abbrev 0000407e  00000000  00000000  000395ff  2**0
+ 12 .debug_abbrev 0000407e  00000000  00000000  00039620  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_loc    00004bc9  00000000  00000000  0003d67d  2**0
+ 13 .debug_loc    00004bc9  00000000  00000000  0003d69e  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_aranges 00000c88  00000000  00000000  00042248  2**3
+ 14 .debug_aranges 00000c88  00000000  00000000  00042268  2**3
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_ranges 00000af8  00000000  00000000  00042ed0  2**3
+ 15 .debug_ranges 00000af8  00000000  00000000  00042ef0  2**3
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_macro  0002a44e  00000000  00000000  000439c8  2**0
+ 16 .debug_macro  0002a452  00000000  00000000  000439e8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_line   0001215d  00000000  00000000  0006de16  2**0
+ 17 .debug_line   0001216b  00000000  00000000  0006de3a  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    000f23f0  00000000  00000000  0007ff73  2**0
+ 18 .debug_str    000f23f0  00000000  00000000  0007ffa5  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  00172363  2**0
+ 19 .comment      0000007b  00000000  00000000  00172395  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00001de8  00000000  00000000  001723e0  2**2
+ 20 .debug_frame  00001de8  00000000  00000000  00172410  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -62,7 +62,7 @@ Disassembly of section .text:
  800020e:	bd10      	pop	{r4, pc}
  8000210:	2000004c 	.word	0x2000004c
  8000214:	00000000 	.word	0x00000000
- 8000218:	080048a0 	.word	0x080048a0
+ 8000218:	080048b0 	.word	0x080048b0
 
 0800021c <frame_dummy>:
  800021c:	b508      	push	{r3, lr}
@@ -74,7 +74,7 @@ Disassembly of section .text:
  800022a:	bd08      	pop	{r3, pc}
  800022c:	00000000 	.word	0x00000000
  8000230:	20000050 	.word	0x20000050
- 8000234:	080048a0 	.word	0x080048a0
+ 8000234:	080048b0 	.word	0x080048b0
 
 08000238 <__aeabi_uldivmod>:
  8000238:	b953      	cbnz	r3, 8000250 <__aeabi_uldivmod+0x18>
@@ -664,7 +664,7 @@ static void SystemClock_Config(void)
  80006ba:	bf00      	nop
  80006bc:	40023800 	.word	0x40023800
  80006c0:	40007000 	.word	0x40007000
- 80006c4:	080048b8 	.word	0x080048b8
+ 80006c4:	080048c8 	.word	0x080048c8
 
 080006c8 <Init>:
 {
@@ -1132,7 +1132,7 @@ LoopFillZerobss:
  8000962:	f003 fe1d 	bl	80045a0 <SystemInit>
 /* Call static constructors */
     bl __libc_init_array
- 8000966:	f003 ff55 	bl	8004814 <__libc_init_array>
+ 8000966:	f003 ff5d 	bl	8004824 <__libc_init_array>
 /* Call the application's entry point.*/
   bl  main
  800096a:	f7ff feb3 	bl	80006d4 <main>
@@ -1141,7 +1141,7 @@ LoopFillZerobss:
   ldr   sp, =_estack      /* set stack pointer */
  8000970:	20080000 	.word	0x20080000
   ldr  r3, =_sidata
- 8000974:	08004980 	.word	0x08004980
+ 8000974:	08004990 	.word	0x08004990
   ldr  r0, =_sdata
  8000978:	20000040 	.word	0x20000040
   ldr  r3, =_edata
@@ -1370,7 +1370,7 @@ static blt_int8u FlashGetSector(blt_addr address)
   return result;
 } /*** end of FlashGetSector ***/
  8000a3a:	bd38      	pop	{r3, r4, r5, pc}
- 8000a3c:	080048c4 	.word	0x080048c4
+ 8000a3c:	080048d4 	.word	0x080048d4
 
 08000a40 <FlashInitBlock>:
 {
@@ -2588,7 +2588,7 @@ static void NetServerTask(void)
 
   /* check for an RX packet and read it. */
   packetLen = netdev_read();
- 8000fca:	f003 fbbf 	bl	800474c <netdev_read>
+ 8000fca:	f003 fbc7 	bl	800475c <netdev_read>
   if (packetLen > 0)
  8000fce:	b9b8      	cbnz	r0, 8001000 <NetServerTask+0x38>
       }
@@ -2659,7 +2659,7 @@ static void NetServerTask(void)
  800102c:	2b00      	cmp	r3, #0
  800102e:	d0cf      	beq.n	8000fd0 <NetServerTask+0x8>
         netdev_send();
- 8001030:	f003 fbb6 	bl	80047a0 <netdev_send>
+ 8001030:	f003 fbbe 	bl	80047b0 <netdev_send>
         uip_len = 0;
  8001034:	4b30      	ldr	r3, [pc, #192]	; (80010f8 <NetServerTask+0x130>)
  8001036:	2200      	movs	r2, #0
@@ -2676,7 +2676,7 @@ static void NetServerTask(void)
         uip_arp_out();
  800104a:	f001 fde7 	bl	8002c1c <uip_arp_out>
         netdev_send();
- 800104e:	f003 fba7 	bl	80047a0 <netdev_send>
+ 800104e:	f003 fbaf 	bl	80047b0 <netdev_send>
         uip_len = 0;
  8001052:	4b29      	ldr	r3, [pc, #164]	; (80010f8 <NetServerTask+0x130>)
  8001054:	2200      	movs	r2, #0
@@ -2700,7 +2700,7 @@ static void NetServerTask(void)
         uip_arp_out();
  8001076:	f001 fdd1 	bl	8002c1c <uip_arp_out>
         netdev_send();
- 800107a:	f003 fb91 	bl	80047a0 <netdev_send>
+ 800107a:	f003 fb99 	bl	80047b0 <netdev_send>
         uip_len = 0;
  800107e:	4b1e      	ldr	r3, [pc, #120]	; (80010f8 <NetServerTask+0x130>)
  8001080:	2200      	movs	r2, #0
@@ -2723,7 +2723,7 @@ static void NetServerTask(void)
         uip_arp_out();
  80010a0:	f001 fdbc 	bl	8002c1c <uip_arp_out>
         netdev_send();
- 80010a4:	f003 fb7c 	bl	80047a0 <netdev_send>
+ 80010a4:	f003 fb84 	bl	80047b0 <netdev_send>
         uip_len = 0;
  80010a8:	4b13      	ldr	r3, [pc, #76]	; (80010f8 <NetServerTask+0x130>)
  80010aa:	2200      	movs	r2, #0
@@ -2766,7 +2766,7 @@ static void NetServerTask(void)
       uip_arp_out();
  80010de:	f001 fd9d 	bl	8002c1c <uip_arp_out>
       netdev_send();
- 80010e2:	f003 fb5d 	bl	80047a0 <netdev_send>
+ 80010e2:	f003 fb65 	bl	80047b0 <netdev_send>
       uip_len = 0;
  80010e6:	4b04      	ldr	r3, [pc, #16]	; (80010f8 <NetServerTask+0x130>)
  80010e8:	2200      	movs	r2, #0
@@ -2842,7 +2842,7 @@ static void NetServerTask(void)
  800117a:	f64e 0003 	movw	r0, #59395	; 0xe803
  800117e:	f000 fdc3 	bl	8001d08 <uip_listen>
     netdev_init_mac();
- 8001182:	f003 facf 	bl	8004724 <netdev_init_mac>
+ 8001182:	f003 fad7 	bl	8004734 <netdev_init_mac>
     if (BackDoorGetExtension() < BOOT_COM_NET_BACKDOOR_EXTENSION_MS)
  8001186:	f7ff fe83 	bl	8000e90 <BackDoorGetExtension>
  800118a:	f644 631f 	movw	r3, #19999	; 0x4e1f
@@ -3209,7 +3209,7 @@ static void XcpCmdSynch(blt_int8u *data)
 } /*** end of XcpCmdGetId ***/
  8001382:	4770      	bx	lr
  8001384:	200004dc 	.word	0x200004dc
- 8001388:	08004948 	.word	0x08004948
+ 8001388:	08004958 	.word	0x08004958
 
 0800138c <XcpCmdSetMta>:
 **
@@ -4032,24 +4032,24 @@ dhcpc_configured(const struct dhcpc_state *s)
  800182a:	4632      	mov	r2, r6
  800182c:	6959      	ldr	r1, [r3, #20]
  800182e:	301c      	adds	r0, #28
- 8001830:	f003 f823 	bl	800487a <memcpy>
+ 8001830:	f003 f82b 	bl	800488a <memcpy>
   memset(&m->chaddr[s.mac_len], 0, sizeof(m->chaddr) - s.mac_len);
  8001834:	f106 0018 	add.w	r0, r6, #24
  8001838:	4420      	add	r0, r4
  800183a:	f1c6 0210 	rsb	r2, r6, #16
  800183e:	4629      	mov	r1, r5
  8001840:	3004      	adds	r0, #4
- 8001842:	f003 f825 	bl	8004890 <memset>
+ 8001842:	f003 f82d 	bl	80048a0 <memset>
   memset(m->sname, 0, sizeof(m->sname));
  8001846:	2240      	movs	r2, #64	; 0x40
  8001848:	4629      	mov	r1, r5
  800184a:	f104 002c 	add.w	r0, r4, #44	; 0x2c
- 800184e:	f003 f81f 	bl	8004890 <memset>
+ 800184e:	f003 f827 	bl	80048a0 <memset>
   memset(m->file, 0, sizeof(m->file));
  8001852:	463a      	mov	r2, r7
  8001854:	4629      	mov	r1, r5
  8001856:	f104 006c 	add.w	r0, r4, #108	; 0x6c
- 800185a:	f003 f819 	bl	8004890 <memset>
+ 800185a:	f003 f821 	bl	80048a0 <memset>
   memcpy(m->options, magic_cookie, sizeof(magic_cookie));
  800185e:	4b05      	ldr	r3, [pc, #20]	; (8001874 <create_msg+0x78>)
  8001860:	681b      	ldr	r3, [r3, #0]
@@ -4057,9 +4057,9 @@ dhcpc_configured(const struct dhcpc_state *s)
 }
  8001866:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
  8001868:	20000528 	.word	0x20000528
- 800186c:	08004954 	.word	0x08004954
+ 800186c:	08004964 	.word	0x08004964
  8001870:	20000680 	.word	0x20000680
- 8001874:	08004950 	.word	0x08004950
+ 8001874:	08004960 	.word	0x08004960
 
 08001878 <send_discover>:
 {
@@ -4135,7 +4135,7 @@ dhcpc_configured(const struct dhcpc_state *s)
  80018ec:	2204      	movs	r2, #4
  80018ee:	490e      	ldr	r1, [pc, #56]	; (8001928 <parse_msg+0x4c>)
  80018f0:	18a0      	adds	r0, r4, r2
- 80018f2:	f002 ffb3 	bl	800485c <memcmp>
+ 80018f2:	f002 ffbb 	bl	800486c <memcmp>
   if (m->op == DHCP_REPLY &&
  80018f6:	b998      	cbnz	r0, 8001920 <parse_msg+0x44>
       memcmp(m->chaddr, s.mac_addr, s.mac_len) == 0)
@@ -4143,7 +4143,7 @@ dhcpc_configured(const struct dhcpc_state *s)
  80018fa:	699a      	ldr	r2, [r3, #24]
  80018fc:	6959      	ldr	r1, [r3, #20]
  80018fe:	f104 001c 	add.w	r0, r4, #28
- 8001902:	f002 ffab 	bl	800485c <memcmp>
+ 8001902:	f002 ffb3 	bl	800486c <memcmp>
       memcmp(m->xid, xid, sizeof(xid)) == 0 &&
  8001906:	b108      	cbz	r0, 800190c <parse_msg+0x30>
   return 0;
@@ -4163,7 +4163,7 @@ dhcpc_configured(const struct dhcpc_state *s)
  8001920:	2000      	movs	r0, #0
  8001922:	e7e2      	b.n	80018ea <parse_msg+0xe>
  8001924:	20000604 	.word	0x20000604
- 8001928:	08004954 	.word	0x08004954
+ 8001928:	08004964 	.word	0x08004964
  800192c:	20000528 	.word	0x20000528
  8001930:	200005f0 	.word	0x200005f0
 
@@ -6508,7 +6508,7 @@ uip_send(const void *data, int len)
     {
       memcpy(uip_sappdata, (data), uip_slen);
  80029c2:	4618      	mov	r0, r3
- 80029c4:	f001 ff59 	bl	800487a <memcpy>
+ 80029c4:	f001 ff61 	bl	800488a <memcpy>
     }
   }
 }
@@ -7115,7 +7115,7 @@ uip_arp_out(void)
  8002d54:	20000678 	.word	0x20000678
  8002d58:	200005d2 	.word	0x200005d2
  8002d5c:	20000570 	.word	0x20000570
- 8002d60:	08004958 	.word	0x08004958
+ 8002d60:	08004968 	.word	0x08004968
  8002d64:	20000568 	.word	0x20000568
  8002d68:	200005f0 	.word	0x200005f0
  8002d6c:	20000604 	.word	0x20000604
@@ -10982,7 +10982,7 @@ HAL_StatusTypeDef HAL_RCC_DeInit(void)
  8004582:	bf00      	nop
  8004584:	40023c00 	.word	0x40023c00
  8004588:	40023800 	.word	0x40023800
- 800458c:	08004960 	.word	0x08004960
+ 800458c:	08004970 	.word	0x08004970
  8004590:	20000048 	.word	0x20000048
 
 08004594 <HAL_RCC_GetHCLKFreq>:
@@ -11209,334 +11209,341 @@ void netdev_init(void)
 {
  80046b4:	b510      	push	{r4, lr}
   /* Store the default MAC address. */
-  macAddress.addr[0] = NETDEV_DEFAULT_MACADDR0;
- 80046b6:	4b14      	ldr	r3, [pc, #80]	; (8004708 <netdev_init+0x54>)
- 80046b8:	2180      	movs	r1, #128	; 0x80
- 80046ba:	7019      	strb	r1, [r3, #0]
-  macAddress.addr[1] = NETDEV_DEFAULT_MACADDR1;
- 80046bc:	7059      	strb	r1, [r3, #1]
-  macAddress.addr[2] = NETDEV_DEFAULT_MACADDR2;
- 80046be:	22e1      	movs	r2, #225	; 0xe1
- 80046c0:	709a      	strb	r2, [r3, #2]
-  macAddress.addr[3] = NETDEV_DEFAULT_MACADDR3;
- 80046c2:	2200      	movs	r2, #0
- 80046c4:	70da      	strb	r2, [r3, #3]
-  macAddress.addr[4] = NETDEV_DEFAULT_MACADDR4;
- 80046c6:	711a      	strb	r2, [r3, #4]
-  macAddress.addr[5] = NETDEV_DEFAULT_MACADDR5;
- 80046c8:	7159      	strb	r1, [r3, #5]
+  macAddress.addr[0] = MAC_ADRESSE[4];
+ 80046b6:	4a17      	ldr	r2, [pc, #92]	; (8004714 <netdev_init+0x60>)
+ 80046b8:	7911      	ldrb	r1, [r2, #4]
+ 80046ba:	4b17      	ldr	r3, [pc, #92]	; (8004718 <netdev_init+0x64>)
+ 80046bc:	7019      	strb	r1, [r3, #0]
+  macAddress.addr[1] = MAC_ADRESSE[5];
+ 80046be:	7951      	ldrb	r1, [r2, #5]
+ 80046c0:	7059      	strb	r1, [r3, #1]
+  macAddress.addr[2] = MAC_ADRESSE[6];
+ 80046c2:	7991      	ldrb	r1, [r2, #6]
+ 80046c4:	7099      	strb	r1, [r3, #2]
+  macAddress.addr[3] = MAC_ADRESSE[7];
+ 80046c6:	79d1      	ldrb	r1, [r2, #7]
+ 80046c8:	70d9      	strb	r1, [r3, #3]
+  macAddress.addr[4] = MAC_ADRESSE[8];
+ 80046ca:	7a11      	ldrb	r1, [r2, #8]
+ 80046cc:	7119      	strb	r1, [r3, #4]
+  macAddress.addr[5] = MAC_ADRESSE[9];
+ 80046ce:	7a52      	ldrb	r2, [r2, #9]
+ 80046d0:	715a      	strb	r2, [r3, #5]
 
   /* Initialize Ethernet. */
   heth.Instance = ETH;
- 80046ca:	4c10      	ldr	r4, [pc, #64]	; (800470c <netdev_init+0x58>)
- 80046cc:	4910      	ldr	r1, [pc, #64]	; (8004710 <netdev_init+0x5c>)
- 80046ce:	6021      	str	r1, [r4, #0]
+ 80046d2:	4c12      	ldr	r4, [pc, #72]	; (800471c <netdev_init+0x68>)
+ 80046d4:	4a12      	ldr	r2, [pc, #72]	; (8004720 <netdev_init+0x6c>)
+ 80046d6:	6022      	str	r2, [r4, #0]
   heth.Init.AutoNegotiation = ETH_AUTONEGOTIATION_ENABLE;
- 80046d0:	2101      	movs	r1, #1
- 80046d2:	6061      	str	r1, [r4, #4]
+ 80046d8:	2201      	movs	r2, #1
+ 80046da:	6062      	str	r2, [r4, #4]
   heth.Init.PhyAddress = LAN8742A_PHY_ADDRESS;
- 80046d4:	8222      	strh	r2, [r4, #16]
+ 80046dc:	2200      	movs	r2, #0
+ 80046de:	8222      	strh	r2, [r4, #16]
   heth.Init.MACAddr = &(macAddress.addr)[0];
- 80046d6:	6163      	str	r3, [r4, #20]
+ 80046e0:	6163      	str	r3, [r4, #20]
   heth.Init.RxMode = ETH_RXPOLLING_MODE;
- 80046d8:	61a2      	str	r2, [r4, #24]
+ 80046e2:	61a2      	str	r2, [r4, #24]
   heth.Init.ChecksumMode = ETH_CHECKSUM_BY_HARDWARE;
- 80046da:	61e2      	str	r2, [r4, #28]
+ 80046e4:	61e2      	str	r2, [r4, #28]
   heth.Init.MediaInterface = ETH_MEDIA_INTERFACE_RMII;
- 80046dc:	f44f 0300 	mov.w	r3, #8388608	; 0x800000
- 80046e0:	6223      	str	r3, [r4, #32]
+ 80046e6:	f44f 0300 	mov.w	r3, #8388608	; 0x800000
+ 80046ea:	6223      	str	r3, [r4, #32]
   (void)HAL_ETH_Init(&heth);
- 80046e2:	4620      	mov	r0, r4
- 80046e4:	f7fe fec0 	bl	8003468 <HAL_ETH_Init>
+ 80046ec:	4620      	mov	r0, r4
+ 80046ee:	f7fe febb 	bl	8003468 <HAL_ETH_Init>
 
   /* Initialize Tx Descriptors list: Chain Mode */
   HAL_ETH_DMATxDescListInit(&heth, DMATxDscrTab, &Tx_Buff[0][0], ETH_TXBUFNB);
- 80046e8:	2304      	movs	r3, #4
- 80046ea:	4a0a      	ldr	r2, [pc, #40]	; (8004714 <netdev_init+0x60>)
- 80046ec:	490a      	ldr	r1, [pc, #40]	; (8004718 <netdev_init+0x64>)
- 80046ee:	4620      	mov	r0, r4
- 80046f0:	f7fe fcfd 	bl	80030ee <HAL_ETH_DMATxDescListInit>
+ 80046f2:	2304      	movs	r3, #4
+ 80046f4:	4a0b      	ldr	r2, [pc, #44]	; (8004724 <netdev_init+0x70>)
+ 80046f6:	490c      	ldr	r1, [pc, #48]	; (8004728 <netdev_init+0x74>)
+ 80046f8:	4620      	mov	r0, r4
+ 80046fa:	f7fe fcf8 	bl	80030ee <HAL_ETH_DMATxDescListInit>
   /* Initialize Rx Descriptors list: Chain Mode  */
   HAL_ETH_DMARxDescListInit(&heth, DMARxDscrTab, &Rx_Buff[0][0], ETH_RXBUFNB);
- 80046f4:	2304      	movs	r3, #4
- 80046f6:	4a09      	ldr	r2, [pc, #36]	; (800471c <netdev_init+0x68>)
- 80046f8:	4909      	ldr	r1, [pc, #36]	; (8004720 <netdev_init+0x6c>)
- 80046fa:	4620      	mov	r0, r4
- 80046fc:	f7fe fd30 	bl	8003160 <HAL_ETH_DMARxDescListInit>
+ 80046fe:	2304      	movs	r3, #4
+ 8004700:	4a0a      	ldr	r2, [pc, #40]	; (800472c <netdev_init+0x78>)
+ 8004702:	490b      	ldr	r1, [pc, #44]	; (8004730 <netdev_init+0x7c>)
+ 8004704:	4620      	mov	r0, r4
+ 8004706:	f7fe fd2b 	bl	8003160 <HAL_ETH_DMARxDescListInit>
   /* Enable MAC and DMA transmission and reception */
   HAL_ETH_Start(&heth);
- 8004700:	4620      	mov	r0, r4
- 8004702:	f7fe ffdb 	bl	80036bc <HAL_ETH_Start>
+ 800470a:	4620      	mov	r0, r4
+ 800470c:	f7fe ffd6 	bl	80036bc <HAL_ETH_Start>
 }
- 8004706:	bd10      	pop	{r4, pc}
- 8004708:	200005dc 	.word	0x200005dc
- 800470c:	200025f4 	.word	0x200025f4
- 8004710:	40028000 	.word	0x40028000
- 8004714:	2000263c 	.word	0x2000263c
- 8004718:	20000d24 	.word	0x20000d24
- 800471c:	20000da4 	.word	0x20000da4
- 8004720:	20002574 	.word	0x20002574
+ 8004710:	bd10      	pop	{r4, pc}
+ 8004712:	bf00      	nop
+ 8004714:	200005e4 	.word	0x200005e4
+ 8004718:	200005dc 	.word	0x200005dc
+ 800471c:	200025f4 	.word	0x200025f4
+ 8004720:	40028000 	.word	0x40028000
+ 8004724:	2000263c 	.word	0x2000263c
+ 8004728:	20000d24 	.word	0x20000d24
+ 800472c:	20000da4 	.word	0x20000da4
+ 8004730:	20002574 	.word	0x20002574
 
-08004724 <netdev_init_mac>:
+08004734 <netdev_init_mac>:
 
 /*---------------------------------------------------------------------------*/
 void netdev_init_mac(void)
 {
   /* Configure the MAC address */
   uip_setethaddr(macAddress);
- 8004724:	4a07      	ldr	r2, [pc, #28]	; (8004744 <netdev_init_mac+0x20>)
- 8004726:	7811      	ldrb	r1, [r2, #0]
- 8004728:	4b07      	ldr	r3, [pc, #28]	; (8004748 <netdev_init_mac+0x24>)
- 800472a:	7019      	strb	r1, [r3, #0]
- 800472c:	7851      	ldrb	r1, [r2, #1]
- 800472e:	7059      	strb	r1, [r3, #1]
- 8004730:	7891      	ldrb	r1, [r2, #2]
- 8004732:	7099      	strb	r1, [r3, #2]
- 8004734:	78d1      	ldrb	r1, [r2, #3]
- 8004736:	70d9      	strb	r1, [r3, #3]
- 8004738:	7911      	ldrb	r1, [r2, #4]
- 800473a:	7119      	strb	r1, [r3, #4]
- 800473c:	7952      	ldrb	r2, [r2, #5]
- 800473e:	715a      	strb	r2, [r3, #5]
+ 8004734:	4a07      	ldr	r2, [pc, #28]	; (8004754 <netdev_init_mac+0x20>)
+ 8004736:	7811      	ldrb	r1, [r2, #0]
+ 8004738:	4b07      	ldr	r3, [pc, #28]	; (8004758 <netdev_init_mac+0x24>)
+ 800473a:	7019      	strb	r1, [r3, #0]
+ 800473c:	7851      	ldrb	r1, [r2, #1]
+ 800473e:	7059      	strb	r1, [r3, #1]
+ 8004740:	7891      	ldrb	r1, [r2, #2]
+ 8004742:	7099      	strb	r1, [r3, #2]
+ 8004744:	78d1      	ldrb	r1, [r2, #3]
+ 8004746:	70d9      	strb	r1, [r3, #3]
+ 8004748:	7911      	ldrb	r1, [r2, #4]
+ 800474a:	7119      	strb	r1, [r3, #4]
+ 800474c:	7952      	ldrb	r2, [r2, #5]
+ 800474e:	715a      	strb	r2, [r3, #5]
 }
- 8004740:	4770      	bx	lr
- 8004742:	bf00      	nop
- 8004744:	200005dc 	.word	0x200005dc
- 8004748:	20000568 	.word	0x20000568
+ 8004750:	4770      	bx	lr
+ 8004752:	bf00      	nop
+ 8004754:	200005dc 	.word	0x200005dc
+ 8004758:	20000568 	.word	0x20000568
 
-0800474c <netdev_read>:
+0800475c <netdev_read>:
 }
 
 
 /*---------------------------------------------------------------------------*/
 unsigned int netdev_read(void)
 {
- 800474c:	b538      	push	{r3, r4, r5, lr}
+ 800475c:	b538      	push	{r3, r4, r5, lr}
   uint16_t  len = 0;
   uint8_t * buffer;
   __IO ETH_DMADescTypeDef *dmarxdesc;
 
   /* Check if a new frame was received. */
   if (HAL_ETH_GetReceivedFrame(&heth) == HAL_OK)
- 800474e:	4812      	ldr	r0, [pc, #72]	; (8004798 <netdev_read+0x4c>)
- 8004750:	f7fe fdcc 	bl	80032ec <HAL_ETH_GetReceivedFrame>
- 8004754:	b110      	cbz	r0, 800475c <netdev_read+0x10>
+ 800475e:	4812      	ldr	r0, [pc, #72]	; (80047a8 <netdev_read+0x4c>)
+ 8004760:	f7fe fdc4 	bl	80032ec <HAL_ETH_GetReceivedFrame>
+ 8004764:	b110      	cbz	r0, 800476c <netdev_read+0x10>
   unsigned int result = 0;
- 8004756:	2400      	movs	r4, #0
+ 8004766:	2400      	movs	r4, #0
     /* Update the result. */
     result = len;
   }
   /* Give the result back to the caller. */
   return result;
 }
- 8004758:	4620      	mov	r0, r4
- 800475a:	bd38      	pop	{r3, r4, r5, pc}
+ 8004768:	4620      	mov	r0, r4
+ 800476a:	bd38      	pop	{r3, r4, r5, pc}
     len = heth.RxFrameInfos.length;
- 800475c:	4d0e      	ldr	r5, [pc, #56]	; (8004798 <netdev_read+0x4c>)
- 800475e:	8fac      	ldrh	r4, [r5, #60]	; 0x3c
+ 800476c:	4d0e      	ldr	r5, [pc, #56]	; (80047a8 <netdev_read+0x4c>)
+ 800476e:	8fac      	ldrh	r4, [r5, #60]	; 0x3c
     memcpy(uip_buf, buffer, len);
- 8004760:	4622      	mov	r2, r4
- 8004762:	6c29      	ldr	r1, [r5, #64]	; 0x40
- 8004764:	480d      	ldr	r0, [pc, #52]	; (800479c <netdev_read+0x50>)
- 8004766:	f000 f888 	bl	800487a <memcpy>
+ 8004770:	4622      	mov	r2, r4
+ 8004772:	6c29      	ldr	r1, [r5, #64]	; 0x40
+ 8004774:	480d      	ldr	r0, [pc, #52]	; (80047ac <netdev_read+0x50>)
+ 8004776:	f000 f888 	bl	800488a <memcpy>
     dmarxdesc = heth.RxFrameInfos.FSRxDesc;
- 800476a:	6b2a      	ldr	r2, [r5, #48]	; 0x30
+ 800477a:	6b2a      	ldr	r2, [r5, #48]	; 0x30
     dmarxdesc->Status |= ETH_DMARXDESC_OWN;
- 800476c:	6813      	ldr	r3, [r2, #0]
- 800476e:	f043 4300 	orr.w	r3, r3, #2147483648	; 0x80000000
- 8004772:	6013      	str	r3, [r2, #0]
+ 800477c:	6813      	ldr	r3, [r2, #0]
+ 800477e:	f043 4300 	orr.w	r3, r3, #2147483648	; 0x80000000
+ 8004782:	6013      	str	r3, [r2, #0]
     heth.RxFrameInfos.SegCount =0;
- 8004774:	2300      	movs	r3, #0
- 8004776:	63ab      	str	r3, [r5, #56]	; 0x38
+ 8004784:	2300      	movs	r3, #0
+ 8004786:	63ab      	str	r3, [r5, #56]	; 0x38
     if ((heth.Instance->DMASR & ETH_DMASR_RBUS) != (uint32_t)RESET)
- 8004778:	682b      	ldr	r3, [r5, #0]
- 800477a:	f241 0214 	movw	r2, #4116	; 0x1014
- 800477e:	589a      	ldr	r2, [r3, r2]
- 8004780:	f012 0f80 	tst.w	r2, #128	; 0x80
- 8004784:	d0e8      	beq.n	8004758 <netdev_read+0xc>
+ 8004788:	682b      	ldr	r3, [r5, #0]
+ 800478a:	f241 0214 	movw	r2, #4116	; 0x1014
+ 800478e:	589a      	ldr	r2, [r3, r2]
+ 8004790:	f012 0f80 	tst.w	r2, #128	; 0x80
+ 8004794:	d0e8      	beq.n	8004768 <netdev_read+0xc>
       heth.Instance->DMASR = ETH_DMASR_RBUS;
- 8004786:	f241 0214 	movw	r2, #4116	; 0x1014
- 800478a:	2180      	movs	r1, #128	; 0x80
- 800478c:	5099      	str	r1, [r3, r2]
+ 8004796:	f241 0214 	movw	r2, #4116	; 0x1014
+ 800479a:	2180      	movs	r1, #128	; 0x80
+ 800479c:	5099      	str	r1, [r3, r2]
       heth.Instance->DMARPDR = 0;
- 800478e:	f241 0208 	movw	r2, #4104	; 0x1008
- 8004792:	2100      	movs	r1, #0
- 8004794:	5099      	str	r1, [r3, r2]
- 8004796:	e7df      	b.n	8004758 <netdev_read+0xc>
- 8004798:	200025f4 	.word	0x200025f4
- 800479c:	20000684 	.word	0x20000684
+ 800479e:	f241 0208 	movw	r2, #4104	; 0x1008
+ 80047a2:	2100      	movs	r1, #0
+ 80047a4:	5099      	str	r1, [r3, r2]
+ 80047a6:	e7df      	b.n	8004768 <netdev_read+0xc>
+ 80047a8:	200025f4 	.word	0x200025f4
+ 80047ac:	20000684 	.word	0x20000684
 
-080047a0 <netdev_send>:
+080047b0 <netdev_send>:
 
 
 /*---------------------------------------------------------------------------*/
 void netdev_send(void)
 {
- 80047a0:	b538      	push	{r3, r4, r5, lr}
+ 80047b0:	b538      	push	{r3, r4, r5, lr}
   uint32_t framelength;
   uint32_t timeout;
   ErrorStatus errorStatus = SUCCESS;
 
   /* Obtain pointer to the transmission DMA descriptor. */
   DmaTxDesc = heth.TxDesc;
- 80047a2:	4b19      	ldr	r3, [pc, #100]	; (8004808 <netdev_send+0x68>)
- 80047a4:	6adc      	ldr	r4, [r3, #44]	; 0x2c
+ 80047b2:	4b19      	ldr	r3, [pc, #100]	; (8004818 <netdev_send+0x68>)
+ 80047b4:	6adc      	ldr	r4, [r3, #44]	; 0x2c
   /* Set timeout time to wait for the DMA buffer to become available. */
   timeout = TimerGet() + NETDEV_TX_PACKET_TIMEOUT_MS;
- 80047a6:	f7fc fb39 	bl	8000e1c <TimerGet>
- 80047aa:	f100 05fa 	add.w	r5, r0, #250	; 0xfa
+ 80047b6:	f7fc fb31 	bl	8000e1c <TimerGet>
+ 80047ba:	f100 05fa 	add.w	r5, r0, #250	; 0xfa
   /* Only continue with packet transmission of the buffer is available. */
   while ((DmaTxDesc->Status & ETH_DMATXDESC_OWN) != (uint32_t)RESET)
- 80047ae:	6823      	ldr	r3, [r4, #0]
- 80047b0:	2b00      	cmp	r3, #0
- 80047b2:	da07      	bge.n	80047c4 <netdev_send+0x24>
+ 80047be:	6823      	ldr	r3, [r4, #0]
+ 80047c0:	2b00      	cmp	r3, #0
+ 80047c2:	da07      	bge.n	80047d4 <netdev_send+0x24>
   {
     CopService();
- 80047b4:	f7fc fc04 	bl	8000fc0 <CopService>
+ 80047c4:	f7fc fbfc 	bl	8000fc0 <CopService>
     /* Break loop upon timeout. This would indicate a hardware failure. */
     if (TimerGet() > timeout)
- 80047b8:	f7fc fb30 	bl	8000e1c <TimerGet>
- 80047bc:	42a8      	cmp	r0, r5
- 80047be:	d9f6      	bls.n	80047ae <netdev_send+0xe>
+ 80047c8:	f7fc fb28 	bl	8000e1c <TimerGet>
+ 80047cc:	42a8      	cmp	r0, r5
+ 80047ce:	d9f6      	bls.n	80047be <netdev_send+0xe>
     {
       /* Update the error status. */
       errorStatus = ERROR;
- 80047c0:	2300      	movs	r3, #0
- 80047c2:	e000      	b.n	80047c6 <netdev_send+0x26>
+ 80047d0:	2300      	movs	r3, #0
+ 80047d2:	e000      	b.n	80047d6 <netdev_send+0x26>
   ErrorStatus errorStatus = SUCCESS;
- 80047c4:	2301      	movs	r3, #1
+ 80047d4:	2301      	movs	r3, #1
       break;
     }
   }
   /* Only continue with transmission if not error was detected. */
   if (errorStatus == SUCCESS)
- 80047c6:	b983      	cbnz	r3, 80047ea <netdev_send+0x4a>
+ 80047d6:	b983      	cbnz	r3, 80047fa <netdev_send+0x4a>
   }
 
   /* When Transmit Underflow flag is set, clear it and issue a Transmit Poll Demand to
    * resume transmission.
    */
   if ((heth.Instance->DMASR & ETH_DMASR_TUS) != (uint32_t)RESET)
- 80047c8:	4b0f      	ldr	r3, [pc, #60]	; (8004808 <netdev_send+0x68>)
- 80047ca:	681b      	ldr	r3, [r3, #0]
- 80047cc:	f241 0214 	movw	r2, #4116	; 0x1014
- 80047d0:	589a      	ldr	r2, [r3, r2]
- 80047d2:	f012 0f20 	tst.w	r2, #32
- 80047d6:	d007      	beq.n	80047e8 <netdev_send+0x48>
+ 80047d8:	4b0f      	ldr	r3, [pc, #60]	; (8004818 <netdev_send+0x68>)
+ 80047da:	681b      	ldr	r3, [r3, #0]
+ 80047dc:	f241 0214 	movw	r2, #4116	; 0x1014
+ 80047e0:	589a      	ldr	r2, [r3, r2]
+ 80047e2:	f012 0f20 	tst.w	r2, #32
+ 80047e6:	d007      	beq.n	80047f8 <netdev_send+0x48>
   {
     /* Clear TUS ETHERNET DMA flag. */
     heth.Instance->DMASR = ETH_DMASR_TUS;
- 80047d8:	f241 0214 	movw	r2, #4116	; 0x1014
- 80047dc:	2120      	movs	r1, #32
- 80047de:	5099      	str	r1, [r3, r2]
+ 80047e8:	f241 0214 	movw	r2, #4116	; 0x1014
+ 80047ec:	2120      	movs	r1, #32
+ 80047ee:	5099      	str	r1, [r3, r2]
     /* Resume DMA transmission. */
     heth.Instance->DMATPDR = 0;
- 80047e0:	f241 0204 	movw	r2, #4100	; 0x1004
- 80047e4:	2100      	movs	r1, #0
- 80047e6:	5099      	str	r1, [r3, r2]
+ 80047f0:	f241 0204 	movw	r2, #4100	; 0x1004
+ 80047f4:	2100      	movs	r1, #0
+ 80047f6:	5099      	str	r1, [r3, r2]
   }
 }
- 80047e8:	bd38      	pop	{r3, r4, r5, pc}
+ 80047f8:	bd38      	pop	{r3, r4, r5, pc}
     framelength = uip_len;
- 80047ea:	4b08      	ldr	r3, [pc, #32]	; (800480c <netdev_send+0x6c>)
- 80047ec:	881d      	ldrh	r5, [r3, #0]
+ 80047fa:	4b08      	ldr	r3, [pc, #32]	; (800481c <netdev_send+0x6c>)
+ 80047fc:	881d      	ldrh	r5, [r3, #0]
     buffer = (uint8_t *)(heth.TxDesc->Buffer1Addr);
- 80047ee:	4c06      	ldr	r4, [pc, #24]	; (8004808 <netdev_send+0x68>)
- 80047f0:	6ae3      	ldr	r3, [r4, #44]	; 0x2c
+ 80047fe:	4c06      	ldr	r4, [pc, #24]	; (8004818 <netdev_send+0x68>)
+ 8004800:	6ae3      	ldr	r3, [r4, #44]	; 0x2c
     memcpy(buffer, uip_buf, framelength);
- 80047f2:	462a      	mov	r2, r5
- 80047f4:	4906      	ldr	r1, [pc, #24]	; (8004810 <netdev_send+0x70>)
- 80047f6:	6898      	ldr	r0, [r3, #8]
- 80047f8:	f000 f83f 	bl	800487a <memcpy>
+ 8004802:	462a      	mov	r2, r5
+ 8004804:	4906      	ldr	r1, [pc, #24]	; (8004820 <netdev_send+0x70>)
+ 8004806:	6898      	ldr	r0, [r3, #8]
+ 8004808:	f000 f83f 	bl	800488a <memcpy>
     HAL_ETH_TransmitFrame(&heth, framelength);
- 80047fc:	4629      	mov	r1, r5
- 80047fe:	4620      	mov	r0, r4
- 8004800:	f7fe fce4 	bl	80031cc <HAL_ETH_TransmitFrame>
- 8004804:	e7e0      	b.n	80047c8 <netdev_send+0x28>
- 8004806:	bf00      	nop
- 8004808:	200025f4 	.word	0x200025f4
- 800480c:	200005f0 	.word	0x200005f0
- 8004810:	20000684 	.word	0x20000684
+ 800480c:	4629      	mov	r1, r5
+ 800480e:	4620      	mov	r0, r4
+ 8004810:	f7fe fcdc 	bl	80031cc <HAL_ETH_TransmitFrame>
+ 8004814:	e7e0      	b.n	80047d8 <netdev_send+0x28>
+ 8004816:	bf00      	nop
+ 8004818:	200025f4 	.word	0x200025f4
+ 800481c:	200005f0 	.word	0x200005f0
+ 8004820:	20000684 	.word	0x20000684
 
-08004814 <__libc_init_array>:
- 8004814:	b570      	push	{r4, r5, r6, lr}
- 8004816:	4e0d      	ldr	r6, [pc, #52]	; (800484c <__libc_init_array+0x38>)
- 8004818:	4c0d      	ldr	r4, [pc, #52]	; (8004850 <__libc_init_array+0x3c>)
- 800481a:	1ba4      	subs	r4, r4, r6
- 800481c:	10a4      	asrs	r4, r4, #2
- 800481e:	2500      	movs	r5, #0
- 8004820:	42a5      	cmp	r5, r4
- 8004822:	d109      	bne.n	8004838 <__libc_init_array+0x24>
- 8004824:	4e0b      	ldr	r6, [pc, #44]	; (8004854 <__libc_init_array+0x40>)
- 8004826:	4c0c      	ldr	r4, [pc, #48]	; (8004858 <__libc_init_array+0x44>)
- 8004828:	f000 f83a 	bl	80048a0 <_init>
- 800482c:	1ba4      	subs	r4, r4, r6
- 800482e:	10a4      	asrs	r4, r4, #2
- 8004830:	2500      	movs	r5, #0
- 8004832:	42a5      	cmp	r5, r4
- 8004834:	d105      	bne.n	8004842 <__libc_init_array+0x2e>
- 8004836:	bd70      	pop	{r4, r5, r6, pc}
- 8004838:	f856 3025 	ldr.w	r3, [r6, r5, lsl #2]
- 800483c:	4798      	blx	r3
- 800483e:	3501      	adds	r5, #1
- 8004840:	e7ee      	b.n	8004820 <__libc_init_array+0xc>
- 8004842:	f856 3025 	ldr.w	r3, [r6, r5, lsl #2]
- 8004846:	4798      	blx	r3
- 8004848:	3501      	adds	r5, #1
- 800484a:	e7f2      	b.n	8004832 <__libc_init_array+0x1e>
- 800484c:	08004978 	.word	0x08004978
- 8004850:	08004978 	.word	0x08004978
- 8004854:	08004978 	.word	0x08004978
- 8004858:	0800497c 	.word	0x0800497c
+08004824 <__libc_init_array>:
+ 8004824:	b570      	push	{r4, r5, r6, lr}
+ 8004826:	4e0d      	ldr	r6, [pc, #52]	; (800485c <__libc_init_array+0x38>)
+ 8004828:	4c0d      	ldr	r4, [pc, #52]	; (8004860 <__libc_init_array+0x3c>)
+ 800482a:	1ba4      	subs	r4, r4, r6
+ 800482c:	10a4      	asrs	r4, r4, #2
+ 800482e:	2500      	movs	r5, #0
+ 8004830:	42a5      	cmp	r5, r4
+ 8004832:	d109      	bne.n	8004848 <__libc_init_array+0x24>
+ 8004834:	4e0b      	ldr	r6, [pc, #44]	; (8004864 <__libc_init_array+0x40>)
+ 8004836:	4c0c      	ldr	r4, [pc, #48]	; (8004868 <__libc_init_array+0x44>)
+ 8004838:	f000 f83a 	bl	80048b0 <_init>
+ 800483c:	1ba4      	subs	r4, r4, r6
+ 800483e:	10a4      	asrs	r4, r4, #2
+ 8004840:	2500      	movs	r5, #0
+ 8004842:	42a5      	cmp	r5, r4
+ 8004844:	d105      	bne.n	8004852 <__libc_init_array+0x2e>
+ 8004846:	bd70      	pop	{r4, r5, r6, pc}
+ 8004848:	f856 3025 	ldr.w	r3, [r6, r5, lsl #2]
+ 800484c:	4798      	blx	r3
+ 800484e:	3501      	adds	r5, #1
+ 8004850:	e7ee      	b.n	8004830 <__libc_init_array+0xc>
+ 8004852:	f856 3025 	ldr.w	r3, [r6, r5, lsl #2]
+ 8004856:	4798      	blx	r3
+ 8004858:	3501      	adds	r5, #1
+ 800485a:	e7f2      	b.n	8004842 <__libc_init_array+0x1e>
+ 800485c:	08004988 	.word	0x08004988
+ 8004860:	08004988 	.word	0x08004988
+ 8004864:	08004988 	.word	0x08004988
+ 8004868:	0800498c 	.word	0x0800498c
 
-0800485c <memcmp>:
- 800485c:	b530      	push	{r4, r5, lr}
- 800485e:	2400      	movs	r4, #0
- 8004860:	42a2      	cmp	r2, r4
- 8004862:	d101      	bne.n	8004868 <memcmp+0xc>
- 8004864:	2000      	movs	r0, #0
- 8004866:	e007      	b.n	8004878 <memcmp+0x1c>
- 8004868:	5d03      	ldrb	r3, [r0, r4]
- 800486a:	3401      	adds	r4, #1
- 800486c:	190d      	adds	r5, r1, r4
- 800486e:	f815 5c01 	ldrb.w	r5, [r5, #-1]
- 8004872:	42ab      	cmp	r3, r5
- 8004874:	d0f4      	beq.n	8004860 <memcmp+0x4>
- 8004876:	1b58      	subs	r0, r3, r5
- 8004878:	bd30      	pop	{r4, r5, pc}
+0800486c <memcmp>:
+ 800486c:	b530      	push	{r4, r5, lr}
+ 800486e:	2400      	movs	r4, #0
+ 8004870:	42a2      	cmp	r2, r4
+ 8004872:	d101      	bne.n	8004878 <memcmp+0xc>
+ 8004874:	2000      	movs	r0, #0
+ 8004876:	e007      	b.n	8004888 <memcmp+0x1c>
+ 8004878:	5d03      	ldrb	r3, [r0, r4]
+ 800487a:	3401      	adds	r4, #1
+ 800487c:	190d      	adds	r5, r1, r4
+ 800487e:	f815 5c01 	ldrb.w	r5, [r5, #-1]
+ 8004882:	42ab      	cmp	r3, r5
+ 8004884:	d0f4      	beq.n	8004870 <memcmp+0x4>
+ 8004886:	1b58      	subs	r0, r3, r5
+ 8004888:	bd30      	pop	{r4, r5, pc}
 
-0800487a <memcpy>:
- 800487a:	b510      	push	{r4, lr}
- 800487c:	1e43      	subs	r3, r0, #1
- 800487e:	440a      	add	r2, r1
- 8004880:	4291      	cmp	r1, r2
- 8004882:	d100      	bne.n	8004886 <memcpy+0xc>
- 8004884:	bd10      	pop	{r4, pc}
- 8004886:	f811 4b01 	ldrb.w	r4, [r1], #1
- 800488a:	f803 4f01 	strb.w	r4, [r3, #1]!
- 800488e:	e7f7      	b.n	8004880 <memcpy+0x6>
+0800488a <memcpy>:
+ 800488a:	b510      	push	{r4, lr}
+ 800488c:	1e43      	subs	r3, r0, #1
+ 800488e:	440a      	add	r2, r1
+ 8004890:	4291      	cmp	r1, r2
+ 8004892:	d100      	bne.n	8004896 <memcpy+0xc>
+ 8004894:	bd10      	pop	{r4, pc}
+ 8004896:	f811 4b01 	ldrb.w	r4, [r1], #1
+ 800489a:	f803 4f01 	strb.w	r4, [r3, #1]!
+ 800489e:	e7f7      	b.n	8004890 <memcpy+0x6>
 
-08004890 <memset>:
- 8004890:	4402      	add	r2, r0
- 8004892:	4603      	mov	r3, r0
- 8004894:	4293      	cmp	r3, r2
- 8004896:	d100      	bne.n	800489a <memset+0xa>
- 8004898:	4770      	bx	lr
- 800489a:	f803 1b01 	strb.w	r1, [r3], #1
- 800489e:	e7f9      	b.n	8004894 <memset+0x4>
+080048a0 <memset>:
+ 80048a0:	4402      	add	r2, r0
+ 80048a2:	4603      	mov	r3, r0
+ 80048a4:	4293      	cmp	r3, r2
+ 80048a6:	d100      	bne.n	80048aa <memset+0xa>
+ 80048a8:	4770      	bx	lr
+ 80048aa:	f803 1b01 	strb.w	r1, [r3], #1
+ 80048ae:	e7f9      	b.n	80048a4 <memset+0x4>
 
-080048a0 <_init>:
- 80048a0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
- 80048a2:	bf00      	nop
- 80048a4:	bcf8      	pop	{r3, r4, r5, r6, r7}
- 80048a6:	bc08      	pop	{r3}
- 80048a8:	469e      	mov	lr, r3
- 80048aa:	4770      	bx	lr
+080048b0 <_init>:
+ 80048b0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 80048b2:	bf00      	nop
+ 80048b4:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ 80048b6:	bc08      	pop	{r3}
+ 80048b8:	469e      	mov	lr, r3
+ 80048ba:	4770      	bx	lr
 
-080048ac <_fini>:
- 80048ac:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
- 80048ae:	bf00      	nop
- 80048b0:	bcf8      	pop	{r3, r4, r5, r6, r7}
- 80048b2:	bc08      	pop	{r3}
- 80048b4:	469e      	mov	lr, r3
- 80048b6:	4770      	bx	lr
+080048bc <_fini>:
+ 80048bc:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 80048be:	bf00      	nop
+ 80048c0:	bcf8      	pop	{r3, r4, r5, r6, r7}
+ 80048c2:	bc08      	pop	{r3}
+ 80048c4:	469e      	mov	lr, r3
+ 80048c6:	4770      	bx	lr

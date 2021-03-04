@@ -50,7 +50,8 @@ lib/uip/netdev.o: ../lib/uip/netdev.c \
  /Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/MainEngineBootloader/lib/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c.h \
  /Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/MainEngineBootloader/lib/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h \
  /Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/MainEngineBootloader/lib/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h \
- /Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/MainEngineBootloader/lib/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h
+ /Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/MainEngineBootloader/lib/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h \
+ /Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/MainEngineBootloader/MY_FLASH.h
 
 /Users/christiansager/klanghabitat_quantum/firmware/openblt_v011000/Target/Source/third_party/uip/uip/uip.h:
 
@@ -155,3 +156,5 @@ lib/uip/netdev.o: ../lib/uip/netdev.c \
 /Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/MainEngineBootloader/lib/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h:
 
 /Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/MainEngineBootloader/lib/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h:
+
+/Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/MainEngineBootloader/MY_FLASH.h:

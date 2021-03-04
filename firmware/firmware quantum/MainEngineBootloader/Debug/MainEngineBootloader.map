@@ -5859,7 +5859,7 @@ LOAD /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.id
                 0x0000000008000000                g_pfnVectors
                 0x00000000080001f8                . = ALIGN (0x4)
 
-.text           0x00000000080001f8     0x46c0
+.text           0x00000000080001f8     0x46d0
                 0x00000000080001f8                . = ALIGN (0x4)
  *(.text)
  .text          0x00000000080001f8       0x40 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.macos64_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
@@ -6446,107 +6446,107 @@ LOAD /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.id
                 0x00000000080045f8       0xbc lib/uip/netdev.o
                 0x00000000080045f8                HAL_ETH_MspInit
  .text.netdev_init
-                0x00000000080046b4       0x70 lib/uip/netdev.o
+                0x00000000080046b4       0x80 lib/uip/netdev.o
                 0x00000000080046b4                netdev_init
  .text.netdev_init_mac
-                0x0000000008004724       0x28 lib/uip/netdev.o
-                0x0000000008004724                netdev_init_mac
+                0x0000000008004734       0x28 lib/uip/netdev.o
+                0x0000000008004734                netdev_init_mac
  .text.netdev_read
-                0x000000000800474c       0x54 lib/uip/netdev.o
-                0x000000000800474c                netdev_read
+                0x000000000800475c       0x54 lib/uip/netdev.o
+                0x000000000800475c                netdev_read
  .text.netdev_send
-                0x00000000080047a0       0x74 lib/uip/netdev.o
-                0x00000000080047a0                netdev_send
+                0x00000000080047b0       0x74 lib/uip/netdev.o
+                0x00000000080047b0                netdev_send
  .text.__libc_init_array
-                0x0000000008004814       0x48 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.macos64_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-init.o)
-                0x0000000008004814                __libc_init_array
- .text.memcmp   0x000000000800485c       0x1e /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.macos64_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-memcmp.o)
-                0x000000000800485c                memcmp
- .text.memcpy   0x000000000800487a       0x16 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.macos64_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-memcpy-stub.o)
-                0x000000000800487a                memcpy
- .text.memset   0x0000000008004890       0x10 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.macos64_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-memset.o)
-                0x0000000008004890                memset
+                0x0000000008004824       0x48 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.macos64_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-init.o)
+                0x0000000008004824                __libc_init_array
+ .text.memcmp   0x000000000800486c       0x1e /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.macos64_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-memcmp.o)
+                0x000000000800486c                memcmp
+ .text.memcpy   0x000000000800488a       0x16 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.macos64_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-memcpy-stub.o)
+                0x000000000800488a                memcpy
+ .text.memset   0x00000000080048a0       0x10 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.macos64_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libc_nano.a(lib_a-memset.o)
+                0x00000000080048a0                memset
  *(.glue_7)
- .glue_7        0x00000000080048a0        0x0 linker stubs
+ .glue_7        0x00000000080048b0        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x00000000080048a0        0x0 linker stubs
+ .glue_7t       0x00000000080048b0        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x00000000080048a0        0x0 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.macos64_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+ .eh_frame      0x00000000080048b0        0x0 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.macos64_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
  *(.init)
- .init          0x00000000080048a0        0x4 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.macos64_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crti.o
-                0x00000000080048a0                _init
- .init          0x00000000080048a4        0x8 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.macos64_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
+ .init          0x00000000080048b0        0x4 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.macos64_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crti.o
+                0x00000000080048b0                _init
+ .init          0x00000000080048b4        0x8 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.macos64_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
  *(.fini)
- .fini          0x00000000080048ac        0x4 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.macos64_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crti.o
-                0x00000000080048ac                _fini
- .fini          0x00000000080048b0        0x8 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.macos64_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
-                0x00000000080048b8                . = ALIGN (0x4)
-                0x00000000080048b8                _etext = .
+ .fini          0x00000000080048bc        0x4 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.macos64_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crti.o
+                0x00000000080048bc                _fini
+ .fini          0x00000000080048c0        0x8 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.macos64_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
+                0x00000000080048c8                . = ALIGN (0x4)
+                0x00000000080048c8                _etext = .
 
-.vfp11_veneer   0x00000000080048b8        0x0
- .vfp11_veneer  0x00000000080048b8        0x0 linker stubs
+.vfp11_veneer   0x00000000080048c8        0x0
+ .vfp11_veneer  0x00000000080048c8        0x0 linker stubs
 
-.v4_bx          0x00000000080048b8        0x0
- .v4_bx         0x00000000080048b8        0x0 linker stubs
+.v4_bx          0x00000000080048c8        0x0
+ .v4_bx         0x00000000080048c8        0x0 linker stubs
 
-.iplt           0x00000000080048b8        0x0
- .iplt          0x00000000080048b8        0x0 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.macos64_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+.iplt           0x00000000080048c8        0x0
+ .iplt          0x00000000080048c8        0x0 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.macos64_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
 
-.rodata         0x00000000080048b8       0xb8
-                0x00000000080048b8                . = ALIGN (0x4)
+.rodata         0x00000000080048c8       0xb8
+                0x00000000080048c8                . = ALIGN (0x4)
  *(.rodata)
  *(.rodata*)
  .rodata.SystemClock_Config.str1.4
-                0x00000000080048b8        0xc main.o
+                0x00000000080048c8        0xc main.o
                                           0xa (size before relaxing)
  .rodata.flashLayout
-                0x00000000080048c4       0x84 core/ARMCM7_STM32F7/flash.o
+                0x00000000080048d4       0x84 core/ARMCM7_STM32F7/flash.o
  .rodata.xcpStationId
-                0x0000000008004948        0x8 core/xcp.o
+                0x0000000008004958        0x8 core/xcp.o
  .rodata.magic_cookie
-                0x0000000008004950        0x4 core/third_party/uip/apps/dhcpc/dhcpc.o
- .rodata.xid    0x0000000008004954        0x4 core/third_party/uip/apps/dhcpc/dhcpc.o
+                0x0000000008004960        0x4 core/third_party/uip/apps/dhcpc/dhcpc.o
+ .rodata.xid    0x0000000008004964        0x4 core/third_party/uip/apps/dhcpc/dhcpc.o
  .rodata.broadcast_ethaddr
-                0x0000000008004958        0x6 core/third_party/uip/uip/uip_arp.o
- *fill*         0x000000000800495e        0x2 
+                0x0000000008004968        0x6 core/third_party/uip/uip/uip_arp.o
+ *fill*         0x000000000800496e        0x2 
  .rodata.AHBPrescTable
-                0x0000000008004960       0x10 lib/system_stm32f7xx.o
-                0x0000000008004960                AHBPrescTable
-                0x0000000008004970                . = ALIGN (0x4)
+                0x0000000008004970       0x10 lib/system_stm32f7xx.o
+                0x0000000008004970                AHBPrescTable
+                0x0000000008004980                . = ALIGN (0x4)
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x0000000008004970        0x8
-                0x0000000008004970                __exidx_start = .
+.ARM            0x0000000008004980        0x8
+                0x0000000008004980                __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx     0x0000000008004970        0x8 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.macos64_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_udivmoddi4.o)
-                0x0000000008004978                __exidx_end = .
+ .ARM.exidx     0x0000000008004980        0x8 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.macos64_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/libgcc.a(_udivmoddi4.o)
+                0x0000000008004988                __exidx_end = .
 
-.rel.dyn        0x0000000008004978        0x0
- .rel.iplt      0x0000000008004978        0x0 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.macos64_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+.rel.dyn        0x0000000008004988        0x0
+ .rel.iplt      0x0000000008004988        0x0 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.macos64_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
 
-.preinit_array  0x0000000008004978        0x0
-                0x0000000008004978                PROVIDE (__preinit_array_start = .)
+.preinit_array  0x0000000008004988        0x0
+                0x0000000008004988                PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x0000000008004978                PROVIDE (__preinit_array_end = .)
+                0x0000000008004988                PROVIDE (__preinit_array_end = .)
 
-.init_array     0x0000000008004978        0x4
-                0x0000000008004978                PROVIDE (__init_array_start = .)
+.init_array     0x0000000008004988        0x4
+                0x0000000008004988                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x0000000008004978        0x4 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.macos64_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
-                0x000000000800497c                PROVIDE (__init_array_end = .)
+ .init_array    0x0000000008004988        0x4 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.macos64_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+                0x000000000800498c                PROVIDE (__init_array_end = .)
 
-.fini_array     0x000000000800497c        0x4
+.fini_array     0x000000000800498c        0x4
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x000000000800497c        0x4 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.macos64_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
+ .fini_array    0x000000000800498c        0x4 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.macos64_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
                 [!provide]                        PROVIDE (__fini_array_end = .)
-                0x0000000008004980                _sidata = LOADADDR (.data)
+                0x0000000008004990                _sidata = LOADADDR (.data)
 
-.data           0x0000000020000040        0xc load address 0x0000000008004980
+.data           0x0000000020000040        0xc load address 0x0000000008004990
                 0x0000000020000040                . = ALIGN (0x4)
                 0x0000000020000040                _sdata = .
  *(.data)
@@ -6568,11 +6568,11 @@ LOAD /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.id
                 0x000000002000004c                . = ALIGN (0x4)
                 0x000000002000004c                _edata = .
 
-.igot.plt       0x000000002000004c        0x0 load address 0x000000000800498c
+.igot.plt       0x000000002000004c        0x0 load address 0x000000000800499c
  .igot.plt      0x000000002000004c        0x0 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.macos64_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtbegin.o
                 0x000000002000004c                . = ALIGN (0x4)
 
-.bss            0x000000002000004c     0x3dc0 load address 0x000000000800498c
+.bss            0x000000002000004c     0x3dc0 load address 0x000000000800499c
                 0x000000002000004c                _sbss = .
                 0x000000002000004c                __bss_start__ = _sbss
  *(.bss)
@@ -6669,7 +6669,7 @@ LOAD /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.id
                 0x0000000020003e0c                __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x0000000020003e0c      0x600 load address 0x000000000800498c
+                0x0000000020003e0c      0x600 load address 0x000000000800499c
                 0x0000000020003e0c                . = ALIGN (0x4)
                 [!provide]                        PROVIDE (end = .)
                 [!provide]                        PROVIDE (_end = .)
@@ -6775,7 +6775,7 @@ LOAD /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.id
                 0x00000000000008df       0x22 /Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.macos64_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v7e-m/fpv4-sp/hard/crtn.o
 OUTPUT(openblt_stm32f767.elf elf32-littlearm)
 
-.debug_info     0x0000000000000000    0x19583
+.debug_info     0x0000000000000000    0x195a4
  .debug_info    0x0000000000000000      0xbff MY_FLASH.o
  .debug_info    0x0000000000000bff      0x987 hooks.o
  .debug_info    0x0000000000001586      0xb2a led.o
@@ -6808,7 +6808,7 @@ OUTPUT(openblt_stm32f767.elf elf32-littlearm)
  .debug_info    0x000000000001552f     0x135a lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc.o
  .debug_info    0x0000000000016889      0xf02 lib/system_stm32f7xx.o
  .debug_info    0x000000000001778b       0x9b lib/uip/clock-arch.o
- .debug_info    0x0000000000017826     0x1d5d lib/uip/netdev.o
+ .debug_info    0x0000000000017826     0x1d7e lib/uip/netdev.o
 
 .debug_abbrev   0x0000000000000000     0x407e
  .debug_abbrev  0x0000000000000000      0x26e MY_FLASH.o
@@ -6973,7 +6973,7 @@ OUTPUT(openblt_stm32f767.elf elf32-littlearm)
  .debug_ranges  0x0000000000000aa8       0x10 lib/uip/clock-arch.o
  .debug_ranges  0x0000000000000ab8       0x40 lib/uip/netdev.o
 
-.debug_macro    0x0000000000000000    0x2a44e
+.debug_macro    0x0000000000000000    0x2a452
  .debug_macro   0x0000000000000000      0x30f MY_FLASH.o
  .debug_macro   0x000000000000030f      0xa66 MY_FLASH.o
  .debug_macro   0x0000000000000d75      0x18d MY_FLASH.o
@@ -7095,9 +7095,9 @@ OUTPUT(openblt_stm32f767.elf elf32-littlearm)
  .debug_macro   0x00000000000298fb      0x32f lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc.o
  .debug_macro   0x0000000000029c2a      0x311 lib/system_stm32f7xx.o
  .debug_macro   0x0000000000029f3b       0x9a lib/uip/clock-arch.o
- .debug_macro   0x0000000000029fd5      0x479 lib/uip/netdev.o
+ .debug_macro   0x0000000000029fd5      0x47d lib/uip/netdev.o
 
-.debug_line     0x0000000000000000    0x1215d
+.debug_line     0x0000000000000000    0x1216b
  .debug_line    0x0000000000000000      0xae9 MY_FLASH.o
  .debug_line    0x0000000000000ae9      0xbcd hooks.o
  .debug_line    0x00000000000016b6      0xbe3 led.o
@@ -7130,7 +7130,7 @@ OUTPUT(openblt_stm32f767.elf elf32-littlearm)
  .debug_line    0x000000000000f999      0xcef lib/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc.o
  .debug_line    0x0000000000010688      0xa54 lib/system_stm32f7xx.o
  .debug_line    0x00000000000110dc      0x1f7 lib/uip/clock-arch.o
- .debug_line    0x00000000000112d3      0xe8a lib/uip/netdev.o
+ .debug_line    0x00000000000112d3      0xe98 lib/uip/netdev.o
 
 .debug_str      0x0000000000000000    0xf23f0
  .debug_str     0x0000000000000000    0xe9bcf MY_FLASH.o
@@ -7198,7 +7198,7 @@ OUTPUT(openblt_stm32f767.elf elf32-littlearm)
  .debug_str     0x00000000000f226f       0x18 lib/uip/clock-arch.o
                                        0x3ccc (size before relaxing)
  .debug_str     0x00000000000f2287      0x169 lib/uip/netdev.o
-                                      0xed279 (size before relaxing)
+                                      0xed285 (size before relaxing)
 
 .comment        0x0000000000000000       0x7b
  .comment       0x0000000000000000       0x7b MY_FLASH.o

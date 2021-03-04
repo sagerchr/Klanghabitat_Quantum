@@ -41,7 +41,7 @@
 #include "uip_arp.h"
 #include "boot.h"
 #include "stm32f7xx.h"                           /* STM32 CPU and HAL header           */
-
+#include "MY_FLASH.h"                       /* Shared parameters header           */
 
 /*---------------------------------------------------------------------------*/
 #define NETDEV_DEFAULT_MACADDR0           (0x80)//0x08
@@ -157,12 +157,12 @@ void HAL_ETH_MspDeInit(ETH_HandleTypeDef* heth)
 void netdev_init(void)
 {
   /* Store the default MAC address. */
-  macAddress.addr[0] = NETDEV_DEFAULT_MACADDR0;
-  macAddress.addr[1] = NETDEV_DEFAULT_MACADDR1;
-  macAddress.addr[2] = NETDEV_DEFAULT_MACADDR2;
-  macAddress.addr[3] = NETDEV_DEFAULT_MACADDR3;
-  macAddress.addr[4] = NETDEV_DEFAULT_MACADDR4;
-  macAddress.addr[5] = NETDEV_DEFAULT_MACADDR5;
+  macAddress.addr[0] = MAC_ADRESSE[4];
+  macAddress.addr[1] = MAC_ADRESSE[5];
+  macAddress.addr[2] = MAC_ADRESSE[6];
+  macAddress.addr[3] = MAC_ADRESSE[7];
+  macAddress.addr[4] = MAC_ADRESSE[8];
+  macAddress.addr[5] = MAC_ADRESSE[9];
 
   /* Initialize Ethernet. */
   heth.Instance = ETH;
