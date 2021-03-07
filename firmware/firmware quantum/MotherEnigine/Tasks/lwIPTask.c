@@ -46,6 +46,7 @@ int OK = 0;
 
 uint8_t IP_READ[4];
 
+uint8_t pressed;
 
 err_t err;
 
@@ -316,7 +317,12 @@ for (int i=0; i<10;i++){
 			 BypassRight(activate);}
 		 */
 
-		  if (UART_IN[10]){
+		if (UART_IN[10] && pressed <20){pressed++;}
+		if (!UART_IN[10]){pressed = 0;}
+
+
+
+		  if (pressed >=15){
 			  BypassRight(bypass);BypassLeft(bypass);}
 		  else{
 			  BypassRight(activate);BypassLeft(activate);
