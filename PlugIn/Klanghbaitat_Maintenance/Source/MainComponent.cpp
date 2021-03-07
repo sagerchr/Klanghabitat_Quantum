@@ -31,7 +31,7 @@ MainComponent::MainComponent()
     addAndMakeVisible (localButton);
     webButton  .onClick = [this] { updateToggleState (&webButton,   "web");   };
     localButton.onClick = [this] { updateToggleState (&localButton, "local"); };
-    webButton.setToggleState(true,dontSendNotification);
+    localButton.setToggleState(true,dontSendNotification);
     
     
     webButton  .setRadioGroupId (SourceButtons);
