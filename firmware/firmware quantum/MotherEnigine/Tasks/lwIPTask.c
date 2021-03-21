@@ -322,7 +322,7 @@ for (int i=0; i<10;i++){
 
 
 
-		  if (pressed >=15){
+		  if(UART_IN[10]){
 			  BypassRight(bypass);BypassLeft(bypass);}
 		  else{
 			  BypassRight(activate);BypassLeft(activate);
@@ -456,7 +456,7 @@ for (int i=0; i<10;i++){
 		HAL_UART_DMAPause(&huart6);
 		}
 //##########################################################//
-		for (int i= 0; i<150;i++){
+		for (int i= 0; i<200;i++){
 			UART_transmit[i] = 0x00;
 		}
 
@@ -590,14 +590,14 @@ for (int i=0; i<10;i++){
 
 		  checksum = 0;
 		  checksum16 = 0;
-		for(int i = 0; i < 98; i++) {
+		for(int i = 0; i < 198; i++) {
 				checksum += UART_transmit[i];
 				checksum16 += UART_transmit[i];
 			  }
 
 
-		  UART_transmit[98]=checksum16 & 0x00FF; //low byte
-		  UART_transmit[99]=checksum16 >> 8; //high byte
+		  UART_transmit[198]=checksum16 & 0x00FF; //low byte
+		  UART_transmit[199]=checksum16 >> 8; //high byte
 
 		  resetMax=1;
 
