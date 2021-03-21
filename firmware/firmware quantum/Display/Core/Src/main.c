@@ -168,7 +168,7 @@ int main(void)
 
   BSP_TS_Init(800, 480);
   HAL_UART_Receive_DMA(&huart6, UART_RECIVE,RX_IN_SIZE);
-  HAL_UART_Transmit_DMA(&huart6, UART_TRANSFER,150);
+  HAL_UART_Transmit_DMA(&huart6, UART_TRANSFER,TX_OUT_SIZE);
   /* USER CODE END RTOS_MUTEX */
 
   /* USER CODE BEGIN RTOS_SEMAPHORES */

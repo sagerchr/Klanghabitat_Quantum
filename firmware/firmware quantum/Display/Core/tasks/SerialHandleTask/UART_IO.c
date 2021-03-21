@@ -41,7 +41,7 @@ UARTRECIVER(){
 	   	    	     }
 
 
-	   	    	    	 for (int i = 0; i< 100;i++){
+	   	    	    	 for (int i = 0; i< 200;i++){
 	   	    	    		UARTDATA[i] = UART_RECIVE_temp[i+start];
 	   	    	    	 }
 
@@ -55,12 +55,12 @@ UARTSENDER(){
 
 	uint8_t checksum = 0;
 	uint16_t checksum16 = 0;
-	for(int i = 0; i < 98; i++) {
+	for(int i = 0; i < 198; i++) {
 			checksum += UART_TRANSFER[i];
 			checksum16 += UART_TRANSFER[i];
 		  }
-	  UART_TRANSFER[98]=checksum16 & 0x00FF; //low byte
-	  UART_TRANSFER[99]=checksum16 >> 8; //high byte
+	  UART_TRANSFER[198]=checksum16 & 0x00FF; //low byte
+	  UART_TRANSFER[199]=checksum16 >> 8; //high byte
 
 
 

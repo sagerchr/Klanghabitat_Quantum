@@ -268,8 +268,8 @@ void Error_Handler(void);
 #define STLK_TX_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
-#define RX_IN_SIZE 200
-
+#define RX_IN_SIZE 300
+#define TX_OUT_SIZE 200
 
 
 float p_Bufferd;
@@ -279,7 +279,7 @@ int ERROR_RX;
 
 
 char UART_RECIVE[RX_IN_SIZE];
-char UART_TRANSFER[150];
+char UART_TRANSFER[TX_OUT_SIZE];
 
 int TouchXCoordinate;
 int TouchYCoordinate;

@@ -168,7 +168,7 @@ void GRAPHICS_MainTask(void) {
 
 	  reset = 1; //Reset Input Buffer collection
 
-	  for (int i=0; i<100;i++){
+	  for (int i=0; i<200;i++){
 		  UART_TRANSFER[i]=0x00;
 	  }
 
@@ -316,12 +316,12 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
     checksum16 = 0;
     CheckSumOK = 0;
 
-    for(int i = 0; i < 98; i++) {
+    for(int i = 0; i < 198; i++) {
     	checksum += UARTDATA[i];
     	checksum16 += UARTDATA[i];
     }
 
-    if(((checksum16 & 0x00FF) == UARTDATA[98]) && ((checksum16 >> 8) == UARTDATA[99])){
+    if(((checksum16 & 0x00FF) == UARTDATA[198]) && ((checksum16 >> 8) == UARTDATA[199])){
     	CheckSumOK = 1;
     }
     else{

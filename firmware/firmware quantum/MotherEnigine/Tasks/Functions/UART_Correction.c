@@ -7,7 +7,9 @@
 #include "main.h"
 #include "UART_correction.h"
 UART_HandleTypeDef huart6;
-
+	uint8_t checksum = 0;
+	uint16_t checksum16 = 0;
+	uint8_t ChecksumOK = 0;
 void UART_correction(){
 	HAL_UART_DMAPause(&huart6);
 
@@ -42,20 +44,25 @@ void UART_correction(){
 
 	     }
 
-	   	for (int i = 0; i< 100;i++){
+	   	for (int i = 0; i< 200;i++){
 	   		UART_reciveCorrected[i] = UART_RECIVE_temp[i+start];
 	   	}
+		checksum = 0;
+		checksum16 = 0;
 
-	   	uint8_t checksum = 0;
-	   	uint16_t checksum16 = 0;
-	   	for(int i = 0; i < 98; i++) {
+	   	for(int i = 0; i < 198; i++) {
 	   	 	 checksum += UART_reciveCorrected[i];
-	   	 	checksum += UART_reciveCorrected[i];
+	   	 	checksum16 += UART_reciveCorrected[i];
 	   	 }
-	   if (((checksum16 & 0x00FF) == UART_reciveCorrected[98]) && ((checksum16 >> 8) == UART_reciveCorrected[99])){
-		   	  for (int i = 0; i< 100;i++){
+	   if (((checksum16 & 0x00FF) == UART_reciveCorrected[198]) && ((checksum16 >> 8) == UART_reciveCorrected[199])){
+		   	  for (int i = 0; i< 200;i++){
 		   	 	UART_IN[i] = UART_reciveCorrected[i];
+		   	 ChecksumOK = 1;
 		   	 }
+
 	   	}
+	   	  else{
+	   		ChecksumOK = 0;
+	   	  }
 
 }

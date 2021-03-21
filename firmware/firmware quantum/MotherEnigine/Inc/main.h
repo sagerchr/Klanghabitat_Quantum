@@ -191,8 +191,8 @@ void Error_Handler(void);
 /* USER CODE BEGIN Private defines */
 #define SAMPLES                    (512)         /* 256 real party and 256 imaginary parts */
 #define FFT_SIZE                (SAMPLES / 2) /* FFT size is always the same size as we have samples, so 256 in our case */
-#define TX_OUT_SIZE 100
-#define RX_IN_SIZE 200
+#define TX_OUT_SIZE 200
+#define RX_IN_SIZE 300
 
 
 
