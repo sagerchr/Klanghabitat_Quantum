@@ -13,6 +13,7 @@
 UARTRECIVER();
 UARTSENDER();
 char UARTDATA[RX_IN_SIZE];
+char UARTDATA_checked[RX_IN_SIZE];
 char UARTDATA_legacy[RX_IN_SIZE];
 char UART_RECIVE_temp[RX_IN_SIZE];
 

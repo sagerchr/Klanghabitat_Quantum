@@ -20,7 +20,15 @@
 #include "stm32f7xx.h"
 #include "ValueTableMotherEngine.h"
 #include "lwip/tcp.h"
+#include <stdio.h>  /* needed for printf */
+#include <string.h> /* needed for strcmp */
+#include "createStreamValues.h"
 
+#include "MessageHandler.h"
+
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
 DAC_HandleTypeDef hdac;
 UART_HandleTypeDef huart6;
 static struct udp_pcb *Broadcaster;
@@ -46,7 +54,12 @@ int OK = 0;
 
 uint8_t IP_READ[4];
 
-uint8_t pressed;
+
+int TYP;
+
+
+int result = 12;
+uint8_t toggle=0;
 
 err_t err;
 
@@ -73,9 +86,12 @@ accept_callback(void *arg, struct tcp_pcb *newpcb, err_t err){
 
 
 
+
+
 void lwIPTask(void const * argument){
 
 
+	int CASE = 0;
 
 
 for (int i=0; i<175;i++){
@@ -284,11 +300,27 @@ for (int i=0; i<10;i++){
 	//============================================================================================================//
 
 
+	InitMeassageHandler();
+
+	pushToMessageQueue("TESTING#1\r\n");
+	pushToMessageQueue("TESTING#2\r\n");
+	pushToMessageQueue("TESTING#3\r\n");
+	pushToMessageQueue("TESTING#4\r\n");
+	pushToMessageQueue("TESTING#5\r\n");
+	pushToMessageQueue("TESTING#6\r\n");
+	pushToMessageQueue("TESTING#7\r\n");
+	pushToMessageQueue("TESTING#8\r\n");
+	pushToMessageQueue("TESTING#9\r\n");
+	pushToMessageQueue("TESTING#10\r\n");
+	pushToMessageQueue("TESTING#11\r\n");
+	pushToMessageQueue("TESTING#12\r\n");
+	pushToMessageQueue("TESTING#13\r\n");
+	pushToMessageQueue("TESTING#14\r\n");
+
+	popFromMessageQueue(OldestMessage);
 
 
 
-
-//char FFT_String[12] = {'/','F','F','T','/','L','E','F','T','/','0','0'};
 	  /* Infinite loop */
 	  for(;;)
 	  {
@@ -301,26 +333,6 @@ for (int i=0; i<10;i++){
 
 		  }
 			  OSCmessageINTSend("/Watchdog",  9, l);
-		  //OSCmessageStringSend("/klanghabitat", 13, "Device: Test; IP: 127.1.1.2",27);
-
-		 //=========================================================================//
-		 //=================CONTROL RELAIS VIA OSC MEASSAGE=========================//
-		 /*
-		 if (match("/MotherEngine/Relais/bypassLeft") && OSC_SIGNEDINTEGER ==  1){
-			 BypassLeft(bypass);}
-		 if (match("/MotherEngine/Relais/bypassLeft") && OSC_SIGNEDINTEGER == 0){
-			 BypassLeft(activate);}
-
-		 if (match("/MotherEngine/Relais/bypassRight") && OSC_SIGNEDINTEGER ==  1){
-			 BypassRight(bypass);}
-		 if (match("/MotherEngine/Relais/bypassRight") && OSC_SIGNEDINTEGER == 0){
-			 BypassRight(activate);}
-		 */
-
-		if (UART_IN[10] && pressed <20){pressed++;}
-		if (!UART_IN[10]){pressed = 0;}
-
-
 
 		  if(UART_IN[10]){
 			  BypassRight(bypass);BypassLeft(bypass);}
@@ -350,87 +362,10 @@ for (int i=0; i<10;i++){
 
 		 //=========================================================================//
 
-
-		  //DAC_Control(1,2,UART_reciveCorrected[6]); //offset VCA1
-		  //DAC_Control(2,2,UART_reciveCorrected[8]); //offset VCA2
-
-
-
-		  //DAC_Control(1,1,UART_reciveCorrected[6]); //SYM1 adjust
-		  //DAC_Control(2,1,UART_reciveCorrected[7]); //SYM2 adjust
-		  //DAC_Control(3,1,UART_reciveCorrected[8]); //SYM3 adjust
-		  //DAC_Control(4,1,UART_reciveCorrected[9]); //SYM4 adjust
-
-
-		//OSCmessageINTSend("/VALUE/Level/CH1/RMS",  20, voltageRMS[0]*30);
-
 		  OSCmessageINTSend("/VALUE/Level/CH1/RMS",  20, voltageIn1MAX*100);
 		  OSCmessageINTSend("/VALUE/Level/CH2/RMS",  20, voltageIn2MAX*100);
 
 
-
-
-//		OSCmessageINTSend("/help/Level/devider",  19, 146);
-
-
-		  char data[sizeof(float)];
-		  float f = -1.236;
-		  char a = data[0];char b = data[1];char c = data[2];char d = data[3];
-
-/*
-
-		  memcpy(data, &dbuRMS[1], sizeof &dbuRMS[0]);    // send data
-		  a = data[0]; b = data[1];c = data[2];d = data[3];
-		  OSCmessageFLOATSend("/VALUE/Level/CH2/FLOAT",  22, a,b,c,d);
-
-		  memcpy(data, &dbuRMS[2], sizeof &dbuRMS[0]);    // send data
-		  a = data[0]; b = data[1];c = data[2];d = data[3];
-		  OSCmessageFLOATSend("/VALUE/Level/CH3/FLOAT",  22, a,b,c,d);
-
-		  memcpy(data, &dbuRMS[3], sizeof &dbuRMS[0]);    // send data
-		  a = data[0]; b = data[1];c = data[2];d = data[3];
-		  OSCmessageFLOATSend("/VALUE/Level/CH4/FLOAT",  22, a,b,c,d);
-
-		  memcpy(data, &dbuRMS[4], sizeof &dbuRMS[0]);    // send data
-		  a = data[0]; b = data[1];c = data[2];d = data[3];
-		  OSCmessageFLOATSend("/VALUE/Level/CH5/FLOAT",  22, a,b,c,d);
-
-		  memcpy(data, &dbuRMS[5], sizeof &dbuRMS[0]);    // send data
-		  a = data[0]; b = data[1];c = data[2];d = data[3];
-		  OSCmessageFLOATSend("/VALUE/Level/CH6/FLOAT",  22, a,b,c,d);
-
-		float offset = -124.0;
-
-		  memcpy(data, &offset, sizeof &dbuRMS[0]);    // send data
-		  a = data[0]; b = data[1];c = data[2];d = data[3];
-		  OSCmessageFLOATSend("/help/Level/offset",  18, a,b,c,d);
-
-		  memcpy(data, &dbuRMS[0], sizeof &dbuRMS[0]);    // send data
-		  a = data[0]; b = data[1];c = data[2];d = data[3];
-		  OSCmessageFLOATSend("/VALUE/Level/CH1/FLOAT",  22, a,b,c,d);
-
-		  char p = 48;
-		  char k = 48;
-
-*/
-/*
-		  char FFT_String[12] = {'/','F','F','T','/','L','E','F','T','/','0','0'};
-
-		  for (int i=0; i<50; i++){
-			  memcpy(data, &FFT_result[i], sizeof &FFT_result[i]);    // send data
-			  a = data[0]; b = data[1];c = data[2];d = data[3];
-			  FFT_String[11] = p;
-			  OSCmessageFLOATSend(FFT_String, 12, a,b,c,d);
-			  p = (char)p+1;
-			  if(p == 58){
-				  p=48;
-				  k = (char)k+1;
-				  FFT_String[10] = k;
-			  }
-
-		  }
-
-*/
 
 /*****************************************************************************/
 
@@ -451,7 +386,6 @@ for (int i=0; i<10;i++){
 //
 
 //#############PAUSE the DMA to be able to write data#######//
-
 		if(DisplayUpdate == 0){
 		HAL_UART_DMAPause(&huart6);
 		}
@@ -462,132 +396,75 @@ for (int i=0; i<10;i++){
 
 		upcounter++;
 
+		createStreamValue(upcounter); //composing the StreamValue Section of UART_transmit
 
 
-		  UART_transmit[0]='#';
-		  UART_transmit[1]='s';
-		  UART_transmit[2]='t';
-		  UART_transmit[3]='a';
-		  UART_transmit[4]=upcounter;//3
+		  UART_transmit[70]=DisplayReset; //Value responsible for resetting the display
+//#######################################################//
+//################    TEST CODE    ######################//
+//#######################################################//
+		  toggle++;
 
-		  UART_transmit[5]=0x02;//2
-		  UART_transmit[6]=voltageIn1MAX*100;//3
-		  UART_transmit[7]=voltageIn2MAX*100;//4
-		  UART_transmit[8]=voltageIn3MAX*100;//7
-		  UART_transmit[9]=voltageIn4MAX*100;//7
-		  UART_transmit[10]=voltageIn5MAX*100;//7
-		  UART_transmit[11]=voltageIn6MAX*100;//8
+		  if(toggle==0){
+			  	switch (CASE){
 
-		  memcpy(data, &dbuMAX[0], sizeof &dbuMAX[0]);    // send data
-		  a = data[0]; b = data[1];c = data[2];d = data[3];
-		  UART_transmit[12]=d;
-		  UART_transmit[13]=c;
-		  UART_transmit[14]=b;
-		  UART_transmit[15]=a;
+				case 1:
+				pushToMessageQueue("TESTING#1\r\n");
+				break;
+				case 2:
+				pushToMessageQueue("TESTING#2\r\n");
+				break;
+				case 3:
+				pushToMessageQueue("TESTING#3\r\n");
+				break;
+				case 4:
+				pushToMessageQueue("TESTING#4\r\n");
+				break;
+				case 5:
+				pushToMessageQueue("TESTING#5\r\n");
+				break;
+				case 6:
+				pushToMessageQueue("TESTING#6\r\n");
+				break;
+				case 7:
+				pushToMessageQueue("TESTING#7\r\n");
+				break;
+				case 8:
+				pushToMessageQueue("TESTING#8\r\n");
+				break;
+				case 9:
+				pushToMessageQueue("TESTING#9\r\n");
+				break;
+				default:
+				pushToMessageQueue("NONSENS\r\n");
+			  	}
 
-		  memcpy(data, &dbuMAX[1], sizeof &dbuMAX[1]);    // send data
-		  a = data[0]; b = data[1];c = data[2];d = data[3];
-		  UART_transmit[16]=d;
-		  UART_transmit[17]=c;
-		  UART_transmit[18]=b;
-		  UART_transmit[19]=a;
-
-		  memcpy(data, &dbuMAX[2], sizeof &dbuMAX[2]);    // send data
-		  a = data[0]; b = data[1];c = data[2];d = data[3];
-		  UART_transmit[20]=d;
-		  UART_transmit[21]=c;
-		  UART_transmit[22]=b;
-		  UART_transmit[23]=a;
-
-		  memcpy(data, &dbuMAX[3], sizeof &dbuMAX[3]);    // send data
-		  a = data[0]; b = data[1];c = data[2];d = data[3];
-		  UART_transmit[24]=d;
-		  UART_transmit[25]=c;
-		  UART_transmit[26]=b;
-		  UART_transmit[27]=a;
-
-		  memcpy(data, &dbuMAX[4], sizeof &dbuMAX[4]);    // send data
-		  a = data[0]; b = data[1];c = data[2];d = data[3];
-		  UART_transmit[28]=d;
-		  UART_transmit[29]=c;
-		  UART_transmit[30]=b;
-		  UART_transmit[32]=a;
-
-		  memcpy(data, &dbuMAX[5], sizeof &dbuMAX[5]);    // send data
-		  a = data[0]; b = data[1];c = data[2];d = data[3];
-		  UART_transmit[32]=d;
-		  UART_transmit[33]=c;
-		  UART_transmit[34]=b;
-		  UART_transmit[35]=a;
-
-		  memcpy(data, &RMS_CH1_long, sizeof &RMS_CH1_long);    // send data
-		  a = data[0]; b = data[1];c = data[2];d = data[3];
-		  UART_transmit[36]=d;
-		  UART_transmit[37]=c;
-		  UART_transmit[38]=b;
-		  UART_transmit[39]=a;
-
-		  memcpy(data, &RMS_CH2_long, sizeof &RMS_CH2_long);    // send data
-		  a = data[0]; b = data[1];c = data[2];d = data[3];
-		  UART_transmit[40]=d;
-		  UART_transmit[41]=c;
-		  UART_transmit[42]=b;
-		  UART_transmit[43]=a;
-
-		  memcpy(data, &RMS_CH3_long, sizeof &RMS_CH3_long);    // send data
-		  a = data[0]; b = data[1];c = data[2];d = data[3];
-		  UART_transmit[44]=d;
-		  UART_transmit[45]=c;
-		  UART_transmit[46]=b;
-		  UART_transmit[47]=a;
-
-		  memcpy(data, &RMS_CH4_long, sizeof &RMS_CH4_long);    // send data
-		  a = data[0]; b = data[1];c = data[2];d = data[3];
-		  UART_transmit[48]=d;
-		  UART_transmit[49]=c;
-		  UART_transmit[50]=b;
-		  UART_transmit[51]=a;
-
-		  memcpy(data, &RMS_CH5_long, sizeof &RMS_CH5_long);    // send data
-		  a = data[0]; b = data[1];c = data[2];d = data[3];
-		  UART_transmit[52]=d;
-		  UART_transmit[53]=c;
-		  UART_transmit[54]=b;
-		  UART_transmit[55]=a;
-
-		  memcpy(data, &RMS_CH6_long, sizeof &RMS_CH6_long);    // send data
-		  a = data[0]; b = data[1];c = data[2];d = data[3];
-		  UART_transmit[56]=d;
-		  UART_transmit[57]=c;
-		  UART_transmit[58]=b;
-		  UART_transmit[59]=a;
-
-
-		  UART_transmit[60]=reductLeft;
-		  UART_transmit[61]=reductRight;
-
-/*
-			for(int i = 4; i < 100; i++) {
-				UART_transmit[i] = 0x00;
+			  CASE ++;
+			  if(CASE >= 20){
+				  CASE=0;
 			  }
-			//UART_transmit[4]=upcounter;
-			//UART_transmit[98]=upcounter;
 
-*/
+		  }
 
-		  UART_transmit[70]=DisplayReset;
+		  if(toggle==1){
+		  popFromMessageQueue(OldestMessage);
+		  }
+		  WriteMessage (OldestMessage);
 
-		  char pcIpAddrString[60];
-		  char pcBuffer[60];
 
-		  for (int i=0; i<60; i++){
-		  		pcBuffer[i] = 0;
-		  		pcIpAddrString[i] = 0;
-		  	}
+		  if(toggle>100 && toggle<254){
+		  WriteMessage ("Another Message\r\n");
+		  }
 
-		  sprintf(pcBuffer, "This is Value of Watchdog %d \r\n",  l);
-		  printf(pcBuffer);
+		   char *str1 = "hello\r\n";
+		   char *str2 = "hello\r\n";
 
+		   result = compare (str1, "hello\r\n");
+//#######################################################//
+
+//#######################################################//
+//################CHECKSUM CREATION######################//
+//#######################################################//
 		  checksum = 0;
 		  checksum16 = 0;
 		for(int i = 0; i < 198; i++) {
@@ -595,9 +472,9 @@ for (int i=0; i<10;i++){
 				checksum16 += UART_transmit[i];
 			  }
 
-
 		  UART_transmit[198]=checksum16 & 0x00FF; //low byte
 		  UART_transmit[199]=checksum16 >> 8; //high byte
+//#######################################################//
 
 		  resetMax=1;
 
@@ -608,7 +485,8 @@ for (int i=0; i<10;i++){
 		  }
 //#######################################################//
 //Changed Define of MEM_USE_POOLS_TRY_BIGGER_POOL  to 1 (2020.05.20) Better Performance???
-		  osDelay(10);
+		  //osDelay(10);
+		  osDelay(5);
 
 
 //***********************************************************************//
@@ -646,3 +524,14 @@ void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
             the HAL_UART_ErrorCallback can be implemented in the user file.
    */
 }
+
+
+
+
+
+
+
+
+
+
+

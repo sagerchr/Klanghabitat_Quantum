@@ -193,10 +193,11 @@ void Error_Handler(void);
 #define FFT_SIZE                (SAMPLES / 2) /* FFT size is always the same size as we have samples, so 256 in our case */
 #define TX_OUT_SIZE 200
 #define RX_IN_SIZE 300
-
-
-
+#define MAXSTACK 30
 #define ARM_MATH_CM7
+
+
+
 uint32_t ADC1_RAW[2];
 uint32_t ADC1_MAX[2];
 uint32_t ADC2_RAW[2];
@@ -257,8 +258,21 @@ char  pData[100];
 uint8_t reductLeft;
 uint8_t reductRight;
 
+
 uint8_t MAC_ADRESSE [10];
+
+
+char MessageStack[MAXSTACK][80];
+char *OldestMessage;
+int WriteStack,ReadStack;
+
+
 /* USER CODE END Private defines */
+
+
+
+
+
 
 #ifdef __cplusplus
 }

@@ -332,6 +332,11 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 
     //if((upcounter != upcounterLast)){
 	if((upcounter != upcounterLast)&&CheckSumOK){
+
+	  	 for (int i = 0; i< 200;i++){
+	  		UARTDATA_checked[i] = UARTDATA[i];
+	  	 }
+
 	//************************NEW VALUES CAME IN**********************************//
 	//***********Everything in this IF CASE should be done for new Values*********//
 
