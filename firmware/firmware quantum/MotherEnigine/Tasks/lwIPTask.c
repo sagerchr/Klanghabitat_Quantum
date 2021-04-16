@@ -390,7 +390,7 @@ for (int i=0; i<10;i++){
 		HAL_UART_DMAPause(&huart6);
 		}
 //##########################################################//
-		for (int i= 0; i<200;i++){
+		for (int i= 0; i<100;i++){
 			UART_transmit[i] = 0x00;
 		}
 
@@ -446,14 +446,18 @@ for (int i=0; i<10;i++){
 
 		  }
 
-		  if(toggle==1){
-		  popFromMessageQueue(OldestMessage);
+		  if((toggle==1||toggle==128) && SendProcess == 0){
+
+			MessageID = popFromMessageQueue(OldestMessage);
+
+
 		  }
-		  WriteMessage (OldestMessage);
 
-
-		  if(toggle>100 && toggle<254){
-		  WriteMessage ("Another Message\r\n");
+		  //Message Successfully put to MessageReciveStack on Slave side
+		  if(UART_IN [183] == 20){
+			  MessageStack[ReadStackPointer].status = 40;
+			  UART_transmit[183] = 0;
+			  SendProcess = 0;
 		  }
 
 		   char *str1 = "hello\r\n";
@@ -486,7 +490,7 @@ for (int i=0; i<10;i++){
 //#######################################################//
 //Changed Define of MEM_USE_POOLS_TRY_BIGGER_POOL  to 1 (2020.05.20) Better Performance???
 		  //osDelay(10);
-		  osDelay(5);
+		  osDelay(10);
 
 
 //***********************************************************************//

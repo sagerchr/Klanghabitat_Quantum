@@ -9,6 +9,19 @@
 #define FUNCTIONS_MESSAGEHANDLER_H_
 
 
+typedef struct Message {
+   char MESSAGE[80];
+   uint32_t Message_ID;
+   int status;
+}  Message;
+
+Message MessageStack[MAXSTACK];
+
+uint8_t SendProcess;
+
+char *OldestMessage;
+uint32_t MessageID;
+int WriteStackPointer,ReadStackPointer, UnsentMessages, ID_COUNT;
 
 
 void WriteMessage (char *string);

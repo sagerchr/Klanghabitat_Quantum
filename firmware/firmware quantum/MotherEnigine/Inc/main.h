@@ -204,7 +204,7 @@ uint32_t ADC2_RAW[2];
 uint32_t ADC2_MAX[2];
 char UART_transmit[TX_OUT_SIZE];
 char UART_RECIVE[RX_IN_SIZE];
-char UART_IN[100];
+char UART_IN[RX_IN_SIZE];
 uint16_t analogIN[8];
 
 uint16_t samples;
@@ -262,9 +262,7 @@ uint8_t reductRight;
 uint8_t MAC_ADRESSE [10];
 
 
-char MessageStack[MAXSTACK][80];
-char *OldestMessage;
-int WriteStack,ReadStack;
+
 
 
 /* USER CODE END Private defines */

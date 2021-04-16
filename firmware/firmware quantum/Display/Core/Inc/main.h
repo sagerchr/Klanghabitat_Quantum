@@ -270,7 +270,7 @@ void Error_Handler(void);
 /* USER CODE BEGIN Private defines */
 #define RX_IN_SIZE 300
 #define TX_OUT_SIZE 200
-
+#define MAXSTACK 30
 
 float p_Bufferd;
 float p_MAXBufferd;

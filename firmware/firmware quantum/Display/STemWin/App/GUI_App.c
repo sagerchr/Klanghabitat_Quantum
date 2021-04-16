@@ -51,6 +51,7 @@
 #include "valueTable.h"
 #include "SerialServer.h"
 #include "BUFFERVALUE.h"
+#include "MessageHandler.h"
 
 
 extern  WM_HWIN CreateMainWindow(void);
@@ -187,6 +188,14 @@ void GRAPHICS_MainTask(void) {
       UART_TRANSFER[11]=0x00;
       UART_TRANSFER[12]=0x02;//8
 	  UART_TRANSFER[13]=0x03;//9
+
+	  if(MessageControl == 20 ){
+		  UART_TRANSFER[183]=20;
+		  if(UARTDATA_checked[183] == 0x00){
+			  MessageControl = 0;
+		  }
+	  }
+
 
 ///////////////INFO-WINDOW SHOW HANDLER//////////////////////////////
 	    if(TouchDetected){touch++;}
@@ -336,6 +345,22 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart6){
 	  	 for (int i = 0; i< 200;i++){
 	  		UARTDATA_checked[i] = UARTDATA[i];
 	  	 }
+
+
+
+	//**************************RECEIVE MESSAGES**********************************//
+	//****************************************************************************//
+
+	MessageID = (UARTDATA_checked[182]<<8) | UARTDATA_checked[181];
+
+	if(UARTDATA_checked[183] == 10 && MessageID != MessageReceiveStack[WriteReceiveStackPointer].Message_ID){
+		getMessageToReciveStack();
+	}
+	//****************************************************************************//
+
+
+
+
 
 	//************************NEW VALUES CAME IN**********************************//
 	//***********Everything in this IF CASE should be done for new Values*********//

@@ -32,6 +32,7 @@
 #include "DAC_Control.h"
 #include "ValueTableMotherEngine.h"
 #include "ParameterTableMotherEngine.h"
+#include "MessageHandler.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -138,7 +139,7 @@ static void VectorBase_Config(void);
   */
 int main(void)
 
-{
+ {
   /* USER CODE BEGIN 1 */
 	VectorBase_Config();
   /* USER CODE END 1 */
