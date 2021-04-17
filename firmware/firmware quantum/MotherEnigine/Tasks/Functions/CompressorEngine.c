@@ -38,9 +38,9 @@ int DoCompressor (float inSample, int reduce) {
 
 	float threshold = (-1)*reduce/10;
 	float inSampleF = dbuMAX[0];
-	int Attack = UART_IN[6]*50;
-	int Release = UART_IN[7]*50;
-	int ratio=UART_IN[9];
+	int Attack = UARTDATA_CHECKED[6]*50;
+	int Release =UARTDATA_CHECKED [7]*50;
+	int ratio=UARTDATA_CHECKED[9];
 
 
 	if (inSampleF > threshold) {

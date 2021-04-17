@@ -1,5 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
+# Toolchain: GNU Tools for STM32 (9-2020-q2-update)
 ################################################################################
 
 -include ../makefile.init
@@ -33,6 +34,12 @@ endif
 
 -include ../makefile.defs
 
+OPTIONAL_TOOL_DEPS := \
+$(wildcard ../makefile.defs) \
+$(wildcard ../makefile.init) \
+$(wildcard ../makefile.targets) \
+
+
 BUILD_ARTIFACT_NAME := openblt_stm32f767
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX := 
@@ -62,27 +69,27 @@ all: main-build
 main-build: openblt_stm32f767.elf secondary-outputs
 
 # Tool invocations
-openblt_stm32f767.elf: $(OBJS) $(USER_OBJS) /Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/MainEngineBootloader/STM32F767ZI_FLASH.ld
-	arm-none-eabi-gcc -o "openblt_stm32f767.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"/Users/christiansager/klanghabitat_quantum/firmware/firmware quantum/MainEngineBootloader/STM32F767ZI_FLASH.ld" --specs=nosys.specs -Wl,-Map="MainEngineBootloader.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+openblt_stm32f767.elf: $(OBJS) $(USER_OBJS) /Users/christiansager/klanghabitat_quantum/firmware/firmware\ quantum/MainEngineBootloader/STM32F767ZI_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "openblt_stm32f767.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"/Users/christiansager/klanghabitat_quantum/firmware/firmware quantum/MainEngineBootloader/STM32F767ZI_FLASH.ld" --specs=nosys.specs -Wl,-Map="openblt_stm32f767.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-default.size.stdout: $(EXECUTABLES)
+default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-size  $(EXECUTABLES)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-openblt_stm32f767.list: $(EXECUTABLES)
+openblt_stm32f767.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "openblt_stm32f767.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-openblt_stm32f767.bin: $(EXECUTABLES)
+openblt_stm32f767.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "openblt_stm32f767.bin"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-openblt_stm32f767.srec: $(EXECUTABLES)
+openblt_stm32f767.srec: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-objcopy  -O srec $(EXECUTABLES) "openblt_stm32f767.srec"
 	@echo 'Finished building: $@'
 	@echo ' '

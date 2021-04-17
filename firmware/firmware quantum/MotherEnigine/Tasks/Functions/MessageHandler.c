@@ -11,9 +11,15 @@
 //############### Initialize Stack ##################//
 //###################################################//
 void InitMeassageHandler(){
-	WriteStackPointer = 0;
-	ReadStackPointer = 0;
+	SendMessageStackPointer = -1;
+	PopStackPointer = -1;
+	ReceiveMessageStackPointer = -1;
 	ID_COUNT = 0;
+
+	for(int i=0; i<MAXSTACK; i++)
+				{
+					ReceiveMessageStack[i].Message_ID = -1;
+				}
 }
 //###################################################//
 
@@ -23,22 +29,14 @@ void InitMeassageHandler(){
 //###################################################//
 void pushToMessageQueue(char *String)
 {
-			if (WriteStackPointer >= MAXSTACK){
-				WriteStackPointer = 0;			//Reset WriteStackPointer if end of Queue is reached
+			if (SendMessageStackPointer == MAXSTACK-1){
+				SendMessageStackPointer = -1;			//Reset WriteStackPointer if end of Queue is reached
 			}
+			SendMessageStackPointer = SendMessageStackPointer + 1; //Increment Write StackPointer
 
-            strcpy(MessageStack[WriteStackPointer].MESSAGE, String); //Fill Message to the Stack
-            MessageStack[WriteStackPointer].Message_ID = ID_COUNT++; //Set Message_ID
-            MessageStack[WriteStackPointer].status = 10; //Set Status to 10 "unread by slave"
-
-            WriteStackPointer = WriteStackPointer + 1; //Increment Write StackPointer
-
-            if(WriteStackPointer - ReadStackPointer >= 0){
-            	UnsentMessages =  WriteStackPointer - ReadStackPointer;
-            }
-            else{
-            	UnsentMessages =  WriteStackPointer + (MAXSTACK - ReadStackPointer);
-            }
+            strcpy(SendMessageStack[SendMessageStackPointer].MESSAGE, String); //Fill Message to the Stack
+            SendMessageStack[SendMessageStackPointer].Message_ID = ID_COUNT++; //Set Message_ID
+            SendMessageStack[SendMessageStackPointer].status = 5; //Set Status to 5 "not yet sent to slave"
 }
 //###################################################//
 
@@ -46,43 +44,117 @@ void pushToMessageQueue(char *String)
 //#####################################################################//
 //####### Pop oldest Message from the Stack and write to UART #########//
 //#####################################################################//
-void popFromMessageQueue(char *String, uint8_t *LB, uint8_t *HB)
+uint16_t popFromMessageQueue()
 {
-			if (ReadStackPointer >= MAXSTACK-1){
-				ReadStackPointer = 0;
+	char *String;
+
+
+	//################Check if the last Message was read successfully bz the slave####################//
+	ReceivedMessageID = (UARTDATA_CHECKED [182] << 8) | (UARTDATA_CHECKED [181] & 0xFF);
+
+	if(ReceivedMessageID == MessageID && SendProcess == 1){
+		  SendMessageStack[PopStackPointer].status = 40; //Check Message as successfully read by slave
+		  UART_TRANSFER[183] = 0; //Tell slave there is no Message to read
+		  SendProcess = 0; //Send Process is done
+	}
+	//################################################################################################//
+
+
+		if(SendProcess == 0){
+			if (PopStackPointer == (MAXSTACK-1))
+			{
+				PopStackPointer = -1;
 			}
-            strcpy(String, MessageStack[ReadStackPointer].MESSAGE);
+			PopStackPointer = PopStackPointer+1;
+		}
 
-          ReadStackPointer = ReadStackPointer+1;
 
 
-  		WriteMessage (String);  //Write Message to the UART_transmit
+		if(SendMessageStack[PopStackPointer].status == 5 && SendProcess == 0){
 
-  		UART_transmit[181] = MessageStack[ReadStackPointer].Message_ID  & 0x00FF; //low byte
-  		UART_transmit[182] = MessageStack[ReadStackPointer].Message_ID >> 8; //high byte
+			SendMessageStack[PopStackPointer].status = 10; //Set Status to 10 "sent to slave"
 
-  		UART_transmit[183] = MessageStack[ReadStackPointer].status; //Put the Status on the UART_transmit
+	        strcpy(String, SendMessageStack[PopStackPointer].MESSAGE);
 
-  		SendProcess = 1;
+	  		WriteMessage (String);  //Write Message to the UART_transmit
+
+	  		MessageID = SendMessageStack[PopStackPointer].Message_ID;
+	  		UART_TRANSFER[181] = SendMessageStack[PopStackPointer].Message_ID  & 0x00FF; //low byte
+	  		UART_TRANSFER[182] = SendMessageStack[PopStackPointer].Message_ID >> 8; //high byte
+
+	  		UART_TRANSFER[183] = SendMessageStack[PopStackPointer].status; //Put the Status on the UART_transmit
+
+	  		SendProcess = 1;
+		}
+
+
+
+  		return SendMessageStack[PopStackPointer].Message_ID;
 }
 //#######################################################################//
 
+void getMessageToReciveStack()
+{
+
+	MessageID = (UARTDATA_CHECKED[182]<<8) | (UARTDATA_CHECKED[181] & 0xFF);
+
+	if (UARTDATA_CHECKED[183] == 10)
+	{
+
+		int new_ID = 0;
+		for(int i=0; i<MAXSTACK; i++)
+		{
+			if(MessageID == ReceiveMessageStack[i].Message_ID){
+			new_ID = 0;
+			break;
+			}
+			else
+			{
+			new_ID = 1;
+			}
+		}
+
+		if(new_ID)
+		{
+
+				if (ReceiveMessageStackPointer >= MAXSTACK)
+				{
+					ReceiveMessageStackPointer = 0;			//Reset WriteStackPointer if end of Queue is reached
+				}
+
+				for(int i = 100; i < 180; i++)
+				{
+					ReceiveMessageStack[ReceiveMessageStackPointer].MESSAGE[i-100] = UARTDATA_CHECKED[i];
+				}
+
+				ReceiveMessageStack[ReceiveMessageStackPointer].Message_ID = MessageID;
+
+				ReceiveMessageStackPointer++;
+				//Show Master that Message was read succesfully
+				UART_TRANSFER[181] = MessageID & 0x00FF;
+				UART_TRANSFER[182] = MessageID >> 8;
+
+		}
+	}
+}
+
+
 void WriteMessageID (uint32_t MessageID){
-	UART_transmit[190] = MessageID  & 0x00FF; //low byte
-	UART_transmit[191] = MessageID >> 8; //high byte
+	UART_TRANSFER[190] = MessageID  & 0x00FF; //low byte
+	UART_TRANSFER[191] = MessageID >> 8; //high byte
 }
 
 void WriteMessage (char *string){
 
 		for(int i = 100; i < 198; i++){
-			UART_transmit[i]=0x00;
+			UART_TRANSFER[i]=0x00;
 		}
 
 		int i = 0;
 
 		  while ((*(string+i) != '\r' && *(string+i+1) != '\n') || i == 98){
 
-			  UART_transmit[i+100]=*(string+i);
+			  UART_TRANSFER[i+100]=*(string+i);
 
 			  i++;
 		  }

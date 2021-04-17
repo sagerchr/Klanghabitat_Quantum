@@ -55,7 +55,7 @@ int OK = 0;
 uint8_t IP_READ[4];
 
 
-int TYP;
+int TYP, lock;
 
 
 int result = 12;
@@ -316,8 +316,22 @@ for (int i=0; i<10;i++){
 	pushToMessageQueue("TESTING#12\r\n");
 	pushToMessageQueue("TESTING#13\r\n");
 	pushToMessageQueue("TESTING#14\r\n");
-
-	popFromMessageQueue(OldestMessage);
+	pushToMessageQueue("TESTING#15\r\n");
+	pushToMessageQueue("TESTING#16\r\n");
+	pushToMessageQueue("TESTING#17\r\n");
+	pushToMessageQueue("TESTING#18\r\n");
+	pushToMessageQueue("TESTING#19\r\n");
+	pushToMessageQueue("TESTING#20\r\n");
+	pushToMessageQueue("TESTING#21\r\n");
+	pushToMessageQueue("TESTING#22\r\n");
+	pushToMessageQueue("TESTING#23\r\n");
+	pushToMessageQueue("TESTING#24\r\n");
+	pushToMessageQueue("TESTING#25\r\n");
+	pushToMessageQueue("TESTING#26\r\n");
+	pushToMessageQueue("TESTING#27\r\n");
+	pushToMessageQueue("TESTING#28\r\n");
+	pushToMessageQueue("TESTING#29\r\n");
+	popFromMessageQueue();
 
 
 
@@ -334,7 +348,7 @@ for (int i=0; i<10;i++){
 		  }
 			  OSCmessageINTSend("/Watchdog",  9, l);
 
-		  if(UART_IN[10]){
+		  if(UARTDATA_CHECKED[10]){
 			  BypassRight(bypass);BypassLeft(bypass);}
 		  else{
 			  BypassRight(activate);BypassLeft(activate);
@@ -391,7 +405,7 @@ for (int i=0; i<10;i++){
 		}
 //##########################################################//
 		for (int i= 0; i<100;i++){
-			UART_transmit[i] = 0x00;
+			UART_TRANSFER[i] = 0x00;
 		}
 
 		upcounter++;
@@ -399,13 +413,22 @@ for (int i=0; i<10;i++){
 		createStreamValue(upcounter); //composing the StreamValue Section of UART_transmit
 
 
-		  UART_transmit[70]=DisplayReset; //Value responsible for resetting the display
+		  UART_TRANSFER[70]=DisplayReset; //Value responsible for resetting the display
 //#######################################################//
 //################    TEST CODE    ######################//
 //#######################################################//
 		  toggle++;
+/*
+		  if(toggle==0||toggle==10||toggle==20||toggle==30||toggle==40||toggle==50||toggle==60||toggle==70||toggle==80||toggle==90
+		 ||toggle==100||toggle==110||toggle==120||toggle==130||toggle==140||toggle==150||toggle==160||toggle==170
+		 ||toggle==180||toggle==190||toggle==200||toggle==210||toggle==220||toggle==230||toggle==240||toggle==250){
+			*/
 
-		  if(toggle==0){
+			  if(toggle==0||toggle==2||toggle==3||toggle==4||toggle==8
+			 ||toggle==10||toggle==12||toggle==15||toggle==20
+			 ||toggle==25||toggle==26||toggle==30||toggle==35
+			 ||toggle==40||toggle==45||toggle==50||toggle==60
+			 ||toggle==65||toggle==70||toggle==75||toggle==80){
 			  	switch (CASE){
 
 				case 1:
@@ -446,19 +469,9 @@ for (int i=0; i<10;i++){
 
 		  }
 
-		  if((toggle==1||toggle==128) && SendProcess == 0){
 
-			MessageID = popFromMessageQueue(OldestMessage);
+		  popFromMessageQueue();
 
-
-		  }
-
-		  //Message Successfully put to MessageReciveStack on Slave side
-		  if(UART_IN [183] == 20){
-			  MessageStack[ReadStackPointer].status = 40;
-			  UART_transmit[183] = 0;
-			  SendProcess = 0;
-		  }
 
 		   char *str1 = "hello\r\n";
 		   char *str2 = "hello\r\n";
@@ -472,12 +485,12 @@ for (int i=0; i<10;i++){
 		  checksum = 0;
 		  checksum16 = 0;
 		for(int i = 0; i < 198; i++) {
-				checksum += UART_transmit[i];
-				checksum16 += UART_transmit[i];
+				checksum += UART_TRANSFER[i];
+				checksum16 += UART_TRANSFER[i];
 			  }
 
-		  UART_transmit[198]=checksum16 & 0x00FF; //low byte
-		  UART_transmit[199]=checksum16 >> 8; //high byte
+		  UART_TRANSFER[198]=checksum16 & 0x00FF; //low byte
+		  UART_TRANSFER[199]=checksum16 >> 8; //high byte
 //#######################################################//
 
 		  resetMax=1;

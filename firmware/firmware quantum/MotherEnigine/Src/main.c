@@ -181,7 +181,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_DAC_Start(&hdac, DAC_CHANNEL_1);
   HAL_DAC_Start(&hdac, DAC_CHANNEL_2);
-  HAL_UART_Transmit_DMA(&huart6, UART_transmit,TX_OUT_SIZE);
+  HAL_UART_Transmit_DMA(&huart6, UART_TRANSFER,TX_OUT_SIZE);
   HAL_UART_Receive_DMA(&huart6, UART_RECIVE,RX_IN_SIZE);
   SharedParamsWriteByIndex(0, 0);
   MY_FLASH_SetSectorAddrs(11, 0x081C0000);

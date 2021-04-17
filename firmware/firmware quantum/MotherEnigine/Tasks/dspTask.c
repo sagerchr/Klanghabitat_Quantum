@@ -71,7 +71,7 @@ void dspTask(void const * argument){
 
 			calculateDB();
 
-			value = UART_IN[8]; //Value from make up gain
+			value = UARTDATA_CHECKED[8]; //Value from make up gain
 			reductLeft = DoCompressor(dbuMAX[0],value);
 			reductRight = reductLeft;
 

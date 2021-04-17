@@ -13,12 +13,12 @@ xcp.c:637:13:XcpCmdGetStatus	16	static
 xcp.c:668:13:XcpCmdSynch	16	static
 xcp.c:685:13:XcpCmdGetId	16	static
 xcp.c:718:13:XcpCmdSetMta	16	static
-xcp.c:738:13:XcpCmdUpload	32	static
-xcp.c:804:13:XcpCmdShortUpload	32	static
+xcp.c:738:13:XcpCmdUpload	24	static
+xcp.c:804:13:XcpCmdShortUpload	24	static
 xcp.c:948:13:XcpCmdBuildCheckSum	16	static
 xcp.c:1264:13:XcpCmdProgramStart	16	static
 xcp.c:1308:13:XcpCmdProgramMax	24	static
-xcp.c:1346:13:XcpCmdProgram	24	static
+xcp.c:1346:13:XcpCmdProgram	16	static
 xcp.c:1403:13:XcpCmdProgramClear	16	static
 xcp.c:1438:13:XcpCmdProgramReset	16	static
 xcp.c:1473:13:XcpCmdProgramPrepare	16	static

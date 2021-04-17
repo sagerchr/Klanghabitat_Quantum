@@ -56,7 +56,7 @@ void UART_correction(){
 	   	 }
 	   if (((checksum16 & 0x00FF) == UART_reciveCorrected[198]) && ((checksum16 >> 8) == UART_reciveCorrected[199])){
 		   	  for (int i = 0; i< 200;i++){
-		   	 	UART_IN[i] = UART_reciveCorrected[i];
+		   		UARTDATA_CHECKED[i] = UART_reciveCorrected[i];
 		   	 ChecksumOK = 1;
 		   	 }
 

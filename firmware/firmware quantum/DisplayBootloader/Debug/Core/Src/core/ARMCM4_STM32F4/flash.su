@@ -9,6 +9,6 @@ flash.c:455:10:FlashGetUserProgBaseAddress	4	static
 flash.c:469:17:FlashInitBlock	16	static
 flash.c:498:25:FlashSwitchBlock	16	static
 flash.c:550:17:FlashAddToBlock	40	static
-flash.c:621:17:FlashWriteBlock	40	static
+flash.c:621:17:FlashWriteBlock	32	static
 flash.c:683:17:FlashEraseSectors	48	static
 flash.c:744:18:FlashGetSector	24	static
