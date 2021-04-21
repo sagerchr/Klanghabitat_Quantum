@@ -22,7 +22,7 @@
 #include "main.h"
 #include "cmsis_os.h"
 #include "lwip.h"
-
+#include "stdio.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "UART_correction.h"
@@ -212,6 +212,7 @@ int main(void)
 	  DAC_Control(4,2,128);
 */
 
+  	  InitMeassageHandler();
 
   	  MY_FLASH_ReadN(0,MAC_ADRESSE,10,DATA_TYPE_8);
 
@@ -239,6 +240,8 @@ int main(void)
 
 	  DisplayReset = 0;
 	  DisplayUpdate = 0;
+
+
   /* USER CODE END 2 */
 
   /* USER CODE BEGIN RTOS_MUTEX */
@@ -256,7 +259,7 @@ int main(void)
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
   /* USER CODE END RTOS_QUEUES */
-
+printf("TEST");
   /* Create the thread(s) */
   /* definition and creation of defaultTask */
   //osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
@@ -270,6 +273,7 @@ int main(void)
 	//HAL_TIM_Base_Start_IT(&htim7);
   osThreadDef(dspTask, dspTask, osPriorityRealtime , 0, 2000);
   dspTaskHandle = osThreadCreate(osThread(dspTask), NULL);
+
 
 
 
@@ -834,6 +838,8 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
 	if(DisplayUpdate == 0){
 		UART_correction(); //Recive Data from UART --> UARTDATA
+		popFromMessageQueue();
+		getMessageToReciveStack();
 		HAL_UART_DMAResume(&huart6);
 	}
 }

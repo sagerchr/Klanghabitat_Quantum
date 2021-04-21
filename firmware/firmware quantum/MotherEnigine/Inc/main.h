@@ -193,8 +193,10 @@ void Error_Handler(void);
 #define FFT_SIZE                (SAMPLES / 2) /* FFT size is always the same size as we have samples, so 256 in our case */
 #define TX_OUT_SIZE 200
 #define RX_IN_SIZE 300
-#define MAXSTACK 100
+#define MAXSTACK 10
 #define ARM_MATH_CM7
+
+
 
 
 
@@ -262,9 +264,19 @@ uint8_t reductRight;
 uint8_t MAC_ADRESSE [10];
 
 
+int UPDATE_ATTACK;
+int UPDATE_INPUT;
+
+typedef struct Message {
+   char MESSAGE[80];
+   uint32_t Message_ID;
+   uint8_t status;
+   uint16_t payload;
+}  Message;
 
 
-
+Message SendMessageStack[MAXSTACK];
+Message ReceiveMessageStack[MAXSTACK];
 /* USER CODE END Private defines */
 
 

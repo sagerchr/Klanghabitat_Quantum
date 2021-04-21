@@ -300,7 +300,7 @@ for (int i=0; i<10;i++){
 	//============================================================================================================//
 
 
-	InitMeassageHandler();
+
 
 	pushToMessageQueue("TESTING#1\r\n");
 	pushToMessageQueue("TESTING#2\r\n");
@@ -429,37 +429,38 @@ for (int i=0; i<10;i++){
 			 ||toggle==25||toggle==26||toggle==30||toggle==35
 			 ||toggle==40||toggle==45||toggle==50||toggle==60
 			 ||toggle==65||toggle==70||toggle==75||toggle==80){
+
 			  	switch (CASE){
 
 				case 1:
-				pushToMessageQueue("TESTING#1\r\n");
+				pushToMessageQueue("TESTING#1\r\n", toggle);
 				break;
 				case 2:
-				pushToMessageQueue("TESTING#2\r\n");
+				pushToMessageQueue("TESTING#2\r\n", toggle);
 				break;
 				case 3:
-				pushToMessageQueue("TESTING#3\r\n");
+				pushToMessageQueue("TESTING#3\r\n", toggle);
 				break;
 				case 4:
-				pushToMessageQueue("TESTING#4\r\n");
+				pushToMessageQueue("TESTING#4\r\n", toggle);
 				break;
 				case 5:
-				pushToMessageQueue("TESTING#5\r\n");
+				pushToMessageQueue("TESTING#5\r\n", toggle);
 				break;
 				case 6:
-				pushToMessageQueue("TESTING#6\r\n");
+				pushToMessageQueue("TESTING#6\r\n", toggle);
 				break;
 				case 7:
-				pushToMessageQueue("TESTING#7\r\n");
+				pushToMessageQueue("TESTING#7\r\n", toggle);
 				break;
 				case 8:
-				pushToMessageQueue("TESTING#8\r\n");
+				pushToMessageQueue("TESTING#8\r\n", toggle);
 				break;
 				case 9:
-				pushToMessageQueue("TESTING#9\r\n");
+				pushToMessageQueue("TESTING#9\r\n", toggle);
 				break;
 				default:
-				pushToMessageQueue("NONSENS\r\n");
+				pushToMessageQueue("NONSENS\r\n", toggle);
 			  	}
 
 			  CASE ++;
@@ -469,8 +470,12 @@ for (int i=0; i<10;i++){
 
 		  }
 
-
-		  popFromMessageQueue();
+		  if(isMessage("UPDATE_ATTACK\r\n")) {
+			  UPDATE_ATTACK++;
+		  }
+		  if(isMessage("UPDATE_INPUT\r\n")) {
+			  UPDATE_INPUT++;
+		  }
 
 
 		   char *str1 = "hello\r\n";
